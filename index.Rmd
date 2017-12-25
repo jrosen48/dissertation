@@ -1,0 +1,11 @@
+--- 
+title: "Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method"
+author: "Joshua M. Rosenberg"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "A Dissertation Submitted to Michigan State University in partial fulfillment of the requirements for the degree of Educational Psychology and Educational Technology – Doctor of Philosophy"
+---
