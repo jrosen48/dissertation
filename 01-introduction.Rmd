@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Introduction {#intro-placemarker}
 
 Changes in how we plan our day-to-day lives, communicate, and learn are increasingly impacted by data. These sources of data are created by us, for us, and about us, although at present opportunities for learners to analyze data in educational settings remain limited. Data analysis includes processes of collecting, creating, modeling data, and asking questions that may be answered with data and making sense of findings. Analyzing data in educational settings, then, is more than just crunching numbers or interpreting a figure created by someone else, but rather is about making sense of phenomena and problem solving (Wild & Pfannkuch, 1999). Data analysis and its processes cut across STEM domains and are recognized as core competencies in both the Next Generation Science Standards and the Common Core State Standards (National Governors Association Center for Best Practices, Council of Chief State School Officers, 2010; NGSS Lead States, 2013). Scholars have pointed out the benefits of analyzing data for learners as young as two years old (Gopnik, & Sobel, 2000). 
 
