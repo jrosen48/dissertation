@@ -1,5 +1,3 @@
-library(stringr)
-
 f_orig <- readLines("_book/rosenberg-dissertation.tex")
 
 start_good_content <- grep("placemarker", f_orig) + 1
@@ -14,3 +12,5 @@ f_out <- c(f_rep, f_good)
 file_conn <-file("_book/rosenberg-dissertation-mod.tex")
 writeLines(f_out, file_conn)
 close(file_conn)
+
+tools::texi2dvi("_book/rosenberg-dissertation-mod.tex")
