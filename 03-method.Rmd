@@ -163,31 +163,31 @@ All of the models will use random effects for learner, momentary, and program ef
 
 First, null models with only the random parts (i.e., random learner, momentary, and program effects) will be specified. Then, the predictors will be added to the model with the main effects of the variables added to the null mixed effects model. The main effects are for the aspects of work with data and instructional support for the aspects of work with data as well as individual interest in STEM (as a control variable). Note that the interaction between individual interest in STEM and the aspects of work with data is added in a separate step, as described in the next section. The model with the random effects for the learner, moment, and program and with the direct effects of all the predictor variables is presented below.
 
-Here, the probability of a response being associated with a profile (obtained through the LPA carried out during the preliminary analyses) is predicted by the direct effects of indicators for the aspects of work with data (β01 – β05 below) measured at the momentary level, their individual interest in STEM (β06), measured at the student level, and the random learner, moment, and program effects (learner, moment, and program). The general specification for the models for learner i during moment j in program k is written as:
+Here, the probability of a response being associated with a profile (obtained through the LPA carried out during the preliminary analyses) is predicted by the direct effects of indicators for the aspects of work with data ([replace]01 – [replace]05 below) measured at the momentary level, their individual interest in STEM ([replace]06), measured at the student level, and the random learner, moment, and program effects ([replace]learner, [replace]moment, and [replace]program). The general specification for the models for learner i during moment j in program k is written as:
 
 <!-- Pr(profileijk) =  -->
 
 <!-- Fixed parts: -->
 
-<!-- 00 +  -->
-<!-- 01(Dummy code for asking questions or identifying problems)j +  -->
-<!-- 02(Dummy code for collecting and creating data)j +  -->
-<!-- 03(Dummy code for accounting for variability or uncertainty)j +  -->
-<!-- 04(Dummy code for interpreting and communicating findings)j +  -->
-<!-- 05(Dummy code for other instructional activities)j +  -->
-<!-- 06(Learners’ individual interest in STEM)i + -->
-<!-- 07(Dummy code field experiences)j +  -->
-<!-- 08(Dummy code for female gender)j +  -->
-<!-- 09(Dummy code for member of an under-represented minority group)i + -->
-<!-- 10(Dummy code for other instructional activities)j +  -->
+<!-- 00 +  -->
+<!-- 01(Dummy code for asking questions or identifying problems)j +  -->
+<!-- 02(Dummy code for collecting and creating data)j +  -->
+<!-- 03(Dummy code for accounting for variability or uncertainty)j +  -->
+<!-- 04(Dummy code for interpreting and communicating findings)j +  -->
+<!-- 05(Dummy code for other instructional activities)j +  -->
+<!-- 06(Learners’ individual interest in STEM)i + -->
+<!-- 07(Dummy code field experiences)j +  -->
+<!-- 08(Dummy code for female gender)j +  -->
+<!-- 09(Dummy code for member of an under-represented minority group)i + -->
+<!-- 10(Dummy code for other instructional activities)j +  -->
 <!-- Random parts: -->
 
-<!-- learner(learner effect)i + -->
-<!-- moment(moment effect)j + -->
-<!-- program(program effect)k + -->
+<!-- learner(learner effect)i + -->
+<!-- moment(moment effect)j + -->
+<!-- program(program effect)k + -->
 <!-- ijk -->
 
-<!-- Where learnermoment, and program are assumed to ~ N(, 2) -->
+<!-- Where learnermoment, and program are assumed to ~ N(, 2) -->
 
 Findings associated with this research question will help us understand how learners engage during different aspects of work with data and how engagement during the aspects of data differ from engagement during non-instructional activities. Another benefit of these models is the variance components, which can be interpreted in terms of the intraclass correlations. Because momentary and learner random effects are crossed and both nested with the program random effects, estimates for each of these random effects can provide information on the sources of unexplained variability in the PECs, thus helping us to understand the amount of variation that variables at each of the levels of the random effects (learner, moment, and program) can be explained.
 
@@ -205,7 +205,7 @@ This coding frame is used in the second confirmatory step, which will involve a 
 
 ## Power Analysis
 
-Few publications and tools address the question of statistical power for models with crossed random effects (Westfall, Kenny, & Judd, 2014). To carry out power analysis for detecting the minimum detectable effect for the relationship between one of the aspects of work with data and profiles of engagement, Westfall et al.’s (2017) software Power Analysis for General Anova designs to calculate power for models with arbitrarily complex random effects structures is used. The power, or , was set to 0.80. The results of the power analysis indicated that a minimum detectable d (effect size) is 0.43, a moderate effect (Cohen, 1992). 
+Few publications and tools address the question of statistical power for models with crossed random effects (Westfall, Kenny, & Judd, 2014). To carry out power analysis for detecting the minimum detectable effect for the relationship between one of the aspects of work with data and profiles of engagement, Westfall et al.’s (2017) software Power Analysis for General Anova designs to calculate power for models with arbitrarily complex random effects structures is used. The power, or [replace], was set to 0.80. The results of the power analysis indicated that a minimum detectable d (effect size) is 0.43, a moderate effect (Cohen, 1992). 
 
 ## Limitations
 

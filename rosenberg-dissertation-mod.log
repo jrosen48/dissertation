@@ -1,9 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=latex 2017.5.23)  25 DEC 2017 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  26 DEC 2017 08:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**\nonstopmode \input ./_book/rosenberg-dissertation-mod.tex
+**_book/rosenberg-dissertation-mod.tex
 (./_book/rosenberg-dissertation-mod.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/msu-thesis/msu-thesis.cls
 Document Class: msu-thesis 2016/06/08 Michigan State University Thesis Class ve
 rsion 2.6b
@@ -1009,7 +1011,7 @@ Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+Package pdftexcmds Info: \pdfdraftmode found.
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
@@ -1084,20 +1086,12 @@ ass
 \c@Hpagenote=\count163
 )
 
-Package hyperref Message: Driver (default): hdvips.
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hdvips.def
-File: hdvips.def 2017/03/14 v6.85a Hyperref driver for dvips
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pdfmark.def
-File: pdfmark.def 2017/03/14 v6.85a Hyperref definitions for pdfmark specials
-\pdf@docset=\toks33
-\pdf@box=\box31
-\pdf@toks=\toks34
-\pdf@defaulttoks=\toks35
-\HyField@AnnotCount=\count164
-\Fld@listcount=\count165
-\c@bookmark@seq@number=\count166
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count164
+\c@bookmark@seq@number=\count165
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -1105,7 +1099,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip189
-))
+)
 Package hyperref Info: Option `unicode' set `true' on input line 30.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/puenc.def
@@ -1120,7 +1114,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip190
 \bibsep=\skip191
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count167
+\c@NAT@ctr=\count166
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
@@ -1128,17 +1122,17 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip193
 \LTpre=\skip194
 \LTpost=\skip256
-\LTchunksize=\count168
+\LTchunksize=\count167
 \LTcapwidth=\dimen169
-\LT@head=\box32
-\LT@firsthead=\box33
-\LT@foot=\box34
-\LT@lastfoot=\box35
-\LT@cols=\count169
-\LT@rows=\count170
-\c@LT@tables=\count171
-\c@LT@chunks=\count172
-\LT@p@ftn=\toks36
+\LT@head=\box31
+\LT@firsthead=\box32
+\LT@foot=\box33
+\LT@lastfoot=\box34
+\LT@cols=\count168
+\LT@rows=\count169
+\c@LT@tables=\count170
+\c@LT@chunks=\count171
+\LT@p@ftn=\toks33
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
@@ -1152,10 +1146,11 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/dvips.def
-File: dvips.def 2016/07/10 v3.1a Driver-dependent file (DPC,SPQR)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+\Gread@gobject=\count172
 ))
 \Gin@req@height=\dimen170
 \Gin@req@width=\dimen171
@@ -1164,20 +1159,20 @@ File: dvips.def 2016/07/10 v3.1a Driver-dependent file (DPC,SPQR)
 Package: grffile 2016/05/16 v1.17 Extended file name support for graphics (HO)
 Package grffile Info: Option `multidot' is set to `true'.
 Package grffile Info: Option `extendedchars' is set to `false'.
-Package grffile Info: Option `space' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks37
-\thm@bodyfont=\toks38
-\thm@headfont=\toks39
-\thm@notefont=\toks40
-\thm@headpunct=\toks41
+\thm@style=\toks34
+\thm@bodyfont=\toks35
+\thm@headfont=\toks36
+\thm@notefont=\toks37
+\thm@headpunct=\toks38
 \thm@preskip=\skip257
 \thm@postskip=\skip258
 \thm@headsep=\skip259
-\dth@everypar=\toks42
+\dth@everypar=\toks39
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
@@ -1192,15 +1187,16 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-\everycr=\toks43
+\everycr=\toks40
 \minrowclearance=\skip262
 )
 \rownum=\count174
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -1213,17 +1209,17 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 \wrapoverhang=\dimen173
 \WF@size=\dimen174
 \c@WF@wrappedlines=\count175
-\WF@box=\box36
-\WF@everypar=\toks44
+\WF@box=\box35
+\WF@everypar=\toks41
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count176
-\float@exts=\toks45
-\float@box=\box37
-\@float@everytoks=\toks46
-\@floatcapt=\box38
+\float@exts=\toks42
+\float@box=\box36
+\@float@everytoks=\toks43
+\@floatcapt=\box37
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
@@ -1231,14 +1227,14 @@ Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-Package pdflscape Info: Auto-detected driver: dvips (dvips) on input line 125.
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box39
+\@vwid@box=\box38
 \sift@deathcycles=\count177
 \@vwid@loff=\dimen175
 \@vwid@roff=\dimen176
@@ -1258,17 +1254,17 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \abovetabulinesep=\dimen183
 \belowtabulinesep=\dimen184
 \tabustrutrule=\dimen185
-\tabu@thebody=\toks47
-\tabu@footnotes=\toks48
-\tabu@box=\box40
-\tabu@arstrutbox=\box41
-\tabu@hleads=\box42
-\tabu@vleads=\box43
+\tabu@thebody=\toks44
+\tabu@footnotes=\toks45
+\tabu@box=\box39
+\tabu@arstrutbox=\box40
+\tabu@hleads=\box41
+\tabu@vleads=\box42
 \tabu@cellskip=\skip263
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box44
+\@tempboxb=\box43
 )
 \c@theorem=\count184
 \c@lemma=\count185
@@ -1277,9 +1273,7 @@ Package: threeparttable 2003/06/13  v 3.0
 \c@proposition=\count188
 \c@example=\count189
 \c@exercise=\count190
-
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.aux)
+ (./rosenberg-dissertation-mod.aux)
 \openout1 = `rosenberg-dissertation-mod.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 182.
@@ -1332,10 +1326,12 @@ Sidefootvsep and sidefootheight: 14.5pt and 546.64995pt
 ******************************************************
 
 LaTeX Info: Redefining \microtypecontext on input line 182.
-Package microtype Info: Generating DVI output.
+Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
-Package microtype Info: No font expansion.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1344,9 +1340,9 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1377,7 +1373,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box45
+\AtBeginShipoutBox=\box44
 Package hyperref Info: Link coloring OFF on input line 182.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1393,18 +1389,46 @@ LaTeX Info: Redefining \nameref on input line 182.
 LaTeX Info: Redefining \ref on input line 182.
 LaTeX Info: Redefining \pageref on input line 182.
 LaTeX Info: Redefining \nameref on input line 182.
-
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.out)
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.out)
+(./rosenberg-dissertation-mod.out) (./rosenberg-dissertation-mod.out)
 \@outlinefile=\write4
 \openout4 = `rosenberg-dissertation-mod.out'.
 
- [1
+
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count192
+\scratchdimen=\dimen186
+\scratchbox=\box45
+\nofMPsegments=\count193
+\nofMParguments=\count194
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count266
+\MPscratchDim=\dimen187
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks47
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+[1
 
 
-] [2
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2
 
 
 ] [3
@@ -1416,9 +1440,7 @@ tion/_book/rosenberg-dissertation-mod.out)
 ] [5
 
 
-]
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.toc
+] (./rosenberg-dissertation-mod.toc
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 1.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -1461,23 +1483,20 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )) [6
 
 ]
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.lot) [7
+(./rosenberg-dissertation-mod.lot) [7
 
-]
-(/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-disserta
-tion/_book/rosenberg-dissertation-mod.lof) [8
+] (./rosenberg-dissertation-mod.lof)
+[8
 
 ] [1
 
 
 ] [2] [3] [4
 
-] [5] [6] [7]
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22
+] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+[17] [18] [19] [20] [21] [22
 
-]
-[23] [24] [25] [26] [27] [28] [29]
+] [23] [24] [25] [26] [27] [28] [29]
 
 ! Package inputenc Error: Unicode char β (U+3B2)
 (inputenc)                not set up for use with LaTeX.
@@ -1488,153 +1507,23 @@ Type  H <return>  for immediate help.
                                                   
 l.1238 with data (β
                     01 -- β05 below) measured at the momentary level, their
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char β (U+3B2)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
+? 
+! Emergency stop.
  ...                                              
                                                   
-l.1238 with data (β01 -- β
-                            05 below) measured at the momentary level, their
+l.1238 with data (β
+                    01 -- β05 below) measured at the momentary level, their
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-! Package inputenc Error: Unicode char β (U+3B2)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1239 individual interest in STEM (β
-                                      06), measured at the student level, and
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char  (U+F061)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1240 ...earner, moment, and program effects (
-                                                  learner, moment, and
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char  (U+F061)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1240 ...nt, and program effects (learner, 
-                                                  moment, and
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char  (U+F061)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1241 
-          program). The general specification for the models for learner i d...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[30] [31] [32]
-
-! Package inputenc Error: Unicode char  (U+F062)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1372 ...ts structures is used. The power, or 
-                                                  , was set to
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[33] [34] [35
-
-] [36
-
-]
-Underfull \hbox (badness 2096) in paragraph at lines 1402--1655
-\T1/lmr/m/n/12 from [][]$https : / / www . journals . uio . no / index . php / 
-nordina / article / view / 2047$[][][] Lovett, M. C.,
- []
-
-
-Overfull \hbox (17.05078pt too wide) in paragraph at lines 1402--1655
-[][]$\T1/lmr/m/n/12 http : / / faculty . sites . uci . edu / childcare / ^^\les
- / 2013 / 07 / SL-[]Outcomes-[]2011-[]Pilot _ Edited _ 8 . 19 . pdf$[][][]
- []
-
-[37
-
-] [38] [39] [40] [41] [42] [43] [44]
-No file rosenberg-dissertation-mod.bbl.
-[45
-
-]
-\tf@toc=\write5
-\openout5 = `rosenberg-dissertation-mod.toc'.
-
-\tf@lot=\write6
-\openout6 = `rosenberg-dissertation-mod.lot'.
-
-\tf@lof=\write7
-\openout7 = `rosenberg-dissertation-mod.lof'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1661.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1661.
- (./rosenberg-dissertation-mod.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1661.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1661.
-
-
-
-Package rerunfilecheck Warning: File `rosenberg-dissertation-mod.out' has chang
-ed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rosenberg-dissertation-mod.out':
-(rerunfilecheck)             Before: E1D9F9908CE5719CC893277DE2EC32BC;1669
-(rerunfilecheck)             After:  66CDC23AE1D8B709F6426F5C1B156960;3725.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1661.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 17108 strings out of 492996
- 244160 string characters out of 6132730
- 450272 words of memory out of 5000000
- 20456 multiletter control sequences out of 15000+600000
- 25250 words of font info for 32 fonts, out of 8000000 for 9000
+ 17741 strings out of 492995
+ 251830 string characters out of 6132704
+ 403574 words of memory out of 5000000
+ 20922 multiletter control sequences out of 15000+600000
+ 29412 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,38p,1559b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on rosenberg-dissertation-mod.dvi (53 pages, 172104 bytes).
+ 43i,12n,38p,1537b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
