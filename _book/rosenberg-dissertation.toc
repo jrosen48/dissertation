@@ -1,0 +1,23 @@
+\contentsline {chapter}{\numberline {1}Abstract}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Introduction}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}Literature Review}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Defining Work With Data}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}What We Know (And Do Not Know) About Engagement in Work with Data}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Engagement in STEM Domains}{12}{section.3.3}
+\contentsline {section}{\numberline {3.4}Using ESM to Study the Dynamics of Engagement}{13}{section.3.4}
+\contentsline {section}{\numberline {3.5}A Person-Oriented Approach to Engagement}{14}{section.3.5}
+\contentsline {section}{\numberline {3.6}Need for the Present Study}{15}{section.3.6}
+\contentsline {section}{\numberline {3.7}Conceptual Framework}{16}{section.3.7}
+\contentsline {section}{\numberline {3.8}Research Questions}{17}{section.3.8}
+\contentsline {chapter}{\numberline {4}Method}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Participants}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}Context}{19}{section.4.2}
+\contentsline {section}{\numberline {4.3}Procedure}{20}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data Sources and Measures}{20}{section.4.4}
+\contentsline {section}{\numberline {4.5}Data Analysis}{21}{section.4.5}
+\contentsline {section}{\numberline {4.6}Power Analysis}{24}{section.4.6}
+\contentsline {section}{\numberline {4.7}Limitations}{25}{section.4.7}
+\contentsline {chapter}{\numberline {5}Results}{27}{chapter.5}
+\contentsline {chapter}{\numberline {6}Discussion}{29}{chapter.6}
+\contentsline {chapter}{\numberline {7}Discussion}{31}{chapter.7}
+\contentsline {chapter}{\numberline {8}Appendix}{35}{chapter.8}

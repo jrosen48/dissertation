@@ -25,7 +25,7 @@
 <meta name="author" content="Joshua M. Rosenberg">
 
 
-<meta name="date" content="2017-12-25">
+<meta name="date" content="2017-12-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,6 +49,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -211,26 +248,26 @@
 <p>Due to similar mixed-effects models used to analyze data to answer RQ #2 and #3, the data analysis strategy for these steps is described together here. First, the general approach used for specifying the mixed effects is first described, followed by details about how the models will be used to provide answers to the specific research questions.</p>
 <p>All of the models will use random effects for learner, momentary, and program effects. Learner and moment can be considered to be crossed with both nested within the program. Because the outcome from LPA is not a hard classification (i.e., an observation is in a profile—or not) but a probability, the outcome is treated as a continuous variable. There will be as many models as profiles identified in the preliminary analysis; so, the profile will be different between models. A bottom-up model-building process (West, Welch, &amp; Galecki, 2014), in which a more complex model is constructed on the basis of and continually compared to a more simple model, is used.</p>
 <p>First, null models with only the random parts (i.e., random learner, momentary, and program effects) will be specified. Then, the predictors will be added to the model with the main effects of the variables added to the null mixed effects model. The main effects are for the aspects of work with data and instructional support for the aspects of work with data as well as individual interest in STEM (as a control variable). Note that the interaction between individual interest in STEM and the aspects of work with data is added in a separate step, as described in the next section. The model with the random effects for the learner, moment, and program and with the direct effects of all the predictor variables is presented below.</p>
-<p>Here, the probability of a response being associated with a profile (obtained through the LPA carried out during the preliminary analyses) is predicted by the direct effects of indicators for the aspects of work with data (β01 – β05 below) measured at the momentary level, their individual interest in STEM (β06), measured at the student level, and the random learner, moment, and program effects (learner, moment, and program). The general specification for the models for learner i during moment j in program k is written as:</p>
+<p>Here, the probability of a response being associated with a profile (obtained through the LPA carried out during the preliminary analyses) is predicted by the direct effects of indicators for the aspects of work with data ([replace]01 – [replace]05 below) measured at the momentary level, their individual interest in STEM ([replace]06), measured at the student level, and the random learner, moment, and program effects ([replace]learner, [replace]moment, and [replace]program). The general specification for the models for learner i during moment j in program k is written as:</p>
 <!-- Pr(profileijk) =  -->
 <!-- Fixed parts: -->
-<!-- 00 +  -->
-<!-- 01(Dummy code for asking questions or identifying problems)j +  -->
-<!-- 02(Dummy code for collecting and creating data)j +  -->
-<!-- 03(Dummy code for accounting for variability or uncertainty)j +  -->
-<!-- 04(Dummy code for interpreting and communicating findings)j +  -->
-<!-- 05(Dummy code for other instructional activities)j +  -->
-<!-- 06(Learners’ individual interest in STEM)i + -->
-<!-- 07(Dummy code field experiences)j +  -->
-<!-- 08(Dummy code for female gender)j +  -->
-<!-- 09(Dummy code for member of an under-represented minority group)i + -->
-<!-- 10(Dummy code for other instructional activities)j +  -->
+<!-- 00 +  -->
+<!-- 01(Dummy code for asking questions or identifying problems)j +  -->
+<!-- 02(Dummy code for collecting and creating data)j +  -->
+<!-- 03(Dummy code for accounting for variability or uncertainty)j +  -->
+<!-- 04(Dummy code for interpreting and communicating findings)j +  -->
+<!-- 05(Dummy code for other instructional activities)j +  -->
+<!-- 06(Learners’ individual interest in STEM)i + -->
+<!-- 07(Dummy code field experiences)j +  -->
+<!-- 08(Dummy code for female gender)j +  -->
+<!-- 09(Dummy code for member of an under-represented minority group)i + -->
+<!-- 10(Dummy code for other instructional activities)j +  -->
 <!-- Random parts: -->
-<!-- learner(learner effect)i + -->
-<!-- moment(moment effect)j + -->
-<!-- program(program effect)k + -->
+<!-- learner(learner effect)i + -->
+<!-- moment(moment effect)j + -->
+<!-- program(program effect)k + -->
 <!-- ijk -->
-<!-- Where learnermoment, and program are assumed to ~ N(, 2) -->
+<!-- Where learnermoment, and program are assumed to ~ N(, 2) -->
 <p>Findings associated with this research question will help us understand how learners engage during different aspects of work with data and how engagement during the aspects of data differ from engagement during non-instructional activities. Another benefit of these models is the variance components, which can be interpreted in terms of the intraclass correlations. Because momentary and learner random effects are crossed and both nested with the program random effects, estimates for each of these random effects can provide information on the sources of unexplained variability in the PECs, thus helping us to understand the amount of variation that variables at each of the levels of the random effects (learner, moment, and program) can be explained.</p>
 <p>Primary analyses for RQ #3. To answer this question, on how well the aspects of work with data with instructional support predict the PECs, first, indicators for activities coded for any of the five aspects of work with data will be interacted with a dummy code indicating instructional support in general, created on the basis of any of the variables for instructional support for work with data being equal to 1. This dummy coded variable will then be interacted with any of the aspects of work with data with relations to the PECs. Second, each of aspects of work with data with relations to the PECs will be interacted with a dummy code for the specific aspect of instructional support (in Table 6). This will help us to understand how work with data, in general and in terms of specific forms of instructional support, differs from other activities and how support from the instructor can contribute to more engaging work with data.</p>
 <p>Primary analyses for RQ #4. To answer this question, on how the relationships between work with data and the PECs depends on students’ pre-program interest in STEM, first, differences in the relationships between work with data in general and the PECs on the basis of students’ individual interest in STEM will be explored, using an interaction between practices and individual interest in STEM. These analyses will be carried out separately for relations between work with data (on its own, corresponding to the analyses carried out for RQ #3) and work with data with instructional support (for RQ #4). Next, for any specific aspect of work with data that significantly predicts each PEC, the same will be carried out, so that the interaction between individual interest in STEM and the specific aspect of work with data will be used to predict each PEC. These interactions between individual interest in STEM and the dummy codes for aspects of work with data will be added to the model specification for RQ #2. Answers to this question will help us learn how the relationships between the PECs and the aspects of work with data vary on the basis of a trait-like characteristic of the learner may have important impacts. Given the exploratory nature of discovering which PECs emerge and how other factors relate to them, specific hypotheses are not made at this time.</p>
@@ -241,7 +278,7 @@
 </div>
 <div id="power-analysis" class="section level2">
 <h2><span class="header-section-number">4.6</span> Power Analysis</h2>
-<p>Few publications and tools address the question of statistical power for models with crossed random effects (Westfall, Kenny, &amp; Judd, 2014). To carry out power analysis for detecting the minimum detectable effect for the relationship between one of the aspects of work with data and profiles of engagement, Westfall et al.’s (2017) software Power Analysis for General Anova designs to calculate power for models with arbitrarily complex random effects structures is used. The power, or , was set to 0.80. The results of the power analysis indicated that a minimum detectable d (effect size) is 0.43, a moderate effect (Cohen, 1992).</p>
+<p>Few publications and tools address the question of statistical power for models with crossed random effects (Westfall, Kenny, &amp; Judd, 2014). To carry out power analysis for detecting the minimum detectable effect for the relationship between one of the aspects of work with data and profiles of engagement, Westfall et al.’s (2017) software Power Analysis for General Anova designs to calculate power for models with arbitrarily complex random effects structures is used. The power, or [replace], was set to 0.80. The results of the power analysis indicated that a minimum detectable d (effect size) is 0.43, a moderate effect (Cohen, 1992).</p>
 </div>
 <div id="limitations" class="section level2">
 <h2><span class="header-section-number">4.7</span> Limitations</h2>

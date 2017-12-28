@@ -9,8 +9,6 @@ f_rep <- readLines("correct-front-matter.tex")
 
 f_out <- c(f_rep, f_good)
 
-file_conn <-file("_book/rosenberg-dissertation-mod.tex")
+file_conn <-file("_book/rosenberg-dissertation_mod.tex")
 writeLines(f_out, file_conn)
 close(file_conn)
-
-tools::texi2dvi("_book/rosenberg-dissertation-mod.tex")

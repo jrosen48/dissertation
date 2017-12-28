@@ -1,4 +1,4 @@
-\documentclass[]{book}
+\documentclass[]{msu-thesis}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -115,68 +75,158 @@
     }
 }
 
-\setlength{\droptitle}{-2em}
-  \title{Examining Work With Data in STEM Education Through the Lens of
-Engagement Theory: A Person-Oriented Approach Using an Experience
-Sampling Method}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Joshua M. Rosenberg}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
-  \postdate{\par}
-  \date{2017-12-28}
+%\setlength{\droptitle}{-2em}
+%  \title{Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method}
+%  \pretitle{\vspace{\droptitle}\centering\huge}
+%  \posttitle{\par}
+%  \author{Joshua M. Rosenberg}
+%  \preauthor{\centering\large\emph}
+%  \postauthor{\par}
+%  \predate{\centering\large\emph}
+%  \postdate{\par}
+%  \date{2017-11-24}
+%
+
+\frontmatter
+%\pagenumbering{Roman}
+\newpage
+
+\newpage
+
+\pagebreak
+
+\pagebreak
+
 
 \usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0em}
+
+\title{Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method
+}
+\author{Joshua M. Rosenberg}
+\fieldofstudy{Educational Psychology and Educational Technology}
+\dedication{This dissertation is dedicated to Katie.}
+\date{2018}
+
+%\
+
+%%%%%% MSU-THESIS stuff
+% \usepackage[T1]{fontenc}
+% \usepackage{newtxtext,newtxmath} % If they want Times we’ll give them Times
+% \usepackage{amsmath}
+% %
+% \usepackage[]{natbib}
+% \bibliographystyle{unified}
+%
+%
+% % If you need newlines in your title, you must use \protect\\
+% \title{Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method}
+% \author{Joshua M. Rosenberg}
+% \fieldofstudy{Educational Psychology and Educational Technology}
+% \dedication{This dissertation is dedicated to Katie.}
+% \date{2018}
+% \usepackage{listings}
+% \lstset{language=TeX,basicstyle={\ttfamily}}
+% \usepackage{lipsum}
+% \usepackage{xcolor}
+% \usepackage{gb4e}
+%
+% %\usepackage[bookmarksopenlevel=2,bookmarks=true]{hyperref} % not needed but here for testing
+%
+% \counterwithin{exx}{chapter}
+% \singlegloss
+%
+% % Uncomment the next line for single spaced examples with gb4e
+% %\patchcommand{\exe}{\SingleSpacing}{}
+%
+% % This code is an example of how to set up a new list of
+% \newlistof{listoflistings}{lol}{List of Listings}
+% \newfloat[chapter]{listing}{lol}{Listing}
+% \newlistentry{listing}{lol}{0}
+% \renewcommand*{\cftlistingname}{Listing\space}
+% \renewcommand*{\cftlistingaftersnum}{\msucaptiondelim}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
 
 \usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
 \theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
+\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{exercise}{Exercise}[section]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newtheorem*{solution}{Solution}
 \begin{document}
-\maketitle
+%\maketitle
 
-{
-\setcounter{tocdepth}{1}
-\tableofcontents
-}
-\chapter{Abstract}\label{abstract}
+\maketitlepage
+% Next make the abstract
+\begin{abstract}
+% Your abstract goes here.  Master's 1 page max. PhD 2 page max.
+This study will examine how 203 early adolescent learners work with data, or engage in activities focused on constructing measures of and modeling data, in the context of STEM summer enrichment programs. Video recordings of programs will be coded to identify the presence of five aspects of learners’ work with data: asking questions or identifying problems, constructing measures, collecting data, accounting for variability or uncertainty, and interpreting and communicating findings. Additionally, measures of instructional support for such practices will be used, so codes for work with data with instructional support are also created. Youth’s responses to the Experience Sampling Method (ESM) will be used to examine their cognitive, behavioral, and affective engagement as well as their perceptions of challenge and competence. A person-oriented analytic approach will be used to identify profiles of engagement that will help us to understand how learners engage in work with data. Examining work with data in terms of contemporary engagement theory can help us to understand these key STEM activities in terms of learner's experience, which past research suggests impacts student learning, yet which has not been brought to bear on the topic of work with data. Knowing more about students’ engagement can help us to design activities and interventions around work with data that are highly engaging to students and that support their capabilities to work with data. 
 
-This study will examine how 203 early adolescent learners work with
-data, or engage in activities focused on constructing measures of and
-modeling data, in the context of STEM summer enrichment programs. Video
-recordings of programs will be coded to identify the presence of five
-aspects of learners' work with data: asking questions or identifying
-problems, constructing measures, collecting data, accounting for
-variability or uncertainty, and interpreting and communicating findings.
-Additionally, measures of instructional support for such practices will
-be used, so codes for work with data with instructional support are also
-created. Youth's responses to the Experience Sampling Method (ESM) will
-be used to examine their cognitive, behavioral, and affective engagement
-as well as their perceptions of challenge and competence. A
-person-oriented analytic approach will be used to identify profiles of
-engagement that will help us to understand how learners engage in work
-with data. Examining work with data in terms of contemporary engagement
-theory can help us to understand these key STEM activities in terms of
-learner's experience, which past research suggests impacts student
-learning, yet which has not been brought to bear on the topic of work
-with data. Knowing more about students' engagement can help us to design
-activities and interventions around work with data that are highly
-engaging to students and that support their capabilities to work with
-data.
+\end{abstract}
 
-\chapter{Introduction}\label{intro-placemarker}
+% Force a newpage
+\clearpage
+% Make the copyright page. The Graduate School ridiculously prohibits you
+% from having a copyright page unless you pay ProQuest to register the copyright.
+% This should be illegal, but I didn't make up the rule.
+
+\makecopyrightpage
+
+% If you have a dedication page, uncomment the next command to print the dedication page
+%
+\makededicationpage
+%
+\clearpage
+
+% Your Acknowledgements are formatted like a chapter, but with no number
+\chapter*{Acknowledgements}
+\DoubleSpacing % Acknowledgements should be double spaced
+First, I would like to acknowledge my advisor and dissertation co-director Matthew Koehler and my dissertation co-director Jennifer Schmidt. 
+\clearpage
+
+% We need to turn single spacing back on for the contents/figures/tables lists
+\SingleSpacing
+\tableofcontents* % table of contents will not be listed in the TOC
+\clearpage
+\listoftables % comment this out if you have no tables
+\clearpage
+\listoffigures % comment this out if you have no figures
+\mainmatter
+% If you have a list of abbreviations/symbols it would go here preceded by a \clearpage
+% See the class documentation and the Memoir manual for how to create other lists 
+%
+
+\chapter{Introduction}\label{intro}
+
+\section{Background}\label{background}
+
+\DoubleSpacing
 
 Changes in how we plan our day-to-day lives, communicate, and learn are
 increasingly impacted by data. These sources of data are created by us,

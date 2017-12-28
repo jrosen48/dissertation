@@ -9,6 +9,8 @@ output: html_document
 
 This is a sandbox for exploring the data, in preparation for adding to the results section.
 
+# 1. Processing data
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, warning =T, echo = T, cache = F)
 ```
@@ -133,22 +135,120 @@ df$youth_activity_three <- fct_relevel(df$youth_activity_three,
                                        "Other")
 ```
 
-## Correlations
+### Creating composites
+
+<!-- Cognitive engagement	As you were signaled, were you learning anything or getting better at something? -->
+<!-- Behavioral engagement	As you were signaled, how hard were you working? -->
+<!-- Affective engagement	As you were signaled, did you enjoy what you are doing? -->
+<!-- Perceived challenge	As you were signaled, how challenging was the main activity? -->
+<!-- Perceived competence	As you were signaled, were you good at the main activity? -->
+
+```{r}
+df <- df %>% 
+    mutate(dm_cog_eng = learning,
+           dm_beh_eng = hard_working,
+           dm_aff_eng = enjoy,
+           dm_challenge = challenge,
+           dm_competence = good_at) %>% 
+    rename(ssb_predict = stem_sb_1,
+           ssb_model = stem_sb_2 ,
+           ssb_analyze = stem_sb_3,
+           ssb_measure = stem_sb_4,
+           ssb_tools = stem_sb_5,
+           ssb_precision = stem_sb_6,
+           ssb_vocabulary = stem_sb_7,
+           ssb_classification = stem_sb_8,
+           ssb_symbols = stem_sb_9)
+```
+
+```{r}
+
+out <- df %>% 
+    group_by(program_ID) %>% 
+    select(contains("ssb")) %>% 
+    summarize_all(sum, na.rm = T)
+
+out
+
+out1 <- pqa %>% 
+    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
+    summarize_all(sum, na.rm = T) / 236
+
+names(out1) <- df %>% select(contains("ssb")) %>% names()
+
+round(out1, 3)
+
+pqa_out <- pqa %>% 
+    group_by(program_ID) %>% 
+    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
+    summarize_all(sum, na.rm = T)
+
+names(pqa_out) <- names(out)
+
+pqa_out
+```
+
+# 2. Descriptives
+
+### Correlations
 
 ```{r}
 df %>% 
-    select(challenge, relevance, learning, positive_affect, ho_thinking, stem_sb, agency, active, belonging) %>% 
+    select(contains("dm")) %>% 
+    correlate() %>% 
+    shave() %>% 
+    fashion() %>% 
+    knitr::kable()
+
+df %>% 
+    select(contains("stem_sb"), -sum_stem_sb, -stem_sb) %>% 
     correlate() %>% 
     shave() %>% 
     fashion() %>% 
     knitr::kable()
 ```
 
-```{r, proc-dummies}
-df <- df %>% 
-    mutate(ho_thinking_dummy = ifelse(ho_thinking > 0, 1, 0),
-           agency_dummy = ifelse(agency > 0, 1, 0),
-           active_dummy = ifelse(active > 0, 1, 0),
-           belonging_dummy = ifelse(belonging > 0, 1, 0),
-           stem_sb_dummy = ifelse(stem_sb > 0, 1, 0))
+### Descriptives
+
+```{r}
+library(skimr)
+
+df %>% 
+    select(contains("dm"), -sum_stem_sb, -stem_sb) %>% 
+    skim() 
+
+df %>% 
+    select(contains("stem_sb"), -sum_stem_sb, -stem_sb) %>% 
+    skim() 
+```
+
+# 3. Mixture Models
+
+### tidyLPA
+
+```{r}
+library(tidyLPA)
+
+df %>%
+    select(contains("dm")) %>% 
+    mutate_all(scale) %>% 
+    compare_models_lpa(contains("dm"))
+
+df %>% 
+    create_profiles_lpa(contains("dm"), n_profiles = 3) %>% 
+    plot_profiles_lpa(to_center = T)
+
+df %>% 
+    create_profiles_lpa(contains("dm"), n_profiles = 4) %>% 
+    plot_profiles_lpa(to_center = T)
+
+df %>% 
+    create_profiles_lpa(contains("dm"), n_profiles = 5) %>% 
+    plot_profiles_lpa(to_center = T)
+```
+
+### MPlus
+
+```{r}
+library(MplusAutomation)
 ```
