@@ -49,20 +49,6 @@ create_profiles_mplus <- function(df,
     for (i in 1:length(names(d))) {
         var_list[[i]] <- names(d)[i]
     }
-
-    # var1 <- "Sepal_Length"
-    # var2 <- "Sepal_Width"
-    # var3 <- "Petal_Length"
-    # var4 <- "Petal_Width"
-    # 
-    # unquoted_variable_name <- paste(var1, var2, var3, var4)
-    # var_list <- list(var1, var2, var3, var4)
-    # 
-    # print(unquoted_variable_name_t)
-    # print(unquoted_variable_name)
-    # 
-    # print(var_list_t)
-    # print(var_list)
     
     TITLE <- paste0("TITLE: ", the_title)
     
@@ -94,15 +80,17 @@ create_profiles_mplus <- function(df,
         the_index <- 0
         class_collector <- list()
         for (i in 1:n_profiles) {
-            class_collector[[the_index + i]] <- paste0("%c#", i, "%")
-            class_collector[[the_index + i + 1]] <- paste0("[", unquoted_variable_name, "];")
-            class_collector[[the_index + i + 2]] <- paste0(unquoted_variable_name, "(", 1, "-", length(var_list), ");")
+            class_collector[[the_index + 1]] <- paste0("%c#", i, "%")
+            class_collector[[the_index + 2]] <- paste0("[", unquoted_variable_name, "];")
+            class_collector[[the_index + 3]] <- paste0(unquoted_variable_name, "(", 1, "-", length(var_list), ");")
             for (j in 1:length(var_list)) {
                 for (k in j:length(var_list)) {
                     if (var_list[[j]] != var_list[[k]]) {
                         the_index <- length(class_collector)
                         class_collector[[the_index + 1]] <- paste0(var_list[[j]], " WITH ", var_list[[k]], "@0;") }}}}
-    } else if (model == 2) {
+    } 
+    
+    else if (model == 2) {
         overall_collector <- list()
         for (j in 1:length(var_list)) {
             for (k in j:length(var_list)) {
