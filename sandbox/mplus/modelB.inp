@@ -1,0 +1,36 @@
+TITLE: iris LPA
+
+DATA:
+    File is iris.dat
+    
+VARIABLE: 
+    Names are Sepal_Length Sepal_Width Petal_Length Petal_Width;
+    Classes = c(2) ;
+            
+MODEL:
+    %overall%
+    [Sepal_Length Sepal_Width Petal_Length Petal_Width];
+    Sepal_Length Sepal_Width Petal_Length Petal_Width; 
+    Sepal_Length WITH Sepal_Width Petal_Length Petal_Width;
+    Sepal_Width WITH Petal_Length Petal_Width;
+    Petal_Length WITH Petal_Width;
+
+    %c#1%
+    [Sepal_Length Sepal_Width Petal_Length Petal_Width];
+    Sepal_Length Sepal_Width Petal_Length Petal_Width(1-4); 
+    Sepal_Length WITH Sepal_Width Petal_Length Petal_Width(5-7);
+    Sepal_Width WITH Petal_Length Petal_Width(8-9);
+    Petal_Length WITH Petal_Width(10);
+
+    %c#2%
+    [Sepal_Length Sepal_Width Petal_Length Petal_Width];
+    Sepal_Length Sepal_Width Petal_Length Petal_Width(1-4); 
+    Sepal_Length WITH Sepal_Width Petal_Length Petal_Width(5-7);
+    Sepal_Width WITH Petal_Length Petal_Width(8-9);
+    Petal_Length WITH Petal_Width(10);
+    
+ANALYSIS: 
+    Type is mixture;
+            
+OUTPUT:
+    TECH1 TECH8 TECH11;

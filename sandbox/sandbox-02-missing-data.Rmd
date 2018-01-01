@@ -1,0 +1,190 @@
+---
+title: "sandbox-02-missing-data"
+author: "Joshua Rosenberg"
+date: "12/29/2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, cache = F, echo = F)
+```
+
+```{r, loading-packages}
+library(tidyverse)
+library(lmerTest)
+library(lme4)
+library(corrr)
+library(jmRtools)
+library(tidyttest)
+```
+
+```{r, loading-data, eval = F}
+esm <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-esm.csv")
+pre_survey_data_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pre-survey.csv")
+post_survey_data_partially_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-post-survey.csv")
+video <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-video.csv")
+pqa <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pqa.csv")
+attendance <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-attendance.csv")
+class_data <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-class-video.csv")
+demographics <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-demographics.csv")
+pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
+```
+
+```{r}
+# save.image("~/desktop/sandbox-01.Rdata")
+load("~/desktop/sandbox-01.Rdata")
+```
+
+```{r, processing-some-data}
+attendance <- rename(attendance, participant_ID = ParticipantID)
+attendance <- mutate(attendance, prop_attend = DaysAttended / DaysScheduled, 
+                     participant_ID = as.integer(participant_ID))
+attendance <- select(attendance, participant_ID, prop_attend)
+
+demographics <- filter(demographics, participant_ID!= 7187)
+demographics <- left_join(demographics, attendance)
+
+esm$overall_engagement <- jmRtools::composite_mean_maker(esm, hard_working, concentrating, enjoy, interest)
+```
+
+```{r, joining-df}
+df <- left_join(esm, pre_survey_data_processed, by = "participant_ID") # df & post-survey
+df <- left_join(df, video, by = c("program_ID", "response_date", "sociedad_class", "signal_number")) # df & video
+df <- left_join(df, demographics, by = c("participant_ID", "program_ID")) # df and demographics
+```
+
+```{r, proc-variables, echo = F}
+df$participant_ID <- as.factor(df$participant_ID)
+df$program_ID <- as.factor(df$program_ID)
+df$beep_ID <- as.factor(df$beep_ID)
+df$beep_ID_new <- as.factor(df$beep_ID_new)
+
+df$youth_activity_rc <- ifelse(df$youth_activity == "Off Task", "Not Focused", df$youth_activity)
+
+df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Student Presentation" | df$youth_activity_rc == "Problem Solving", "Creating Product", df$youth_activity_rc)
+
+df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Showing Video", "Program Staff Led", df$youth_activity_rc)
+
+df$youth_activity_rc <- as.factor(df$youth_activity_rc)
+
+df$youth_activity_rc <- forcats::fct_relevel(df$youth_activity_rc, "Not Focused")
+
+df$relevance <- jmRtools::composite_mean_maker(df, use_outside, future_goals, important)
+```
+
+```{r processing-demographics, echo = F, eval = T}
+df$urm <- ifelse(df$race %in% c("White", "Asian"), 0, 1)
+df$race <- as.factor(df$race)
+df$race <- fct_lump(df$race, n = 2)
+df$race_other <- fct_relevel(df$race, "Other")
+df$gender_female <- as.factor(df$gender) # female is comparison_group
+df$gender_female <- ifelse(df$gender_female == "F", 1, 
+                           ifelse(df$gender_female == "M", 0, NA))
+```
+
+```{r}
+x <- df %>% 
+    count(program_ID, sociedad_class, response_date, signal_number) %>% arrange(program_ID, response_date) %>% 
+    count(program_ID, sociedad_class) %>% 
+    rename(number_of_possible_responses = nn)
+
+xx <- df %>% 
+    group_by(program_ID, sociedad_class) %>% 
+    count(participant_ID) %>% 
+    rename(number_of_responses = n) %>% 
+    ungroup()
+
+d <- left_join(xx, x, by = c("program_ID", "sociedad_class")) %>% 
+    group_by(participant_ID) %>% 
+    summarize(number_of_possible_responses = sum(number_of_possible_responses),
+              number_of_responses = sum(number_of_responses)) %>% 
+    mutate(response_rate = number_of_responses / number_of_possible_responses) %>%
+    write_csv("individual-level-response-rate.csv")
+# ps <- read_csv("/Users/joshuarosenberg/Google Drive/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pre-survey.csv")
+# ps
+# dd <- left_join(d, ps, by = "participant_ID")
+```
+
+# Differences in response rate by demographic and other characteristics
+
+In this document, we examine differences in response rate for STEM-IE by:
+
+* Race
+* URM status
+* Initial (pre) interest
+* Gender
+´
+We use ANOVA and t-test for group mean differences, and correlation for differences by pre-interest.
+
+We find that there are URM and gender differences in response rate, which appear to be substantively important, but that there are not statistically significant differences in URM status or gender.
+
+## Race
+
+There are not statistically significant differences by race. Other includes white (n = 13), multiracial (n = 5), and Asian (n = 14).
+
+```{r}
+left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    group_by(race) %>% 
+    summarize(mean_response_rate = mean(response_rate))
+
+ddd <- left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate)
+
+summary(aov(response_rate ~ race, data = ddd))
+```
+
+## URM
+
+Students who are in a URM group have a response rate of 60.6% compared to a response rate of 74.1% for non-URM students (t = 2.622, p = .013, d = .56).
+
+```{r}
+left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    group_by(urm) %>% 
+    summarize(mean_response_rate = mean(response_rate))
+
+left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    t_test(response_rate, urm)
+
+ddd <- left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate)
+
+t.test(ddd$response_rate ~ ddd$urm)
+```
+
+## Gender
+
+Female's response rate is 66.2% compared to male's, which is 58.4%; this is a significant difference (t = 2.093, p = .038, d = .31)
+
+```{r}
+left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    group_by(gender) %>% 
+    summarize(mean_response_rate = mean(response_rate))
+
+left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    t_test(response_rate, gender)
+
+ddd <- left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate)
+
+t.test(ddd$response_rate ~ ddd$gender)
+```
+
+## Pre-interest
+
+Overall pre-interest and response rate are not correlated.
+
+```{r}
+ddd <- left_join(df, d, by = "participant_ID") %>% 
+    distinct(urm, race, race_other, gender, gender_female, overall_pre_interest, response_rate) %>% 
+    select(overall_pre_interest, response_rate)
+
+cor.test(ddd$overall_pre_interest, ddd$response_rate)
+```

@@ -1,0 +1,42 @@
+TITLE: test;
+DATA: File is iris.dat;
+VARIABLE:
+Names are Sepal.Length;
+Names are Sepal.Width;
+Names are Petal.Length;
+Names are Petal.Width;
+Classes = c(2);
+MODEL:
+%overall%
+[Sepal.Length];
+[Sepal.Width];
+[Petal.Length];
+[Petal.Width];
+Sepal.Length;
+Sepal.Width;
+Petal.Length;
+Petal.Width;
+Sepal.Length WITH Sepal.Width@0;
+Sepal.Length WITH Petal.Length@0;
+Sepal.Length WITH Petal.Width@0;
+Sepal.Width WITH Petal.Length@0;
+Sepal.Width WITH Petal.Width@0;
+Petal.Length WITH Petal.Width@0;
+c("[Sepal.Length];", "[Sepal.Width];", "[Petal.Length];", "[Petal.Width];")
+c("Sepal.Length(1-4);", "Sepal.Width(1-4);", "Petal.Length(1-4);", "Petal.Width(1-4);")
+Sepal.Length WITH Sepal.Width@0;
+Sepal.Length WITH Petal.Length@0;
+Sepal.Length WITH Petal.Width@0;
+Sepal.Width WITH Petal.Length@0;
+Sepal.Width WITH Petal.Width@0;
+Petal.Length WITH Petal.Width@0;
+c("[Sepal.Length];", "[Sepal.Width];", "[Petal.Length];", "[Petal.Width];")
+c("Sepal.Length(1-4);", "Sepal.Width(1-4);", "Petal.Length(1-4);", "Petal.Width(1-4);")
+Sepal.Length WITH Sepal.Width@0;
+Sepal.Length WITH Petal.Length@0;
+Sepal.Length WITH Petal.Width@0;
+Sepal.Width WITH Petal.Length@0;
+Sepal.Width WITH Petal.Width@0;
+Petal.Length WITH Petal.Width@0;
+ANALYSIS: Type is mixture;
+OUTPUT: TECH1 TECH11;

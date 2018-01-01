@@ -158,7 +158,14 @@ df <- df %>%
            ssb_precision = stem_sb_6,
            ssb_vocabulary = stem_sb_7,
            ssb_classification = stem_sb_8,
-           ssb_symbols = stem_sb_9)
+           ssb_symbols = stem_sb_9) %>% 
+    mutate(dm_ask = ssb_predict,
+           dm_obs = ssb_classification,
+           dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
+           dm_mod = ifelse(ssb_model == 1 | ssb_analyze == 1, 1, 0),
+           dm_com = ssb_symbols)
+
+# write_csv(df, "~/desktop/df.csv")
 ```
 
 ```{r}
@@ -201,7 +208,7 @@ df %>%
     knitr::kable()
 
 df %>% 
-    select(contains("stem_sb"), -sum_stem_sb, -stem_sb) %>% 
+    select(contains("ssb"), -sum_stem_sb, -stem_sb) %>% 
     correlate() %>% 
     shave() %>% 
     fashion() %>% 
@@ -215,11 +222,30 @@ library(skimr)
 
 df %>% 
     select(contains("dm"), -sum_stem_sb, -stem_sb) %>% 
+    skim()
+
+df %>% 
+    select(dm_ask,
+           dm_obs,
+           dm_gen,
+           dm_mod,
+           dm_com) %>% 
+    skim()
+
+df %>% 
+    select(contains("dm"), -sum_stem_sb, -stem_sb) %>% 
+    gather(key, val) %>% 
+    ggplot(aes(x = val)) +
+    geom_histogram() +
+    facet_wrap("key") +
+    theme_bw()
+
+df %>% 
+    select(contains("ssb"), -sum_stem_sb, -stem_sb) %>% 
     skim() 
 
 df %>% 
-    select(contains("stem_sb"), -sum_stem_sb, -stem_sb) %>% 
-    skim() 
+    select()
 ```
 
 # 3. Mixture Models
@@ -234,6 +260,11 @@ df %>%
     mutate_all(scale) %>% 
     compare_models_lpa(contains("dm"))
 
+df %>%
+    select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
+    mutate_all(scale) %>% 
+    compare_models_lpa(contains("dm"))
+
 df %>% 
     create_profiles_lpa(contains("dm"), n_profiles = 3) %>% 
     plot_profiles_lpa(to_center = T)
@@ -243,12 +274,48 @@ df %>%
     plot_profiles_lpa(to_center = T)
 
 df %>% 
-    create_profiles_lpa(contains("dm"), n_profiles = 5) %>% 
+    create_profiles_lpa(contains("dm"), n_profiles = 5, model = 1) %>% 
     plot_profiles_lpa(to_center = T)
 ```
 
-### MPlus
+### Rmixmod
 
-```{r}
-library(MplusAutomation)
+```{r, warning = F}
+library(Rmixmod)
+iris
+
+m <- mixmodCluster(iris[, -5], nbCluster = 2:3, models = mixmodGaussianModel())
+summary(m)
+
+d <- select(df, contains("dm"))
+d <- d[complete.cases(d), ]
+d <- mutate_all(d, scale)
+
+my_models <- c("Gaussian_pk_L_B",
+               "Gaussian_pk_L_C",
+               "Gaussian_pk_Lk_Bk",
+               "Gaussian_pk_Lk_Ck"
+)
+
+list.models <- mixmodGaussianModel(listModels = my_models)
+
+m <- mixmodCluster(d, nbCluster = 3:6, 
+                   models = list.models)
+
+extract_criterion_value <- function(x) {
+    criterion <- m["results"][x][[1]]@criterion
+    criterion_value <- m["results"][x][[1]]@criterionValue
+    model <- m["results"][x][[1]]@model
+    n_profiles <- m["results"][x][[1]]@nbCluster
+    data.frame(model, n_profiles, criterion, criterion_value)
+}
+
+extract_criterion_value(1)
+
+1:length(m["results"]) %>% 
+    purrr::map_df(extract_criterion_value) %>% 
+    arrange(desc(criterion_value)) %>% 
+    ggplot(aes(x = n_profiles, y = criterion_value, color = model, group = model)) +
+    geom_line() +
+    geom_point()
 ```
