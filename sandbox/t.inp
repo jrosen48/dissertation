@@ -1,0 +1,46 @@
+TITLE: test
+DATA: File is d.dat;
+VARIABLE:
+Names are dm_cog_eng dm_beh_eng dm_aff_eng;
+Classes = c(5);
+MODEL:
+%overall%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+%c#1%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+%c#2%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+%c#3%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+%c#4%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+%c#5%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng;
+dm_cog_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_aff_eng;
+ANALYSIS:
+Type is mixture;
+start = 100 20
+OUTPUT: TECH1 TECH11;

@@ -1,0 +1,402 @@
+Mplus VERSION 8 (Mac)
+MUTHEN & MUTHEN
+01/04/2018   8:19 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: test
+  DATA: File is d.dat;
+  VARIABLE:
+  Names are dm_cog_eng dm_beh_eng dm_aff_eng;
+  Classes = c(2);
+  MODEL:
+  %overall%
+  [dm_cog_eng dm_beh_eng dm_aff_eng];
+  dm_cog_eng dm_beh_eng dm_aff_eng;
+  dm_cog_eng WITH dm_beh_eng@0;
+  dm_cog_eng WITH dm_aff_eng@0;
+  dm_beh_eng WITH dm_aff_eng@0;
+  %c#1%
+  [dm_cog_eng dm_beh_eng dm_aff_eng];
+  dm_cog_eng dm_beh_eng dm_aff_eng;
+  dm_cog_eng WITH dm_beh_eng@0;
+  dm_cog_eng WITH dm_aff_eng@0;
+  dm_beh_eng WITH dm_aff_eng@0;
+  %c#2%
+  [dm_cog_eng dm_beh_eng dm_aff_eng];
+  dm_cog_eng dm_beh_eng dm_aff_eng;
+  dm_cog_eng WITH dm_beh_eng@0;
+  dm_cog_eng WITH dm_aff_eng@0;
+  dm_beh_eng WITH dm_aff_eng@0;
+  ANALYSIS:
+  Type is mixture;
+  start = 100 20
+  OUTPUT: TECH1 TECH11;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+test
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2958
+
+Number of dependent variables                                    3
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   DM_COG_ENG  DM_BEH_ENG  DM_AFF_ENG
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        100
+  Number of final stage optimizations                           20
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  d.dat
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     DM_COG_ENG            2.769      -0.354       1.000   16.50%       2.000      3.000      3.000
+            2958.000       1.131      -1.119       4.000   31.20%       3.000      4.000
+     DM_BEH_ENG            2.864      -0.465       1.000   14.00%       2.000      3.000      3.000
+            2958.000       1.089      -0.996       4.000   34.58%       3.000      4.000
+     DM_AFF_ENG            2.833      -0.432       1.000   14.91%       2.000      3.000      3.000
+            2958.000       1.106      -1.037       4.000   33.43%       3.000      4.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+4 perturbed starting value run(s) did not converge in the initial stage
+optimizations.
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+
+20 perturbed starting value run(s) did not converge.
+
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN INSUFFICIENT
+     NUMBER OF E STEPS.  INCREASE THE NUMBER OF MITERATIONS.  ESTIMATES
+     CANNOT BE TRUSTED.
+
+
+
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       2360.00000          0.79784
+       2        598.00000          0.20216
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       2360.00000          0.79784
+       2        598.00000          0.20216
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             2360          0.79784
+       2              598          0.20216
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         1.000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   1.000    0.000
+    2   0.000    1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   1.000    0.000
+    2   0.000    1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1     13.816    0.000
+    2    -13.816    0.000
+
+
+MODEL RESULTS
+
+                    Estimate
+
+Latent Class 1
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.000
+    DM_AFF_ENG         0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.000
+
+ Means
+    DM_COG_ENG         2.445
+    DM_BEH_ENG         2.541
+    DM_AFF_ENG         2.520
+
+ Variances
+    DM_COG_ENG         0.929
+    DM_BEH_ENG         0.943
+    DM_AFF_ENG         0.962
+
+Latent Class 2
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.000
+    DM_AFF_ENG         0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.000
+
+ Means
+    DM_COG_ENG         4.000
+    DM_BEH_ENG         4.000
+    DM_AFF_ENG         4.000
+
+ Variances
+    DM_COG_ENG         0.000
+    DM_BEH_ENG         0.000
+    DM_AFF_ENG         0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                1.373
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1*1.37283 ];
+
+     %C#1%
+
+     dm_cog_eng WITH dm_beh_eng@0;
+     dm_cog_eng WITH dm_aff_eng@0;
+     dm_beh_eng WITH dm_aff_eng@0;
+
+     [ dm_cog_eng*2.44473 ];
+     [ dm_beh_eng*2.54088 ];
+     [ dm_aff_eng*2.52023 ];
+
+     dm_cog_eng*0.92950;
+     dm_beh_eng*0.94335;
+     dm_aff_eng*0.96172;
+
+     %C#2%
+
+     dm_cog_eng WITH dm_beh_eng@0;
+     dm_cog_eng WITH dm_aff_eng@0;
+     dm_beh_eng WITH dm_aff_eng@0;
+
+     [ dm_cog_eng*4.00018 ];
+     [ dm_beh_eng*4.00002 ];
+     [ dm_aff_eng*4.00001 ];
+
+     dm_cog_eng*0.00000;
+     dm_beh_eng*0.00000;
+     dm_aff_eng*0.00000;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+                    1             2             3
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+ DM_COG_E           4
+ DM_BEH_E           0             5
+ DM_AFF_E           0             0             6
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+                    7             8             9
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+ DM_COG_E          10
+ DM_BEH_E           0            11
+ DM_AFF_E           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                   13             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+                1.706         1.820         1.781
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+                3.833         3.907         3.885
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E
+              ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 100
+        Number of final stage optimizations                    20
+
+
+
+     Beginning Time:  08:19:14
+        Ending Time:  08:19:29
+       Elapsed Time:  00:00:15
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

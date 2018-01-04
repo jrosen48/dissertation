@@ -1,0 +1,28 @@
+TITLE: test
+DATA: File is d.dat;
+VARIABLE:
+Names are dm_cog_eng dm_beh_eng dm_aff_eng;
+Classes = c(2);
+MODEL:
+%overall%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng@0;
+dm_cog_eng WITH dm_aff_eng@0;
+dm_beh_eng WITH dm_aff_eng@0;
+%c#1%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng@0;
+dm_cog_eng WITH dm_aff_eng@0;
+dm_beh_eng WITH dm_aff_eng@0;
+%c#2%
+[dm_cog_eng dm_beh_eng dm_aff_eng];
+dm_cog_eng dm_beh_eng dm_aff_eng;
+dm_cog_eng WITH dm_beh_eng@0;
+dm_cog_eng WITH dm_aff_eng@0;
+dm_beh_eng WITH dm_aff_eng@0;
+ANALYSIS:
+Type is mixture;
+start = 100 20
+OUTPUT: TECH1 TECH11;
