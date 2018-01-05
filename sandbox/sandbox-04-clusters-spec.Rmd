@@ -220,149 +220,52 @@ pqa_out <- pqa %>%
 names(pqa_out) <- names(out)
 ```
 
-# 1. mclust profiles
-
-### 1A. All five - no prior
-
-```{r, 1a, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    compare_models_lpa(contains("dm"))
-```
-
-### 1B. All five - prior
-
-```{r, 1b, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    compare_models_lpa(contains("dm"), prior_control = T)
-```
-
-### 1C. All five - no prior - standardized
-
-```{r, 1c, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    mutate_all(center_and_scale_vector) %>% 
-    compare_models_lpa(contains("dm"))
-```
-
-### 1D. All five - prior - standardized
-
-```{r, 1d, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    mutate_all(center_and_scale_vector) %>% 
-    compare_models_lpa(contains("dm"), prior_control = T)
-```
-
-### 1E. Three - no prior
-
-```{r, 1e, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
-    compare_models_lpa(contains("dm"))
-```
-
-### 1F. Three - prior
-
-```{r, 1f, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
-    compare_models_lpa(contains("dm"), prior_control = T)
-```
-
-### 1G. Three - no prior - standardized
-
-```{r, 1g, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
-    mutate_all(center_and_scale_vector) %>% 
-    compare_models_lpa(contains("dm"))
-```
-
-### 1H. Three - prior - standardized
-
-```{r, 1h, eval = T, results = 'markup'}
-df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
-    mutate_all(center_and_scale_vector) %>% 
-    compare_models_lpa(contains("dm"), prior_control = T)
-```
-
-# Mplus
-
-### 2A: All five variables w/ no prior
-
-```{r, 2a, results = 'hide'}
-out_df1 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, start_iterations = c(120, 20))
-```
-
-```{r, results = 'markup'}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
-```
-
-### 2B: All five w/ no prior and standardized (M = 0, SD = 1) variables
-
-```{r, 2b}
-dfs <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% mutate_all(center_and_scale_vector)
-
-out_df2 <- compare_models_mplus(dfs, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence)
-```
-
-```{r, results = 'markup'}
-out_df2 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
-```
-### 2C: Three variables w/ no prior
-
-```{r, 2c}
-out_df3 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
-```
-
-```{r, results = 'markup'}
-out_df3 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
-```
-
-### 2D: Three w/ no prior and standardized (M = 0, SD = 1) variables
-
-```{r, 2d}
-out_df4 <- compare_models_mplus(dfs, dm_cog_eng, dm_beh_eng, dm_aff_eng)
-```
-
-```{r, results = 'markup'}
-out_df4 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
-```
-
-# 3. Specific models
+# Specific models
 
 ```{r}
+m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=7, model = 2)
+```
 
-``
+```{r}
+m$parameters %>% 
+    pluck(1) %>% 
+    filter(!str_detect(param, "#"),
+           paramHeader == "Means") %>% 
+    group_by(LatentClass, param) %>% 
+    summarize(mean_est = mean(est)) %>% 
+    ggplot(aes(x = LatentClass, y = mean_est, group = param, fill = param)) +
+    geom_col(position = "dodge")
+
+x <- MplusAutomation::getSavedata_Data('~/desktop/t.out')
+y <- MplusAutomation::getSavedata_Fileinfo('~/desktop/t.out')
+z <- x %>% count(C)
+
+to_center = T
+to_scale = T
+
+x %>% 
+    left_join(z) %>% 
+    mutate(profile = paste0("Profile ", C, " (n = ", n, ")")) %>% 
+    select(-contains("CPROB"), -C, -n) %>% 
+    mutate_at(vars(-.data$profile), scale, center = to_center, scale = to_scale) %>%
+    group_by(profile) %>% 
+    summarize_all(funs(mean, sd)) %>% 
+    gather(key, val, -profile) %>% 
+    mutate(new_key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, start = -4),
+                            ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, start = -2), NA)),
+           key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, end = -6),
+                        ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, end = -4), NA))) %>%
+    spread(.data$new_key, .data$val) %>% 
+    mutate(n_string = str_sub(as.character(.data$profile), start = 11),
+           n = as.numeric(str_extract(.data$n_string, "\\-*\\d+\\.*\\d*")),
+           se = 1.96 * (.data$sd / sqrt(.data$n - 1)),
+           ymin = .data$mean - .data$se,
+           ymax = .data$mean + .data$se) %>%
+    ggplot(aes_string(x = "profile", y = "mean", fill = "key", ymin = "ymin", ymax = "ymax")) +
+    geom_col(position = "dodge") +
+    geom_errorbar(position = position_dodge()) +
+    scale_fill_brewer("", type = "qual", palette=6) +
+    scale_x_discrete("") +
+    theme_bw()
+
+```
