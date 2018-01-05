@@ -35,15 +35,15 @@ For models fit using `mclust`, eight model specifications are tested, where all 
 
 *MPlus*
 
-* All five variables w/ no prior
-* All five w/ no prior and standardized (M = 0, SD = 1) variables
-* Three variables w/ no prior
-* Three w/ no prior and standardized (M = 0, SD = 1) variables
+* All five variables
+* All five and standardized (M = 0, SD = 1) variables
+* Three variables prior
+* Three and standardized (M = 0, SD = 1) variables
 
 # 1. Processing data
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, warning =T, echo = F, cache = F)
+knitr::opts_chunk$set(echo = FALSE, message = F, warning =T, cache = T)
 ```
 
 ```{r, loading-packages}
@@ -226,7 +226,7 @@ names(pqa_out) <- names(out)
 
 ### 1A. All five - no prior
 
-```{r, eval = T}
+```{r, 1a, eval = T, results = 'markup'}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
     compare_models_lpa(contains("dm"))
@@ -234,7 +234,7 @@ df %>%
 
 ### 1B. All five - prior
 
-```{r, eval = T}
+```{r, 1b, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
     compare_models_lpa(contains("dm"), prior_control = T)
@@ -242,7 +242,7 @@ df %>%
 
 ### 1C. All five - no prior - standardized
 
-```{r, eval = T}
+```{r, 1c, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
     mutate_all(center_and_scale_vector) %>% 
@@ -251,7 +251,7 @@ df %>%
 
 ### 1D. All five - prior - standardized
 
-```{r, eval = T}
+```{r, 1d, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
     mutate_all(center_and_scale_vector) %>% 
@@ -260,7 +260,7 @@ df %>%
 
 ### 1E. Three - no prior
 
-```{r, eval = T}
+```{r, 1e, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
     compare_models_lpa(contains("dm"))
@@ -268,7 +268,7 @@ df %>%
 
 ### 1F. Three - prior
 
-```{r, eval = T}
+```{r, 1f, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
     compare_models_lpa(contains("dm"), prior_control = T)
@@ -276,7 +276,7 @@ df %>%
 
 ### 1G. Three - no prior - standardized
 
-```{r, eval = T}
+```{r, 1g, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
     mutate_all(center_and_scale_vector) %>% 
@@ -285,7 +285,7 @@ df %>%
 
 ### 1H. Three - prior - standardized
 
-```{r, eval = T}
+```{r, 1h, eval = T}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng) %>% 
     mutate_all(center_and_scale_vector) %>% 
@@ -296,308 +296,65 @@ df %>%
 
 ### 2A: All five variables w/ no prior
 
-```{r}
-out_df <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_chalenge, dm_competence)
+```{r, 2a}
+out_df1 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence)
+```
 
-out_df %>% 
+```{r}
+out_df1 %>% 
     gather(key, val, -n_profiles) %>% 
-    filter(val != "LL not replicated",
-           val != "Convergence problem") %>% 
-    ggplot(aes(x = n_profiles, y = val, color = key, group = key)) +
+    filter(val != "Convergence problem",
+           val != "LL not replicated") %>% 
+    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
     geom_point() +
     geom_line()
 ```
 
 ### 2B: All five w/ no prior and standardized (M = 0, SD = 1) variables
 
-```{r}
-dfs <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_chalenge, dm_competence) %>% mutate_all(center_and_scale_vector)
+```{r, 2b}
+dfs <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% mutate_all(center_and_scale_vector)
 
-out_df2 <- compare_models_mplus(dfs, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_chalenge, dm_competence)
+out_df2 <- compare_models_mplus(dfs, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence)
 ```
 
+```{r}
+out_df2 %>% 
+    gather(key, val, -n_profiles) %>% 
+    filter(val != "Convergence problem",
+           val != "LL not replicated") %>% 
+    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
+    geom_point() +
+    geom_line()
+```
 ### 2C: Three variables w/ no prior
 
-```{r}
+```{r, 2c}
 out_df3 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
+```
+
+```{r}
+out_df3 %>% 
+    gather(key, val, -n_profiles) %>% 
+    filter(val != "Convergence problem",
+           val != "LL not replicated") %>% 
+    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
+    geom_point() +
+    geom_line()
 ```
 
 ### 2D: Three w/ no prior and standardized (M = 0, SD = 1) variables
 
-```{r}
+```{r, 2d}
 out_df4 <- compare_models_mplus(dfs, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-```{r, eval = F}
-try_mplus1 <- function(i, j) {
-    out <- tryCatch(
-        {
-            m <- create_profiles_mplus(df, 
-                                       dm_cog_eng, dm_beh_eng, dm_aff_eng,
-                                       n_profiles = (i + 1), model = j,
-                                       start_iterations=c(100, 20),
-                                       m_iterations = 1000)
-            
-            extract_mplus_summary(m)$BIC
-            
-        },
-        error=function(cond) {
-            return("did not converge")
-        },
-        warning=function(cond) {
-            return(NULL)
-        },
-        finally={
-        }
-    )    
-    return(out)
-}
-
-out_df1 <- data.frame(matrix(ncol = 5, nrow = 16))
-names(out_df1) <- paste0("model_", 1:5)
-out_df1 <- out_df1 %>% 
-    mutate(n_profiles = 2:17) %>% 
-    select(n_profiles, everything())
-
-for (i in 1:16) {
-    for (j in 1:5) {
-        cat("i=", i, "\n")
-        cat("j=", j, "\n")
-        out_df1[i, j + 1] <- try_mplus1(i + 1, j)
-    }
-}
-
-scale_vector <- function(x) {
-    x / stats::sd(x, na.rm = TRUE)
-}
-
-center_vector <- function(x) {
-    x - mean(x, na.rm = TRUE)
-}
-
-center_and_scale_vector <- function(x) {
-    if (stats::sd(x, na.rm = TRUE) == 0) {
-        x - mean(x, na.rm = TRUE)
-    } else {
-        (x - mean(x, na.rm = TRUE)) / stats::sd(x, na.rm = TRUE)
-    }
-}
-
-```
-
-# Comparing models - all five
-
 ```{r}
-library(tidyLPA)
-library(jmRtools)
-
-d <- read_csv("all-five-vars-BIC.csv")
-
-d %>% 
+out_df4 %>% 
     gather(key, val, -n_profiles) %>% 
-    filter(val != "did not converge") %>% 
-    ggplot(aes(x = n_profiles, y = val, color = key, group = key)) +
+    filter(val != "Convergence problem",
+           val != "LL not replicated") %>% 
+    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
     geom_point() +
     geom_line()
-
-dd <- df %>%
-    select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>%
-    mutate_all(center_and_scale_vector)
-
-compare_models_lpa(df,
-                   dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, prior_control=T)
-```
-
-# Comparing models - all five, no standardizing
-
-```{r}
-create_profiles_lpa(df,
-                    dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles = 2, model = 2, prior_control=T) %>% plot_profiles_lpa(to_center = T)
-
-# m2, p5 - 9149.502, 9149.5*, but same substantive - eng doesn't matter much
-# m1, p6 - 9711.2* - low and high challenge associated with sim levels of other vars, competent but bummed, no all high, all low
-# m5, p6 - 9670.242 - competence seems less imp, but still low and high challenge
-# m5, p7 - not super interesting
-# m1, p7 - not stable, 7151.38 seems more stable
-```
-
-# # Comparing models - just three, no standardizing
-
-```{r}
-
-d1 <- read_csv("three-vars-BIC.csv")
-
-d1 %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "did not converge") %>% 
-    ggplot(aes(x = n_profiles, y = val, color = key, group = key)) +
-    geom_point() +
-    geom_line()
-
-compare_models_lpa(df,
-                   dm_cog_eng, dm_beh_eng, dm_aff_eng, prior_control=T)
-```
-
-# for three, without centering and scaling
-
-```{r}
-compare_models_lpa(df,
-                   dm_cog_eng, dm_beh_eng, dm_aff_eng, prior_control=T)
-
-create_profiles_lpa(df,
-                    dm_cog_eng, dm_beh_eng, dm_aff_eng, n_profiles = 4, model = 5, prior_control=T) %>% 
-    plot_profiles_lpa(to_center = T)
-
-# prof 5, m3 - 72.173, not a lotta
-# prof 5, m5 - 712.964, not a lotta
-# prof 4, m1 - 1274.95, high beh, mod beg
-# 1212.899, high cog, high cog low others, low cog
-# prof 4, m5 - 626.427
-
-psych::fac()
-
-```
-
-# for three, with centering and scaling
-
-```{r}
-compare_models_lpa(d,
-                   dm_cog_eng, dm_beh_eng, dm_aff_eng, prior_control = T)
-
-create_profiles_lpa(d,
-                    dm_cog_eng, dm_beh_eng, dm_aff_eng, n_profiles = 6, model = 1, prior_control=T) %>% 
-    plot_profiles_lpa(to_center = T)
-
-# prof 4, m1 - 781.9 and 767.833
-# prof 4, m5 - 626.427
-# prof 5, m3 - 385.322
-```
-
-# For three, new vars
-
-```{r}
-library(tidyLPA)
-compare_models_lpa(df,
-                   ov_aff_eng, ov_beh_eng, ov_cog_eng, prior_control = T)
-# dm_challenge, dm_competence,
-# m5, p5 stable, boring
-# m1, p7 not stable
-# m1, p8 not stable
-# m1, p6 not stable, very related to our analyses
-```
-
-# For five, new vars
-
-```{r}
-compare_models_lpa(df,
-                   ov_aff_eng, ov_beh_eng, ov_cog_eng, dm_challenge, dm_competence, prior_control = T)
-# m2, p4: small cluster
-# m2, p5: ok
-# m5, p8 - not stable
-# m1, p9 - not stable
-```
-
-# Factanal
-
-```{r}
-library(nFactors)
-
-ddd <- dplyr::select(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
-ddd <- ddd[complete.cases(ddd), ]
-ev <- eigen(cor(ddd)) # get eigenvalues
-ap <- parallel(subject=nrow(ddd),var=ncol(ddd),
-               rep=100,cent=.05)
-nS <- nScree(x=ev$values, aparallel=ap$eigen$qevpea)
-plotnScree(nS)
-
-library(psych)
-fit <- fa(as.matrix(ddd), nfactors=3, rotate = "oblimin")
-fit # print results
-
-library(lavaan)
-
-m <- ' visual  =~ x1 + x2 + x3 
-              textual =~ x4 + x5 + x6
-              speed   =~ x7 + x8 + x9 '
-```
-
-```{r}
-# d <- df %>% 
-#     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-#     mutate_all(center_and_scale_vector)
-# 
-
-# 
-# create_profiles_lpa(d,
-#                     dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-#                     n_profiles=5, model = 1) %>% plot_profiles_lpa()
-
-d %>% 
-    create_profiles_mplus(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                          n_profiles = 8, model = 2)
-
-# MplusAutomation::runModels("t.inp")
-m <- MplusAutomation::readModels("t.out")
-# extract_warnings(m)
-# extract_errors(m)
-
-m$parameters %>% 
-    pluck(1) %>% 
-    filter(paramHeader == "Means",
-           !(stringr::str_detect(param, "C#"))) %>% 
-    ggplot(aes(x = LatentClass, y = est, fill = param)) +
-    geom_col(position = "dodge")
-```
-
-### Rmixmod
-
-```{r, eval = F}
-library(Rmixmod)
-iris
-
-m <- mixmodCluster(iris[, -5], nbCluster = 2:3, models = mixmodGaussianModel())
-summary(m)
-
-d <- select(df, contains("dm"))
-d <- d[complete.cases(d), ]
-d <- mutate_all(d, scale)
-
-my_models <- c("Gaussian_pk_L_B",
-               "Gaussian_pk_L_C",
-               "Gaussian_pk_Lk_Bk",
-               "Gaussian_pk_Lk_Ck"
-)
-
-list.models <- mixmodGaussianModel(listModels = my_models)
-
-m <- mixmodCluster(d, nbCluster = 3:6, 
-                   models = list.models)
-
-extract_criterion_value <- function(x) {
-    criterion <- m["results"][x][[1]]@criterion
-    criterion_value <- m["results"][x][[1]]@criterionValue
-    model <- m["results"][x][[1]]@model
-    n_profiles <- m["results"][x][[1]]@nbCluster
-    data.frame(model, n_profiles, criterion, criterion_value)
-}
-
-extract_criterion_value(1)
-
-1:length(m["results"]) %>% 
-    purrr::map_df(extract_criterion_value) %>% 
-    arrange(desc(criterion_value)) %>% 
-    ggplot(aes(x = n_profiles, y = criterion_value, color = model, group = model)) +
-    geom_line() +
-    geom_point()
 ```

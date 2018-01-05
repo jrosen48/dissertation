@@ -1,45 +1,48 @@
 TITLE: test
 DATA: File is d.dat;
 VARIABLE:
-Names are dm_cog_eng dm_beh_eng dm_aff_eng;
-Classes = c(5);
+Names are dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
+Classes = c(2);
 MODEL:
 %overall%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
+[dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
 dm_cog_eng WITH dm_beh_eng;
 dm_cog_eng WITH dm_aff_eng;
+dm_cog_eng WITH dm_challenge;
+dm_cog_eng WITH dm_competence;
 dm_beh_eng WITH dm_aff_eng;
+dm_beh_eng WITH dm_challenge;
+dm_beh_eng WITH dm_competence;
+dm_aff_eng WITH dm_challenge;
+dm_aff_eng WITH dm_competence;
+dm_challenge WITH dm_competence;
 %c#1%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
-dm_cog_eng WITH dm_beh_eng;
-dm_cog_eng WITH dm_aff_eng;
-dm_beh_eng WITH dm_aff_eng;
+[dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
+dm_cog_eng WITH dm_beh_eng(1);
+dm_cog_eng WITH dm_aff_eng(2);
+dm_cog_eng WITH dm_challenge(3);
+dm_cog_eng WITH dm_competence(4);
+dm_beh_eng WITH dm_aff_eng(5);
+dm_beh_eng WITH dm_challenge(6);
+dm_beh_eng WITH dm_competence(7);
+dm_aff_eng WITH dm_challenge(8);
+dm_aff_eng WITH dm_competence(9);
+dm_challenge WITH dm_competence(10);
 %c#2%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
-dm_cog_eng WITH dm_beh_eng;
-dm_cog_eng WITH dm_aff_eng;
-dm_beh_eng WITH dm_aff_eng;
-%c#3%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
-dm_cog_eng WITH dm_beh_eng;
-dm_cog_eng WITH dm_aff_eng;
-dm_beh_eng WITH dm_aff_eng;
-%c#4%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
-dm_cog_eng WITH dm_beh_eng;
-dm_cog_eng WITH dm_aff_eng;
-dm_beh_eng WITH dm_aff_eng;
-%c#5%
-[dm_cog_eng dm_beh_eng dm_aff_eng];
-dm_cog_eng dm_beh_eng dm_aff_eng;
-dm_cog_eng WITH dm_beh_eng;
-dm_cog_eng WITH dm_aff_eng;
-dm_beh_eng WITH dm_aff_eng;
+[dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
+dm_cog_eng WITH dm_beh_eng(1);
+dm_cog_eng WITH dm_aff_eng(2);
+dm_cog_eng WITH dm_challenge(3);
+dm_cog_eng WITH dm_competence(4);
+dm_beh_eng WITH dm_aff_eng(5);
+dm_beh_eng WITH dm_challenge(6);
+dm_beh_eng WITH dm_competence(7);
+dm_aff_eng WITH dm_challenge(8);
+dm_aff_eng WITH dm_competence(9);
+dm_challenge WITH dm_competence(10);
 ANALYSIS:
 Type is mixture;
 start = 100 20

@@ -1,4 +1,4 @@
-------Begin Mplus Model Run: 03Jan2018 20:07:46------
+------Begin Mplus Model Run: 04Jan2018 22:31:31------
 Target directory: /Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-dissertation/sandbox
 Run options:
 	Recursive (run models in subdirectories): FALSE
@@ -6,5 +6,3 @@ Run options:
 	Replace existing outfile: always
 ------
 Currently running model: t.inp
-
-------End Mplus Model Run: 03Jan2018 20:08:15------

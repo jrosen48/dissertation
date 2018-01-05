@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -126,7 +86,7 @@ Sampling Method}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-28}
+  \date{2018-01-05}
 
 \usepackage{booktabs}
 
@@ -935,6 +895,8 @@ technical expertise.
 
 \section{Procedure}\label{procedure}
 
+6045 9710 0447 9826
+
 Students completed a pre-survey before the program. Students also
 completed pre- and post-course surveys of their experience in STEM,
 intention to pursue a STEM major or career, and questions for other
@@ -1349,27 +1311,8 @@ terms of programs that share similar features in terms of their design.
 
 In this section, results in terms of \ldots{}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\CommentTok{# Generate some sample data, then compute mean and standard deviation}
-\CommentTok{# in each group}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-  \DataTypeTok{gp =} \KeywordTok{factor}\NormalTok{(}\KeywordTok{rep}\NormalTok{(letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{], }\DataTypeTok{each =} \DecValTok{10}\NormalTok{)),}
-  \DataTypeTok{y =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{)}
-\NormalTok{)}
-\NormalTok{ds <-}\StringTok{ }\NormalTok{plyr}\OperatorTok{::}\KeywordTok{ddply}\NormalTok{(df, }\StringTok{"gp"}\NormalTok{, plyr}\OperatorTok{::}\NormalTok{summarise, }\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(y), }\DataTypeTok{sd =} \KeywordTok{sd}\NormalTok{(y))}
-
-\CommentTok{# The summary data frame ds is used to plot larger red points on top}
-\CommentTok{# of the raw data. Note that we don't need to supply `data` or `mapping`}
-\CommentTok{# in each layer because the defaults from ggplot() are used.}
-\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(gp, y)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ds, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ mean), }\DataTypeTok{colour =} \StringTok{'red'}\NormalTok{, }\DataTypeTok{size =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{rosenberg-dissertation_files/figure-latex/unnamed-chunk-1-1.pdf}
+ggplot(df, aes(gp, y)) + geom\_point() + geom\_point(data = ds, aes(y =
+mean), colour = `red', size = 3) ```
 
 \chapter{Discussion}\label{discussion}
 

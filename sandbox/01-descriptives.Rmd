@@ -12,7 +12,7 @@ This is a sandbox for exploring the data, in preparation for adding to the resul
 # 1. Processing data
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, warning =T, echo = T, cache = F)
+knitr::opts_chunk$set(echo = FALSE, message = F, warning =T, cache = F)
 ```
 
 ```{r, loading-packages}
@@ -165,7 +165,8 @@ dfs <- df %>%
            dm_obs = ssb_classification,
            dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
            dm_mod = ssb_model,
-           dm_com = ifelse(ssb_symbols == 1 | ssb_analyze == 1, 1, 0)) %>% 
+           dm_com = ssb_analyze) %>% 
+           # dm_com = ifelse(ssb_symbols == 1 | ssb_analyze == 1, 1, 0)) %>% 
     mutate(ov_cog_eng = (important + future_goals) / 2,
            ov_beh_eng = (hard_working + concentrating) / 2,
            ov_aff_eng = (enjoy + interest) / 2)
@@ -187,7 +188,7 @@ dfs %>%
     summarize_all(mean, na.rm = T) %>% 
     select(program_name, dm_ask:dm_com) %>% 
     gather(key, val, -program_name) %>% 
-    ggplot(aes(x = reorder(program_name, val), y = val, fill = program_name)) +
+    ggplot(aes(x = program_name, y = val, fill = program_name)) +
     geom_col() +
     facet_wrap("key")
 ```

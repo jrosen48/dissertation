@@ -985,6 +985,8 @@ technical expertise.
 
 \section{Procedure}\label{procedure}
 
+6045 9710 0447 9826
+
 Students completed a pre-survey before the program. Students also
 completed pre- and post-course surveys of their experience in STEM,
 intention to pursue a STEM major or career, and questions for other
@@ -1399,27 +1401,8 @@ terms of programs that share similar features in terms of their design.
 
 In this section, results in terms of \ldots{}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\CommentTok{# Generate some sample data, then compute mean and standard deviation}
-\CommentTok{# in each group}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-  \DataTypeTok{gp =} \KeywordTok{factor}\NormalTok{(}\KeywordTok{rep}\NormalTok{(letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{], }\DataTypeTok{each =} \DecValTok{10}\NormalTok{)),}
-  \DataTypeTok{y =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{)}
-\NormalTok{)}
-\NormalTok{ds <-}\StringTok{ }\NormalTok{plyr}\OperatorTok{::}\KeywordTok{ddply}\NormalTok{(df, }\StringTok{"gp"}\NormalTok{, plyr}\OperatorTok{::}\NormalTok{summarise, }\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(y), }\DataTypeTok{sd =} \KeywordTok{sd}\NormalTok{(y))}
-
-\CommentTok{# The summary data frame ds is used to plot larger red points on top}
-\CommentTok{# of the raw data. Note that we don't need to supply `data` or `mapping`}
-\CommentTok{# in each layer because the defaults from ggplot() are used.}
-\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(gp, y)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ds, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ mean), }\DataTypeTok{colour =} \StringTok{'red'}\NormalTok{, }\DataTypeTok{size =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{rosenberg-dissertation_files/figure-latex/unnamed-chunk-1-1.pdf}
+ggplot(df, aes(gp, y)) + geom\_point() + geom\_point(data = ds, aes(y =
+mean), colour = `red', size = 3) ```
 
 \chapter{Discussion}\label{discussion}
 
