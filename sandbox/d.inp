@@ -1,5 +1,0 @@
-TITLE: Your title goes here
-DATA: FILE = "d.dat";
-VARIABLE: 
-NAMES = dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence; 
-MISSING=.;

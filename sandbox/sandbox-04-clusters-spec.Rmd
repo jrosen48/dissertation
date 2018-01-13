@@ -1,44 +1,11 @@
 ---
-title: "sandbox-01"
+title: "sandbox-03"
 author: "Joshua Rosenberg"
-date: "12/27/2017"
+date: "1-12-2018"
 output: html_document
 ---
 
 # Sandbox - 03
-
-### Background
-
-This is a sandbox for exploring the data, in preparation for adding to the results section.
-
-This document is organized around two sets of model specifications:
-
-1. Fit using the R package `mclust`
-2. Fit using the commerical software `MPlus`
-
-Both are interfaced to through the `tidyLPA` package. 
-
-### Models that are specified
-
-**mclust**
-
-For models fit using `mclust`, eight model specifications are tested, where all five refers to the variables for cognitive (learning), behavioral (hard working), and affective (enjoy), and challenge and competence, where three refers to just the three engagement measures. Note that the prior is to regularize the parameter estimates to be more less likely to be extreme (and therefore to be less likely to lead to convergence problems, but possibly less meaningful / interpretable).
-
-* All five variables w/ no prior
-* All five w/ prior
-* All five w/ no prior and standardized (M = 0, SD = 1) variables
-* All five w/ prior and standardized (M = 0, SD = 1) variables
-* Three variables w/ no prior
-* Three w/ prior
-* Three w/ no prior and standardized (M = 0, SD = 1) variables
-* Three w/ prior and standardized (M = 0, SD = 1) variables
-
-*MPlus*
-
-* All five variables
-* All five and standardized (M = 0, SD = 1) variables
-* Three variables prior
-* Three and standardized (M = 0, SD = 1) variables
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T)
@@ -51,6 +18,7 @@ library(lme4)
 library(corrr)
 library(jmRtools)
 library(tidyLPA)
+library(jmRtools)
 ```
 
 ```{r, loading-data, eval = F}
@@ -166,15 +134,6 @@ df$youth_activity_three <- fct_relevel(df$youth_activity_three,
 ```
 
 ```{r}
-
-# <!-- Cognitive engagement	As you were signaled, were you learning anything or getting better at something? -->
-# <!-- Behavioral engagement	As you were signaled, how hard were you working? -->
-# <!-- Affective engagement	As you were signaled, did you enjoy what you are doing? -->
-# <!-- Perceived challenge	As you were signaled, how challenging was the main activity? -->
-# <!-- Perceived competence	As you were signaled, were you good at the main activity? -->
-
-library(jmRtools)
-
 df <- df %>% 
     mutate(dm_cog_eng = learning,
            dm_beh_eng = hard_working,
@@ -223,47 +182,55 @@ names(pqa_out) <- names(out)
 # Specific models
 
 ```{r}
-m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=7, model = 2)
+plot_profiles_mplus <- function(mplus_data, to_center = T, to_scale = T) {
+    
+    z <- m[[2]] %>% count(C)
+    
+    m[[2]] %>% 
+        left_join(z) %>% 
+        mutate(profile = paste0("Profile ", C, " (n = ", n, ")")) %>% 
+        select(-contains("CPROB"), -C, -n) %>% 
+        mutate_at(vars(-.data$profile), scale, center = to_center, scale = to_scale) %>%
+        group_by(profile) %>% 
+        summarize_all(funs(mean, sd)) %>% 
+        gather(key, val, -profile) %>% 
+        mutate(new_key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, start = -4),
+                                ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, start = -2), NA)),
+               key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, end = -6),
+                            ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, end = -4), NA))) %>%
+        spread(.data$new_key, .data$val) %>% 
+        mutate(n_string = str_sub(as.character(.data$profile), start = 11),
+               n = as.numeric(str_extract(.data$n_string, "\\-*\\d+\\.*\\d*")),
+               se = 1.96 * (.data$sd / sqrt(.data$n - 1)),
+               ymin = .data$mean - .data$se,
+               ymax = .data$mean + .data$se) %>%
+        ggplot(aes_string(x = "profile", y = "mean", fill = "key", ymin = "ymin", ymax = "ymax")) +
+        geom_col(position = "dodge") +
+        geom_errorbar(position = position_dodge()) + 
+        theme_bw() +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        scale_x_discrete("")
+        
+}
 ```
 
+*6 profiles, model 1*
+
 ```{r}
-m$parameters %>% 
-    pluck(1) %>% 
-    filter(!str_detect(param, "#"),
-           paramHeader == "Means") %>% 
-    group_by(LatentClass, param) %>% 
-    summarize(mean_est = mean(est)) %>% 
-    ggplot(aes(x = LatentClass, y = mean_est, group = param, fill = param)) +
-    geom_col(position = "dodge")
+m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=6, model = 1, return_save_data = TRUE)
+plot_profiles_mplus(m)
+```
 
-x <- MplusAutomation::getSavedata_Data('~/desktop/t.out')
-# y <- MplusAutomation::getSavedata_Fileinfo('~/desktop/t.out')
-z <- x %>% count(C)
+*7 profiles, model 2*
 
-to_center = T
-to_scale = T
+```{r}
+m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=7, model = 2, return_save_data = TRUE)
+plot_profiles_mplus(m)
+```
 
-x %>% 
-    left_join(z) %>% 
-    mutate(profile = paste0("Profile ", C, " (n = ", n, ")")) %>% 
-    select(-contains("CPROB"), -C, -n) %>% 
-    mutate_at(vars(-.data$profile), scale, center = to_center, scale = to_scale) %>%
-    group_by(profile) %>% 
-    summarize_all(funs(mean, sd)) %>% 
-    gather(key, val, -profile) %>% 
-    mutate(new_key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, start = -4),
-                            ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, start = -2), NA)),
-           key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, end = -6),
-                        ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, end = -4), NA))) %>%
-    spread(.data$new_key, .data$val) %>% 
-    mutate(n_string = str_sub(as.character(.data$profile), start = 11),
-           n = as.numeric(str_extract(.data$n_string, "\\-*\\d+\\.*\\d*")),
-           se = 1.96 * (.data$sd / sqrt(.data$n - 1)),
-           ymin = .data$mean - .data$se,
-           ymax = .data$mean + .data$se) %>%
-    ggplot(aes_string(x = "profile", y = "mean", fill = "key", ymin = "ymin", ymax = "ymax")) +
-    geom_col(position = "dodge") +
-    geom_errorbar(position = position_dodge()) + 
-    scale_x_discrete("") +
-    theme_bw()
+*6 profiles, model 2*
+
+```{r}
+m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=6, model = 2, return_save_data = TRUE)
+plot_profiles_mplus(m)
 ```
