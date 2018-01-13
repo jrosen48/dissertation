@@ -237,7 +237,7 @@ m$parameters %>%
     geom_col(position = "dodge")
 
 x <- MplusAutomation::getSavedata_Data('~/desktop/t.out')
-y <- MplusAutomation::getSavedata_Fileinfo('~/desktop/t.out')
+# y <- MplusAutomation::getSavedata_Fileinfo('~/desktop/t.out')
 z <- x %>% count(C)
 
 to_center = T
@@ -263,9 +263,7 @@ x %>%
            ymax = .data$mean + .data$se) %>%
     ggplot(aes_string(x = "profile", y = "mean", fill = "key", ymin = "ymin", ymax = "ymax")) +
     geom_col(position = "dodge") +
-    geom_errorbar(position = position_dodge()) +
-    scale_fill_brewer("", type = "qual", palette=6) +
+    geom_errorbar(position = position_dodge()) + 
     scale_x_discrete("") +
     theme_bw()
-
 ```
