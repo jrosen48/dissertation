@@ -33,7 +33,7 @@ demographics <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-demograph
 pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
 ```
 
-```{r}
+```{r, load-image}
 # save.image("~/desktop/sandbox-01.Rdata")
 load("~/desktop/sandbox-01.Rdata")
 ```
@@ -85,7 +85,7 @@ df$gender_female <- ifelse(df$gender_female == "F", 1,
                            ifelse(df$gender_female == "M", 0, NA))
 ```
 
-```{r}
+```{r, proc-pqa}
 pqa <- mutate(pqa, 
               active = active_part_1 + active_part_2,
               ho_thinking = ho_thinking_1 + ho_thinking_2 + ho_thinking_3,
@@ -121,7 +121,7 @@ pqa$program_ID <- as.character(pqa$program_ID)
 df <- left_join(df, pqa, by = c("response_date", "program_ID", "signal_number", "sociedad_class"))
 ```
 
-```{r}
+```{r, proc-ya}
 df <- df %>% 
     mutate(youth_activity_three = case_when(
         youth_activity_rc == "Creating Product" ~ "Creating Product",
@@ -133,7 +133,7 @@ df$youth_activity_three <- fct_relevel(df$youth_activity_three,
                                        "Other")
 ```
 
-```{r}
+```{r, proc-ssb-vars}
 df <- df %>% 
     mutate(dm_cog_eng = learning,
            dm_beh_eng = hard_working,
@@ -159,7 +159,7 @@ df <- df %>%
            ov_aff_eng = (enjoy + interest) / 2)
 ```
 
-```{r}
+```{, merge-vars}
 out <- df %>% 
     group_by(program_ID) %>% 
     select(contains("ssb")) %>% 
@@ -181,56 +181,34 @@ names(pqa_out) <- names(out)
 
 # Specific models
 
-```{r}
-plot_profiles_mplus <- function(mplus_data, to_center = T, to_scale = T) {
-    
-    z <- m[[2]] %>% count(C)
-    
-    m[[2]] %>% 
-        left_join(z) %>% 
-        mutate(profile = paste0("Profile ", C, " (n = ", n, ")")) %>% 
-        select(-contains("CPROB"), -C, -n) %>% 
-        mutate_at(vars(-.data$profile), scale, center = to_center, scale = to_scale) %>%
-        group_by(profile) %>% 
-        summarize_all(funs(mean, sd)) %>% 
-        gather(key, val, -profile) %>% 
-        mutate(new_key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, start = -4),
-                                ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, start = -2), NA)),
-               key = ifelse(str_sub(.data$key, start = -4) == "mean", str_sub(.data$key, end = -6),
-                            ifelse(str_sub(.data$key, start = -2) == "sd", str_sub(.data$key, end = -4), NA))) %>%
-        spread(.data$new_key, .data$val) %>% 
-        mutate(n_string = str_sub(as.character(.data$profile), start = 11),
-               n = as.numeric(str_extract(.data$n_string, "\\-*\\d+\\.*\\d*")),
-               se = 1.96 * (.data$sd / sqrt(.data$n - 1)),
-               ymin = .data$mean - .data$se,
-               ymax = .data$mean + .data$se) %>%
-        ggplot(aes_string(x = "profile", y = "mean", fill = "key", ymin = "ymin", ymax = "ymax")) +
-        geom_col(position = "dodge") +
-        geom_errorbar(position = position_dodge()) + 
-        theme_bw() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-        scale_x_discrete("")
-        
-}
-```
-
 *6 profiles, model 1*
 
-```{r}
-m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=6, model = 1, return_save_data = TRUE)
+analysis 
+
+```{r, six-p-m-1}
+m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=6, model = 1, return_save_data=T)
 plot_profiles_mplus(m)
+plot_profiles_mplus(m) + scale_fill_brewer("", palette="Set2", labels = c("Affective Engagement", "Behavioral Engagement", "Challenge", "Cognitive Engagement", "Competence")) + ylab("Z-score") 
+```
+
+proc 
+
+```{r}
+cc <- m[[2]] %>% select(contains("DM")) %>% complete.cases()
+x <- df %>% select(contains("dm"))
+d <- bind_cols(x[cc, 6:ncol(x)], m[[2]])
 ```
 
 *7 profiles, model 2*
 
-```{r}
+```{r, 7-p-m-2}
 m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=7, model = 2, return_save_data = TRUE)
 plot_profiles_mplus(m)
 ```
 
 *6 profiles, model 2*
 
-```{r}
+```{r, 6-p-m-2}
 m <- create_profiles_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_profiles=6, model = 2, return_save_data = TRUE)
-plot_profiles_mplus(m)
+plot_profiles_mplus(m) + scale_fill_brewer("", palette="Set2", labels = c("Affective Engagement", "Behavioral Engagement", "Challenge", "Cognitive Engagement", "Competence")) + ylab("Z-score") 
 ```

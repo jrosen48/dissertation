@@ -41,7 +41,7 @@ For models fit using `mclust`, eight model specifications are tested, where all 
 * Three and standardized (M = 0, SD = 1) variables
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T)
+knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = F)
 ```
 
 ```{r, loading-packages}
@@ -327,6 +327,7 @@ out_df2 %>%
     geom_point() +
     geom_line()
 ```
+
 ### 2C: Three variables w/ no prior
 
 ```{r, 2c}
@@ -360,9 +361,3 @@ out_df4 %>%
     geom_point() +
     geom_line()
 ```
-
-# 3. Specific models
-
-```{r}
-
-``
