@@ -24,8 +24,8 @@ Both are interfaced to through the `tidyLPA` package.
 
 For models fit using `mclust`, eight model specifications are tested, where all five refers to the variables for cognitive (learning), behavioral (hard working), and affective (enjoy), and challenge and competence, where three refers to just the three engagement measures. Note that the prior is to regularize the parameter estimates to be more less likely to be extreme (and therefore to be less likely to lead to convergence problems, but possibly less meaningful / interpretable).
 
-* All five variables w/ no prior
-* All five variables standardized w/ prior
+* All five variables w/ no prior (not evaluated)
+* All five variables standardized w/ prior (not evaluated)
 
 *MPlus*
 
@@ -33,8 +33,8 @@ For models fit using `mclust`, eight model specifications are tested, where all 
 * All five variables standardized 
 * All five variables w/ defaults
 * All five variables standardized w/ defaults
-* All five variables w/ strict defaults
-* All five variables standardized w/ strict defaults
+* All five variables w/ strict defaults (not evaluated)
+* All five variables standardized w/ strict defaults (not evaluated)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, cache = F, error = F)
@@ -220,18 +220,18 @@ names(pqa_out) <- names(out)
 
 ### 1A. All five - no prior
 
-```{r, 1a, eval = T, results = 'markup'}
+```{r, 1a, eval = F}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    compare_models_lpa(contains("dm"))
+    compare_solutions(contains("dm"))
 ```
 
 ### 1B. All five - prior
 
-```{r, 1b}
+```{r, 1b, eval = F}
 df %>%
     select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-    compare_models_lpa(contains("dm"), prior_control = T)
+    compare_solutions(contains("dm"), prior_control = T)
 ```
 
 # Mplus
@@ -239,24 +239,17 @@ df %>%
 ### 2A: All five variables w/ no prior
 
 ```{r, 2a}
-out_df1 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence)
-```
+out_df1 <- compare_solutions_mplus(df, 
+                                   dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                   n_processors = 8)
 
-```{r, 2a-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
+# estimate_profiles_mplus(df, 
+#                         dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, model = 2, n_profiles=2)
 ```
 
 ### 2B: All five variables standardized w/ no prior
 
 ```{r, 2b}
-
 center_and_scale_vector <- function(x) {
     if (stats::sd(x, na.rm = TRUE) == 0) {
         x - mean(x, na.rm = TRUE)
@@ -267,106 +260,28 @@ center_and_scale_vector <- function(x) {
 
 df_ss <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% mutate_all(center_and_scale_vector)
 
-out_df1 <- compare_models_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence)
-```
-
-```{r, 2b-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
+out_df2 <- compare_solutions_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, n_processors=8)
 ```
 
 ### 2C: All five variables w/ no prior w/ suggested settings
 
 ```{r, 2c}
-out_df1 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50))
-```
-
-```{r, 2c-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
+out_df3 <- compare_solutions_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50))
 ```
 
 ### 2D: All five variables standardized w/ no prior w/ suggested settings
 
 ```{r, 2d}
-
-center_and_scale_vector <- function(x) {
-    if (stats::sd(x, na.rm = TRUE) == 0) {
-        x - mean(x, na.rm = TRUE)
-    } else {
-        (x - mean(x, na.rm = TRUE)) / stats::sd(x, na.rm = TRUE)
-    }
-}
-
-df_ss <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% mutate_all(center_and_scale_vector)
-
-out_df1 <- compare_models_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50))
-```
-
-```{r, 2d-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
+out_df4 <- compare_solutions_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50))
 ```
 
 ### 2E: All five variables w/ no prior w/ suggested settings and strict convergence
 
-```{r, 2e}
-out_df1 <- compare_models_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50), convergence_criterion=1E-7)
+```{r, 2e, eval = F}
+out_df5 <- compare_solutions_mplus(df, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50), convergence_criterion=1E-7)
 ```
-
-```{r, 2e-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
-```
-
 ### 2F: All five variables standardized w/ no prior w/ suggested settings and strict convergence
 
-```{r, 2f}
-
-center_and_scale_vector <- function(x) {
-    if (stats::sd(x, na.rm = TRUE) == 0) {
-        x - mean(x, na.rm = TRUE)
-    } else {
-        (x - mean(x, na.rm = TRUE)) / stats::sd(x, na.rm = TRUE)
-    }
-}
-
-df_ss <- df %>% select(dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% mutate_all(center_and_scale_vector)
-
-out_df1 <- compare_models_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50),convergence_criterion= 1E-7)
-```
-
-```{r, 2f-plot}
-out_df1 %>% 
-    pluck(1) %>% 
-    gather(key, val, -n_profiles) %>% 
-    filter(val != "Convergence problem",
-           val != "LL not replicated") %>% 
-    ggplot(aes(x = n_profiles, y = val, group = key, color = key)) +
-    geom_point() +
-    geom_line()
+```{r, 2f, eval = F}
+out_df6 <- compare_solutions_mplus(df_ss, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence, st_iterations = 50, starts = c(500, 50),convergence_criterion= 1E-7)
 ```

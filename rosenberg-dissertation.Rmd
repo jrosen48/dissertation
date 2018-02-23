@@ -1,0 +1,358 @@
+--- 
+title: "Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method"
+author: "Joshua M. Rosenberg"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "A Dissertation Submitted to Michigan State University in partial fulfillment of the requirements for the degree of Educational Psychology and Educational Technology – Doctor of Philosophy"
+---
+--- 
+title: "Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method"
+author: "Joshua M. Rosenberg"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "A Dissertation Submitted to Michigan State University in partial fulfillment of the requirements for the degree of Educational Psychology and Educational Technology – Doctor of Philosophy"
+---
+
+<!--chapter:end:index.Rmd-->
+
+# Abstract {#abstract}
+
+This study will examine how 203 early adolescent learners work with data, or engage in activities focused on constructing measures of and modeling data, in the context of STEM summer enrichment programs. Video recordings of programs will be coded to identify the presence of five aspects of learners’ work with data: asking questions or identifying problems, constructing measures, collecting data, accounting for variability or uncertainty, and interpreting and communicating findings. Additionally, measures of instructional support for such practices will be used, so codes for work with data with instructional support are also created. Youth’s responses to the Experience Sampling Method (ESM) will be used to examine their cognitive, behavioral, and affective engagement as well as their perceptions of challenge and competence. A person-oriented analytic approach will be used to identify profiles of engagement that will help us to understand how learners engage in work with data. Examining work with data in terms of contemporary engagement theory can help us to understand these key STEM activities in terms of learner's experience, which past research suggests impacts student learning, yet which has not been brought to bear on the topic of work with data. Knowing more about students’ engagement can help us to design activities and interventions around work with data that are highly engaging to students and that support their capabilities to work with data. 
+
+<!--chapter:end:00-abstract.Rmd-->
+
+# Introduction {#intro-placemarker}
+
+Changes in how we plan our day-to-day lives, communicate, and learn are increasingly impacted by data. These sources of data are created by us, for us, and about us, although at present opportunities for learners to analyze data in educational settings remain limited. Data analysis includes processes of collecting, creating, modeling data, and asking questions that may be answered with data and making sense of findings. Analyzing data in educational settings, then, is more than just crunching numbers or interpreting a figure created by someone else, but rather is about making sense of phenomena and problem solving (Wild & Pfannkuch, 1999). Data analysis and its processes cut across STEM domains and are recognized as core competencies in both the Next Generation Science Standards and the Common Core State Standards (National Governors Association Center for Best Practices, Council of Chief State School Officers, 2010; NGSS Lead States, 2013). Scholars have pointed out the benefits of analyzing data for learners as young as two years old (Gopnik, & Sobel, 2000). 
+
+In supporting teachers and learners’ data analysis efforts, some scholars have focused on the process of key data analytic practices, particularly the practices of generating measures of phenomena and creating data models—as an organizing activity in science and mathematics content areas (English, 2012; Lehrer & Romberg, 1996; Lesh, Middleton, Caylor, & Gupta, 2008). Findings from this area of research suggest that engaging in these practices “has an exceptionally high payoff in terms of students’ scientific reasoning” (Lehrer & Schauble, 2015, p. 696) and can highlight the utility of mathematics for students’ lives (Lesh, Middleton, Caylor, & Gupta, 2008).
+
+While scholars have looked at cognitive outcomes and learners’ capability to participate in specific, key aspects of data analysis as well as strategies to address key challenges of doing so, we have not yet examined key data analytic practices in terms of engagement theory. Contemporary engagement theory offers a framework with which to understand learners’ experience of engaging in these practices, referred to as work with data in the remainder of this study because it considers multiple dimensions of experiencing engagement and its dynamic nature (Fredricks & McColskey, 2012). Scholars commonly consider engagement in terms of its cognitive (i.e., use of meta-cognitive learning strategies), behavioral (hard work on a task), and affective dimensions (enjoyment; Fredricks, Blumenfeld, & Paris, 2004; Sinatra, Heddy, & Lombardi, 2015; Skinner & Pitzer, 2012).
+
+In recognition of its dynamic nature, some engagement scholars have usefully drawn upon flow theory (Csikszentmihalyi, 1990, 1997) to identify how learners’ perceived competence and challenge act as key conditions of engagement (Shernoff, Kelly, Tonks, Anderson, Cavanagh, Sinha, & Abdi, 2016), aligning with situated views of learning (Sfard, 1998) and motivation (Nolen, Horn, & Ward, 2015). 
+
+The purpose of this study, then, is to understand learners’ experience of engagement in work with data and the conditions that support it. Engagement is understood in terms of cognitive, behavioral, and affective dimensions, and the conditions that support engagement are understood in terms of two subjective components that past research and theory suggest influence engagement: perceived challenge and perceived competence, as well as instructional support for engaging in aspects of work with data. Engagement in work with data is explored in the context of outside-of-school STEM enrichment programs carried out during the summer. In recognition of the challenge of studying engagement in learning environments where factors related to activities, learners, and each of the nine programs all interact at the same time, this study uses a methodological approach suited to studying engagement as a dynamic, multi-faceted experience. Specifically, this study employs the Experience Sampling Method (ESM; Hektner, Schmidt, & Csikszentmihalyi, 2007) where learners answer short questions about their experience when signaled. This approach is both sensitive to changes in engagement over time, as well as between learners and allows us to understand engagement and how factors impact it in more nuanced and complex ways (Turner & Meyer, 2000).
+
+<!--chapter:end:01-introduction.Rmd-->
+
+
+# Literature Review
+
+Placeholder
+
+
+## Defining Work With Data
+## What We Know (And Do Not Know) About Engagement in Work with Data
+## Engagement in STEM Domains
+## Using ESM to Study the Dynamics of Engagement
+## A Person-Oriented Approach to Engagement
+## Need for the Present Study
+## Conceptual Framework
+## Research Questions
+
+<!--chapter:end:02-literature.Rmd-->
+
+
+# Method
+
+Placeholder
+
+
+## Participants
+## Context	
+## Procedure
+## Data Sources and Measures
+## Data Analysis
+## Power Analysis
+## Limitations
+
+<!--chapter:end:03-method.Rmd-->
+
+# Results
+
+In this section, results in terms of ...
+
+```{r, include = FALSE}
+library(ggplot2)
+# Generate some sample data, then compute mean and standard deviation
+# in each group
+df <- data.frame(
+  gp = factor(rep(letters[1:3], each = 10)),
+  y = rnorm(30)
+)
+ds <- plyr::ddply(df, "gp", plyr::summarise, mean = mean(y), sd = sd(y))
+
+# The summary data frame ds is used to plot larger red points on top
+# of the raw data. Note that we don't need to supply `data` or `mapping`
+# in each layer because the defaults from ggplot() are used.
+
+```
+ggplot(df, aes(gp, y)) +
+  geom_point() +
+  geom_point(data = ds, aes(y = mean), colour = 'red', size = 3)
+```
+
+
+<!--chapter:end:04-results.Rmd-->
+
+# Discussion
+
+<!--chapter:end:05-discussion.Rmd-->
+
+
+# Discussion
+
+Placeholder
+
+
+
+<!--chapter:end:06-references.Rmd-->
+
+# Appendix
+
+<!-- Appendix A -->
+
+<!-- Coding Frame for Instructional Support for STEM-Related Activities from the Program Quality Assessment  -->
+
+<!-- Code	Description	Alignment with Work With Data -->
+<!-- Predict	Staff ask youth to make predictions, conjectures, or hypotheses -->
+<!-- 	Asking questions or defining problems -->
+<!-- Analyze	Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses -->
+<!-- 	Data modeling -->
+<!-- Model	Staff support youth in analyzing data to draw conclusions -->
+<!-- 	Data modeling -->
+<!-- Measure	Staff support youth in collecting data or measuring -->
+<!-- 	Generating data -->
+<!-- Tools	Staff support youth in using tools of the field -->
+<!-- 	- -->
+<!-- Precision	Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating -->
+<!-- 	Interpreting and communicating findings -->
+<!-- Vocabulary	Staff model use of STEM vocabulary terms -->
+<!-- 	- -->
+<!-- Classification	Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas -->
+<!-- 	Making observations -->
+<!-- Symbols	Staff support youth in conveying STEM concepts through symbols, models, or other nonverbal language -->
+<!-- 	Data modeling -->
+
+<!--chapter:end:07-appendix.Rmd-->
+
+---
+title: "Benchmark"
+author: "Joshua Rosenberg"
+date: "2018-02-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, cache = T, error = F, echo = F) 
+```
+
+```{r, loading-packages}
+library(tidyverse)
+library(lme4)
+library(corrr)
+library(jmRtools)
+library(tidyLPA)
+```
+
+```{r, loading-data, eval = F}
+esm <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-esm.csv")
+pre_survey_data_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pre-survey.csv")
+post_survey_data_partially_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-post-survey.csv")
+video <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-video.csv")
+pqa <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pqa.csv")
+attendance <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-attendance.csv")
+class_data <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-class-video.csv")
+demographics <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-demographics.csv")
+pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
+```
+
+```{r}
+# save.image("~/desktop/sandbox-01.Rdata")
+load("~/desktop/sandbox-01.Rdata")
+```
+
+```{r, processing-some-data}
+attendance <- rename(attendance, participant_ID = ParticipantID)
+attendance <- mutate(attendance, prop_attend = DaysAttended / DaysScheduled, 
+                     participant_ID = as.integer(participant_ID))
+attendance <- select(attendance, participant_ID, prop_attend)
+
+demographics <- filter(demographics, participant_ID!= 7187)
+demographics <- left_join(demographics, attendance)
+
+esm$overall_engagement <- jmRtools::composite_mean_maker(esm, hard_working, concentrating, enjoy, interest)
+```
+
+```{r, joining-df}
+df <- left_join(esm, pre_survey_data_processed, by = "participant_ID") # df & post-survey
+df <- left_join(df, video, by = c("program_ID", "response_date", "sociedad_class", "signal_number")) # df & video
+df <- left_join(df, demographics, by = c("participant_ID", "program_ID")) # df and demographics
+```
+
+```{r, proc-variables, echo = F}
+df$participant_ID <- as.factor(df$participant_ID)
+df$program_ID <- as.factor(df$program_ID)
+df$beep_ID <- as.factor(df$beep_ID)
+df$beep_ID_new <- as.factor(df$beep_ID_new)
+
+df$youth_activity_rc <- ifelse(df$youth_activity == "Off Task", "Not Focused", df$youth_activity)
+
+df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Student Presentation" | df$youth_activity_rc == "Problem Solving", "Creating Product", df$youth_activity_rc)
+
+df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Showing Video", "Program Staff Led", df$youth_activity_rc)
+
+df$youth_activity_rc <- as.factor(df$youth_activity_rc)
+
+df$youth_activity_rc <- forcats::fct_relevel(df$youth_activity_rc, "Not Focused")
+
+df$relevance <- jmRtools::composite_mean_maker(df, use_outside, future_goals, important)
+```
+
+```{r processing-demographics, echo = F, eval = F}
+df$urm <- ifelse(df$race %in% c("White", "Asian"), 0, 1)
+df$race <- as.factor(df$race)
+df$race <- fct_lump(df$race, n = 2)
+df$race_other <- fct_relevel(df$race, "Other")
+df$gender_female <- as.factor(df$gender) # female is comparison_group
+df$gender_female <- ifelse(df$gender_female == "F", 1, 
+                           ifelse(df$gender_female == "M", 0, NA))
+```
+
+```{r}
+pqa <- mutate(pqa, 
+              active = active_part_1 + active_part_2,
+              ho_thinking = ho_thinking_1 + ho_thinking_2 + ho_thinking_3,
+              belonging = belonging_1 + belonging_2,
+              agency = agency_1 + agency_2 + agency_3 + agency_4,
+              youth_development_overall = active_part_1 + active_part_2 + ho_thinking_1 + ho_thinking_2 + ho_thinking_3 + belonging_1 + belonging_2 + agency_1 + agency_2 + agency_3 + agency_4,
+              making_observations = stem_sb_8,
+              data_modeling = stem_sb_2 + stem_sb_3 + stem_sb_9,
+              interpreting_communicating = stem_sb_6,
+              generating_data = stem_sb_4,
+              asking_questions = stem_sb_1,
+              stem_sb = stem_sb_1 + stem_sb_2 + stem_sb_3 + stem_sb_4 + stem_sb_5 + stem_sb_6 + stem_sb_7 + stem_sb_8 + stem_sb_9)
+
+# pqa <- rename(pqa, sixth_math_sociedad = sixth_math)
+# pqa <- rename(pqa, seventh_math_sociedad = seventh_math)
+# pqa <- rename(pqa, eighth_math_sociedad = eighth_math)
+# pqa <- rename(pqa, dance_sociedad = dance)
+# pqa <- rename(pqa, robotics_sociedad = robotics)
+
+pqa$sociedad_class <- ifelse(pqa$eighth_math == 1, "8th Math",
+                             ifelse(pqa$seventh_math == 1, "7th Math",
+                                    ifelse(pqa$sixth_math == 1, "6th Math",
+                                           ifelse(pqa$robotics == 1, "Robotics",
+                                                  ifelse(pqa$dance == 1, "Dance", NA)))))
+
+pqa <- rename(pqa, 
+              program_ID = SiteIDNumeric,
+              response_date = resp_date,
+              signal_number = signal)
+
+pqa$program_ID <- as.character(pqa$program_ID)
+
+df <- left_join(df, pqa, by = c("response_date", "program_ID", "signal_number", "sociedad_class"))
+```
+
+```{r}
+df <- df %>% 
+    mutate(youth_activity_three = case_when(
+        youth_activity_rc == "Creating Product" ~ "Creating Product",
+        youth_activity_rc == "Basic Skills Activity" ~ "Basic Skills Activity",
+        TRUE ~ "Other"
+    ))
+
+df$youth_activity_three <- fct_relevel(df$youth_activity_three, 
+                                       "Other")
+```
+
+```{r}
+
+df <- df %>% 
+    mutate(dm_cog_eng = learning,
+           dm_beh_eng = hard_working,
+           dm_aff_eng = enjoy,
+           dm_challenge = challenge,
+           dm_competence = good_at) %>% 
+    rename(ssb_predict = stem_sb_1,
+           ssb_model = stem_sb_2 ,
+           ssb_analyze = stem_sb_3,
+           ssb_measure = stem_sb_4,
+           ssb_tools = stem_sb_5,
+           ssb_precision = stem_sb_6,
+           ssb_vocabulary = stem_sb_7,
+           ssb_classification = stem_sb_8,
+           ssb_symbols = stem_sb_9) %>% 
+    mutate(dm_ask = ssb_predict,
+           dm_obs = ssb_classification,
+           dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
+           dm_mod = ifelse(ssb_model == 1 | ssb_analyze == 1, 1, 0),
+           dm_com = ssb_symbols) %>% 
+    mutate(ov_cog_eng = (important + future_goals) / 2,
+           ov_beh_eng = (hard_working + concentrating) / 2,
+           ov_aff_eng = (enjoy + interest) / 2)
+
+df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
+```
+
+```{r}
+out <- df %>% 
+    group_by(program_ID) %>% 
+    select(contains("ssb")) %>% 
+    summarize_all(sum, na.rm = T)
+
+out1 <- pqa %>% 
+    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
+    summarize_all(sum, na.rm = T) / 236
+
+names(out1) <- df %>% select(contains("ssb")) %>% names()
+
+pqa_out <- pqa %>% 
+    group_by(program_ID) %>% 
+    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
+    summarize_all(sum, na.rm = T)
+
+names(pqa_out) <- names(out)
+```
+
+# Benchmark with 1 and 8 processors - complex data
+
+```{r}
+library(microbenchmark)
+
+microbenchmark(compare_solutions_mplus(df,  
+                                       dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                       starts = c(600, 120),
+                                       model = c(1, 3, 6),
+                                       n_profiles_min = 3, 
+                                       n_profiles_max = 5,
+                                       n_processors = 8),
+               compare_solutions_mplus(df,  
+                                       dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                       starts = c(600, 120),
+                                       model = c(1, 3, 6),
+                                       n_profiles_min = 3, 
+                                       n_profiles_max = 5,
+                                       n_processors = 1),
+               times = 3)
+
+<!--chapter:end:microbenchmark.Rmd-->
+
+
+# save.image("~/desktop/sandbox-01.Rdata")
+
+Placeholder
+
+
+
+<!--chapter:end:prep-for-coding.Rmd-->
+
