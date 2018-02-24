@@ -547,7 +547,7 @@ names(pqa_out) <- names(out)
 
 ## 1. Solutions for all models
 
-```{r, compare-solutions-1, eval = F}
+```{r, compare-solutions-all, eval = T}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -559,7 +559,7 @@ d <- compare_solutions_mplus(df,
 
 ## 2. Just for model 1
 
-```{r, compare-solutions2-1, eval = F}
+```{r, compare-solutions-model1, eval = T}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -583,7 +583,7 @@ d %>%
 
 ## 2. Just for model 2
 
-```{r, compare-solutions-2-2, eval = F}
+```{r, compare-solutions-model2, eval = T}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -604,9 +604,9 @@ d %>%
     facet_wrap("key", scales = "free")
 ```
 
-## 4. Some specific solutions
+## 4. Some specific solutions for model 1
 
-```{r, eval = T, spec-solutions}
+```{r, eval = T, spec-solutions-model1}
 
 m1_3 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
@@ -665,7 +665,7 @@ extract_LL_mplus()
 
 ```
 
-```{r, new-chunk}
+```{r, anotherm1-7-solution}
 m1_7 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -677,6 +677,74 @@ m1_7 <- estimate_profiles_mplus(df,
 plot_profiles_mplus(m1_7)
 # extract_LL_mplus()
 ```
+
+## 5. Some specific solutions for model 2
+
+```{r, eval = T, spec-solutions-model2-3}
+
+m1_3 <- estimate_profiles_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             model = 2,
+                             n_profiles = 3,
+                             include_BLRT=TRUE,
+                             n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m1_3)
+extract_LL_mplus()
+```
+
+```{r, spec-solutions-model2-4}
+m1_4 <- estimate_profiles_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             model = 2,
+                             n_profiles = 4,
+                             include_BLRT=TRUE,
+                             n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m1_4)
+extract_LL_mplus()
+```
+
+```{r, spec-solutions-model2-5}
+m1_5 <- estimate_profiles_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             model = 2,
+                             n_profiles = 5,
+                             include_BLRT=TRUE,
+                             n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m1_5)
+extract_LL_mplus()
+```
+
+```{r, spec-solutions-model2-6}
+m1_6 <- estimate_profiles_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             model = 2,
+                             n_profiles = 6,
+                             include_BLRT=TRUE,
+                             n_processors = 8, remove_tmp_files = FALSE)
+
+extract_LL_mplus()
+```
+
+```{r, spec-solutions-model2-7}
+m1_7 <- estimate_profiles_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             model = 2,
+                             n_profiles = 7,
+                             include_BLRT=TRUE,
+                             n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m1_7)
+extract_LL_mplus()
+
+``` 
 
 <!--chapter:end:04-results.Rmd-->
 

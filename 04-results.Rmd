@@ -311,7 +311,7 @@ plot_profiles_mplus(m1_7)
 
 ## 5. Some specific solutions for model 2
 
-```{r, eval = T, spec-solutions-model2}
+```{r, eval = T, spec-solutions-model2-3}
 
 m1_3 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
@@ -323,7 +323,9 @@ m1_3 <- estimate_profiles_mplus(df,
 
 plot_profiles_mplus(m1_3)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-model2-4}
 m1_4 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -334,7 +336,9 @@ m1_4 <- estimate_profiles_mplus(df,
 
 plot_profiles_mplus(m1_4)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-model2-5}
 m1_5 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -345,7 +349,9 @@ m1_5 <- estimate_profiles_mplus(df,
 
 plot_profiles_mplus(m1_5)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-model2-6}
 m1_6 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -354,9 +360,10 @@ m1_6 <- estimate_profiles_mplus(df,
                              include_BLRT=TRUE,
                              n_processors = 8, remove_tmp_files = FALSE)
 
-plot_profiles_mplus(m1_6)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-model2-7}
 m1_7 <- estimate_profiles_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -368,4 +375,4 @@ m1_7 <- estimate_profiles_mplus(df,
 plot_profiles_mplus(m1_7)
 extract_LL_mplus()
 
-```
+``` 
