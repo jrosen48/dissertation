@@ -4,13 +4,15 @@ author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: book
+documentclass: msu-thesis
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: jrosen48/rosenberg-dissertation
+description: "This is Joshua Rosenberg's dissertation"
 ---
+
+# Index
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
