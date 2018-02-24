@@ -1,0 +1,1116 @@
+Mplus VERSION 8 (Mac)
+MUTHEN & MUTHEN
+02/24/2018   5:10 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: test
+  DATA: File is d.dat;
+  VARIABLE:
+  Names are dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
+  Classes = c(7);
+  MODEL:
+  %overall%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence;
+  dm_cog_eng WITH dm_beh_eng;
+  dm_cog_eng WITH dm_aff_eng;
+  dm_cog_eng WITH dm_challenge;
+  dm_cog_eng WITH dm_competence;
+  dm_beh_eng WITH dm_aff_eng;
+  dm_beh_eng WITH dm_challenge;
+  dm_beh_eng WITH dm_competence;
+  dm_aff_eng WITH dm_challenge;
+  dm_aff_eng WITH dm_competence;
+  dm_challenge WITH dm_competence;
+  %c#1%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#2%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#3%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#4%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#5%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#6%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  %c#7%
+  [dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence];
+  dm_cog_eng dm_beh_eng dm_aff_eng dm_challenge dm_competence(1-5);
+  dm_cog_eng WITH dm_beh_eng(6);
+  dm_cog_eng WITH dm_aff_eng(7);
+  dm_cog_eng WITH dm_challenge(8);
+  dm_cog_eng WITH dm_competence(9);
+  dm_beh_eng WITH dm_aff_eng(10);
+  dm_beh_eng WITH dm_challenge(11);
+  dm_beh_eng WITH dm_competence(12);
+  dm_aff_eng WITH dm_challenge(13);
+  dm_aff_eng WITH dm_competence(14);
+  dm_challenge WITH dm_competence(15);
+  ANALYSIS:
+  Type is mixture;
+  start = 600 120;
+  miterations = 500;
+  stiterations = 10;
+  convergence = 1e-06;
+  processors = 8;
+  OUTPUT: TECH1 TECH11 TECH14;
+  SAVEDATA: File is d-mod.dat;
+  SAVE = CPROBABILITIES;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+test
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2958
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   DM_COG_ENG  DM_BEH_ENG  DM_AFF_ENG  DM_CHALLEN  DM_COMPETE
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        600
+  Number of final stage optimizations                          120
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  d.dat
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     DM_COG_ENG            2.769      -0.354       1.000   16.50%       2.000      3.000      3.000
+            2958.000       1.131      -1.119       4.000   31.20%       3.000      4.000
+     DM_BEH_ENG            2.864      -0.465       1.000   14.00%       2.000      3.000      3.000
+            2958.000       1.089      -0.996       4.000   34.58%       3.000      4.000
+     DM_AFF_ENG            2.833      -0.432       1.000   14.91%       2.000      3.000      3.000
+            2958.000       1.106      -1.037       4.000   33.43%       3.000      4.000
+     DM_CHALLENGE          2.271       0.263       1.000   33.74%       1.000      2.000      2.000
+            2958.000       1.250      -1.314       4.000   18.86%       3.000      3.000
+     DM_COMPETENCE         3.001      -0.606       1.000    8.69%       2.000      3.000      3.000
+            2958.000       0.906      -0.625       4.000   36.68%       3.000      4.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -17035.006  85734            411
+          -17035.006  344422           296
+          -18213.406  939021           8
+          -18214.792  458181           189
+          -18217.063  715255           523
+          -18227.574  126371           526
+          -18227.574  391949           295
+          -18234.603  30098            209
+          -18234.603  150531           154
+          -18234.603  790452           303
+          -18243.088  863691           481
+          -18249.303  823392           479
+          -18251.021  415502           194
+          -18252.559  863094           147
+          -18254.567  579995           183
+          -18255.084  751054           117
+          -18256.248  802256           477
+          -18256.586  535063           329
+          -18260.574  497522           502
+          -18262.825  414284           158
+          -18277.047  285380           1
+          -18281.407  846194           93
+          -18292.320  378393           509
+          -18302.227  608460           244
+          -18304.806  67009            564
+          -18323.206  802682           419
+          -18323.309  584397           428
+          -18327.896  533738           11
+          -18331.795  679832           302
+          -18331.795  605358           321
+          -18339.546  192071           142
+          -18339.549  848969           173
+          -18340.103  840031           276
+          -18345.784  473942           574
+          -18346.929  535804           111
+          -18347.305  84013            598
+          -18347.733  496710           386
+          -18348.790  575700           100
+          -18349.865  551639           55
+          -18354.367  850545           357
+          -18362.423  140849           515
+          -18363.008  902278           21
+          -18363.035  508482           446
+          -18363.056  788796           145
+          -18364.003  745972           521
+          -18364.003  396795           323
+          -18365.401  105435           265
+          -18369.099  928287           197
+          -18371.367  655497           376
+          -18372.372  351622           551
+          -18373.311  691234           250
+          -18373.728  791285           416
+          -18377.907  506886           576
+          -18379.072  567165           319
+          -18380.065  481835           57
+          -18381.203  404510           442
+          -18394.235  622860           259
+          -18397.920  879211           453
+          -18400.368  425929           508
+          -18401.340  714455           476
+          -18404.744  782821           272
+          -18409.271  349263           263
+          -18412.286  312754           562
+          -18417.806  922042           492
+          -18423.588  635245           121
+          -18424.106  499150           216
+          -18431.262  872743           374
+          -18434.814  7959             256
+          -18438.915  561664           392
+          -18444.381  25127            107
+          -18446.050  278692           342
+          -18447.972  418686           338
+          -18450.645  939709           112
+          -18459.869  172913           557
+          -18460.737  507154           387
+          -18461.328  217744           326
+          -18463.930  855760           593
+          -18464.873  903420           5
+          -18465.502  371737           532
+          -18465.917  27071            15
+          -18467.119  669634           335
+          -18467.840  923437           398
+          -18469.553  76337            76
+          -18477.481  714997           399
+          -18492.761  416463           467
+          -18493.050  789985           67
+          -18500.147  263268           165
+          -18511.046  383986           159
+          -18524.976  468036           131
+          -18528.015  978061           488
+          -18530.377  749635           420
+          -18538.510  260953           589
+          -18540.786  232559           136
+          -18547.639  165853           105
+          -18567.886  476498           179
+          -18579.855  471040           403
+          -18598.696  650371           14
+
+23 perturbed starting value run(s) did not converge.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS      -0.269D-17.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 41, %C#6%: [ DM_COG_ENG ]
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       56
+
+Loglikelihood
+
+          H0 Value                      -17035.006
+          H0 Scaling Correction Factor      1.4169
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   34182.013
+          Bayesian (BIC)                 34517.580
+          Sample-Size Adjusted BIC       34339.647
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        350.00000          0.11832
+       2        429.00000          0.14503
+       3        122.00000          0.04124
+       4         40.18834          0.01359
+       5        532.21866          0.17993
+       6        219.00000          0.07404
+       7       1265.59299          0.42785
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        350.00000          0.11832
+       2        429.00000          0.14503
+       3        122.00000          0.04124
+       4         40.18825          0.01359
+       5        532.21879          0.17993
+       6        219.00000          0.07404
+       7       1265.59296          0.42785
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              350          0.11832
+       2              429          0.14503
+       3              122          0.04124
+       4               41          0.01386
+       5              538          0.18188
+       6              219          0.07404
+       7             1259          0.42563
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.965
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7
+
+    1   1.000    0.000    0.000    0.000    0.000    0.000    0.000
+    2   0.000    1.000    0.000    0.000    0.000    0.000    0.000
+    3   0.000    0.000    1.000    0.000    0.000    0.000    0.000
+    4   0.000    0.000    0.000    0.847    0.144    0.000    0.009
+    5   0.000    0.000    0.000    0.010    0.943    0.000    0.047
+    6   0.000    0.000    0.000    0.000    0.000    1.000    0.000
+    7   0.000    0.000    0.000    0.000    0.015    0.000    0.985
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5        6        7
+
+    1   1.000    0.000    0.000    0.000    0.000    0.000    0.000
+    2   0.000    1.000    0.000    0.000    0.000    0.000    0.000
+    3   0.000    0.000    1.000    0.000    0.000    0.000    0.000
+    4   0.000    0.000    0.000    0.864    0.136    0.000    0.000
+    5   0.000    0.000    0.000    0.011    0.953    0.000    0.036
+    6   0.000    0.000    0.000    0.000    0.000    1.000    0.000
+    7   0.000    0.000    0.000    0.000    0.020    0.000    0.980
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5        6        7
+
+    1     13.816    0.000    0.000    0.000    0.000    0.000    0.000
+    2      0.000   13.816    0.000    0.000    0.000    0.000    0.000
+    3      0.000    0.000   13.816    0.000    0.000    0.000    0.000
+    4     -5.995   -5.995   -5.995    7.674    5.823   -5.995    0.000
+    5    -10.487  -10.487  -10.487   -1.172    3.280  -10.487    0.000
+    6      0.000    0.000    0.000    0.000    0.000   13.816    0.000
+    7    -13.795  -13.795  -13.795   -8.125   -3.891  -13.795    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         3.180      0.037     85.449      0.000
+    DM_BEH_ENG         2.180      0.037     58.578      0.000
+    DM_AFF_ENG         2.763      0.049     56.656      0.000
+    DM_CHALLEN         2.229      0.053     41.950      0.000
+    DM_COMPETE         2.769      0.047     59.163      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 2
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         2.200      0.036     61.611      0.000
+    DM_BEH_ENG         3.200      0.036     89.610      0.000
+    DM_AFF_ENG         2.702      0.048     56.838      0.000
+    DM_CHALLEN         2.182      0.051     42.642      0.000
+    DM_COMPETE         2.984      0.043     69.532      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 3
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         3.713      0.041     90.674      0.000
+    DM_BEH_ENG         1.328      0.043     31.243      0.000
+    DM_AFF_ENG         2.811      0.101     27.760      0.000
+    DM_CHALLEN         2.156      0.112     19.282      0.000
+    DM_COMPETE         3.074      0.096     31.883      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 4
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         1.131      0.050     22.768      0.000
+    DM_BEH_ENG         1.131      0.050     22.768      0.000
+    DM_AFF_ENG         3.678      0.084     43.577      0.000
+    DM_CHALLEN         1.625      0.206      7.874      0.000
+    DM_COMPETE         3.301      0.216     15.264      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 5
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         1.589      0.028     55.839      0.000
+    DM_BEH_ENG         1.589      0.028     55.839      0.000
+    DM_AFF_ENG         1.737      0.036     48.362      0.000
+    DM_CHALLEN         1.785      0.040     44.710      0.000
+    DM_COMPETE         2.315      0.046     49.969      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 6
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         1.397      0.033     42.257      0.000
+    DM_BEH_ENG         3.639      0.032    112.151      0.000
+    DM_AFF_ENG         2.671      0.079     33.757      0.000
+    DM_CHALLEN         2.037      0.076     26.958      0.000
+    DM_COMPETE         2.950      0.068     43.120      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Latent Class 7
+
+ DM_COG_E WITH
+    DM_BEH_ENG         0.333      0.008     41.314      0.000
+    DM_AFF_ENG         0.247      0.010     24.561      0.000
+    DM_CHALLEN         0.107      0.012      9.011      0.000
+    DM_COMPETE         0.148      0.010     14.145      0.000
+
+ DM_BEH_E WITH
+    DM_AFF_ENG         0.246      0.010     24.425      0.000
+    DM_CHALLEN         0.103      0.012      8.685      0.000
+    DM_COMPETE         0.149      0.010     14.362      0.000
+
+ DM_AFF_E WITH
+    DM_CHALLEN         0.154      0.019      8.132      0.000
+    DM_COMPETE         0.247      0.016     15.433      0.000
+
+ DM_CHALL WITH
+    DM_COMPETE        -0.022      0.018     -1.197      0.231
+
+ Means
+    DM_COG_ENG         3.544      0.017    205.597      0.000
+    DM_BEH_ENG         3.544      0.017    205.597      0.000
+    DM_AFF_ENG         3.361      0.023    144.276      0.000
+    DM_CHALLEN         2.589      0.032     79.751      0.000
+    DM_COMPETE         3.352      0.022    153.239      0.000
+
+ Variances
+    DM_COG_ENG         0.345      0.008     43.557      0.000
+    DM_BEH_ENG         0.345      0.008     43.549      0.000
+    DM_AFF_ENG         0.756      0.020     37.683      0.000
+    DM_CHALLEN         1.152      0.020     57.166      0.000
+    DM_COMPETE         0.761      0.019     40.686      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -1.285      0.061    -21.196      0.000
+    C#2               -1.082      0.056    -19.289      0.000
+    C#3               -2.339      0.095    -24.595      0.000
+    C#4               -3.450      0.189    -18.276      0.000
+    C#5               -0.866      0.057    -15.226      0.000
+    C#6               -1.754      0.074    -23.838      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.269E-17
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   21            22            23            24            25
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 3
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   26            27            28            29            30
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 4
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   31            32            33            34            35
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 5
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   36            37            38            39            40
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 6
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   41            42            43            44            45
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 7
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                   46            47            48            49            50
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E           6
+ DM_BEH_E           7             8
+ DM_AFF_E           9            10            11
+ DM_CHALL          12            13            14            15
+ DM_COMPE          16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4           C#5
+              ________      ________      ________      ________      ________
+                   51            52            53            54            55
+
+
+           ALPHA(C)
+              C#6           C#7
+              ________      ________
+                   56             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                0.642         0.776         0.730         0.035         1.097
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                1.706         1.820         1.781         1.153         2.049
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 3
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                2.769         2.864         2.833         2.271         3.001
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 4
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                2.769         2.864         2.833         2.271         3.001
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 5
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                2.769         2.864         2.833         2.271         3.001
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 6
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                3.833         3.907         3.885         3.389         3.953
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS 7
+
+
+           NU
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+                4.897         4.951         4.936         4.506         4.905
+
+
+           THETA
+              DM_COG_E      DM_BEH_E      DM_AFF_E      DM_CHALL      DM_COMPE
+              ________      ________      ________      ________      ________
+ DM_COG_E       0.566
+ DM_BEH_E       0.000         0.545
+ DM_AFF_E       0.000         0.000         0.553
+ DM_CHALL       0.000         0.000         0.000         0.625
+ DM_COMPE       0.000         0.000         0.000         0.000         0.453
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4           C#5
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA(C)
+              C#6           C#7
+              ________      ________
+                0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 600
+        Number of final stage optimizations                   120
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 6 (H0) VERSUS 7 CLASSES
+
+
+
+     WARNING:  THE LIKELIHOOD RATIO TEST COMPUTATION FOR TECH11 DID NOT
+     TERMINATE NORMALLY BECAUSE THE LOGLIKELIHOOD VALUE FOR THE MODEL WITH ONE
+     LESS CLASS IS LARGER THAN THE LOGLIKELIHOOD VALUE FOR THE ESTIMATED MODEL.
+     USING MORE RANDOM STARTS MAY RESOLVE THE PROBLEM.
+
+          H0 Loglikelihood Value                       -16333.632
+          2 Times the Loglikelihood Difference          -1402.749
+          Difference in the Number of Parameters                6
+          Mean                                           -368.170
+          Standard Deviation                             1102.544
+          P-Value                                          0.8742
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                         -1374.094
+          P-Value                                          0.8708
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 600
+        Number of final stage optimizations                   120
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 6 (H0) VERSUS 7 CLASSES
+
+
+
+     WARNING:  THE LIKELIHOOD RATIO TEST COMPUTATION FOR TECH14 DID NOT
+     TERMINATE NORMALLY BECAUSE THE LOGLIKELIHOOD VALUE FOR THE MODEL WITH ONE
+     LESS CLASS IS LARGER THAN THE LOGLIKELIHOOD VALUE FOR THE ESTIMATED MODEL.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+          H0 Loglikelihood Value                       -16333.632
+          2 Times the Loglikelihood Difference          -1402.749
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              1.0000
+          Successful Bootstrap Draws                            0
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    d-mod.dat
+
+  Order and format of variables
+
+    DM_COG_E       F10.3
+    DM_BEH_E       F10.3
+    DM_AFF_E       F10.3
+    DM_CHALL       F10.3
+    DM_COMPE       F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    CPROB3         F10.3
+    CPROB4         F10.3
+    CPROB5         F10.3
+    CPROB6         F10.3
+    CPROB7         F10.3
+    C              F10.3
+
+  Save file format
+    13F10.3
+
+  Save file record length    10000
+
+
+     Beginning Time:  17:10:57
+        Ending Time:  17:12:24
+       Elapsed Time:  00:01:27
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

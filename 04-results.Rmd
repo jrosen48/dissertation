@@ -2,7 +2,6 @@
 
 In this section, results in terms of ...
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, cache = T, error = F) 
 ```
@@ -184,7 +183,7 @@ d <- compare_solutions_mplus(df,
                              starts = c(600, 120),
                              n_profiles_min = 2, 
                              n_profiles_max = 10,
-                             return_stats_df = FALSE,
+                             return_stats_df = TRUE,
                              n_processors = 8)
 ```
 
