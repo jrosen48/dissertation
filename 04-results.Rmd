@@ -3,7 +3,7 @@
 In this section, results in terms of ...
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, cache = T, error = F) 
+knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T, error = F) 
 ```
 
 ```{r, loading-packages, echo = F}
