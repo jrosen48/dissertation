@@ -1404,68 +1404,24 @@ presented.
 
 First, for RQ \#1:
 
-\section{1. Solutions for all models}\label{solutions-for-all-models}
+\section{Solutions for all models}\label{solutions-for-all-models}
 
-\begin{verbatim}
-##   n_profiles                    model_1                    model_2
-## 1          2                  39916.157                  38423.266
-## 2          3                  39082.592                  38049.877
-## 3          4                  38616.439                  37623.057
-## 4          5                  37907.604                  37301.328
-## 5          6                  37617.262 Warning: LL not replicated
-## 6          7                  37182.108                   34517.58
-## 7          8 Warning: LL not replicated Warning: LL not replicated
-## 8          9 Warning: LL not replicated Warning: LL not replicated
-## 9         10 Warning: LL not replicated Warning: LL not replicated
-##                    model_3                  model_4
-## 1 Error: Convergence issue Error: Convergence issue
-## 2 Error: Convergence issue Error: Convergence issue
-## 3 Error: Convergence issue Error: Convergence issue
-## 4 Error: Convergence issue Error: Convergence issue
-## 5 Error: Convergence issue Error: Convergence issue
-## 6 Error: Convergence issue Error: Convergence issue
-## 7 Error: Convergence issue Error: Convergence issue
-## 8 Error: Convergence issue Error: Convergence issue
-## 9 Error: Convergence issue Error: Convergence issue
-##                    model_5                  model_6
-## 1 Error: Convergence issue Error: Convergence issue
-## 2 Error: Convergence issue Error: Convergence issue
-## 3 Error: Convergence issue Error: Convergence issue
-## 4 Error: Convergence issue Error: Convergence issue
-## 5 Error: Convergence issue Error: Convergence issue
-## 6 Error: Convergence issue Error: Convergence issue
-## 7 Error: Convergence issue Error: Convergence issue
-## 8 Error: Convergence issue Error: Convergence issue
-## 9 Error: Convergence issue Error: Convergence issue
-\end{verbatim}
+\begin{table}
 
-\begin{tabular}{r|r|r|r|r|r|r|r|r|r|r|r|l|l}
-\hline
+\caption{\label{tab:new-chunk}Solutions for all models}
+\centering
+\begin{tabular}[t]{rrrrrrrrrrrrrr}
+\toprule
 n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LMR\_val & LMR\_p & BLRT\_val & BLRT\_p\\
-\hline
-2 & 1 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 & 0.0000 & 3397.353 & 0.0000 & NA & NA\\
-\hline
-3 & 1 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 & 0.0126 & 863.512 & 0.0136 & NA & NA\\
-\hline
-4 & 1 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 & 0.0000 & 503.605 & 0.0000 & NA & NA\\
-\hline
-5 & 1 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 & 0.0000 & 741.329 & 0.0000 & NA & NA\\
-\hline
-6 & 1 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 & 0.0000 & 331.386 & 0.0000 & NA & NA\\
-\hline
-7 & 1 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 & 0.0112 & 512.455 & 0.0121 & NA & NA\\
-\hline
-2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0.0000 & 832.934 & 0.0000 & NA & NA\\
-\hline
-3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0.0000 & 412.736 & 0.0000 & NA & NA\\
-\hline
-4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0.0000 & 465.075 & 0.0000 & NA & NA\\
-\hline
-5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0.0000 & 298.709 & 0.0000 & NA & NA\\
-\hline
+\midrule
+2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0 & 832.934 & 0.0000 & 850.304 & 0\\
+3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0 & 412.736 & 0.0000 & 421.343 & 0\\
+4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0 & 465.075 & 0.0000 & 474.773 & 0\\
+5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0 & 298.709 & 0.0000 & 304.938 & 0\\
 7 & 2 & -17035.01 & -17035.01 & 34517.58 & 34339.65 & 34184.21 & 0.965 & NA & NA & -1374.094 & 0.8708 & NA & NA\\
-\hline
+\bottomrule
 \end{tabular}
+\end{table}
 
 \section{2. Just for model 1}\label{just-for-model-1}
 

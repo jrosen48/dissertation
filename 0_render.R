@@ -4,7 +4,7 @@
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
 # 1b. rendering site
-rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+# rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 
 # 2. fixing text
 source("fix_tex.R")

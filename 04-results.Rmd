@@ -4,11 +4,11 @@ In this section, results in terms of the research questions are presented.
 
 First, for RQ #1:
 
-```{r setup-results, include=FALSE}
+```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T, error = F) 
 ```
 
-```{r, loading-packages, echo = F}
+```{r, loading-packages}
 library(tidyverse)
 library(lme4)
 library(corrr)
@@ -28,7 +28,7 @@ demographics <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-demograph
 pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
 ```
 
-```{r}
+```{r, loading-rdata}
 # save.image("~/desktop/sandbox-01.Rdata")
 load("~/desktop/sandbox-01.Rdata")
 ```
@@ -70,7 +70,7 @@ df$youth_activity_rc <- forcats::fct_relevel(df$youth_activity_rc, "Not Focused"
 df$relevance <- jmRtools::composite_mean_maker(df, use_outside, future_goals, important)
 ```
 
-```{r processing-demographics, echo = F, eval = F}
+```{r processing-demographics}
 df$urm <- ifelse(df$race %in% c("White", "Asian"), 0, 1)
 df$race <- as.factor(df$race)
 df$race <- fct_lump(df$race, n = 2)
@@ -177,9 +177,9 @@ pqa_out <- pqa %>%
 names(pqa_out) <- names(out)
 ```
 
-## 1. Solutions for all models
+## Solutions for all models
 
-```{r, compare-solutions-all, eval = T}
+```{r, compare-solutions-all, eval = F}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -189,9 +189,13 @@ d <- compare_solutions_mplus(df,
                              n_processors = 8)
 ```
 
-```{r}
+```{r, new-chunk, eval = T}
+# write_rds(d, "data/solutions-for-all-models.rds")
+
+d <- read_rds("data/solutions-for-all-models.rds")
+
 d %>% 
-  knitr::kable()
+  knitr::kable(caption = "Solutions for all models", booktabs = TRUE)
 ```
 
 ## 2. Just for model 1
@@ -206,9 +210,18 @@ d <- compare_solutions_mplus(df,
                              return_stats_df = TRUE,
                              include_BLRT=TRUE,
                              n_processors = 8)
+```
 
-d
+```{r, new-chunk-model1, eval = T}
+write_rds(d, "data/solutions-for-model-1.rds")
 
+d <- read_rds("data/solutions-for-model-1.rds")
+
+d %>% 
+  knitr::kable(caption = "Solutions for model 1", booktabs = TRUE)
+```
+
+```{r, fig.cap = "Plot for model 1"}
 d %>% 
     select(n_profile:CAIC, Entropy) %>% 
     gather(key, val, -n_profile, -model) %>% 
