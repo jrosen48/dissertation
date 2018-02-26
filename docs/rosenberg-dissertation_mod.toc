@@ -26,4 +26,6 @@
 \contentsline {section}{\numberline {4.4}4. Some specific solutions for model 1}{40}{section.4.4}
 \contentsline {section}{\numberline {4.5}5. Some specific solutions for model 2}{46}{section.4.5}
 \contentsline {chapter}{\chapternumberline {5}Discussion}{51}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{52}{chapter.6}
+\contentsline {section}{\numberline {5.1}R Markdown}{51}{section.5.1}
+\contentsline {section}{\numberline {5.2}Including Plots}{51}{section.5.2}
+\contentsline {chapter}{\chapternumberline {6}References}{53}{chapter.6}

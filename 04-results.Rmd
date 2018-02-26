@@ -4,7 +4,7 @@ In this section, results in terms of the research questions are presented.
 
 First, for RQ #1:
 
-```{r setup, include=FALSE}
+```{r setup-results, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T, error = F) 
 ```
 
@@ -187,6 +187,11 @@ d <- compare_solutions_mplus(df,
                              n_profiles_max = 10,
                              return_stats_df = TRUE,
                              n_processors = 8)
+```
+
+```{r}
+d %>% 
+  knitr::kable()
 ```
 
 ## 2. Just for model 1
