@@ -1,6 +1,6 @@
 # Results
 
-In this section, results in terms of ...
+In this section, results in terms of the research questions are presented.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T, error = F) 
