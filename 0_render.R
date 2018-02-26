@@ -25,3 +25,9 @@ system("git add *")
 system("git add -u")
 system("git commit -m 'update diss'")
 system("git push")
+
+# 6 (optional). create word doc
+# cd '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/docs'
+# pandoc rosenberg-dissertation_mod.tex -s -o rosenberg-dissertation.docx
+
+
