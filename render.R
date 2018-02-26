@@ -9,3 +9,10 @@ if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg
 
 file.copy("_bookdown_files/rosenberg-dissertation_files",
           "docs", recursive=TRUE)
+
+# updating github
+system("git status")
+system("git add *")
+system("git add -u")
+system("git commit -m 'update diss'")
+system("git push")
