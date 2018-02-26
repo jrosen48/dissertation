@@ -1,23 +1,25 @@
 #! '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/0_render.R'
 
-print("hi!")
-
-# rendering PDF
+# 1. rendering PDF
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
-# rendering site
+# 1b. rendering site
 # rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 
-# fixing text
+# 2. fixing text
 source("fix_tex.R")
 
-# copying cached files
+# 3. copying cached files
 if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg-dissertation_files")
 
 file.copy("_bookdown_files/rosenberg-dissertation_files",
           "docs", recursive=TRUE)
 
-# updating github
+#########################################
+### 4. MANUALLY RENDER THE FILE HERE!!!
+#########################################
+
+# 5. updating github
 system("git status")
 system("git add *")
 system("git add -u")
