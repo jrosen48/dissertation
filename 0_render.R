@@ -1,5 +1,7 @@
 #! '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/0_render.R'
 
+print("hi!")
+
 # rendering PDF
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
