@@ -1,6 +1,9 @@
 # rendering PDF
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
+# rendering site
+# rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+
 # fixing text
 source("fix_tex.R")
 

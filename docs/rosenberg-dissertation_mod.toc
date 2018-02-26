@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {4.1}1. Solutions for all models}{35}{section.4.1}
 \contentsline {section}{\numberline {4.2}2. Just for model 1}{36}{section.4.2}
 \contentsline {section}{\numberline {4.3}2. Just for model 2}{37}{section.4.3}
-\contentsline {section}{\numberline {4.4}4. Some specific solutions for model 1}{38}{section.4.4}
-\contentsline {section}{\numberline {4.5}5. Some specific solutions for model 2}{42}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{46}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{47}{chapter.6}
+\contentsline {section}{\numberline {4.4}4. Some specific solutions for model 1}{40}{section.4.4}
+\contentsline {section}{\numberline {4.5}5. Some specific solutions for model 2}{46}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{51}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}References}{52}{chapter.6}
