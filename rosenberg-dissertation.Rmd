@@ -577,9 +577,7 @@ This question addresses what profiles emerged from the data. This section is org
 * Fit statistics for models that converged and demonstrated that the log-likelihood was replicated
 * Comparison of candidate solutions
 
-## Overall solutions for all models
-
-```{r, compare-solutions-overall-stats, eval = F}
+```{r, compare-solutions-overall-stats, include = FALSE, eval = TRUE}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -591,32 +589,22 @@ d <- compare_solutions_mplus(df,
 write_rds(d, "data/overall-stats-for-all-models.rds")
 ```
 
+## Overall solutions for all models
+
 ```{r, printing-solutions-overall-stats, eval = T}
 d <- read_rds("data/overall-stats-for-all-models.rds")
 
 overall_stats_for_all_models <- read_rds("data/overall-stats-for-all-models.rds")
 
-overall_stats_for_all_models %>% 
+overall_stats_for_all_models[[1]] %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Overall statistics for all models") %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-```{r, compare-solutions-spec-stats, eval = F}
-d <- compare_solutions_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             n_profiles_min = 2, 
-                             n_profiles_max = 10,
-                             return_stats_df = TRUE,
-                             n_processors = 8)
-
-write_rds(d, "data/spec-stats-for-all-models.rds")
-```
+## In-depth statistics for particular models
 
 ```{r, printing-solutions-spec-stats, eval = TRUE}
-d <- read_rds("data/spec-stats-for-all-models.rds")
-
-d %>% 
+d[[2]] %>% 
   knitr::kable(caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, format = "latex") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 ```

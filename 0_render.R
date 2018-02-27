@@ -47,3 +47,4 @@ file.remove("i.inp")
 file.remove("i.out")
 file.remove("d-mod.dat")
 file.remove("Mplus Run Models.log")
+
