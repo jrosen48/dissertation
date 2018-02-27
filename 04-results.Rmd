@@ -4,8 +4,17 @@ In this section, results in terms of the research questions are presented.
 
 First, for RQ #1:
 
-```{r, setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = F, warning = F, cache = T, error = F) 
+```{r, setup-results-fix, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      cache = TRUE,
+                      collapse = TRUE,
+                      fig.width = ,
+                      fig.asp = .618,
+                      out.width = "80%", 
+                      fig.align = "center", 
+                      results = "hold") 
 ```
 
 ```{r, loading-packages}
@@ -33,7 +42,7 @@ pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
 load("~/desktop/sandbox-01.Rdata")
 ```
 
-```{r, processing-some-data}
+```{r, processing-attendance-demo-esm-data}
 attendance <- rename(attendance, participant_ID = ParticipantID)
 attendance <- mutate(attendance, prop_attend = DaysAttended / DaysScheduled, 
                      participant_ID = as.integer(participant_ID))
@@ -45,13 +54,13 @@ demographics <- left_join(demographics, attendance)
 esm$overall_engagement <- jmRtools::composite_mean_maker(esm, hard_working, concentrating, enjoy, interest)
 ```
 
-```{r, joining-df}
+```{r, joining-to-df}
 df <- left_join(esm, pre_survey_data_processed, by = "participant_ID") # df & post-survey
 df <- left_join(df, video, by = c("program_ID", "response_date", "sociedad_class", "signal_number")) # df & video
 df <- left_join(df, demographics, by = c("participant_ID", "program_ID")) # df and demographics
 ```
 
-```{r, proc-variables, echo = F}
+```{r, proc-beep-actvariables, echo = F}
 df$participant_ID <- as.factor(df$participant_ID)
 df$program_ID <- as.factor(df$program_ID)
 df$beep_ID <- as.factor(df$beep_ID)
@@ -70,7 +79,7 @@ df$youth_activity_rc <- forcats::fct_relevel(df$youth_activity_rc, "Not Focused"
 df$relevance <- jmRtools::composite_mean_maker(df, use_outside, future_goals, important)
 ```
 
-```{r processing-demographics}
+```{r proc-demographics}
 df$urm <- ifelse(df$race %in% c("White", "Asian"), 0, 1)
 df$race <- as.factor(df$race)
 df$race <- fct_lump(df$race, n = 2)
@@ -80,7 +89,7 @@ df$gender_female <- ifelse(df$gender_female == "F", 1,
                            ifelse(df$gender_female == "M", 0, NA))
 ```
 
-```{r}
+```{r, proc-pqa-data}
 pqa <- mutate(pqa, 
               active = active_part_1 + active_part_2,
               ho_thinking = ho_thinking_1 + ho_thinking_2 + ho_thinking_3,
@@ -93,12 +102,6 @@ pqa <- mutate(pqa,
               generating_data = stem_sb_4,
               asking_questions = stem_sb_1,
               stem_sb = stem_sb_1 + stem_sb_2 + stem_sb_3 + stem_sb_4 + stem_sb_5 + stem_sb_6 + stem_sb_7 + stem_sb_8 + stem_sb_9)
-
-# pqa <- rename(pqa, sixth_math_sociedad = sixth_math)
-# pqa <- rename(pqa, seventh_math_sociedad = seventh_math)
-# pqa <- rename(pqa, eighth_math_sociedad = eighth_math)
-# pqa <- rename(pqa, dance_sociedad = dance)
-# pqa <- rename(pqa, robotics_sociedad = robotics)
 
 pqa$sociedad_class <- ifelse(pqa$eighth_math == 1, "8th Math",
                              ifelse(pqa$seventh_math == 1, "7th Math",
@@ -116,70 +119,67 @@ pqa$program_ID <- as.character(pqa$program_ID)
 df <- left_join(df, pqa, by = c("response_date", "program_ID", "signal_number", "sociedad_class"))
 ```
 
-```{r}
+```{r, proc-vars-for-modeling}
 df <- df %>% 
-    mutate(youth_activity_three = case_when(
-        youth_activity_rc == "Creating Product" ~ "Creating Product",
-        youth_activity_rc == "Basic Skills Activity" ~ "Basic Skills Activity",
-        TRUE ~ "Other"
-    ))
-
-df$youth_activity_three <- fct_relevel(df$youth_activity_three, 
-                                       "Other")
-```
-
-```{r}
-
-df <- df %>% 
-    mutate(dm_cog_eng = learning,
-           dm_beh_eng = hard_working,
-           dm_aff_eng = enjoy,
-           dm_challenge = challenge,
-           dm_competence = good_at) %>% 
-    rename(ssb_predict = stem_sb_1,
-           ssb_model = stem_sb_2 ,
-           ssb_analyze = stem_sb_3,
-           ssb_measure = stem_sb_4,
-           ssb_tools = stem_sb_5,
-           ssb_precision = stem_sb_6,
-           ssb_vocabulary = stem_sb_7,
-           ssb_classification = stem_sb_8,
-           ssb_symbols = stem_sb_9) %>% 
-    mutate(dm_ask = ssb_predict,
-           dm_obs = ssb_classification,
-           dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
-           dm_mod = ifelse(ssb_model == 1 | ssb_analyze == 1, 1, 0),
-           dm_com = ssb_symbols) %>% 
-    mutate(ov_cog_eng = (important + future_goals) / 2,
-           ov_beh_eng = (hard_working + concentrating) / 2,
-           ov_aff_eng = (enjoy + interest) / 2)
+  mutate(dm_cog_eng = learning,
+         dm_beh_eng = hard_working,
+         dm_aff_eng = enjoy,
+         dm_challenge = challenge,
+         dm_competence = good_at) %>% 
+  rename(ssb_predict = stem_sb_1,
+         ssb_model = stem_sb_2 ,
+         ssb_analyze = stem_sb_3,
+         ssb_measure = stem_sb_4,
+         ssb_tools = stem_sb_5,
+         ssb_precision = stem_sb_6,
+         ssb_vocabulary = stem_sb_7,
+         ssb_classification = stem_sb_8,
+         ssb_symbols = stem_sb_9) %>% 
+  mutate(dm_ask = ssb_predict,
+         dm_obs = ssb_classification,
+         dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
+         dm_mod = ifelse(ssb_model == 1 | ssb_analyze == 1, 1, 0),
+         dm_com = ssb_symbols) %>% 
+  mutate(ov_cog_eng = (important + future_goals) / 2,
+         ov_beh_eng = (hard_working + concentrating) / 2,
+         ov_aff_eng = (enjoy + interest) / 2)
 
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 ```
 
-```{r}
-out <- df %>% 
-    group_by(program_ID) %>% 
-    select(contains("ssb")) %>% 
-    summarize_all(sum, na.rm = T)
+# Research Question #1
 
-out1 <- pqa %>% 
-    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
-    summarize_all(sum, na.rm = T) / 236
+This question addresses what profiles emerged from the data. This section is organized around:
 
-names(out1) <- df %>% select(contains("ssb")) %>% names()
+* Overall solutions for all models (whether models converged and the log-likelihood was replicated)
+* Fit statistics for models that converged and demonstrated that the log-likelihood was replicated
+* Comparison of candidate solutions
 
-pqa_out <- pqa %>% 
-    group_by(program_ID) %>% 
-    select(contains("stem"), -sum_stem_sb, -stem_sb) %>% 
-    summarize_all(sum, na.rm = T)
+## Overall solutions for all models
 
-names(pqa_out) <- names(out)
+```{r, compare-solutions-overall-stats, eval = F}
+d <- compare_solutions_mplus(df,  
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             n_profiles_min = 2, 
+                             n_profiles_max = 10,
+                             return_stats_df = FALSE,
+                             n_processors = 8)
+
+write_rds(d, "data/overall-stats-for-all-models.rds")
 ```
 
-## Solutions for all models
+```{r, printing-solutions-overall-stats, eval = T}
+d <- read_rds("data/overall-stats-for-all-models.rds")
 
-```{r, compare-solutions-all, eval = F}
+overall_stats_for_all_models <- read_rds("data/overall-stats-for-all-models.rds")
+
+overall_stats_for_all_models %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Overall statistics for all models") %>%
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+```{r, compare-solutions-spec-stats, eval = F}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
@@ -187,211 +187,210 @@ d <- compare_solutions_mplus(df,
                              n_profiles_max = 10,
                              return_stats_df = TRUE,
                              n_processors = 8)
+
+write_rds(d, "data/spec-stats-for-all-models.rds")
 ```
 
-```{r, new-chunk, eval = T}
-# write_rds(d, "data/solutions-for-all-models.rds")
-
-d <- read_rds("data/solutions-for-all-models.rds")
+```{r, printing-solutions-spec-stats, eval = TRUE}
+d <- read_rds("data/spec-stats-for-all-models.rds")
 
 d %>% 
-  knitr::kable(caption = "Solutions for all models", booktabs = TRUE)
+  knitr::kable(caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, format = "latex") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-## 2. Just for model 1
+## Fit statistics for select models
 
-```{r, compare-solutions-model1, eval = T}
-d <- compare_solutions_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = c(1),
-                             n_profiles_min = 2, 
-                             n_profiles_max = 10,
-                             return_stats_df = TRUE,
-                             include_BLRT=TRUE,
-                             n_processors = 8)
-```
+This section presents fit statistics for select models
 
-```{r, new-chunk-model1, eval = T}
-write_rds(d, "data/solutions-for-model-1.rds")
-
-d <- read_rds("data/solutions-for-model-1.rds")
-
+```{r, model1}
 d %>% 
-  knitr::kable(caption = "Solutions for model 1", booktabs = TRUE)
+  select(n_profile:CAIC, Entropy) %>% 
+  gather(key, val, -n_profile, -model) %>% 
+  ggplot(aes(x = n_profile, y = val)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ key + model, scales = "free")
 ```
 
-```{r, fig.cap = "Plot for model 1"}
-d %>% 
-    select(n_profile:CAIC, Entropy) %>% 
-    gather(key, val, -n_profile, -model) %>% 
-    ggplot(aes(x = n_profile, y = val)) +
-    geom_point() +
-    geom_line() +
-    facet_wrap("key", scales = "free")
-```
+## Comparison of candidate solutions
 
-## 2. Just for model 2
+In this section, specific models are examined so that candidate solutions can be compared. 
 
-```{r, compare-solutions-model2, eval = T}
-d <- compare_solutions_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = c(2),
-                             n_profiles_min = 2, 
-                             n_profiles_max = 10,
-                             return_stats_df = TRUE,
-                             include_BLRT=TRUE,
-                             n_processors = 8)
-d
+### Model 1 candidate solutions
 
-d %>% 
-    select(n_profile:CAIC, Entropy) %>% 
-    gather(key, val, -n_profile, -model) %>% 
-    ggplot(aes(x = n_profile, y = val)) +
-    geom_point() +
-    geom_line() +
-    facet_wrap("key", scales = "free")
-```
+Here are solutions for model 1.
 
-## 4. Some specific solutions for model 1
-
-```{r, eval = T, spec-solutions-model1}
-
+```{r, spec-solutions-m1_3}
 m1_3 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 3,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 3,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_3)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-m1_4}
 m1_4 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 4,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 4,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_4)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-m1_5}
 m1_5 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 5,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 5,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_5)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-m1_6}
 m1_6 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 6,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 6,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_6)
 extract_LL_mplus()
+```
 
+```{r, spec-solutions-m1_7}
 m1_7 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 7,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 7,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_7)
 extract_LL_mplus()
-
 ```
 
-```{r, anotherm1-7-solution}
+We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same. 
+
+```{r, spec-solutions-m1_7-other-LL}
 m1_7 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 1,
-                             n_profiles = 7,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE, optseed = 597614)
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 7,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE, optseed = 597614)
 
 plot_profiles_mplus(m1_7)
-# extract_LL_mplus()
+extract_LL_mplus()
 ```
 
-## 5. Some specific solutions for model 2
+### Model 2 candidate solutions
 
-```{r, eval = T, spec-solutions-model2-3}
+Here are solutions for model 2.
 
-m1_3 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 2,
-                             n_profiles = 3,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+```{r, spec-solutions-for-model2}
 
-plot_profiles_mplus(m1_3)
+m2_3 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 3,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m2_3)
 extract_LL_mplus()
 ```
 
 ```{r, spec-solutions-model2-4}
-m1_4 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 2,
-                             n_profiles = 4,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+m2_4 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 4,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
-plot_profiles_mplus(m1_4)
+plot_profiles_mplus(m2_4)
 extract_LL_mplus()
 ```
 
 ```{r, spec-solutions-model2-5}
-m1_5 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 2,
-                             n_profiles = 5,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+m2_5 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 5,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
-plot_profiles_mplus(m1_5)
+plot_profiles_mplus(m2_5)
 extract_LL_mplus()
 ```
 
 ```{r, spec-solutions-model2-6}
-m1_6 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 2,
-                             n_profiles = 6,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+m2_6 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 6,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
 extract_LL_mplus()
 ```
 
 ```{r, spec-solutions-model2-7}
-m1_7 <- estimate_profiles_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             model = 2,
-                             n_profiles = 7,
-                             include_BLRT=TRUE,
-                             n_processors = 8, remove_tmp_files = FALSE)
+m2_7 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 7,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
 
-plot_profiles_mplus(m1_7)
+plot_profiles_mplus(m2_7)
 extract_LL_mplus()
+```
 
-``` 
+```{r, spec-solutions-model2-7-other-LL}
+m2_7 <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 2,
+                                n_profiles = 7,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE)
+
+plot_profiles_mplus(m2_7)
+extract_LL_mplus()
+```
+
+## Research Question #2
+
+Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.
+
+## Research Question #3
+
+Research question #3 is focused on
+
+## Research Question #4
+
+Research question #4 is focused on

@@ -1554,104 +1554,100 @@ presented.
 
 First, for RQ \#1:
 
-\section{Solutions for all models}\label{solutions-for-all-models}
+\chapter{Research Question \#1}\label{research-question-1}
+
+This question addresses what profiles emerged from the data. This
+section is organized around:
+
+\begin{itemize}
+\tightlist
+\item
+  Overall solutions for all models (whether models converged and the
+  log-likelihood was replicated)
+\item
+  Fit statistics for models that converged and demonstrated that the
+  log-likelihood was replicated
+\item
+  Comparison of candidate solutions
+\end{itemize}
+
+\section{Overall solutions for all
+models}\label{overall-solutions-for-all-models}
 
 \begin{table}
 
-\caption{\label{tab:new-chunk}Solutions for all models}
+\caption{\label{tab:printing-solutions-overall-stats}Overall statistics for all models}
 \centering
-\begin{tabular}[t]{rrrrrrrrrrrrrr}
+\begin{tabular}[t]{rllllll}
+\toprule
+n\_profiles & model\_1 & model\_2 & model\_3 & model\_4 & model\_5 & model\_6\\
+\midrule
+2 & 39916.157 & 38423.266 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+3 & 39082.592 & 38049.877 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+4 & 38616.439 & 37623.057 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+5 & 37907.604 & 37301.328 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+6 & 37617.262 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+\addlinespace
+7 & 37182.108 & 34517.58 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+8 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+9 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+10 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
+\centering
+\begin{tabular}[t]{rrrrrrrrrrrrll}
 \toprule
 n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LMR\_val & LMR\_p & BLRT\_val & BLRT\_p\\
 \midrule
-2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0 & 832.934 & 0.0000 & 850.304 & 0\\
-3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0 & 412.736 & 0.0000 & 421.343 & 0\\
-4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0 & 465.075 & 0.0000 & 474.773 & 0\\
-5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0 & 298.709 & 0.0000 & 304.938 & 0\\
+2 & 1 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 & 0.0000 & 3397.353 & 0.0000 & NA & NA\\
+3 & 1 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 & 0.0126 & 863.512 & 0.0136 & NA & NA\\
+4 & 1 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 & 0.0000 & 503.605 & 0.0000 & NA & NA\\
+5 & 1 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 & 0.0000 & 741.329 & 0.0000 & NA & NA\\
+6 & 1 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 & 0.0000 & 331.386 & 0.0000 & NA & NA\\
+\addlinespace
+7 & 1 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 & 0.0112 & 512.455 & 0.0121 & NA & NA\\
+2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0.0000 & 832.934 & 0.0000 & NA & NA\\
+3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0.0000 & 412.736 & 0.0000 & NA & NA\\
+4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0.0000 & 465.075 & 0.0000 & NA & NA\\
+5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0.0000 & 298.709 & 0.0000 & NA & NA\\
 7 & 2 & -17035.01 & -17035.01 & 34517.58 & 34339.65 & 34184.21 & 0.965 & NA & NA & -1374.094 & 0.8708 & NA & NA\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{2. Just for model 1}\label{just-for-model-1}
+\section{Fit statistics for select
+models}\label{fit-statistics-for-select-models}
 
-\begin{verbatim}
-##   n_profiles                    model_1
-## 1          2                  39916.157
-## 2          3                  39082.592
-## 3          4                  38616.439
-## 4          5                  37907.604
-## 5          6                  37617.262
-## 6          7                  37182.108
-## 7          8 Warning: LL not replicated
-## 8          9 Warning: LL not replicated
-## 9         10 Warning: LL not replicated
-\end{verbatim}
+This section presents fit statistics for select models
 
-\begin{verbatim}
-##   n_profile model        LL       AIC      BIC    SABIC     CAIC Entropy
-## 1         2     1 -19894.14 -19894.14 39916.16 39865.32 39820.47   0.807
-## 2         3     1 -19453.38 -19453.38 39082.59 39012.69 38951.11   0.794
-## 3         4     1 -19196.33 -19196.33 38616.44 38527.47 38449.21   0.811
-## 4         5     1 -18817.93 -18817.93 37907.60 37799.57 37704.68   0.913
-## 5         6     1 -18648.78 -18648.78 37617.26 37490.17 37378.70   0.888
-## 6         7     1 -18407.23 -18407.23 37182.11 37035.95 36907.95   0.886
-##   VLMR_val VLMR_p  LMR_val  LMR_p BLRT_val BLRT_p
-## 1 3468.199 0.0000 3397.353 0.0000 3468.199      0
-## 2  881.519 0.0126  863.512 0.0136  881.519      0
-## 3  514.107 0.0000  503.605 0.0000  514.107      0
-## 4  756.788 0.0000  741.329 0.0000  756.788      0
-## 5  338.296 0.0000  331.386 0.0000  338.296      0
-## 6  523.141 0.0112  512.455 0.0121  523.141      0
-\end{verbatim}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} \end{center}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/compare-solutions-model1-1.pdf}
+\section{Comparison of candidate
+solutions}\label{comparison-of-candidate-solutions}
 
-\section{2. Just for model 2}\label{just-for-model-2}
+In this section, specific models are examined so that candidate
+solutions can be compared.
 
-\begin{verbatim}
-##   n_profiles model_2                         V3
-## 1          2      NA                  38423.266
-## 2          3      NA                  38049.877
-## 3          4      NA                  37623.057
-## 4          5      NA                  37301.328
-## 5          6      NA Warning: LL not replicated
-## 6          7      NA                   34517.58
-## 7          8      NA Warning: LL not replicated
-## 8          9      NA Warning: LL not replicated
-## 9         10      NA Warning: LL not replicated
-\end{verbatim}
+\subsection{Model 1 candidate
+solutions}\label{model-1-candidate-solutions}
 
-\begin{verbatim}
-##   n_profile model        LL       AIC      BIC    SABIC     CAIC Entropy
-## 1         2     2 -19107.73 -19107.73 38423.27 38340.65 38267.95   0.924
-## 2         3     2 -18897.06 -18897.06 38049.88 37948.20 37858.85   0.880
-## 3         4     2 -18659.68 -18659.68 37623.06 37502.32 37396.37   0.922
-## 4         5     2 -18474.83 -18474.83 37301.33 37161.52 37039.03   0.901
-## 5         7     2 -17035.01 -17035.01 34517.58 34339.65 34184.21   0.965
-##   VLMR_val VLMR_p   LMR_val  LMR_p BLRT_val BLRT_p
-## 1  850.304      0   832.934 0.0000  850.304      0
-## 2  421.343      0   412.736 0.0000  421.343      0
-## 3  474.773      0   465.075 0.0000  474.773      0
-## 4  304.938      0   298.709 0.0000  304.938      0
-## 5       NA     NA -1374.094 0.8708       NA     NA
-\end{verbatim}
+Here are solutions for model 1.
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/compare-solutions-model2-1.pdf}
-
-\section{4. Some specific solutions for model
-1}\label{some-specific-solutions-for-model-1}
-
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model1-1.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_3-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 119 x 3
 ##    LL           seed m_iterations
 ##  * <fct>       <dbl> <chr>       
 ##  1 -19453.381 231281 542         
-##  2 -19453.381 897782 545         
-##  3 -19453.381 155622 507         
-##  4 -19453.381 879211 453         
+##  2 -19453.381 879211 453         
+##  3 -19453.381 897782 545         
+##  4 -19453.381 155622 507         
 ##  5 -19453.381 192071 142         
 ##  6 -19453.381 507154 387         
 ##  7 -19453.381 674171 195         
@@ -1661,7 +1657,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 109 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model1-2.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_4-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 80 x 3
@@ -1680,7 +1676,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 70 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model1-3.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_5-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 82 x 3
@@ -1699,7 +1695,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 72 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model1-4.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_6-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 64 x 3
@@ -1718,7 +1714,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 54 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model1-5.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_7-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 52 x 3
@@ -1737,12 +1733,17 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 42 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/anotherm1-7-solution-1.pdf}
+We can see that even for the solutions associated with other
+log-likelihoods, the results for model 7 are the same.
 
-\section{5. Some specific solutions for model
-2}\label{some-specific-solutions-for-model-2}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_7-other-LL-1} \end{center}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-3-1.pdf}
+\subsection{Model 2 candidate
+solutions}\label{model-2-candidate-solutions}
+
+Here are solutions for model 2.
+
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-for-model2-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 120 x 3
@@ -1761,7 +1762,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 110 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-4-1.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-4-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 119 x 3
@@ -1780,7 +1781,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 109 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-5-1.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-5-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 114 x 3
@@ -1816,7 +1817,7 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## # ... with 94 more rows
 \end{verbatim}
 
-\includegraphics{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-7-1.pdf}
+\begin{center}\includegraphics[width=0.7\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-7-1} \end{center}
 
 \begin{verbatim}
 ## # A tibble: 97 x 3
@@ -1834,6 +1835,18 @@ n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\
 ## 10 -18234.603 790452 303         
 ## # ... with 87 more rows
 \end{verbatim}
+
+\section{Research Question \#2}\label{research-question-2}
+
+Research question \#2 is focused on
+
+\section{Research Question \#3}\label{research-question-3}
+
+Research question \#3 is focused on
+
+\section{Research Question \#4}\label{research-question-4}
+
+Research question \#4 is focused on
 
 \chapter{Discussion}\label{discussion}
 

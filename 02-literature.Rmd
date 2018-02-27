@@ -1,3 +1,16 @@
+```{r, setup-lit-review-fix, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      cache = TRUE,
+                      collapse = TRUE,
+                      fig.width = ,
+                      fig.asp = .618,
+                      out.width = "80%", 
+                      fig.align = "center", 
+                      results = "hold") 
+```
+
 # Literature Review
 
 What is data analysis and what has past research taught us about it? This section defines data analysis as a key practice across STEM domains, with a focus on work with data as activities that are both very specific to work with data (i.e., constructing measures and data modeling) and activities that are more general across STEM domains (i.e., asking questions and interpreting findings). This section also reviews gaps in the literature and introduces engagement and “influencers” of engagement, or factors that past research indicates can impact learners’ engagement, to establish the conceptual framework used in the present study. 
@@ -11,7 +24,9 @@ Scholars have conceived of working with data in different ways, but some core co
 The five aspects of work with data. The definition of working with data used in the present study represents a synthesis across these existing accounts of this process and focuses on five aspects that are common to them. Engagement in work with data, then, includes five processes that are part of a cycle (Franklin et al., 2007; Lee & Tran, 2015; Wild & Pfannkuch, 1999). Those processes are: asking questions or identifying problems, making observations,  generating data, data modeling (to account for variability or uncertainty), and interpreting and communicating findings. 
 The five practices depicted in Figure 1, are a cycle because not only does each part follow that before it, but also because the overall process is iterative: interpreting findings commonly leads to new questions and subsequent engagement in work with data. The first process, asking questions, is about generating questions that can be answered with empirical evidence. The next, making observations is about watching phenomena and noticing what is happening with respect to the phenomena or problem being investigated. This is followed by generating data, the process of figuring out how or why to inscribe an observation as data about a phenomena, as well as generating coding frames or tools for measuring. Next, because data are often messy, data modeling is a necessary step follows from its creation or collection. Data models include simple statistics, such as the mean and variance, as well as more complicated models, such as linear models and extensions of the linear model. Finally, the last step is to interpret and communicate findings regarding the phenomena that the question is about. 
 
-**Figure 1. Work with data in STEM education settings.**
+```{r, caption = "Work with data in STEM education settings"}
+knitr::include_graphics("figure1.png")
+```
  
 Also, as depicted in Figure 1, scholars have pointed out some key features of how work with data is carried out that impact their effectiveness as a pedagogical approach. These key features include an emphasis on making sense of real-world phenomena and iterative cycles of engaging in work with data and collaboration and dialogue, through which ideas and intermediate findings are critiqued and subject to critique, and revised over time (McNeill & Berland, 2017). As we will discuss later, these factors might have the potential to impact engagement through the proximal conditions of challenge and competence.
 
@@ -81,7 +96,10 @@ In addition to this general need to study engagement in work with data from the 
 
 The present study is about how engagement can be used to understand how learners are involved in work with data and how characteristics of activities and learners impact the relationships between work with data and engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2 and is unpacked in the remainder of this section. 
  
-**Figure 2. A conceptual framework for this study with research questions labeled.**
+```{r, caption = "A conceptual framework for this study with research questions labeled"}
+knitr::include_graphics("figure2.png")
+```
+ 
 
 There are five aspects of work with data synthesized from past research (i.e., Hancock et al., 1992; Lehrer & Romberg, 1996; Wild & Pfannkuch, 1999):
 1. Asking questions or identifying problems
