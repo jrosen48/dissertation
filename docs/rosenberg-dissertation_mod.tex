@@ -1405,7 +1405,7 @@ presented.
 
 First, for RQ \#1:
 
-\chapter{Research Question \#1}\label{research-question-1}
+\section{Research Question \#1}\label{research-question-1}
 
 This question addresses what profiles emerged from the data. This
 section is organized around:
@@ -1422,7 +1422,7 @@ section is organized around:
   Comparison of candidate solutions
 \end{itemize}
 
-\section{Overall solutions for all
+\subsection{Overall solutions for all
 models}\label{overall-solutions-for-all-models}
 
 \begin{table}
@@ -1439,46 +1439,47 @@ n\_profiles & model\_1 & model\_2 & model\_3 & model\_4 & model\_5 & model\_6\\
 5 & 37907.604 & 37301.328 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 6 & 37617.262 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 \addlinespace
-7 & 37182.108 & 34517.58 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+7 & 37182.108 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 8 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
-9 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
+9 & 36836.247 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 10 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 \bottomrule
 \end{tabular}}
 \end{table}
 
+\subsection{In-depth statistics for particular
+models}\label{in-depth-statistics-for-particular-models}
+
 \begin{table}
 
 \caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrrrrrrll}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrrrrrrrr}
 \toprule
 n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LMR\_val & LMR\_p & BLRT\_val & BLRT\_p\\
 \midrule
-2 & 1 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 & 0.0000 & 3397.353 & 0.0000 & NA & NA\\
-3 & 1 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 & 0.0126 & 863.512 & 0.0136 & NA & NA\\
-4 & 1 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 & 0.0000 & 503.605 & 0.0000 & NA & NA\\
-5 & 1 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 & 0.0000 & 741.329 & 0.0000 & NA & NA\\
-6 & 1 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 & 0.0000 & 331.386 & 0.0000 & NA & NA\\
+2 & 1 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 & 0.0000 & 3397.353 & 0.0000 & 3468.199 & 0\\
+3 & 1 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 & 0.0126 & 863.512 & 0.0136 & 881.519 & 0\\
+4 & 1 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 & 0.0000 & 503.605 & 0.0000 & 514.107 & 0\\
+5 & 1 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 & 0.0000 & 741.329 & 0.0000 & 756.788 & 0\\
+6 & 1 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 & 0.0000 & 331.386 & 0.0000 & 338.296 & 0\\
 \addlinespace
-7 & 1 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 & 0.0112 & 512.455 & 0.0121 & NA & NA\\
-2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0.0000 & 832.934 & 0.0000 & NA & NA\\
-3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0.0000 & 412.736 & 0.0000 & NA & NA\\
-4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0.0000 & 465.075 & 0.0000 & NA & NA\\
-5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0.0000 & 298.709 & 0.0000 & NA & NA\\
-7 & 2 & -17035.01 & -17035.01 & 34517.58 & 34339.65 & 34184.21 & 0.965 & NA & NA & -1374.094 & 0.8708 & NA & NA\\
+7 & 1 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 & 0.0112 & 512.455 & 0.0121 & 523.141 & 0\\
+9 & 1 & -18186.35 & -18186.35 & 36836.25 & 36651.96 & 36491.06 & 0.899 & 171.674 & 0.1322 & 168.167 & 0.1359 & 171.674 & 0\\
+2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0.0000 & 832.934 & 0.0000 & 850.304 & 0\\
+3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0.0000 & 412.736 & 0.0000 & 421.343 & 0\\
+4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0.0000 & 465.075 & 0.0000 & 474.773 & 0\\
+5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0.0000 & 298.709 & 0.0000 & 304.938 & 0\\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-\section{Fit statistics for select
+\subsection{Fit statistics for select
 models}\label{fit-statistics-for-select-models}
 
 This section presents fit statistics for select models
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} \end{center}
-
-\section{Comparison of candidate
+\subsection{Comparison of candidate
 solutions}\label{comparison-of-candidate-solutions}
 
 In this section, specific models are examined so that candidate
@@ -1489,205 +1490,13 @@ solutions}\label{model-1-candidate-solutions}
 
 Here are solutions for model 1.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_3-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 119 x 3
-##    LL           seed m_iterations
-##  * <fct>       <dbl> <chr>
-##  1 -19453.381 231281 542
-##  2 -19453.381 879211 453
-##  3 -19453.381 897782 545
-##  4 -19453.381 155622 507
-##  5 -19453.381 192071 142
-##  6 -19453.381 507154 387
-##  7 -19453.381 674171 195
-##  8 -19453.381 316165 299
-##  9 -19453.381 374219 353
-## 10 -19453.381 783102 433
-## # ... with 109 more rows
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_4-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 80 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -19196.328 415931 10
-##  2 -19196.328 260953 589
-##  3 -19196.328 576220 115
-##  4 -19196.328 329127 185
-##  5 -19196.328 391179 78
-##  6 -19196.328 352277 42
-##  7 -19196.328 443442 380
-##  8 -19196.328 518828 432
-##  9 -19196.328  36714 201
-## 10 -19196.328 456213 160
-## # ... with 70 more rows
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_5-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 82 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18817.934 152496 123
-##  2 -18817.934 602797 336
-##  3 -18817.934 432148 30
-##  4 -18817.934 399848 220
-##  5 -18837.053 387701 275
-##  6 -18858.428 850545 357
-##  7 -18858.428 298275 418
-##  8 -18858.428 626891 32
-##  9 -18944.968 823392 479
-## 10 -18944.968 147440 514
-## # ... with 72 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## Error in mutate_impl(.data, dots): Evaluation error: Column `sd`: not found in data.
-## # A tibble: 64 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18648.785   1548 384
-##  2 -18648.785 282464 283
-##  3 -18668.802 529496 343
-##  4 -18695.729  49221 254
-##  5 -18695.729 153394 429
-##  6 -18695.729 741888 138
-##  7 -18695.729  85114 385
-##  8 -18695.729 173191 422
-##  9 -18695.729 436460 89
-## 10 -18695.729 153942 31
-## # ... with 54 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## Error in mutate_impl(.data, dots): Evaluation error: Column `sd`: not found in data.
-## # A tibble: 52 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18407.232 475420 71
-##  2 -18407.232 871438 561
-##  3 -18469.834 597614 284
-##  4 -18469.834 830570 369
-##  5 -18469.834 283492 435
-##  6 -18469.834 260953 589
-##  7 -18518.118 153394 429
-##  8 -18634.678 950604 172
-##  9 -18660.958 922596 456
-## 10 -18662.856 160326 546
-## # ... with 42 more rows
-\end{verbatim}
-
 We can see that even for the solutions associated with other
 log-likelihoods, the results for model 7 are the same.
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-m1_7-other-LL-1} \end{center}
-
-\begin{verbatim}
-## Error in start:stop: argument of length 0
-\end{verbatim}
 
 \subsection{Model 2 candidate
 solutions}\label{model-2-candidate-solutions}
 
 Here are solutions for model 2.
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-for-model2-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 120 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18897.062 154575 539
-##  2 -18897.062 606576 151
-##  3 -18897.062 746978 410
-##  4 -18897.062 107446 12
-##  5 -18897.062  30098 209
-##  6 -18897.062 871851 257
-##  7 -18897.062 491970 563
-##  8 -18897.062  76451 211
-##  9 -18897.062 152496 123
-## 10 -18897.062 458181 189
-## # ... with 110 more rows
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-4-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 119 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18659.676 286735 175
-##  2 -18659.676 349562 359
-##  3 -18659.676 568859 49
-##  4 -18686.131 562716 300
-##  5 -18690.761 475420 71
-##  6 -18690.761 147440 514
-##  7 -18690.761 279850 555
-##  8 -18690.761 667250 318
-##  9 -18690.761 153394 429
-## 10 -18709.289 327475 518
-## # ... with 109 more rows
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-5-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 120 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -18474.834 154575 539
-##  2 -18474.834 436460 89
-##  3 -18474.834 746978 410
-##  4 -18474.834  85114 385
-##  5 -18479.167 217130 443
-##  6 -18479.167 539389 544
-##  7 -18481.815 407108 366
-##  8 -18481.815 165853 105
-##  9 -18481.815  73576 213
-## 10 -18481.815 471398 74
-## # ... with 110 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## # A tibble: 104 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -17098.434 344422 296
-##  2 -17216.914 226322 478
-##  3 -17714.856 853195 431
-##  4 -18285.363 153053 378
-##  5 -18304.150 211281 292
-##  6 -18304.150 529496 343
-##  7 -18320.492 350608 334
-##  8 -18323.206 691234 250
-##  9 -18337.703 425929 508
-## 10 -18337.703 153394 429
-## # ... with 94 more rows
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/spec-solutions-model2-7-1} \end{center}
-
-\begin{verbatim}
-## # A tibble: 97 x 3
-##    LL           seed m_iterations
-##  * <chr>       <dbl> <chr>
-##  1 -17035.006  85734 411
-##  2 -17035.006 344422 296
-##  3 -18213.406 939021 8
-##  4 -18214.792 458181 189
-##  5 -18217.063 715255 523
-##  6 -18227.574 126371 526
-##  7 -18227.574 391949 295
-##  8 -18234.603  30098 209
-##  9 -18234.603 150531 154
-## 10 -18234.603 790452 303
-## # ... with 87 more rows
-\end{verbatim}
 
 \section{Research Question \#2}\label{research-question-2}
 

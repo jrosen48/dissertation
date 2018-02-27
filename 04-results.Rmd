@@ -147,7 +147,7 @@ df <- df %>%
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 ```
 
-# Research Question #1
+## Research Question #1
 
 This question addresses what profiles emerged from the data. This section is organized around:
 
@@ -155,22 +155,25 @@ This question addresses what profiles emerged from the data. This section is org
 * Fit statistics for models that converged and demonstrated that the log-likelihood was replicated
 * Comparison of candidate solutions
 
-```{r, compare-solutions-overall-stats, include = FALSE, eval = TRUE}
+```{r, compare-solutions-overall-stats, eval = FALSE}
 d <- compare_solutions_mplus(df,  
                              dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                              starts = c(600, 120),
                              n_profiles_min = 2, 
                              n_profiles_max = 10,
-                             return_stats_df = FALSE,
-                             n_processors = 8)
+                             return_stats_df = TRUE,
+                             return_table = TRUE,
+                             n_processors = 6, 
+                             save_models = TRUE,
+                             include_BLRT = TRUE)
 
 write_rds(d, "data/overall-stats-for-all-models.rds")
 ```
 
-## Overall solutions for all models
+### Overall solutions for all models
 
 ```{r, printing-solutions-overall-stats, eval = T}
-d <- read_rds("data/overall-stats-for-all-models.rds")
+# d <- read_rds("data/overall-stats-for-all-models.rds")
 
 overall_stats_for_all_models <- read_rds("data/overall-stats-for-all-models.rds")
 
@@ -179,29 +182,34 @@ overall_stats_for_all_models[[1]] %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-## In-depth statistics for particular models
+### In-depth statistics for particular models
 
 ```{r, printing-solutions-spec-stats, eval = TRUE}
-d[[2]] %>% 
+overall_stats_for_all_models[[2]] %>% 
   knitr::kable(caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, format = "latex") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-## Fit statistics for select models
+### Fit statistics for select models
 
 This section presents fit statistics for select models
 
-```{r, model1}
-d %>% 
+```{r, model1, eval = F, fig.height = "778px", fig.asp = .618}
+overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
+  mutate(AIC = AIC * -1,
+         LL = LL * -1) %>% 
   gather(key, val, -n_profile, -model) %>% 
   ggplot(aes(x = n_profile, y = val)) +
   geom_point() +
   geom_line() +
-  facet_wrap(~ key + model, scales = "free")
+  facet_grid(key ~ model, scales = "free") +
+  theme_bw() +
+  xlab("Number of Profiles") +
+  ylab(NULL)
 ```
 
-## Comparison of candidate solutions
+### Comparison of candidate solutions
 
 In this section, specific models are examined so that candidate solutions can be compared. 
 
@@ -209,7 +217,7 @@ In this section, specific models are examined so that candidate solutions can be
 
 Here are solutions for model 1.
 
-```{r, spec-solutions-m1_3, cache = TRUE}
+```{r, spec-solutions-m1_3, cache = TRUE, eval = F}
 m1_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -219,10 +227,11 @@ m1_3 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_3)
-extract_LL_mplus()
+extract_LL_mplus() %>% 
+  knitr::kable()
 ```
 
-```{r, spec-solutions-m1_4, cache = TRUE}
+```{r, spec-solutions-m1_4, cache = TRUE, eval = F}
 m1_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -232,10 +241,10 @@ m1_4 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_4)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-m1_5, cache = TRUE}
+```{r, spec-solutions-m1_5, cache = TRUE, eval = F}
 m1_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -245,10 +254,10 @@ m1_5 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_5)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-m1_6, cache = TRUE}
+```{r, spec-solutions-m1_6, cache = TRUE, eval = F}
 m1_6 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -258,10 +267,10 @@ m1_6 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_6)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-m1_7, cache = TRUE}
+```{r, spec-solutions-m1_7, cache = TRUE, eval = F}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -271,12 +280,12 @@ m1_7 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m1_7)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
 We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same. 
 
-```{r, spec-solutions-m1_7-other-LL, cache = TRUE}
+```{r, spec-solutions-m1_7-other-LL, cache = TRUE, eval = F}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -286,14 +295,14 @@ m1_7 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE, optseed = 597614)
 
 plot_profiles_mplus(m1_7)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
 ### Model 2 candidate solutions
 
 Here are solutions for model 2.
 
-```{r, spec-solutions-for-model2, cache = TRUE}
+```{r, spec-solutions-for-model2, cache = TRUE, eval = F}
 
 m2_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
@@ -304,10 +313,10 @@ m2_3 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m2_3)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-model2-4, cache = TRUE}
+```{r, spec-solutions-model2-4, cache = TRUE, eval = F}
 m2_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -317,10 +326,10 @@ m2_4 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m2_4)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-model2-5, cache = TRUE}
+```{r, spec-solutions-model2-5, cache = TRUE, eval = F}
 m2_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -330,10 +339,10 @@ m2_5 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m2_5)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-model2-6, cache = TRUE}
+```{r, spec-solutions-model2-6, cache = TRUE, eval = F}
 m2_6 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -342,10 +351,10 @@ m2_6 <- estimate_profiles_mplus(df,
                                 include_BLRT=TRUE,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
-```{r, spec-solutions-model2-7, cache = TRUE}
+```{r, spec-solutions-model2-7, cache = TRUE, eval = F}
 m2_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -355,7 +364,7 @@ m2_7 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 
 plot_profiles_mplus(m2_7)
-extract_LL_mplus()
+extract_LL_mplus() %>%    knitr::kable()
 ```
 
 ## Research Question #2
