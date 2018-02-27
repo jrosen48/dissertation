@@ -8,9 +8,9 @@ First, for RQ #1:
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
-                      cache = TRUE,
                       collapse = TRUE,
-                      fig.width = ,
+                      error = TRUE,
+                      fig.width = 6,
                       fig.asp = .618,
                       out.width = "80%", 
                       fig.align = "center", 
@@ -221,7 +221,7 @@ In this section, specific models are examined so that candidate solutions can be
 
 Here are solutions for model 1.
 
-```{r, spec-solutions-m1_3}
+```{r, spec-solutions-m1_3, cache = TRUE}
 m1_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -234,7 +234,7 @@ plot_profiles_mplus(m1_3)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-m1_4}
+```{r, spec-solutions-m1_4, cache = TRUE}
 m1_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -247,7 +247,7 @@ plot_profiles_mplus(m1_4)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-m1_5}
+```{r, spec-solutions-m1_5, cache = TRUE}
 m1_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -260,7 +260,7 @@ plot_profiles_mplus(m1_5)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-m1_6}
+```{r, spec-solutions-m1_6, cache = TRUE}
 m1_6 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -273,7 +273,7 @@ plot_profiles_mplus(m1_6)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-m1_7}
+```{r, spec-solutions-m1_7, cache = TRUE}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -288,7 +288,7 @@ extract_LL_mplus()
 
 We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same. 
 
-```{r, spec-solutions-m1_7-other-LL}
+```{r, spec-solutions-m1_7-other-LL, cache = TRUE}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -305,7 +305,7 @@ extract_LL_mplus()
 
 Here are solutions for model 2.
 
-```{r, spec-solutions-for-model2}
+```{r, spec-solutions-for-model2, cache = TRUE}
 
 m2_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
@@ -319,7 +319,7 @@ plot_profiles_mplus(m2_3)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-model2-4}
+```{r, spec-solutions-model2-4, cache = TRUE}
 m2_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -332,7 +332,7 @@ plot_profiles_mplus(m2_4)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-model2-5}
+```{r, spec-solutions-model2-5, cache = TRUE}
 m2_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -345,7 +345,7 @@ plot_profiles_mplus(m2_5)
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-model2-6}
+```{r, spec-solutions-model2-6, cache = TRUE}
 m2_6 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -357,20 +357,7 @@ m2_6 <- estimate_profiles_mplus(df,
 extract_LL_mplus()
 ```
 
-```{r, spec-solutions-model2-7}
-m2_7 <- estimate_profiles_mplus(df,  
-                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                                starts = c(600, 120),
-                                model = 2,
-                                n_profiles = 7,
-                                include_BLRT=TRUE,
-                                n_processors = 8, remove_tmp_files = FALSE)
-
-plot_profiles_mplus(m2_7)
-extract_LL_mplus()
-```
-
-```{r, spec-solutions-model2-7-other-LL}
+```{r, spec-solutions-model2-7, cache = TRUE}
 m2_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),

@@ -4,7 +4,7 @@
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
 # 1b. rendering site
-# rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 
 # 2. fixing text
 source("fix_tex.R")
@@ -40,3 +40,10 @@ system("git add -u")
 system("git commit -m 'update diss'")
 system("git push")
 
+# 6. Cleaning up
+
+file.remove("d.dat")
+file.remove("i.inp")
+file.remove("i.out")
+file.remove("d-mod.dat")
+file.remove("Mplus Run Models.log")
