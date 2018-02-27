@@ -4,30 +4,30 @@
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
 \contentsline {chapter}{\chapternumberline {2}Literature Review}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}Defining Work With Data}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}What We Know (And Do Not Know) About Engagement in Work with Data}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Engagement in STEM Domains}{10}{section.2.3}
+\contentsline {section}{\numberline {2.2}What We Know (And Do Not Know) About Engagement in Work with Data}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Engagement in STEM Domains}{11}{section.2.3}
 \contentsline {section}{\numberline {2.4}Using ESM to Study the Dynamics of Engagement}{14}{section.2.4}
-\contentsline {section}{\numberline {2.5}A Person-Oriented Approach to Engagement}{15}{section.2.5}
+\contentsline {section}{\numberline {2.5}A Person-Oriented Approach to Engagement}{16}{section.2.5}
 \contentsline {section}{\numberline {2.6}Need for the Present Study}{18}{section.2.6}
 \contentsline {section}{\numberline {2.7}Conceptual Framework}{19}{section.2.7}
-\contentsline {section}{\numberline {2.8}Research Questions}{20}{section.2.8}
-\contentsline {chapter}{\chapternumberline {3}Method}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}Participants}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Context}{22}{section.3.2}
-\contentsline {section}{\numberline {3.3}Procedure}{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}Data Sources and Measures}{24}{section.3.4}
-\contentsline {section}{\numberline {3.5}Data Analysis}{27}{section.3.5}
-\contentsline {section}{\numberline {3.6}Power Analysis}{33}{section.3.6}
-\contentsline {section}{\numberline {3.7}Limitations}{34}{section.3.7}
-\contentsline {chapter}{\chapternumberline {4}Results}{35}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Research Question \#1}{36}{chapter.5}
-\contentsline {section}{\numberline {5.1}Overall solutions for all models}{36}{section.5.1}
-\contentsline {section}{\numberline {5.2}Fit statistics for select models}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}Comparison of candidate solutions}{37}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Model 1 candidate solutions}{37}{subsection.5.3.1}
+\contentsline {section}{\numberline {2.8}Research Questions}{21}{section.2.8}
+\contentsline {chapter}{\chapternumberline {3}Method}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Participants}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Context}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Procedure}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Data Sources and Measures}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Data Analysis}{28}{section.3.5}
+\contentsline {section}{\numberline {3.6}Power Analysis}{34}{section.3.6}
+\contentsline {section}{\numberline {3.7}Limitations}{35}{section.3.7}
+\contentsline {chapter}{\chapternumberline {4}Results}{36}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Research Question \#1}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Overall solutions for all models}{38}{section.5.1}
+\contentsline {section}{\numberline {5.2}Fit statistics for select models}{38}{section.5.2}
+\contentsline {section}{\numberline {5.3}Comparison of candidate solutions}{38}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Model 1 candidate solutions}{38}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Model 2 candidate solutions}{43}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Research Question \#2}{47}{section.5.4}
-\contentsline {section}{\numberline {5.5}Research Question \#3}{47}{section.5.5}
-\contentsline {section}{\numberline {5.6}Research Question \#4}{47}{section.5.6}
-\contentsline {chapter}{\chapternumberline {6}Discussion}{48}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}References}{49}{chapter.7}
+\contentsline {section}{\numberline {5.4}Research Question \#2}{48}{section.5.4}
+\contentsline {section}{\numberline {5.5}Research Question \#3}{48}{section.5.5}
+\contentsline {section}{\numberline {5.6}Research Question \#4}{48}{section.5.6}
+\contentsline {chapter}{\chapternumberline {6}Discussion}{49}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}References}{50}{chapter.7}
