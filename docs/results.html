@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method</title>
+  <title>Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach</title>
   <meta name="description" content="This is Joshua Rosenberg’s dissertation">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method" />
+  <meta property="og:title" content="Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jrosen48/dissertation" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method" />
+  <meta name="twitter:title" content="Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach" />
   
   <meta name="twitter:description" content="This is Joshua Rosenberg’s dissertation" />
   
@@ -93,7 +93,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
 <li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#research-question-1"><i class="fa fa-check"></i><b>5.1</b> Research Question #1</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#statistical-software-used"><i class="fa fa-check"></i><b>5.1.1</b> Statistical software used</a></li>
+<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#statistical-software-developed"><i class="fa fa-check"></i><b>5.1.1</b> Statistical software developed</a></li>
 <li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#overall-solutions-for-all-models"><i class="fa fa-check"></i><b>5.1.2</b> Overall solutions for all models</a></li>
 <li class="chapter" data-level="5.1.3" data-path="results.html"><a href="results.html#in-depth-statistics-for-particular-models"><i class="fa fa-check"></i><b>5.1.3</b> In-depth statistics for particular models</a></li>
 <li class="chapter" data-level="5.1.4" data-path="results.html"><a href="results.html#comparison-of-candidate-solutions"><i class="fa fa-check"></i><b>5.1.4</b> Comparison of candidate solutions</a></li>
@@ -118,7 +118,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach</a>
           </h1>
         </div>
 
@@ -132,8 +132,8 @@
 <div id="research-question-1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Research Question #1</h2>
 <p>This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.</p>
-<div id="statistical-software-used" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Statistical software used</h3>
+<div id="statistical-software-developed" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Statistical software developed</h3>
 <p>In order to provide results for this research question, the MPlus software (Muthen &amp; Muthen, 2017) was used. While MPlus is powerful and widely-used, it can be very difficult to use as part of complex analyses. One reason for why it is difficult to use is that while it provides an environment for executing model <em>syntax</em>, it is not an environment, such as SPSS or R, for statistical computing (i.e., preparing data, processing and presenting results). Because of this, I created with colleagues an open-source tool, tidyLPA, in the statistical software R (Rosenberg, Schmidt, Beymer, &amp; Steingut, 2018). This package is available on the R Comprehensive Archive Network. This software provides wrappers–functions that provide an interface–to MPlus functions via the MplusAutomation R package (Hallquist, 2018).</p>
 <p>These wrapper functions dynamically generate MPlus syntax, so that, for example, a user can simply provide a data frame with variables to be used in the analysis, the specification for one of six models, the number of profiles to be estimated as part of the analysis, and a number of fine-grained options concerning the estimation and the output generated. From these inputs, a data file for MPlus is prepared and saved, the model syntax is created and saved in a model input file, the model is run, and the output, including the “savedata”, or the data with its associated posterior probabilities and profile assignments, is returned to R for use plots or in subsequent analyses.</p>
 <p>Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, &amp; Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., “spherical, equal volume”), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses.</p>
@@ -351,7 +351,7 @@ Figure 5.2: Fit statistics for model 2
 </div>
 <p>Looking across the statistics presented in Table 5.2 and Figures 5.1 and 5.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.</p>
 <p>For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.</p>
-<p>For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decresed in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles bepreferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.</p>
+<p>For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decreased in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.</p>
 </div>
 <div id="comparison-of-candidate-solutions" class="section level3">
 <h3><span class="header-section-number">5.1.4</span> Comparison of candidate solutions</h3>
@@ -365,7 +365,7 @@ Figure 5.2: Fit statistics for model 2
 <ul>
 <li>a <strong>full</strong> profile, profile 2 (though with more modestly high levels of challenge)</li>
 <li>a <strong>universally low</strong> profile, profile 1 (again with more modestly - in this case low - levels of challenge)</li>
-<li>an <strong>all moderate</strong> profile, characterized by levels of all of the variables close to the mean, profile 3</li>
+<li>an <strong>all moderate</strong> profile, profile 3, characterized by levels of all of the variables close to the mean, profile 3</li>
 </ul>
 <p>The number of observations associated with each of the profiles is somewhat balanced, with the all moderate profile demonstrating a higher number of observations (<em>n</em> = 1,288) than the full (<em>n</em> = 897) and universally low (<em>n</em> = 773) profiles. The log-likelihood was replicated many (more than 10) times. Because the profiles associated with this solution all demonstrated the same overall pattern (i.e., all five variables are high, low, or moderate), on the basis of interpretability, this particular solution may not be useful in terms of understanding how youth experience engagement and its conditions.</p>
 <!-- While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012). -->
@@ -516,7 +516,7 @@ Figure 5.2: Fit statistics for model 2
 <li>an <strong>only behaviorally engaged</strong> profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
 <li>an <strong>only affectively engaged</strong> profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
 </ul>
-<p>The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (<em>n</em> = 928), a moderate number of observations in the universally low (<em>n</em> = 667) and all moderate (<em>n</em> = 643) profiles, and fewer observations in the only behaviorally engaged (<em>n</em> = 375) and only affective engaged (<em>n</em> = 345) profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the soution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times.</p>
+<p>The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (<em>n</em> = 928), a moderate number of observations in the universally low (<em>n</em> = 667) and all moderate (<em>n</em> = 643) profiles, and fewer observations in the only behaviorally engaged (<em>n</em> = 375) and only affective engaged (<em>n</em> = 345) profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the solution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m1_5p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -589,9 +589,9 @@ Figure 5.2: Fit statistics for model 2
 <li>an <strong>all moderate</strong> profile, profile 5–and, like, the model 1, six profile solution–with moderate levels of affective engagement</li>
 <li>an <strong>only behaviorally engaged</strong> profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
 <li>an <strong>only affectively engaged</strong> profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
-<li>an <strong>engaged and competent but not challenged</strong> profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge</li>
+<li>an <strong>engaged and competent but not challenged</strong> profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge</li>
 </ul>
-<p>The number of observations associated with each of the profiles is somewhat balanced, with the univerally low profile with the largest number of observations (<em>n</em> = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (<em>n</em> = 638). Each of the other four profiles were assocaited with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on <em>either</em> a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge–different from the profile associated with the model 1, four profile solution characterized by high levels of competence–this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether–and if so, how–it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses.</p>
+<p>The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (<em>n</em> = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (<em>n</em> = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on <em>either</em> a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge–different from the profile associated with the model 1, four profile solution characterized by high levels of competence–this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether–and if so, how–it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m1_6p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -655,8 +655,22 @@ Figure 5.2: Fit statistics for model 2
 </tbody>
 </table>
 </div>
+<div id="model-1-profiles-6-alternate" class="section level4">
+<h4><span class="header-section-number">5.1.5.5</span> Model: 1, Profiles: 6 (alternate)</h4>
+<p>This solution is characterized by:</p>
+<ul>
+<li>a <strong>full</strong> profile, profile 6</li>
+<li>a <strong>universally low</strong> profile, profile 2</li>
+<li>an <strong>all moderate</strong> profile, profile 5–and, like, the model 1, six profile solution–with moderate levels of affective engagement</li>
+<li>an <strong>only behaviorally engaged</strong> profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
+<li>an <strong>only affectively engaged</strong> profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence</li>
+<li>an <strong>engaged and competent but not challenged</strong> profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge</li>
+</ul>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_6p-alt-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in start:stop: argument of length 0</code></pre>
+</div>
 <div id="model-1-profiles-7" class="section level4">
-<h4><span class="header-section-number">5.1.5.5</span> Model: 1, Profiles: 7</h4>
+<h4><span class="header-section-number">5.1.5.6</span> Model: 1, Profiles: 7</h4>
 <p>This solution is characterized by:</p>
 <ul>
 <li>a <strong>full</strong> profile, profile 7</li>
@@ -667,7 +681,7 @@ Figure 5.2: Fit statistics for model 2
 <li>a <strong>highly challenged</strong> profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge</li>
 <li>a <strong>challenged but not engaged or competent</strong> profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence</li>
 </ul>
-<p>The number of observations associated with each of the profiles is not very balanced, with few (<em>n</em> = 181) observations associated with the univerally low profile and few (<em>n</em> = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles–challenged and highly challenged and universally low and moderately low–exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likilhood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions.</p>
+<p>The number of observations associated with each of the profiles is not very balanced, with few (<em>n</em> = 181) observations associated with the universally low profile and few (<em>n</em> = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles–challenged and highly challenged and universally low and moderately low–exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m1_7p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -732,8 +746,8 @@ Figure 5.2: Fit statistics for model 2
 </table>
 </div>
 <div id="model-1-profiles-7-alternate" class="section level4">
-<h4><span class="header-section-number">5.1.5.6</span> Model: 1, Profiles: 7 (alternate)</h4>
-<p>When investigating an alternate solution (associated with the second lowest log-likelihod) for the model 1, seven profile solution, we can see that even for the solutions associated with other log-likelihoods, the profiles that can be identified are very similar. One minor distinction concerns the <strong>competent but not engaged or challenged</strong> profile, which in the alternate solution is associated with neutral levels of affective engagement, compared to moderately low levels of affective engagement in the solution with the lowest log-likelihood. Because five of the seven profiles associated with both of these model 1, seven profile solutions seem to be distinct from those identified from simpler model 1 solutions, investigation of this alternate solution provides additional evidence that these profiles are not associated with an under-identified model and that simpler models may be preferred over these seven profile solutions.</p>
+<h4><span class="header-section-number">5.1.5.7</span> Model: 1, Profiles: 7 (alternate)</h4>
+<p>When investigating an alternate solution (associated with the second lowest log-likelihood) for the model 1, seven profile solution, we can see that even for the solutions associated with other log-likelihoods, the profiles that can be identified are very similar. One minor distinction concerns the <strong>competent but not engaged or challenged</strong> profile, which in the alternate solution is associated with neutral levels of affective engagement, compared to moderately low levels of affective engagement in the solution with the lowest log-likelihood. Because five of the seven profiles associated with both of these model 1, seven profile solutions seem to be distinct from those identified from simpler model 1 solutions, investigation of this alternate solution provides additional evidence that these profiles are not associated with an under-identified model and that simpler models may be preferred over these seven profile solutions.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m1_7-other-LL-p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -745,54 +759,54 @@ Figure 5.2: Fit statistics for model 2
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">-18648.785</td>
-<td align="right">1548</td>
-<td align="left">384</td>
+<td align="left">-18474.834</td>
+<td align="right">154575</td>
+<td align="left">539</td>
 </tr>
 <tr class="even">
-<td align="left">-18648.785</td>
-<td align="right">282464</td>
-<td align="left">283</td>
-</tr>
-<tr class="odd">
-<td align="left">-18668.802</td>
-<td align="right">529496</td>
-<td align="left">343</td>
-</tr>
-<tr class="even">
-<td align="left">-18695.729</td>
-<td align="right">49221</td>
-<td align="left">254</td>
-</tr>
-<tr class="odd">
-<td align="left">-18695.729</td>
-<td align="right">153394</td>
-<td align="left">429</td>
-</tr>
-<tr class="even">
-<td align="left">-18695.729</td>
-<td align="right">741888</td>
-<td align="left">138</td>
-</tr>
-<tr class="odd">
-<td align="left">-18695.729</td>
-<td align="right">85114</td>
-<td align="left">385</td>
-</tr>
-<tr class="even">
-<td align="left">-18695.729</td>
-<td align="right">173191</td>
-<td align="left">422</td>
-</tr>
-<tr class="odd">
-<td align="left">-18695.729</td>
+<td align="left">-18474.834</td>
 <td align="right">436460</td>
 <td align="left">89</td>
 </tr>
+<tr class="odd">
+<td align="left">-18474.834</td>
+<td align="right">746978</td>
+<td align="left">410</td>
+</tr>
 <tr class="even">
-<td align="left">-18695.729</td>
-<td align="right">153942</td>
-<td align="left">31</td>
+<td align="left">-18474.834</td>
+<td align="right">85114</td>
+<td align="left">385</td>
+</tr>
+<tr class="odd">
+<td align="left">-18479.167</td>
+<td align="right">217130</td>
+<td align="left">443</td>
+</tr>
+<tr class="even">
+<td align="left">-18479.167</td>
+<td align="right">539389</td>
+<td align="left">544</td>
+</tr>
+<tr class="odd">
+<td align="left">-18481.815</td>
+<td align="right">407108</td>
+<td align="left">366</td>
+</tr>
+<tr class="even">
+<td align="left">-18481.815</td>
+<td align="right">165853</td>
+<td align="left">105</td>
+</tr>
+<tr class="odd">
+<td align="left">-18481.815</td>
+<td align="right">73576</td>
+<td align="left">213</td>
+</tr>
+<tr class="even">
+<td align="left">-18481.815</td>
+<td align="right">471398</td>
+<td align="left">74</td>
 </tr>
 </tbody>
 </table>
@@ -804,10 +818,11 @@ Figure 5.2: Fit statistics for model 2
 <h4><span class="header-section-number">5.1.6.1</span> Model: 2, Profiles: 3</h4>
 <p>This solution is characterized by:</p>
 <ul>
-<li>a full profile, profile 2 (though with more modestly high levels of challenge)</li>
-<li>a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)</li>
-<li>an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (<em>n</em> = 1,288) than the full (<em>n</em> = 897) and universally low (<em>n</em> = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov &amp; Muthen, 2012).</li>
+<li>a <strong>universally low</strong> profile, profile 1, associated with moderate (low) and low levels of all of the variables; this profile is similar to the universally low profile identified as part of other solutions, although with more moderate values for some of the variables (especially cognitive engagement)</li>
+<li>a <strong>competent but not challenged</strong> profile, profile 2, characterized by high competence and low challenge</li>
+<li>a <strong>challenged</strong> profile, profile 3, characterized by very high challenge and moderate (high) levels of the other variables, similar to the challenged profile found as part of the model 1, four profile solution, but with higher levels of competence, which are moderately high in this solution but moderately low for the other solution.</li>
 </ul>
+<p>The number of observations associated with each solution is fairly balanced, with the most in the challenged profile (<em>n</em> = 1,241), followed by the universally low (<em>n</em> = 954 observations) and competent but not challenged (<em>n</em> = 763) profiles. This solution is very different than the three profile solution that was interpreted for model 1. Model 2 differs from model 1 in that covariances between the variables are estimated (they are constrained to be the same are across the profiles). The log-likelihood was replicated (at least) ten times. Thus, this and other solutions associated with model 2 include information about how the variables relate. Including this information seems to be associated with profiles that differentiate the groups on the basis of the levels of each of the variables in more distinct ways: the model 1, three profile solution was characterized by high, moderate, or low levels of all variables for each of the three profiles.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m2_3p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -875,10 +890,12 @@ Figure 5.2: Fit statistics for model 2
 <h4><span class="header-section-number">5.1.6.2</span> Model: 2, Profiles: 4</h4>
 <p>This solution is characterized by:</p>
 <ul>
-<li>a full profile, profile 2 (though with more modestly high levels of challenge)</li>
-<li>a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)</li>
-<li>an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (<em>n</em> = 1,288) than the full (<em>n</em> = 897) and universally low (<em>n</em> = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov &amp; Muthen, 2012).</li>
+<li>a <strong>universally low</strong> profile, profile 1</li>
+<li>a <strong>challenged</strong> profile, profile 2</li>
+<li>a <strong>highly challenged</strong> profile, profile 4</li>
+<li>an <strong>engaged and competent but not challenged</strong> profile, profile 3</li>
 </ul>
+<p>The number of observations in each of the profiles is not very balanced, with more than 1,000 observations in both the universally low (<em>n</em> = 1,029) and challenged (<em>n</em> = 1,106) profiles, a moderate number if the engaged and competent but not challenged profile (<em>n</em> = 688), and very few in the highly challenged (<em>n</em> = 135) profile. The log-likelihood was replicated three times. While each of these profiles has been identified in another solution, the small number of observations in the highly challenged profile suggests that this solution be interpreted with some skepticism because of the potentially limited utility (and statistical power associated with the use) of the profiles in subsequent analyses.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m2_4p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
@@ -946,11 +963,13 @@ Figure 5.2: Fit statistics for model 2
 <h4><span class="header-section-number">5.1.6.3</span> Model: 2, Profiles: 5</h4>
 <p>This solution is characterized by:</p>
 <ul>
-<li>a <strong>full</strong> profile, profile 2 (though with more modestly high levels of challenge)</li>
-<li>a <strong>universally low</strong> profile, profile 1 (again with more modestly - in this case low - levels of challenge)</li>
-<li>an <strong>all moderate</strong> profile, characterized by levels of all of the variables close to the mean, profile 3.</li>
+<li>a <strong>universally low</strong> profile, profile 1</li>
+<li>a <strong>full</strong> profile, profile 4, although with very high levels of challenged (in addition to high levels of all of the other variables), making this profile similar to that (challenged) profile</li>
+<li>a <strong>highly challenged</strong> profile, profile 5</li>
+<li>an <strong>all moderate</strong> profile, profile 3, although with moderately lower levels of competence than is found in profiles associated with other solutions</li>
+<li>a <strong>competent but not challenged</strong> profile, profile 2, similar to the competent but not challenged or engaged profile, but with neutral, rather than low, levels of the engagement variables</li>
 </ul>
-<p>The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (<em>n</em> = 1,288) than the full (<em>n</em> = 897) and universally low (<em>n</em> = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov &amp; Muthen, 2012).</p>
+<p>The number of observations associated with each of the profiles is not very balanced, with a very large number of observations in the all moderate profile (<em>n</em> = 1,113) and a large number in the competent but not challenged profile (<em>n</em> = 871), a moderate number in the full profile (<em>n</em> = 573), and very few in the universally low (<em>n</em> = 271) and challenged but not competent (<em>n</em> = 130) profiles. The log-likelihood was replicated four times. Like for the model 2, four profile solution, the small number of observations associated with two of the profiles suggests that this solution should be interpreted with some caution.</p>
 <p><img src="rosenberg-dissertation_files/figure-html/m2_5p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>

@@ -24,7 +24,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method},
+            pdftitle={Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach},
             pdfauthor={Joshua M. Rosenberg},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -76,9 +76,8 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Examining Work With Data in STEM Education Through the Lens of
-Engagement Theory: A Person-Oriented Approach Using an Experience
-Sampling Method}
+  \title{Engaging in Data Practices in Summer STEM Programs: A Person-in-Context
+Approach}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Joshua M. Rosenberg}
@@ -364,8 +363,9 @@ three decades. While research on work with data has focused on cognitive
 outcomes and the development of specific practices at the student and
 classroom levels, little research has considered learners'
 experience--their perceptions of themselves, the activity, and of how
-engaged they are--of work with data and engaging in data science. The
-present study explores learners engagement in data practices in the
+engaged they are--of work with data and engaging in data science.
+
+The present study explores learners engagement in data practices in the
 context of summer STEM programs. The data practices that are the focus
 of this study are selected on the basis of past research in science and
 mathematics education and data science education (Lehrer \& Schauble,
@@ -378,18 +378,12 @@ from measures of learners' engagement ia collected through an Experience
 Sampling Method (ESM) that involves asking learners at random intervals
 to answer short questions about their experience and are analyzed with a
 person-oriented approach to discover profiles of learners' engagement.
-The following research questions guide the study:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  How frequent are opportunities for learners to engage in each of the
-  five data practices in summer STEM programs?
-\item
-  How does learners' engagement relate to each of the five data
-  practices?
-\end{enumerate}
+The following research questions guide the study: 1) How frequent are
+opportunities for learners to engage in each of the five data practices
+in summer STEM programs? 2) How does learners' engagement relate to each
+of the five data practices? 3) How do the relationships identified as
+part of answering research question \#2 differ depending on whether or
+not instructional support for work with data was provided?
 
 These questions are explored in the context of nine summer STEM programs
 that took place over four week in one of two large cities in the
@@ -398,10 +392,10 @@ short ESM surveys of their perceptions of themselves (their competence)
 and of the activity (its challenge) and of how engaged they are.
 Programs were video-recorded, and segments of video associated with ESM
 responses were qualitatively coded for each of the data practices (for
-RQ \#1). Relations of learners engagement to the data practices were
-analyzed using multi-level models (for RQ \#2). Finally, activities were
+RQ1). Relations of learners engagement to the data practices were
+analyzed using multi-level models (for RQ3). Finally, activities were
 coded qualitatively to identify characteristics of particularly engaging
-activities (for RQ \#3).
+activities (for RQ2).
 
 Aspects of work with data were fairly common overall, though modeling
 data was less common than other data practices. Relations of specific
@@ -1996,8 +1990,8 @@ This solution is characterized by:
   a \textbf{universally low} profile, profile 1 (again with more
   modestly - in this case low - levels of challenge)
 \item
-  an \textbf{all moderate} profile, characterized by levels of all of
-  the variables close to the mean, profile 3
+  an \textbf{all moderate} profile, profile 3, characterized by levels
+  of all of the variables close to the mean, profile 3
 \end{itemize}
 
 The number of observations associated with each of the profiles is
@@ -2187,8 +2181,8 @@ This solution is characterized by:
   and moderately (low) levels of cognitive engagement and challenge and
   competence
 \item
-  an \textbf{engaged and competent but not challenged} profile,
-  characterized by high levels of each of the three dimensions of
+  an \textbf{engaged and competent but not challenged} profile, profile
+  3, characterized by high levels of each of the three dimensions of
   engagement and of competence, but with low levels of challenge
 \end{itemize}
 
@@ -2246,6 +2240,42 @@ LL & seed & m\_iterations\\
 -18695.729 & 153942 & 31\\
 \hline
 \end{tabular}
+
+\subsubsection{Model: 1, Profiles: 6
+(alternate)}\label{model-1-profiles-6-alternate}
+
+This solution is characterized by:
+
+\begin{itemize}
+\tightlist
+\item
+  a \textbf{full} profile, profile 6
+\item
+  a \textbf{universally low} profile, profile 2
+\item
+  an \textbf{all moderate} profile, profile 5--and, like, the model 1,
+  six profile solution--with moderate levels of affective engagement
+\item
+  an \textbf{only behaviorally engaged} profile, profile 1, with
+  moderate levels of behavioral engagement, very low affective
+  engagement, and moderately (low) levels of cognitive engagement and
+  challenge and competence
+\item
+  an \textbf{only affectively engaged} profile, profile 4, with moderate
+  levels of affective engagement, low levels of behavioral engagement,
+  and moderately (low) levels of cognitive engagement and challenge and
+  competence
+\item
+  an \textbf{engaged and competent but not challenged} profile,
+  characterized by high levels of each of the three dimensions of
+  engagement and of competence, but with low levels of challenge
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-alt-1} \end{center}
+
+\begin{verbatim}
+## Error in start:stop: argument of length 0
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 7}\label{model-1-profiles-7}
 
@@ -2358,23 +2388,36 @@ This solution is characterized by:
 \begin{itemize}
 \tightlist
 \item
-  a full profile, profile 2 (though with more modestly high levels of
-  challenge)
+  a \textbf{universally low} profile, profile 1, associated with
+  moderate (low) and low levels of all of the variables; this profile is
+  similar to the universally low profile identified as part of other
+  solutions, although with more moderate values for some of the
+  variables (especially cognitive engagement)
 \item
-  a universally low profile, profile 1 (again with more modestly - in
-  this case low - levels of challenge)
+  a \textbf{competent but not challenged} profile, profile 2,
+  characterized by high competence and low challenge
 \item
-  an all moderate profile, characterized by levels of all of the
-  variables close to the mean, profile 3. The number of observations
-  associated with each of the profiles is somewhat balanced, witht he
-  all moderate profile demonstrating a higher number of observations
-  (\emph{n} = 1,288) than the full (\emph{n} = 897) and universally low
-  (\emph{n} = 773) profiles. While replicated, the lowest log-likelihood
-  associated with this solution demonstrated a very large decrease in
-  the log-likelihood relative to those associated with the 2nd, 3rd, and
-  4th lowest log-likelihood solutions. This could suggest that the model
-  is under-identified (Asparouhov \& Muthen, 2012).
+  a \textbf{challenged} profile, profile 3, characterized by very high
+  challenge and moderate (high) levels of the other variables, similar
+  to the challenged profile found as part of the model 1, four profile
+  solution, but with higher levels of competence, which are moderately
+  high in this solution but moderately low for the other solution.
 \end{itemize}
+
+The number of observations associated with each solution is fairly
+balanced, with the most in the challenged profile (\emph{n} = 1,241),
+followed by the universally low (\emph{n} = 954 observations) and
+competent but not challenged (\emph{n} = 763) profiles. This solution is
+very different than the three profile solution that was interpreted for
+model 1. Model 2 differs from model 1 in that covariances between the
+variables are estimated (they are constrained to be the same are across
+the profiles). The log-likelihood was replicated (at least) ten times.
+Thus, this and other solutions associated with model 2 include
+information about how the variables relate. Including this information
+seems to be associated with profiles that differentiate the groups on
+the basis of the levels of each of the variables in more distinct ways:
+the model 1, three profile solution was characterized by high, moderate,
+or low levels of all variables for each of the three profiles.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_3p-1} \end{center}
 
@@ -2411,23 +2454,25 @@ This solution is characterized by:
 \begin{itemize}
 \tightlist
 \item
-  a full profile, profile 2 (though with more modestly high levels of
-  challenge)
+  a \textbf{universally low} profile, profile 1
 \item
-  a universally low profile, profile 1 (again with more modestly - in
-  this case low - levels of challenge)
+  a \textbf{challenged} profile, profile 2
 \item
-  an all moderate profile, characterized by levels of all of the
-  variables close to the mean, profile 3. The number of observations
-  associated with each of the profiles is somewhat balanced, witht he
-  all moderate profile demonstrating a higher number of observations
-  (\emph{n} = 1,288) than the full (\emph{n} = 897) and universally low
-  (\emph{n} = 773) profiles. While replicated, the lowest log-likelihood
-  associated with this solution demonstrated a very large decrease in
-  the log-likelihood relative to those associated with the 2nd, 3rd, and
-  4th lowest log-likelihood solutions. This could suggest that the model
-  is under-identified (Asparouhov \& Muthen, 2012).
+  a \textbf{highly challenged} profile, profile 4
+\item
+  an \textbf{engaged and competent but not challenged} profile, profile
+  3
 \end{itemize}
+
+The number of observations in each of the profiles is not very balanced,
+with more than 1,000 observations in both the univerally low (\emph{n} =
+1,029) and challenged (\emph{n} = 1,106) profiles, a moderate number if
+the engaged and competent but not challegned profile (\emph{n} = 688),
+and very frew in the highly challenged (\emph{n} = 135) profile. The
+log-likelihood was replicated three times. While each of these profiles
+has been identified in another solution, the small number of
+observations in the highly challenged profile suggests that this
+solution be interpreted with some skepticism.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_4p-1} \end{center}
 
@@ -2464,14 +2509,18 @@ This solution is characterized by:
 \begin{itemize}
 \tightlist
 \item
-  a \textbf{full} profile, profile 2 (though with more modestly high
-  levels of challenge)
+  a \textbf{universally low} profile, profile 1
 \item
-  a \textbf{universally low} profile, profile 1 (again with more
-  modestly - in this case low - levels of challenge)
+  a \textbf{challenged} profile, profile 4, though with higher levels of
+  the other variables, each of the dimensions of engagement and
+  competence
 \item
-  an \textbf{all moderate} profile, characterized by levels of all of
-  the variables close to the mean, profile 3.
+  a \textbf{highly challenged} profile, profile 5
+\item
+  an \textbf{engaged and competent but not challenged} profile, profile
+  3
+\item
+  an \textbf{all moderate} profile, profile 3
 \end{itemize}
 
 The number of observations associated with each of the profiles is
