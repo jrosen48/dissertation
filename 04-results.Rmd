@@ -195,14 +195,15 @@ The results are presented in Figure 5.1. If this is the case, then the log-likel
 
 After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented. 
 
-The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). For the entropy statistic, higher values are considered better. The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
+The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that 
+BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
 
 In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
 
 ```{r, printing-solutions-spec-stats, eval = TRUE}
 overall_stats_for_all_models[[2]] %>% 
   arrange(model, n_profile) %>% 
-  select(-model, n_profile = n_profiles) %>% 
+  select(-model, n_profiles = n_profile) %>% 
   knitr::kable(caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>% 
@@ -210,7 +211,7 @@ overall_stats_for_all_models[[2]] %>%
   kableExtra::group_rows("Model 2", 8, 11)
 ```
 
-```{r, model1, eval = T, cache = F, fig.cap = "Fit statistics for model 1"}
+```{r, model1, eval = T, cache = F, out.width = "60%", fig.cap = "Fit statistics for model 1"}
 
 overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
@@ -227,7 +228,7 @@ overall_stats_for_all_models[[2]] %>%
   ylab(NULL)
 ```
 
-```{r, model2, eval = T, cache = F, fig.cap = "Fit statistics for model 2"}
+```{r, model2, eval = T, cache = F, out.width = "50%", fig.cap = "Fit statistics for model 2"}
 
 overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
@@ -248,18 +249,27 @@ Looking across the statistics presented in Table 5.2 and Figures 5.1 and 5.2, so
 
 For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
 
-For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decresed in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be 
-preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
+For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decresed in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles bepreferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
 
 ### Comparison of candidate solutions
 
-In this section, specific models are examined so that candidate solutions can be compared. 
+In this section, specific models are examined so that candidate solutions can be compared. For all of the solutions, the data are centered to have a mean equal to 0, but not scaled to have a standard deviation equal to 1.
 
 ### Model 1 candidate solutions
 
-Here are solutions for model 1.
+#### Model: 1, Profiles: 3
 
-```{r, spec-solutions-m1_3, cache = TRUE, eval = T}
+This solution is characterized by: 
+
+- a full profile, profile 2 (though with more modestly high levels of challenge) 
+- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+
+The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles.  The log-likelihood was replicated many (more than 10) times. 
+
+<!-- While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012). -->
+
+```{r, spec-solutions-m1_3, cache = TRUE}
 m1_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -269,10 +279,23 @@ m1_3 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_3p}
-plot_profiles_mplus(m1_3)
+```{r, m1_3p, include = TRUE}
+plot_profiles_mplus(m1_3, to_scale = TRUE)
+```
+
+```{r, m1_3p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
+
+#### Model: 1, Profiles: 4
+
+This solution is characterized by: 
+
+- a full profile, profile 2 (though with more modestly high levels of challenge) 
+- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+
+The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-m1_4, cache = TRUE, eval = T}
 m1_4 <- estimate_profiles_mplus(df,  
@@ -285,9 +308,22 @@ m1_4 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_4p}
-plot_profiles_mplus(m1_4)
+plot_profiles_mplus(m1_4, to_scale = TRUE)
+```
+
+```{r, m1_4p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
+
+#### Model: 1, Profiles: 5
+
+This solution is characterized by: 
+
+- a full profile, profile 2 (though with more modestly high levels of challenge) 
+- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+
+The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-m1_5, cache = TRUE, eval = T}
 m1_5 <- estimate_profiles_mplus(df,  
@@ -300,9 +336,23 @@ m1_5 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_5p}
-plot_profiles_mplus(m1_5)
+plot_profiles_mplus(m1_5, to_scale = TRUE)
+
+```
+
+```{r, m1_5p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
+
+#### Model: 1, Profiles: 6
+
+This solution is characterized by: 
+
+- a full profile, profile 2 (though with more modestly high levels of challenge) 
+- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+
+The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-m1_6, cache = TRUE, eval = T}
 m1_6 <- estimate_profiles_mplus(df,  
@@ -315,9 +365,22 @@ m1_6 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_6p}
-plot_profiles_mplus(m1_6)
+plot_profiles_mplus(m1_6, to_scale = TRUE)
+```
+
+```{r, m1_6p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
+
+#### Model: 1, Profiles: 7
+
+This solution is characterized by: 
+
+- a full profile, profile 2 (though with more modestly high levels of challenge) 
+- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+
+The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-m1_7, cache = TRUE, eval = T}
 m1_7 <- estimate_profiles_mplus(df,  
@@ -330,7 +393,11 @@ m1_7 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_7p}
-plot_profiles_mplus(m1_7)
+plot_profiles_mplus(m1_7, to_scale = TRUE)
+
+```
+
+```{r, m1_7-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -347,7 +414,10 @@ m1_7 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_7-other-LL-p}
-plot_profiles_mplus(m1_7)
+plot_profiles_mplus(m1_7, to_scale = TRUE)
+```
+
+```{r, m1_7-other-LL-ll, eval = T}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -367,7 +437,11 @@ m2_3 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m2_3p}
-plot_profiles_mplus(m2_3)
+plot_profiles_mplus(m2_3, to_scale = TRUE)
+
+```
+
+```{r, m2_3p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -382,7 +456,11 @@ m2_4 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m2_4p}
-plot_profiles_mplus(m2_4)
+plot_profiles_mplus(m2_4, to_scale = TRUE)
+
+```
+
+```{r, m2_4p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -397,7 +475,11 @@ m2_5 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m2_5p}
-plot_profiles_mplus(m2_5)
+plot_profiles_mplus(m2_5, to_scale = TRUE)
+
+```
+
+```{r, m2_5p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -411,8 +493,12 @@ m2_6 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m2_6p}
-plot_profiles_mplus(m2_6)
+```{r, m2_6p, eval=F, echo= F}
+plot_profiles_mplus(m2_6, to_scale = TRUE)
+
+```
+
+```{r, m2_6p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -427,7 +513,11 @@ m2_7 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m2_7p}
-plot_profiles_mplus(m2_7)
+plot_profiles_mplus(m2_7, to_scale = TRUE)
+
+```
+
+```{r, m2_7p-ll, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 

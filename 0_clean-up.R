@@ -1,0 +1,5 @@
+if (file.exists("d.dat")) file.remove("d.dat")
+if (file.exists("i.inp")) file.remove("i.inp")
+if (file.exists("i.out")) file.remove("i.out")
+if (file.exists("d-mod.dat")) file.remove("d-mod.dat")
+if (file.exists("Mplus Run Models.log")) file.remove("Mplus Run Models.log")

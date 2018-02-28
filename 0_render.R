@@ -12,8 +12,7 @@ source("fix_tex.R")
 # 3. copying cached files
 if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg-dissertation_files")
 
-file.copy("_bookdown_files/rosenberg-dissertation_files",
-          "docs", recursive=TRUE)
+file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE)
 
 #########################################
 ### 4. MANUALLY RENDER THE FILE HERE!!!
@@ -42,9 +41,4 @@ system("git push")
 
 # 6. Cleaning up
 
-file.remove("d.dat")
-file.remove("i.inp")
-file.remove("i.out")
-file.remove("d-mod.dat")
-file.remove("Mplus Run Models.log")
-
+source("0_clean-up.R")
