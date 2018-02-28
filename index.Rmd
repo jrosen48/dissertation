@@ -1,5 +1,5 @@
 --- 
-title: "Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method"
+title: "Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach"
 author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

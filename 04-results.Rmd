@@ -195,8 +195,7 @@ The results are presented in Figure 5.1. If this is the case, then the log-likel
 
 After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented. 
 
-The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that 
-BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
+The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
 
 In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
 
@@ -377,6 +376,38 @@ plot_profiles_mplus(m1_6, to_scale = TRUE)
 ```
 
 ```{r, m1_6p-ll, eval = TRUE, cache = TRUE}
+extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
+```
+
+#### Model: 1, Profiles: 6 (alternate)
+
+This solution is characterized by: 
+
+- a **full** profile, profile 6
+- a **universally low** profile, profile 2
+- an **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
+- an **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **engaged and competent but not challenged** profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
+
+ 
+
+```{r, spec-solutions-m1_6-alt, cache = TRUE, eval = T}
+m1_6_alt <- estimate_profiles_mplus(df,  
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 6,
+                                include_BLRT=TRUE,
+                                n_processors = 8, remove_tmp_files = FALSE,
+                                optseed = 49221)
+```
+
+```{r, m1_6p-alt}
+plot_profiles_mplus(m1_6_alt, to_scale = TRUE)
+```
+
+```{r, m1_6p-ll-alt, eval = TRUE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
