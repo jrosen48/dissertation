@@ -6,9 +6,9 @@ Joshua Rosenberg's (in-development) dissertation completed as part of the [Educa
 
 * An online (GitBook) version is available [here](https://jrosen48.github.io/dissertation/).
 
-#### Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach
+#### Title and Abstract
 
-#### Abstract
+**Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach**
 
 Data-rich activities provide an opportunity for science and mathematics learners to develop empowering capabilities. Aspects of work with data are recognized as core competencies in both science and mathematics curricular standards and have been the focus of research over the past three decades. While research on work with data has focused on cognitive outcomes and the development of specific practices at the student and classroom levels, little research has considered learners' experience--their perceptions of themselves, the activity, and of how engaged they are--of work with data and engaging in data science. 
 
