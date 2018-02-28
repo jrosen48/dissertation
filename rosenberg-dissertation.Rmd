@@ -935,7 +935,6 @@ This solution is characterized by:
 - a full profile, profile 2 (though with more modestly high levels of challenge) 
 - a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
 - an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
-
 The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-for-model2, cache = TRUE, eval = T}
@@ -965,7 +964,6 @@ This solution is characterized by:
 - a full profile, profile 2 (though with more modestly high levels of challenge) 
 - a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
 - an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
-
 The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-model2-4, cache = TRUE, eval = T}
