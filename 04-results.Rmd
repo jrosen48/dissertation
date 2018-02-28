@@ -261,11 +261,11 @@ In this section, specific models are examined so that candidate solutions can be
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 2 (though with more modestly high levels of challenge) 
+- a **universally low** profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an **all moderate** profile, characterized by levels of all of the variables close to the mean, profile 3
 
-The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles.  The log-likelihood was replicated many (more than 10) times. 
+The number of observations associated with each of the profiles is somewhat balanced, with the all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. The log-likelihood was replicated many (more than 10) times. Because the profiles associated with this solution all demonstrated the same overall pattern (i.e., all five variables are high, low, or moderate), on the basis of interpretability, this particular solution may not be useful in terms of understanding how youth experience engagement and its conditions. 
 
 <!-- While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012). -->
 
@@ -291,11 +291,14 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 2
+- a **universally low** profile, profile 1
+- an **all moderate** profile, profile 3. 
+- a **competent but not engaged or challenged** profile, with high levels of challenge and low levels of engagement and competence
 
-The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
+Most profiles are in the all moderate profile (*n* = 1,288), with a large number in the full (*n* = 920) profile, and fewer in the universally low and competent (*n* n = 427) but not engaged or challenged profiles (*n* = 415). With somewhat more purchase in terms of its interpretability than the solution for model 1 with three profiles, like that solution, this one may not be as useful as more complex models for understanding youth's experiences.
+
+The log-likelihood was replicated many (more than 10) times. 
 
 ```{r, spec-solutions-m1_4, cache = TRUE, eval = T}
 m1_4 <- estimate_profiles_mplus(df,  
@@ -319,11 +322,13 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 5
+- a **universally low** profile, profile 3
+- an **all moderate** profile, profile 3, though with moderate levels of affective engagement than in similar profiles associated with the four and five profile solutions, perhaps suggesting that a different profile than in those solutions
+- an **only behaviorally engaged** profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 
-The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
+The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (*n* = 928), a moderate number of observations in the universally low (*n* = 667) and all moderate (*n* = 643) profiles, and fewer observations in the only behaviorally engaged (*n* = 375) and only affective engaged (*n* = 345)  profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the soution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times. 
 
 ```{r, spec-solutions-m1_5, cache = TRUE, eval = T}
 m1_5 <- estimate_profiles_mplus(df,  
@@ -348,11 +353,14 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 6
+- a **universally low** profile, profile 2
+- an **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
+- an **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **engaged and competent but not challenged** profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
-The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
+The number of observations associated with each of the profiles is somewhat balanced, with the univerally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were assocaited with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge--different from the profile associated with the model 1, four profile solution characterized by high levels of competence--this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses. 
 
 ```{r, spec-solutions-m1_6, cache = TRUE, eval = T}
 m1_6 <- estimate_profiles_mplus(df,  
@@ -376,11 +384,15 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 7
+- a **universally low** profile, profile 1
+- a **competent but not engaged or challenged** profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
+- a **moderately low** profile, profile 3, characterized by moderately low levels of all of the variables
+- a **challenged** profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
+- a **highly challenged** profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
+- a **challenged but not engaged or competent** profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
-The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
+The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the univerally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likilhood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
 ```{r, spec-solutions-m1_7, cache = TRUE, eval = T}
 m1_7 <- estimate_profiles_mplus(df,  
@@ -401,7 +413,9 @@ plot_profiles_mplus(m1_7, to_scale = TRUE)
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same. 
+#### Model: 1, Profiles: 7 (alternate)
+
+When investigating an alternate solution (associated with the second lowest log-likelihod) for the model 1, seven profile solution, we can see that even for the solutions associated with other log-likelihoods, the profiles that can be identified are very similar. One minor distinction concerns the **competent but not engaged or challenged** profile, which in the alternate solution is associated with neutral levels of affective engagement, compared to moderately low levels of affective engagement in the solution with the lowest log-likelihood. Because five of the seven profiles associated with both of these model 1, seven profile solutions seem to be distinct from those identified from simpler model 1 solutions, investigation of this alternate solution provides additional evidence that these profiles are not associated with an under-identified model and that simpler models may be preferred over these seven profile solutions.
 
 ```{r, spec-solutions-m1_7-other-LL, cache = TRUE, eval = T}
 m1_7 <- estimate_profiles_mplus(df,  
@@ -430,7 +444,6 @@ This solution is characterized by:
 - a full profile, profile 2 (though with more modestly high levels of challenge) 
 - a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
 - an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
-
 The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-for-model2, cache = TRUE, eval = T}
@@ -460,7 +473,6 @@ This solution is characterized by:
 - a full profile, profile 2 (though with more modestly high levels of challenge) 
 - a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
 - an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
-
 The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
 ```{r, spec-solutions-model2-4, cache = TRUE, eval = T}
@@ -486,9 +498,9 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a full profile, profile 2 (though with more modestly high levels of challenge) 
-- a universally low profile, profile 1 (again with more modestly - in this case low - levels of challenge)
-- an all moderate profile, characterized by levels of all of the variables close to the mean, profile 3. 
+- a **full** profile, profile 2 (though with more modestly high levels of challenge) 
+- a **universally low** profile, profile 1 (again with more modestly - in this case low - levels of challenge)
+- an **all moderate** profile, characterized by levels of all of the variables close to the mean, profile 3. 
 
 The number of observations associated with each of the profiles is somewhat balanced, witht he all moderate profile demonstrating a higher number of observations (*n* = 1,288) than the full (*n* = 897) and universally low (*n* = 773) profiles. While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012).
 
