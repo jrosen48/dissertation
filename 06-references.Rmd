@@ -51,10 +51,11 @@ Nolen, S. B., Horn, I. S., & Ward, C. J. (2015). Situating motivation. Education
 Patall, E. A., Vasquez, A. C., Steingut, R. R., Trimble, S. S., & Pituch, K. A. (2016). Daily interest, engagement, and autonomy support in the high school science classroom. Contemporary Educational Psychology, 46, 180-194.  
 Patall, E. A., Steingut, R. R., Vasquez, A. C., Trimble, S. S., Pituch, K. A., & Freeman, J. L. (2017). Daily Autonomy Supporting or Thwarting and Students’ Motivation and Engagement in the High School Science Classroom. Journal of Educational Psychology. Advance online publication.
 http://dx.doi.org/10.1037/edu0000214  
-Pekrun, R., & Linnenbrink-Garcia, L. (2012). Academic emotions and student engagement. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), Handbook of research on student engagement (pp. 259-292). New York, NY: Springer.  
+Pekrun, R., & Linnenbrink-Garcia, L. (2012). Academic emotions and student engagement. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), Handbook of research on student engagement (pp. 259-292). New York, NY: Springer.
 Petrosino, A., Lehrer, R., & Schauble, L. (2003). Structuring error and experimental variation as distribution in the fourth grade. Mathematical Thinking and Learning, 5 (2&3), 131-156.  
 Piaget, J., & Inhelder, B. (1969). The psychology of the child. New York, NY: Basic Books.  
 Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M., & Nurmi, J. E. (2017). Variation in situation-specific engagement among lower secondary school students. Learning and Instruction. http://dx.doi.org/10.1016/j.learninstruc.2017.07.007  
+Rosenberg, J. M. (2018). Comparing mplus and mclust output. Retrieved from https://jrosen48.github.io/r-markdown/comparing-mplus-mclust.html
 Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., & Lavonen, J. (2016). Integrating the light and dark sides of student engagement using person-oriented and situation-specific approaches. Learning and Instruction, 43, 61-70.  
 Salmela-Aro, K., Muotka, J., Alho, K., Hakkarainen, K., & Lonka, K. (2016). School burnout and engagement profiles among digital natives in Finland: A person-oriented approach. European Journal of Developmental Psychology, 13(6), 704-718.  
 Schneider, B., Krajcik, J., Lavonen, J., Salmela‐Aro, K., Broda, M., Spicer, J., ... & Viljaranta, J. (2016). Investigating optimal learning moments in US and Finnish science classes. Journal of Research in Science Teaching, 53(3), 400-421.  
@@ -83,6 +84,7 @@ Wang, M. T., & Eccles, J. S. (2012). Social support matters: Longitudinal effect
 Wang, M. T., & Holcombe, R. (2010). Adolescents’ perceptions of school environment, engagement, and academic achievement in middle school. American Educational Research Journal, 47(3), 633-662.  
 Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. Journal of Experimental Psychology: General, 143(5), 2020-2045.  
 Westfall, J. (2016). PANGEA: Power Analysis for General Anova designs. Retrieved from https://jakewestfall.shinyapps.io/pangea/  
+Wickham, H. (2018). CRAN downloads. Retrieved from https://hadley.shinyapps.io/cran-downloads/
 Wild, C. J., & Pfannkuch, M. (1999). Statistical thinking in empirical enquiry. International Statistical Review, 67(3), 223-248.  
 Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., & Gravel, B. E. (2016). What’s the technology for? Teacher attention and pedagogical goals in a modeling-focused professional development workshop. Journal of Science Teacher Education, 27(1), 11-33.  
 Wilkerson, M. H. & Fenwick, M. (2017). The practice of using mathematics and computational thinking. In C. V. Schwarz, C. Passmore, & B. J. Reiser (Eds.), Helping Students Make Sense of the World Using Next Generation Science and Engineering Practices. Arlington, VA: National Science Teachers’ Association Press. pp. 181-204.  

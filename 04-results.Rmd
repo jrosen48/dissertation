@@ -2,8 +2,6 @@
 
 In this section, results in terms of the research questions are presented.
 
-First, for RQ #1:
-
 ```{r, setup-results-fix, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
@@ -149,11 +147,17 @@ df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng
 
 ## Research Question #1
 
-This question addresses what profiles emerged from the data. This section is organized around:
+This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
 
-* Overall solutions for all models (whether models converged and the log-likelihood was replicated)
-* Fit statistics for models that converged and demonstrated that the log-likelihood was replicated
-* Comparison of candidate solutions
+### Statistical software used
+
+In order to provide results for this research question, the MPlus software (Muthen & Muthen, 2017) was used. While MPlus is powerful and widely-used, it can be very difficult to use as part of complex analyses. One reason for why it is difficult to use is that while it provides an environment for executing model *syntax*, it is not an environment, such as SPSS or R, for statistical computing (i.e., preparing data, processing and presenting results). Because of this, I created with colleagues an open-source tool, tidyLPA, in the statistical software R (Rosenberg, Schmidt, Beymer, & Steingut, 2018). This package is available on the R Comprehensive Archive Network. This software provides wrappers--functions that provide an interface--to MPlus functions via the MplusAutomation R package (Hallquist, 2018). 
+
+These wrapper functions dynamically generate MPlus syntax, so that, for example, a user can simply provide a data frame with variables to be used in the analysis, the specification for one of six models, the number of profiles to be estimated as part of the analysis, and a number of fine-grained options concerning the estimation and the output generated. From these inputs, a data file for MPlus is prepared and saved, the model syntax is created and saved in a model input file, the model is run, and the output, including the "savedata", or the data with its associated posterior probabilities and profile assignments, is returned to R for use plots or in subsequent analyses. 
+
+Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, & Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., "spherical, equal volume"), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses. 
+
+In summary, the MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA, was developed. This tool provides interfaces to the MPlus software as well as to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. Since being released, the package has been downloaded more than 100 times (Wickham, 2018). 
 
 ```{r, compare-solutions-overall-stats, eval = FALSE}
 d <- compare_solutions_mplus(df,  
@@ -172,12 +176,10 @@ write_rds(d, "data/overall-stats-for-all-models.rds")
 
 ### Overall solutions for all models
 
-sadfsa
-
 ```{r, printing-solutions-overall-stats, eval = T}
 # d <- read_rds("data/overall-stats-for-all-models.rds")
 
-overall_stats_for_all_models <- read_rds("data/overall-stats-for-all-models.rds")
+overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
 
 overall_stats_for_all_models[[1]] %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Overall statistics for all models", linesep = "") %>%
@@ -185,25 +187,34 @@ overall_stats_for_all_models[[1]] %>%
   kableExtra::landscape()
 ```
 
-### In-depth statistics for particular models
-
 First, I examined a wide range of models and solutions. I did this in order to select particular, candidate models to scrutinize in greater detail. In order to carry out this analysis, I followed guidelines recommended by the developers of MPlus (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
 
-The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, "LL not replicated" is reported as the value. If none of the 120 runs converge, then "Did not converge" is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged.
+The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, "LL not replicated" is reported as the value. If none of the 120 runs converge, then "Did not converge" is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 and 2 are explored in subsequent sections.
+
+### In-depth statistics for particular models
+
+After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented. 
+
+The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). For the entropy statistic, higher values are considered better. The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
+
+In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
 
 ```{r, printing-solutions-spec-stats, eval = TRUE}
 overall_stats_for_all_models[[2]] %>% 
   arrange(model, n_profile) %>% 
+  select(-model, n_profile = n_profiles) %>% 
   knitr::kable(caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
+  kableExtra::landscape() %>% 
+  kableExtra::group_rows("Model 1", 1, 7) %>% 
+  kableExtra::group_rows("Model 2", 8, 11)
 ```
 
-### This section presents fit statistics for select models
+```{r, model1, eval = T, cache = F, fig.cap = "Fit statistics for model 1"}
 
-```{r, model1, eval = T, fig.height = 10, fig.asp = .618, out.width = "100%"}
 overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
+  filter(model == 1) %>% 
   mutate(AIC = AIC * -1,
          LL = LL * -1) %>% 
   gather(key, val, -n_profile, -model) %>% 
@@ -215,6 +226,30 @@ overall_stats_for_all_models[[2]] %>%
   xlab("Number of Profiles") +
   ylab(NULL)
 ```
+
+```{r, model2, eval = T, cache = F, fig.cap = "Fit statistics for model 2"}
+
+overall_stats_for_all_models[[2]] %>% 
+  select(n_profile:CAIC, Entropy) %>% 
+  filter(model == 2) %>% 
+  mutate(AIC = AIC * -1,
+         LL = LL * -1) %>% 
+  gather(key, val, -n_profile, -model) %>% 
+  ggplot(aes(x = n_profile, y = val)) +
+  geom_point() +
+  geom_line() +
+  facet_grid(key ~ model, scales = "free") +
+  theme_bw() +
+  xlab("Number of Profiles") +
+  ylab(NULL)
+```
+
+Looking across the statistics presented in Table 5.2 and Figures 5.1 and 5.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
+
+For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
+
+For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decresed in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be 
+preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
 
 ### Comparison of candidate solutions
 

@@ -93,9 +93,9 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
 <li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#research-question-1"><i class="fa fa-check"></i><b>5.1</b> Research Question #1</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#overall-solutions-for-all-models"><i class="fa fa-check"></i><b>5.1.1</b> Overall solutions for all models</a></li>
-<li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#in-depth-statistics-for-particular-models"><i class="fa fa-check"></i><b>5.1.2</b> In-depth statistics for particular models</a></li>
-<li class="chapter" data-level="5.1.3" data-path="results.html"><a href="results.html#this-section-presents-fit-statistics-for-select-models"><i class="fa fa-check"></i><b>5.1.3</b> This section presents fit statistics for select models</a></li>
+<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#statistical-software-used"><i class="fa fa-check"></i><b>5.1.1</b> Statistical software used</a></li>
+<li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#overall-solutions-for-all-models"><i class="fa fa-check"></i><b>5.1.2</b> Overall solutions for all models</a></li>
+<li class="chapter" data-level="5.1.3" data-path="results.html"><a href="results.html#in-depth-statistics-for-particular-models"><i class="fa fa-check"></i><b>5.1.3</b> In-depth statistics for particular models</a></li>
 <li class="chapter" data-level="5.1.4" data-path="results.html"><a href="results.html#comparison-of-candidate-solutions"><i class="fa fa-check"></i><b>5.1.4</b> Comparison of candidate solutions</a></li>
 <li class="chapter" data-level="5.1.5" data-path="results.html"><a href="results.html#model-1-candidate-solutions"><i class="fa fa-check"></i><b>5.1.5</b> Model 1 candidate solutions</a></li>
 <li class="chapter" data-level="5.1.6" data-path="results.html"><a href="results.html#model-2-candidate-solutions"><i class="fa fa-check"></i><b>5.1.6</b> Model 2 candidate solutions</a></li>
@@ -129,226 +129,43 @@
 <div id="results" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Results</h1>
 <p>In this section, results in terms of the research questions are presented.</p>
-<p>First, for RQ #1:</p>
 <div id="research-question-1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Research Question #1</h2>
-<p>This question addresses what profiles emerged from the data. This section is organized around:</p>
-<ul>
-<li>Overall solutions for all models (whether models converged and the log-likelihood was replicated)</li>
-<li>Fit statistics for models that converged and demonstrated that the log-likelihood was replicated</li>
-<li>Comparison of candidate solutions</li>
-</ul>
+<p>This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.</p>
+<div id="statistical-software-used" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Statistical software used</h3>
+<p>In order to provide results for this research question, the MPlus software (Muthen &amp; Muthen, 2017) was used. While MPlus is powerful and widely-used, it can be very difficult to use as part of complex analyses. One reason for why it is difficult to use is that while it provides an environment for executing model <em>syntax</em>, it is not an environment, such as SPSS or R, for statistical computing (i.e., preparing data, processing and presenting results). Because of this, I created with colleagues an open-source tool, tidyLPA, in the statistical software R (Rosenberg, Schmidt, Beymer, &amp; Steingut, 2018). This package is available on the R Comprehensive Archive Network. This software provides wrappers–functions that provide an interface–to MPlus functions via the MplusAutomation R package (Hallquist, 2018).</p>
+<p>These wrapper functions dynamically generate MPlus syntax, so that, for example, a user can simply provide a data frame with variables to be used in the analysis, the specification for one of six models, the number of profiles to be estimated as part of the analysis, and a number of fine-grained options concerning the estimation and the output generated. From these inputs, a data file for MPlus is prepared and saved, the model syntax is created and saved in a model input file, the model is run, and the output, including the “savedata”, or the data with its associated posterior probabilities and profile assignments, is returned to R for use plots or in subsequent analyses.</p>
+<p>Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, &amp; Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., “spherical, equal volume”), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses.</p>
+<p>In summary, the MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA, was developed. This tool provides interfaces to the MPlus software as well as to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. Since being released, the package has been downloaded more than 100 times (Wickham, 2018).</p>
+</div>
 <div id="overall-solutions-for-all-models" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Overall solutions for all models</h3>
-<p>sadfsa</p>
-<pre><code>## Error in kable_latex(x = structure(c(&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, : unused argument (padding = 0)</code></pre>
+<h3><span class="header-section-number">5.1.2</span> Overall solutions for all models</h3>
+
+<p>First, I examined a wide range of models and solutions. I did this in order to select particular, candidate models to scrutinize in greater detail. In order to carry out this analysis, I followed guidelines recommended by the developers of MPlus (Asparouhov &amp; Muthen, 2012; Muthen &amp; Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time.</p>
+<p>The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, “LL not replicated” is reported as the value. If none of the 120 runs converge, then “Did not converge” is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 and 2 are explored in subsequent sections.</p>
 </div>
 <div id="in-depth-statistics-for-particular-models" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> In-depth statistics for particular models</h3>
-<p>asdf</p>
-<table>
-<caption><span id="tab:printing-solutions-spec-stats">Table 5.1: </span>Solutions for models that converged with replicated LL</caption>
-<thead>
-<tr class="header">
-<th align="right">n_profile</th>
-<th align="right">model</th>
-<th align="right">LL</th>
-<th align="right">AIC</th>
-<th align="right">BIC</th>
-<th align="right">SABIC</th>
-<th align="right">CAIC</th>
-<th align="right">Entropy</th>
-<th align="right">VLMR_val</th>
-<th align="right">VLMR_p</th>
-<th align="right">LMR_val</th>
-<th align="right">LMR_p</th>
-<th align="right">BLRT_val</th>
-<th align="right">BLRT_p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">-19894.14</td>
-<td align="right">-19894.14</td>
-<td align="right">39916.16</td>
-<td align="right">39865.32</td>
-<td align="right">39820.47</td>
-<td align="right">0.807</td>
-<td align="right">3468.199</td>
-<td align="right">0.0000</td>
-<td align="right">3397.353</td>
-<td align="right">0.0000</td>
-<td align="right">3468.199</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">-19453.38</td>
-<td align="right">-19453.38</td>
-<td align="right">39082.59</td>
-<td align="right">39012.69</td>
-<td align="right">38951.11</td>
-<td align="right">0.794</td>
-<td align="right">881.519</td>
-<td align="right">0.0126</td>
-<td align="right">863.512</td>
-<td align="right">0.0136</td>
-<td align="right">881.519</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">-19196.33</td>
-<td align="right">-19196.33</td>
-<td align="right">38616.44</td>
-<td align="right">38527.47</td>
-<td align="right">38449.21</td>
-<td align="right">0.811</td>
-<td align="right">514.107</td>
-<td align="right">0.0000</td>
-<td align="right">503.605</td>
-<td align="right">0.0000</td>
-<td align="right">514.107</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">1</td>
-<td align="right">-18817.93</td>
-<td align="right">-18817.93</td>
-<td align="right">37907.60</td>
-<td align="right">37799.57</td>
-<td align="right">37704.68</td>
-<td align="right">0.913</td>
-<td align="right">756.788</td>
-<td align="right">0.0000</td>
-<td align="right">741.329</td>
-<td align="right">0.0000</td>
-<td align="right">756.788</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">-18648.78</td>
-<td align="right">-18648.78</td>
-<td align="right">37617.26</td>
-<td align="right">37490.17</td>
-<td align="right">37378.70</td>
-<td align="right">0.888</td>
-<td align="right">338.296</td>
-<td align="right">0.0000</td>
-<td align="right">331.386</td>
-<td align="right">0.0000</td>
-<td align="right">338.296</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">7</td>
-<td align="right">1</td>
-<td align="right">-18407.23</td>
-<td align="right">-18407.23</td>
-<td align="right">37182.11</td>
-<td align="right">37035.95</td>
-<td align="right">36907.95</td>
-<td align="right">0.886</td>
-<td align="right">523.141</td>
-<td align="right">0.0112</td>
-<td align="right">512.455</td>
-<td align="right">0.0121</td>
-<td align="right">523.141</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="right">1</td>
-<td align="right">-18186.35</td>
-<td align="right">-18186.35</td>
-<td align="right">36836.25</td>
-<td align="right">36651.96</td>
-<td align="right">36491.06</td>
-<td align="right">0.899</td>
-<td align="right">171.674</td>
-<td align="right">0.1322</td>
-<td align="right">168.167</td>
-<td align="right">0.1359</td>
-<td align="right">171.674</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">-19107.73</td>
-<td align="right">-19107.73</td>
-<td align="right">38423.27</td>
-<td align="right">38340.65</td>
-<td align="right">38267.95</td>
-<td align="right">0.924</td>
-<td align="right">850.304</td>
-<td align="right">0.0000</td>
-<td align="right">832.934</td>
-<td align="right">0.0000</td>
-<td align="right">850.304</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="right">-18897.06</td>
-<td align="right">-18897.06</td>
-<td align="right">38049.88</td>
-<td align="right">37948.20</td>
-<td align="right">37858.85</td>
-<td align="right">0.880</td>
-<td align="right">421.343</td>
-<td align="right">0.0000</td>
-<td align="right">412.736</td>
-<td align="right">0.0000</td>
-<td align="right">421.343</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">2</td>
-<td align="right">-18659.68</td>
-<td align="right">-18659.68</td>
-<td align="right">37623.06</td>
-<td align="right">37502.32</td>
-<td align="right">37396.37</td>
-<td align="right">0.922</td>
-<td align="right">474.773</td>
-<td align="right">0.0000</td>
-<td align="right">465.075</td>
-<td align="right">0.0000</td>
-<td align="right">474.773</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">2</td>
-<td align="right">-18474.83</td>
-<td align="right">-18474.83</td>
-<td align="right">37301.33</td>
-<td align="right">37161.52</td>
-<td align="right">37039.03</td>
-<td align="right">0.901</td>
-<td align="right">304.938</td>
-<td align="right">0.0000</td>
-<td align="right">298.709</td>
-<td align="right">0.0000</td>
-<td align="right">304.938</td>
-<td align="right">0</td>
-</tr>
-</tbody>
-</table>
+<h3><span class="header-section-number">5.1.3</span> In-depth statistics for particular models</h3>
+<p>After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen &amp; Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented.</p>
+<p>The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). For the entropy statistic, higher values are considered better. The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2</p>
+<p>In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen &amp; Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov &amp; Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.</p>
+<pre><code>## Error in FUN(X[[i]], ...): object &#39;n_profiles&#39; not found</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:model1"></span>
+<img src="rosenberg-dissertation_files/figure-html/model1-1.png" alt="Fit statistics for model 1" width="80%" />
+<p class="caption">
+Figure 5.1: Fit statistics for model 1
+</p>
 </div>
-<div id="this-section-presents-fit-statistics-for-select-models" class="section level3">
-<h3><span class="header-section-number">5.1.3</span> This section presents fit statistics for select models</h3>
-<p><img src="rosenberg-dissertation_files/figure-html/model1-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:model2"></span>
+<img src="rosenberg-dissertation_files/figure-html/model2-1.png" alt="Fit statistics for model 2" width="80%" />
+<p class="caption">
+Figure 5.2: Fit statistics for model 2
+</p>
+</div>
+<p>Looking across the statistics presented in Table 5.2 and Figures 5.1 and 5.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.</p>
+<p>For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.</p>
+<p>For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decresed in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.</p>
 </div>
 <div id="comparison-of-candidate-solutions" class="section level3">
 <h3><span class="header-section-number">5.1.4</span> Comparison of candidate solutions</h3>
@@ -357,4793 +174,7 @@
 <div id="model-1-candidate-solutions" class="section level3">
 <h3><span class="header-section-number">5.1.5</span> Model 1 candidate solutions</h3>
 <p>Here are solutions for model 1.</p>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_3-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">-19453.381</td>
-<td align="right">231281</td>
-<td align="left">542</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td align="left">-19453.381</td>
-<td align="right">879211</td>
-<td align="left">453</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">-19453.381</td>
-<td align="right">897782</td>
-<td align="left">545</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td align="left">-19453.381</td>
-<td align="right">155622</td>
-<td align="left">507</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">-19453.381</td>
-<td align="right">192071</td>
-<td align="left">142</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td align="left">-19453.381</td>
-<td align="right">507154</td>
-<td align="left">387</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td align="left">-19453.381</td>
-<td align="right">674171</td>
-<td align="left">195</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td align="left">-19453.381</td>
-<td align="right">316165</td>
-<td align="left">299</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td align="left">-19453.381</td>
-<td align="right">374219</td>
-<td align="left">353</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td align="left">-19453.381</td>
-<td align="right">783102</td>
-<td align="left">433</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td align="left">-19453.381</td>
-<td align="right">650371</td>
-<td align="left">14</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td align="left">-19453.381</td>
-<td align="right">68850</td>
-<td align="left">462</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">-19453.381</td>
-<td align="right">539389</td>
-<td align="left">544</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td align="left">-19453.381</td>
-<td align="right">580405</td>
-<td align="left">286</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">-19453.381</td>
-<td align="right">685268</td>
-<td align="left">596</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td align="left">-19453.381</td>
-<td align="right">481835</td>
-<td align="left">57</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">-19453.381</td>
-<td align="right">46437</td>
-<td align="left">153</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td align="left">-19453.381</td>
-<td align="right">505244</td>
-<td align="left">582</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td align="left">-19453.381</td>
-<td align="right">51375</td>
-<td align="left">148</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td align="left">-19453.381</td>
-<td align="right">715255</td>
-<td align="left">523</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td align="left">-19453.381</td>
-<td align="right">848890</td>
-<td align="left">95</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td align="left">-19453.381</td>
-<td align="right">36714</td>
-<td align="left">201</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td align="left">-19453.381</td>
-<td align="right">638611</td>
-<td align="left">524</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td align="left">-19453.381</td>
-<td align="right">804104</td>
-<td align="left">566</td>
-</tr>
-<tr class="odd">
-<td>25</td>
-<td align="left">-19453.381</td>
-<td align="right">790452</td>
-<td align="left">303</td>
-</tr>
-<tr class="even">
-<td>26</td>
-<td align="left">-19453.381</td>
-<td align="right">972873</td>
-<td align="left">157</td>
-</tr>
-<tr class="odd">
-<td>27</td>
-<td align="left">-19453.381</td>
-<td align="right">378393</td>
-<td align="left">509</td>
-</tr>
-<tr class="even">
-<td>28</td>
-<td align="left">-19453.381</td>
-<td align="right">127215</td>
-<td align="left">9</td>
-</tr>
-<tr class="odd">
-<td>29</td>
-<td align="left">-19453.381</td>
-<td align="right">414284</td>
-<td align="left">158</td>
-</tr>
-<tr class="even">
-<td>30</td>
-<td align="left">-19453.381</td>
-<td align="right">415502</td>
-<td align="left">194</td>
-</tr>
-<tr class="odd">
-<td>31</td>
-<td align="left">-19453.381</td>
-<td align="right">648555</td>
-<td align="left">113</td>
-</tr>
-<tr class="even">
-<td>32</td>
-<td align="left">-19453.381</td>
-<td align="right">617243</td>
-<td align="left">237</td>
-</tr>
-<tr class="odd">
-<td>33</td>
-<td align="left">-19453.381</td>
-<td align="right">551639</td>
-<td align="left">55</td>
-</tr>
-<tr class="even">
-<td>34</td>
-<td align="left">-19453.381</td>
-<td align="right">220454</td>
-<td align="left">288</td>
-</tr>
-<tr class="odd">
-<td>35</td>
-<td align="left">-19453.381</td>
-<td align="right">567165</td>
-<td align="left">319</td>
-</tr>
-<tr class="even">
-<td>36</td>
-<td align="left">-19453.381</td>
-<td align="right">561664</td>
-<td align="left">392</td>
-</tr>
-<tr class="odd">
-<td>37</td>
-<td align="left">-19453.381</td>
-<td align="right">437181</td>
-<td align="left">135</td>
-</tr>
-<tr class="even">
-<td>38</td>
-<td align="left">-19453.381</td>
-<td align="right">462228</td>
-<td align="left">298</td>
-</tr>
-<tr class="odd">
-<td>39</td>
-<td align="left">-19453.381</td>
-<td align="right">900268</td>
-<td align="left">327</td>
-</tr>
-<tr class="even">
-<td>40</td>
-<td align="left">-19453.381</td>
-<td align="right">741484</td>
-<td align="left">441</td>
-</tr>
-<tr class="odd">
-<td>41</td>
-<td align="left">-19453.381</td>
-<td align="right">178475</td>
-<td align="left">231</td>
-</tr>
-<tr class="even">
-<td>42</td>
-<td align="left">-19453.381</td>
-<td align="right">534483</td>
-<td align="left">290</td>
-</tr>
-<tr class="odd">
-<td>43</td>
-<td align="left">-19453.381</td>
-<td align="right">566687</td>
-<td align="left">597</td>
-</tr>
-<tr class="even">
-<td>44</td>
-<td align="left">-19453.381</td>
-<td align="right">215353</td>
-<td align="left">164</td>
-</tr>
-<tr class="odd">
-<td>45</td>
-<td align="left">-19453.381</td>
-<td align="right">608496</td>
-<td align="left">4</td>
-</tr>
-<tr class="even">
-<td>46</td>
-<td align="left">-19453.381</td>
-<td align="right">923437</td>
-<td align="left">398</td>
-</tr>
-<tr class="odd">
-<td>47</td>
-<td align="left">-19453.381</td>
-<td align="right">65651</td>
-<td align="left">214</td>
-</tr>
-<tr class="even">
-<td>48</td>
-<td align="left">-19453.381</td>
-<td align="right">267983</td>
-<td align="left">228</td>
-</tr>
-<tr class="odd">
-<td>49</td>
-<td align="left">-19453.381</td>
-<td align="right">335485</td>
-<td align="left">496</td>
-</tr>
-<tr class="even">
-<td>50</td>
-<td align="left">-19453.381</td>
-<td align="right">438144</td>
-<td align="left">271</td>
-</tr>
-<tr class="odd">
-<td>51</td>
-<td align="left">-19453.381</td>
-<td align="right">476498</td>
-<td align="left">179</td>
-</tr>
-<tr class="even">
-<td>52</td>
-<td align="left">-19453.381</td>
-<td align="right">655497</td>
-<td align="left">376</td>
-</tr>
-<tr class="odd">
-<td>53</td>
-<td align="left">-19453.381</td>
-<td align="right">195353</td>
-<td align="left">225</td>
-</tr>
-<tr class="even">
-<td>54</td>
-<td align="left">-19453.381</td>
-<td align="right">440841</td>
-<td align="left">118</td>
-</tr>
-<tr class="odd">
-<td>55</td>
-<td align="left">-19453.381</td>
-<td align="right">43523</td>
-<td align="left">297</td>
-</tr>
-<tr class="even">
-<td>56</td>
-<td align="left">-19453.381</td>
-<td align="right">391179</td>
-<td align="left">78</td>
-</tr>
-<tr class="odd">
-<td>57</td>
-<td align="left">-19453.381</td>
-<td align="right">359578</td>
-<td align="left">458</td>
-</tr>
-<tr class="even">
-<td>58</td>
-<td align="left">-19453.381</td>
-<td align="right">910224</td>
-<td align="left">580</td>
-</tr>
-<tr class="odd">
-<td>59</td>
-<td align="left">-19453.381</td>
-<td align="right">972430</td>
-<td align="left">491</td>
-</tr>
-<tr class="even">
-<td>60</td>
-<td align="left">-19453.381</td>
-<td align="right">443917</td>
-<td align="left">60</td>
-</tr>
-<tr class="odd">
-<td>61</td>
-<td align="left">-19453.381</td>
-<td align="right">404426</td>
-<td align="left">344</td>
-</tr>
-<tr class="even">
-<td>62</td>
-<td align="left">-19453.381</td>
-<td align="right">23012</td>
-<td align="left">352</td>
-</tr>
-<tr class="odd">
-<td>63</td>
-<td align="left">-19453.381</td>
-<td align="right">247224</td>
-<td align="left">94</td>
-</tr>
-<tr class="even">
-<td>64</td>
-<td align="left">-19453.381</td>
-<td align="right">425929</td>
-<td align="left">508</td>
-</tr>
-<tr class="odd">
-<td>65</td>
-<td align="left">-19453.381</td>
-<td align="right">371737</td>
-<td align="left">532</td>
-</tr>
-<tr class="even">
-<td>66</td>
-<td align="left">-19453.381</td>
-<td align="right">992389</td>
-<td align="left">77</td>
-</tr>
-<tr class="odd">
-<td>67</td>
-<td align="left">-19453.381</td>
-<td align="right">688839</td>
-<td align="left">273</td>
-</tr>
-<tr class="even">
-<td>68</td>
-<td align="left">-19453.381</td>
-<td align="right">260953</td>
-<td align="left">589</td>
-</tr>
-<tr class="odd">
-<td>69</td>
-<td align="left">-19453.381</td>
-<td align="right">902278</td>
-<td align="left">21</td>
-</tr>
-<tr class="even">
-<td>70</td>
-<td align="left">-19453.381</td>
-<td align="right">371246</td>
-<td align="left">101</td>
-</tr>
-<tr class="odd">
-<td>71</td>
-<td align="left">-19453.381</td>
-<td align="right">802682</td>
-<td align="left">419</td>
-</tr>
-<tr class="even">
-<td>72</td>
-<td align="left">-19453.381</td>
-<td align="right">471398</td>
-<td align="left">74</td>
-</tr>
-<tr class="odd">
-<td>73</td>
-<td align="left">-19453.381</td>
-<td align="right">297518</td>
-<td align="left">166</td>
-</tr>
-<tr class="even">
-<td>74</td>
-<td align="left">-19453.381</td>
-<td align="right">411615</td>
-<td align="left">171</td>
-</tr>
-<tr class="odd">
-<td>76</td>
-<td align="left">-19453.381</td>
-<td align="right">311214</td>
-<td align="left">64</td>
-</tr>
-<tr class="even">
-<td>77</td>
-<td align="left">-19453.381</td>
-<td align="right">414828</td>
-<td align="left">322</td>
-</tr>
-<tr class="odd">
-<td>78</td>
-<td align="left">-19453.381</td>
-<td align="right">782200</td>
-<td align="left">84</td>
-</tr>
-<tr class="even">
-<td>79</td>
-<td align="left">-19453.381</td>
-<td align="right">206099</td>
-<td align="left">363</td>
-</tr>
-<tr class="odd">
-<td>80</td>
-<td align="left">-19453.381</td>
-<td align="right">156536</td>
-<td align="left">245</td>
-</tr>
-<tr class="even">
-<td>81</td>
-<td align="left">-19453.381</td>
-<td align="right">802256</td>
-<td align="left">477</td>
-</tr>
-<tr class="odd">
-<td>82</td>
-<td align="left">-19453.381</td>
-<td align="right">830392</td>
-<td align="left">35</td>
-</tr>
-<tr class="even">
-<td>83</td>
-<td align="left">-19453.381</td>
-<td align="right">509733</td>
-<td align="left">130</td>
-</tr>
-<tr class="odd">
-<td>84</td>
-<td align="left">-19453.381</td>
-<td align="right">831410</td>
-<td align="left">567</td>
-</tr>
-<tr class="even">
-<td>85</td>
-<td align="left">-19453.381</td>
-<td align="right">467339</td>
-<td align="left">66</td>
-</tr>
-<tr class="odd">
-<td>86</td>
-<td align="left">-19453.381</td>
-<td align="right">130011</td>
-<td align="left">587</td>
-</tr>
-<tr class="even">
-<td>87</td>
-<td align="left">-19453.381</td>
-<td align="right">691041</td>
-<td align="left">590</td>
-</tr>
-<tr class="odd">
-<td>88</td>
-<td align="left">-19453.381</td>
-<td align="right">484406</td>
-<td align="left">421</td>
-</tr>
-<tr class="even">
-<td>89</td>
-<td align="left">-19453.381</td>
-<td align="right">197223</td>
-<td align="left">332</td>
-</tr>
-<tr class="odd">
-<td>90</td>
-<td align="left">-19453.381</td>
-<td align="right">608460</td>
-<td align="left">244</td>
-</tr>
-<tr class="even">
-<td>91</td>
-<td align="left">-19453.381</td>
-<td align="right">782821</td>
-<td align="left">272</td>
-</tr>
-<tr class="odd">
-<td>92</td>
-<td align="left">-19453.381</td>
-<td align="right">248742</td>
-<td align="left">556</td>
-</tr>
-<tr class="even">
-<td>93</td>
-<td align="left">-19453.381</td>
-<td align="right">314034</td>
-<td align="left">513</td>
-</tr>
-<tr class="odd">
-<td>94</td>
-<td align="left">-19453.381</td>
-<td align="right">21132</td>
-<td align="left">351</td>
-</tr>
-<tr class="even">
-<td>95</td>
-<td align="left">-19453.381</td>
-<td align="right">173440</td>
-<td align="left">328</td>
-</tr>
-<tr class="odd">
-<td>96</td>
-<td align="left">-19453.381</td>
-<td align="right">971693</td>
-<td align="left">470</td>
-</tr>
-<tr class="even">
-<td>97</td>
-<td align="left">-19453.381</td>
-<td align="right">614009</td>
-<td align="left">317</td>
-</tr>
-<tr class="odd">
-<td>98</td>
-<td align="left">-19453.381</td>
-<td align="right">85734</td>
-<td align="left">411</td>
-</tr>
-<tr class="even">
-<td>99</td>
-<td align="left">-19453.381</td>
-<td align="right">354208</td>
-<td align="left">196</td>
-</tr>
-<tr class="odd">
-<td>100</td>
-<td align="left">-19453.381</td>
-<td align="right">485483</td>
-<td align="left">498</td>
-</tr>
-<tr class="even">
-<td>101</td>
-<td align="left">-19453.381</td>
-<td align="right">49221</td>
-<td align="left">254</td>
-</tr>
-<tr class="odd">
-<td>102</td>
-<td align="left">-19453.381</td>
-<td align="right">794236</td>
-<td align="left">127</td>
-</tr>
-<tr class="even">
-<td>103</td>
-<td align="left">-19453.381</td>
-<td align="right">772131</td>
-<td align="left">407</td>
-</tr>
-<tr class="odd">
-<td>104</td>
-<td align="left">-19453.381</td>
-<td align="right">699554</td>
-<td align="left">427</td>
-</tr>
-<tr class="even">
-<td>105</td>
-<td align="left">-19453.381</td>
-<td align="right">417035</td>
-<td align="left">149</td>
-</tr>
-<tr class="odd">
-<td>106</td>
-<td align="left">-19453.381</td>
-<td align="right">783110</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td>107</td>
-<td align="left">-19453.381</td>
-<td align="right">93468</td>
-<td align="left">3</td>
-</tr>
-<tr class="odd">
-<td>108</td>
-<td align="left">-19453.381</td>
-<td align="right">462953</td>
-<td align="left">7</td>
-</tr>
-<tr class="even">
-<td>109</td>
-<td align="left">-19453.381</td>
-<td align="right">407108</td>
-<td align="left">366</td>
-</tr>
-<tr class="odd">
-<td>110</td>
-<td align="left">-19453.381</td>
-<td align="right">66276</td>
-<td align="left">217</td>
-</tr>
-<tr class="even">
-<td>111</td>
-<td align="left">-19453.381</td>
-<td align="right">518828</td>
-<td align="left">432</td>
-</tr>
-<tr class="odd">
-<td>112</td>
-<td align="left">-19453.381</td>
-<td align="right">61587</td>
-<td align="left">400</td>
-</tr>
-<tr class="even">
-<td>113</td>
-<td align="left">-19453.381</td>
-<td align="right">67009</td>
-<td align="left">564</td>
-</tr>
-<tr class="odd">
-<td>114</td>
-<td align="left">-19453.381</td>
-<td align="right">137305</td>
-<td align="left">379</td>
-</tr>
-<tr class="even">
-<td>115</td>
-<td align="left">-19453.381</td>
-<td align="right">195763</td>
-<td align="left">358</td>
-</tr>
-<tr class="odd">
-<td>116</td>
-<td align="left">-19453.381</td>
-<td align="right">662718</td>
-<td align="left">460</td>
-</tr>
-<tr class="even">
-<td>117</td>
-<td align="left">-19453.381</td>
-<td align="right">314757</td>
-<td align="left">345</td>
-</tr>
-<tr class="odd">
-<td>118</td>
-<td align="left">-19453.381</td>
-<td align="right">50887</td>
-<td align="left">389</td>
-</tr>
-<tr class="even">
-<td>119</td>
-<td align="left">-19453.381</td>
-<td align="right">654136</td>
-<td align="left">167</td>
-</tr>
-<tr class="odd">
-<td>120</td>
-<td align="left">-19453.381</td>
-<td align="right">468036</td>
-<td align="left">131</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_4-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">-19196.328</td>
-<td align="right">415931.0000</td>
-<td align="left">10</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td align="left">-19196.328</td>
-<td align="right">260953.0000</td>
-<td align="left">589</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">-19196.328</td>
-<td align="right">576220.0000</td>
-<td align="left">115</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td align="left">-19196.328</td>
-<td align="right">329127.0000</td>
-<td align="left">185</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">-19196.328</td>
-<td align="right">391179.0000</td>
-<td align="left">78</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td align="left">-19196.328</td>
-<td align="right">352277.0000</td>
-<td align="left">42</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td align="left">-19196.328</td>
-<td align="right">443442.0000</td>
-<td align="left">380</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td align="left">-19196.328</td>
-<td align="right">518828.0000</td>
-<td align="left">432</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td align="left">-19196.328</td>
-<td align="right">36714.0000</td>
-<td align="left">201</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td align="left">-19196.328</td>
-<td align="right">456213.0000</td>
-<td align="left">160</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td align="left">-19196.328</td>
-<td align="right">399848.0000</td>
-<td align="left">220</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td align="left">-19196.328</td>
-<td align="right">570908.0000</td>
-<td align="left">98</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">-19196.328</td>
-<td align="right">335485.0000</td>
-<td align="left">496</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td align="left">-19196.328</td>
-<td align="right">609185.0000</td>
-<td align="left">181</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">-19196.328</td>
-<td align="right">150531.0000</td>
-<td align="left">154</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td align="left">-19196.328</td>
-<td align="right">396795.0000</td>
-<td align="left">323</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">-19196.328</td>
-<td align="right">68985.0000</td>
-<td align="left">17</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td align="left">-19196.328</td>
-<td align="right">608460.0000</td>
-<td align="left">244</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td align="left">-19196.328</td>
-<td align="right">113138.0000</td>
-<td align="left">585</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td align="left">-19196.328</td>
-<td align="right">849670.0000</td>
-<td align="left">347</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td align="left">-19196.328</td>
-<td align="right">699810.0000</td>
-<td align="left">571</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td align="left">-19226.584</td>
-<td align="right">181293.0000</td>
-<td align="left">212</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td align="left">-19226.584</td>
-<td align="right">512836.0000</td>
-<td align="left">289</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td align="left">-19226.584</td>
-<td align="right">636396.0000</td>
-<td align="left">168</td>
-</tr>
-<tr class="odd">
-<td>25</td>
-<td align="left">-19226.584</td>
-<td align="right">369602.0000</td>
-<td align="left">146</td>
-</tr>
-<tr class="even">
-<td>26</td>
-<td align="left">-19226.584</td>
-<td align="right">292884.0000</td>
-<td align="left">103</td>
-</tr>
-<tr class="odd">
-<td>27</td>
-<td align="left">-19226.584</td>
-<td align="right">392751.0000</td>
-<td align="left">480</td>
-</tr>
-<tr class="even">
-<td>28</td>
-<td align="left">-19226.584</td>
-<td align="right">879211.0000</td>
-<td align="left">453</td>
-</tr>
-<tr class="odd">
-<td>29</td>
-<td align="left">-19226.584</td>
-<td align="right">207896.0000</td>
-<td align="left">25</td>
-</tr>
-<tr class="even">
-<td>30</td>
-<td align="left">-19226.584</td>
-<td align="right">50887.0000</td>
-<td align="left">389</td>
-</tr>
-<tr class="odd">
-<td>31</td>
-<td align="left">-19226.584</td>
-<td align="right">97158.0000</td>
-<td align="left">205</td>
-</tr>
-<tr class="even">
-<td>32</td>
-<td align="left">-19226.584</td>
-<td align="right">155622.0000</td>
-<td align="left">507</td>
-</tr>
-<tr class="odd">
-<td>33</td>
-<td align="left">-19226.584</td>
-<td align="right">188498.0000</td>
-<td align="left">258</td>
-</tr>
-<tr class="even">
-<td>34</td>
-<td align="left">-19226.584</td>
-<td align="right">871851.0000</td>
-<td align="left">257</td>
-</tr>
-<tr class="odd">
-<td>35</td>
-<td align="left">-19226.584</td>
-<td align="right">349263.0000</td>
-<td align="left">263</td>
-</tr>
-<tr class="even">
-<td>36</td>
-<td align="left">-19226.584</td>
-<td align="right">217744.0000</td>
-<td align="left">326</td>
-</tr>
-<tr class="odd">
-<td>37</td>
-<td align="left">-19226.584</td>
-<td align="right">568405.0000</td>
-<td align="left">233</td>
-</tr>
-<tr class="even">
-<td>38</td>
-<td align="left">-19226.584</td>
-<td align="right">836066.0000</td>
-<td align="left">372</td>
-</tr>
-<tr class="odd">
-<td>39</td>
-<td align="left">-19226.584</td>
-<td align="right">137377.0000</td>
-<td align="left">397</td>
-</tr>
-<tr class="even">
-<td>40</td>
-<td align="left">-19226.584</td>
-<td align="right">68850.0000</td>
-<td align="left">462</td>
-</tr>
-<tr class="odd">
-<td>41</td>
-<td align="left">-19226.584</td>
-<td align="right">508482.0000</td>
-<td align="left">446</td>
-</tr>
-<tr class="even">
-<td>42</td>
-<td align="left">-19226.584</td>
-<td align="right">746978.0000</td>
-<td align="left">410</td>
-</tr>
-<tr class="odd">
-<td>43</td>
-<td align="left">-19226.584</td>
-<td align="right">602797.0000</td>
-<td align="left">336</td>
-</tr>
-<tr class="even">
-<td>44</td>
-<td align="left">-19273.373</td>
-<td align="right">689529.0000</td>
-<td align="left">516</td>
-</tr>
-<tr class="odd">
-<td>45</td>
-<td align="left">-19273.373</td>
-<td align="right">782821.0000</td>
-<td align="left">272</td>
-</tr>
-<tr class="even">
-<td>46</td>
-<td align="left">-19273.373</td>
-<td align="right">569131.0000</td>
-<td align="left">26</td>
-</tr>
-<tr class="odd">
-<td>47</td>
-<td align="left">-19273.373</td>
-<td align="right">349562.0000</td>
-<td align="left">359</td>
-</tr>
-<tr class="even">
-<td>48</td>
-<td align="left">-19273.373</td>
-<td align="right">933578.0000</td>
-<td align="left">506</td>
-</tr>
-<tr class="odd">
-<td>49</td>
-<td align="left">-19273.373</td>
-<td align="right">21345.0000</td>
-<td align="left">199</td>
-</tr>
-<tr class="even">
-<td>50</td>
-<td align="left">-19273.373</td>
-<td align="right">741888.0000</td>
-<td align="left">138</td>
-</tr>
-<tr class="odd">
-<td>51</td>
-<td align="left">-19273.373</td>
-<td align="right">314757.0000</td>
-<td align="left">345</td>
-</tr>
-<tr class="even">
-<td>52</td>
-<td align="left">-19273.373</td>
-<td align="right">455617.0000</td>
-<td align="left">242</td>
-</tr>
-<tr class="odd">
-<td>53</td>
-<td align="left">-19273.373</td>
-<td align="right">669634.0000</td>
-<td align="left">335</td>
-</tr>
-<tr class="even">
-<td>54</td>
-<td align="left">-19273.373</td>
-<td align="right">529496.0000</td>
-<td align="left">343</td>
-</tr>
-<tr class="odd">
-<td>55</td>
-<td align="left">-19273.373</td>
-<td align="right">860772.0000</td>
-<td align="left">174</td>
-</tr>
-<tr class="even">
-<td>56</td>
-<td align="left">-19273.373</td>
-<td align="right">53621.0000</td>
-<td align="left">483</td>
-</tr>
-<tr class="odd">
-<td>57</td>
-<td align="left">-19273.373</td>
-<td align="right">608496.0000</td>
-<td align="left">4</td>
-</tr>
-<tr class="even">
-<td>58</td>
-<td align="left">-19273.373</td>
-<td align="right">416463.0000</td>
-<td align="left">467</td>
-</tr>
-<tr class="odd">
-<td>59</td>
-<td align="left">-19273.373</td>
-<td align="right">848163.0000</td>
-<td align="left">47</td>
-</tr>
-<tr class="even">
-<td>60</td>
-<td align="left">-19273.373</td>
-<td align="right">641794.0000</td>
-<td align="left">591</td>
-</tr>
-<tr class="odd">
-<td>61</td>
-<td align="left">-19273.373</td>
-<td align="right">582296.0000</td>
-<td align="left">452</td>
-</tr>
-<tr class="even">
-<td>62</td>
-<td align="left">-19273.373</td>
-<td align="right">414828.0000</td>
-<td align="left">322</td>
-</tr>
-<tr class="odd">
-<td>63</td>
-<td align="left">-19273.373</td>
-<td align="right">947714.0000</td>
-<td align="left">573</td>
-</tr>
-<tr class="even">
-<td>64</td>
-<td align="left">-19273.373</td>
-<td align="right">617243.0000</td>
-<td align="left">237</td>
-</tr>
-<tr class="odd">
-<td>65</td>
-<td align="left">-19273.373</td>
-<td align="right">232559.0000</td>
-<td align="left">136</td>
-</tr>
-<tr class="even">
-<td>66</td>
-<td align="left">-19273.373</td>
-<td align="right">749635.0000</td>
-<td align="left">420</td>
-</tr>
-<tr class="odd">
-<td>67</td>
-<td align="left">-19273.373</td>
-<td align="right">533738.0000</td>
-<td align="left">11</td>
-</tr>
-<tr class="even">
-<td>68</td>
-<td align="left">-19273.373</td>
-<td align="right">804104.0000</td>
-<td align="left">566</td>
-</tr>
-<tr class="odd">
-<td>69</td>
-<td align="left">-19273.373</td>
-<td align="right">783110.0000</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td>70</td>
-<td align="left">-19273.373</td>
-<td align="right">312754.0000</td>
-<td align="left">562</td>
-</tr>
-<tr class="odd">
-<td>71</td>
-<td align="left">-19273.373</td>
-<td align="right">985387.0000</td>
-<td align="left">381</td>
-</tr>
-<tr class="even">
-<td>72</td>
-<td align="left">-19273.373</td>
-<td align="right">483369.0000</td>
-<td align="left">270</td>
-</tr>
-<tr class="odd">
-<td>73</td>
-<td align="left">-19273.373</td>
-<td align="right">170954.0000</td>
-<td align="left">86</td>
-</tr>
-<tr class="even">
-<td>74</td>
-<td align="left">-19273.373</td>
-<td align="right">194143.0000</td>
-<td align="left">510</td>
-</tr>
-<tr class="odd">
-<td>75</td>
-<td align="left">-19273.373</td>
-<td align="right">960438.0000</td>
-<td align="left">116</td>
-</tr>
-<tr class="even">
-<td>76</td>
-<td align="left">-19273.373</td>
-<td align="right">436460.0000</td>
-<td align="left">89</td>
-</tr>
-<tr class="odd">
-<td>115</td>
-<td align="left">1</td>
-<td align="right">424.7493</td>
-<td align="left">0.14359</td>
-</tr>
-<tr class="even">
-<td>116</td>
-<td align="left">2</td>
-<td align="right">916.7557</td>
-<td align="left">0.30992</td>
-</tr>
-<tr class="odd">
-<td>117</td>
-<td align="left">3</td>
-<td align="right">1203.9170</td>
-<td align="left">0.40700</td>
-</tr>
-<tr class="even">
-<td>118</td>
-<td align="left">4</td>
-<td align="right">412.5780</td>
-<td align="left">0.13948</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_5-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">-18817.934</td>
-<td align="right">152496.0000</td>
-<td align="left">123</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td align="left">-18817.934</td>
-<td align="right">602797.0000</td>
-<td align="left">336</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">-18817.934</td>
-<td align="right">432148.0000</td>
-<td align="left">30</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td align="left">-18817.934</td>
-<td align="right">399848.0000</td>
-<td align="left">220</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">-18837.053</td>
-<td align="right">387701.0000</td>
-<td align="left">275</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td align="left">-18858.428</td>
-<td align="right">850545.0000</td>
-<td align="left">357</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td align="left">-18858.428</td>
-<td align="right">298275.0000</td>
-<td align="left">418</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td align="left">-18858.428</td>
-<td align="right">626891.0000</td>
-<td align="left">32</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td align="left">-18944.968</td>
-<td align="right">823392.0000</td>
-<td align="left">479</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td align="left">-18944.968</td>
-<td align="right">147440.0000</td>
-<td align="left">514</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td align="left">-18944.968</td>
-<td align="right">84013.0000</td>
-<td align="left">598</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td align="left">-18944.968</td>
-<td align="right">652266.0000</td>
-<td align="left">490</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">-18944.968</td>
-<td align="right">76337.0000</td>
-<td align="left">76</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td align="left">-18944.968</td>
-<td align="right">922042.0000</td>
-<td align="left">492</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">-18944.968</td>
-<td align="right">519357.0000</td>
-<td align="left">559</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td align="left">-18944.968</td>
-<td align="right">798839.0000</td>
-<td align="left">312</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">-18944.968</td>
-<td align="right">399380.0000</td>
-<td align="left">436</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td align="left">-18944.968</td>
-<td align="right">535804.0000</td>
-<td align="left">111</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td align="left">-18944.968</td>
-<td align="right">595153.0000</td>
-<td align="left">230</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td align="left">-18944.968</td>
-<td align="right">55115.0000</td>
-<td align="left">408</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td align="left">-18944.968</td>
-<td align="right">399671.0000</td>
-<td align="left">13</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td align="left">-18962.382</td>
-<td align="right">512836.0000</td>
-<td align="left">289</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td align="left">-18962.382</td>
-<td align="right">714455.0000</td>
-<td align="left">476</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td align="left">-18962.382</td>
-<td align="right">405079.0000</td>
-<td align="left">68</td>
-</tr>
-<tr class="odd">
-<td>25</td>
-<td align="left">-18962.382</td>
-<td align="right">359578.0000</td>
-<td align="left">458</td>
-</tr>
-<tr class="even">
-<td>26</td>
-<td align="left">-18962.382</td>
-<td align="right">534864.0000</td>
-<td align="left">307</td>
-</tr>
-<tr class="odd">
-<td>27</td>
-<td align="left">-18962.382</td>
-<td align="right">545140.0000</td>
-<td align="left">278</td>
-</tr>
-<tr class="even">
-<td>28</td>
-<td align="left">-18962.382</td>
-<td align="right">320494.0000</td>
-<td align="left">465</td>
-</tr>
-<tr class="odd">
-<td>29</td>
-<td align="left">-18962.382</td>
-<td align="right">127215.0000</td>
-<td align="left">9</td>
-</tr>
-<tr class="even">
-<td>30</td>
-<td align="left">-18962.382</td>
-<td align="right">46437.0000</td>
-<td align="left">153</td>
-</tr>
-<tr class="odd">
-<td>31</td>
-<td align="left">-18962.382</td>
-<td align="right">377504.0000</td>
-<td align="left">294</td>
-</tr>
-<tr class="even">
-<td>32</td>
-<td align="left">-18962.382</td>
-<td align="right">754100.0000</td>
-<td align="left">56</td>
-</tr>
-<tr class="odd">
-<td>33</td>
-<td align="left">-18962.382</td>
-<td align="right">163110.0000</td>
-<td align="left">584</td>
-</tr>
-<tr class="even">
-<td>34</td>
-<td align="left">-18962.382</td>
-<td align="right">68850.0000</td>
-<td align="left">462</td>
-</tr>
-<tr class="odd">
-<td>35</td>
-<td align="left">-18962.382</td>
-<td align="right">857799.0000</td>
-<td align="left">315</td>
-</tr>
-<tr class="even">
-<td>36</td>
-<td align="left">-18962.382</td>
-<td align="right">156536.0000</td>
-<td align="left">245</td>
-</tr>
-<tr class="odd">
-<td>37</td>
-<td align="left">-18962.382</td>
-<td align="right">153942.0000</td>
-<td align="left">31</td>
-</tr>
-<tr class="even">
-<td>38</td>
-<td align="left">-18962.382</td>
-<td align="right">349360.0000</td>
-<td align="left">464</td>
-</tr>
-<tr class="odd">
-<td>39</td>
-<td align="left">-18962.382</td>
-<td align="right">648555.0000</td>
-<td align="left">113</td>
-</tr>
-<tr class="even">
-<td>40</td>
-<td align="left">-18962.382</td>
-<td align="right">804104.0000</td>
-<td align="left">566</td>
-</tr>
-<tr class="odd">
-<td>41</td>
-<td align="left">-18962.382</td>
-<td align="right">68985.0000</td>
-<td align="left">17</td>
-</tr>
-<tr class="even">
-<td>42</td>
-<td align="left">-18962.382</td>
-<td align="right">539751.0000</td>
-<td align="left">459</td>
-</tr>
-<tr class="odd">
-<td>43</td>
-<td align="left">-18962.382</td>
-<td align="right">902278.0000</td>
-<td align="left">21</td>
-</tr>
-<tr class="even">
-<td>44</td>
-<td align="left">-18962.382</td>
-<td align="right">484687.0000</td>
-<td align="left">306</td>
-</tr>
-<tr class="odd">
-<td>45</td>
-<td align="left">-18962.382</td>
-<td align="right">220454.0000</td>
-<td align="left">288</td>
-</tr>
-<tr class="even">
-<td>46</td>
-<td align="left">-18962.382</td>
-<td align="right">635245.0000</td>
-<td align="left">121</td>
-</tr>
-<tr class="odd">
-<td>47</td>
-<td align="left">-18962.382</td>
-<td align="right">301180.0000</td>
-<td align="left">236</td>
-</tr>
-<tr class="even">
-<td>48</td>
-<td align="left">-18962.382</td>
-<td align="right">107446.0000</td>
-<td align="left">12</td>
-</tr>
-<tr class="odd">
-<td>49</td>
-<td align="left">-18962.382</td>
-<td align="right">195353.0000</td>
-<td align="left">225</td>
-</tr>
-<tr class="even">
-<td>50</td>
-<td align="left">-18962.382</td>
-<td align="right">888905.0000</td>
-<td align="left">444</td>
-</tr>
-<tr class="odd">
-<td>51</td>
-<td align="left">-18973.040</td>
-<td align="right">584397.0000</td>
-<td align="left">428</td>
-</tr>
-<tr class="even">
-<td>52</td>
-<td align="left">-18973.040</td>
-<td align="right">505244.0000</td>
-<td align="left">582</td>
-</tr>
-<tr class="odd">
-<td>53</td>
-<td align="left">-18973.040</td>
-<td align="right">232559.0000</td>
-<td align="left">136</td>
-</tr>
-<tr class="even">
-<td>54</td>
-<td align="left">-18973.040</td>
-<td align="right">931874.0000</td>
-<td align="left">141</td>
-</tr>
-<tr class="odd">
-<td>55</td>
-<td align="left">-19008.215</td>
-<td align="right">802256.0000</td>
-<td align="left">477</td>
-</tr>
-<tr class="even">
-<td>56</td>
-<td align="left">-19008.215</td>
-<td align="right">416463.0000</td>
-<td align="left">467</td>
-</tr>
-<tr class="odd">
-<td>57</td>
-<td align="left">-19008.215</td>
-<td align="right">614009.0000</td>
-<td align="left">317</td>
-</tr>
-<tr class="even">
-<td>58</td>
-<td align="left">-19008.215</td>
-<td align="right">569833.0000</td>
-<td align="left">85</td>
-</tr>
-<tr class="odd">
-<td>59</td>
-<td align="left">-19008.215</td>
-<td align="right">292884.0000</td>
-<td align="left">103</td>
-</tr>
-<tr class="even">
-<td>60</td>
-<td align="left">-19008.215</td>
-<td align="right">903633.0000</td>
-<td align="left">553</td>
-</tr>
-<tr class="odd">
-<td>61</td>
-<td align="left">-19008.215</td>
-<td align="right">605358.0000</td>
-<td align="left">321</td>
-</tr>
-<tr class="even">
-<td>62</td>
-<td align="left">-19008.215</td>
-<td align="right">950604.0000</td>
-<td align="left">172</td>
-</tr>
-<tr class="odd">
-<td>63</td>
-<td align="left">-19008.215</td>
-<td align="right">629320.0000</td>
-<td align="left">222</td>
-</tr>
-<tr class="even">
-<td>64</td>
-<td align="left">-19008.215</td>
-<td align="right">872743.0000</td>
-<td align="left">374</td>
-</tr>
-<tr class="odd">
-<td>65</td>
-<td align="left">-19008.215</td>
-<td align="right">726035.0000</td>
-<td align="left">191</td>
-</tr>
-<tr class="even">
-<td>66</td>
-<td align="left">-19012.767</td>
-<td align="right">948615.0000</td>
-<td align="left">140</td>
-</tr>
-<tr class="odd">
-<td>67</td>
-<td align="left">-19026.931</td>
-<td align="right">579995.0000</td>
-<td align="left">183</td>
-</tr>
-<tr class="even">
-<td>68</td>
-<td align="left">-19026.931</td>
-<td align="right">475420.0000</td>
-<td align="left">71</td>
-</tr>
-<tr class="odd">
-<td>69</td>
-<td align="left">-19026.931</td>
-<td align="right">742688.0000</td>
-<td align="left">594</td>
-</tr>
-<tr class="even">
-<td>70</td>
-<td align="left">-19026.931</td>
-<td align="right">123985.0000</td>
-<td align="left">248</td>
-</tr>
-<tr class="odd">
-<td>71</td>
-<td align="left">-19026.931</td>
-<td align="right">206099.0000</td>
-<td align="left">363</td>
-</tr>
-<tr class="even">
-<td>72</td>
-<td align="left">-19026.931</td>
-<td align="right">67009.0000</td>
-<td align="left">564</td>
-</tr>
-<tr class="odd">
-<td>73</td>
-<td align="left">-19026.931</td>
-<td align="right">891347.0000</td>
-<td align="left">504</td>
-</tr>
-<tr class="even">
-<td>74</td>
-<td align="left">-19026.931</td>
-<td align="right">92689.0000</td>
-<td align="left">304</td>
-</tr>
-<tr class="odd">
-<td>75</td>
-<td align="left">-19055.988</td>
-<td align="right">294669.0000</td>
-<td align="left">501</td>
-</tr>
-<tr class="even">
-<td>76</td>
-<td align="left">-19073.546</td>
-<td align="right">518828.0000</td>
-<td align="left">432</td>
-</tr>
-<tr class="odd">
-<td>77</td>
-<td align="left">-19073.546</td>
-<td align="right">641794.0000</td>
-<td align="left">591</td>
-</tr>
-<tr class="even">
-<td>78</td>
-<td align="left">-19073.546</td>
-<td align="right">464179.0000</td>
-<td align="left">106</td>
-</tr>
-<tr class="odd">
-<td>79</td>
-<td align="left">-19081.251</td>
-<td align="right">126371.0000</td>
-<td align="left">526</td>
-</tr>
-<tr class="even">
-<td>80</td>
-<td align="left">-19081.251</td>
-<td align="right">751153.0000</td>
-<td align="left">110</td>
-</tr>
-<tr class="odd">
-<td>119</td>
-<td align="left">1</td>
-<td align="right">702.6533</td>
-<td align="left">0.23754</td>
-</tr>
-<tr class="even">
-<td>120</td>
-<td align="left">2</td>
-<td align="right">341.3386</td>
-<td align="left">0.11540</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_6-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">-18648.785</td>
-<td align="right">1548.0000</td>
-<td align="left">384</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td align="left">-18648.785</td>
-<td align="right">282464.0000</td>
-<td align="left">283</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">-18668.802</td>
-<td align="right">529496.0000</td>
-<td align="left">343</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td align="left">-18695.729</td>
-<td align="right">49221.0000</td>
-<td align="left">254</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">-18695.729</td>
-<td align="right">153394.0000</td>
-<td align="left">429</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td align="left">-18695.729</td>
-<td align="right">741888.0000</td>
-<td align="left">138</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td align="left">-18695.729</td>
-<td align="right">85114.0000</td>
-<td align="left">385</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td align="left">-18695.729</td>
-<td align="right">173191.0000</td>
-<td align="left">422</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td align="left">-18695.729</td>
-<td align="right">436460.0000</td>
-<td align="left">89</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td align="left">-18695.729</td>
-<td align="right">153942.0000</td>
-<td align="left">31</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td align="left">-18695.729</td>
-<td align="right">582296.0000</td>
-<td align="left">452</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td align="left">-18699.595</td>
-<td align="right">898745.0000</td>
-<td align="left">466</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">-18734.195</td>
-<td align="right">168762.0000</td>
-<td align="left">200</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td align="left">-18734.195</td>
-<td align="right">107446.0000</td>
-<td align="left">12</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">-18740.888</td>
-<td align="right">732596.0000</td>
-<td align="left">320</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td align="left">-18740.888</td>
-<td align="right">292884.0000</td>
-<td align="left">103</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">-18761.241</td>
-<td align="right">679832.0000</td>
-<td align="left">302</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td align="left">-18761.241</td>
-<td align="right">491970.0000</td>
-<td align="left">563</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td align="left">-18761.241</td>
-<td align="right">772131.0000</td>
-<td align="left">407</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td align="left">-18761.241</td>
-<td align="right">809240.0000</td>
-<td align="left">543</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td align="left">-18823.866</td>
-<td align="right">535804.0000</td>
-<td align="left">111</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td align="left">-18829.855</td>
-<td align="right">475420.0000</td>
-<td align="left">71</td>
-</tr>
-<tr class="odd">
-<td>23</td>
-<td align="left">-18829.855</td>
-<td align="right">321390.0000</td>
-<td align="left">133</td>
-</tr>
-<tr class="even">
-<td>24</td>
-<td align="left">-18830.313</td>
-<td align="right">22874.0000</td>
-<td align="left">588</td>
-</tr>
-<tr class="odd">
-<td>25</td>
-<td align="left">-18830.313</td>
-<td align="right">76337.0000</td>
-<td align="left">76</td>
-</tr>
-<tr class="even">
-<td>26</td>
-<td align="left">-18830.313</td>
-<td align="right">294669.0000</td>
-<td align="left">501</td>
-</tr>
-<tr class="odd">
-<td>27</td>
-<td align="left">-18830.765</td>
-<td align="right">945065.0000</td>
-<td align="left">255</td>
-</tr>
-<tr class="even">
-<td>28</td>
-<td align="left">-18830.765</td>
-<td align="right">371246.0000</td>
-<td align="left">101</td>
-</tr>
-<tr class="odd">
-<td>29</td>
-<td align="left">-18830.765</td>
-<td align="right">260601.0000</td>
-<td align="left">36</td>
-</tr>
-<tr class="even">
-<td>30</td>
-<td align="left">-18865.480</td>
-<td align="right">484687.0000</td>
-<td align="left">306</td>
-</tr>
-<tr class="odd">
-<td>31</td>
-<td align="left">-18866.526</td>
-<td align="right">995875.0000</td>
-<td align="left">547</td>
-</tr>
-<tr class="even">
-<td>32</td>
-<td align="left">-18871.995</td>
-<td align="right">392766.0000</td>
-<td align="left">331</td>
-</tr>
-<tr class="odd">
-<td>33</td>
-<td align="left">-18885.166</td>
-<td align="right">848163.0000</td>
-<td align="left">47</td>
-</tr>
-<tr class="even">
-<td>34</td>
-<td align="left">-18909.485</td>
-<td align="right">794236.0000</td>
-<td align="left">127</td>
-</tr>
-<tr class="odd">
-<td>35</td>
-<td align="left">-18909.485</td>
-<td align="right">161421.0000</td>
-<td align="left">519</td>
-</tr>
-<tr class="even">
-<td>36</td>
-<td align="left">-18952.268</td>
-<td align="right">752769.0000</td>
-<td align="left">253</td>
-</tr>
-<tr class="odd">
-<td>37</td>
-<td align="left">-18962.382</td>
-<td align="right">415931.0000</td>
-<td align="left">10</td>
-</tr>
-<tr class="even">
-<td>38</td>
-<td align="left">-18962.382</td>
-<td align="right">937588.0000</td>
-<td align="left">293</td>
-</tr>
-<tr class="odd">
-<td>39</td>
-<td align="left">-18962.382</td>
-<td align="right">349360.0000</td>
-<td align="left">464</td>
-</tr>
-<tr class="even">
-<td>40</td>
-<td align="left">-18962.382</td>
-<td align="right">57226.0000</td>
-<td align="left">208</td>
-</tr>
-<tr class="odd">
-<td>41</td>
-<td align="left">-18962.382</td>
-<td align="right">216565.0000</td>
-<td align="left">474</td>
-</tr>
-<tr class="even">
-<td>42</td>
-<td align="left">-18962.382</td>
-<td align="right">801717.0000</td>
-<td align="left">364</td>
-</tr>
-<tr class="odd">
-<td>43</td>
-<td align="left">-18962.382</td>
-<td align="right">609089.0000</td>
-<td align="left">241</td>
-</tr>
-<tr class="even">
-<td>44</td>
-<td align="left">-18962.382</td>
-<td align="right">347515.0000</td>
-<td align="left">24</td>
-</tr>
-<tr class="odd">
-<td>45</td>
-<td align="left">-18962.382</td>
-<td align="right">370957.0000</td>
-<td align="left">554</td>
-</tr>
-<tr class="even">
-<td>46</td>
-<td align="left">-18973.040</td>
-<td align="right">606576.0000</td>
-<td align="left">151</td>
-</tr>
-<tr class="odd">
-<td>85</td>
-<td align="left">1</td>
-<td align="right">337.1202</td>
-<td align="left">0.11397</td>
-</tr>
-<tr class="even">
-<td>86</td>
-<td align="left">2</td>
-<td align="right">660.9009</td>
-<td align="left">0.22343</td>
-</tr>
-<tr class="odd">
-<td>87</td>
-<td align="left">3</td>
-<td align="right">437.6870</td>
-<td align="left">0.14797</td>
-</tr>
-<tr class="even">
-<td>88</td>
-<td align="left">4</td>
-<td align="right">326.4506</td>
-<td align="left">0.11036</td>
-</tr>
-<tr class="odd">
-<td>89</td>
-<td align="left">5</td>
-<td align="right">706.4016</td>
-<td align="left">0.23881</td>
-</tr>
-<tr class="even">
-<td>90</td>
-<td align="left">6</td>
-<td align="right">489.4398</td>
-<td align="left">0.16546</td>
-</tr>
-<tr class="odd">
-<td>99</td>
-<td align="left">1</td>
-<td align="right">337.1202</td>
-<td align="left">0.11397</td>
-</tr>
-<tr class="even">
-<td>100</td>
-<td align="left">2</td>
-<td align="right">660.9009</td>
-<td align="left">0.22343</td>
-</tr>
-<tr class="odd">
-<td>101</td>
-<td align="left">3</td>
-<td align="right">437.6870</td>
-<td align="left">0.14797</td>
-</tr>
-<tr class="even">
-<td>102</td>
-<td align="left">4</td>
-<td align="right">326.4506</td>
-<td align="left">0.11036</td>
-</tr>
-<tr class="odd">
-<td>103</td>
-<td align="left">5</td>
-<td align="right">706.4016</td>
-<td align="left">0.23881</td>
-</tr>
-<tr class="even">
-<td>104</td>
-<td align="left">6</td>
-<td align="right">489.4398</td>
-<td align="left">0.16546</td>
-</tr>
-<tr class="odd">
-<td>115</td>
-<td align="left">1</td>
-<td align="right">370.0000</td>
-<td align="left">0.12508</td>
-</tr>
-<tr class="even">
-<td>116</td>
-<td align="left">2</td>
-<td align="right">667.0000</td>
-<td align="left">0.22549</td>
-</tr>
-<tr class="odd">
-<td>117</td>
-<td align="left">3</td>
-<td align="right">450.0000</td>
-<td align="left">0.15213</td>
-</tr>
-<tr class="even">
-<td>118</td>
-<td align="left">4</td>
-<td align="right">345.0000</td>
-<td align="left">0.11663</td>
-</tr>
-<tr class="odd">
-<td>119</td>
-<td align="left">5</td>
-<td align="right">638.0000</td>
-<td align="left">0.21569</td>
-</tr>
-<tr class="even">
-<td>120</td>
-<td align="left">6</td>
-<td align="right">488.0000</td>
-<td align="left">0.16498</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_7-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">-18407.232</td>
-<td align="right">475420.0000</td>
-<td align="left">71</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td align="left">-18407.232</td>
-<td align="right">871438.0000</td>
-<td align="left">561</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">-18469.834</td>
-<td align="right">597614.0000</td>
-<td align="left">284</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td align="left">-18469.834</td>
-<td align="right">830570.0000</td>
-<td align="left">369</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">-18469.834</td>
-<td align="right">283492.0000</td>
-<td align="left">435</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td align="left">-18469.834</td>
-<td align="right">260953.0000</td>
-<td align="left">589</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td align="left">-18518.118</td>
-<td align="right">153394.0000</td>
-<td align="left">429</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td align="left">-18634.678</td>
-<td align="right">950604.0000</td>
-<td align="left">172</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td align="left">-18660.958</td>
-<td align="right">922596.0000</td>
-<td align="left">456</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td align="left">-18662.856</td>
-<td align="right">160326.0000</td>
-<td align="left">546</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td align="left">-18668.802</td>
-<td align="right">529496.0000</td>
-<td align="left">343</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td align="left">-18671.284</td>
-<td align="right">281558.0000</td>
-<td align="left">184</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">-18672.116</td>
-<td align="right">987090.0000</td>
-<td align="left">70</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td align="left">-18685.112</td>
-<td align="right">358074.0000</td>
-<td align="left">560</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">-18704.013</td>
-<td align="right">414828.0000</td>
-<td align="left">322</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td align="left">-18719.886</td>
-<td align="right">468036.0000</td>
-<td align="left">131</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">-18719.886</td>
-<td align="right">714455.0000</td>
-<td align="left">476</td>
-</tr>
-<tr class="even">
-<td>18</td>
-<td align="left">-18727.865</td>
-<td align="right">92564.0000</td>
-<td align="left">583</td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td align="left">-18734.195</td>
-<td align="right">985387.0000</td>
-<td align="left">381</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td align="left">-18743.891</td>
-<td align="right">373505.0000</td>
-<td align="left">88</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td align="left">-18761.241</td>
-<td align="right">320494.0000</td>
-<td align="left">465</td>
-</tr>
-<tr class="even">
-<td>22</td>
-<td align="left">-18830.765</td>
-<td align="right">118421.0000</td>
-<td align="left">139</td>
-</tr>
-<tr class="odd">
-<td>61</td>
-<td align="left">1</td>
-<td align="right">186.5303</td>
-<td align="left">0.06306</td>
-</tr>
-<tr class="even">
-<td>62</td>
-<td align="left">2</td>
-<td align="right">305.0320</td>
-<td align="left">0.10312</td>
-</tr>
-<tr class="odd">
-<td>63</td>
-<td align="left">3</td>
-<td align="right">641.8389</td>
-<td align="left">0.21698</td>
-</tr>
-<tr class="even">
-<td>64</td>
-<td align="left">4</td>
-<td align="right">588.1502</td>
-<td align="left">0.19883</td>
-</tr>
-<tr class="odd">
-<td>65</td>
-<td align="left">5</td>
-<td align="right">213.6503</td>
-<td align="left">0.07223</td>
-</tr>
-<tr class="even">
-<td>66</td>
-<td align="left">6</td>
-<td align="right">575.4683</td>
-<td align="left">0.19455</td>
-</tr>
-<tr class="odd">
-<td>67</td>
-<td align="left">7</td>
-<td align="right">447.3301</td>
-<td align="left">0.15123</td>
-</tr>
-<tr class="even">
-<td>76</td>
-<td align="left">1</td>
-<td align="right">186.5303</td>
-<td align="left">0.06306</td>
-</tr>
-<tr class="odd">
-<td>77</td>
-<td align="left">2</td>
-<td align="right">305.0320</td>
-<td align="left">0.10312</td>
-</tr>
-<tr class="even">
-<td>78</td>
-<td align="left">3</td>
-<td align="right">641.8389</td>
-<td align="left">0.21698</td>
-</tr>
-<tr class="odd">
-<td>79</td>
-<td align="left">4</td>
-<td align="right">588.1502</td>
-<td align="left">0.19883</td>
-</tr>
-<tr class="even">
-<td>80</td>
-<td align="left">5</td>
-<td align="right">213.6503</td>
-<td align="left">0.07223</td>
-</tr>
-<tr class="odd">
-<td>81</td>
-<td align="left">6</td>
-<td align="right">575.4683</td>
-<td align="left">0.19455</td>
-</tr>
-<tr class="even">
-<td>82</td>
-<td align="left">7</td>
-<td align="right">447.3301</td>
-<td align="left">0.15123</td>
-</tr>
-<tr class="odd">
-<td>93</td>
-<td align="left">1</td>
-<td align="right">181.0000</td>
-<td align="left">0.06119</td>
-</tr>
-<tr class="even">
-<td>94</td>
-<td align="left">2</td>
-<td align="right">317.0000</td>
-<td align="left">0.10717</td>
-</tr>
-<tr class="odd">
-<td>95</td>
-<td align="left">3</td>
-<td align="right">651.0000</td>
-<td align="left">0.22008</td>
-</tr>
-<tr class="even">
-<td>96</td>
-<td align="left">4</td>
-<td align="right">569.0000</td>
-<td align="left">0.19236</td>
-</tr>
-<tr class="odd">
-<td>97</td>
-<td align="left">5</td>
-<td align="right">222.0000</td>
-<td align="left">0.07505</td>
-</tr>
-<tr class="even">
-<td>98</td>
-<td align="left">6</td>
-<td align="right">568.0000</td>
-<td align="left">0.19202</td>
-</tr>
-<tr class="odd">
-<td>99</td>
-<td align="left">7</td>
-<td align="right">450.0000</td>
-<td align="left">0.15213</td>
-</tr>
-<tr class="even">
-<td>104</td>
-<td align="left">Entropy</td>
-<td align="right">0.8860</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td>110</td>
-<td align="left">1</td>
-<td align="right">2.0000</td>
-<td align="left">3</td>
-</tr>
-<tr class="even">
-<td>112</td>
-<td align="left">1</td>
-<td align="right">0.9540</td>
-<td align="left">0.016</td>
-</tr>
-<tr class="odd">
-<td>113</td>
-<td align="left">2</td>
-<td align="right">0.0160</td>
-<td align="left">0.889</td>
-</tr>
-<tr class="even">
-<td>114</td>
-<td align="left">3</td>
-<td align="right">0.0140</td>
-<td align="left">0.028</td>
-</tr>
-<tr class="odd">
-<td>115</td>
-<td align="left">4</td>
-<td align="right">0.0000</td>
-<td align="left">0.000</td>
-</tr>
-<tr class="even">
-<td>116</td>
-<td align="left">5</td>
-<td align="right">0.0000</td>
-<td align="left">0.000</td>
-</tr>
-<tr class="odd">
-<td>117</td>
-<td align="left">6</td>
-<td align="right">0.0000</td>
-<td align="left">0.004</td>
-</tr>
-<tr class="even">
-<td>118</td>
-<td align="left">7</td>
-<td align="right">0.0000</td>
-<td align="left">0.000</td>
-</tr>
-</tbody>
-</table>
-<p>We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same.</p>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-m1_7-other-LL-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<pre><code>## Error in start:stop: argument of length 0</code></pre>
-</div>
-<div id="model-2-candidate-solutions" class="section level3">
-<h3><span class="header-section-number">5.1.6</span> Model 2 candidate solutions</h3>
-<p>Here are solutions for model 2.</p>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-for-model2-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">-18897.062</td>
-<td align="right">154575</td>
-<td align="left">539</td>
-</tr>
-<tr class="even">
-<td align="left">-18897.062</td>
-<td align="right">606576</td>
-<td align="left">151</td>
-</tr>
-<tr class="odd">
-<td align="left">-18897.062</td>
-<td align="right">746978</td>
-<td align="left">410</td>
-</tr>
-<tr class="even">
-<td align="left">-18897.062</td>
-<td align="right">107446</td>
-<td align="left">12</td>
-</tr>
-<tr class="odd">
-<td align="left">-18897.062</td>
-<td align="right">30098</td>
-<td align="left">209</td>
-</tr>
-<tr class="even">
-<td align="left">-18897.062</td>
-<td align="right">871851</td>
-<td align="left">257</td>
-</tr>
-<tr class="odd">
-<td align="left">-18897.062</td>
-<td align="right">491970</td>
-<td align="left">563</td>
-</tr>
-<tr class="even">
-<td align="left">-18897.062</td>
-<td align="right">76451</td>
-<td align="left">211</td>
-</tr>
-<tr class="odd">
-<td align="left">-18897.062</td>
-<td align="right">152496</td>
-<td align="left">123</td>
-</tr>
-<tr class="even">
-<td align="left">-18897.062</td>
-<td align="right">458181</td>
-<td align="left">189</td>
-</tr>
-<tr class="odd">
-<td align="left">-18938.334</td>
-<td align="right">622860</td>
-<td align="left">259</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">736574</td>
-<td align="left">414</td>
-</tr>
-<tr class="odd">
-<td align="left">-18946.513</td>
-<td align="right">996231</td>
-<td align="left">310</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">165853</td>
-<td align="left">105</td>
-</tr>
-<tr class="odd">
-<td align="left">-18946.513</td>
-<td align="right">85114</td>
-<td align="left">385</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">415502</td>
-<td align="left">194</td>
-</tr>
-<tr class="odd">
-<td align="left">-18946.513</td>
-<td align="right">526324</td>
-<td align="left">178</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">55115</td>
-<td align="left">408</td>
-</tr>
-<tr class="odd">
-<td align="left">-18946.513</td>
-<td align="right">170118</td>
-<td align="left">238</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">68985</td>
-<td align="left">17</td>
-</tr>
-<tr class="odd">
-<td align="left">-18946.513</td>
-<td align="right">210870</td>
-<td align="left">383</td>
-</tr>
-<tr class="even">
-<td align="left">-18946.513</td>
-<td align="right">370957</td>
-<td align="left">554</td>
-</tr>
-<tr class="odd">
-<td align="left">-18954.846</td>
-<td align="right">857799</td>
-<td align="left">315</td>
-</tr>
-<tr class="even">
-<td align="left">-18954.846</td>
-<td align="right">440841</td>
-<td align="left">118</td>
-</tr>
-<tr class="odd">
-<td align="left">-18954.846</td>
-<td align="right">22874</td>
-<td align="left">588</td>
-</tr>
-<tr class="even">
-<td align="left">-18954.846</td>
-<td align="right">212934</td>
-<td align="left">568</td>
-</tr>
-<tr class="odd">
-<td align="left">-18954.846</td>
-<td align="right">507154</td>
-<td align="left">387</td>
-</tr>
-<tr class="even">
-<td align="left">-18954.846</td>
-<td align="right">930323</td>
-<td align="left">267</td>
-</tr>
-<tr class="odd">
-<td align="left">-18954.846</td>
-<td align="right">395754</td>
-<td align="left">388</td>
-</tr>
-<tr class="even">
-<td align="left">-18963.453</td>
-<td align="right">124999</td>
-<td align="left">96</td>
-</tr>
-<tr class="odd">
-<td align="left">-18963.453</td>
-<td align="right">375590</td>
-<td align="left">438</td>
-</tr>
-<tr class="even">
-<td align="left">-18963.453</td>
-<td align="right">745972</td>
-<td align="left">521</td>
-</tr>
-<tr class="odd">
-<td align="left">-18963.453</td>
-<td align="right">486646</td>
-<td align="left">586</td>
-</tr>
-<tr class="even">
-<td align="left">-18963.453</td>
-<td align="right">783102</td>
-<td align="left">433</td>
-</tr>
-<tr class="odd">
-<td align="left">-18963.453</td>
-<td align="right">425929</td>
-<td align="left">508</td>
-</tr>
-<tr class="even">
-<td align="left">-18963.453</td>
-<td align="right">285380</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">-18978.620</td>
-<td align="right">195763</td>
-<td align="left">358</td>
-</tr>
-<tr class="even">
-<td align="left">-18978.620</td>
-<td align="right">193847</td>
-<td align="left">354</td>
-</tr>
-<tr class="odd">
-<td align="left">-18978.620</td>
-<td align="right">939021</td>
-<td align="left">8</td>
-</tr>
-<tr class="even">
-<td align="left">-18981.651</td>
-<td align="right">112586</td>
-<td align="left">494</td>
-</tr>
-<tr class="odd">
-<td align="left">-18981.651</td>
-<td align="right">635245</td>
-<td align="left">121</td>
-</tr>
-<tr class="even">
-<td align="left">-19001.597</td>
-<td align="right">76337</td>
-<td align="left">76</td>
-</tr>
-<tr class="odd">
-<td align="left">-19001.597</td>
-<td align="right">579995</td>
-<td align="left">183</td>
-</tr>
-<tr class="even">
-<td align="left">-19001.597</td>
-<td align="right">301180</td>
-<td align="left">236</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.412</td>
-<td align="right">614009</td>
-<td align="left">317</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.412</td>
-<td align="right">320494</td>
-<td align="left">465</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.412</td>
-<td align="right">195873</td>
-<td align="left">6</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.412</td>
-<td align="right">823392</td>
-<td align="left">479</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.412</td>
-<td align="right">467339</td>
-<td align="left">66</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.412</td>
-<td align="right">948615</td>
-<td align="left">140</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.412</td>
-<td align="right">741484</td>
-<td align="left">441</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.992</td>
-<td align="right">217744</td>
-<td align="left">326</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.992</td>
-<td align="right">314034</td>
-<td align="left">513</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.992</td>
-<td align="right">509733</td>
-<td align="left">130</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.992</td>
-<td align="right">520177</td>
-<td align="left">262</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.992</td>
-<td align="right">783110</td>
-<td align="left">72</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.992</td>
-<td align="right">638611</td>
-<td align="left">524</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.992</td>
-<td align="right">23012</td>
-<td align="left">352</td>
-</tr>
-<tr class="odd">
-<td align="left">-19018.992</td>
-<td align="right">227563</td>
-<td align="left">63</td>
-</tr>
-<tr class="even">
-<td align="left">-19018.992</td>
-<td align="right">358074</td>
-<td align="left">560</td>
-</tr>
-<tr class="odd">
-<td align="left">-19027.625</td>
-<td align="right">514326</td>
-<td align="left">325</td>
-</tr>
-<tr class="even">
-<td align="left">-19027.625</td>
-<td align="right">194143</td>
-<td align="left">510</td>
-</tr>
-<tr class="odd">
-<td align="left">-19027.625</td>
-<td align="right">802682</td>
-<td align="left">419</td>
-</tr>
-<tr class="even">
-<td align="left">-19027.625</td>
-<td align="right">92689</td>
-<td align="left">304</td>
-</tr>
-<tr class="odd">
-<td align="left">-19027.625</td>
-<td align="right">39136</td>
-<td align="left">226</td>
-</tr>
-<tr class="even">
-<td align="left">-19027.625</td>
-<td align="right">637345</td>
-<td align="left">19</td>
-</tr>
-<tr class="odd">
-<td align="left">-19027.625</td>
-<td align="right">937885</td>
-<td align="left">426</td>
-</tr>
-<tr class="even">
-<td align="left">-19027.625</td>
-<td align="right">163110</td>
-<td align="left">584</td>
-</tr>
-<tr class="odd">
-<td align="left">-19027.625</td>
-<td align="right">455617</td>
-<td align="left">242</td>
-</tr>
-<tr class="even">
-<td align="left">-19027.625</td>
-<td align="right">489927</td>
-<td align="left">520</td>
-</tr>
-<tr class="odd">
-<td align="left">-19035.071</td>
-<td align="right">584397</td>
-<td align="left">428</td>
-</tr>
-<tr class="even">
-<td align="left">-19035.817</td>
-<td align="right">263049</td>
-<td align="left">454</td>
-</tr>
-<tr class="odd">
-<td align="left">-19035.817</td>
-<td align="right">173440</td>
-<td align="left">328</td>
-</tr>
-<tr class="even">
-<td align="left">-19035.817</td>
-<td align="right">798839</td>
-<td align="left">312</td>
-</tr>
-<tr class="odd">
-<td align="left">-19035.817</td>
-<td align="right">539389</td>
-<td align="left">544</td>
-</tr>
-<tr class="even">
-<td align="left">-19035.817</td>
-<td align="right">691234</td>
-<td align="left">250</td>
-</tr>
-<tr class="odd">
-<td align="left">-19035.817</td>
-<td align="right">723775</td>
-<td align="left">97</td>
-</tr>
-<tr class="even">
-<td align="left">-19035.817</td>
-<td align="right">279850</td>
-<td align="left">555</td>
-</tr>
-<tr class="odd">
-<td align="left">-19035.817</td>
-<td align="right">802256</td>
-<td align="left">477</td>
-</tr>
-<tr class="even">
-<td align="left">-19035.817</td>
-<td align="right">416463</td>
-<td align="left">467</td>
-</tr>
-<tr class="odd">
-<td align="left">-19036.005</td>
-<td align="right">794236</td>
-<td align="left">127</td>
-</tr>
-<tr class="even">
-<td align="left">-19036.005</td>
-<td align="right">636396</td>
-<td align="left">168</td>
-</tr>
-<tr class="odd">
-<td align="left">-19036.005</td>
-<td align="right">848163</td>
-<td align="left">47</td>
-</tr>
-<tr class="even">
-<td align="left">-19036.005</td>
-<td align="right">804561</td>
-<td align="left">59</td>
-</tr>
-<tr class="odd">
-<td align="left">-19036.086</td>
-<td align="right">673496</td>
-<td align="left">218</td>
-</tr>
-<tr class="even">
-<td align="left">-19036.591</td>
-<td align="right">945065</td>
-<td align="left">255</td>
-</tr>
-<tr class="odd">
-<td align="left">-19036.591</td>
-<td align="right">667250</td>
-<td align="left">318</td>
-</tr>
-<tr class="even">
-<td align="left">-19036.591</td>
-<td align="right">354559</td>
-<td align="left">73</td>
-</tr>
-<tr class="odd">
-<td align="left">-19037.447</td>
-<td align="right">860102</td>
-<td align="left">495</td>
-</tr>
-<tr class="even">
-<td align="left">-19037.447</td>
-<td align="right">505879</td>
-<td align="left">424</td>
-</tr>
-<tr class="odd">
-<td align="left">-19037.447</td>
-<td align="right">686482</td>
-<td align="left">215</td>
-</tr>
-<tr class="even">
-<td align="left">-19052.042</td>
-<td align="right">922596</td>
-<td align="left">456</td>
-</tr>
-<tr class="odd">
-<td align="left">-19066.855</td>
-<td align="right">804660</td>
-<td align="left">260</td>
-</tr>
-<tr class="even">
-<td align="left">-19066.855</td>
-<td align="right">605161</td>
-<td align="left">409</td>
-</tr>
-<tr class="odd">
-<td align="left">-19068.402</td>
-<td align="right">496881</td>
-<td align="left">192</td>
-</tr>
-<tr class="even">
-<td align="left">-19069.430</td>
-<td align="right">913639</td>
-<td align="left">162</td>
-</tr>
-<tr class="odd">
-<td align="left">-19069.430</td>
-<td align="right">645664</td>
-<td align="left">39</td>
-</tr>
-<tr class="even">
-<td align="left">-19071.839</td>
-<td align="right">404426</td>
-<td align="left">344</td>
-</tr>
-<tr class="odd">
-<td align="left">-19071.839</td>
-<td align="right">505244</td>
-<td align="left">582</td>
-</tr>
-<tr class="even">
-<td align="left">-19071.839</td>
-<td align="right">521575</td>
-<td align="left">313</td>
-</tr>
-<tr class="odd">
-<td align="left">-19073.111</td>
-<td align="right">392407</td>
-<td align="left">221</td>
-</tr>
-<tr class="even">
-<td align="left">-19073.111</td>
-<td align="right">377504</td>
-<td align="left">294</td>
-</tr>
-<tr class="odd">
-<td align="left">-19075.142</td>
-<td align="right">566687</td>
-<td align="left">597</td>
-</tr>
-<tr class="even">
-<td align="left">-19075.142</td>
-<td align="right">267983</td>
-<td align="left">228</td>
-</tr>
-<tr class="odd">
-<td align="left">-19075.142</td>
-<td align="right">156536</td>
-<td align="left">245</td>
-</tr>
-<tr class="even">
-<td align="left">-19075.142</td>
-<td align="right">960438</td>
-<td align="left">116</td>
-</tr>
-<tr class="odd">
-<td align="left">-19082.931</td>
-<td align="right">78862</td>
-<td align="left">529</td>
-</tr>
-<tr class="even">
-<td align="left">-19082.931</td>
-<td align="right">437181</td>
-<td align="left">135</td>
-</tr>
-<tr class="odd">
-<td align="left">-19083.642</td>
-<td align="right">126371</td>
-<td align="left">526</td>
-</tr>
-<tr class="even">
-<td align="left">-19083.642</td>
-<td align="right">464179</td>
-<td align="left">106</td>
-</tr>
-<tr class="odd">
-<td align="left">-19086.243</td>
-<td align="right">281558</td>
-<td align="left">184</td>
-</tr>
-<tr class="even">
-<td align="left">-19086.243</td>
-<td align="right">97158</td>
-<td align="left">205</td>
-</tr>
-<tr class="odd">
-<td align="left">-19089.999</td>
-<td align="right">478421</td>
-<td align="left">311</td>
-</tr>
-<tr class="even">
-<td align="left">-19089.999</td>
-<td align="right">207896</td>
-<td align="left">25</td>
-</tr>
-<tr class="odd">
-<td align="left">-19089.999</td>
-<td align="right">321390</td>
-<td align="left">133</td>
-</tr>
-<tr class="even">
-<td align="left">-19090.588</td>
-<td align="right">434915</td>
-<td align="left">552</td>
-</tr>
-<tr class="odd">
-<td align="left">-19090.588</td>
-<td align="right">399671</td>
-<td align="left">13</td>
-</tr>
-<tr class="even">
-<td align="left">-19090.588</td>
-<td align="right">294669</td>
-<td align="left">501</td>
-</tr>
-<tr class="odd">
-<td align="left">-19097.524</td>
-<td align="right">695155</td>
-<td align="left">150</td>
-</tr>
-<tr class="even">
-<td align="left">-19113.316</td>
-<td align="right">232226</td>
-<td align="left">235</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-model2-4-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">-18659.676</td>
-<td align="right">286735</td>
-<td align="left">175</td>
-</tr>
-<tr class="even">
-<td align="left">-18659.676</td>
-<td align="right">349562</td>
-<td align="left">359</td>
-</tr>
-<tr class="odd">
-<td align="left">-18659.676</td>
-<td align="right">568859</td>
-<td align="left">49</td>
-</tr>
-<tr class="even">
-<td align="left">-18686.131</td>
-<td align="right">562716</td>
-<td align="left">300</td>
-</tr>
-<tr class="odd">
-<td align="left">-18690.761</td>
-<td align="right">475420</td>
-<td align="left">71</td>
-</tr>
-<tr class="even">
-<td align="left">-18690.761</td>
-<td align="right">147440</td>
-<td align="left">514</td>
-</tr>
-<tr class="odd">
-<td align="left">-18690.761</td>
-<td align="right">279850</td>
-<td align="left">555</td>
-</tr>
-<tr class="even">
-<td align="left">-18690.761</td>
-<td align="right">667250</td>
-<td align="left">318</td>
-</tr>
-<tr class="odd">
-<td align="left">-18690.761</td>
-<td align="right">153394</td>
-<td align="left">429</td>
-</tr>
-<tr class="even">
-<td align="left">-18709.289</td>
-<td align="right">327475</td>
-<td align="left">518</td>
-</tr>
-<tr class="odd">
-<td align="left">-18709.289</td>
-<td align="right">68850</td>
-<td align="left">462</td>
-</tr>
-<tr class="even">
-<td align="left">-18709.289</td>
-<td align="right">259507</td>
-<td align="left">53</td>
-</tr>
-<tr class="odd">
-<td align="left">-18709.289</td>
-<td align="right">212934</td>
-<td align="left">568</td>
-</tr>
-<tr class="even">
-<td align="left">-18710.414</td>
-<td align="right">185071</td>
-<td align="left">370</td>
-</tr>
-<tr class="odd">
-<td align="left">-18710.414</td>
-<td align="right">930323</td>
-<td align="left">267</td>
-</tr>
-<tr class="even">
-<td align="left">-18710.414</td>
-<td align="right">506886</td>
-<td align="left">576</td>
-</tr>
-<tr class="odd">
-<td align="left">-18710.414</td>
-<td align="right">436460</td>
-<td align="left">89</td>
-</tr>
-<tr class="even">
-<td align="left">-18710.414</td>
-<td align="right">802779</td>
-<td align="left">122</td>
-</tr>
-<tr class="odd">
-<td align="left">-18714.435</td>
-<td align="right">206099</td>
-<td align="left">363</td>
-</tr>
-<tr class="even">
-<td align="left">-18714.435</td>
-<td align="right">831410</td>
-<td align="left">567</td>
-</tr>
-<tr class="odd">
-<td align="left">-18719.126</td>
-<td align="right">137377</td>
-<td align="left">397</td>
-</tr>
-<tr class="even">
-<td align="left">-18719.126</td>
-<td align="right">415931</td>
-<td align="left">10</td>
-</tr>
-<tr class="odd">
-<td align="left">-18719.893</td>
-<td align="right">65651</td>
-<td align="left">214</td>
-</tr>
-<tr class="even">
-<td align="left">-18719.893</td>
-<td align="right">112586</td>
-<td align="left">494</td>
-</tr>
-<tr class="odd">
-<td align="left">-18719.893</td>
-<td align="right">340112</td>
-<td align="left">126</td>
-</tr>
-<tr class="even">
-<td align="left">-18719.893</td>
-<td align="right">772131</td>
-<td align="left">407</td>
-</tr>
-<tr class="odd">
-<td align="left">-18722.755</td>
-<td align="right">285380</td>
-<td align="left">1</td>
-</tr>
-<tr class="even">
-<td align="left">-18722.755</td>
-<td align="right">12477</td>
-<td align="left">155</td>
-</tr>
-<tr class="odd">
-<td align="left">-18722.755</td>
-<td align="right">745972</td>
-<td align="left">521</td>
-</tr>
-<tr class="even">
-<td align="left">-18722.755</td>
-<td align="right">484687</td>
-<td align="left">306</td>
-</tr>
-<tr class="odd">
-<td align="left">-18722.755</td>
-<td align="right">17359</td>
-<td align="left">227</td>
-</tr>
-<tr class="even">
-<td align="left">-18722.755</td>
-<td align="right">965639</td>
-<td align="left">463</td>
-</tr>
-<tr class="odd">
-<td align="left">-18727.719</td>
-<td align="right">533738</td>
-<td align="left">11</td>
-</tr>
-<tr class="even">
-<td align="left">-18735.773</td>
-<td align="right">333082</td>
-<td align="left">578</td>
-</tr>
-<tr class="odd">
-<td align="left">-18735.773</td>
-<td align="right">366706</td>
-<td align="left">29</td>
-</tr>
-<tr class="even">
-<td align="left">-18735.773</td>
-<td align="right">674171</td>
-<td align="left">195</td>
-</tr>
-<tr class="odd">
-<td align="left">-18735.773</td>
-<td align="right">276102</td>
-<td align="left">599</td>
-</tr>
-<tr class="even">
-<td align="left">-18735.773</td>
-<td align="right">777045</td>
-<td align="left">377</td>
-</tr>
-<tr class="odd">
-<td align="left">-18739.843</td>
-<td align="right">823392</td>
-<td align="left">479</td>
-</tr>
-<tr class="even">
-<td align="left">-18740.947</td>
-<td align="right">879338</td>
-<td align="left">309</td>
-</tr>
-<tr class="odd">
-<td align="left">-18741.773</td>
-<td align="right">760531</td>
-<td align="left">550</td>
-</tr>
-<tr class="even">
-<td align="left">-18741.773</td>
-<td align="right">407168</td>
-<td align="left">44</td>
-</tr>
-<tr class="odd">
-<td align="left">-18744.857</td>
-<td align="right">848331</td>
-<td align="left">137</td>
-</tr>
-<tr class="even">
-<td align="left">-18746.059</td>
-<td align="right">830292</td>
-<td align="left">527</td>
-</tr>
-<tr class="odd">
-<td align="left">-18746.059</td>
-<td align="right">443442</td>
-<td align="left">380</td>
-</tr>
-<tr class="even">
-<td align="left">-18746.059</td>
-<td align="right">39136</td>
-<td align="left">226</td>
-</tr>
-<tr class="odd">
-<td align="left">-18746.059</td>
-<td align="right">903420</td>
-<td align="left">5</td>
-</tr>
-<tr class="even">
-<td align="left">-18746.059</td>
-<td align="right">723775</td>
-<td align="left">97</td>
-</tr>
-<tr class="odd">
-<td align="left">-18746.059</td>
-<td align="right">582296</td>
-<td align="left">452</td>
-</tr>
-<tr class="even">
-<td align="left">-18746.059</td>
-<td align="right">331681</td>
-<td align="left">549</td>
-</tr>
-<tr class="odd">
-<td align="left">-18752.869</td>
-<td align="right">231281</td>
-<td align="left">542</td>
-</tr>
-<tr class="even">
-<td align="left">-18771.078</td>
-<td align="right">392766</td>
-<td align="left">331</td>
-</tr>
-<tr class="odd">
-<td align="left">-18774.443</td>
-<td align="right">871438</td>
-<td align="left">561</td>
-</tr>
-<tr class="even">
-<td align="left">-18774.443</td>
-<td align="right">396795</td>
-<td align="left">323</td>
-</tr>
-<tr class="odd">
-<td align="left">-18774.443</td>
-<td align="right">928287</td>
-<td align="left">197</td>
-</tr>
-<tr class="even">
-<td align="left">-18774.443</td>
-<td align="right">608849</td>
-<td align="left">224</td>
-</tr>
-<tr class="odd">
-<td align="left">-18774.443</td>
-<td align="right">154575</td>
-<td align="left">539</td>
-</tr>
-<tr class="even">
-<td align="left">-18774.443</td>
-<td align="right">746978</td>
-<td align="left">410</td>
-</tr>
-<tr class="odd">
-<td align="left">-18785.908</td>
-<td align="right">107446</td>
-<td align="left">12</td>
-</tr>
-<tr class="even">
-<td align="left">-18786.976</td>
-<td align="right">140442</td>
-<td align="left">500</td>
-</tr>
-<tr class="odd">
-<td align="left">-18786.976</td>
-<td align="right">636396</td>
-<td align="left">168</td>
-</tr>
-<tr class="even">
-<td align="left">-18802.065</td>
-<td align="right">761633</td>
-<td align="left">50</td>
-</tr>
-<tr class="odd">
-<td align="left">-18802.065</td>
-<td align="right">387701</td>
-<td align="left">275</td>
-</tr>
-<tr class="even">
-<td align="left">-18802.065</td>
-<td align="right">92689</td>
-<td align="left">304</td>
-</tr>
-<tr class="odd">
-<td align="left">-18805.612</td>
-<td align="right">509733</td>
-<td align="left">130</td>
-</tr>
-<tr class="even">
-<td align="left">-18805.612</td>
-<td align="right">195873</td>
-<td align="left">6</td>
-</tr>
-<tr class="odd">
-<td align="left">-18805.612</td>
-<td align="right">213532</td>
-<td align="left">503</td>
-</tr>
-<tr class="even">
-<td align="left">-18805.612</td>
-<td align="right">638611</td>
-<td align="left">524</td>
-</tr>
-<tr class="odd">
-<td align="left">-18810.228</td>
-<td align="right">51375</td>
-<td align="left">148</td>
-</tr>
-<tr class="even">
-<td align="left">-18810.228</td>
-<td align="right">520177</td>
-<td align="left">262</td>
-</tr>
-<tr class="odd">
-<td align="left">-18810.228</td>
-<td align="right">937885</td>
-<td align="left">426</td>
-</tr>
-<tr class="even">
-<td align="left">-18810.228</td>
-<td align="right">85114</td>
-<td align="left">385</td>
-</tr>
-<tr class="odd">
-<td align="left">-18810.228</td>
-<td align="right">783165</td>
-<td align="left">170</td>
-</tr>
-<tr class="even">
-<td align="left">-18822.378</td>
-<td align="right">391949</td>
-<td align="left">295</td>
-</tr>
-<tr class="odd">
-<td align="left">-18822.394</td>
-<td align="right">210870</td>
-<td align="left">383</td>
-</tr>
-<tr class="even">
-<td align="left">-18822.394</td>
-<td align="right">342019</td>
-<td align="left">301</td>
-</tr>
-<tr class="odd">
-<td align="left">-18822.394</td>
-<td align="right">399508</td>
-<td align="left">415</td>
-</tr>
-<tr class="even">
-<td align="left">-18822.394</td>
-<td align="right">50887</td>
-<td align="left">389</td>
-</tr>
-<tr class="odd">
-<td align="left">-18822.394</td>
-<td align="right">313407</td>
-<td align="left">132</td>
-</tr>
-<tr class="even">
-<td align="left">-18834.182</td>
-<td align="right">790059</td>
-<td align="left">469</td>
-</tr>
-<tr class="odd">
-<td align="left">-18834.182</td>
-<td align="right">563002</td>
-<td align="left">360</td>
-</tr>
-<tr class="even">
-<td align="left">-18839.173</td>
-<td align="right">298275</td>
-<td align="left">418</td>
-</tr>
-<tr class="odd">
-<td align="left">-18840.332</td>
-<td align="right">153942</td>
-<td align="left">31</td>
-</tr>
-<tr class="even">
-<td align="left">-18840.332</td>
-<td align="right">194143</td>
-<td align="left">510</td>
-</tr>
-<tr class="odd">
-<td align="left">-18840.332</td>
-<td align="right">714455</td>
-<td align="left">476</td>
-</tr>
-<tr class="even">
-<td align="left">-18840.332</td>
-<td align="right">282464</td>
-<td align="left">283</td>
-</tr>
-<tr class="odd">
-<td align="left">-18840.332</td>
-<td align="right">871851</td>
-<td align="left">257</td>
-</tr>
-<tr class="even">
-<td align="left">-18840.332</td>
-<td align="right">22362</td>
-<td align="left">365</td>
-</tr>
-<tr class="odd">
-<td align="left">-18841.603</td>
-<td align="right">484501</td>
-<td align="left">163</td>
-</tr>
-<tr class="even">
-<td align="left">-18841.642</td>
-<td align="right">804660</td>
-<td align="left">260</td>
-</tr>
-<tr class="odd">
-<td align="left">-18857.472</td>
-<td align="right">791285</td>
-<td align="left">416</td>
-</tr>
-<tr class="even">
-<td align="left">-18857.472</td>
-<td align="right">464179</td>
-<td align="left">106</td>
-</tr>
-<tr class="odd">
-<td align="left">-18861.156</td>
-<td align="right">22874</td>
-<td align="left">588</td>
-</tr>
-<tr class="even">
-<td align="left">-18866.028</td>
-<td align="right">124999</td>
-<td align="left">96</td>
-</tr>
-<tr class="odd">
-<td align="left">-18866.028</td>
-<td align="right">526324</td>
-<td align="left">178</td>
-</tr>
-<tr class="even">
-<td align="left">-18871.939</td>
-<td align="right">519357</td>
-<td align="left">559</td>
-</tr>
-<tr class="odd">
-<td align="left">-18871.939</td>
-<td align="right">43523</td>
-<td align="left">297</td>
-</tr>
-<tr class="even">
-<td align="left">-18871.939</td>
-<td align="right">888905</td>
-<td align="left">444</td>
-</tr>
-<tr class="odd">
-<td align="left">-18874.805</td>
-<td align="right">321390</td>
-<td align="left">133</td>
-</tr>
-<tr class="even">
-<td align="left">-18884.189</td>
-<td align="right">197223</td>
-<td align="left">332</td>
-</tr>
-<tr class="odd">
-<td align="left">-18890.843</td>
-<td align="right">933578</td>
-<td align="left">506</td>
-</tr>
-<tr class="even">
-<td align="left">-18892.147</td>
-<td align="right">49221</td>
-<td align="left">254</td>
-</tr>
-<tr class="odd">
-<td align="left">-18896.265</td>
-<td align="right">939021</td>
-<td align="left">8</td>
-</tr>
-<tr class="even">
-<td align="left">-18896.915</td>
-<td align="right">970689</td>
-<td align="left">266</td>
-</tr>
-<tr class="odd">
-<td align="left">-18911.649</td>
-<td align="right">602797</td>
-<td align="left">336</td>
-</tr>
-<tr class="even">
-<td align="left">-18919.265</td>
-<td align="right">505879</td>
-<td align="left">424</td>
-</tr>
-<tr class="odd">
-<td align="left">-18919.265</td>
-<td align="right">458181</td>
-<td align="left">189</td>
-</tr>
-<tr class="even">
-<td align="left">-18919.973</td>
-<td align="right">192071</td>
-<td align="left">142</td>
-</tr>
-<tr class="odd">
-<td align="left">-18919.973</td>
-<td align="right">473942</td>
-<td align="left">574</td>
-</tr>
-<tr class="even">
-<td align="left">-18926.744</td>
-<td align="right">592219</td>
-<td align="left">119</td>
-</tr>
-<tr class="odd">
-<td align="left">-18929.852</td>
-<td align="right">281558</td>
-<td align="left">184</td>
-</tr>
-<tr class="even">
-<td align="left">-18932.405</td>
-<td align="right">535804</td>
-<td align="left">111</td>
-</tr>
-<tr class="odd">
-<td align="left">-18933.889</td>
-<td align="right">182524</td>
-<td align="left">373</td>
-</tr>
-<tr class="even">
-<td align="left">-18940.568</td>
-<td align="right">848969</td>
-<td align="left">173</td>
-</tr>
-<tr class="odd">
-<td align="left">-18944.038</td>
-<td align="right">36714</td>
-<td align="left">201</td>
-</tr>
-<tr class="even">
-<td align="left">-18947.565</td>
-<td align="right">481835</td>
-<td align="left">57</td>
-</tr>
-<tr class="odd">
-<td align="left">-18953.784</td>
-<td align="right">371246</td>
-<td align="left">101</td>
-</tr>
-<tr class="even">
-<td align="left">-18955.999</td>
-<td align="right">15715</td>
-<td align="left">274</td>
-</tr>
-<tr class="odd">
-<td align="left">-19003.629</td>
-<td align="right">377504</td>
-<td align="left">294</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-model2-5-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">-18474.834</td>
-<td align="right">154575</td>
-<td align="left">539</td>
-</tr>
-<tr class="even">
-<td align="left">-18474.834</td>
-<td align="right">436460</td>
-<td align="left">89</td>
-</tr>
-<tr class="odd">
-<td align="left">-18474.834</td>
-<td align="right">746978</td>
-<td align="left">410</td>
-</tr>
-<tr class="even">
-<td align="left">-18474.834</td>
-<td align="right">85114</td>
-<td align="left">385</td>
-</tr>
-<tr class="odd">
-<td align="left">-18479.167</td>
-<td align="right">217130</td>
-<td align="left">443</td>
-</tr>
-<tr class="even">
-<td align="left">-18479.167</td>
-<td align="right">539389</td>
-<td align="left">544</td>
-</tr>
-<tr class="odd">
-<td align="left">-18481.815</td>
-<td align="right">407108</td>
-<td align="left">366</td>
-</tr>
-<tr class="even">
-<td align="left">-18481.815</td>
-<td align="right">165853</td>
-<td align="left">105</td>
-</tr>
-<tr class="odd">
-<td align="left">-18481.815</td>
-<td align="right">73576</td>
-<td align="left">213</td>
-</tr>
-<tr class="even">
-<td align="left">-18481.815</td>
-<td align="right">471398</td>
-<td align="left">74</td>
-</tr>
-<tr class="odd">
-<td align="left">-18487.173</td>
-<td align="right">153942</td>
-<td align="left">31</td>
-</tr>
-<tr class="even">
-<td align="left">-18492.782</td>
-<td align="right">392407</td>
-<td align="left">221</td>
-</tr>
-<tr class="odd">
-<td align="left">-18509.457</td>
-<td align="right">644297</td>
-<td align="left">340</td>
-</tr>
-<tr class="even">
-<td align="left">-18539.422</td>
-<td align="right">850545</td>
-<td align="left">357</td>
-</tr>
-<tr class="odd">
-<td align="left">-18540.968</td>
-<td align="right">848969</td>
-<td align="left">173</td>
-</tr>
-<tr class="even">
-<td align="left">-18549.013</td>
-<td align="right">416463</td>
-<td align="left">467</td>
-</tr>
-<tr class="odd">
-<td align="left">-18556.413</td>
-<td align="right">551639</td>
-<td align="left">55</td>
-</tr>
-<tr class="even">
-<td align="left">-18557.749</td>
-<td align="right">331681</td>
-<td align="left">549</td>
-</tr>
-<tr class="odd">
-<td align="left">-18560.331</td>
-<td align="right">484687</td>
-<td align="left">306</td>
-</tr>
-<tr class="even">
-<td align="left">-18568.774</td>
-<td align="right">354395</td>
-<td align="left">486</td>
-</tr>
-<tr class="odd">
-<td align="left">-18568.774</td>
-<td align="right">617243</td>
-<td align="left">237</td>
-</tr>
-<tr class="even">
-<td align="left">-18569.499</td>
-<td align="right">851945</td>
-<td align="left">18</td>
-</tr>
-<tr class="odd">
-<td align="left">-18572.837</td>
-<td align="right">278692</td>
-<td align="left">342</td>
-</tr>
-<tr class="even">
-<td align="left">-18572.837</td>
-<td align="right">780698</td>
-<td align="left">337</td>
-</tr>
-<tr class="odd">
-<td align="left">-18576.617</td>
-<td align="right">913639</td>
-<td align="left">162</td>
-</tr>
-<tr class="even">
-<td align="left">-18585.655</td>
-<td align="right">751153</td>
-<td align="left">110</td>
-</tr>
-<tr class="odd">
-<td align="left">-18585.655</td>
-<td align="right">766903</td>
-<td align="left">505</td>
-</tr>
-<tr class="even">
-<td align="left">-18588.405</td>
-<td align="right">210870</td>
-<td align="left">383</td>
-</tr>
-<tr class="odd">
-<td align="left">-18588.405</td>
-<td align="right">966014</td>
-<td align="left">37</td>
-</tr>
-<tr class="even">
-<td align="left">-18590.065</td>
-<td align="right">923437</td>
-<td align="left">398</td>
-</tr>
-<tr class="odd">
-<td align="left">-18591.769</td>
-<td align="right">568859</td>
-<td align="left">49</td>
-</tr>
-<tr class="even">
-<td align="left">-18594.202</td>
-<td align="right">790452</td>
-<td align="left">303</td>
-</tr>
-<tr class="odd">
-<td align="left">-18594.202</td>
-<td align="right">848163</td>
-<td align="left">47</td>
-</tr>
-<tr class="even">
-<td align="left">-18605.815</td>
-<td align="right">126371</td>
-<td align="left">526</td>
-</tr>
-<tr class="odd">
-<td align="left">-18610.709</td>
-<td align="right">436892</td>
-<td align="left">565</td>
-</tr>
-<tr class="even">
-<td align="left">-18610.709</td>
-<td align="right">76337</td>
-<td align="left">76</td>
-</tr>
-<tr class="odd">
-<td align="left">-18610.709</td>
-<td align="right">804561</td>
-<td align="left">59</td>
-</tr>
-<tr class="even">
-<td align="left">-18610.709</td>
-<td align="right">473942</td>
-<td align="left">574</td>
-</tr>
-<tr class="odd">
-<td align="left">-18610.709</td>
-<td align="right">215353</td>
-<td align="left">164</td>
-</tr>
-<tr class="even">
-<td align="left">-18611.947</td>
-<td align="right">760531</td>
-<td align="left">550</td>
-</tr>
-<tr class="odd">
-<td align="left">-18613.289</td>
-<td align="right">584397</td>
-<td align="left">428</td>
-</tr>
-<tr class="even">
-<td align="left">-18613.289</td>
-<td align="right">313407</td>
-<td align="left">132</td>
-</tr>
-<tr class="odd">
-<td align="left">-18613.333</td>
-<td align="right">65651</td>
-<td align="left">214</td>
-</tr>
-<tr class="even">
-<td align="left">-18614.460</td>
-<td align="right">153394</td>
-<td align="left">429</td>
-</tr>
-<tr class="odd">
-<td align="left">-18616.139</td>
-<td align="right">972873</td>
-<td align="left">157</td>
-</tr>
-<tr class="even">
-<td align="left">-18617.816</td>
-<td align="right">440841</td>
-<td align="left">118</td>
-</tr>
-<tr class="odd">
-<td align="left">-18618.751</td>
-<td align="right">7959</td>
-<td align="left">256</td>
-</tr>
-<tr class="even">
-<td align="left">-18620.397</td>
-<td align="right">17896</td>
-<td align="left">592</td>
-</tr>
-<tr class="odd">
-<td align="left">-18620.397</td>
-<td align="right">140849</td>
-<td align="left">515</td>
-</tr>
-<tr class="even">
-<td align="left">-18620.397</td>
-<td align="right">971853</td>
-<td align="left">402</td>
-</tr>
-<tr class="odd">
-<td align="left">-18621.671</td>
-<td align="right">742609</td>
-<td align="left">531</td>
-</tr>
-<tr class="even">
-<td align="left">-18624.013</td>
-<td align="right">188498</td>
-<td align="left">258</td>
-</tr>
-<tr class="odd">
-<td align="left">-18627.303</td>
-<td align="right">988761</td>
-<td align="left">475</td>
-</tr>
-<tr class="even">
-<td align="left">-18627.462</td>
-<td align="right">963053</td>
-<td align="left">43</td>
-</tr>
-<tr class="odd">
-<td align="left">-18628.188</td>
-<td align="right">830570</td>
-<td align="left">369</td>
-</tr>
-<tr class="even">
-<td align="left">-18629.568</td>
-<td align="right">69413</td>
-<td align="left">472</td>
-</tr>
-<tr class="odd">
-<td align="left">-18632.321</td>
-<td align="right">25127</td>
-<td align="left">107</td>
-</tr>
-<tr class="even">
-<td align="left">-18635.892</td>
-<td align="right">579995</td>
-<td align="left">183</td>
-</tr>
-<tr class="odd">
-<td align="left">-18642.163</td>
-<td align="right">415931</td>
-<td align="left">10</td>
-</tr>
-<tr class="even">
-<td align="left">-18642.163</td>
-<td align="right">973369</td>
-<td align="left">202</td>
-</tr>
-<tr class="odd">
-<td align="left">-18643.551</td>
-<td align="right">414828</td>
-<td align="left">322</td>
-</tr>
-<tr class="even">
-<td align="left">-18643.929</td>
-<td align="right">939709</td>
-<td align="left">112</td>
-</tr>
-<tr class="odd">
-<td align="left">-18646.488</td>
-<td align="right">875667</td>
-<td align="left">367</td>
-</tr>
-<tr class="even">
-<td align="left">-18651.435</td>
-<td align="right">57226</td>
-<td align="left">208</td>
-</tr>
-<tr class="odd">
-<td align="left">-18652.908</td>
-<td align="right">438144</td>
-<td align="left">271</td>
-</tr>
-<tr class="even">
-<td align="left">-18654.588</td>
-<td align="right">319144</td>
-<td align="left">176</td>
-</tr>
-<tr class="odd">
-<td align="left">-18655.603</td>
-<td align="right">714455</td>
-<td align="left">476</td>
-</tr>
-<tr class="even">
-<td align="left">-18656.401</td>
-<td align="right">173440</td>
-<td align="left">328</td>
-</tr>
-<tr class="odd">
-<td align="left">-18656.953</td>
-<td align="right">282464</td>
-<td align="left">283</td>
-</tr>
-<tr class="even">
-<td align="left">-18662.580</td>
-<td align="right">903633</td>
-<td align="left">553</td>
-</tr>
-<tr class="odd">
-<td align="left">-18662.889</td>
-<td align="right">835767</td>
-<td align="left">210</td>
-</tr>
-<tr class="even">
-<td align="left">-18662.889</td>
-<td align="right">43523</td>
-<td align="left">297</td>
-</tr>
-<tr class="odd">
-<td align="left">-18665.009</td>
-<td align="right">783110</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td align="left">-18668.469</td>
-<td align="right">789985</td>
-<td align="left">67</td>
-</tr>
-<tr class="odd">
-<td align="left">-18669.668</td>
-<td align="right">392751</td>
-<td align="left">480</td>
-</tr>
-<tr class="even">
-<td align="left">-18676.047</td>
-<td align="right">68850</td>
-<td align="left">462</td>
-</tr>
-<tr class="odd">
-<td align="left">-18677.367</td>
-<td align="right">351622</td>
-<td align="left">551</td>
-</tr>
-<tr class="even">
-<td align="left">-18678.466</td>
-<td align="right">340112</td>
-<td align="left">126</td>
-</tr>
-<tr class="odd">
-<td align="left">-18678.466</td>
-<td align="right">714997</td>
-<td align="left">399</td>
-</tr>
-<tr class="even">
-<td align="left">-18680.137</td>
-<td align="right">853195</td>
-<td align="left">431</td>
-</tr>
-<tr class="odd">
-<td align="left">-18680.369</td>
-<td align="right">238906</td>
-<td align="left">430</td>
-</tr>
-<tr class="even">
-<td align="left">-18680.369</td>
-<td align="right">321390</td>
-<td align="left">133</td>
-</tr>
-<tr class="odd">
-<td align="left">-18690.832</td>
-<td align="right">61587</td>
-<td align="left">400</td>
-</tr>
-<tr class="even">
-<td align="left">-18691.782</td>
-<td align="right">1548</td>
-<td align="left">384</td>
-</tr>
-<tr class="odd">
-<td align="left">-18693.122</td>
-<td align="right">967902</td>
-<td align="left">52</td>
-</tr>
-<tr class="even">
-<td align="left">-18700.745</td>
-<td align="right">694303</td>
-<td align="left">282</td>
-</tr>
-<tr class="odd">
-<td align="left">-18700.835</td>
-<td align="right">879211</td>
-<td align="left">453</td>
-</tr>
-<tr class="even">
-<td align="left">-18700.835</td>
-<td align="right">51375</td>
-<td align="left">148</td>
-</tr>
-<tr class="odd">
-<td align="left">-18709.284</td>
-<td align="right">137377</td>
-<td align="left">397</td>
-</tr>
-<tr class="even">
-<td align="left">-18710.302</td>
-<td align="right">476498</td>
-<td align="left">179</td>
-</tr>
-<tr class="odd">
-<td align="left">-18712.567</td>
-<td align="right">23012</td>
-<td align="left">352</td>
-</tr>
-<tr class="even">
-<td align="left">-18713.084</td>
-<td align="right">704798</td>
-<td align="left">530</td>
-</tr>
-<tr class="odd">
-<td align="left">-18714.989</td>
-<td align="right">888905</td>
-<td align="left">444</td>
-</tr>
-<tr class="even">
-<td align="left">-18714.989</td>
-<td align="right">790059</td>
-<td align="left">469</td>
-</tr>
-<tr class="odd">
-<td align="left">-18717.764</td>
-<td align="right">970689</td>
-<td align="left">266</td>
-</tr>
-<tr class="even">
-<td align="left">-18719.173</td>
-<td align="right">521575</td>
-<td align="left">313</td>
-</tr>
-<tr class="odd">
-<td align="left">-18719.173</td>
-<td align="right">788796</td>
-<td align="left">145</td>
-</tr>
-<tr class="even">
-<td align="left">-18734.282</td>
-<td align="right">802779</td>
-<td align="left">122</td>
-</tr>
-<tr class="odd">
-<td align="left">-18740.491</td>
-<td align="right">933578</td>
-<td align="left">506</td>
-</tr>
-<tr class="even">
-<td align="left">-18740.491</td>
-<td align="right">211281</td>
-<td align="left">292</td>
-</tr>
-<tr class="odd">
-<td align="left">-18742.902</td>
-<td align="right">595153</td>
-<td align="left">230</td>
-</tr>
-<tr class="even">
-<td align="left">-18746.059</td>
-<td align="right">172913</td>
-<td align="left">557</td>
-</tr>
-<tr class="odd">
-<td align="left">-18758.302</td>
-<td align="right">509733</td>
-<td align="left">130</td>
-</tr>
-<tr class="even">
-<td align="left">-18773.621</td>
-<td align="right">285380</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">-18777.303</td>
-<td align="right">213532</td>
-<td align="left">503</td>
-</tr>
-<tr class="even">
-<td align="left">-18784.247</td>
-<td align="right">327475</td>
-<td align="left">518</td>
-</tr>
-<tr class="odd">
-<td align="left">-18788.600</td>
-<td align="right">156536</td>
-<td align="left">245</td>
-</tr>
-<tr class="even">
-<td align="left">-18792.351</td>
-<td align="right">497522</td>
-<td align="left">502</td>
-</tr>
-<tr class="odd">
-<td align="left">-18800.560</td>
-<td align="right">170118</td>
-<td align="left">238</td>
-</tr>
-<tr class="even">
-<td align="left">-18804.554</td>
-<td align="right">464179</td>
-<td align="left">106</td>
-</tr>
-<tr class="odd">
-<td align="left">-18807.643</td>
-<td align="right">311214</td>
-<td align="left">64</td>
-</tr>
-<tr class="even">
-<td align="left">-18822.394</td>
-<td align="right">576726</td>
-<td align="left">280</td>
-</tr>
-<tr class="odd">
-<td align="left">-18889.029</td>
-<td align="right">182524</td>
-<td align="left">373</td>
-</tr>
-<tr class="even">
-<td align="left">-18906.043</td>
-<td align="right">264935</td>
-<td align="left">281</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">LL</th>
-<th align="right">seed</th>
-<th align="left">m_iterations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">-17098.434</td>
-<td align="right">344422</td>
-<td align="left">296</td>
-</tr>
-<tr class="even">
-<td align="left">-17216.914</td>
-<td align="right">226322</td>
-<td align="left">478</td>
-</tr>
-<tr class="odd">
-<td align="left">-17714.856</td>
-<td align="right">853195</td>
-<td align="left">431</td>
-</tr>
-<tr class="even">
-<td align="left">-18285.363</td>
-<td align="right">153053</td>
-<td align="left">378</td>
-</tr>
-<tr class="odd">
-<td align="left">-18304.150</td>
-<td align="right">211281</td>
-<td align="left">292</td>
-</tr>
-<tr class="even">
-<td align="left">-18304.150</td>
-<td align="right">529496</td>
-<td align="left">343</td>
-</tr>
-<tr class="odd">
-<td align="left">-18320.492</td>
-<td align="right">350608</td>
-<td align="left">334</td>
-</tr>
-<tr class="even">
-<td align="left">-18323.206</td>
-<td align="right">691234</td>
-<td align="left">250</td>
-</tr>
-<tr class="odd">
-<td align="left">-18337.703</td>
-<td align="right">425929</td>
-<td align="left">508</td>
-</tr>
-<tr class="even">
-<td align="left">-18337.703</td>
-<td align="right">153394</td>
-<td align="left">429</td>
-</tr>
-<tr class="odd">
-<td align="left">-18338.421</td>
-<td align="right">68985</td>
-<td align="left">17</td>
-</tr>
-<tr class="even">
-<td align="left">-18340.574</td>
-<td align="right">73576</td>
-<td align="left">213</td>
-</tr>
-<tr class="odd">
-<td align="left">-18345.377</td>
-<td align="right">575700</td>
-<td align="left">100</td>
-</tr>
-<tr class="even">
-<td align="left">-18368.234</td>
-<td align="right">830392</td>
-<td align="left">35</td>
-</tr>
-<tr class="odd">
-<td align="left">-18371.468</td>
-<td align="right">407168</td>
-<td align="left">44</td>
-</tr>
-<tr class="even">
-<td align="left">-18371.468</td>
-<td align="right">165853</td>
-<td align="left">105</td>
-</tr>
-<tr class="odd">
-<td align="left">-18378.197</td>
-<td align="right">370957</td>
-<td align="left">554</td>
-</tr>
-<tr class="even">
-<td align="left">-18387.165</td>
-<td align="right">372176</td>
-<td align="left">23</td>
-</tr>
-<tr class="odd">
-<td align="left">-18393.205</td>
-<td align="right">355674</td>
-<td align="left">540</td>
-</tr>
-<tr class="even">
-<td align="left">-18400.150</td>
-<td align="right">263268</td>
-<td align="left">165</td>
-</tr>
-<tr class="odd">
-<td align="left">-18403.549</td>
-<td align="right">253358</td>
-<td align="left">2</td>
-</tr>
-<tr class="even">
-<td align="left">-18418.580</td>
-<td align="right">987090</td>
-<td align="left">70</td>
-</tr>
-<tr class="odd">
-<td align="left">-18421.113</td>
-<td align="right">789985</td>
-<td align="left">67</td>
-</tr>
-<tr class="even">
-<td align="left">-18421.220</td>
-<td align="right">804561</td>
-<td align="left">59</td>
-</tr>
-<tr class="odd">
-<td align="left">-18425.035</td>
-<td align="right">15715</td>
-<td align="left">274</td>
-</tr>
-<tr class="even">
-<td align="left">-18425.977</td>
-<td align="right">745972</td>
-<td align="left">521</td>
-</tr>
-<tr class="odd">
-<td align="left">-18431.713</td>
-<td align="right">644297</td>
-<td align="left">340</td>
-</tr>
-<tr class="even">
-<td align="left">-18435.391</td>
-<td align="right">846194</td>
-<td align="left">93</td>
-</tr>
-<tr class="odd">
-<td align="left">-18451.974</td>
-<td align="right">194143</td>
-<td align="left">510</td>
-</tr>
-<tr class="even">
-<td align="left">-18453.115</td>
-<td align="right">34346</td>
-<td align="left">330</td>
-</tr>
-<tr class="odd">
-<td align="left">-18454.109</td>
-<td align="right">561664</td>
-<td align="left">392</td>
-</tr>
-<tr class="even">
-<td align="left">-18457.189</td>
-<td align="right">945065</td>
-<td align="left">255</td>
-</tr>
-<tr class="odd">
-<td align="left">-18460.060</td>
-<td align="right">967902</td>
-<td align="left">52</td>
-</tr>
-<tr class="even">
-<td align="left">-18460.487</td>
-<td align="right">760531</td>
-<td align="left">550</td>
-</tr>
-<tr class="odd">
-<td align="left">-18460.487</td>
-<td align="right">714455</td>
-<td align="left">476</td>
-</tr>
-<tr class="even">
-<td align="left">-18463.595</td>
-<td align="right">603842</td>
-<td align="left">61</td>
-</tr>
-<tr class="odd">
-<td align="left">-18467.842</td>
-<td align="right">903369</td>
-<td align="left">134</td>
-</tr>
-<tr class="even">
-<td align="left">-18467.842</td>
-<td align="right">699810</td>
-<td align="left">571</td>
-</tr>
-<tr class="odd">
-<td align="left">-18482.213</td>
-<td align="right">137377</td>
-<td align="left">397</td>
-</tr>
-<tr class="even">
-<td align="left">-18482.242</td>
-<td align="right">650371</td>
-<td align="left">14</td>
-</tr>
-<tr class="odd">
-<td align="left">-18482.699</td>
-<td align="right">441191</td>
-<td align="left">361</td>
-</tr>
-<tr class="even">
-<td align="left">-18490.916</td>
-<td align="right">404510</td>
-<td align="left">442</td>
-</tr>
-<tr class="odd">
-<td align="left">-18493.050</td>
-<td align="right">788796</td>
-<td align="left">145</td>
-</tr>
-<tr class="even">
-<td align="left">-18498.857</td>
-<td align="right">349263</td>
-<td align="left">263</td>
-</tr>
-<tr class="odd">
-<td align="left">-18499.853</td>
-<td align="right">851945</td>
-<td align="left">18</td>
-</tr>
-<tr class="even">
-<td align="left">-18507.512</td>
-<td align="right">840078</td>
-<td align="left">203</td>
-</tr>
-<tr class="odd">
-<td align="left">-18507.949</td>
-<td align="right">85734</td>
-<td align="left">411</td>
-</tr>
-<tr class="even">
-<td align="left">-18509.102</td>
-<td align="right">605358</td>
-<td align="left">321</td>
-</tr>
-<tr class="odd">
-<td align="left">-18509.460</td>
-<td align="right">937885</td>
-<td align="left">426</td>
-</tr>
-<tr class="even">
-<td align="left">-18509.772</td>
-<td align="right">939709</td>
-<td align="left">112</td>
-</tr>
-<tr class="odd">
-<td align="left">-18510.632</td>
-<td align="right">377504</td>
-<td align="left">294</td>
-</tr>
-<tr class="even">
-<td align="left">-18510.632</td>
-<td align="right">217744</td>
-<td align="left">326</td>
-</tr>
-<tr class="odd">
-<td align="left">-18511.430</td>
-<td align="right">333082</td>
-<td align="left">578</td>
-</tr>
-<tr class="even">
-<td align="left">-18511.623</td>
-<td align="right">473942</td>
-<td align="left">574</td>
-</tr>
-<tr class="odd">
-<td align="left">-18512.092</td>
-<td align="right">595153</td>
-<td align="left">230</td>
-</tr>
-<tr class="even">
-<td align="left">-18512.810</td>
-<td align="right">314084</td>
-<td align="left">81</td>
-</tr>
-<tr class="odd">
-<td align="left">-18514.055</td>
-<td align="right">57226</td>
-<td align="left">208</td>
-</tr>
-<tr class="even">
-<td align="left">-18514.379</td>
-<td align="right">809240</td>
-<td align="left">543</td>
-</tr>
-<tr class="odd">
-<td align="left">-18516.024</td>
-<td align="right">535804</td>
-<td align="left">111</td>
-</tr>
-<tr class="even">
-<td align="left">-18516.705</td>
-<td align="right">43523</td>
-<td align="left">297</td>
-</tr>
-<tr class="odd">
-<td align="left">-18518.585</td>
-<td align="right">910224</td>
-<td align="left">580</td>
-</tr>
-<tr class="even">
-<td align="left">-18519.276</td>
-<td align="right">278692</td>
-<td align="left">342</td>
-</tr>
-<tr class="odd">
-<td align="left">-18525.109</td>
-<td align="right">507154</td>
-<td align="left">387</td>
-</tr>
-<tr class="even">
-<td align="left">-18525.204</td>
-<td align="right">53621</td>
-<td align="left">483</td>
-</tr>
-<tr class="odd">
-<td align="left">-18531.309</td>
-<td align="right">173191</td>
-<td align="left">422</td>
-</tr>
-<tr class="even">
-<td align="left">-18531.340</td>
-<td align="right">625191</td>
-<td align="left">350</td>
-</tr>
-<tr class="odd">
-<td align="left">-18531.719</td>
-<td align="right">217130</td>
-<td align="left">443</td>
-</tr>
-<tr class="even">
-<td align="left">-18533.259</td>
-<td align="right">126371</td>
-<td align="left">526</td>
-</tr>
-<tr class="odd">
-<td align="left">-18533.892</td>
-<td align="right">576596</td>
-<td align="left">99</td>
-</tr>
-<tr class="even">
-<td align="left">-18536.230</td>
-<td align="right">608496</td>
-<td align="left">4</td>
-</tr>
-<tr class="odd">
-<td align="left">-18539.996</td>
-<td align="right">349562</td>
-<td align="left">359</td>
-</tr>
-<tr class="even">
-<td align="left">-18540.596</td>
-<td align="right">988761</td>
-<td align="left">475</td>
-</tr>
-<tr class="odd">
-<td align="left">-18541.029</td>
-<td align="right">584397</td>
-<td align="left">428</td>
-</tr>
-<tr class="even">
-<td align="left">-18541.662</td>
-<td align="right">766903</td>
-<td align="left">505</td>
-</tr>
-<tr class="odd">
-<td align="left">-18542.372</td>
-<td align="right">478421</td>
-<td align="left">311</td>
-</tr>
-<tr class="even">
-<td align="left">-18546.367</td>
-<td align="right">923437</td>
-<td align="left">398</td>
-</tr>
-<tr class="odd">
-<td align="left">-18546.716</td>
-<td align="right">565819</td>
-<td align="left">65</td>
-</tr>
-<tr class="even">
-<td align="left">-18547.155</td>
-<td align="right">25127</td>
-<td align="left">107</td>
-</tr>
-<tr class="odd">
-<td align="left">-18551.742</td>
-<td align="right">692169</td>
-<td align="left">308</td>
-</tr>
-<tr class="even">
-<td align="left">-18559.752</td>
-<td align="right">391949</td>
-<td align="left">295</td>
-</tr>
-<tr class="odd">
-<td align="left">-18566.107</td>
-<td align="right">314034</td>
-<td align="left">513</td>
-</tr>
-<tr class="even">
-<td align="left">-18567.622</td>
-<td align="right">440841</td>
-<td align="left">118</td>
-</tr>
-<tr class="odd">
-<td align="left">-18568.395</td>
-<td align="right">84013</td>
-<td align="left">598</td>
-</tr>
-<tr class="even">
-<td align="left">-18575.206</td>
-<td align="right">529455</td>
-<td align="left">268</td>
-</tr>
-<tr class="odd">
-<td align="left">-18580.753</td>
-<td align="right">992389</td>
-<td align="left">77</td>
-</tr>
-<tr class="even">
-<td align="left">-18581.898</td>
-<td align="right">215353</td>
-<td align="left">164</td>
-</tr>
-<tr class="odd">
-<td align="left">-18588.791</td>
-<td align="right">508482</td>
-<td align="left">446</td>
-</tr>
-<tr class="even">
-<td align="left">-18590.065</td>
-<td align="right">840031</td>
-<td align="left">276</td>
-</tr>
-<tr class="odd">
-<td align="left">-18593.301</td>
-<td align="right">636396</td>
-<td align="left">168</td>
-</tr>
-<tr class="even">
-<td align="left">-18595.417</td>
-<td align="right">629320</td>
-<td align="left">222</td>
-</tr>
-<tr class="odd">
-<td align="left">-18597.570</td>
-<td align="right">396795</td>
-<td align="left">323</td>
-</tr>
-<tr class="even">
-<td align="left">-18601.539</td>
-<td align="right">973369</td>
-<td align="left">202</td>
-</tr>
-<tr class="odd">
-<td align="left">-18607.314</td>
-<td align="right">995249</td>
-<td align="left">525</td>
-</tr>
-<tr class="even">
-<td align="left">-18610.709</td>
-<td align="right">291149</td>
-<td align="left">536</td>
-</tr>
-<tr class="odd">
-<td align="left">-18618.751</td>
-<td align="right">972873</td>
-<td align="left">157</td>
-</tr>
-<tr class="even">
-<td align="left">-18618.791</td>
-<td align="right">147440</td>
-<td align="left">514</td>
-</tr>
-<tr class="odd">
-<td align="left">-18618.791</td>
-<td align="right">313407</td>
-<td align="left">132</td>
-</tr>
-<tr class="even">
-<td align="left">-18621.189</td>
-<td align="right">123985</td>
-<td align="left">248</td>
-</tr>
-<tr class="odd">
-<td align="left">-18654.438</td>
-<td align="right">438144</td>
-<td align="left">271</td>
-</tr>
-<tr class="even">
-<td align="left">-18656.067</td>
-<td align="right">212934</td>
-<td align="left">568</td>
-</tr>
-<tr class="odd">
-<td align="left">-18660.737</td>
-<td align="right">638611</td>
-<td align="left">524</td>
-</tr>
-<tr class="even">
-<td align="left">-18662.889</td>
-<td align="right">329127</td>
-<td align="left">185</td>
-</tr>
-<tr class="odd">
-<td align="left">-18687.183</td>
-<td align="right">359578</td>
-<td align="left">458</td>
-</tr>
-<tr class="even">
-<td align="left">-18690.110</td>
-<td align="right">476498</td>
-<td align="left">179</td>
-</tr>
-</tbody>
-</table>
-<p><img src="rosenberg-dissertation_files/figure-html/spec-solutions-model2-7-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_3p-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <table>
 <thead>
 <tr class="header">
@@ -5203,440 +234,630 @@
 <td align="right">790452</td>
 <td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_4p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18243.088</td>
-<td align="right">863691</td>
-<td align="left">481</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18249.303</td>
-<td align="right">823392</td>
-<td align="left">479</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18251.021</td>
-<td align="right">415502</td>
-<td align="left">194</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18252.559</td>
-<td align="right">863094</td>
-<td align="left">147</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18254.567</td>
-<td align="right">579995</td>
-<td align="left">183</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18255.084</td>
-<td align="right">751054</td>
-<td align="left">117</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18256.248</td>
-<td align="right">802256</td>
-<td align="left">477</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18256.586</td>
-<td align="right">535063</td>
-<td align="left">329</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18260.574</td>
-<td align="right">497522</td>
-<td align="left">502</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18262.825</td>
-<td align="right">414284</td>
-<td align="left">158</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_5p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18277.047</td>
-<td align="right">285380</td>
-<td align="left">1</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18281.407</td>
-<td align="right">846194</td>
-<td align="left">93</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18292.320</td>
-<td align="right">378393</td>
-<td align="left">509</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18302.227</td>
-<td align="right">608460</td>
-<td align="left">244</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18304.806</td>
-<td align="right">67009</td>
-<td align="left">564</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18323.206</td>
-<td align="right">802682</td>
-<td align="left">419</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18323.309</td>
-<td align="right">584397</td>
-<td align="left">428</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18327.896</td>
-<td align="right">533738</td>
-<td align="left">11</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18331.795</td>
-<td align="right">679832</td>
-<td align="left">302</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18331.795</td>
-<td align="right">605358</td>
-<td align="left">321</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_6p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18339.546</td>
-<td align="right">192071</td>
-<td align="left">142</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18339.549</td>
-<td align="right">848969</td>
-<td align="left">173</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18340.103</td>
-<td align="right">840031</td>
-<td align="left">276</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18345.784</td>
-<td align="right">473942</td>
-<td align="left">574</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18346.929</td>
-<td align="right">535804</td>
-<td align="left">111</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18347.305</td>
-<td align="right">84013</td>
-<td align="left">598</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18347.733</td>
-<td align="right">496710</td>
-<td align="left">386</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18348.790</td>
-<td align="right">575700</td>
-<td align="left">100</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18349.865</td>
-<td align="right">551639</td>
-<td align="left">55</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18354.367</td>
-<td align="right">850545</td>
-<td align="left">357</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_7p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18362.423</td>
-<td align="right">140849</td>
-<td align="left">515</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18363.008</td>
-<td align="right">902278</td>
-<td align="left">21</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18363.035</td>
-<td align="right">508482</td>
-<td align="left">446</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18363.056</td>
-<td align="right">788796</td>
-<td align="left">145</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18364.003</td>
-<td align="right">745972</td>
-<td align="left">521</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18364.003</td>
-<td align="right">396795</td>
-<td align="left">323</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18365.401</td>
-<td align="right">105435</td>
-<td align="left">265</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18369.099</td>
-<td align="right">928287</td>
-<td align="left">197</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18371.367</td>
-<td align="right">655497</td>
-<td align="left">376</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18372.372</td>
-<td align="right">351622</td>
-<td align="left">551</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p>We can see that even for the solutions associated with other log-likelihoods, the results for model 7 are the same.</p>
+<p><img src="rosenberg-dissertation_files/figure-html/m1_7-other-LL-p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18373.311</td>
-<td align="right">691234</td>
-<td align="left">250</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18373.728</td>
-<td align="right">791285</td>
-<td align="left">416</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18377.907</td>
-<td align="right">506886</td>
-<td align="left">576</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18379.072</td>
-<td align="right">567165</td>
-<td align="left">319</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18380.065</td>
-<td align="right">481835</td>
-<td align="left">57</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18381.203</td>
-<td align="right">404510</td>
-<td align="left">442</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18394.235</td>
-<td align="right">622860</td>
-<td align="left">259</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18397.920</td>
-<td align="right">879211</td>
-<td align="left">453</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18400.368</td>
-<td align="right">425929</td>
-<td align="left">508</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18401.340</td>
-<td align="right">714455</td>
-<td align="left">476</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+</div>
+<div id="model-2-candidate-solutions" class="section level3">
+<h3><span class="header-section-number">5.1.6</span> Model 2 candidate solutions</h3>
+<p>Here are solutions for model 2.</p>
+<p><img src="rosenberg-dissertation_files/figure-html/m2_3p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18404.744</td>
-<td align="right">782821</td>
-<td align="left">272</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18409.271</td>
-<td align="right">349263</td>
-<td align="left">263</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18412.286</td>
-<td align="right">312754</td>
-<td align="left">562</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18417.806</td>
-<td align="right">922042</td>
-<td align="left">492</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18423.588</td>
-<td align="right">635245</td>
-<td align="left">121</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18424.106</td>
-<td align="right">499150</td>
-<td align="left">216</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18431.262</td>
-<td align="right">872743</td>
-<td align="left">374</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18434.814</td>
-<td align="right">7959</td>
-<td align="left">256</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18438.915</td>
-<td align="right">561664</td>
-<td align="left">392</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18444.381</td>
-<td align="right">25127</td>
-<td align="left">107</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m2_4p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18446.050</td>
-<td align="right">278692</td>
-<td align="left">342</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18447.972</td>
-<td align="right">418686</td>
-<td align="left">338</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18450.645</td>
-<td align="right">939709</td>
-<td align="left">112</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18459.869</td>
-<td align="right">172913</td>
-<td align="left">557</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18460.737</td>
-<td align="right">507154</td>
-<td align="left">387</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18461.328</td>
-<td align="right">217744</td>
-<td align="left">326</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18463.930</td>
-<td align="right">855760</td>
-<td align="left">593</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18464.873</td>
-<td align="right">903420</td>
-<td align="left">5</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18465.502</td>
-<td align="right">371737</td>
-<td align="left">532</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18465.917</td>
-<td align="right">27071</td>
-<td align="left">15</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m2_5p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18467.119</td>
-<td align="right">669634</td>
-<td align="left">335</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18467.840</td>
-<td align="right">923437</td>
-<td align="left">398</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18469.553</td>
-<td align="right">76337</td>
-<td align="left">76</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18477.481</td>
-<td align="right">714997</td>
-<td align="left">399</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18492.761</td>
-<td align="right">416463</td>
-<td align="left">467</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18493.050</td>
-<td align="right">789985</td>
-<td align="left">67</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18500.147</td>
-<td align="right">263268</td>
-<td align="left">165</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
 </tr>
 <tr class="even">
-<td align="left">-18511.046</td>
-<td align="right">383986</td>
-<td align="left">159</td>
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
 </tr>
 <tr class="odd">
-<td align="left">-18524.976</td>
-<td align="right">468036</td>
-<td align="left">131</td>
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
 </tr>
 <tr class="even">
-<td align="left">-18528.015</td>
-<td align="right">978061</td>
-<td align="left">488</td>
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
+</tbody>
+</table>
+<pre><code>## Error in UseMethod(&quot;groups&quot;): no applicable method for &#39;groups&#39; applied to an object of class &quot;character&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td align="left">-18530.377</td>
-<td align="right">749635</td>
-<td align="left">420</td>
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
 </tr>
 <tr class="even">
-<td align="left">-18538.510</td>
-<td align="right">260953</td>
-<td align="left">589</td>
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
 </tr>
 <tr class="odd">
-<td align="left">-18540.786</td>
-<td align="right">232559</td>
-<td align="left">136</td>
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
 </tr>
 <tr class="even">
-<td align="left">-18547.639</td>
-<td align="right">165853</td>
-<td align="left">105</td>
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
 </tr>
 <tr class="odd">
-<td align="left">-18567.886</td>
-<td align="right">476498</td>
-<td align="left">179</td>
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
 </tr>
 <tr class="even">
-<td align="left">-18579.855</td>
-<td align="right">471040</td>
-<td align="left">403</td>
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
 </tr>
 <tr class="odd">
-<td align="left">-18598.696</td>
-<td align="right">650371</td>
-<td align="left">14</td>
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
+</tr>
+<tr class="even">
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
+</tr>
+<tr class="odd">
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
+</tr>
+<tr class="even">
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
+</tr>
+</tbody>
+</table>
+<p><img src="rosenberg-dissertation_files/figure-html/m2_7p-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">LL</th>
+<th align="right">seed</th>
+<th align="left">m_iterations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-17035.006</td>
+<td align="right">85734</td>
+<td align="left">411</td>
+</tr>
+<tr class="even">
+<td align="left">-17035.006</td>
+<td align="right">344422</td>
+<td align="left">296</td>
+</tr>
+<tr class="odd">
+<td align="left">-18213.406</td>
+<td align="right">939021</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">-18214.792</td>
+<td align="right">458181</td>
+<td align="left">189</td>
+</tr>
+<tr class="odd">
+<td align="left">-18217.063</td>
+<td align="right">715255</td>
+<td align="left">523</td>
+</tr>
+<tr class="even">
+<td align="left">-18227.574</td>
+<td align="right">126371</td>
+<td align="left">526</td>
+</tr>
+<tr class="odd">
+<td align="left">-18227.574</td>
+<td align="right">391949</td>
+<td align="left">295</td>
+</tr>
+<tr class="even">
+<td align="left">-18234.603</td>
+<td align="right">30098</td>
+<td align="left">209</td>
+</tr>
+<tr class="odd">
+<td align="left">-18234.603</td>
+<td align="right">150531</td>
+<td align="left">154</td>
+</tr>
+<tr class="even">
+<td align="left">-18234.603</td>
+<td align="right">790452</td>
+<td align="left">303</td>
 </tr>
 </tbody>
 </table>
@@ -5703,6 +924,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

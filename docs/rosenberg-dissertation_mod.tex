@@ -986,8 +986,6 @@ technical expertise.
 
 \section{Procedure}\label{procedure}
 
-6045 9710 0447 9826
-
 Students completed a pre-survey before the program. Students also
 completed pre- and post-course surveys of their experience in STEM,
 intention to pursue a STEM major or career, and questions for other
@@ -1162,18 +1160,151 @@ mixtures of distributions, of measured variables. A type of mixture
 modeling within a latent variable modeling framework, Latent Profile
 Analysis (LPA; Harring \& Hodis, 2016; Muthen, 2004) is used in this
 study, in particular, to identify the number and nature of PECs. LPA
-allows for capturing the multidimensional nature of engagement.
-Particularly, LPA can be used to identify common patterns in learners'
-ESM responses as part of a person-oriented analysis to construct PECs.
-These profiles make it possible to analyze the multivariate data
-collected on engagement in a way that balances the parsimony of a single
-model for all learners with a recognition of individual differences in
-how learners' experience each of the dimensions of engagement together
-at the same time. A key benefit of the use of LPA, in addition to
+allows for capturing the multidimensional nature of engagement. From
+this approach, different parameters - means, variances, and covariances
+- are freely estimated across profiles, fixed to be the same across
+profiles, or constrained to be zero. The MPlus software is commonly used
+to estimate these models (see
+\href{https://www.statmodel.com/examples/mixture.shtml}{here}) using the
+expectation-maximization (EM) algorithm to obtain the maximum likelihood
+estimates for the parameters.
+
+LPA can be used to identify common patterns in learners' ESM responses
+as part of a person-oriented analysis to construct PECs. These profiles
+make it possible to analyze the multivariate data collected on
+engagement in a way that balances the parsimony of a single model for
+all learners with a recognition of individual differences in how
+learners' experience each of the dimensions of engagement together at
+the same time. A key benefit of the use of LPA, in addition to
 likelihood estimation-based fit indices, is probabilities of an
 observation being a member of a cluster, unlike in hierarchical and
 k-means cluster analysis, for which an observation is hard classified
 exclusively into one cluster.
+
+As part of LPA, different models that determine whether and how
+different parameters (i.e., means, variances, and covariances) are
+estimated. In addition, the number of profiles to estimate must be
+provided by the analyst. Determining the number of profiles depends on
+fit statistics (such as information criteria and the entropy statistic)
+as well as concerns of parsimony and interpretability. In general, the
+approach to choosing the model is similar to choosing the number of
+profiles, requiring deciding on the basis of evidence from multiple
+sources.
+
+Here, the six models that are possible to specify in LPA are described
+in terms of how the variables used to create the profiles are estimated.
+Note that \emph{p} represents different profiles and each
+parameterization is represented by a 4 x 4 covariance matrix and
+therefore would represent the parameterization for a four-profile
+solution. In all of the models, the means are estimated freely in the
+different profiles. Imagine that each row and column represents a
+different variable, i.e., the first row (and column) represents broad
+interest, the second enjoyment, the third self-efficacy, and the fourth
+another variable, i.e., future goals and plans.
+
+\subsubsection{1. Varying means, equal variances, and covariances fixed
+to 0 (model
+1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
+
+In this model, which corresponds to the mclust model wit the name
+``EEI'', the variances are estimated to be equal across profiles,
+indicated by the absence of a p subscript for any of the diagonal
+elements of the matrix. The covariances are constrained to be zero, as
+indicated by the 0's between every combination of the variables.
+
+Thus, this model is highly constrained but also parsimonious: the
+profiles are estimated in such a way that the variables' variances are
+identical for each of the profiles, and the relationships between the
+variables are not estimated. In this way, less degrees of freedom are
+taken used to explain the observations that make up the data. However,
+estimating more parameters--as in the other models--may better explain
+the data, justifying the addition in complexity that their addition
+involves (and their reduction in degrees of freedom).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
+\]
+
+\subsubsection{2. Varying means, equal variances, and equal covariances
+(model
+2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
+
+This model corresponds to the mclust model ``EEE''. In this model, the
+variances are still constrained to be the same across the profiles,
+although now the covariances are estimated (but like the variances, are
+constrained to be the same across profiles).
+
+Thus, this model is the first to estimate the covariance (or
+correlations) of the variables used to create the profiles, thus adding
+more information that can be used to better understand the
+characteristics of the profiles (and, potentially, better explain the
+data).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
+\]
+
+\subsubsection{3. Varying means, varying variances, and covariances
+fixed to 0 (model
+3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
+
+This model corresponds to the mclust model ``VVI'' and allows for the
+variances to be freely estimated across profiles. The covariances are
+constrained to zero.
+
+Thus, it is more flexible (and less parsimonious) than model 1, but in
+terms of the covariances, is more constrained than model 2.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\subsubsection{4. Varying means, varying variances, and equal
+covariances (model
+4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
+
+This model, which specifies for the variances to be freely estimated
+across the profiles and for the covariances to be estimated to be equal
+across profiles, extends model 3. Unfortunately, this model cannot be
+specified with mclust, though it can be with MPlus; this model
+\emph{can} be used with the functions to interface to MPlus described
+below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\subsubsection{5. Varying means, equal variances, and varying
+covariances (model
+5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
+
+This model specifies the variances to be equal across the profiles, but
+allows the covariances to be freely estimated across the profiles. Like
+model 4, this model cannot be specified with mclust, though it can be
+with MPlus. Again, this model \emph{can} be used with the functions to
+interface to MPlus described below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad
+\]
+
+\subsubsection{6. Varying means, varying variances, and varying
+covariances (model
+6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
+
+This model corresponds to the mclust model ``VVV''. It allows the
+variances and the covariances to be freely estimated across profiles.
+
+Thus, it is the most complex model, with the potential to allow for
+understanding many aspects of the variables that are used to estimate
+the profiles and how they are related. However, it is less parsimonious
+than all of the other models, and the added parameters should be
+considered in light of how preferred this model is relative to those
+with more simple specifications.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
 
 Profiles will be constructed with the five self-reported ESM measures
 for cognitive, behavioral, and affective engagement and perceptions of
@@ -1403,29 +1534,81 @@ terms of programs that share similar features in terms of their design.
 In this section, results in terms of the research questions are
 presented.
 
-First, for RQ \#1:
-
 \section{Research Question \#1}\label{research-question-1}
 
 This question addresses what profiles emerged from the data. This
-section is organized around:
+section first provides information about the statistical software that
+was developed and solutions for all models (whether models converged and
+the log-likelihood was replicated). Then, fit statistics for models that
+converged and for which the log-likelihood was replicated are described,
+followed by a comparison of specific, candidate solutions. At the end of
+this section, models selected are described in detail.
 
-\begin{itemize}
-\tightlist
-\item
-  Overall solutions for all models (whether models converged and the
-  log-likelihood was replicated)
-\item
-  Fit statistics for models that converged and demonstrated that the
-  log-likelihood was replicated
-\item
-  Comparison of candidate solutions
-\end{itemize}
+\subsection{Statistical software used}\label{statistical-software-used}
+
+In order to provide results for this research question, the MPlus
+software (Muthen \& Muthen, 2017) was used. While MPlus is powerful and
+widely-used, it can be very difficult to use as part of complex
+analyses. One reason for why it is difficult to use is that while it
+provides an environment for executing model \emph{syntax}, it is not an
+environment, such as SPSS or R, for statistical computing (i.e.,
+preparing data, processing and presenting results). Because of this, I
+created with colleagues an open-source tool, tidyLPA, in the statistical
+software R (Rosenberg, Schmidt, Beymer, \& Steingut, 2018). This package
+is available on the R Comprehensive Archive Network. This software
+provides wrappers--functions that provide an interface--to MPlus
+functions via the MplusAutomation R package (Hallquist, 2018).
+
+These wrapper functions dynamically generate MPlus syntax, so that, for
+example, a user can simply provide a data frame with variables to be
+used in the analysis, the specification for one of six models, the
+number of profiles to be estimated as part of the analysis, and a number
+of fine-grained options concerning the estimation and the output
+generated. From these inputs, a data file for MPlus is prepared and
+saved, the model syntax is created and saved in a model input file, the
+model is run, and the output, including the ``savedata'', or the data
+with its associated posterior probabilities and profile assignments, is
+returned to R for use plots or in subsequent analyses.
+
+Because of the considerable time that it takes to generate MPlus model
+syntax (i.e., when choosing to specify a model with different parameters
+or when changing the number of profiles to be estimated as part of the
+solution), this package makes it easier to carry out LPA in a flexible
+way, while retaining the power of the MPlus software. While this
+functionality makes it considerably easier to carry out LPA, it requires
+that MPlus be purchased and installed. Because of this, the R package I
+developed also includes wrapper functions to an open-source tool, mclust
+(Scrucca, Fop, Murphy, \& Raftery, 2016). This is a very widely-used
+package for mixture modeling. While some authors have suggested that it
+can be used to carry out LPA (Oberski, 2016), a key challenge for
+analysts using it concerns specifying the models. This is because the
+models are described in terms of the geometric properties of the
+multivariate distributions being estimated (i.e., ``spherical, equal
+volume''), rather than in terms of whether and how the means, variances,
+and covariances are estimated. This R package corresponds LPA models to
+the mclust models and provides the same functionality that the functions
+that use MPlus provide, namely, preparing data, running the model, and
+returning the output or use in subsequent analyses. As part of
+incorporating the mclust functionality, the functions that use MPlus and
+those that use mclust have been benchmarked (Rosenberg, 2018). Despite
+leading to identical results (in most cases) for small datasets, because
+of differences in how the E-M algorithm is initialized as well as other
+estimation-related differences, output will likely not be identical for
+many analyses.
+
+In summary, the MPlus software is used to carry out LPA as part of this
+study. In order to more flexibly carry out LPA, an open-source tool,
+tidyLPA, was developed. This tool provides interfaces to the MPlus
+software as well as to the open-source mclust software. In addition to
+being used as part of this study, this package is provided free of use
+to other analysts as the first tool dedicated to carrying out LPA as
+part of the R software. Since being released, the package has been
+downloaded more than 100 times (Wickham, 2018).
 
 \subsection{Overall solutions for all
 models}\label{overall-solutions-for-all-models}
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:printing-solutions-overall-stats}Overall statistics for all models}
 \centering
@@ -1438,7 +1621,6 @@ n\_profiles & model\_1 & model\_2 & model\_3 & model\_4 & model\_5 & model\_6\\
 4 & 38616.439 & 37623.057 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 5 & 37907.604 & 37301.328 & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 6 & 37617.262 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
-\addlinespace
 7 & 37182.108 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 8 & Warning: LL not replicated & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
 9 & 36836.247 & Warning: LL not replicated & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue & Error: Convergence issue\\
@@ -1446,38 +1628,130 @@ n\_profiles & model\_1 & model\_2 & model\_3 & model\_4 & model\_5 & model\_6\\
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
+
+First, I examined a wide range of models and solutions. I did this in
+order to select particular, candidate models to scrutinize in greater
+detail. In order to carry out this analysis, I followed guidelines
+recommended by the developers of MPlus (Asparouhov \& Muthen, 2012;
+Muthen \& Muthen, 2017) as well as those making recommendations about
+its use (Geiser, 2012). In particular, I set the number of starts to 600
+for initial stage starts, and to 120 for the number of starts to be
+optimized. This means that for each model estimated, 600 random starting
+values for the parameters were used to initialize the EM algorithm. Of
+these 600, 120 that demonstrated the lowest log-likelihood were allowed
+to continue until they reached convergence or the limit for the number
+of iterations. In order for a model to me considered trustworthy, of
+these 120 runs, the lowest log-likelihood must be replicated at least
+one time.
+
+The results are presented in Figure 5.1. If this is the case, then the
+log-likelihood would appear in the table below; if not, ``LL not
+replicated'' is reported as the value. If none of the 120 runs converge,
+then ``Did not converge'' is reported as the value. As can be seen from
+this table, only models associated with model specifications 1 and 2
+(and among these two solutions, only those associated with particular
+number of profiles) converged. Thus, only solutions associated with
+models 1 and 2 are explored in subsequent sections.
 
 \subsection{In-depth statistics for particular
 models}\label{in-depth-statistics-for-particular-models}
 
-\begin{table}
+After investigating the general information about a range of model
+solutions, solutions associated with models 1 and 2 are explored in
+greater detail, following recommendations associated with mixture
+modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the
+MPlus software (Muthen \& Muthen, 2017) as well as recent peer-reviewed
+articles (Pastor et al., 2007). For these models, the log-likelihood
+(LL), a range of information criteria (AIC, BIC, sample adjusted BIC
+{[}SABIC{]}, consistent AIC {[}CAIC{]}), statistics about the quality of
+the profile assignments (entropy, which represents the mean posterior
+probability) are presented.
 
-\caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrrrrrrrr}
-\toprule
-n\_profile & model & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LMR\_val & LMR\_p & BLRT\_val & BLRT\_p\\
-\midrule
-2 & 1 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 & 0.0000 & 3397.353 & 0.0000 & 3468.199 & 0\\
-3 & 1 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 & 0.0126 & 863.512 & 0.0136 & 881.519 & 0\\
-4 & 1 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 & 0.0000 & 503.605 & 0.0000 & 514.107 & 0\\
-5 & 1 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 & 0.0000 & 741.329 & 0.0000 & 756.788 & 0\\
-6 & 1 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 & 0.0000 & 331.386 & 0.0000 & 338.296 & 0\\
-\addlinespace
-7 & 1 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 & 0.0112 & 512.455 & 0.0121 & 523.141 & 0\\
-9 & 1 & -18186.35 & -18186.35 & 36836.25 & 36651.96 & 36491.06 & 0.899 & 171.674 & 0.1322 & 168.167 & 0.1359 & 171.674 & 0\\
-2 & 2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 & 0.0000 & 832.934 & 0.0000 & 850.304 & 0\\
-3 & 2 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 & 0.0000 & 412.736 & 0.0000 & 421.343 & 0\\
-4 & 2 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 & 0.0000 & 465.075 & 0.0000 & 474.773 & 0\\
-5 & 2 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 & 0.0000 & 298.709 & 0.0000 & 304.938 & 0\\
-\bottomrule
-\end{tabular}}
-\end{table}
+The information criteria are based on the log-likelihood but take
+various steps to penalize complex models, and so can be used to directly
+compare models (i.e., the model with the lowest values for these
+statistics can be considered to better reflect the underlying properties
+of the profiles). For the entropy statistic, higher values are
+considered better. The log-likelihood should not be interpreted directly
+but is presented in conjunction with the information criteria for
+context about how each of them differs from the log-likelihood. These
+are also presented in Figures 5.1 and 5.2
 
-\subsection{Fit statistics for select
-models}\label{fit-statistics-for-select-models}
+In addition to these statistics, a number of modified likelihood ratio
+tests (LRTs) are used, as the test statistics associated with unmodified
+LRT do not follow the distribution that the test is based on (Muthen \&
+Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin
+LRT, and the bootstrapped LRT. Of the three, the bootstrapped is
+considered to be the best indicator of which of two models, one nested
+(with certain parameters fixed to 0) within the other, fits better, but
+it is also the most computationally-intensive to carry out (Asparouhov
+\& Muthen, 2012). For each of the LRTs, the test statistic and its
+associated p-value are provided; a p-value greater than .05 suggests
+that the model with fewer profiles should be preferred.
 
-This section presents fit statistics for select models
+\begin{verbatim}
+## Error in FUN(X[[i]], ...): object 'n_profiles' not found
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1}
+
+}
+
+\caption{Fit statistics for model 1}\label{fig:model1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1}
+
+}
+
+\caption{Fit statistics for model 2}\label{fig:model2}
+\end{figure}
+
+Looking across the statistics presented in Table 5.2 and Figures 5.1 and
+5.2, some general ideas about which models are to be preferred emerge.
+Solutions are interpreted first for each model individually and then
+across models with the goal of choosing a smaller number of models to
+investigate in more detail.
+
+For solutions associated with model 1, the decrease (indicating a
+preferred model) in information criteria becomes smaller as the number
+of profiles increases from 5 to 6 and 6 to 7. A solution associated with
+8 profiles did not replicate the log-likelihood and the VLMR and LMR
+suggest that the solution associated with 9 profiles did not fit better
+than that with 8 profiles, suggesting that models with 7 or fewer
+profiles be preferred. Considering these models, the entropy statistic
+increases by a large amount between the solution associated with 4 and 5
+profiles (and then decreases slightly between 5 and 6 and 6 and 7
+profile solutions), suggesting (but not providing conclusive evidence)
+that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests
+that, until the log-likelihood is not replicated, every more complex
+model be selected. Taking these pieces of evidence into conclusion, for
+model 1, solutions associated with 4 through 7 may be considered in more
+depth, with an emphasis on solutions associated with profiles with 5 and
+6 profiles on the basis of the slowing of the decrease in the
+information criteria associated with the solutions with greater profiles
+than these, and the increase in the entropy from 4 to 5 (and 6) profile
+solutions.
+
+For solutions associated with model 2, only those associated with 2-5
+profile solutions were associated with log-likelihoods that were
+replicated. For these four models, the log-likelihood decresed in a
+mostly consistent way, such that changes in the decrease are not as
+evident as those associated with model 1. The entropy statistic
+decreases from 2 to 3 profile solutions, increases from 3 to 4 profile
+solutions, and then decreases slightly from 4 to 5 profile solutions,
+providing some information that models associated with 4 profiles be
+preferred to the others. All of the LRTs suggest that the more complex
+model be selected, not providing clear information about which solutions
+are to be preferred. On the basis of these pieces of evidence, models
+with 3, 4, and 5 solutions may be considered in more depth. However,
+there is a lack of consistent evidence favoring more or less complex
+models.
 
 \subsection{Comparison of candidate
 solutions}\label{comparison-of-candidate-solutions}
@@ -1490,13 +1764,323 @@ solutions}\label{model-1-candidate-solutions}
 
 Here are solutions for model 1.
 
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_3p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_4p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_5p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
 We can see that even for the solutions associated with other
 log-likelihoods, the results for model 7 are the same.
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7-other-LL-p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
 
 \subsection{Model 2 candidate
 solutions}\label{model-2-candidate-solutions}
 
 Here are solutions for model 2.
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_3p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_4p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_5p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{verbatim}
+## Error in UseMethod("groups"): no applicable method for 'groups' applied to an object of class "character"
+\end{verbatim}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_7p-1} \end{center}
+
+\begin{tabular}{l|r|l}
+\hline
+LL & seed & m\_iterations\\
+\hline
+-17035.006 & 85734 & 411\\
+\hline
+-17035.006 & 344422 & 296\\
+\hline
+-18213.406 & 939021 & 8\\
+\hline
+-18214.792 & 458181 & 189\\
+\hline
+-18217.063 & 715255 & 523\\
+\hline
+-18227.574 & 126371 & 526\\
+\hline
+-18227.574 & 391949 & 295\\
+\hline
+-18234.603 & 30098 & 209\\
+\hline
+-18234.603 & 150531 & 154\\
+\hline
+-18234.603 & 790452 & 303\\
+\hline
+\end{tabular}
 
 \section{Research Question \#2}\label{research-question-2}
 
@@ -1673,16 +2257,18 @@ publication. \url{http://dx.doi.org/10.1037/edu0000214}\\
 Pekrun, R., \& Linnenbrink-Garcia, L. (2012). Academic emotions and
 student engagement. In S. L. Christenson, A. L. Reschly, \& C. Wylie
 (Eds.), Handbook of research on student engagement (pp.~259-292). New
-York, NY: Springer.\\
-Petrosino, A., Lehrer, R., \& Schauble, L. (2003). Structuring error and
-experimental variation as distribution in the fourth grade. Mathematical
-Thinking and Learning, 5 (2\&3), 131-156.\\
+York, NY: Springer. Petrosino, A., Lehrer, R., \& Schauble, L. (2003).
+Structuring error and experimental variation as distribution in the
+fourth grade. Mathematical Thinking and Learning, 5 (2\&3), 131-156.\\
 Piaget, J., \& Inhelder, B. (1969). The psychology of the child. New
 York, NY: Basic Books.\\
 Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M.,
 \& Nurmi, J. E. (2017). Variation in situation-specific engagement among
 lower secondary school students. Learning and Instruction.
 \url{http://dx.doi.org/10.1016/j.learninstruc.2017.07.007}\\
+Rosenberg, J. M. (2018). Comparing mplus and mclust output. Retrieved
+from
+\url{https://jrosen48.github.io/r-markdown/comparing-mplus-mclust.html}
 Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., \& Lavonen, J.
 (2016). Integrating the light and dark sides of student engagement using
 person-oriented and situation-specific approaches. Learning and
@@ -1781,8 +2367,10 @@ to samples of stimuli. Journal of Experimental Psychology: General,
 143(5), 2020-2045.\\
 Westfall, J. (2016). PANGEA: Power Analysis for General Anova designs.
 Retrieved from \url{https://jakewestfall.shinyapps.io/pangea/}\\
-Wild, C. J., \& Pfannkuch, M. (1999). Statistical thinking in empirical
-enquiry. International Statistical Review, 67(3), 223-248.\\
+Wickham, H. (2018). CRAN downloads. Retrieved from
+\url{https://hadley.shinyapps.io/cran-downloads/} Wild, C. J., \&
+Pfannkuch, M. (1999). Statistical thinking in empirical enquiry.
+International Statistical Review, 67(3), 223-248.\\
 Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., \& Gravel, B. E.
 (2016). What's the technology for? Teacher attention and pedagogical
 goals in a modeling-focused professional development workshop. Journal
