@@ -35,17 +35,17 @@
 \contentsline {subsubsection}{\numberline {4.1.5.1}Model: 1, Profiles: 3}{49}{subsubsection.4.1.5.1}
 \contentsline {subsubsection}{\numberline {4.1.5.2}Model: 1, Profiles: 4}{50}{subsubsection.4.1.5.2}
 \contentsline {subsubsection}{\numberline {4.1.5.3}Model: 1, Profiles: 5}{50}{subsubsection.4.1.5.3}
-\contentsline {subsubsection}{\numberline {4.1.5.4}Model: 1, Profiles: 6}{51}{subsubsection.4.1.5.4}
-\contentsline {subsubsection}{\numberline {4.1.5.5}Model: 1, Profiles: 6 (alternate)}{53}{subsubsection.4.1.5.5}
-\contentsline {subsubsection}{\numberline {4.1.5.6}Model: 1, Profiles: 7}{54}{subsubsection.4.1.5.6}
+\contentsline {subsubsection}{\numberline {4.1.5.4}Model: 1, Profiles: 6}{52}{subsubsection.4.1.5.4}
+\contentsline {subsubsection}{\numberline {4.1.5.5}Model: 1, Profiles: 6 (alternate)}{54}{subsubsection.4.1.5.5}
+\contentsline {subsubsection}{\numberline {4.1.5.6}Model: 1, Profiles: 7}{55}{subsubsection.4.1.5.6}
 \contentsline {subsubsection}{\numberline {4.1.5.7}Model: 1, Profiles: 7 (alternate)}{56}{subsubsection.4.1.5.7}
 \contentsline {subsection}{\numberline {4.1.6}Model 2 candidate solutions}{57}{subsection.4.1.6}
 \contentsline {subsubsection}{\numberline {4.1.6.1}Model: 2, Profiles: 3}{57}{subsubsection.4.1.6.1}
-\contentsline {subsubsection}{\numberline {4.1.6.2}Model: 2, Profiles: 4}{58}{subsubsection.4.1.6.2}
-\contentsline {subsubsection}{\numberline {4.1.6.3}Model: 2, Profiles: 5}{59}{subsubsection.4.1.6.3}
-\contentsline {subsubsection}{\numberline {4.1.6.4}Looking across model 1 and model 2 solutions}{60}{subsubsection.4.1.6.4}
-\contentsline {section}{\numberline {4.2}Research Question \#2}{63}{section.4.2}
-\contentsline {section}{\numberline {4.3}Research Question \#3}{63}{section.4.3}
+\contentsline {subsubsection}{\numberline {4.1.6.2}Model: 2, Profiles: 4}{59}{subsubsection.4.1.6.2}
+\contentsline {subsubsection}{\numberline {4.1.6.3}Model: 2, Profiles: 5}{60}{subsubsection.4.1.6.3}
+\contentsline {subsubsection}{\numberline {4.1.6.4}Looking across model 1 and model 2 solutions}{61}{subsubsection.4.1.6.4}
+\contentsline {section}{\numberline {4.2}Research Question \#2}{62}{section.4.2}
+\contentsline {section}{\numberline {4.3}Research Question \#3}{62}{section.4.3}
 \contentsline {section}{\numberline {4.4}Research Question \#4}{63}{section.4.4}
 \contentsline {chapter}{\chapternumberline {5}Discussion}{64}{chapter.5}
 \contentsline {chapter}{\chapternumberline {6}References}{65}{chapter.6}

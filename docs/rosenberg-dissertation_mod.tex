@@ -1228,7 +1228,7 @@ the data, justifying the addition in complexity that their addition
 involves (and their reduction in degrees of freedom).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsubsection{2. Varying means, equal variances, and equal covariances
@@ -1247,7 +1247,7 @@ characteristics of the profiles (and, potentially, better explain the
 data).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsubsection{3. Varying means, varying variances, and covariances
@@ -1261,8 +1261,8 @@ constrained to zero.
 Thus, it is more flexible (and less parsimonious) than model 1, but in
 terms of the covariances, is more constrained than model 2.
 
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\[ 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsubsection{4. Varying means, varying variances, and equal
@@ -1277,7 +1277,7 @@ specified with mclust, though it can be with MPlus; this model
 below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsubsection{5. Varying means, equal variances, and varying
@@ -1291,7 +1291,7 @@ with MPlus. Again, this model \emph{can} be used with the functions to
 interface to MPlus described below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
 \]
 
 \subsubsection{6. Varying means, varying variances, and varying
@@ -1309,7 +1309,7 @@ considered in light of how preferred this model is relative to those
 with more simple specifications.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
 Profiles will be constructed with the five self-reported ESM measures
@@ -1731,7 +1731,7 @@ n\_profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LM
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.6\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1}
+{\centering \includegraphics[width=0.6\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} 
 
 }
 
@@ -1740,7 +1740,7 @@ n\_profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LM
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1}
+{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1} 
 
 }
 
@@ -1873,9 +1873,10 @@ This solution is characterized by:
   with the four and five profile solutions, perhaps suggesting that a
   different profile than in those solutions
 \item
-  an **only behavioral* profile, profile 2, with moderate levels of
-  behavioral engagement, very low affective engagement, and moderately
-  (low) levels of cognitive engagement and challenge and competence
+  an \textbf{only behavioral} profile, profile 2, with moderate levels
+  of behavioral engagement, very low affective engagement, and
+  moderately (low) levels of cognitive engagement and challenge and
+  competence
 \item
   an \textbf{only affective} profile, profile 4, with moderate levels of
   affective engagement, low levels of behavioral engagement, and
@@ -1898,9 +1899,7 @@ solution as well as profiles that are characterized by higher or lower
 levels of the conditions for engagement (i.e., competence). The
 log-likelihood was replicated four times.
 
-\begin{verbatim}
-## Error in group_vars(x): object 'm1_5' not found
-\end{verbatim}
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_5p-1} \end{center}
 
 \subsubsection{Model: 1, Profiles: 6}\label{model-1-profiles-6}
 
@@ -2184,22 +2183,29 @@ solutions}\label{looking-across-model-1-and-model-2-solutions}
 When looking across solutions, some overall patterns in terms of what
 profiles emerge and some directions for which models are to be selected
 for use in subsequent analysis can be identified. First, overall
-patterns are discussed. In table 5.3, which profiles emerge from which
+patterns are discussed. In table 4.3, which profiles emerge from which
 solution is presented.
 
 There is a wide range of profiles. Some appear very commonly,
 particularly those (full and universally low) characterized by high or
-low levels across all of the variables.
+low levels across all of the variables. Moderate profiles, both all
+moderate (characterized by moderately high levels across all of the
+variables) and moderately low (characterized by low levels across all of
+the variables), also appeared commonly, particularly for the solutions
+for model 1.
 
-\begin{landscape}\begin{table}
+\begin{verbatim}
+## Error in kableExtra::kable_styling(latex_options = "scale_down"): argument "kable_input" is missing, with no default
+\end{verbatim}
+
+\begin{table}
 
 \caption{\label{tab:compare-profiles-by-solution}Profile assignments by LPA solution}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{rlllllllllllll}
+\begin{tabular}[t]{cccccccccccccc}
 \toprule
-\rotatebox{-45}{Model} & \rotatebox{-45}{Number of Profiles} & \rotatebox{-45}{Full} & \rotatebox{-45}{All Moderate} & \rotatebox{-45}{Comptent but not Engaged or Challenged} & \rotatebox{-45}{Only Behavioral} & \rotatebox{-45}{Only Affective} & \rotatebox{-45}{Moderately Low} & \rotatebox{-45}{Engaged and Competent but not Challenged} & \rotatebox{-45}{Challenged but not Engaged or Comptent} & \rotatebox{-45}{Challenged} & \rotatebox{-45}{Highly Challenged} & \rotatebox{-45}{Universally Low} & \rotatebox{-45}{Comptent but not Challenged}\\
+Model & Number of Profiles & Full & All Moderate & Comptent but not Engaged or Challenged & Only Behavioral & Only Affective & Moderately Low & Engaged and Competent but not Challenged & Challenged but not Engaged or Comptent & Challenged & Highly Challenged & Universally Low & Comptent but not Challenged\\
 \midrule
-1 & 3 & x & x &  &  &  &  &  &  &  &  & x & \\
 1 & 4 & x & x &  &  &  &  &  &  &  &  & x & x\\
 1 & 5 & x & x &  & x & x &  &  &  &  &  & x & \\
 1 & 6 & x & x &  & x & x &  & x &  &  &  & x & \\
@@ -2210,9 +2216,8 @@ low levels across all of the variables.
 2 & 4 &  &  &  &  &  &  & x &  & x & x & x & \\
 2 & 5 & x & x &  &  &  &  &  &  &  & x & x & x\\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
-\end{landscape}
 
 The model 1, six and seven profile solutions are compelling because both
 show profiles that are distinguished by dimensions of engagement and its

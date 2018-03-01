@@ -332,7 +332,7 @@ This solution is characterized by:
 - a **full** profile, profile 5
 - a **universally low** profile, profile 3
 - an **all moderate** profile, profile 3, though with moderate levels of affective engagement than in similar profiles associated with the four and five profile solutions, perhaps suggesting that a different profile than in those solutions
-- an **only behavioral* profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only behavioral** profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - an **only affective** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 
 The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (*n* = 928), a moderate number of observations in the universally low (*n* = 667) and all moderate (*n* = 643) profiles, and fewer observations in the only behaviorally engaged (*n* = 375) and only affective engaged (*n* = 345)  profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the solution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times. 
@@ -349,8 +349,8 @@ write_rds(m1_5, "data/models/m1_5.rds")
 ```
 
 ```{r, m1_5p, cache = FALSE, eval = TRUE}
-plot_profiles_mplus(m1_5, to_scale = TRUE)
 m1_5 <- read_rds("data/models/m1_5.rds")
+plot_profiles_mplus(m1_5, to_scale = TRUE)
 ```
 
 ```{r, m1_5p-ll, cache = FALSE, eval = FALSE}
@@ -580,18 +580,20 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 #### Looking across model 1 and model 2 solutions
 
-When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In table 5.3, which profiles emerge from which solution is presented.
+When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In table 4.3, which profiles emerge from which solution is presented.
 
-There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables.
+There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables. Moderate profiles, both all moderate (characterized by moderately high levels across all of the variables) and moderately low (characterized by low levels across all of the variables), also appeared commonly, particularly for the solutions for model 1.
 
 ```{r, compare-profiles-by-solution}
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
 
-d %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "") %>%
+d[-1, ] %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "", align=rep('c', 13))
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>%
-  kableExtra::row_spec(0, angle = -45)
+  kableExtra::row_spec(0, angle = -60) %>% 
+  kableExtra::group_rows("Model 1", 1, 6) %>% 
+  kableExtra::group_rows("Model 2", 7, 9)
 ```
 
 The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix.
