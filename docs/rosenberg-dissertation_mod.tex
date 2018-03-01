@@ -1228,7 +1228,7 @@ the data, justifying the addition in complexity that their addition
 involves (and their reduction in degrees of freedom).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
 \]
 
 \subsubsection{2. Varying means, equal variances, and equal covariances
@@ -1247,7 +1247,7 @@ characteristics of the profiles (and, potentially, better explain the
 data).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right]
 \]
 
 \subsubsection{3. Varying means, varying variances, and covariances
@@ -1261,8 +1261,8 @@ constrained to zero.
 Thus, it is more flexible (and less parsimonious) than model 1, but in
 terms of the covariances, is more constrained than model 2.
 
-\[ 
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
 \]
 
 \subsubsection{4. Varying means, varying variances, and equal
@@ -1277,7 +1277,7 @@ specified with mclust, though it can be with MPlus; this model
 below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
 \]
 
 \subsubsection{5. Varying means, equal variances, and varying
@@ -1291,7 +1291,7 @@ with MPlus. Again, this model \emph{can} be used with the functions to
 interface to MPlus described below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad
 \]
 
 \subsubsection{6. Varying means, varying variances, and varying
@@ -1309,7 +1309,7 @@ considered in light of how preferred this model is relative to those
 with more simple specifications.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right]
 \]
 
 Profiles will be constructed with the five self-reported ESM measures
@@ -1731,7 +1731,7 @@ n\_profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LM
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.6\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} 
+{\centering \includegraphics[width=0.6\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1}
 
 }
 
@@ -1740,7 +1740,7 @@ n\_profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LM
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1} 
+{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1}
 
 }
 
@@ -1826,7 +1826,9 @@ five variables are high, low, or moderate), on the basis of
 interpretability, this particular solution may not be useful in terms of
 understanding how youth experience engagement and its conditions.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_3p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_3' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 4}\label{model-1-profiles-4}
 
@@ -1855,7 +1857,9 @@ complex models for understanding youth's experiences.
 
 The log-likelihood was replicated many (more than 10) times.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_4p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_4' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 5}\label{model-1-profiles-5}
 
@@ -1873,14 +1877,13 @@ This solution is characterized by:
   with the four and five profile solutions, perhaps suggesting that a
   different profile than in those solutions
 \item
-  an \textbf{only behaviorally engaged} profile, profile 2, with
-  moderate levels of behavioral engagement, very low affective
-  engagement, and moderately (low) levels of cognitive engagement and
-  challenge and competence
+  an **only behavioral* profile, profile 2, with moderate levels of
+  behavioral engagement, very low affective engagement, and moderately
+  (low) levels of cognitive engagement and challenge and competence
 \item
-  an \textbf{only affectively engaged} profile, profile 4, with moderate
-  levels of affective engagement, low levels of behavioral engagement,
-  and moderately (low) levels of cognitive engagement and challenge and
+  an \textbf{only affective} profile, profile 4, with moderate levels of
+  affective engagement, low levels of behavioral engagement, and
+  moderately (low) levels of cognitive engagement and challenge and
   competence
 \end{itemize}
 
@@ -1899,7 +1902,9 @@ solution as well as profiles that are characterized by higher or lower
 levels of the conditions for engagement (i.e., competence). The
 log-likelihood was replicated four times.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_5p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_5' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 6}\label{model-1-profiles-6}
 
@@ -1957,7 +1962,9 @@ differs from the solution interpreted here. Pending further exploration,
 this solution seems like a potential candidate for use in subsequent
 analyses.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_6' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 6
 (alternate)}\label{model-1-profiles-6-alternate}
@@ -1969,27 +1976,33 @@ This solution is characterized by:
 \item
   a \textbf{full} profile, profile 6
 \item
-  a \textbf{universally low} profile, profile 2
+  a \textbf{universally low} profile, profile 1
 \item
-  an \textbf{all moderate} profile, profile 5--and, like, the model 1,
-  six profile solution--with moderate levels of affective engagement
+  an \textbf{engaged and competent but not challenged} profile, profile
+  3
 \item
-  an \textbf{only behaviorally engaged} profile, profile 1, with
-  moderate levels of behavioral engagement, very low affective
-  engagement, and moderately (low) levels of cognitive engagement and
-  challenge and competence
+  a \textbf{challenged} profile, profile 2
 \item
-  an \textbf{only affectively engaged} profile, profile 4, with moderate
-  levels of affective engagement, low levels of behavioral engagement,
-  and moderately (low) levels of cognitive engagement and challenge and
-  competence
+  a \textbf{highly challenged} profile, profile 3
 \item
-  an \textbf{engaged and competent but not challenged} profile,
-  characterized by high levels of each of the three dimensions of
-  engagement and of competence, but with low levels of challenge
+  a \textbf{moderately low} profile, profile 5
 \end{itemize}
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-alt-1} \end{center}
+The number of observations are not very balanced, with the moderately
+low profile with a large number of observations (\emph{n} = 852) and the
+challenged, engaged and competent but not challenged, and full profiles
+with moderate numbers of observations (from 464 to 619 observations),
+and low numbers of observations exhibited by universally low (\emph{n} =
+280) and highly challenged (\emph{n} = 158) profiles. This--and,
+critically, the lower log-likelihood of the other model 1, six profile
+solution--suggests that this solution is not preferred. However, the
+very different profiles that emerge for this solution suggest that there
+might not be a somewhat under-identified solution associated with model
+1 and six profiles.
+
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_6_alt' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 7}\label{model-1-profiles-7}
 
@@ -2040,7 +2053,9 @@ Taken together, this solution raises questions about whether it may be
 too complex, possibly suggesting preference for model 1 five and six
 profile solutions.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_7' not found
+\end{verbatim}
 
 \subsubsection{Model: 1, Profiles: 7
 (alternate)}\label{model-1-profiles-7-alternate}
@@ -2060,7 +2075,9 @@ alternate solution provides additional evidence that these profiles are
 not associated with an under-identified model and that simpler models
 may be preferred over these seven profile solutions.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7-other-LL-p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm1_7' not found
+\end{verbatim}
 
 \subsection{Model 2 candidate
 solutions}\label{model-2-candidate-solutions}
@@ -2103,7 +2120,9 @@ the basis of the levels of each of the variables in more distinct ways:
 the model 1, three profile solution was characterized by high, moderate,
 or low levels of all variables for each of the three profiles.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_3p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm2_3' not found
+\end{verbatim}
 
 \subsubsection{Model: 2, Profiles: 4}\label{model-2-profiles-4}
 
@@ -2134,7 +2153,9 @@ solution be interpreted with some skepticism because of the potentially
 limited utility (and statistical power associated with the use) of the
 profiles in subsequent analyses.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_4p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm2_4' not found
+\end{verbatim}
 
 \subsubsection{Model: 2, Profiles: 5}\label{model-2-profiles-5}
 
@@ -2171,7 +2192,367 @@ model 2, four profile solution, the small number of observations
 associated with two of the profiles suggests that this solution should
 be interpreted with some caution.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_5p-1} \end{center}
+\begin{verbatim}
+## Error in group_vars(x): object 'm2_5' not found
+\end{verbatim}
+
+\begin{verbatim}
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1            5.1         3.5          1.4         0.2     setosa
+## 2            4.9         3.0          1.4         0.2     setosa
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 17           5.4         3.9          1.3         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 21           5.4         3.4          1.7         0.2     setosa
+## 22           5.1         3.7          1.5         0.4     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 24           5.1         3.3          1.7         0.5     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 27           5.0         3.4          1.6         0.4     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 29           5.2         3.4          1.4         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 37           5.5         3.5          1.3         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 63           6.0         2.2          4.0         1.0 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 70           5.6         2.5          3.9         1.1 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 105          6.5         3.0          5.8         2.2  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 108          7.3         2.9          6.3         1.8  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 114          5.7         2.5          5.0         2.0  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 134          6.3         2.8          5.1         1.5  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 141          6.7         3.1          5.6         2.4  virginica
+## 142          6.9         3.1          5.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 145          6.7         3.3          5.7         2.5  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 149          6.2         3.4          5.4         2.3  virginica
+## 150          5.9         3.0          5.1         1.8  virginica
+\end{verbatim}
+
+\subsubsection{Looking across model 1 and model 2
+solutions}\label{looking-across-model-1-and-model-2-solutions}
+
+When looking across solutions, some overall patterns in terms of what
+profiles emerge and some directions for which models are to be selected
+for use in subsequent analysis can be identified. First, overall
+patterns are discussed. In table 5.3, which profiles emerge from which
+solution is presented.
+
+There is a wide range of profiles. Some appear very commonly,
+particularly those (full and universally low) characterized by high or
+low levels across all of the variables.
+
+\begin{verbatim}
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1            5.1         3.5          1.4         0.2     setosa
+## 2            4.9         3.0          1.4         0.2     setosa
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 17           5.4         3.9          1.3         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 21           5.4         3.4          1.7         0.2     setosa
+## 22           5.1         3.7          1.5         0.4     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 24           5.1         3.3          1.7         0.5     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 27           5.0         3.4          1.6         0.4     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 29           5.2         3.4          1.4         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 37           5.5         3.5          1.3         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 63           6.0         2.2          4.0         1.0 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 70           5.6         2.5          3.9         1.1 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 105          6.5         3.0          5.8         2.2  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 108          7.3         2.9          6.3         1.8  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 114          5.7         2.5          5.0         2.0  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 134          6.3         2.8          5.1         1.5  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 141          6.7         3.1          5.6         2.4  virginica
+## 142          6.9         3.1          5.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 145          6.7         3.3          5.7         2.5  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 149          6.2         3.4          5.4         2.3  virginica
+## 150          5.9         3.0          5.1         1.8  virginica
+\end{verbatim}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:compare-profiles-by-solution}Profile assignments by LPA solution}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{rlllllllllllll}
+\toprule
+Model & Number of Profiles & Full & All Moderate & Comptent but not Engaged or Challenged & Only Behavioral & Only Affective & Moderately Low & Engaged and Competent but not Challenged & Challenged but not Engaged or Comptent & Challenged & Highly Challenged & Universally Low & Comptent but not Challenged\\
+\midrule
+1 & 3 & x & x & NA & NA & NA & NA & NA & NA & NA & NA & x & NA\\
+1 & 4 & x & x & NA & NA & NA & NA & NA & NA & NA & NA & x & x\\
+1 & 5 & x & x & NA & x & x & NA & NA & NA & NA & NA & x & NA\\
+1 & 6 & x & x & NA & x & x & NA & x & NA & NA & NA & x & NA\\
+1 & 6 (alt) & x & NA & NA & NA & NA & x & x & NA & x & x & x & NA\\
+1 & 7 & x & NA & NA & NA & NA & x & NA & x & x & x & x & x\\
+1 & 7 (alt) & x & NA & NA & NA & NA & x & NA & x & x & x & x & x\\
+2 & 3 & NA & NA & NA & NA & NA & NA & NA & NA & x & NA & x & x\\
+2 & 4 & NA & NA & NA & NA & NA & NA & x & NA & x & x & x & NA\\
+2 & 5 & x & x & NA & NA & NA & NA & NA & NA & NA & x & x & x\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+The model 1, six and seven profile solutions are compelling because both
+show profiles that are distinguished by dimensions of engagement and its
+conditions (challenge and competence). For each solution, alternate
+solutions associated with higher log-likelihoods were explored. One
+advantage of the six profile solution is that most of its profiles can
+also be identified in solutions with fewer profiles. For the six profile
+solutions, this alternate solution was very different, whereas for the
+seven profile solutions, this alternate solution was highly similar. The
+model solutions exhibit a less clear pattern in terms of which profiles
+appear when. All else being equal, on the basis of parsimony, the model
+1, six profile solution may be preferred. As a type of sensitivity
+analysis, the model 1, seven profile solution is also explored, but
+results for it are included in an appendix.
 
 \section{Research Question \#2}\label{research-question-2}
 

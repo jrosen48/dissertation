@@ -571,12 +571,7 @@ print(iris)
 ```
 
 ```{r, compare-profiles-by-solution}
-
-iris
-
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
-
-d
 
 d %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "") %>%
