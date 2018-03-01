@@ -324,8 +324,8 @@ This solution is characterized by:
 - a **full** profile, profile 5
 - a **universally low** profile, profile 3
 - an **all moderate** profile, profile 3, though with moderate levels of affective engagement than in similar profiles associated with the four and five profile solutions, perhaps suggesting that a different profile than in those solutions
-- an **only behaviorally engaged** profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only behavioral* profile, profile 2, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- an **only affective** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 
 The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (*n* = 928), a moderate number of observations in the universally low (*n* = 667) and all moderate (*n* = 643) profiles, and fewer observations in the only behaviorally engaged (*n* = 375) and only affective engaged (*n* = 345)  profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the solution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times. 
 
@@ -383,11 +383,14 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 This solution is characterized by: 
 
 - a **full** profile, profile 6
-- a **universally low** profile, profile 2
-- an **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
-- an **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- an **engaged and competent but not challenged** profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
+- a **universally low** profile, profile 1
+- an **engaged and competent but not challenged** profile, profile 3
+- a **challenged** profile, profile 2
+- a **highly challenged** profile, profile 3
+- a **moderately low** profile, profile 5
+
+The number of observations are not very balanced, with the moderately low profile with a large number of observations (*n* = 852) and the challenged, engaged and competent but not challenged, and full profiles with moderate numbers of observations (from 464 to 619 observations), and low numbers of observations exhibited by universally low (*n* = 280) and 
+highly challenged (*n* = 158) profiles. This--and, critically, the lower log-likelihood of the other model 1, six profile solution--suggests that this solution is not preferred. However, the very different profiles that emerge for this solution suggest that there might not be a somewhat under-identified solution associated with model 1 and six profiles. 
 
 ```{r, spec-solutions-m1_6-alt, cache = TRUE, eval = TRUE}
 m1_6_alt <- estimate_profiles_mplus(df,  
@@ -550,6 +553,18 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 
 ```{r, m2_5p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
+```
+
+#### Looking across model 1 and model 2 solutions
+
+When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In table 5.3, which profiles emerge from which solution is presented.
+
+```{r}
+d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
+d %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ## Research Question #2
