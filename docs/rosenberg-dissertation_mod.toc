@@ -27,24 +27,24 @@
 \contentsline {section}{\numberline {3.7}Limitations}{38}{section.3.7}
 \contentsline {chapter}{\chapternumberline {4}Results}{40}{chapter.4}
 \contentsline {section}{\numberline {4.1}Research Question \#1}{40}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Statistical software used}{40}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}Statistical software developed}{40}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Overall solutions for all models}{42}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}In-depth statistics for particular models}{44}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}Comparison of candidate solutions}{48}{subsection.4.1.4}
 \contentsline {subsection}{\numberline {4.1.5}Model 1 candidate solutions}{49}{subsection.4.1.5}
 \contentsline {subsubsection}{\numberline {4.1.5.1}Model: 1, Profiles: 3}{49}{subsubsection.4.1.5.1}
 \contentsline {subsubsection}{\numberline {4.1.5.2}Model: 1, Profiles: 4}{50}{subsubsection.4.1.5.2}
-\contentsline {subsubsection}{\numberline {4.1.5.3}Model: 1, Profiles: 5}{51}{subsubsection.4.1.5.3}
-\contentsline {subsubsection}{\numberline {4.1.5.4}Model: 1, Profiles: 6}{53}{subsubsection.4.1.5.4}
-\contentsline {subsubsection}{\numberline {4.1.5.5}Model: 1, Profiles: 6 (alternate)}{55}{subsubsection.4.1.5.5}
-\contentsline {subsubsection}{\numberline {4.1.5.6}Model: 1, Profiles: 7}{56}{subsubsection.4.1.5.6}
-\contentsline {subsubsection}{\numberline {4.1.5.7}Model: 1, Profiles: 7 (alternate)}{58}{subsubsection.4.1.5.7}
-\contentsline {subsection}{\numberline {4.1.6}Model 2 candidate solutions}{59}{subsection.4.1.6}
-\contentsline {subsubsection}{\numberline {4.1.6.1}Model: 2, Profiles: 3}{59}{subsubsection.4.1.6.1}
-\contentsline {subsubsection}{\numberline {4.1.6.2}Model: 2, Profiles: 4}{61}{subsubsection.4.1.6.2}
-\contentsline {subsubsection}{\numberline {4.1.6.3}Model: 2, Profiles: 5}{62}{subsubsection.4.1.6.3}
-\contentsline {section}{\numberline {4.2}Research Question \#2}{64}{section.4.2}
-\contentsline {section}{\numberline {4.3}Research Question \#3}{64}{section.4.3}
-\contentsline {section}{\numberline {4.4}Research Question \#4}{64}{section.4.4}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{65}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{66}{chapter.6}
+\contentsline {subsubsection}{\numberline {4.1.5.3}Model: 1, Profiles: 5}{50}{subsubsection.4.1.5.3}
+\contentsline {subsubsection}{\numberline {4.1.5.4}Model: 1, Profiles: 6}{52}{subsubsection.4.1.5.4}
+\contentsline {subsubsection}{\numberline {4.1.5.5}Model: 1, Profiles: 6 (alternate)}{54}{subsubsection.4.1.5.5}
+\contentsline {subsubsection}{\numberline {4.1.5.6}Model: 1, Profiles: 7}{55}{subsubsection.4.1.5.6}
+\contentsline {subsubsection}{\numberline {4.1.5.7}Model: 1, Profiles: 7 (alternate)}{56}{subsubsection.4.1.5.7}
+\contentsline {subsection}{\numberline {4.1.6}Model 2 candidate solutions}{57}{subsection.4.1.6}
+\contentsline {subsubsection}{\numberline {4.1.6.1}Model: 2, Profiles: 3}{57}{subsubsection.4.1.6.1}
+\contentsline {subsubsection}{\numberline {4.1.6.2}Model: 2, Profiles: 4}{59}{subsubsection.4.1.6.2}
+\contentsline {subsubsection}{\numberline {4.1.6.3}Model: 2, Profiles: 5}{60}{subsubsection.4.1.6.3}
+\contentsline {section}{\numberline {4.2}Research Question \#2}{61}{section.4.2}
+\contentsline {section}{\numberline {4.3}Research Question \#3}{61}{section.4.3}
+\contentsline {section}{\numberline {4.4}Research Question \#4}{61}{section.4.4}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{62}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}References}{63}{chapter.6}

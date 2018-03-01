@@ -404,7 +404,7 @@ m1_6_alt <- estimate_profiles_mplus(df,
 plot_profiles_mplus(m1_6_alt, to_scale = TRUE)
 ```
 
-```{r, m1_6p-ll-alt, eval = TRUE, cache = TRUE}
+```{r, m1_6p-ll-alt, eval = FALSE, cache = TRUE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -433,7 +433,7 @@ m1_7 <- estimate_profiles_mplus(df,
 ```
 
 ```{r, m1_7p, cache = TRUE, eval = TRUE}
-plot_profiles_mplus(m1_7, to_scale = TRUE, eval = TRUE, cache = TRUE)
+plot_profiles_mplus(m1_7, to_scale = TRUE)
 ```
 
 ```{r, m1_7-ll, cache = TRUE, eval = FALSE}

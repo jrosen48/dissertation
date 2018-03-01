@@ -29,8 +29,8 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 # system("pandoc rosenberg-dissertation_mod.tex -s --variable documentclass=msu-thesis -o rosenberg-dissertation_mod.pdf")
 
 # 4b (optional). create word doc
-system("cd '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/docs'")
-system("pandoc rosenberg-dissertation_mod.tex -s --reference-docx=rosenberg-template.docx -o  rosenberg-dissertation.docx")
+# system("cd '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/docs'")
+# system("pandoc rosenberg-dissertation_mod.tex -s --reference-docx=rosenberg-template.docx -o  rosenberg-dissertation.docx")
 
 # 5. updating github
 system("git status")
