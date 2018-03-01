@@ -1540,6 +1540,94 @@ terms of programs that share similar features in terms of their design.
 In this section, results in terms of the research questions are
 presented.
 
+\section{Descriptive Statistics}\label{descriptive-statistics}
+
+First, descriptive statistics for all of the study variables--overall
+pre-interest, the five variables that are used to estimate the PECs, and
+the variables for each of the five aspects of work with data (which are
+dichotomous variables)--are presented. Overall pre-interest and the
+variables used to estimate the PECs are presented first in table 4.1.
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Descriptive statistics for continuous study variables}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrrr}
+\toprule
+  & vars & n & mean & sd & median & trimmed & mad & min & max & range & skew & kurtosis & se\\
+\midrule
+overall\_pre\_interest & 1 & 2730 & 3.050549 & 0.8727450 & 3.333333 & 3.154762 & 0.9884 & 1 & 4 & 3 & -0.7395231 & -0.3837169 & 0.0167034\\
+dm\_cog\_eng & 2 & 2969 & 2.768272 & 1.0634473 & 3.000000 & 2.835086 & 1.4826 & 1 & 4 & 3 & -0.3505220 & -1.1213322 & 0.0195169\\
+dm\_beh\_eng & 3 & 2959 & 2.863467 & 1.0438073 & 3.000000 & 2.953989 & 1.4826 & 1 & 4 & 3 & -0.4636925 & -0.9979608 & 0.0191888\\
+dm\_aff\_eng & 4 & 2970 & 2.831313 & 1.0514690 & 3.000000 & 2.914141 & 1.4826 & 1 & 4 & 3 & -0.4279695 & -1.0411638 & 0.0192938\\
+dm\_challenge & 5 & 2970 & 2.270034 & 1.1168559 & 2.000000 & 2.212542 & 1.4826 & 1 & 4 & 3 & 0.2652181 & -1.3106562 & 0.0204936\\
+dm\_competence & 6 & 2970 & 3.000000 & 0.9518555 & 3.000000 & 3.108165 & 1.4826 & 1 & 4 & 3 & -0.6020254 & -0.6317030 & 0.0174660\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The variables use first in table 4.1.
+
+\begin{tabular}{r|r}
+\hline
+dm\_ask & n\\
+\hline
+0 & 1627\\
+\hline
+1 & 1172\\
+\hline
+ & 171\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r}
+\hline
+dm\_obs & n\\
+\hline
+0 & 2008\\
+\hline
+1 & 791\\
+\hline
+ & 171\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r}
+\hline
+dm\_gen & n\\
+\hline
+0 & 1557\\
+\hline
+1 & 1242\\
+\hline
+ & 171\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r}
+\hline
+dm\_mod & n\\
+\hline
+0 & 1758\\
+\hline
+1 & 1041\\
+\hline
+ & 171\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r}
+\hline
+dm\_com & n\\
+\hline
+0 & 1523\\
+\hline
+1 & 1276\\
+\hline
+ & 171\\
+\hline
+\end{tabular}
+
 \section{Research Question \#1}\label{research-question-1}
 
 This question addresses what profiles emerged from the data. This
@@ -1747,8 +1835,8 @@ n\_profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR\_val & VLMR\_p & LM
 \caption{Fit statistics for model 2}\label{fig:model2}
 \end{figure}
 
-Looking across the statistics presented in Table 5.2 and Figures 5.1 and
-5.2, some general ideas about which models are to be preferred emerge.
+Looking across the statistics presented in Table 4.3 and Figures 4.1 and
+4.2, some general ideas about which models are to be preferred emerge.
 Solutions are interpreted first for each model individually and then
 across models with the goal of choosing a smaller number of models to
 investigate in more detail.
@@ -2194,30 +2282,31 @@ variables) and moderately low (characterized by low levels across all of
 the variables), also appeared commonly, particularly for the solutions
 for model 1.
 
-\begin{verbatim}
-## Error in kableExtra::kable_styling(latex_options = "scale_down"): argument "kable_input" is missing, with no default
-\end{verbatim}
-
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:compare-profiles-by-solution}Profile assignments by LPA solution}
 \centering
-\begin{tabular}[t]{cccccccccccccc}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{cccccccccccccc}
 \toprule
-Model & Number of Profiles & Full & All Moderate & Comptent but not Engaged or Challenged & Only Behavioral & Only Affective & Moderately Low & Engaged and Competent but not Challenged & Challenged but not Engaged or Comptent & Challenged & Highly Challenged & Universally Low & Comptent but not Challenged\\
+\rotatebox{-60}{Model} & \rotatebox{-60}{Number of Profiles} & \rotatebox{-60}{Full} & \rotatebox{-60}{All Moderate} & \rotatebox{-60}{Comptent but not Engaged or Challenged} & \rotatebox{-60}{Only Behavioral} & \rotatebox{-60}{Only Affective} & \rotatebox{-60}{Moderately Low} & \rotatebox{-60}{Engaged and Competent but not Challenged} & \rotatebox{-60}{Challenged but not Engaged or Comptent} & \rotatebox{-60}{Challenged} & \rotatebox{-60}{Highly Challenged} & \rotatebox{-60}{Universally Low} & \rotatebox{-60}{Comptent but not Challenged}\\
 \midrule
-1 & 4 & x & x &  &  &  &  &  &  &  &  & x & x\\
-1 & 5 & x & x &  & x & x &  &  &  &  &  & x & \\
-1 & 6 & x & x &  & x & x &  & x &  &  &  & x & \\
-1 & 6 (alt) & x &  &  &  &  & x & x &  & x & x & x & \\
-1 & 7 & x &  &  &  &  & x &  & x & x & x & x & x\\
-1 & 7 (alt) & x &  &  &  &  & x &  & x & x & x & x & x\\
-2 & 3 &  &  &  &  &  &  &  &  & x &  & x & x\\
-2 & 4 &  &  &  &  &  &  & x &  & x & x & x & \\
-2 & 5 & x & x &  &  &  &  &  &  &  & x & x & x\\
+\addlinespace[0.3em]
+\multicolumn{14}{l}{\textbf{Model 1}}\\
+\hspace{1em}1 & 4 & x & x &  &  &  &  &  &  &  &  & x & x\\
+\hspace{1em}1 & 5 & x & x &  & x & x &  &  &  &  &  & x & \\
+\hspace{1em}1 & 6 & x & x &  & x & x &  & x &  &  &  & x & \\
+\hspace{1em}1 & 6 (alt) & x &  &  &  &  & x & x &  & x & x & x & \\
+\hspace{1em}1 & 7 & x &  &  &  &  & x &  & x & x & x & x & x\\
+\hspace{1em}1 & 7 (alt) & x &  &  &  &  & x &  & x & x & x & x & x\\
+\addlinespace[0.3em]
+\multicolumn{14}{l}{\textbf{Model 2}}\\
+\hspace{1em}2 & 3 &  &  &  &  &  &  &  &  & x &  & x & x\\
+\hspace{1em}2 & 4 &  &  &  &  &  &  & x &  & x & x & x & \\
+\hspace{1em}2 & 5 & x & x &  &  &  &  &  &  &  & x & x & x\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
+\end{landscape}
 
 The model 1, six and seven profile solutions are compelling because both
 show profiles that are distinguished by dimensions of engagement and its

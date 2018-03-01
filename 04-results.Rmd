@@ -148,6 +148,56 @@ df <- df %>%
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 ```
 
+## Descriptive Statistics
+
+First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first in table 4.1.
+
+```{r}
+
+d <- distinct(df, participant_ID, overall_pre_interest)
+
+df %>% 
+  select(overall_pre_interest, 
+         dm_cog_eng,
+         dm_beh_eng,
+         dm_aff_eng,
+         dm_challenge,
+         dm_competence) %>% 
+  psych::describe() %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for continuous study variables", linesep = "")
+```
+
+The variables use first in table 4.1.
+
+```{r}
+df %>% 
+  select(dm_ask:dm_com) %>% 
+  count(dm_ask) %>% 
+  knitr::kable()
+
+df %>% 
+  select(dm_ask:dm_com) %>% 
+  count(dm_obs) %>% 
+  knitr::kable()
+
+df %>% 
+  select(dm_ask:dm_com) %>% 
+  count(dm_gen) %>% 
+  knitr::kable()
+
+df %>% 
+  select(dm_ask:dm_com) %>% 
+  count(dm_mod) %>% 
+  knitr::kable()
+
+df %>% 
+  select(dm_ask:dm_com) %>% 
+  count(dm_com) %>% 
+  knitr::kable()
+
+# knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for binary study variables", linesep = "")
+```
+
 ## Research Question #1
 
 This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
@@ -247,7 +297,7 @@ overall_stats_for_all_models[[2]] %>%
   ylab(NULL)
 ```
 
-Looking across the statistics presented in Table 5.2 and Figures 5.1 and 5.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
+Looking across the statistics presented in Table 4.3 and Figures 4.1 and 4.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
 
 For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
 
@@ -588,7 +638,7 @@ There is a wide range of profiles. Some appear very commonly, particularly those
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
 
 d[-1, ] %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "", align=rep('c', 13))
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "", align=rep('c', 13)) %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>%
   kableExtra::row_spec(0, angle = -60) %>% 
