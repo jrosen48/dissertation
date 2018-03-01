@@ -14,8 +14,6 @@ if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg
 
 file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE)
 
-system("pwd")
-
 # 4. run this line in Terminal
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 # system("find -name rosenberg-dissertation_mod.tex -execdir pdflatex {} \;")
