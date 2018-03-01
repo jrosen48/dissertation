@@ -555,20 +555,11 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-```{r, test-iris-2}
-print(iris)
-```
-
 #### Looking across model 1 and model 2 solutions
 
 When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In table 5.3, which profiles emerge from which solution is presented.
 
 There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables.
-
-
-```{r, test-iris}
-print(iris)
-```
 
 ```{r, compare-profiles-by-solution}
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
