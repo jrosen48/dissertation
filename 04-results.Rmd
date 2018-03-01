@@ -23,6 +23,7 @@ library(lme4)
 library(corrr)
 library(jmRtools)
 library(tidyLPA)
+library(kableExtra)
 ```
 
 ```{r, loading-data, eval = F}
@@ -590,7 +591,7 @@ d %>%
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>%
-  row_spec(0, angle = -45)
+  kableExtra::row_spec(0, angle = -45)
 ```
 
 The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix.

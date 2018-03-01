@@ -44,8 +44,8 @@
 \contentsline {subsubsection}{\numberline {4.1.6.2}Model: 2, Profiles: 4}{58}{subsubsection.4.1.6.2}
 \contentsline {subsubsection}{\numberline {4.1.6.3}Model: 2, Profiles: 5}{59}{subsubsection.4.1.6.3}
 \contentsline {subsubsection}{\numberline {4.1.6.4}Looking across model 1 and model 2 solutions}{60}{subsubsection.4.1.6.4}
-\contentsline {section}{\numberline {4.2}Research Question \#2}{61}{section.4.2}
-\contentsline {section}{\numberline {4.3}Research Question \#3}{61}{section.4.3}
-\contentsline {section}{\numberline {4.4}Research Question \#4}{61}{section.4.4}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{62}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{63}{chapter.6}
+\contentsline {section}{\numberline {4.2}Research Question \#2}{63}{section.4.2}
+\contentsline {section}{\numberline {4.3}Research Question \#3}{63}{section.4.3}
+\contentsline {section}{\numberline {4.4}Research Question \#4}{63}{section.4.4}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{64}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}References}{65}{chapter.6}
