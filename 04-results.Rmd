@@ -153,9 +153,6 @@ df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng
 First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first in table 4.1.
 
 ```{r}
-
-d <- distinct(df, participant_ID, overall_pre_interest)
-
 df %>% 
   select(overall_pre_interest, 
          dm_cog_eng,
@@ -167,9 +164,7 @@ df %>%
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for continuous study variables", linesep = "")
 ```
 
-The variables use first in table 4.1.
-
-```{r}
+```{r, include = FALSE}
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_ask) %>% 
