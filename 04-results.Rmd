@@ -268,7 +268,7 @@ The number of observations associated with each of the profiles is somewhat bala
 
 <!-- While replicated, the lowest log-likelihood associated with this solution demonstrated a very large decrease in the log-likelihood relative to those associated with the 2nd, 3rd, and 4th lowest log-likelihood solutions. This could suggest that the model is under-identified (Asparouhov & Muthen, 2012). -->
 
-```{r, spec-solutions-m1_3, cache = TRUE}
+```{r, spec-solutions-m1_3, cache = TRUE, eval = TRUE}
 m1_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -278,11 +278,11 @@ m1_3 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_3p, include = TRUE}
+```{r, m1_3p, cache = TRUE, eval = TRUE}
 plot_profiles_mplus(m1_3, to_scale = TRUE)
 ```
 
-```{r, m1_3p-ll, eval = TRUE, cache = TRUE}
+```{r, m1_3p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -299,7 +299,7 @@ Most profiles are in the all moderate profile (*n* = 1,288), with a large number
 
 The log-likelihood was replicated many (more than 10) times. 
 
-```{r, spec-solutions-m1_4, cache = TRUE}
+```{r, spec-solutions-m1_4, cache = TRUE, eval = TRUE}
 m1_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -309,11 +309,11 @@ m1_4 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_4p}
+```{r, m1_4p, cache = TRUE, eval = TRUE}
 plot_profiles_mplus(m1_4, to_scale = TRUE)
 ```
 
-```{r, m1_4p-ll, eval = TRUE, cache = TRUE}
+```{r, m1_4p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -329,7 +329,7 @@ This solution is characterized by:
 
 The number of observations associated with each of the profiles is somewhat balanced, with a large number in the full profile (*n* = 928), a moderate number of observations in the universally low (*n* = 667) and all moderate (*n* = 643) profiles, and fewer observations in the only behaviorally engaged (*n* = 375) and only affective engaged (*n* = 345)  profiles. This solution primarily distinguishes between affective and behavioral engagement; unlike the solution for model 1 with four profiles, there is not a competent but not engaged or challenged profile. This may suggest that solutions with a greater number of profiles represents both the distinction between behavioral and affective engagement highlighted by profiles in this solution as well as profiles that are characterized by higher or lower levels of the conditions for engagement (i.e., competence). The log-likelihood was replicated four times. 
 
-```{r, spec-solutions-m1_5, cache = TRUE}
+```{r, spec-solutions-m1_5, cache = TRUE, eval = TRUE}
 m1_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -339,12 +339,11 @@ m1_5 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_5p}
+```{r, m1_5p, cache = TRUE, eval = TRUE}
 plot_profiles_mplus(m1_5, to_scale = TRUE)
-
 ```
 
-```{r, m1_5p-ll, eval = TRUE, cache = TRUE}
+```{r, m1_5p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -361,7 +360,7 @@ This solution is characterized by:
 
 The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge--different from the profile associated with the model 1, four profile solution characterized by high levels of competence--this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses. 
 
-```{r, spec-solutions-m1_6, cache = TRUE}
+```{r, spec-solutions-m1_6, cache = TRUE, eval = TRUE}
 m1_6 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -371,11 +370,11 @@ m1_6 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_6p}
+```{r, m1_6p, cache = TRUE, eval = TRUE}
 plot_profiles_mplus(m1_6, to_scale = TRUE)
 ```
 
-```{r, m1_6p-ll, eval = TRUE, cache = TRUE}
+```{r, m1_6p-ll, eval = TRUE, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -390,9 +389,7 @@ This solution is characterized by:
 - an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - an **engaged and competent but not challenged** profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
- 
-
-```{r, spec-solutions-m1_6-alt, cache = TRUE}
+```{r, spec-solutions-m1_6-alt, cache = TRUE, eval = TRUE}
 m1_6_alt <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -403,7 +400,7 @@ m1_6_alt <- estimate_profiles_mplus(df,
                                 optseed = 49221)
 ```
 
-```{r, m1_6p-alt}
+```{r, m1_6p-alt, cache = TRUE, eval = TRUE}
 plot_profiles_mplus(m1_6_alt, to_scale = TRUE)
 ```
 
@@ -425,7 +422,7 @@ This solution is characterized by:
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
-```{r, spec-solutions-m1_7, cache = TRUE}
+```{r, spec-solutions-m1_7, cache = TRUE, eval = TRUE}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -435,12 +432,11 @@ m1_7 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m1_7p}
-plot_profiles_mplus(m1_7, to_scale = TRUE)
-
+```{r, m1_7p, cache = TRUE, eval = TRUE}
+plot_profiles_mplus(m1_7, to_scale = TRUE, eval = TRUE, cache = TRUE)
 ```
 
-```{r, m1_7-ll, eval = TRUE, cache = TRUE}
+```{r, m1_7-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -448,7 +444,7 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 When investigating an alternate solution (associated with the second lowest log-likelihood) for the model 1, seven profile solution, we can see that even for the solutions associated with other log-likelihoods, the profiles that can be identified are very similar. One minor distinction concerns the **competent but not engaged or challenged** profile, which in the alternate solution is associated with neutral levels of affective engagement, compared to moderately low levels of affective engagement in the solution with the lowest log-likelihood. Because five of the seven profiles associated with both of these model 1, seven profile solutions seem to be distinct from those identified from simpler model 1 solutions, investigation of this alternate solution provides additional evidence that these profiles are not associated with an under-identified model and that simpler models may be preferred over these seven profile solutions.
 
-```{r, spec-solutions-m1_7-other-LL, cache = TRUE}
+```{r, spec-solutions-m1_7-other-LL, cache = TRUE, eval = TRUE}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -458,11 +454,11 @@ m1_7 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE, optseed = 597614)
 ```
 
-```{r, m1_7-other-LL-p}
+```{r, m1_7-other-LL-p, eval = TRUE, cache = TRUE}
 plot_profiles_mplus(m1_7, to_scale = TRUE)
 ```
 
-```{r, m1_7-other-LL-ll, eval = T}
+```{r, m1_7-other-LL-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -478,7 +474,7 @@ This solution is characterized by:
 
 The number of observations associated with each solution is fairly balanced, with the most in the challenged profile (*n* = 1,241), followed by the universally low (*n* = 954 observations) and competent but not challenged (*n* = 763) profiles. This solution is very different than the three profile solution that was interpreted for model 1. Model 2 differs from model 1 in that covariances between the variables are estimated (they are constrained to be the same are across the profiles). The log-likelihood was replicated (at least) ten times. Thus, this and other solutions associated with model 2 include information about how the variables relate. Including this information seems to be associated with profiles that differentiate the groups on the basis of the levels of each of the variables in more distinct ways: the model 1, three profile solution was characterized by high, moderate, or low levels of all variables for each of the three profiles.
 
-```{r, spec-solutions-for-model2, cache = TRUE}
+```{r, spec-solutions-for-model2, cache = TRUE, eval = TRUE}
 
 m2_3 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
@@ -489,12 +485,11 @@ m2_3 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m2_3p}
+```{r, m2_3p, eval = TRUE, cache = TRUE}
 plot_profiles_mplus(m2_3, to_scale = TRUE)
-
 ```
 
-```{r, m2_3p-ll, eval = TRUE, cache = TRUE}
+```{r, m2_3p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -509,7 +504,7 @@ This solution is characterized by:
 
 The number of observations in each of the profiles is not very balanced, with more than 1,000 observations in both the universally low (*n* = 1,029) and challenged (*n* = 1,106) profiles, a moderate number if the engaged and competent but not challenged profile (*n* = 688), and very few in the highly challenged (*n* = 135) profile. The log-likelihood was replicated three times. While each of these profiles has been identified in another solution, the small number of observations in the highly challenged profile suggests that this solution be interpreted with some skepticism because of the potentially limited utility (and statistical power associated with the use) of the profiles in subsequent analyses.
 
-```{r, spec-solutions-model2-4, cache = TRUE}
+```{r, spec-solutions-model2-4, cache = TRUE, eval = TRUE}
 m2_4 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -519,11 +514,11 @@ m2_4 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m2_4p}
+```{r, m2_4p, eval = TRUE, cache = TRUE}
 plot_profiles_mplus(m2_4, to_scale = TRUE)
 ```
 
-```{r, m2_4p-ll, eval = TRUE, cache = TRUE}
+```{r, m2_4p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -539,7 +534,7 @@ This solution is characterized by:
 
 The number of observations associated with each of the profiles is not very balanced, with a very large number of observations in the all moderate profile (*n* = 1,113) and a large number in the competent but not challenged profile (*n* = 871), a moderate number in the full profile (*n* = 573), and very few in the universally low (*n* = 271) and challenged but not competent (*n* = 130) profiles. The log-likelihood was replicated four times. Like for the model 2, four profile solution, the small number of observations associated with two of the profiles suggests that this solution should be interpreted with some caution. 
 
-```{r, spec-solutions-model2-5, cache = TRUE}
+```{r, spec-solutions-model2-5, cache = TRUE, eval = TRUE}
 m2_5 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -549,12 +544,11 @@ m2_5 <- estimate_profiles_mplus(df,
                                 n_processors = 8, remove_tmp_files = FALSE)
 ```
 
-```{r, m2_5p}
+```{r, m2_5p, eval = TRUE, cache = TRUE}
 plot_profiles_mplus(m2_5, to_scale = TRUE)
-
 ```
 
-```{r, m2_5p-ll, eval = TRUE, cache = TRUE}
+```{r, m2_5p-ll, cache = TRUE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
