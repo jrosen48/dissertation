@@ -948,7 +948,7 @@ o <- mutate(o, model = c(
 o %>% 
   select(model, 
          intercept = `(Intercept)`,
-         beep_ID_ICC = beep_ID_new_ICC,
+         beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
   slice(1, 6) %>% 
@@ -959,7 +959,7 @@ o %>%
   select(model, 
          intercept = `(Intercept)`,
          dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
-         beep_ID_ICC = beep_ID_new_ICC,
+         beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
   slice(7, 12) %>% 
@@ -971,7 +971,7 @@ o %>%
          intercept = `(Intercept)`,
          dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
          overall_pre_interest,
-         beep_ID_ICC = beep_ID_new_ICC,
+         beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
   slice(13, 18) %>% 
@@ -988,7 +988,7 @@ o %>%
          `overall_pre_interest:dm_gen`, 
          `overall_pre_interest:dm_mod`, 
          `overall_pre_interest:dm_com`,
-         beep_ID_ICC = beep_ID_new_ICC,
+         beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
   slice(19, 24) %>% 
