@@ -939,11 +939,44 @@ l <- list(m1, m2, m3, m4, m5, m6,
 o <- map_df(l, tidy_model)
 
 o <- mutate(o, model = c(
-  str_c("profile_", 1:6, "_null"),
-  str_c("profile_", 1:6, "_1"),
-  str_c("profile_", 1:6, "_2"),
-  str_c("profile_", 1:6, "_3")
+  str_c("profile_", 1:6),
+  str_c("profile_", 1:6),
+  str_c("profile_", 1:6),
+  str_c("profile_", 1:6)
 ))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         beep_ID_ICC = beep_ID_new_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  slice(1, 6) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models (for RQ2)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         beep_ID_ICC = beep_ID_new_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  slice(7, 12) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 1 (for RQ2)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         overall_pre_interest,
+         beep_ID_ICC = beep_ID_new_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  slice(13, 18) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 2 (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 
 o %>% 
   select(model, 
@@ -954,15 +987,13 @@ o %>%
          `overall_pre_interest:dm_obs`, 
          `overall_pre_interest:dm_gen`, 
          `overall_pre_interest:dm_mod`, 
-         `overall_pre_interest:dm_com` 
-  ) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  group_rows("Null", 1, 6) %>% 
-  group_rows("Model 1", 7, 12) %>% 
-  group_rows("Model 2", 13, 18) %>% 
-  group_rows("Model 3", 19, 24) %>% 
-  landscape()
+         `overall_pre_interest:dm_com`,
+         beep_ID_ICC = beep_ID_new_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  slice(19, 24) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models for model 3 (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 
 ```
 

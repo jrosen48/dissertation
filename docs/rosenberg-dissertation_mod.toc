@@ -47,6 +47,6 @@
 \contentsline {subsubsection}{\numberline {4.2.6.4}Looking across model 1 and model 2 solutions}{61}{subsubsection.4.2.6.4}
 \contentsline {section}{\numberline {4.3}Research Question \#2}{63}{section.4.3}
 \contentsline {section}{\numberline {4.4}Research Question \#3}{64}{section.4.4}
-\contentsline {section}{\numberline {4.5}Research Question \#4}{66}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{67}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{68}{chapter.6}
+\contentsline {section}{\numberline {4.5}Research Question \#4}{64}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{65}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}References}{66}{chapter.6}
