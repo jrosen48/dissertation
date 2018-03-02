@@ -957,6 +957,7 @@ o %>%
          `overall_pre_interest:dm_com` 
   ) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
   group_rows("Null", 1, 6) %>% 
   group_rows("Model 1", 7, 12) %>% 
   group_rows("Model 2", 13, 18) %>% 
