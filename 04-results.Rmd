@@ -24,7 +24,9 @@ library(corrr)
 library(jmRtools)
 library(tidyLPA)
 library(kableExtra)
-library(sJplot)
+library(sjPlot)
+library(broom)
+library(broom.mixed)
 ```
 
 ```{r, loading-data, eval = F}
@@ -689,15 +691,11 @@ m1 <- lmer(profile_1_p ~ 1 +
              (1 | program_ID),
            data = d)
 
-summary(m1)
-
 m2 <- lmer(profile_2_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
              (1 | program_ID),
            data = d)
-
-summary(m2)
 
 m3 <- lmer(profile_3_p ~ 1 +
              (1 | participant_ID) +
@@ -705,15 +703,11 @@ m3 <- lmer(profile_3_p ~ 1 +
              (1 | program_ID),
            data = d)
 
-summary(m3)
-
 m4 <- lmer(profile_4_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
              (1 | program_ID),
            data = d)
-
-summary(m4)
 
 m5 <- lmer(profile_5_p ~ 1 +
              (1 | participant_ID) +
@@ -721,71 +715,55 @@ m5 <- lmer(profile_5_p ~ 1 +
              (1 | program_ID),
            data = d)
 
-summary(m5)
-
 m6 <- lmer(profile_6_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
              (1 | program_ID),
            data = d)
-
-summary(m6)
 ```
 
 ```{r, rq1-preds, cache = TRUE}
-m1a <- lmer(profile_1 ~ 1 +
+m1a <- lmer(profile_1_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-summary(m1a)
-
-m2a <- lmer(profile_2 ~ 1 +
+m2a <- lmer(profile_2_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-summary(m2a)
-
-m3a <- lmer(profile_3 ~ 1 +
+m3a <- lmer(profile_3_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-summary(m3a)
-
-m4a <- lmer(profile_4 ~ 1 +
+m4a <- lmer(profile_4_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-summary(m4a)
-
-m5a <- lmer(profile_5 ~ 1 +
+m5a <- lmer(profile_5_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-summary(m5a)
-
-m6a <- lmer(profile_6 ~ 1 +
+m6a <- lmer(profile_6_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
-
-summary(m6a)
 ```
 
 ## Research Question #3
@@ -793,17 +771,7 @@ summary(m6a)
 Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
 
 ```{r, rq2-int, cache = TRUE}
-m1b <- lmer(profile_1 ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest
-            (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-summary(m1b)
-
-m2b <- lmer(profile_2 ~ 1 +
+m1b <- lmer(profile_1_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest +
               (1 | participant_ID) +
@@ -811,9 +779,15 @@ m2b <- lmer(profile_2 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m2b)
+m2b <- lmer(profile_2_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-m3b <- lmer(profile_3 ~ 1 +
+m3b <- lmer(profile_3_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest+
               (1 | participant_ID) +
@@ -821,9 +795,7 @@ m3b <- lmer(profile_3 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m3b)
-
-m4b <- lmer(profile_4 ~ 1 +
+m4b <- lmer(profile_4_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest+
               (1 | participant_ID) +
@@ -831,9 +803,7 @@ m4b <- lmer(profile_4 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m4b)
-
-m5b <- lmer(profile_5 ~ 1 +
+m5b <- lmer(profile_5_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest+
               (1 | participant_ID) +
@@ -841,21 +811,17 @@ m5b <- lmer(profile_5 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m5b)
-
-m6b <- lmer(profile_6 ~ 1 +
+m6b <- lmer(profile_6_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest+
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
-
-summary(m6b)
 ```
 
 ```{r, rq2-int-interaction, cache = TRUE}
-m1c <- lmer(profile_1 ~ 1 +
+m1c <- lmer(profile_1_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -866,9 +832,7 @@ m1c <- lmer(profile_1 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m1c)
-
-m2c <- lmer(profile_2 ~ 1 +
+m2c <- lmer(profile_2_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -879,9 +843,7 @@ m2c <- lmer(profile_2 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m2c)
-
-m3c <- lmer(profile_3 ~ 1 +
+m3c <- lmer(profile_3_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -892,9 +854,7 @@ m3c <- lmer(profile_3 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m3c)
-
-m4c <- lmer(profile_4 ~ 1 +
+m4c <- lmer(profile_4_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -905,9 +865,7 @@ m4c <- lmer(profile_4 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m4c)
-
-m5c <- lmer(profile_5 ~ 1 +
+m5c <- lmer(profile_5_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -918,9 +876,7 @@ m5c <- lmer(profile_5 ~ 1 +
               (1 | program_ID),
             data = d)
 
-summary(m5c)
-
-m6c <- lmer(profile_6 ~ 1 +
+m6c <- lmer(profile_6_p ~ 1 +
               dm_ask*overall_pre_interest + 
               dm_obs*overall_pre_interest + 
               dm_gen*overall_pre_interest + 
@@ -930,8 +886,83 @@ m6c <- lmer(profile_6 ~ 1 +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
+```
 
-summary(m6c)
+```{r, prep-df-for-rqs-2-and-3, cache = TRUE}
+
+# get_kr_df <- function(model_object) {
+#   L <- diag(rep(1, length(lme4::fixef(model_object))))
+#   L <- as.data.frame(L)
+#   out <- purrr::map_dbl(L, pbkrtest::get_Lb_ddf, object = model_object)
+#   names(out) <- names(lme4::fixef(model_object))
+#   out
+# }
+
+tidy_model <- function(model) {
+  
+  fixef_names <- c("(Intercept)", "dm_ask", "dm_ask:overall_pre_interest", "dm_com",
+                   "dm_gen", "dm_mod", "dm_obs", "overall_pre_interest", "overall_pre_interest:dm_com",
+                   "overall_pre_interest:dm_gen", "overall_pre_interest:dm_mod",
+                   "overall_pre_interest:dm_obs")
+  
+  d <- as.data.frame(matrix(rep(NA, 12), ncol = 12))
+  names(d) <- fixef_names
+  
+  # fixefs
+  fixef_vals <- tidy(model) %>%
+    filter(effect == "fixed") %>%
+    mutate(est = round(estimate, 3),
+           se = round(std.error, 3),
+           stat = round(statistic, 4)) %>%
+    mutate(est_se = str_c(est, " (", se, ")")) %>%
+    select(term, est_se) %>%
+    spread(term, est_se)
+  
+  dd <- bind_rows(d, fixef_vals)[-1, ]
+  
+  # ICCs
+  icc_vals <- sjstats::icc(m1c) %>%
+    as.numeric() %>%
+    round(3)
+  
+  # To return
+  names(icc_vals) <- str_c(names(sjstats::icc(m1c)), "_ICC")
+  ddd <- cbind(dd, as.data.frame(t(icc_vals)))
+  ddd
+}
+
+l <- list(m1, m2, m3, m4, m5, m6,
+          m1a, m2a, m3a, m4a, m5a, m6a,
+          m1b, m2b, m3b, m4b, m5b, m6b,
+          m1c, m2c, m3c, m4c, m5c, m6c)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6, "_null"),
+  str_c("profile_", 1:6, "_1"),
+  str_c("profile_", 1:6, "_2"),
+  str_c("profile_", 1:6, "_3")
+))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         overall_pre_interest,
+         `overall_pre_interest:dm_ask` = `dm_ask:overall_pre_interest`,
+         `overall_pre_interest:dm_obs`, 
+         `overall_pre_interest:dm_gen`, 
+         `overall_pre_interest:dm_mod`, 
+         `overall_pre_interest:dm_com` 
+  ) %>% 
+  knitr::kable() %>% 
+  group_rows("Null", 1, 6) %>% 
+  group_rows("Model 1", 7, 12) %>% 
+  group_rows("Model 2", 13, 18) %>% 
+  group_rows("Model 3", 19, 24) %>% 
+  landscape()
+
 ```
 
 ## Research Question #4
