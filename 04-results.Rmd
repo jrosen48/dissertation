@@ -951,7 +951,7 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(1, 6) %>% 
+  slice(1:6) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models (for RQ2)", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 
@@ -962,7 +962,7 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(7, 12) %>% 
+  slice(7:12) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 1 (for RQ2)", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 
@@ -974,7 +974,7 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(13, 18) %>% 
+  slice(13:18) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 2 (for RQ3)", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 
@@ -991,7 +991,7 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(19, 24) %>% 
+  slice(19:24) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models for model 3 (for RQ3)", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 
