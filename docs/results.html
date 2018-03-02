@@ -130,6 +130,7 @@
 <div id="results" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Results</h1>
 <p>In this section, results in terms of the research questions are presented.</p>
+<pre><code>## Error in library(sJplot): there is no package called &#39;sJplot&#39;</code></pre>
 <div id="descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">5.1</span> Descriptive Statistics</h2>
 <p>First, descriptive statistics for all of the study variables–overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)–are presented. Overall pre-interest and the variables used to estimate the PECs are presented first in table 4.1.</p>
@@ -316,10 +317,1012 @@ Figure 5.2: Fit statistics for model 2
 <div id="research-question-2" class="section level2">
 <h2><span class="header-section-number">5.3</span> Research Question #2</h2>
 <p>Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.</p>
+<p><img src="rosenberg-dissertation_files/figure-html/rq2-proc-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_1_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1122.6
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.4186 -0.4503 -0.2459 -0.1293  3.3256 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0006596 0.02568 
+##  participant_ID (Intercept) 0.0080373 0.08965 
+##  program_ID     (Intercept) 0.0008073 0.02841 
+##  Residual                   0.0796611 0.28224 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.11407    0.01287    8.86
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_2_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2502.2
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.46003 -0.52172 -0.17401 -0.04492  2.69493 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0008839 0.02973 
+##  participant_ID (Intercept) 0.0447364 0.21151 
+##  program_ID     (Intercept) 0.0039146 0.06257 
+##  Residual                   0.1193615 0.34549 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.22173    0.02689   8.247
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_3_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1017.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.1572 -0.3587 -0.1223 -0.0315  3.4651 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.001131 0.03363 
+##  participant_ID (Intercept) 0.030132 0.17359 
+##  program_ID     (Intercept) 0.000000 0.00000 
+##  Residual                   0.071463 0.26733 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.13054    0.01356   9.624
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_4_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1134.9
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.4782 -0.4212 -0.2476 -0.1359  3.3309 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0007986 0.02826 
+##  participant_ID (Intercept) 0.0088459 0.09405 
+##  program_ID     (Intercept) 0.0000000 0.00000 
+##  Residual                   0.0797501 0.28240 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept) 0.109438   0.008836   12.39
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_5_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2367.6
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.22586 -0.51644 -0.25151 -0.06828  2.71989 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0006691 0.02587 
+##  participant_ID (Intercept) 0.0346337 0.18610 
+##  program_ID     (Intercept) 0.0009506 0.03083 
+##  Residual                   0.1157958 0.34029 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.20269    0.01823   11.12
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_6_p ~ 1 + (1 | participant_ID) + (1 | beep_ID) + (1 |  
+##     program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 789.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.1282 -0.3586 -0.1053  0.0666  3.9037 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.003419 0.05847 
+##  participant_ID (Intercept) 0.050293 0.22426 
+##  program_ID     (Intercept) 0.002248 0.04741 
+##  Residual                   0.061934 0.24886 
+## Number of obs: 2958, groups:  
+## beep_ID, 248; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.15030    0.02346   6.406</code></pre>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_1 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1699.6
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.4125 -0.4599 -0.2568 -0.1303  3.0304 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0011507 0.03392 
+##  participant_ID (Intercept) 0.0098467 0.09923 
+##  program_ID     (Intercept) 0.0008917 0.02986 
+##  Residual                   0.0989760 0.31460 
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.10904    0.01622   6.724
+## dm_ask       0.01846    0.01601   1.153
+## dm_obs       0.01651    0.01623   1.017
+## dm_gen       0.01402    0.01528   0.917
+## dm_mod      -0.02027    0.01634  -1.240
+## dm_com       0.02032    0.01594   1.275
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.130                            
+## dm_obs -0.078 -0.271                     
+## dm_gen -0.199 -0.092 -0.178              
+## dm_mod -0.030 -0.216 -0.084 -0.183       
+## dm_com -0.186 -0.180  0.039 -0.168 -0.329
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_2 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2479.4
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.41763 -0.52257 -0.17676 -0.03551  2.70395 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0006784 0.02605 
+##  participant_ID (Intercept) 0.0459609 0.21438 
+##  program_ID     (Intercept) 0.0046796 0.06841 
+##  Residual                   0.1232474 0.35107 
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##              Estimate Std. Error t value
+## (Intercept)  0.234177   0.029979   7.811
+## dm_ask      -0.005413   0.017426  -0.311
+## dm_obs       0.011350   0.017614   0.644
+## dm_gen      -0.013317   0.016743  -0.795
+## dm_mod       0.003940   0.017702   0.223
+## dm_com      -0.013766   0.017401  -0.791
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.079                            
+## dm_obs -0.045 -0.266                     
+## dm_gen -0.118 -0.093 -0.180              
+## dm_mod -0.015 -0.215 -0.080 -0.190       
+## dm_com -0.111 -0.175  0.037 -0.169 -0.329
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_3 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1657.6
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.7268 -0.3839 -0.1429 -0.0201  3.1638 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev. 
+##  beep_ID        (Intercept) 2.246e-03 4.739e-02
+##  participant_ID (Intercept) 3.469e-02 1.862e-01
+##  program_ID     (Intercept) 8.050e-18 2.837e-09
+##  Residual                   9.048e-02 3.008e-01
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##              Estimate Std. Error t value
+## (Intercept)  0.156030   0.017086   9.132
+## dm_ask      -0.008589   0.016497  -0.521
+## dm_obs       0.008418   0.016739   0.503
+## dm_gen      -0.020372   0.015725  -1.296
+## dm_mod       0.011110   0.016858   0.659
+## dm_com      -0.007233   0.016391  -0.441
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.132                            
+## dm_obs -0.081 -0.271                     
+## dm_gen -0.188 -0.095 -0.177              
+## dm_mod -0.031 -0.218 -0.081 -0.183       
+## dm_com -0.176 -0.175  0.035 -0.166 -0.332
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_4 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1445.1
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.4914 -0.4089 -0.2507 -0.1396  3.1371 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.000000 0.00000 
+##  participant_ID (Intercept) 0.009812 0.09906 
+##  program_ID     (Intercept) 0.000000 0.00000 
+##  Residual                   0.091133 0.30188 
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##              Estimate Std. Error t value
+## (Intercept)  0.122074   0.011714  10.421
+## dm_ask       0.004828   0.014212   0.340
+## dm_obs      -0.019216   0.014436  -1.331
+## dm_gen      -0.015513   0.013578  -1.143
+## dm_mod      -0.015359   0.014507  -1.059
+## dm_com       0.018306   0.014128   1.296
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.161                            
+## dm_obs -0.101 -0.274                     
+## dm_gen -0.231 -0.091 -0.185              
+## dm_mod -0.048 -0.208 -0.088 -0.183       
+## dm_com -0.219 -0.195  0.048 -0.174 -0.323
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_5 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2624.5
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.16397 -0.53935 -0.26173 -0.06917  2.59173 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.001003 0.03167 
+##  participant_ID (Intercept) 0.035712 0.18898 
+##  program_ID     (Intercept) 0.001419 0.03767 
+##  Residual                   0.132188 0.36358 
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##              Estimate Std. Error t value
+## (Intercept)  0.209868   0.022111   9.491
+## dm_ask       0.011611   0.018204   0.638
+## dm_obs       0.007788   0.018427   0.423
+## dm_gen       0.011360   0.017445   0.651
+## dm_mod      -0.008616   0.018527  -0.465
+## dm_com      -0.003671   0.018151  -0.202
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.112                            
+## dm_obs -0.066 -0.268                     
+## dm_gen -0.164 -0.093 -0.180              
+## dm_mod -0.024 -0.215 -0.082 -0.187       
+## dm_com -0.154 -0.178  0.038 -0.169 -0.329
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_6 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     (1 | participant_ID) + (1 | beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1292.6
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.0226 -0.3787 -0.1065  0.0720  3.6534 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.003879 0.06228 
+##  participant_ID (Intercept) 0.057816 0.24045 
+##  program_ID     (Intercept) 0.003052 0.05524 
+##  Residual                   0.074578 0.27309 
+## Number of obs: 2787, groups:  
+## beep_ID, 236; participant_ID, 203; program_ID, 9
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept)  0.16762    0.02765   6.062
+## dm_ask      -0.02498    0.01691  -1.477
+## dm_obs      -0.03006    0.01715  -1.753
+## dm_gen       0.03157    0.01608   1.964
+## dm_mod       0.02745    0.01729   1.588
+## dm_com      -0.01465    0.01678  -0.873
+## 
+## Correlation of Fixed Effects:
+##        (Intr) dm_ask dm_obs dm_gen dm_mod
+## dm_ask -0.083                            
+## dm_obs -0.049 -0.268                     
+## dm_gen -0.124 -0.096 -0.172              
+## dm_mod -0.015 -0.226 -0.077 -0.183       
+## dm_com -0.116 -0.163  0.026 -0.159 -0.337</code></pre>
 </div>
 <div id="research-question-3" class="section level2">
 <h2><span class="header-section-number">5.4</span> Research Question #3</h2>
-<p>Research question #3 is focused on</p>
+<p>Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.</p>
+<pre><code>## Error in overall_pre_interest(1 + participant_ID): could not find function &quot;overall_pre_interest&quot;
+## Error in summary(m1b): object &#39;m1b&#39; not found
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_2 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     overall_pre_interest + (1 | participant_ID) + (1 | beep_ID) +  
+##     (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2314.4
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.39418 -0.54090 -0.18016 -0.03067  2.66341 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0005285 0.02299 
+##  participant_ID (Intercept) 0.0477926 0.21862 
+##  program_ID     (Intercept) 0.0026726 0.05170 
+##  Residual                   0.1253047 0.35398 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                       Estimate Std. Error t value
+## (Intercept)           0.387788   0.072141   5.375
+## dm_ask               -0.010435   0.018188  -0.574
+## dm_obs                0.006585   0.018317   0.359
+## dm_gen               -0.010932   0.017383  -0.629
+## dm_mod                0.002764   0.018404   0.150
+## dm_com               -0.008943   0.018129  -0.493
+## overall_pre_interest -0.048758   0.022075  -2.209
+## 
+## Correlation of Fixed Effects:
+##             (Intr) dm_ask dm_obs dm_gen dm_mod dm_com
+## dm_ask      -0.046                                   
+## dm_obs      -0.017 -0.269                            
+## dm_gen      -0.029 -0.085 -0.193                     
+## dm_mod       0.002 -0.221 -0.068 -0.195              
+## dm_com      -0.068 -0.182  0.043 -0.173 -0.324       
+## ovrll_pr_nt -0.928  0.012 -0.003 -0.021 -0.009  0.022
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_3 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     overall_pre_interest + (1 | participant_ID) + (1 | beep_ID) +  
+##     (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1454.3
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.7694 -0.3687 -0.1371 -0.0233  3.2080 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.002006 0.04478 
+##  participant_ID (Intercept) 0.033131 0.18202 
+##  program_ID     (Intercept) 0.000000 0.00000 
+##  Residual                   0.088332 0.29721 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                       Estimate Std. Error t value
+## (Intercept)           0.033466   0.054836   0.610
+## dm_ask               -0.006202   0.016753  -0.370
+## dm_obs                0.008978   0.016932   0.530
+## dm_gen               -0.017720   0.015922  -1.113
+## dm_mod                0.005475   0.017043   0.321
+## dm_com               -0.009641   0.016639  -0.579
+## overall_pre_interest  0.038698   0.017032   2.272
+## 
+## Correlation of Fixed Effects:
+##             (Intr) dm_ask dm_obs dm_gen dm_mod dm_com
+## dm_ask      -0.062                                   
+## dm_obs      -0.013 -0.273                            
+## dm_gen      -0.024 -0.086 -0.188                     
+## dm_mod       0.003 -0.224 -0.070 -0.188              
+## dm_com      -0.099 -0.179  0.041 -0.171 -0.327       
+## ovrll_pr_nt -0.947  0.022 -0.014 -0.036 -0.014  0.045
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_4 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     overall_pre_interest + (1 | participant_ID) + (1 | beep_ID) +  
+##     (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1341.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.4896 -0.4139 -0.2478 -0.1366  3.1273 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev. 
+##  beep_ID        (Intercept) 0.000e+00 0.000e+00
+##  participant_ID (Intercept) 9.766e-03 9.882e-02
+##  program_ID     (Intercept) 7.749e-16 2.784e-08
+##  Residual                   9.155e-02 3.026e-01
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                       Estimate Std. Error t value
+## (Intercept)           0.103688   0.035854   2.892
+## dm_ask                0.001103   0.014922   0.074
+## dm_obs               -0.017971   0.015091  -1.191
+## dm_gen               -0.022599   0.014216  -1.590
+## dm_mod               -0.011522   0.015165  -0.760
+## dm_com                0.018866   0.014813   1.274
+## overall_pre_interest  0.006927   0.011025   0.628
+## 
+## Correlation of Fixed Effects:
+##             (Intr) dm_ask dm_obs dm_gen dm_mod dm_com
+## dm_ask      -0.083                                   
+## dm_obs      -0.018 -0.277                            
+## dm_gen      -0.029 -0.084 -0.195                     
+## dm_mod       0.006 -0.216 -0.075 -0.189              
+## dm_com      -0.138 -0.198  0.053 -0.179 -0.318       
+## ovrll_pr_nt -0.939  0.031 -0.018 -0.052 -0.024  0.066
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_5 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     overall_pre_interest + (1 | participant_ID) + (1 | beep_ID) +  
+##     (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2416.9
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.15491 -0.54687 -0.26776 -0.06382  2.60913 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0006491 0.02548 
+##  participant_ID (Intercept) 0.0350409 0.18719 
+##  program_ID     (Intercept) 0.0022239 0.04716 
+##  Residual                   0.1330399 0.36475 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                        Estimate Std. Error t value
+## (Intercept)           0.2390463  0.0646782   3.696
+## dm_ask                0.0173390  0.0187713   0.924
+## dm_obs                0.0116598  0.0189163   0.616
+## dm_gen                0.0074901  0.0179267   0.418
+## dm_mod                0.0003225  0.0190115   0.017
+## dm_com               -0.0038136  0.0187021  -0.204
+## overall_pre_interest -0.0103510  0.0197074  -0.525
+## 
+## Correlation of Fixed Effects:
+##             (Intr) dm_ask dm_obs dm_gen dm_mod dm_com
+## dm_ask      -0.052                                   
+## dm_obs      -0.020 -0.270                            
+## dm_gen      -0.034 -0.084 -0.193                     
+## dm_mod       0.001 -0.221 -0.069 -0.194              
+## dm_com      -0.077 -0.183  0.044 -0.173 -0.324       
+## ovrll_pr_nt -0.925  0.014 -0.003 -0.024 -0.010  0.024
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: profile_6 ~ 1 + dm_ask + dm_obs + dm_gen + dm_mod + dm_com +  
+##     overall_pre_interest + (1 | participant_ID) + (1 | beep_ID) +  
+##     (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1144.9
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.8493 -0.3699 -0.1069  0.0610  3.6721 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0034101 0.05840 
+##  participant_ID (Intercept) 0.0597070 0.24435 
+##  program_ID     (Intercept) 0.0008245 0.02871 
+##  Residual                   0.0735040 0.27112 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                       Estimate Std. Error t value
+## (Intercept)           0.108429   0.071919   1.508
+## dm_ask               -0.027109   0.016948  -1.600
+## dm_obs               -0.029492   0.017135  -1.721
+## dm_gen                0.028703   0.016062   1.787
+## dm_mod                0.023877   0.017261   1.383
+## dm_com               -0.008452   0.016816  -0.503
+## overall_pre_interest  0.018387   0.022347   0.823
+## 
+## Correlation of Fixed Effects:
+##             (Intr) dm_ask dm_obs dm_gen dm_mod dm_com
+## dm_ask      -0.047                                   
+## dm_obs      -0.012 -0.270                            
+## dm_gen      -0.023 -0.088 -0.183                     
+## dm_mod       0.001 -0.229 -0.069 -0.186              
+## dm_com      -0.071 -0.168  0.034 -0.165 -0.332       
+## ovrll_pr_nt -0.945  0.015 -0.008 -0.024 -0.008  0.028</code></pre>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_1 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1643.3
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.3874 -0.4718 -0.2604 -0.1235  3.0092 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.001259 0.03548 
+##  participant_ID (Intercept) 0.009832 0.09915 
+##  program_ID     (Intercept) 0.001011 0.03179 
+##  Residual                   0.101035 0.31786 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                              Estimate Std. Error t value
+## (Intercept)                  0.138126   0.050091   2.757
+## dm_ask                       0.042298   0.059319   0.713
+## overall_pre_interest        -0.009283   0.015514  -0.598
+## dm_obs                       0.076678   0.058422   1.312
+## dm_gen                      -0.030195   0.057677  -0.524
+## dm_mod                      -0.078078   0.061011  -1.280
+## dm_com                       0.086202   0.060084   1.435
+## dm_ask:overall_pre_interest -0.006264   0.018332  -0.342
+## overall_pre_interest:dm_obs -0.020568   0.018256  -1.127
+## overall_pre_interest:dm_gen  0.015726   0.017854   0.881
+## overall_pre_interest:dm_mod  0.017224   0.018960   0.908
+## overall_pre_interest:dm_com -0.022340   0.018370  -1.216
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.149                                          
+## ovrll_pr_nt         -0.939  0.146                                   
+## dm_obs              -0.102 -0.259  0.101                            
+## dm_gen              -0.171 -0.150  0.175 -0.186                     
+## dm_mod              -0.008 -0.258  0.010 -0.080 -0.138              
+## dm_com              -0.252 -0.158  0.236  0.068 -0.230 -0.349       
+## dm_sk:vrl__          0.149 -0.958 -0.158  0.244  0.138  0.245  0.147
+## ovrll_pr_ntrst:dm_b  0.096  0.241 -0.103 -0.956  0.178  0.075 -0.054
+## ovrll_pr_ntrst:dm_g  0.172  0.137 -0.197  0.179 -0.960  0.151  0.207
+## ovrll_pr_ntrst:dm_m  0.009  0.243 -0.014  0.075  0.150 -0.959  0.323
+## ovrll_pr_ntrst:dm_c  0.244  0.150 -0.247 -0.056  0.210  0.328 -0.960
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.250                                        
+## ovrll_pr_ntrst:dm_g -0.130 -0.187                                 
+## ovrll_pr_ntrst:dm_m -0.248 -0.075              -0.180             
+## ovrll_pr_ntrst:dm_c -0.154  0.045              -0.199             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.328             
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_2 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2342.2
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.35735 -0.53528 -0.18239 -0.02329  2.67738 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  beep_ID        (Intercept) 0.000415 0.02037 
+##  participant_ID (Intercept) 0.047840 0.21872 
+##  program_ID     (Intercept) 0.002564 0.05063 
+##  Residual                   0.125536 0.35431 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                               Estimate Std. Error t value
+## (Intercept)                  0.3910463  0.0783944   4.988
+## dm_ask                      -0.0091244  0.0655234  -0.139
+## overall_pre_interest        -0.0502733  0.0243267  -2.067
+## dm_obs                       0.0542236  0.0643449   0.843
+## dm_gen                      -0.0903132  0.0641904  -1.407
+## dm_mod                      -0.0323723  0.0670661  -0.483
+## dm_com                       0.0547739  0.0668477   0.819
+## dm_ask:overall_pre_interest -0.0001163  0.0203325  -0.006
+## overall_pre_interest:dm_obs -0.0154023  0.0201875  -0.763
+## overall_pre_interest:dm_gen  0.0252336  0.0199414   1.265
+## overall_pre_interest:dm_mod  0.0106712  0.0209287   0.510
+## overall_pre_interest:dm_com -0.0197054  0.0205143  -0.961
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.110                                          
+## ovrll_pr_nt         -0.941  0.108                                   
+## dm_obs              -0.069 -0.252  0.068                            
+## dm_gen              -0.122 -0.143  0.127 -0.192                     
+## dm_mod               0.001 -0.257  0.001 -0.074 -0.145              
+## dm_com              -0.181 -0.151  0.170  0.063 -0.232 -0.349       
+## dm_sk:vrl__          0.110 -0.961 -0.117  0.238  0.131  0.246  0.140
+## ovrll_pr_ntrst:dm_b  0.065  0.236 -0.069 -0.959  0.183  0.069 -0.048
+## ovrll_pr_ntrst:dm_g  0.124  0.130 -0.142  0.185 -0.963  0.159  0.209
+## ovrll_pr_ntrst:dm_m  0.001  0.243 -0.004  0.069  0.158 -0.962  0.324
+## ovrll_pr_ntrst:dm_c  0.175  0.143 -0.176 -0.050  0.212  0.330 -0.963
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.243                                        
+## ovrll_pr_ntrst:dm_g -0.123 -0.192                                 
+## ovrll_pr_ntrst:dm_m -0.248 -0.069              -0.188             
+## ovrll_pr_ntrst:dm_c -0.146  0.037              -0.201             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.327             
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_3 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1481.3
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.8385 -0.3686 -0.1379 -0.0193  3.2364 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev. 
+##  beep_ID        (Intercept) 2.073e-03 4.553e-02
+##  participant_ID (Intercept) 3.332e-02 1.825e-01
+##  program_ID     (Intercept) 2.004e-15 4.476e-08
+##  Residual                   8.826e-02 2.971e-01
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                              Estimate Std. Error t value
+## (Intercept)                  0.065384   0.061314   1.066
+## dm_ask                      -0.008431   0.057360  -0.147
+## overall_pre_interest         0.028552   0.019291   1.480
+## dm_obs                      -0.015056   0.056315  -0.267
+## dm_gen                      -0.002382   0.055944  -0.043
+## dm_mod                       0.073853   0.058689   1.258
+## dm_com                      -0.123942   0.058084  -2.134
+## dm_ask:overall_pre_interest  0.000858   0.017656   0.049
+## overall_pre_interest:dm_obs  0.007393   0.017531   0.422
+## overall_pre_interest:dm_gen -0.004071   0.017254  -0.236
+## overall_pre_interest:dm_mod -0.021623   0.018166  -1.190
+## overall_pre_interest:dm_com  0.036334   0.017706   2.052
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.121                                          
+## ovrll_pr_nt         -0.958  0.115                                   
+## dm_obs              -0.075 -0.252  0.072                            
+## dm_gen              -0.134 -0.148  0.135 -0.188                     
+## dm_mod               0.000 -0.258  0.001 -0.078 -0.138              
+## dm_com              -0.210 -0.154  0.194  0.061 -0.228 -0.353       
+## dm_sk:vrl__          0.117 -0.956 -0.123  0.238  0.136  0.244  0.143
+## ovrll_pr_ntrst:dm_b  0.073  0.235 -0.078 -0.953  0.179  0.072 -0.048
+## ovrll_pr_ntrst:dm_g  0.139  0.135 -0.155  0.181 -0.958  0.150  0.205
+## ovrll_pr_ntrst:dm_m  0.002  0.242 -0.006  0.072  0.150 -0.956  0.326
+## ovrll_pr_ntrst:dm_c  0.198  0.146 -0.197 -0.049  0.208  0.332 -0.958
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.244                                        
+## ovrll_pr_ntrst:dm_g -0.129 -0.188                                 
+## ovrll_pr_ntrst:dm_m -0.248 -0.073              -0.180             
+## ovrll_pr_ntrst:dm_c -0.149  0.038              -0.198             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.332             
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_4 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1367.5
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.5204 -0.4212 -0.2543 -0.1350  3.1707 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev. 
+##  beep_ID        (Intercept) 7.622e-16 2.761e-08
+##  participant_ID (Intercept) 9.743e-03 9.871e-02
+##  program_ID     (Intercept) 0.000e+00 0.000e+00
+##  Residual                   9.150e-02 3.025e-01
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                              Estimate Std. Error t value
+## (Intercept)                  0.069126   0.044400   1.557
+## dm_ask                       0.011146   0.054753   0.204
+## overall_pre_interest         0.018930   0.014039   1.348
+## dm_obs                      -0.042983   0.053926  -0.797
+## dm_gen                       0.095779   0.053397   1.794
+## dm_mod                       0.003930   0.056277   0.070
+## dm_com                      -0.023310   0.055281  -0.422
+## dm_ask:overall_pre_interest -0.003978   0.016998  -0.234
+## overall_pre_interest:dm_obs  0.008096   0.016919   0.478
+## overall_pre_interest:dm_gen -0.038156   0.016628  -2.295
+## overall_pre_interest:dm_mod -0.004118   0.017579  -0.234
+## overall_pre_interest:dm_com  0.012562   0.016998   0.739
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.155                                          
+## ovrll_pr_nt         -0.961  0.149                                   
+## dm_obs              -0.107 -0.258  0.103                            
+## dm_gen              -0.169 -0.148  0.174 -0.190                     
+## dm_mod              -0.006 -0.256  0.008 -0.079 -0.143              
+## dm_com              -0.277 -0.161  0.259  0.073 -0.237 -0.343       
+## dm_sk:vrl__          0.152 -0.962 -0.159  0.243  0.135  0.245  0.151
+## ovrll_pr_ntrst:dm_b  0.103  0.241 -0.107 -0.960  0.182  0.074 -0.059
+## ovrll_pr_ntrst:dm_g  0.177  0.133 -0.200  0.184 -0.963  0.157  0.213
+## ovrll_pr_ntrst:dm_m  0.009  0.242 -0.014  0.075  0.157 -0.963  0.317
+## ovrll_pr_ntrst:dm_c  0.265  0.154 -0.263 -0.061  0.216  0.323 -0.963
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.247                                        
+## ovrll_pr_ntrst:dm_g -0.126 -0.191                                 
+## ovrll_pr_ntrst:dm_m -0.247 -0.076              -0.186             
+## ovrll_pr_ntrst:dm_c -0.158  0.049              -0.204             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.320             
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_5 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 2445.8
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.14988 -0.54534 -0.26808 -0.05852  2.58919 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0006747 0.02597 
+##  participant_ID (Intercept) 0.0351339 0.18744 
+##  program_ID     (Intercept) 0.0023285 0.04825 
+##  Residual                   0.1332003 0.36497 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                              Estimate Std. Error t value
+## (Intercept)                  0.241844   0.072431   3.339
+## dm_ask                       0.026557   0.067591   0.393
+## overall_pre_interest        -0.011487   0.022439  -0.512
+## dm_obs                      -0.039654   0.066429  -0.597
+## dm_gen                      -0.015909   0.066134  -0.241
+## dm_mod                       0.004230   0.069272   0.061
+## dm_com                       0.031114   0.068869   0.452
+## dm_ask:overall_pre_interest -0.002870   0.020958  -0.137
+## overall_pre_interest:dm_obs  0.016939   0.020826   0.813
+## overall_pre_interest:dm_gen  0.007394   0.020531   0.360
+## overall_pre_interest:dm_mod -0.001579   0.021599  -0.073
+## overall_pre_interest:dm_com -0.011242   0.021118  -0.532
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.122                                          
+## ovrll_pr_nt         -0.939  0.120                                   
+## dm_obs              -0.078 -0.254  0.077                            
+## dm_gen              -0.136 -0.145  0.141 -0.191                     
+## dm_mod              -0.001 -0.258  0.003 -0.076 -0.144              
+## dm_com              -0.201 -0.152  0.189  0.064 -0.231 -0.349       
+## dm_sk:vrl__          0.121 -0.960 -0.129  0.240  0.132  0.246  0.142
+## ovrll_pr_ntrst:dm_b  0.073  0.237 -0.078 -0.958  0.182  0.070 -0.049
+## ovrll_pr_ntrst:dm_g  0.138  0.131 -0.158  0.184 -0.962  0.157  0.209
+## ovrll_pr_ntrst:dm_m  0.002  0.243 -0.006  0.071  0.157 -0.961  0.323
+## ovrll_pr_ntrst:dm_c  0.195  0.144 -0.196 -0.051  0.212  0.329 -0.962
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.245                                        
+## ovrll_pr_ntrst:dm_g -0.125 -0.191                                 
+## ovrll_pr_ntrst:dm_m -0.248 -0.071              -0.186             
+## ovrll_pr_ntrst:dm_c -0.148  0.039              -0.201             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.327             
+## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: 
+## profile_6 ~ 1 + dm_ask * overall_pre_interest + dm_obs * overall_pre_interest +  
+##     dm_gen * overall_pre_interest + dm_mod * overall_pre_interest +  
+##     dm_com * overall_pre_interest + (1 | participant_ID) + (1 |  
+##     beep_ID) + (1 | program_ID)
+##    Data: d
+## 
+## REML criterion at convergence: 1176.9
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.8371 -0.3701 -0.1075  0.0612  3.6686 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev.
+##  beep_ID        (Intercept) 0.0034474 0.05871 
+##  participant_ID (Intercept) 0.0597920 0.24452 
+##  program_ID     (Intercept) 0.0007679 0.02771 
+##  Residual                   0.0736222 0.27133 
+## Number of obs: 2553, groups:  
+## beep_ID, 236; participant_ID, 181; program_ID, 9
+## 
+## Fixed effects:
+##                               Estimate Std. Error t value
+## (Intercept)                  0.1171965  0.0762451   1.537
+## dm_ask                      -0.0524723  0.0545826  -0.961
+## overall_pre_interest         0.0154551  0.0238658   0.648
+## dm_obs                      -0.0137862  0.0535136  -0.258
+## dm_gen                       0.0160853  0.0531793   0.302
+## dm_mod                       0.0250659  0.0557612   0.450
+## dm_com                      -0.0021346  0.0553096  -0.039
+## dm_ask:overall_pre_interest  0.0082560  0.0166715   0.495
+## overall_pre_interest:dm_obs -0.0050925  0.0165330  -0.308
+## overall_pre_interest:dm_gen  0.0041231  0.0162654   0.254
+## overall_pre_interest:dm_mod -0.0004229  0.0171157  -0.025
+## overall_pre_interest:dm_com -0.0018674  0.0167280  -0.112
+## 
+## Correlation of Fixed Effects:
+##                     (Intr) dm_ask ovrl__ dm_obs dm_gen dm_mod dm_com
+## dm_ask              -0.094                                          
+## ovrll_pr_nt         -0.951  0.088                                   
+## dm_obs              -0.056 -0.250  0.054                            
+## dm_gen              -0.106 -0.149  0.104 -0.185                     
+## dm_mod               0.000 -0.259  0.000 -0.078 -0.135              
+## dm_com              -0.158 -0.152  0.144  0.054 -0.222 -0.358       
+## dm_sk:vrl__          0.090 -0.950 -0.095  0.234  0.137  0.244  0.140
+## ovrll_pr_ntrst:dm_b  0.054  0.231 -0.058 -0.947  0.176  0.072 -0.042
+## ovrll_pr_ntrst:dm_g  0.108  0.136 -0.120  0.177 -0.953  0.145  0.199
+## ovrll_pr_ntrst:dm_m  0.001  0.242 -0.003  0.071  0.145 -0.950  0.330
+## ovrll_pr_ntrst:dm_c  0.148  0.142 -0.148 -0.043  0.202  0.336 -0.952
+##                     dm_:__ ovrll_pr_ntrst:dm_b ovrll_pr_ntrst:dm_g
+## dm_ask                                                            
+## ovrll_pr_nt                                                       
+## dm_obs                                                            
+## dm_gen                                                            
+## dm_mod                                                            
+## dm_com                                                            
+## dm_sk:vrl__                                                       
+## ovrll_pr_ntrst:dm_b -0.242                                        
+## ovrll_pr_ntrst:dm_g -0.131 -0.186                                 
+## ovrll_pr_ntrst:dm_m -0.249 -0.072              -0.175             
+## ovrll_pr_ntrst:dm_c -0.146  0.033              -0.194             
+##                     ovrll_pr_ntrst:dm_m
+## dm_ask                                 
+## ovrll_pr_nt                            
+## dm_obs                                 
+## dm_gen                                 
+## dm_mod                                 
+## dm_com                                 
+## dm_sk:vrl__                            
+## ovrll_pr_ntrst:dm_b                    
+## ovrll_pr_ntrst:dm_g                    
+## ovrll_pr_ntrst:dm_m                    
+## ovrll_pr_ntrst:dm_c -0.339</code></pre>
 </div>
 <div id="research-question-4" class="section level2">
 <h2><span class="header-section-number">5.5</span> Research Question #4</h2>

@@ -24,6 +24,7 @@ library(corrr)
 library(jmRtools)
 library(tidyLPA)
 library(kableExtra)
+library(sJplot)
 ```
 
 ```{r, loading-data, eval = F}
@@ -451,13 +452,13 @@ highly challenged (*n* = 158) profiles. This--and, critically, the lower log-lik
 
 ```{r, spec-solutions-m1_6-alt, cache = FALSE, eval = FALSE}
 m1_6_alt <- estimate_profiles_mplus(df,  
-                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                                starts = c(600, 120),
-                                model = 1,
-                                n_profiles = 6,
-                                include_BLRT=TRUE,
-                                n_processors = 6, remove_tmp_files = FALSE,
-                                optseed = 49221)
+                                    dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                    starts = c(600, 120),
+                                    model = 1,
+                                    n_profiles = 6,
+                                    include_BLRT=TRUE,
+                                    n_processors = 6, remove_tmp_files = FALSE,
+                                    optseed = 49221)
 write_rds(m1_6_alt, "data/models/m1_6_alt.rds")
 ```
 
@@ -510,12 +511,12 @@ When investigating an alternate solution (associated with the second lowest log-
 
 ```{r, spec-solutions-m1_7-other-LL, cache = FALSE, eval = FALSE}
 m1_7_alt <- estimate_profiles_mplus(df,  
-                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                                starts = c(600, 120),
-                                model = 1,
-                                n_profiles = 7,
-                                include_BLRT=TRUE,
-                                n_processors = 6, remove_tmp_files = FALSE, optseed = 597614)
+                                    dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                    starts = c(600, 120),
+                                    model = 1,
+                                    n_profiles = 7,
+                                    include_BLRT=TRUE,
+                                    n_processors = 6, remove_tmp_files = FALSE, optseed = 597614)
 write_rds(m1_7_alt, "data/models/m1_7_alt.rds")
 ```
 
@@ -647,9 +648,291 @@ The model 1, six and seven profile solutions are compelling because both show pr
 
 Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.
 
+```{r, rq2-proc, cache = TRUE}
+m <- read_rds("data/models/m1_6.rds")
+plot_profiles_mplus(m1_6, to_scale = TRUE)
+
+cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
+C <- m %>% pull(C)
+
+C_p <- select(m, CPROB1:CPROB6) %>% 
+  apply(MARGIN = 1, FUN = max)
+
+df_ss <- df[cc, ]
+df_ss$profile <- C
+df_ss$profile_p <- C_p
+
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest)
+
+d <- d %>% 
+  mutate(
+    profile_1 = ifelse(profile == 1, 1, 0),
+    profile_2 = ifelse(profile == 2, 1, 0),
+    profile_3 = ifelse(profile == 3, 1, 0),
+    profile_4 = ifelse(profile == 4, 1, 0),
+    profile_5 = ifelse(profile == 5, 1, 0),
+    profile_6 = ifelse(profile == 6, 1, 0),
+    profile_1_p = ifelse(profile == 1, profile_p, 0),
+    profile_2_p = ifelse(profile == 2, profile_p, 0),
+    profile_3_p = ifelse(profile == 3, profile_p, 0),
+    profile_4_p = ifelse(profile == 4, profile_p, 0),
+    profile_5_p = ifelse(profile == 5, profile_p, 0),
+    profile_6_p = ifelse(profile == 6, profile_p, 0)
+  )
+```
+
+
+```{r, rq2-models-null, cache = TRUE}
+m1 <- lmer(profile_1_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m1)
+
+m2 <- lmer(profile_2_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m2)
+
+m3 <- lmer(profile_3_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m3)
+
+m4 <- lmer(profile_4_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m4)
+
+m5 <- lmer(profile_5_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m5)
+
+m6 <- lmer(profile_6_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+summary(m6)
+```
+
+```{r, rq1-preds, cache = TRUE}
+m1a <- lmer(profile_1 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m1a)
+
+m2a <- lmer(profile_2 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m2a)
+
+m3a <- lmer(profile_3 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m3a)
+
+m4a <- lmer(profile_4 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m4a)
+
+m5a <- lmer(profile_5 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m5a)
+
+m6a <- lmer(profile_6 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m6a)
+```
+
 ## Research Question #3
 
-Research question #3 is focused on
+Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
+
+```{r, rq2-int, cache = TRUE}
+m1b <- lmer(profile_1 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest
+            (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m1b)
+
+m2b <- lmer(profile_2 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m2b)
+
+m3b <- lmer(profile_3 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m3b)
+
+m4b <- lmer(profile_4 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m4b)
+
+m5b <- lmer(profile_5 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m5b)
+
+m6b <- lmer(profile_6 ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m6b)
+```
+
+```{r, rq2-int-interaction, cache = TRUE}
+m1c <- lmer(profile_1 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m1c)
+
+m2c <- lmer(profile_2 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m2c)
+
+m3c <- lmer(profile_3 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m3c)
+
+m4c <- lmer(profile_4 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m4c)
+
+m5c <- lmer(profile_5 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m5c)
+
+m6c <- lmer(profile_6 ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+summary(m6c)
+```
 
 ## Research Question #4
 
