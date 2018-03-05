@@ -25,7 +25,7 @@
 <meta name="author" content="Joshua M. Rosenberg">
 
 
-<meta name="date" content="2018-03-02">
+<meta name="date" content="2018-03-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -102,16 +102,16 @@
 <li class="chapter" data-level="5.2.6" data-path="results.html"><a href="results.html#model-2-candidate-solutions"><i class="fa fa-check"></i><b>5.2.6</b> Model 2 candidate solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#research-question-2"><i class="fa fa-check"></i><b>5.3</b> Research Question #2</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="results.html"><a href="results.html#all-variables-separate"><i class="fa fa-check"></i><b>5.3.1</b> All variables separate</a></li>
-<li class="chapter" data-level="5.3.2" data-path="results.html"><a href="results.html#all-variables-together"><i class="fa fa-check"></i><b>5.3.2</b> All variables together</a></li>
-<li class="chapter" data-level="5.3.3" data-path="results.html"><a href="results.html#composites-together"><i class="fa fa-check"></i><b>5.3.3</b> Composites together</a></li>
-<li class="chapter" data-level="5.3.4" data-path="results.html"><a href="results.html#composites-separate"><i class="fa fa-check"></i><b>5.3.4</b> Composites separate</a></li>
+<li class="chapter" data-level="5.3.1" data-path="results.html"><a href="results.html#null-models"><i class="fa fa-check"></i><b>5.3.1</b> Null models</a></li>
+<li class="chapter" data-level="5.3.2" data-path="results.html"><a href="results.html#all-variables-separate"><i class="fa fa-check"></i><b>5.3.2</b> All variables separate</a></li>
+<li class="chapter" data-level="5.3.3" data-path="results.html"><a href="results.html#composite"><i class="fa fa-check"></i><b>5.3.3</b> Composite</a></li>
+<li class="chapter" data-level="5.3.4" data-path="results.html"><a href="results.html#looking-across-findings-for-research-question-2"><i class="fa fa-check"></i><b>5.3.4</b> Looking across findings for research question #2</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#research-question-3"><i class="fa fa-check"></i><b>5.4</b> Research Question #3</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="results.html"><a href="results.html#all-variables-separate-1"><i class="fa fa-check"></i><b>5.4.1</b> All variables separate</a></li>
-<li class="chapter" data-level="5.4.2" data-path="results.html"><a href="results.html#all-variables-together-1"><i class="fa fa-check"></i><b>5.4.2</b> All variables together</a></li>
-<li class="chapter" data-level="5.4.3" data-path="results.html"><a href="results.html#composites-together-1"><i class="fa fa-check"></i><b>5.4.3</b> Composites together</a></li>
-<li class="chapter" data-level="5.4.4" data-path="results.html"><a href="results.html#composites-separate-1"><i class="fa fa-check"></i><b>5.4.4</b> Composites separate</a></li>
+<li class="chapter" data-level="5.4.1" data-path="results.html"><a href="results.html#just-interest"><i class="fa fa-check"></i><b>5.4.1</b> Just interest</a></li>
+<li class="chapter" data-level="5.4.2" data-path="results.html"><a href="results.html#composite-1"><i class="fa fa-check"></i><b>5.4.2</b> Composite</a></li>
+<li class="chapter" data-level="5.4.3" data-path="results.html"><a href="results.html#composite-with-interest"><i class="fa fa-check"></i><b>5.4.3</b> Composite with interest</a></li>
+<li class="chapter" data-level="5.4.4" data-path="results.html"><a href="results.html#looking-across-findings-for-research-question-3"><i class="fa fa-check"></i><b>5.4.4</b> Looking across findings for research question #3</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="results.html"><a href="results.html#research-question-4"><i class="fa fa-check"></i><b>5.5</b> Research Question #4</a></li>
 </ul></li>
@@ -326,40 +326,454 @@ Figure 5.2: Fit statistics for model 2
 <div id="research-question-2" class="section level2">
 <h2><span class="header-section-number">5.3</span> Research Question #2</h2>
 <p>Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.</p>
-<p><img src="rosenberg-dissertation_files/figure-html/rq2-proc-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<pre><code>## Error in inherits(fit, c(&quot;lmerMod&quot;, &quot;glmerMod&quot;, &quot;nlmerMod&quot;, &quot;merModLmerTest&quot;)): object &#39;modecl&#39; not found
-## Error in mutate(o, model = c(str_c(&quot;profile_&quot;, 1:6), str_c(&quot;profile_&quot;, : object &#39;o&#39; not found</code></pre>
+<p>Here is the model 1, six profile solution. [need to change profile names in this plot and subsequent models]</p>
+<p><img src="rosenberg-dissertation_files/figure-html/rq2-3-proc-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="null-models" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Null models</h3>
+<p>The null models presented in table 4.5 provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from 0.099 to 0.427. Noteworthy, the ICC was highest for the full profile. The other profile characterized by a consistent pattern across all of the variables–the universally low profile–had a modest ICC, 0.265.</p>
+
+</div>
 <div id="all-variables-separate" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> All variables separate</h3>
+<h3><span class="header-section-number">5.3.2</span> All variables separate</h3>
+<p>First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworth is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations etween communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">rowname</th>
+<th align="left">dm_ask</th>
+<th align="left">dm_obs</th>
+<th align="left">dm_gen</th>
+<th align="left">dm_mod</th>
+<th align="left">dm_com</th>
+<th align="left">dm_composite</th>
+<th align="left">profile_1_p</th>
+<th align="left">profile_2_p</th>
+<th align="left">profile_3_p</th>
+<th align="left">profile_4_p</th>
+<th align="left">profile_5_p</th>
+<th align="left">profile_6_p</th>
+<th align="left">overall_pre_interest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dm_ask</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">dm_obs</td>
+<td align="left">.38</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">dm_gen</td>
+<td align="left">.31</td>
+<td align="left">.30</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">dm_mod</td>
+<td align="left">.41</td>
+<td align="left">.27</td>
+<td align="left">.35</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">dm_com</td>
+<td align="left">.39</td>
+<td align="left">.16</td>
+<td align="left">.33</td>
+<td align="left">.46</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">dm_composite</td>
+<td align="left">.73</td>
+<td align="left">.60</td>
+<td align="left">.67</td>
+<td align="left">.73</td>
+<td align="left">.69</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_1_p</td>
+<td align="left">.02</td>
+<td align="left">.03</td>
+<td align="left">.04</td>
+<td align="left">.01</td>
+<td align="left">.03</td>
+<td align="left">.04</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_2_p</td>
+<td align="left">-.01</td>
+<td align="left">-.01</td>
+<td align="left">.00</td>
+<td align="left">-.01</td>
+<td align="left">.01</td>
+<td align="left">-.00</td>
+<td align="left">-.20</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_3_p</td>
+<td align="left">.01</td>
+<td align="left">.02</td>
+<td align="left">-.00</td>
+<td align="left">.02</td>
+<td align="left">.01</td>
+<td align="left">.02</td>
+<td align="left">-.16</td>
+<td align="left">-.23</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_4_p</td>
+<td align="left">-.01</td>
+<td align="left">-.03</td>
+<td align="left">-.03</td>
+<td align="left">-.02</td>
+<td align="left">.01</td>
+<td align="left">-.02</td>
+<td align="left">-.14</td>
+<td align="left">-.20</td>
+<td align="left">-.15</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_5_p</td>
+<td align="left">.01</td>
+<td align="left">.02</td>
+<td align="left">-.01</td>
+<td align="left">-.01</td>
+<td align="left">-.02</td>
+<td align="left">-.00</td>
+<td align="left">-.19</td>
+<td align="left">-.28</td>
+<td align="left">-.22</td>
+<td align="left">-.19</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_6_p</td>
+<td align="left">-.03</td>
+<td align="left">-.03</td>
+<td align="left">-.02</td>
+<td align="left">.01</td>
+<td align="left">-.05</td>
+<td align="left">-.04</td>
+<td align="left">-.16</td>
+<td align="left">-.24</td>
+<td align="left">-.18</td>
+<td align="left">-.16</td>
+<td align="left">-.23</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">overall_pre_interest</td>
+<td align="left">-.05</td>
+<td align="left">.02</td>
+<td align="left">.05</td>
+<td align="left">.00</td>
+<td align="left">-.09</td>
+<td align="left">-.02</td>
+<td align="left">-.03</td>
+<td align="left">-.10</td>
+<td align="left">.11</td>
+<td align="left">.02</td>
+<td align="left">-.04</td>
+<td align="left">.08</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>In order to determine whether these very small correlations are in part due to the dichotomous codes for work with data, a Spearman’s correlation between the profile classifications (as a dichotomous variable) and the aspects of work with data was also carried out. These values were also very small, ranging from .00 to .04.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">rowname</th>
+<th align="left">dm_ask</th>
+<th align="left">dm_obs</th>
+<th align="left">dm_gen</th>
+<th align="left">dm_mod</th>
+<th align="left">dm_com</th>
+<th align="left">profile_1</th>
+<th align="left">profile_2</th>
+<th align="left">profile_3</th>
+<th align="left">profile_4</th>
+<th align="left">profile_5</th>
+<th align="left">profile_6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dm_ask</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">dm_obs</td>
+<td align="left">.38</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">dm_gen</td>
+<td align="left">.31</td>
+<td align="left">.30</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">dm_mod</td>
+<td align="left">.41</td>
+<td align="left">.27</td>
+<td align="left">.35</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">dm_com</td>
+<td align="left">.39</td>
+<td align="left">.16</td>
+<td align="left">.33</td>
+<td align="left">.46</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_1</td>
+<td align="left">.03</td>
+<td align="left">.03</td>
+<td align="left">.05</td>
+<td align="left">.01</td>
+<td align="left">.03</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_2</td>
+<td align="left">-.01</td>
+<td align="left">-.00</td>
+<td align="left">.00</td>
+<td align="left">-.00</td>
+<td align="left">.01</td>
+<td align="left">-.20</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_3</td>
+<td align="left">.01</td>
+<td align="left">.02</td>
+<td align="left">-.00</td>
+<td align="left">.02</td>
+<td align="left">.01</td>
+<td align="left">-.16</td>
+<td align="left">-.23</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_4</td>
+<td align="left">-.01</td>
+<td align="left">-.03</td>
+<td align="left">-.02</td>
+<td align="left">-.02</td>
+<td align="left">.01</td>
+<td align="left">-.14</td>
+<td align="left">-.20</td>
+<td align="left">-.15</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">profile_5</td>
+<td align="left">.01</td>
+<td align="left">.02</td>
+<td align="left">-.01</td>
+<td align="left">-.01</td>
+<td align="left">-.02</td>
+<td align="left">-.20</td>
+<td align="left">-.28</td>
+<td align="left">-.22</td>
+<td align="left">-.19</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">profile_6</td>
+<td align="left">-.04</td>
+<td align="left">-.03</td>
+<td align="left">-.02</td>
+<td align="left">.01</td>
+<td align="left">-.04</td>
+<td align="left">-.17</td>
+<td align="left">-.24</td>
+<td align="left">-.19</td>
+<td align="left">-.16</td>
+<td align="left">-.23</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with <em>p</em>-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (B = 0.027 (0.016), p = .04) and between generating data and full engagement (B = 0.027 (0.014), p = .03). For this profile, the participant-level ICC decreased slightly.</p>
+
 </div>
-<div id="all-variables-together" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> All variables together</h3>
-<pre><code>## Error in eval(lhs, parent, parent): object &#39;o&#39; not found
-## Error in eval(lhs, parent, parent): object &#39;o&#39; not found</code></pre>
+<div id="composite" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Composite</h3>
+<p>For the composite of work with data, the composite predicted profile 1 (B = 0.007 (0.004), p = .019), but not any of the other profiles. However, this coefficient is very small.</p>
+
 </div>
-<div id="composites-together" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Composites together</h3>
-</div>
-<div id="composites-separate" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Composites separate</h3>
+<div id="looking-across-findings-for-research-question-2" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Looking across findings for research question #2</h3>
+<p>When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles.</p>
 </div>
 </div>
 <div id="research-question-3" class="section level2">
 <h2><span class="header-section-number">5.4</span> Research Question #3</h2>
 <p>Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.</p>
-<pre><code>## Error in eval(lhs, parent, parent): object &#39;o&#39; not found
-## Error in eval(lhs, parent, parent): object &#39;o&#39; not found</code></pre>
-<div id="all-variables-separate-1" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> All variables separate</h3>
+<div id="just-interest" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Just interest</h3>
+<p>For the model only with pre-interest, pre-interest predicted profile 3 (B = 0.036 (0.015), p = .01), though none of the others reached statistical significance.</p>
+
 </div>
-<div id="all-variables-together-1" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> All variables together</h3>
+<div id="composite-1" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Composite</h3>
 </div>
-<div id="composites-together-1" class="section level3">
-<h3><span class="header-section-number">5.4.3</span> Composites together</h3>
+<div id="composite-with-interest" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Composite with interest</h3>
+
+<p>When adding the interaction between the composite for work with data and pre-program interest, no statistically significant relations emerge.</p>
+
 </div>
-<div id="composites-separate-1" class="section level3">
-<h3><span class="header-section-number">5.4.4</span> Composites separate</h3>
+<div id="looking-across-findings-for-research-question-3" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Looking across findings for research question #3</h3>
+<p>When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles.</p>
 </div>
 </div>
 <div id="research-question-4" class="section level2">
@@ -415,6 +829,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

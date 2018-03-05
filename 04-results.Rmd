@@ -165,7 +165,8 @@ df %>%
          dm_challenge,
          dm_competence) %>% 
   psych::describe() %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for continuous study variables", linesep = "")
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for continuous study variables", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 ```{r, include = FALSE}
@@ -866,6 +867,8 @@ tidy_model <- function(model) {
 
 ```
 
+The null models presented in table 4.5 provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from 0.099 to 0.427. Noteworthy, the ICC was highest for the full profile. The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, 0.265.
+
 ```{r, rq2-0-tab}
 l <- list(m1, m2, m3, m4, m5, m6)
 
@@ -884,6 +887,55 @@ o %>%
 ```
 
 ### All variables separate
+
+First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworth is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations etween communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. 
+
+```{r, rq2-1-corr}
+d %>% 
+  select(dm_ask:dm_com, dm_composite,
+         profile_1_p:profile_6_p,
+         overall_pre_interest) %>% 
+  corrr::correlate() %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+    kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+```{r, rq2-1-corr-p, eval = F}
+p_vals <- d %>% 
+  select(dm_ask:dm_com, dm_composite,
+         profile_1_p:profile_6_p,
+         overall_pre_interest) %>%
+  psych::corr.test() %>% 
+  pluck(4) %>% 
+  round(3)
+```
+
+In order to determine whether these very small correlations are in part due to the dichotomous codes for work with data, a Spearman's correlation between the profile classifications (as a dichotomous variable) and the aspects of work with data was
+also carried out. These values were also very small, ranging from .00 to .04. 
+
+```{r, rq2-1-corr-spearman}
+d %>% 
+  select(dm_ask:dm_com,
+         profile_1:profile_6) %>% 
+  corrr::correlate(method = "spearman") %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+    kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+```{r, rq2-1-corr-p-spearman, eval = F}
+p_vals <- d %>% 
+  select(dm_ask:dm_com,
+         profile_1:profile_6) %>% 
+  psych::corr.test(method = "spearman") %>% 
+  pluck(4) %>% 
+  round(3)
+```
+
+When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (B = 0.027 (0.016), p = .04) and between generating data and full engagement (B = 0.027 (0.014), p = .03). For this profile, the participant-level ICC decreased slightly.
 
 ```{r, rq2-1-tab}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
@@ -905,17 +957,9 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, rq2-1-corr}
-d %>% 
-  select(dm_ask:dm_com,
-         profile_1_p:profile_6_p) %>% 
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable()
-```
-
 ### Composite
+
+For the composite of work with data, the composite predicted profile 1 (B = 0.007 (0.004), p = .019), but not any of the other profiles. However, this coefficient is very small. 
 
 ```{r, tidy-model-com-func, cache = FALSE}
 
@@ -985,11 +1029,13 @@ o %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
+### Looking across findings for research question #2
+
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. 
+
 ## Research Question #3
 
 Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
-
-## Research Question #3
 
 ```{r, rq3-0-null}
 m1c0 <- lmer(profile_1_p ~ 1 +
@@ -1034,7 +1080,6 @@ m6c0 <- lmer(profile_6_p ~ 1 +
               (1 | program_ID),
             data = d)
 ```
-
 
 ```{r, rq3-1-all-vars-sep}
 m1c <- lmer(profile_1_p ~ 1 +
@@ -1156,6 +1201,8 @@ m6d <- lmer(profile_6_p ~ 1 +
 
 ### Just interest
 
+For the model only with pre-interest, pre-interest predicted profile 3 (B = 0.036 (0.015), p = .01), though none of the others reached statistical significance. 
+
 ```{r, rq3-1-tab}
 
 l <- list(m1c0, m2c0, m3c0, m4c0, m5c0, m6c0)
@@ -1176,9 +1223,9 @@ o %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-### All variables separate and interest
+```{r, eval = F}
 
-```{r}
+### All variables separate and interest
 
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
 
@@ -1201,9 +1248,10 @@ o %>%
 
 ```
 
-### All variables separate
+```{r, eval = F}
 
-```{r}
+### All variables separate
+s
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 
 o <- map_df(l, tidy_model)
@@ -1340,6 +1388,8 @@ o %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
+When adding the interaction between the composite for work with data and pre-program interest, no statistically significant relations emerge.
+
 ```{r, rq3-4-tab}
 l <- list(m1f, m2f, m3f, m4f, m5f, m6f)
 
@@ -1351,7 +1401,7 @@ o <- mutate(o, model = c(
 o %>% 
   select(model, 
          intercept = `(Intercept)`,
-         dm_composite, overall_pre_interest, dm_composite:overall_pre_interest,
+         dm_composite, overall_pre_interest, `dm_composite:overall_pre_interest`,
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
@@ -1359,6 +1409,10 @@ o %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
+
+### Looking across findings for research question #3
+
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. 
 
 ## Research Question #4
 
