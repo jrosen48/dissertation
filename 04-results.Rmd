@@ -654,7 +654,7 @@ Research question #2 is focused on the relations between each of the profiles an
 
 Here is the model 1, six profile solution.  [need to change profile names in this plot and subsequent models]
 
-```{r, rq2-3-proc, cache = TRUE}
+```{r, rq2-3-proc, cache = FALSE}
 m <- read_rds("data/models/m1_6.rds")
 plot_profiles_mplus(m1_6, to_scale = TRUE)
 
@@ -687,7 +687,7 @@ d <- d %>%
   )
 ```
 
-```{r, rq2-0-null, cache = TRUE}
+```{r, rq2-0-null, cache = FALSE}
 m1 <- lmer(profile_1_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
@@ -725,7 +725,7 @@ m6 <- lmer(profile_6_p ~ 1 +
            data = d)
 ```
 
-```{r, rq2-1-all-vars-com, cache = TRUE}
+```{r, rq2-1-all-vars-com, cache = FALSE}
 m1a <- lmer(profile_1_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
@@ -769,7 +769,7 @@ m6a <- lmer(profile_6_p ~ 1 +
             data = d)
 ```
 
-```{r, rq2-2-composite, cache = TRUE}
+```{r, rq2-2-composite, cache = FALSE}
 m1c <- lmer(profile_1_p ~ 1 +
               dm_composite +
               (1 | participant_ID) +
