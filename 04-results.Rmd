@@ -902,6 +902,18 @@ d %>%
     kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
+In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and teh aspects of work with data, ranging from (in absolute value terms) .00 to .06.
+
+```{r, rq2-1-corr-p, eval = F}
+d %>% 
+  select(dm_ask:dm_com, dm_cog_eng:dm_competence) %>%
+  corrr::correlate() %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable(booktabs = TRUE, format = "latex") %>% 
+    kableExtra::kable_styling(latex_options = "scale_down")
+```
+
 ```{r, rq2-1-corr-p, eval = F}
 p_vals <- d %>% 
   select(dm_ask:dm_com, dm_composite,
@@ -959,7 +971,7 @@ o %>%
 
 ### Composite
 
-For the composite of work with data, the composite predicted profile 1 (B = 0.007 (0.004), p = .019), but not any of the other profiles. However, this coefficient is very small. 
+For the composite of work with data, the composite predicted profile 1 (B = 0.008 (0.004), p = .019), but not any of the other profiles. However, this coefficient is very small. 
 
 ```{r, tidy-model-com-func, cache = FALSE}
 
@@ -1031,7 +1043,7 @@ o %>%
 
 ### Looking across findings for research question #2
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. 
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. This seemed to be the case for whether profiles or the variables that make up profiles were considered. Reasons for why this may be are discussed in the next chapter. 
 
 ## Research Question #3
 
@@ -1203,7 +1215,7 @@ m6d <- lmer(profile_6_p ~ 1 +
 
 For the model only with pre-interest, pre-interest predicted profile 3 (B = 0.036 (0.015), p = .01), though none of the others reached statistical significance. 
 
-```{r, rq3-1-tab}
+```{r, rq3-1-tab, eval = FALSE}
 
 l <- list(m1c0, m2c0, m3c0, m4c0, m5c0, m6c0)
 
@@ -1412,8 +1424,8 @@ o %>%
 
 ### Looking across findings for research question #3
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. 
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter.
 
 ## Research Question #4
 
-Research question #4 is focused on
+Research question #4 is focused on investigating specific findings of interest. 
