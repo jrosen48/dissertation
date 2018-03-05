@@ -46,7 +46,16 @@
 \contentsline {subsubsection}{\numberline {4.2.6.3}Model: 2, Profiles: 5}{60}{subsubsection.4.2.6.3}
 \contentsline {subsubsection}{\numberline {4.2.6.4}Looking across model 1 and model 2 solutions}{61}{subsubsection.4.2.6.4}
 \contentsline {section}{\numberline {4.3}Research Question \#2}{63}{section.4.3}
-\contentsline {section}{\numberline {4.4}Research Question \#3}{64}{section.4.4}
-\contentsline {section}{\numberline {4.5}Research Question \#4}{64}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{65}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{66}{chapter.6}
+\contentsline {subsection}{\numberline {4.3.1}Null models}{64}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}All variables separate}{64}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Composite}{66}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Research Question \#3}{66}{section.4.4}
+\contentsline {section}{\numberline {4.5}Research Question \#3}{67}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Just interest}{67}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}All variables separate and interest}{67}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}All variables separate}{69}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}Composite}{71}{subsection.4.5.4}
+\contentsline {subsection}{\numberline {4.5.5}Composite with interest}{71}{subsection.4.5.5}
+\contentsline {section}{\numberline {4.6}Research Question \#4}{73}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{74}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}References}{75}{chapter.6}

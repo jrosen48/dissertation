@@ -99,7 +99,6 @@ The present study is about how engagement can be used to understand how learners
 ```{r, caption = "A conceptual framework for this study with research questions labeled"}
 knitr::include_graphics("images/figure2.png")
 ```
- 
 
 There are five aspects of work with data synthesized from past research (i.e., Hancock et al., 1992; Lehrer & Romberg, 1996; Wild & Pfannkuch, 1999):
 1. Asking questions or identifying problems

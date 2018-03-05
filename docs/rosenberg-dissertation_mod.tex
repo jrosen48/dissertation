@@ -2265,84 +2265,210 @@ results for it are included in an appendix.
 Research question \#2 is focused on the relations between each of the
 profiles and the aspects of work with data.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/rq2-proc-1} \end{center}
+Here is the model 1, six profile solution. {[}need to change profile
+names in this plot and subsequent models{]}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/rq2-3-proc-1} \end{center}
+
+\subsection{Null models}\label{null-models}
+
+\begin{table}
+
+\caption{\label{tab:rq2-0-tab}Results of mixed effects models for null models (for RQ2)}
+\centering
+\begin{tabular}[t]{llrrr}
+\toprule
+model & intercept & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.114 (0.013) (p < .001) & 0.007 & 0.090 & 0.009\\
+profile\_2 & 0.222 (0.027) (p < .001) & 0.005 & 0.265 & 0.023\\
+profile\_3 & 0.131 (0.014) (p < .001) & 0.011 & 0.293 & 0.000\\
+profile\_4 & 0.109 (0.009) (p < .001) & 0.009 & 0.099 & 0.000\\
+profile\_5 & 0.203 (0.018) (p < .001) & 0.004 & 0.228 & 0.006\\
+profile\_6 & 0.15 (0.023) (p < .001) & 0.029 & 0.427 & 0.019\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{All variables separate}\label{all-variables-separate}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:rq2-1-tab}Results of mixed effects models for all variables separate (for RQ2)}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
+\toprule
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.099 (0.015) (p < .001) & 0.014 (0.014) (p = 0.158) & 0.019 (0.015) (p = 0.095) & 0.01 (0.014) (p = 0.225) & -0.02 (0.015) (p = 0.911) & 0.018 (0.014) (p = 0.107) & 0.010 & 0.094 & 0.008\\
+profile\_2 & 0.231 (0.029) (p < .001) & -0.005 (0.017) (p = 0.624) & 0.009 (0.017) (p = 0.301) & -0.013 (0.017) (p = 0.788) & 0.003 (0.017) (p = 0.421) & -0.013 (0.017) (p = 0.784) & 0.004 & 0.267 & 0.026\\
+profile\_3 & 0.138 (0.015) (p < .001) & -0.009 (0.014) (p = 0.742) & 0.011 (0.014) (p = 0.221) & -0.017 (0.014) (p = 0.894) & 0.007 (0.015) (p = 0.322) & -0.004 (0.014) (p = 0.599) & 0.013 & 0.287 & 0.000\\
+profile\_4 & 0.113 (0.011) (p < .001) & 0.004 (0.013) (p = 0.375) & -0.018 (0.013) (p = 0.915) & -0.014 (0.013) (p = 0.872) & -0.015 (0.013) (p = 0.867) & 0.018 (0.013) (p = 0.089) & 0.000 & 0.098 & 0.000\\
+profile\_5 & 0.195 (0.021) (p < .001) & 0.011 (0.017) (p = 0.27) & 0.012 (0.017) (p = 0.25) & 0.011 (0.016) (p = 0.243) & -0.01 (0.017) (p = 0.722) & -0.001 (0.017) (p = 0.528) & 0.007 & 0.226 & 0.008\\
+profile\_6 & 0.153 (0.025) (p < .001) & -0.02 (0.015) (p = 0.902) & -0.026 (0.015) (p = 0.955) & 0.027 (0.014) (p = 0.03) & 0.027 (0.016) (p = 0.04) & -0.018 (0.015) (p = 0.881) & 0.026 & 0.449 & 0.020\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l}
+\hline
+rowname & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & profile\_1\_p & profile\_2\_p & profile\_3\_p & profile\_4\_p & profile\_5\_p & profile\_6\_p\\
+\hline
+dm\_ask &  &  &  &  &  &  &  &  &  &  & \\
+\hline
+dm\_obs & .38 &  &  &  &  &  &  &  &  &  & \\
+\hline
+dm\_gen & .31 & .30 &  &  &  &  &  &  &  &  & \\
+\hline
+dm\_mod & .41 & .27 & .35 &  &  &  &  &  &  &  & \\
+\hline
+dm\_com & .39 & .16 & .33 & .46 &  &  &  &  &  &  & \\
+\hline
+profile\_1\_p & .02 & .03 & .04 & .01 & .03 &  &  &  &  &  & \\
+\hline
+profile\_2\_p & -.01 & -.01 & .00 & -.01 & .01 & -.20 &  &  &  &  & \\
+\hline
+profile\_3\_p & .01 & .02 & -.00 & .02 & .01 & -.16 & -.23 &  &  &  & \\
+\hline
+profile\_4\_p & -.01 & -.03 & -.03 & -.02 & .01 & -.14 & -.20 & -.15 &  &  & \\
+\hline
+profile\_5\_p & .01 & .02 & -.01 & -.01 & -.02 & -.19 & -.28 & -.22 & -.19 &  & \\
+\hline
+profile\_6\_p & -.03 & -.03 & -.02 & .01 & -.05 & -.16 & -.24 & -.18 & -.16 & -.23 & \\
+\hline
+\end{tabular}
+
+\subsection{Composite}\label{composite}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Results of mixed effects models for composites (for RQ2)}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
+\toprule
+model & intercept & dm\_composite & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.101 (0.014) (p < .001) & 0.007 (0.004) (p = 0.019) & 0.009 & 0.094 & 0.007\\
+profile\_2 & 0.229 (0.029) (p < .001) & -0.004 (0.004) (p = 0.841) & 0.003 & 0.267 & 0.026\\
+profile\_3 & 0.136 (0.015) (p < .001) & -0.003 (0.004) (p = 0.781) & 0.012 & 0.287 & 0.000\\
+profile\_4 & 0.115 (0.011) (p < .001) & -0.005 (0.003) (p = 0.919) & 0.000 & 0.098 & 0.000\\
+profile\_5 & 0.195 (0.021) (p < .001) & 0.004 (0.004) (p = 0.181) & 0.006 & 0.226 & 0.008\\
+profile\_6 & 0.153 (0.025) (p < .001) & -0.001 (0.004) (p = 0.558) & 0.027 & 0.447 & 0.020\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \section{Research Question \#3}\label{research-question-3}
 
 Research question \#3 is focused on how the relationships observed as
 part of RQ2 differ on the basis of pre-program interest.
 
+\section{Research Question \#3}\label{research-question-3-1}
+
+\subsection{Just interest}\label{just-interest}
+
 \begin{table}
 
-\caption{\label{tab:prep-df-for-rqs-2-and-3}Results of mixed effects models for null models (for RQ2)}
+\caption{\label{tab:rq3-1-tab}Results of mixed effects models for model 2 with just interest (for RQ3)}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{llrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
 \toprule
-model & intercept & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-profile\_1 & 0.114 (0.013) & 0.01 & 0.093 & 0.009\\
-profile\_2 & 0.222 (0.027) & 0.01 & 0.093 & 0.009\\
-profile\_3 & 0.131 (0.014) & 0.01 & 0.093 & 0.009\\
-profile\_4 & 0.109 (0.009) & 0.01 & 0.093 & 0.009\\
-profile\_5 & 0.203 (0.018) & 0.01 & 0.093 & 0.009\\
-profile\_6 & 0.15 (0.023) & 0.01 & 0.093 & 0.009\\
+profile\_1 & 0.16 (0.037) (p < .001) & -0.014 (0.011) (p = 0.899) & 0.007 & 0.090 & 0.011\\
+profile\_2 & 0.36 (0.069) (p < .001) & -0.043 (0.021) (p = 0.979) & 0.004 & 0.274 & 0.012\\
+profile\_3 & 0.015 (0.049) (p = 0.377) & 0.036 (0.015) (p = 0.01) & 0.009 & 0.288 & 0.000\\
+profile\_4 & 0.084 (0.034) (p = 0.007) & 0.009 (0.011) (p = 0.211) & 0.011 & 0.097 & 0.002\\
+profile\_5 & 0.25 (0.06) (p < .001) & -0.015 (0.019) (p = 0.788) & 0.004 & 0.223 & 0.010\\
+profile\_6 & 0.084 (0.065) (p = 0.098) & 0.021 (0.02) (p = 0.155) & 0.027 & 0.445 & 0.003\\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-\begin{table}
+\subsection{All variables separate and
+interest}\label{all-variables-separate-and-interest}
 
-\caption{\label{tab:prep-df-for-rqs-2-and-3}Results of mixed effects models for model 1 (for RQ2)}
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
-\toprule
-model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
-\midrule
-profile\_1 & 0.099 (0.015) & 0.014 (0.014) & 0.019 (0.015) & 0.01 (0.014) & -0.02 (0.015) & 0.018 (0.014) & 0.01 & 0.093 & 0.009\\
-profile\_2 & 0.231 (0.029) & -0.005 (0.017) & 0.009 (0.017) & -0.013 (0.017) & 0.003 (0.017) & -0.013 (0.017) & 0.01 & 0.093 & 0.009\\
-profile\_3 & 0.138 (0.015) & -0.009 (0.014) & 0.011 (0.014) & -0.017 (0.014) & 0.007 (0.015) & -0.004 (0.014) & 0.01 & 0.093 & 0.009\\
-profile\_4 & 0.113 (0.011) & 0.004 (0.013) & -0.018 (0.013) & -0.014 (0.013) & -0.015 (0.013) & 0.018 (0.013) & 0.01 & 0.093 & 0.009\\
-profile\_5 & 0.195 (0.021) & 0.011 (0.017) & 0.012 (0.017) & 0.011 (0.016) & -0.01 (0.017) & -0.001 (0.017) & 0.01 & 0.093 & 0.009\\
-profile\_6 & 0.153 (0.025) & -0.02 (0.015) & -0.026 (0.015) & 0.027 (0.014) & 0.027 (0.016) & -0.018 (0.015) & 0.01 & 0.093 & 0.009\\
-\bottomrule
-\end{tabular}}
-\end{table}
+\begin{landscape}\begin{table}
 
-\begin{table}
-
-\caption{\label{tab:prep-df-for-rqs-2-and-3}Results of mixed effects models for model 2 (for RQ3)}
+\caption{\label{tab:unnamed-chunk-7}Results of mixed effects models for all variables separate and interest (for RQ3)}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllllrrr}
 \toprule
 model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-profile\_1 & 0.143 (0.038) & 0.018 (0.015) & 0.015 (0.015) & 0.015 (0.014) & -0.022 (0.015) & 0.013 (0.015) & -0.014 (0.012) & 0.01 & 0.093 & 0.009\\
-profile\_2 & 0.383 (0.071) & -0.01 (0.018) & 0.005 (0.018) & -0.011 (0.017) & 0.002 (0.018) & -0.008 (0.018) & -0.048 (0.022) & 0.01 & 0.093 & 0.009\\
-profile\_3 & 0.024 (0.05) & -0.008 (0.014) & 0.012 (0.014) & -0.014 (0.014) & 0.001 (0.015) & -0.005 (0.014) & 0.036 (0.016) & 0.01 & 0.093 & 0.009\\
-profile\_4 & 0.091 (0.033) & 0.001 (0.014) & -0.017 (0.014) & -0.021 (0.013) & -0.012 (0.014) & 0.019 (0.014) & 0.008 (0.01) & 0.01 & 0.093 & 0.009\\
-profile\_5 & 0.225 (0.062) & 0.016 (0.018) & 0.014 (0.018) & 0.008 (0.017) & -0.003 (0.018) & -0.001 (0.018) & -0.011 (0.019) & 0.01 & 0.093 & 0.009\\
-profile\_6 & 0.095 (0.068) & -0.023 (0.015) & -0.026 (0.015) & 0.026 (0.015) & 0.024 (0.016) & -0.013 (0.015) & 0.018 (0.021) & 0.01 & 0.093 & 0.009\\
+profile\_1 & 0.143 (0.038) (p < .001) & 0.018 (0.015) (p = 0.12) & 0.015 (0.015) (p = 0.155) & 0.015 (0.014) (p = 0.14) & -0.022 (0.015) (p = 0.921) & 0.013 (0.015) (p = 0.187) & -0.014 (0.012) (p = 0.883) & 0.009 & 0.095 & 0.010\\
+profile\_2 & 0.383 (0.071) (p < .001) & -0.01 (0.018) (p = 0.714) & 0.005 (0.018) (p = 0.394) & -0.011 (0.017) (p = 0.738) & 0.002 (0.018) (p = 0.459) & -0.008 (0.018) (p = 0.681) & -0.048 (0.022) (p = 0.986) & 0.003 & 0.275 & 0.015\\
+profile\_3 & 0.024 (0.05) (p = 0.318) & -0.008 (0.014) (p = 0.706) & 0.012 (0.014) (p = 0.21) & -0.014 (0.014) (p = 0.844) & 0.001 (0.015) (p = 0.466) & -0.005 (0.014) (p = 0.637) & 0.036 (0.016) (p = 0.011) & 0.010 & 0.285 & 0.000\\
+profile\_4 & 0.091 (0.033) (p = 0.003) & 0.001 (0.014) (p = 0.479) & -0.017 (0.014) (p = 0.891) & -0.021 (0.013) (p = 0.947) & -0.012 (0.014) (p = 0.8) & 0.019 (0.014) (p = 0.087) & 0.008 (0.01) (p = 0.209) & 0.000 & 0.097 & 0.000\\
+profile\_5 & 0.225 (0.062) (p < .001) & 0.016 (0.018) (p = 0.178) & 0.014 (0.018) (p = 0.211) & 0.008 (0.017) (p = 0.311) & -0.003 (0.018) (p = 0.558) & -0.001 (0.018) (p = 0.514) & -0.011 (0.019) (p = 0.715) & 0.005 & 0.220 & 0.012\\
+profile\_6 & 0.095 (0.068) (p = 0.08) & -0.023 (0.015) (p = 0.93) & -0.026 (0.015) (p = 0.952) & 0.026 (0.015) (p = 0.036) & 0.024 (0.016) (p = 0.063) & -0.013 (0.015) (p = 0.795) & 0.018 (0.021) (p = 0.196) & 0.024 & 0.469 & 0.004\\
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
-\begin{table}
+\subsection{All variables separate}\label{all-variables-separate-1}
 
-\caption{\label{tab:prep-df-for-rqs-2-and-3}Results of mixed effects models for null models for model 3 (for RQ3)}
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}Results of mixed effects models for the all variables separate and interest interactions (for RQ3)}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllllllllrrr}
 \toprule
 model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & overall\_pre\_interest & overall\_pre\_interest:dm\_ask & overall\_pre\_interest:dm\_obs & overall\_pre\_interest:dm\_gen & overall\_pre\_interest:dm\_mod & overall\_pre\_interest:dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-profile\_1 & 0.125 (0.046) & 0.033 (0.053) & 0.086 (0.053) & -0.029 (0.052) & -0.078 (0.055) & 0.078 (0.054) & -0.008 (0.014) & -0.005 (0.016) & -0.023 (0.016) & 0.014 (0.016) & 0.018 (0.017) & -0.02 (0.017) & 0.01 & 0.093 & 0.009\\
-profile\_2 & 0.386 (0.077) & -0.008 (0.065) & 0.047 (0.063) & -0.092 (0.063) & -0.036 (0.066) & 0.061 (0.066) & -0.049 (0.024) & 0 (0.02) & -0.014 (0.02) & 0.026 (0.02) & 0.012 (0.021) & -0.022 (0.02) & 0.01 & 0.093 & 0.009\\
-profile\_3 & 0.057 (0.055) & -0.009 (0.05) & -0.007 (0.049) & -0.007 (0.049) & 0.062 (0.051) & -0.114 (0.051) & 0.025 (0.017) & 0 (0.015) & 0.006 (0.015) & -0.001 (0.015) & -0.019 (0.016) & 0.035 (0.016) & 0.01 & 0.093 & 0.009\\
-profile\_4 & 0.06 (0.041) & 0.003 (0.051) & -0.039 (0.05) & 0.088 (0.049) & -0.002 (0.052) & -0.013 (0.051) & 0.019 (0.013) & -0.002 (0.016) & 0.007 (0.016) & -0.035 (0.015) & -0.002 (0.016) & 0.009 (0.016) & 0.01 & 0.093 & 0.009\\
-profile\_5 & 0.236 (0.069) & 0.032 (0.064) & -0.017 (0.063) & -0.04 (0.062) & 0.003 (0.065) & 0.02 (0.065) & -0.015 (0.022) & -0.005 (0.02) & 0.01 (0.02) & 0.016 (0.019) & -0.002 (0.02) & -0.006 (0.02) & 0.01 & 0.093 & 0.009\\
-profile\_6 & 0.103 (0.072) & -0.04 (0.049) & -0.009 (0.048) & 0.004 (0.048) & 0.022 (0.05) & -0.001 (0.05) & 0.015 (0.022) & 0.006 (0.015) & -0.005 (0.015) & 0.007 (0.015) & 0 (0.015) & -0.003 (0.015) & 0.01 & 0.093 & 0.009\\
+profile\_1 & 0.125 (0.046) (p = 0.003) & 0.033 (0.053) (p = 0.269) & 0.086 (0.053) (p = 0.051) & -0.029 (0.052) (p = 0.714) & -0.078 (0.055) (p = 0.921) & 0.078 (0.054) (p = 0.075) & -0.008 (0.014) (p = 0.717) & -0.005 (0.016) (p = 0.618) & -0.023 (0.016) (p = 0.916) & 0.014 (0.016) (p = 0.193) & 0.018 (0.017) (p = 0.151) & -0.02 (0.017) (p = 0.888) & 0.010 & 0.093 & 0.009\\
+profile\_2 & 0.386 (0.077) (p < .001) & -0.008 (0.065) (p = 0.55) & 0.047 (0.063) (p = 0.229) & -0.092 (0.063) (p = 0.927) & -0.036 (0.066) (p = 0.708) & 0.061 (0.066) (p = 0.176) & -0.049 (0.024) (p = 0.98) & 0 (0.02) (p = 0.507) & -0.014 (0.02) (p = 0.753) & 0.026 (0.02) (p = 0.095) & 0.012 (0.021) (p = 0.288) & -0.022 (0.02) (p = 0.858) & 0.003 & 0.275 & 0.014\\
+profile\_3 & 0.057 (0.055) (p = 0.151) & -0.009 (0.05) (p = 0.568) & -0.007 (0.049) (p = 0.558) & -0.007 (0.049) (p = 0.555) & 0.062 (0.051) (p = 0.112) & -0.114 (0.051) (p = 0.987) & 0.025 (0.017) (p = 0.076) & 0 (0.015) (p = 0.488) & 0.006 (0.015) (p = 0.356) & -0.001 (0.015) (p = 0.537) & -0.019 (0.016) (p = 0.888) & 0.035 (0.016) (p = 0.013) & 0.011 & 0.286 & 0.000\\
+profile\_4 & 0.06 (0.041) (p = 0.074) & 0.003 (0.051) (p = 0.473) & -0.039 (0.05) (p = 0.781) & 0.088 (0.049) (p = 0.038) & -0.002 (0.052) (p = 0.518) & -0.013 (0.051) (p = 0.604) & 0.019 (0.013) (p = 0.072) & -0.002 (0.016) (p = 0.538) & 0.007 (0.016) (p = 0.328) & -0.035 (0.015) (p = 0.989) & -0.002 (0.016) (p = 0.555) & 0.009 (0.016) (p = 0.274) & 0.000 & 0.097 & 0.000\\
+profile\_5 & 0.236 (0.069) (p < .001) & 0.032 (0.064) (p = 0.307) & -0.017 (0.063) (p = 0.606) & -0.04 (0.062) (p = 0.74) & 0.003 (0.065) (p = 0.483) & 0.02 (0.065) (p = 0.38) & -0.015 (0.022) (p = 0.754) & -0.005 (0.02) (p = 0.597) & 0.01 (0.02) (p = 0.301) & 0.016 (0.019) (p = 0.211) & -0.002 (0.02) (p = 0.542) & -0.006 (0.02) (p = 0.626) & 0.005 & 0.221 & 0.012\\
+profile\_6 & 0.103 (0.072) (p = 0.074) & -0.04 (0.049) (p = 0.793) & -0.009 (0.048) (p = 0.577) & 0.004 (0.048) (p = 0.47) & 0.022 (0.05) (p = 0.33) & -0.001 (0.05) (p = 0.51) & 0.015 (0.022) (p = 0.248) & 0.006 (0.015) (p = 0.35) & -0.005 (0.015) (p = 0.638) & 0.007 (0.015) (p = 0.311) & 0 (0.015) (p = 0.489) & -0.003 (0.015) (p = 0.589) & 0.024 & 0.469 & 0.003\\
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
+
+\subsection{Composite}\label{composite-1}
+
+\subsection{Composite with interest}\label{composite-with-interest}
+
+\begin{table}
+
+\caption{\label{tab:rq3-3-tab}Results of mixed effects models for the composite and interest (for RQ3)}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllrrr}
+\toprule
+model & intercept & dm\_composite & overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.145 (0.038) (p < .001) & 0.007 (0.004) (p = 0.026) & -0.014 (0.011) (p = 0.885) & 0.009 & 0.094 & 0.009\\
+profile\_2 & 0.381 (0.071) (p < .001) & -0.005 (0.004) (p = 0.862) & -0.048 (0.022) (p = 0.986) & 0.002 & 0.275 & 0.015\\
+profile\_3 & 0.022 (0.05) (p = 0.329) & -0.003 (0.004) (p = 0.819) & 0.036 (0.015) (p = 0.01) & 0.010 & 0.285 & 0.000\\
+profile\_4 & 0.098 (0.033) (p = 0.002) & -0.006 (0.003) (p = 0.951) & 0.006 (0.01) (p = 0.271) & 0.000 & 0.098 & 0.000\\
+profile\_5 & 0.225 (0.062) (p < .001) & 0.007 (0.004) (p = 0.063) & -0.011 (0.019) (p = 0.714) & 0.004 & 0.220 & 0.013\\
+profile\_6 & 0.091 (0.068) (p = 0.089) & -0.001 (0.004) (p = 0.599) & 0.019 (0.021) (p = 0.178) & 0.025 & 0.467 & 0.004\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:rq3-4-tab}Results of mixed effects models for the composite and interest interactions (for RQ3)}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllrrr}
+\toprule
+model & intercept & dm\_composite & overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.132 (0.045) (p = 0.002) & 0.014 (0.013) (p = 0.142) & -0.009 (0.014) (p = 0.751) & 0.009 & 0.094 & 0.009\\
+profile\_2 & 0.389 (0.077) (p < .001) & -0.009 (0.016) (p = 0.718) & -0.051 (0.024) (p = 0.983) & 0.002 & 0.274 & 0.015\\
+profile\_3 & 0.043 (0.055) (p = 0.216) & -0.014 (0.012) (p = 0.875) & 0.029 (0.017) (p = 0.047) & 0.010 & 0.285 & 0.000\\
+profile\_4 & 0.065 (0.041) (p = 0.054) & 0.01 (0.012) (p = 0.198) & 0.017 (0.013) (p = 0.093) & 0.000 & 0.098 & 0.000\\
+profile\_5 & 0.237 (0.069) (p < .001) & 0.001 (0.015) (p = 0.482) & -0.015 (0.021) (p = 0.755) & 0.004 & 0.221 & 0.012\\
+profile\_6 & 0.1 (0.071) (p = 0.079) & -0.005 (0.012) (p = 0.676) & 0.016 (0.022) (p = 0.229) & 0.025 & 0.467 & 0.003\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 \section{Research Question \#4}\label{research-question-4}
 

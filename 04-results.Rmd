@@ -146,7 +146,8 @@ df <- df %>%
          dm_com = ssb_symbols) %>% 
   mutate(ov_cog_eng = (important + future_goals) / 2,
          ov_beh_eng = (hard_working + concentrating) / 2,
-         ov_aff_eng = (enjoy + interest) / 2)
+         ov_aff_eng = (enjoy + interest) / 2) %>% 
+  mutate(dm_composite = dm_ask + dm_obs + dm_gen + dm_mod + dm_com)
 
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 ```
@@ -650,7 +651,9 @@ The model 1, six and seven profile solutions are compelling because both show pr
 
 Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.
 
-```{r, rq2-proc, cache = TRUE}
+Here is the model 1, six profile solution.  [need to change profile names in this plot and subsequent models]
+
+```{r, rq2-3-proc, cache = TRUE}
 m <- read_rds("data/models/m1_6.rds")
 plot_profiles_mplus(m1_6, to_scale = TRUE)
 
@@ -683,8 +686,7 @@ d <- d %>%
   )
 ```
 
-
-```{r, rq2-models-null, cache = TRUE}
+```{r, rq2-0-null, cache = TRUE}
 m1 <- lmer(profile_1_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
@@ -722,7 +724,7 @@ m6 <- lmer(profile_6_p ~ 1 +
            data = d)
 ```
 
-```{r, rq1-preds, cache = TRUE}
+```{r, rq2-1-all-vars-com, cache = TRUE}
 m1a <- lmer(profile_1_p ~ 1 +
               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
@@ -766,129 +768,53 @@ m6a <- lmer(profile_6_p ~ 1 +
             data = d)
 ```
 
-## Research Question #3
-
-Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
-
-```{r, rq2-int, cache = TRUE}
-m1b <- lmer(profile_1_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m2b <- lmer(profile_2_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m3b <- lmer(profile_3_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest+
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m4b <- lmer(profile_4_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest+
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m5b <- lmer(profile_5_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest+
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m6b <- lmer(profile_6_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest+
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-```
-
-```{r, rq2-int-interaction, cache = TRUE}
+```{r, rq2-2-composite, cache = TRUE}
 m1c <- lmer(profile_1_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest +
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
 m2c <- lmer(profile_2_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest +
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
 m3c <- lmer(profile_3_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest +
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
 m4c <- lmer(profile_4_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest +
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
 m5c <- lmer(profile_5_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest + 
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
 m6c <- lmer(profile_6_p ~ 1 +
-              dm_ask*overall_pre_interest + 
-              dm_obs*overall_pre_interest + 
-              dm_gen*overall_pre_interest + 
-              dm_mod*overall_pre_interest + 
-              dm_com*overall_pre_interest +
+              dm_composite +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 ```
 
-```{r, prep-df-for-rqs-2-and-3, cache = TRUE}
+### Null models
+
+```{r, tidy-model-sep-func, cache = FALSE}
 
 # get_kr_df <- function(model_object) {
 #   L <- diag(rep(1, length(lme4::fixef(model_object))))
@@ -897,6 +823,10 @@ m6c <- lmer(profile_6_p ~ 1 +
 #   names(out) <- names(lme4::fixef(model_object))
 #   out
 # }
+
+wald_p_sig <- function(x) {
+  (1 - pnorm(x))
+}
 
 tidy_model <- function(model) {
   
@@ -913,37 +843,36 @@ tidy_model <- function(model) {
     filter(effect == "fixed") %>%
     mutate(est = round(estimate, 3),
            se = round(std.error, 3),
-           stat = round(statistic, 4)) %>%
-    mutate(est_se = str_c(est, " (", se, ")")) %>%
+           p_val = wald_p_sig(statistic)) %>% 
+    mutate(est_se = ifelse(p_val < .001, 
+                           str_c(est, " (", se, ")", " (p < .001)"),
+                           str_c(est, " (", se, ")", " (p = ", round(p_val, 3), ")")
+    )) %>%
     select(term, est_se) %>%
     spread(term, est_se)
   
   dd <- bind_rows(d, fixef_vals)[-1, ]
   
   # ICCs
-  icc_vals <- sjstats::icc(m1c) %>%
+  icc_vals <- sjstats::icc(model) %>%
     as.numeric() %>%
     round(3)
   
   # To return
-  names(icc_vals) <- str_c(names(sjstats::icc(m1c)), "_ICC")
+  names(icc_vals) <- str_c(names(sjstats::icc(model)), "_ICC")
   ddd <- cbind(dd, as.data.frame(t(icc_vals)))
   ddd
 }
 
-l <- list(m1, m2, m3, m4, m5, m6,
-          m1a, m2a, m3a, m4a, m5a, m6a,
-          m1b, m2b, m3b, m4b, m5b, m6b,
-          m1c, m2c, m3c, m4c, m5c, m6c)
+```
+
+```{r, rq2-0-tab}
+l <- list(m1, m2, m3, m4, m5, m6)
 
 o <- map_df(l, tidy_model)
 
 o <- mutate(o, model = c(
-  str_c("profile_", 1:6),
-  str_c("profile_", 1:6),
-  str_c("profile_", 1:6),
-  str_c("profile_", 1:6)
-))
+  str_c("profile_", 1:6)))
 
 o %>% 
   select(model, 
@@ -951,9 +880,18 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(1:6) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models (for RQ2)", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models (for RQ2)", linesep = "")
+```
+
+### All variables separate
+
+```{r, rq2-1-tab}
+l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
 
 o %>% 
   select(model, 
@@ -962,9 +900,292 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(7:12) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 1 (for RQ2)", linesep = "") %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for all variables separate (for RQ2)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, rq2-1-corr}
+d %>% 
+  select(dm_ask:dm_com,
+         profile_1_p:profile_6_p) %>% 
+  corrr::correlate() %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable()
+```
+
+### Composite
+
+```{r, tidy-model-com-func, cache = FALSE}
+
+# get_kr_df <- function(model_object) {
+#   L <- diag(rep(1, length(lme4::fixef(model_object))))
+#   L <- as.data.frame(L)
+#   out <- purrr::map_dbl(L, pbkrtest::get_Lb_ddf, object = model_object)
+#   names(out) <- names(lme4::fixef(model_object))
+#   out
+# }
+
+wald_p_sig <- function(x) {
+  (1 - pnorm(x))
+}
+
+tidy_model_com <- function(model) {
+  
+  fixef_names <- c("(Intercept)", "dm_composite", "overall_pre_interest", "overall_pre_interest:dm_composite")
+  
+  d <- as.data.frame(matrix(rep(NA, 4), ncol = 4))
+  names(d) <- fixef_names
+  
+  # fixefs
+  fixef_vals <- tidy(model) %>%
+    filter(effect == "fixed") %>%
+    mutate(est = round(estimate, 3),
+           se = round(std.error, 3),
+           p_val = wald_p_sig(statistic)) %>% 
+    mutate(est_se = ifelse(p_val < .001, 
+                           str_c(est, " (", se, ")", " (p < .001)"),
+                           str_c(est, " (", se, ")", " (p = ", round(p_val, 3), ")")
+    )) %>%
+    select(term, est_se) %>%
+    spread(term, est_se)
+  
+  dd <- bind_rows(d, fixef_vals)[-1, ]
+  
+  # ICCs
+  icc_vals <- sjstats::icc(model) %>%
+    as.numeric() %>%
+    round(3)
+  
+  # To return
+  names(icc_vals) <- str_c(names(sjstats::icc(model)), "_ICC")
+  ddd <- cbind(dd, as.data.frame(t(icc_vals)))
+  ddd
+}
+
+```
+
+```{r}
+l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
+
+o <- map_df(l, tidy_model_com)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for composites (for RQ2)", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+## Research Question #3
+
+Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
+
+## Research Question #3
+
+```{r, rq3-0-null}
+m1c0 <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2c0 <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3c0 <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4c0 <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5c0 <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6c0 <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+
+```{r, rq3-1-all-vars-sep}
+m1c <- lmer(profile_1_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2c <- lmer(profile_2_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3c <- lmer(profile_3_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4c <- lmer(profile_4_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5c <- lmer(profile_5_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6c <- lmer(profile_6_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest+
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq3-2-all-vars-sep-interaction}
+m1d <- lmer(profile_1_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2d <- lmer(profile_2_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3d <- lmer(profile_3_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4d <- lmer(profile_4_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5d <- lmer(profile_5_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6d <- lmer(profile_6_p ~ 1 +
+              dm_ask*overall_pre_interest + 
+              dm_obs*overall_pre_interest + 
+              dm_gen*overall_pre_interest + 
+              dm_mod*overall_pre_interest + 
+              dm_com*overall_pre_interest +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+### Just interest
+
+```{r, rq3-1-tab}
+
+l <- list(m1c0, m2c0, m3c0, m4c0, m5c0, m6c0)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         overall_pre_interest,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 2 with just interest (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+### All variables separate and interest
+
+```{r}
+
+l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
 
 o %>% 
   select(model, 
@@ -974,9 +1195,21 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(13:18) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for model 2 (for RQ3)", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for all variables separate and interest (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  landscape()
+
+```
+
+### All variables separate
+
+```{r}
+l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
 
 o %>% 
   select(model, 
@@ -991,10 +1224,140 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  slice(19:24) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models for model 3 (for RQ3)", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the all variables separate and interest interactions (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  landscape()
+```
 
+### Composite
+
+```{r, rq3-4-com}
+m1e <- lmer(profile_1_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2e <- lmer(profile_2_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3e <- lmer(profile_3_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4e <- lmer(profile_4_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5e <- lmer(profile_5_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6e <- lmer(profile_6_p ~ 1 +
+              dm_composite + overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq3-4-com-interactions}
+m1f <- lmer(profile_1_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2f <- lmer(profile_2_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3f <- lmer(profile_3_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4f <- lmer(profile_4_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5f <- lmer(profile_5_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6f <- lmer(profile_6_p ~ 1 +
+              dm_composite*overall_pre_interest + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+### Composite with interest
+
+```{r, rq3-3-tab}
+l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
+
+o <- map_df(l, tidy_model_com)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite, overall_pre_interest,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite and interest (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+```{r, rq3-4-tab}
+l <- list(m1f, m2f, m3f, m4f, m5f, m6f)
+
+o <- map_df(l, tidy_model_com)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite, overall_pre_interest, dm_composite:overall_pre_interest,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite and interest interactions (for RQ3)", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ## Research Question #4
