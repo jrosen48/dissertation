@@ -25,36 +25,36 @@
 \contentsline {subsubsection}{\numberline {3.5.0.6}6. Varying means, varying variances, and varying covariances (model 6)}{32}{subsubsection.3.5.0.6}
 \contentsline {section}{\numberline {3.6}Power Analysis}{38}{section.3.6}
 \contentsline {section}{\numberline {3.7}Limitations}{38}{section.3.7}
-\contentsline {chapter}{\chapternumberline {4}Results}{40}{chapter.4}
-\contentsline {section}{\numberline {4.1}Descriptive Statistics}{40}{section.4.1}
-\contentsline {section}{\numberline {4.2}Research Question \#1}{40}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Statistical software developed}{41}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Overall solutions for all models}{42}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}In-depth statistics for particular models}{44}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Comparison of candidate solutions}{48}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Model 1 candidate solutions}{49}{subsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.5.1}Model: 1, Profiles: 3}{49}{subsubsection.4.2.5.1}
-\contentsline {subsubsection}{\numberline {4.2.5.2}Model: 1, Profiles: 4}{50}{subsubsection.4.2.5.2}
-\contentsline {subsubsection}{\numberline {4.2.5.3}Model: 1, Profiles: 5}{50}{subsubsection.4.2.5.3}
-\contentsline {subsubsection}{\numberline {4.2.5.4}Model: 1, Profiles: 6}{52}{subsubsection.4.2.5.4}
-\contentsline {subsubsection}{\numberline {4.2.5.5}Model: 1, Profiles: 6 (alternate)}{54}{subsubsection.4.2.5.5}
-\contentsline {subsubsection}{\numberline {4.2.5.6}Model: 1, Profiles: 7}{55}{subsubsection.4.2.5.6}
-\contentsline {subsubsection}{\numberline {4.2.5.7}Model: 1, Profiles: 7 (alternate)}{56}{subsubsection.4.2.5.7}
-\contentsline {subsection}{\numberline {4.2.6}Model 2 candidate solutions}{57}{subsection.4.2.6}
-\contentsline {subsubsection}{\numberline {4.2.6.1}Model: 2, Profiles: 3}{57}{subsubsection.4.2.6.1}
-\contentsline {subsubsection}{\numberline {4.2.6.2}Model: 2, Profiles: 4}{59}{subsubsection.4.2.6.2}
-\contentsline {subsubsection}{\numberline {4.2.6.3}Model: 2, Profiles: 5}{60}{subsubsection.4.2.6.3}
-\contentsline {subsubsection}{\numberline {4.2.6.4}Looking across model 1 and model 2 solutions}{61}{subsubsection.4.2.6.4}
-\contentsline {section}{\numberline {4.3}Research Question \#2}{63}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Null models}{64}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}All variables separate}{64}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Composite}{67}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Looking across findings for research question \#2}{67}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Research Question \#3}{67}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Just interest}{67}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Composite}{68}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Composite with interest}{68}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Looking across findings for research question \#3}{70}{subsection.4.4.4}
-\contentsline {section}{\numberline {4.5}Research Question \#4}{70}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{71}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}References}{72}{chapter.6}
+\contentsline {section}{\numberline {3.8}Descriptive Statistics}{39}{section.3.8}
+\contentsline {section}{\numberline {3.9}Research Question \#1}{39}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Statistical software developed}{40}{subsection.3.9.1}
+\contentsline {subsection}{\numberline {3.9.2}Overall solutions for all models}{41}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}In-depth statistics for particular models}{43}{subsection.3.9.3}
+\contentsline {subsection}{\numberline {3.9.4}Comparison of candidate solutions}{47}{subsection.3.9.4}
+\contentsline {subsection}{\numberline {3.9.5}Model 1 candidate solutions}{48}{subsection.3.9.5}
+\contentsline {subsubsection}{\numberline {3.9.5.1}Model: 1, Profiles: 3}{48}{subsubsection.3.9.5.1}
+\contentsline {subsubsection}{\numberline {3.9.5.2}Model: 1, Profiles: 4}{49}{subsubsection.3.9.5.2}
+\contentsline {subsubsection}{\numberline {3.9.5.3}Model: 1, Profiles: 5}{49}{subsubsection.3.9.5.3}
+\contentsline {subsubsection}{\numberline {3.9.5.4}Model: 1, Profiles: 6}{51}{subsubsection.3.9.5.4}
+\contentsline {subsubsection}{\numberline {3.9.5.5}Model: 1, Profiles: 6 (alternate)}{53}{subsubsection.3.9.5.5}
+\contentsline {subsubsection}{\numberline {3.9.5.6}Model: 1, Profiles: 7}{54}{subsubsection.3.9.5.6}
+\contentsline {subsubsection}{\numberline {3.9.5.7}Model: 1, Profiles: 7 (alternate)}{55}{subsubsection.3.9.5.7}
+\contentsline {subsection}{\numberline {3.9.6}Model 2 candidate solutions}{56}{subsection.3.9.6}
+\contentsline {subsubsection}{\numberline {3.9.6.1}Model: 2, Profiles: 3}{56}{subsubsection.3.9.6.1}
+\contentsline {subsubsection}{\numberline {3.9.6.2}Model: 2, Profiles: 4}{58}{subsubsection.3.9.6.2}
+\contentsline {subsubsection}{\numberline {3.9.6.3}Model: 2, Profiles: 5}{59}{subsubsection.3.9.6.3}
+\contentsline {subsubsection}{\numberline {3.9.6.4}Looking across model 1 and model 2 solutions}{60}{subsubsection.3.9.6.4}
+\contentsline {section}{\numberline {3.10}Research Question \#2}{62}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Null models}{63}{subsection.3.10.1}
+\contentsline {subsection}{\numberline {3.10.2}All variables separate}{64}{subsection.3.10.2}
+\contentsline {subsection}{\numberline {3.10.3}Composite}{67}{subsection.3.10.3}
+\contentsline {subsection}{\numberline {3.10.4}Looking across findings for research question \#2}{67}{subsection.3.10.4}
+\contentsline {section}{\numberline {3.11}Research Question \#3}{67}{section.3.11}
+\contentsline {section}{\numberline {3.12}Research Questoin \#4}{67}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Just interest}{67}{subsection.3.12.1}
+\contentsline {subsection}{\numberline {3.12.2}Composite}{68}{subsection.3.12.2}
+\contentsline {subsection}{\numberline {3.12.3}Composite with interest}{68}{subsection.3.12.3}
+\contentsline {subsection}{\numberline {3.12.4}Looking across findings for research question \#3}{70}{subsection.3.12.4}
+\contentsline {section}{\numberline {3.13}Research Question \#4}{70}{section.3.13}
+\contentsline {chapter}{\chapternumberline {4}Discussion}{71}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}References}{72}{chapter.5}

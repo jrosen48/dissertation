@@ -15,6 +15,12 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 
 # 4. convert tex to PDF
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
+
+# 5. convert tex to .docx
+# file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE)
+system("cd docs;
+       pandoc rosenberg-dissertation_mod.tex --reference-docx=rosenberg-template.docx -s -o rosenberg-dissertation_mod.docx")
+
 # system("find -name rosenberg-dissertation_mod.tex -execdir pdflatex {} \;")
 
 # 5. update github

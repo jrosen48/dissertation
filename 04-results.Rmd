@@ -1,4 +1,4 @@
-# Results
+
 
 In this section, results in terms of the research questions are presented.
 
@@ -652,6 +652,11 @@ The model 1, six and seven profile solutions are compelling because both show pr
 
 Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.
 
+- 
+-  
+- 
+- 
+
 Here is the model 1, six profile solution.  [need to change profile names in this plot and subsequent models]
 
 ```{r, rq2-3-proc, cache = FALSE}
@@ -904,7 +909,7 @@ d %>%
 
 In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and teh aspects of work with data, ranging from (in absolute value terms) .00 to .06.
 
-```{r, rq2-1-corr-p, eval = F}
+```{r, rq2-1-corr-components, eval = F}
 d %>% 
   select(dm_ask:dm_com, dm_cog_eng:dm_competence) %>%
   corrr::correlate() %>% 
@@ -1046,6 +1051,10 @@ o %>%
 When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. This seemed to be the case for whether profiles or the variables that make up profiles were considered. Reasons for why this may be are discussed in the next chapter. 
 
 ## Research Question #3
+
+This question focuses on whether the relations differ on the basis on the activity students are doing.
+
+## Research Questoin #4
 
 Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
 
