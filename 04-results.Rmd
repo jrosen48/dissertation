@@ -173,29 +173,37 @@ df %>%
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_ask) %>% 
-  knitr::kable()
+  knitr::kable(booktabs = TRUE)
 
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_obs) %>% 
-  knitr::kable()
+  knitr::kable(booktabs = TRUE)
 
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_gen) %>% 
-  knitr::kable()
+  knitr::kable(booktabs = TRUE)
 
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_mod) %>% 
-  knitr::kable()
+  knitr::kable(booktabs = TRUE)
 
 df %>% 
   select(dm_ask:dm_com) %>% 
   count(dm_com) %>% 
-  knitr::kable()
+  knitr::kable(booktabs = TRUE)
 
 # knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for binary study variables", linesep = "")
+```
+
+Also, here are the youth activity codes and their mean levels.
+
+```{r}
+df %>% 
+  count(youth_activity_rc) %>% 
+    knitr::kable(booktabs = TRUE)
 ```
 
 ## Research Question #1
@@ -650,12 +658,14 @@ The model 1, six and seven profile solutions are compelling because both show pr
 
 ## Research Question #2
 
-Research question #2 is focused on the relations between each of the profiles and the aspects of work with data.
+Research question #2 is focused on the relations between each of the profiles and the aspects of work with data. Here is the order of this section:
 
-- 
--  
-- 
-- 
+- Model 1, six profile solution
+- Null models
+- Correlations between individual aspects of work with data and the composite and the profiles and individual interest
+- Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
+- Models with the variables added separate
+- Models with the composite added
 
 Here is the model 1, six profile solution.  [need to change profile names in this plot and subsequent models]
 
@@ -673,7 +683,7 @@ df_ss <- df[cc, ]
 df_ss$profile <- C
 df_ss$profile_p <- C_p
 
-d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest)
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc)
 
 d <- d %>% 
   mutate(
@@ -1052,11 +1062,28 @@ When looking across findings, we find very few relations between work with data 
 
 ## Research Question #3
 
-This question focuses on whether the relations differ on the basis on the activity students are doing.
+This question focuses on whether the relations differ on the basis on the activity students are doing. Here is the order of this section:
 
-## Research Questoin #4
+- Correlations between individual youth activity and the profiles and individual interest
+- Correlations between individual youth activity and the variables that make up the profiles and individual interest
+- Models with youth activity interacted with the aspects of work with data and the profiles
+- Models with the composite interacted with the aspects of work with data and the profiles
 
-Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest.
+```{r, eval = F}
+df %>% 
+  select(youth_activity_rc, profile_1_p:profile_6_p) %>% 
+  group_by(youth_activity_rc) %>% 
+  summarize_all(funs(mean)) %>% 
+  knitr::kable(booktabs = TRUE)
+```
+
+## Research Question #4
+
+Research question #3 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest. Here is the order of this section:
+
+- Models with pre interest and profiles
+- Models with pre interest
+- Models with pre interest interacted with the composite
 
 ```{r, rq3-0-null}
 m1c0 <- lmer(profile_1_p ~ 1 +
@@ -1435,6 +1462,6 @@ o %>%
 
 When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter.
 
-## Research Question #4
+## Research Question #5
 
-Research question #4 is focused on investigating specific findings of interest. 
+Research question #5 is focused on investigating specific findings of interest. 

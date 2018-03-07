@@ -21,26 +21,26 @@ Participants will consist of 203 youth. Students in these programs are from dive
 **Table 1
 Demographic Characteristics of Learners**
 
-```{r, eval = F}
-d <- readxl::read_xlsx("tables/table1.xlsx")
+```{r, eval = T}
+d <- tibble::tribble(
+  ~Students, ~Percentage,
+  "Sex",          NA,
+  "Male",         50L,
+  "Female",         50L,
+  "Race/Ethnicity",          NA,
+  "Hispanic",         48L,
+  "White",          6L,
+  "Black",         36L,
+  "Multi-racial",          3L,
+  "Asian/Pacific Islander",          7L,
+  "Parent Education",          NA,
+  "High School or Below",         79L,
+  "Graduated from College (B.A. or B.S.)",         21L
+)
+
+d %>% 
+  kable(booktabs = TRUE)
 ```
-
-<!-- Students (N = 203)	% of Students -->
-
-<!-- Sex	 -->
-<!-- Male	50 -->
-<!-- Female	50 -->
-
-<!-- Race/Ethnicity	 -->
-<!-- Hispanic	48 -->
-<!-- White	6 -->
-<!-- Black	36 -->
-<!-- Multi-racial	3 -->
-<!-- Asian/Pacific Islander	7 -->
-
-<!-- Parent Education	 -->
-<!-- High School or Below	79 -->
-<!-- Graduated from College (B.A. or B.S.)	21 -->
 
 ## Context	
 
@@ -49,24 +49,25 @@ The setting for this study will be nine out-of-school STEM programs designed aro
 **Table 2 
 STEM Enrichment Program Names and Their Descriptions**
 
-<!-- Program Name	Program Description -->
-<!-- Island Explorers	A science-focused program that aims to help youth develop expertise on one species found in the local ecosystem by reading and writing about related content for up to an hour per day; undertaking data collection and analysis tasks to learn about the local ecosystem and how to communicate scientific data; developing vocabulary about the local ecosystem; using art to learn and communicate information; and publishing a book illustrating important elements of the species being studied. Located in both the classroom and local ecosystem. 27 students who are rising 6th graders. Youth spend the morning in more academically-oriented sessions in a classroom setting, while afternoon sessions involved STEM-oriented enrichment sessions taking place outside (the program was associated with Outward Bound) with an emphasis on exploration of the local ecosystem. -->
+```{r}
+d <- tibble::tribble(
+  ~Program.Name,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ~Program.Description,
+  "Island Explorers",                                                                                                                                                                                  "A science-focused program that aims to help youth develop expertise on one species found in the local ecosystem by reading and writing about related content for up to an hour per day; undertaking data collection and analysis tasks to learn about the local ecosystem and how to communicate scientific data; developing vocabulary about the local ecosystem; using art to learn and communicate information; and publishing a book illustrating important elements of the species being studied. Located in both the classroom and local ecosystem. 27 students who are rising 6th graders. Youth spend the morning in more academically-oriented sessions in a classroom setting, while afternoon sessions involved STEM-oriented enrichment sessions taking place outside (the program was associated with Outward Bound) with an emphasis on exploration of the local ecosystem.",
+  "The Ecosphere",                                                                                                                                                                                                                                                                       "A science-focused program that aims to help youth to explore the marine life of Narragansett Bay. Efforts were undertaken to build youth content knowledge in the areas of ecosystem preservation, marine biology, and water quality, and related skills, such as questioning, showing initiative, data collection, measuring, maintaining an ecosystem, and analyzing water samples. Located in a classroom setting, shoreline, and science education center. 27 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included a science education center at a community-based organization and field trips to sites in the community related to the program's focus.",
+  NA,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           NA,
+  "Zoology Partners",                                                                                                                                                                                                                                                                                                                               "A science-focused program that aims to support youth's development of content knowledge related to the issue of endangered species, including how species become endangered, processes for monitoring ecosystem viability and population levels, solutions to prevent species from becoming endangered, and approaches to reviving populations that are currently endangered. Located in the classroom as well as zoos, parks, and other natural areas. 25 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included a local zoo and field trips to sites in the community related to the program's focus.",
+  "Marine Investigators",  "A science-focused program that aims to provide youth with opportunities to learn about and experience Narragansett Bay; examine human impacts on the local ecosystem, including how the geography of the Bay helped influence human history and how the history of humans along the shoreline has impacted the Bay, and begin the process of cultivating a sense of stewardship among participating youth for caring for and protecting the Bay in the future. Located in the classroom, shoreline along the bay, ship on the bay, and various field locations associated with bay health. 19 youth who are rising 7th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included the local bay shoreline, a voyage on a marine education ship researching in the Bay, and field trips to sites in the community related to the program's focus. During the span of the program, youth had the opportunity to participate in both a water quality research study.",
+  "Comunidad de Aprendizaje",                                                                                                                                                                                                                                                                                                                                                                                                        "A STEM-focused program that aims to help youth improve basic skills in mathematics and develop an interest in STEM content and entrepreneurship. Primarily in the classroom setting. 33 students who are rising 5th to 8th graders. Morning sessions are characterized by direct instruction in mathematics for individual grade levels and mixed grade level afternoon enrichment sessions in either robotics or dance. The direct instruction component of the programs was organized around a theme of promoting entrepreneurship with the goal of helping participating youth better see the relevance of mathematics to future career goals and opportunities.",
+  "Jefferson House",                                                                                                                                                                                                                                                                                                                             "A STEM-focused program that aims to support youth's development of basic math skills, the program was primarily focused on helping youth develop problem solving, self-improvement, and critical thinking skills. Located in a classroom. 11 youth who are rising 7th graders. The youth spent the morning in more academically-oriented sessions in a classroom setting focusing on basic skill development, while afternoon sessions involved STEM-oriented enrichment sessions involving media, art, and nutrition. Enrichment offerings varied by day, with math sessions occurring twice per week, alternating with academically oriented sessions in the am that were oriented at supporting skill development in English/language arts.",
+  NA,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           NA,
+  "Uptown Architecture",                                                                                                                                                                                                                                                                                  "An engineering-focused program that aims to support youth's participation in a process to design and build an outdoor learning space for use at the middle school where the program was housed. A key focus of the program was to provide youth with the opportunity to use design thinking as a problem-solving tool and have the experience of affecting their community positively through the design/build process. Located in a classroom, building shop, and various field locations. 18 youth who were rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a building shop located at a community-based organization on alternating days, while also taking field trips to locations associated with the program's overall theme.",
+  "Building Mania",                                                                                                                                                                                                                                                                         "An engineering-focused program that aims to provide youth with the opportunity to experiment with designing and using simple machines. A goal of the program is to have youth engage in the engineering design process by determining a need, brainstorming possible designs, selecting a design, planning and drawing out the design, creating and testing and revising it, and producing a final machine. Located in the classroom, design labs, and other local locations. 24 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and a field-based setting on alternating days. Field-based settings included a design lab at a community-based organization and field trips to sites in the community related to the program's focus.",
+  "Adventures in Mathematics",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             "A mathematics-focused program that aims to help youth to develop the basic math skills and prevent summer learning loss among participating youth through direct instruction and participation in math-related games. Located primarily in the classroom. 20 youth who are rising 8th to 10th graders. Youth participated in direct instructions in mathematics and math-related games in small groups. Program content was aligned with the state's standards in mathematics."
+)
 
-<!-- The Ecosphere	A science-focused program that aims to help youth to explore the marine life of Narragansett Bay. Efforts were undertaken to build youth content knowledge in the areas of ecosystem preservation, marine biology, and water quality, and related skills, such as questioning, showing initiative, data collection, measuring, maintaining an ecosystem, and analyzing water samples. Located in a classroom setting, shoreline, and science education center. 27 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included a science education center at a community-based organization and field trips to sites in the community related to the program’s focus. -->
-
-<!-- Zoology Partners	A science-focused program that aims to support youth’s development of content knowledge related to the issue of endangered species, including how species become endangered, processes for monitoring ecosystem viability and population levels, solutions to prevent species from becoming endangered, and approaches to reviving populations that are currently endangered. Located in the classroom as well as zoos, parks, and other natural areas. 25 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included a local zoo and field trips to sites in the community related to the program’s focus. -->
-
-<!-- Marine Investigators	A science-focused program that aims to provide youth with opportunities to learn about and experience Narragansett Bay; examine human impacts on the local ecosystem, including how the geography of the Bay helped influence human history and how the history of humans along the shoreline has impacted the Bay, and begin the process of cultivating a sense of stewardship among participating youth for caring for and protecting the Bay in the future. Located in the classroom, shoreline along the bay, ship on the bay, and various field locations associated with bay health. 19 youth who are rising 7th to 9th graders. Youth attended programming in a classroom at an area middle school and in a field-based setting on alternating days. Field-based settings included the local bay shoreline, a voyage on a marine education ship researching in the Bay, and field trips to sites in the community related to the program’s focus. During the span of the program, youth had the opportunity to participate in both a water quality research study. -->
-
-<!-- Comunidad de Aprendizaje	A STEM-focused program that aims to help youth improve basic skills in mathematics and develop an interest in STEM content and entrepreneurship. Primarily in the classroom setting. 33 students who are rising 5th to 8th graders. Morning sessions are characterized by direct instruction in mathematics for individual grade levels and mixed grade level afternoon enrichment sessions in either robotics or dance. The direct instruction component of the programs was organized around a theme of promoting entrepreneurship with the goal of helping participating youth better see the relevance of mathematics to future career goals and opportunities. -->
-
-<!-- Jefferson House	A STEM-focused program that aims to support youth’s development of basic math skills, the program was primarily focused on helping youth develop problem solving, self-improvement, and critical thinking skills. Located in a classroom. 11 youth who are rising 7th graders. The youth spent the morning in more academically-oriented sessions in a classroom setting focusing on basic skill development, while afternoon sessions involved STEM-oriented enrichment sessions involving media, art, and nutrition. Enrichment offerings varied by day, with math sessions occurring twice per week, alternating with academically oriented sessions in the am that were oriented at supporting skill development in English/language arts. -->
-
-<!-- Uptown Architecture	An engineering-focused program that aims to support youth’s participation in a process to design and build an outdoor learning space for use at the middle school where the program was housed. A key focus of the program was to provide youth with the opportunity to use design thinking as a problem-solving tool and have the experience of affecting their community positively through the design/build process. Located in a classroom, building shop, and various field locations. 18 youth who were rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and in a building shop located at a community-based organization on alternating days, while also taking field trips to locations associated with the program’s overall theme. -->
-
-<!-- Building Mania	An engineering-focused program that aims to provide youth with the opportunity to experiment with designing and using simple machines. A goal of the program is to have youth engage in the engineering design process by determining a need, brainstorming possible designs, selecting a design, planning and drawing out the design, creating and testing and revising it, and producing a final machine. Located in the classroom, design labs, and other local locations. 24 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and a field-based setting on alternating days. Field-based settings included a design lab at a community-based organization and field trips to sites in the community related to the program’s focus. -->
-
-<!-- Adventures in Mathematics	A mathematics-focused program that aims to help youth to develop the basic math skills and prevent summer learning loss among participating youth through direct instruction and participation in math-related games. Located primarily in the classroom. 20 youth who are rising 8th to 10th graders. Youth participated in direct instructions in mathematics and math-related games in small groups. Program content was aligned with the state’s standards in mathematics. -->
+d %>% 
+  knitr::kable(booktabs = TRUE)
+```
 
 Two intermediary organizations contracted by the urban area school districts to administer the summer programs. The two intermediaries were responsible for soliciting and enrolling youth; establishing guidelines for the design of the programs, and the goals of the programs; and provide training and professional development for the program’s staff. A key difference between the intermediary organizations was that one separated academic and enrichment-related activities, whereas, in another, which was more closely involved in the day-to-day activities of the program, the academic and enrichment components were more integrated, which may have program-specific effects on learners’ engagement. Many of the programs aim to involve learners in work with data. These learning environments bring together youth activity leaders, educators, and those with technical expertise in STEM domains. Students spent around three hours per day for four days per week for the approximately four-week programs, which were taught by youth activity leaders and scientists, engineers, and other community members with technical expertise. 
 
@@ -87,74 +88,91 @@ ESM measures of learners’ engagement and its conditions. Measures for engageme
 **Table 3
 ESM measures for profiles of engagement and its conditions (PECs)** 
 
-<!-- Construct	Item text  -->
-<!-- Cognitive engagement	As you were signaled, were you learning anything or getting better at something? -->
-<!-- Behavioral engagement	As you were signaled, how hard were you working? -->
-<!-- Affective engagement	As you were signaled, did you enjoy what you are doing? -->
-<!-- Perceived challenge	As you were signaled, how challenging was the main activity? -->
-<!-- Perceived competence	As you were signaled, were you good at the main activity? -->
+```{r}
+d <- tibble::tribble(
+               ~Construct,                                                                         ~Item.text,
+   "Cognitive engagement", "As you were signaled, were you learning anything or getting better at something?",
+  "Behavioral engagement",                                 "As you were signaled, how hard were you working?",
+   "Affective engagement",                          "As you were signaled, did you enjoy what you are doing?",
+    "Perceived challenge",                     "As you were signaled, how challenging was the main activity?",
+   "Perceived competence",                        "As you were signaled, were you good at the main activity?"
+  )
+
+d %>% knitr::kable(booktabs = TRUE)
+```
 
 Survey measures of pre-interest. Measures of students’ pre-interest are used as student-level influencers of PECs. In particular, three items adapted from Vandell, Hall, O’Cadiz, and Karsh (2012) were used, with directions for students to rate their agreement with the items’ text using the same scale as the ESM items: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4). The items are presented in Table 4.
 
 **Table 4
 Survey Measure Used in This Study**
 
-<!-- Construct	Items’ text -->
-<!-- Individual interest in STEM	I am interested in science / mathematics / engineering. -->
-<!-- 	At school, science / mathematics / engineering is fun -->
-<!-- 	I have always been fascinated by science / mathematics / engineering) -->
+
+```{r}
+d <- tibble::tribble(
+                     ~Construct,                                                            ~`Items.text`,
+  "Individual interest in STEM",               "I am interested in science / mathematics / engineering.",
+                             NA,                 "At school, science / mathematics / engineering is fun",
+                             NA, "I have always been fascinated by science / mathematics / engineering)"
+  )
+
+d %>% knitr::kable(booktabs = TRUE)
+```
 
 Codes for the activity from the video-recordings. Different aspects of work with data will be identified from video-recordings with the use of a coding frame with seven codes: five for each of the aspects of work with data and the remaining two codes are for other instructional activities, such as listening to a youth activity leader or completing a worksheet, in order to compare work with data to other activities which are potentially engaging but not oriented toward work with data, and one for other activities, such as traveling between program sites or the time in between activities. These codes are summarized in Table 5.
 
-**Table 5
-Coding Frame for Work With Data**
-<!-- Aspect of Work With Data	Code	Description  -->
-<!-- Asking questions or defining problems	0: Not present -->
-<!-- 1: present	Discussing and exploring topics to investigate and pose questions. -->
+<!-- Revised Proposed Plan -->
+<!-- ●	First, use video codes for Work With Data in place of the coding frame I developed from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs  -->
+<!-- ○	This coding frame aligns closely with the original coding frame for Work With Data that I proposed, particularly the codes for STEM Skill-building, although there are some differences (described in the table at the end of this document) -->
+<!-- ○	Each segment is coded with a 1 (present) or 0 (not present) for each of the codes for STEM Skill-building. -->
+<!-- ○	The STEM-PQA instrument was adapted from the overall PQA instrument (see Smith et al., 2012). In particular: -->
+<!-- ■	The items for STEM skill-building (and another set of codes for self-transcendent-goals) were added to the PQA -->
+<!-- ■	A dichotomous scoring approach (observed or not observed) was used -->
+<!-- ○	Reliability of the raters' use of the overall PQA instrument and the STEM-PQA was established, though the process of establishing reliability for the PQA was more in-depth than for the STEM-PQA (described in the notes below). -->
+<!-- ○	Second, use a qualitative approach for the same reasons described in the initial plan - understand quantitative findings that are of particular interest or findings that are discrepant (with other findings or with the study's hypotheses), for example: -->
+<!-- ■	Describe the characteristics of aspects of work with data, such as generating data or modeling and analyzing data, to better understand how they are carried out in these out of school STEM programs -->
+<!-- ■	Document other characteristics of highly engaging (or disengaging) signals, such as being focused on phenomena, associated with an activity that is sustained over time, and collaborative -->
+<!-- ■	Investigate in greater detail findings, such as relationships between the aspects of work with data and the profiles of engagement and its conditions that are of particular interest (such as the relationship between data modeling and one of the profiles) or findings that are discrepant and in need of further investigation in order to be understood better.  -->
 
-<!-- Making observations	0: Not present -->
-<!-- 1: present	Watching and noticing what is happening with respect to the phenomena or problem being investigated. -->
+References
+Forum for Youth Investment. (2012). Youth Program Quality Assessment. Washington, DC: The Forum for Youth Investment
+Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, K. S., & Devaney, T. (2012).Continuous quality improvement in afterschool settings: Impact findings from the Youth Program Quality Intervention study. Washington, DC: The Forum for Youth Investment. 
 
-<!-- Generating data	0: Not present -->
-<!-- 1: present	Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools. -->
+**Table 5 Coding Frame for Work With Data**
 
-<!-- Data modeling	0: Not present -->
-<!-- 1: present	Understanding and explaining phenomena using models of the data that account for variability or uncertainty. -->
+```{r}
+d <- tibble::tribble(
+                ~Aspect.of.Work.With.Data,            ~Code,
+  "Asking questions or defining problems", "0: Not present",
+                                       NA,     "1: present",
+                    "Making observations", "0: Not present",
+                                       NA,     "1: present",
+                        "Generating data", "0: Not present",
+                                       NA,     "1: present",
+                          "Data modeling", "0: Not present",
+                                       NA,     "1: present"
+  )
 
-<!-- Interpreting and communicating findings	0: Not present -->
-<!-- 1: present	Discussing and sharing and presenting findings. -->
-
-<!-- (Other instructional activities)	0: Not present -->
-<!-- 1: present	Being involved in other instructional activities: quiz and test, lecture, or video. -->
-
-<!-- (Other activities)	0: Not present -->
-<!-- 1: present	Being involved in non-instructional activities: off-topic time or transition between activities or program locations. -->
-
-<!-- Note. Other instructional activities and other activities are in parentheses to indicate that although they are not part of work with data (Figure 1), they are other activities that are coded from video. -->
+d %>% knitr::kable(booktabs = TRUE)
+```
 
 To determine the potential viability of this coding frame, observational notes from trained observers were analyzed. There were at least three observations for each of the nine programs. While these observation notes were collected only on a small number of days, video recordings of the programs (analyzed in the present study) were much more comprehensive. 31 observation notes were collected in total. A coding framework for work with data with three levels was used: 0 (no evidence of work with data), 1 (some evidence of work with data), and 3 (evidence of work with data). This analysis demonstrated that 36.6 % of notes revealed no evidence of work with data, 40 % of notes revealed some / potential evidence of work with data, and 23.3% revealed evidence of work with data.
 
 In addition to the codes for aspects of work with data, all of the video are also coded as occurring in the classroom or in a field setting. These codes were created by research team members on the basis of documentation from the intermediary program providers, who alternated between classroom and field experiences on the basis of a set schedule. Furthermore, the videos are also coded regarding the instructional leader support for STEM-related practices created through the use of the Program Quality Assessment (Akiva, 2005). Accordingly, codes for instructional leader support for STEM practice to correspond to the codes for work with data will be created. These codes will equal to 1 only when both the aspect of work with data (in Table 5) is present as is the PQA code(s) associated with that aspect of work with data; accordingly, these codes will represent students’ engagement in aspects of work with data that are also observed to be supported by youth instructional leaders. These codes are presented in Table 6.
 
-**Table 6
-Coding Frame for Instructional Support for Work With Data**
-<!-- Aspect of Support	Code	Description  -->
-<!-- Asking questions or defining problems with instructional support	0: Not present -->
-<!-- 1: PQA code for Predict is present	Discussing topics to investigate and pose questions. -->
+```{r}
+d <- tibble::tribble(
+  ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description,                                                                                                                                                                                                                                                                                                                                                        ~Categories.from.STEM-PQA.(Already.Coded).With.Descriptions,
+    "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                                                   "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+                      "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                                                        "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
+                          "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                                                                                                               "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
+                                         NA,                                                                                                              NA, "Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))",
+                            "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                                                       "Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+  "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                                                                                                                                                                                               "Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like \"Your heartbeat increases when you exercise\", etc.))"
+  )
 
-<!-- Making observations with instructional support	0: Not present -->
-<!-- 1: PQA code for Classification is present	Watching and noticing what is happening with respect to the phenomena or problem being investigated. -->
+d %>% knitr::kable()
+```
 
-<!-- Generating data with instructional support	0: Not present -->
-<!-- 1: PQA code for Measure is present -->
-<!-- 	Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools. -->
-
-<!-- Data modeling with instructional support	0: Not present -->
-<!-- 1: A PQA code for Analyze, Model, or Symbols is present	Understanding and explaining phenomena using models of the data that account for variability or uncertainty. -->
-
-<!-- Interpreting and communicating findings with instructional support	0: Not present -->
-<!-- 1: PQA code for Symbols or Analyze is present	Discussing and sharing and presenting findings. -->
-		
 Demographic variables. In addition to the measures described in this section, demographic information for youths’ gender and their racial and ethnic group will be used to construct demographic variables for gender and membership in an under-represented (in STEM) group; membership in an under-represented group will be identified on the basis of students’ racial and ethnic group being Hispanic, African American, Asian or Pacific Islanders, or native American. 
 
 ## Data Analysis
@@ -243,29 +261,9 @@ First, null models with only the random parts (i.e., random learner, momentary, 
 
 Here, the probability of a response being associated with a profile (obtained through the LPA carried out during the preliminary analyses) is predicted by the direct effects of indicators for the aspects of work with data ([replace]01 – [replace]05 below) measured at the momentary level, their individual interest in STEM ([replace]06), measured at the student level, and the random learner, moment, and program effects ([replace]learner, [replace]moment, and [replace]program). The general specification for the models for learner i during moment j in program k is written as:
 
-<!-- Pr(profileijk) =  -->
-
-<!-- Fixed parts: -->
-
-<!-- 00 +  -->
-<!-- 01(Dummy code for asking questions or identifying problems)j +  -->
-<!-- 02(Dummy code for collecting and creating data)j +  -->
-<!-- 03(Dummy code for accounting for variability or uncertainty)j +  -->
-<!-- 04(Dummy code for interpreting and communicating findings)j +  -->
-<!-- 05(Dummy code for other instructional activities)j +  -->
-<!-- 06(Learners’ individual interest in STEM)i + -->
-<!-- 07(Dummy code field experiences)j +  -->
-<!-- 08(Dummy code for female gender)j +  -->
-<!-- 09(Dummy code for member of an under-represented minority group)i + -->
-<!-- 10(Dummy code for other instructional activities)j +  -->
-<!-- Random parts: -->
-
-<!-- learner(learner effect)i + -->
-<!-- moment(moment effect)j + -->
-<!-- program(program effect)k + -->
-<!-- ijk -->
-
-<!-- Where learnermoment, and program are assumed to ~ N(, 2) -->
+```{r}
+knitr::include_graphics("images/model-figure.png")
+```
 
 Findings associated with this research question will help us understand how learners engage during different aspects of work with data and how engagement during the aspects of data differ from engagement during non-instructional activities. Another benefit of these models is the variance components, which can be interpreted in terms of the intraclass correlations. Because momentary and learner random effects are crossed and both nested with the program random effects, estimates for each of these random effects can provide information on the sources of unexplained variability in the PECs, thus helping us to understand the amount of variation that variables at each of the levels of the random effects (learner, moment, and program) can be explained.
 
@@ -288,6 +286,3 @@ Few publications and tools address the question of statistical power for models 
 ## Limitations
 
 This study has three primary limitations. First, this study does not consider outcomes from engaging, such as the products of neither students’ work, nor the specific cognitive capabilities they develop through their participation. Second, the context for this study is suited to understanding engagement in aspects of work with data but not explicitly designed for it, and learning environments that deliberately support work with data over a long period may demonstrate different patterns of engagement than those examined in this study because of the focus on and sequencing of the aspects of work with data, which may make it more (or less) cognitively, behaviorally, or affectively engaging than is determined in this study. Third, this program is not representation of all outside-of-school programs, as many of the programs were based on characteristics of model STEM enrichment programs; as a result, engagement may be different in other STEM enrichment programs depending on characteristics of the programs and their activities, and findings from this study should be interpreted in terms of programs that share similar features in terms of their design. 
-
-<!-- ## Significance  -->
-<!-- Viewing engagement in work with data in terms of engagement can help us to build the knowledge base around key data analytic practices for learners. In STEM settings, being engaged predicts key learning-related outcomes (Sinatra et al., 2015). As a consequence, what learners are thinking, feeling, and doing while engaged in work with data, and how challenged or good at data doing any or all of the aspects of work with data they perceive themselves to be, may important predictors of key outcomes and learners’ preparation for future learning (Bransford & Schwartz, 1999), especially for learning in data-rich areas of studies and occupations, such as data science. Engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives. -->
