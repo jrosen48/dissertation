@@ -9,3 +9,4 @@ rsconnect
 *.inp
 *.dat
 *.log
+.httr-oauth
