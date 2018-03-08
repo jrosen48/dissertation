@@ -2320,7 +2320,7 @@ statistically significant. The aspects of work with data are modestly
 correlated with one another, with correlations ranging from .16 to .46;
 all were significant.
 
-\begin{table}[H]
+\begin{landscape}\begin{table}[H]
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}{llllllllllllll}
 \toprule
@@ -2342,6 +2342,7 @@ overall\_pre\_interest & -.05 & .02 & .05 & -.03 & -.05 & -.02 & -.03 & -.10 & .
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 In order to determine whether there were greater correlations with the
 variables that make up the profiles, the correlations between the five
@@ -2423,7 +2424,7 @@ For the composite of work with data, the composite predicted profile 1,
 only behavioral (B = 0.008 (0.004), p = .019), but not any of the other
 profiles. However, this coefficient is very small.
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:unnamed-chunk-14}Results of mixed effects models for the composite}
 \centering
@@ -2440,6 +2441,7 @@ profile\_6 & 0.153 (0.025) (p < .001) & -0.001 (0.004) (p = 0.558) & 0.027 & 0.4
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Looking across findings for research question
 \#2}\label{looking-across-findings-for-research-question-2}
@@ -2533,7 +2535,7 @@ These models show that the activity predicts full engagement (\emph{p} =
 .006 (0.016), \emph{p} \textless{} .001). None of the other profiles
 were statistically significantly related.
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:inquiry-separate}Results of mixed effects models for activity}
 \centering
@@ -2550,6 +2552,7 @@ profile\_6 & 0.137 (0.023) (p < .001) & 0.061 (0.015) (p < .001) & 0.023 & 0.446
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Models with activity and the
 composite}\label{models-with-activity-and-the-composite}
@@ -2560,7 +2563,7 @@ composite is related to only behavioral (B = 0.008 (0.004), p = .016).
 These patterns were very similar to those found in earlier models with
 each of the predictor variables on their own.
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:inquiry-composite-and-activity}Results of mixed effects models for activity and composites}
 \centering
@@ -2577,6 +2580,7 @@ profile\_6 & 0.148 (0.023) (p < .001) & 0.063 (0.015) (p < .001) & -0.006 (0.004
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Models with activity interacted with the
 composite}\label{models-with-activity-interacted-with-the-composite}
@@ -2586,7 +2590,7 @@ interaction, with statistically significant relationships between the
 activity and full engagement (B = 0.078 (0.026), p \textless{} .001) and
 between the composite and only behavioral (B = 0.008 (0.005), p = .034).
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:inquiry-composite-interaction}Results of mixed effects models for activity and composites interactions}
 \centering
@@ -2603,6 +2607,7 @@ profile\_6 & 0.145 (0.024) (p < .001) & 0.078 (0.026) (p = 0.001) & -0.004 (0.00
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \section{Research Question \#4}\label{research-question-4}
 
@@ -2630,7 +2635,7 @@ between the composite and only behavioral (B = 0.008 (0.004), p = .027).
 Interest predicted the engaged and competent but not challenged profile
 (B = 0.037 (0.016), p = .008).
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:unnamed-chunk-15}Results of mixed effects models with interest, composite, and activity}
 \centering
@@ -2647,22 +2652,44 @@ profile\_6 & 0.095 (0.066) (p = 0.075) & 0.017 (0.021) (p = 0.209) & -0.006 (0.0
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Models with pre interest interacted with the
 composite}\label{models-with-pre-interest-interacted-with-the-composite}
 
-These models show\ldots{}
+These models show no statistically significant relations, though the
+composite by pre interest interaction for the engaged and competent but
+not challenged profile has a p-value less than .10 (B = .005 (.004), p =
+.081).
 
-\begin{verbatim}
-## Error in FUN(X[[i]], ...): object 'dm_composite:overall_pre_interest' not found
-\end{verbatim}
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-16}Results of mixed effects models with interest and composite interaction}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
+\toprule
+model & intercept & overall\_pre\_interest & dm\_composite & inquiry\_based & dm\_composite:overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.128 (0.045) (p = 0.002) & -0.007 (0.014) (p = 0.698) & 0.016 (0.013) (p = 0.117) & -0.014 (0.016) (p = 0.813) & -0.003 (0.004) (p = 0.734) & 0.008 & 0.089 & 0.010\\
+profile\_2 & 0.391 (0.077) (p < .001) & -0.052 (0.024) (p = 0.985) & -0.004 (0.016) (p = 0.609) & -0.012 (0.019) (p = 0.743) & 0.001 (0.005) (p = 0.434) & 0.004 & 0.281 & 0.013\\
+profile\_3 & 0.053 (0.055) (p = 0.169) & 0.026 (0.017) (p = 0.064) & -0.017 (0.012) (p = 0.913) & -0.032 (0.015) (p = 0.987) & 0.005 (0.004) (p = 0.081) & 0.009 & 0.283 & 0.000\\
+profile\_4 & 0.063 (0.042) (p = 0.066) & 0.018 (0.013) (p = 0.083) & 0.01 (0.012) (p = 0.209) & -0.006 (0.014) (p = 0.674) & -0.005 (0.004) (p = 0.9) & 0.000 & 0.100 & 0.001\\
+profile\_5 & 0.241 (0.069) (p < .001) & -0.016 (0.021) (p = 0.773) & -0.001 (0.016) (p = 0.529) & 0.019 (0.018) (p = 0.152) & 0.002 (0.005) (p = 0.359) & 0.005 & 0.214 & 0.014\\
+profile\_6 & 0.099 (0.07) (p = 0.079) & 0.015 (0.022) (p = 0.24) & -0.008 (0.012) (p = 0.741) & 0.056 (0.016) (p < .001) & 0.001 (0.004) (p = 0.436) & 0.023 & 0.467 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 \subsection{Models with pre interest interacted with youth
 activity}\label{models-with-pre-interest-interacted-with-youth-activity}
 
-These models show\ldots{}
+These models show no statistically significant relations, though the
+activity by pre interest interaction for the engaged and competent but
+not challenged profile has a p-value less than .10 (B = .023 (.017), p =
+.079).
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:unnamed-chunk-17}Results of mixed effects models with interest and activity interaction}
 \centering
@@ -2679,6 +2706,7 @@ profile\_6 & 0.095 (0.067) (p = 0.077) & 0.017 (0.021) (p = 0.213) & -0.006 (0.0
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Looking across findings for research question
 \#4}\label{looking-across-findings-for-research-question-4}

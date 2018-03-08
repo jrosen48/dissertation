@@ -668,7 +668,8 @@ d %>%
   corrr::shave() %>%
   corrr::fashion() %>% 
   knitr::kable(booktabs = TRUE, linesep = "", format = "latex") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and teh aspects of work with data, ranging from (in absolute value terms) .00 to .06.
@@ -705,7 +706,8 @@ d %>%
   corrr::shave() %>%
   corrr::fashion() %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations between individual aspects of work with data nad the composite and the profiles") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ```{r, rq2-1-corr-p-spearman, eval = F}
@@ -827,7 +829,8 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Looking across findings for research question #2
@@ -893,46 +896,46 @@ tidyttest::t_test(d, dm_challenge, inquiry_based) # p < .001, d = .27
 
 ```{r, rq3-2-inq, cache = TRUE}
 m1oi <- lmer(profile_1_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
 m2oi <- lmer(profile_2_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
 m3oi <- lmer(profile_3_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
 m4oi <- lmer(profile_4_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
 m5oi <- lmer(profile_5_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
 m6oi <- lmer(profile_6_p ~ 1 +
-              inquiry_based +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+               inquiry_based +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 ```
 
 
@@ -1003,7 +1006,8 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ```{r, rq3-2-interactions-with-work-with-data, cache = TRUE, eval = FALSE}
@@ -1091,53 +1095,54 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for composites", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Models with activity and the composite 
 
 ```{r, rq3-2-inq-and-composite, cache = TRUE}
 m1iio <- lmer(profile_1_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 
 m2iio <- lmer(profile_2_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 
 m3iio <- lmer(profile_3_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 
 m4iio <- lmer(profile_4_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 
 m5iio <- lmer(profile_5_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 
 m6iio <- lmer(profile_6_p ~ 1 +
-               inquiry_based + dm_composite +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+                inquiry_based + dm_composite +
+                (1 | participant_ID) +
+                (1 | beep_ID) +
+                (1 | program_ID),
+              data = d)
 ```
 
 These models show that the acitivty is still related to full engagement (B = 0.063 (0.015), p < .001) and that the work with data composite is related to only behavioral (B = 0.008 (0.004), p = .016). These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
@@ -1159,7 +1164,8 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Models with activity interacted with the composite
@@ -1228,7 +1234,8 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites interactions", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ## Research Question #4
@@ -1417,12 +1424,13 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest, composite, and activity", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Models with pre interest interacted with the composite
 
-These models show...
+These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (B = .005 (.004), p = .081).
 
 ```{r, eval = TRUE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
@@ -1443,12 +1451,13 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Models with pre interest interacted with youth activity
 
-These models show...
+These models show no statistically significant relations, though the activity by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (B = .023 (.017), p = .079).
 
 ```{r, eval = TRUE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
@@ -1469,7 +1478,8 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and activity interaction", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Looking across findings for research question #4

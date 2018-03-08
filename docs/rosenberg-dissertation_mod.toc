@@ -13,48 +13,67 @@
 \contentsline {section}{\numberline {2.8}Research Questions}{21}{section.2.8}
 \contentsline {chapter}{\chapternumberline {3}Method}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}Participants}{23}{section.3.1}
-\contentsline {section}{\numberline {3.2}Context}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}Procedure}{24}{section.3.3}
-\contentsline {section}{\numberline {3.4}Data Sources and Measures}{25}{section.3.4}
-\contentsline {section}{\numberline {3.5}Data Analysis}{27}{section.3.5}
-\contentsline {subsubsection}{\numberline {3.5.0.1}1. Varying means, equal variances, and covariances fixed to 0 (model 1)}{30}{subsubsection.3.5.0.1}
-\contentsline {subsubsection}{\numberline {3.5.0.2}2. Varying means, equal variances, and equal covariances (model 2)}{30}{subsubsection.3.5.0.2}
-\contentsline {subsubsection}{\numberline {3.5.0.3}3. Varying means, varying variances, and covariances fixed to 0 (model 3)}{31}{subsubsection.3.5.0.3}
-\contentsline {subsubsection}{\numberline {3.5.0.4}4. Varying means, varying variances, and equal covariances (model 4)}{31}{subsubsection.3.5.0.4}
-\contentsline {subsubsection}{\numberline {3.5.0.5}5. Varying means, equal variances, and varying covariances (model 5)}{32}{subsubsection.3.5.0.5}
-\contentsline {subsubsection}{\numberline {3.5.0.6}6. Varying means, varying variances, and varying covariances (model 6)}{32}{subsubsection.3.5.0.6}
-\contentsline {section}{\numberline {3.6}Power Analysis}{38}{section.3.6}
-\contentsline {section}{\numberline {3.7}Limitations}{38}{section.3.7}
-\contentsline {section}{\numberline {3.8}Descriptive Statistics}{39}{section.3.8}
-\contentsline {section}{\numberline {3.9}Research Question \#1}{39}{section.3.9}
-\contentsline {subsection}{\numberline {3.9.1}Statistical software developed}{40}{subsection.3.9.1}
-\contentsline {subsection}{\numberline {3.9.2}Overall solutions for all models}{41}{subsection.3.9.2}
-\contentsline {subsection}{\numberline {3.9.3}In-depth statistics for particular models}{43}{subsection.3.9.3}
-\contentsline {subsection}{\numberline {3.9.4}Comparison of candidate solutions}{47}{subsection.3.9.4}
-\contentsline {subsection}{\numberline {3.9.5}Model 1 candidate solutions}{48}{subsection.3.9.5}
-\contentsline {subsubsection}{\numberline {3.9.5.1}Model: 1, Profiles: 3}{48}{subsubsection.3.9.5.1}
-\contentsline {subsubsection}{\numberline {3.9.5.2}Model: 1, Profiles: 4}{49}{subsubsection.3.9.5.2}
-\contentsline {subsubsection}{\numberline {3.9.5.3}Model: 1, Profiles: 5}{49}{subsubsection.3.9.5.3}
-\contentsline {subsubsection}{\numberline {3.9.5.4}Model: 1, Profiles: 6}{51}{subsubsection.3.9.5.4}
-\contentsline {subsubsection}{\numberline {3.9.5.5}Model: 1, Profiles: 6 (alternate)}{53}{subsubsection.3.9.5.5}
-\contentsline {subsubsection}{\numberline {3.9.5.6}Model: 1, Profiles: 7}{54}{subsubsection.3.9.5.6}
-\contentsline {subsubsection}{\numberline {3.9.5.7}Model: 1, Profiles: 7 (alternate)}{55}{subsubsection.3.9.5.7}
-\contentsline {subsection}{\numberline {3.9.6}Model 2 candidate solutions}{56}{subsection.3.9.6}
-\contentsline {subsubsection}{\numberline {3.9.6.1}Model: 2, Profiles: 3}{56}{subsubsection.3.9.6.1}
-\contentsline {subsubsection}{\numberline {3.9.6.2}Model: 2, Profiles: 4}{58}{subsubsection.3.9.6.2}
-\contentsline {subsubsection}{\numberline {3.9.6.3}Model: 2, Profiles: 5}{59}{subsubsection.3.9.6.3}
-\contentsline {subsubsection}{\numberline {3.9.6.4}Looking across model 1 and model 2 solutions}{60}{subsubsection.3.9.6.4}
-\contentsline {section}{\numberline {3.10}Research Question \#2}{62}{section.3.10}
-\contentsline {subsection}{\numberline {3.10.1}Null models}{63}{subsection.3.10.1}
-\contentsline {subsection}{\numberline {3.10.2}All variables separate}{64}{subsection.3.10.2}
-\contentsline {subsection}{\numberline {3.10.3}Composite}{67}{subsection.3.10.3}
-\contentsline {subsection}{\numberline {3.10.4}Looking across findings for research question \#2}{67}{subsection.3.10.4}
-\contentsline {section}{\numberline {3.11}Research Question \#3}{67}{section.3.11}
-\contentsline {section}{\numberline {3.12}Research Questoin \#4}{67}{section.3.12}
-\contentsline {subsection}{\numberline {3.12.1}Just interest}{67}{subsection.3.12.1}
-\contentsline {subsection}{\numberline {3.12.2}Composite}{68}{subsection.3.12.2}
-\contentsline {subsection}{\numberline {3.12.3}Composite with interest}{68}{subsection.3.12.3}
-\contentsline {subsection}{\numberline {3.12.4}Looking across findings for research question \#3}{70}{subsection.3.12.4}
-\contentsline {section}{\numberline {3.13}Research Question \#4}{70}{section.3.13}
-\contentsline {chapter}{\chapternumberline {4}Discussion}{71}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}References}{72}{chapter.5}
+\contentsline {section}{\numberline {3.2}Context}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Procedure}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Data Sources and Measures}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Data Analysis}{30}{section.3.5}
+\contentsline {subsubsection}{\numberline {3.5.0.1}1. Varying means, equal variances, and covariances fixed to 0 (model 1)}{33}{subsubsection.3.5.0.1}
+\contentsline {subsubsection}{\numberline {3.5.0.2}2. Varying means, equal variances, and equal covariances (model 2)}{33}{subsubsection.3.5.0.2}
+\contentsline {subsubsection}{\numberline {3.5.0.3}3. Varying means, varying variances, and covariances fixed to 0 (model 3)}{34}{subsubsection.3.5.0.3}
+\contentsline {subsubsection}{\numberline {3.5.0.4}4. Varying means, varying variances, and equal covariances (model 4)}{34}{subsubsection.3.5.0.4}
+\contentsline {subsubsection}{\numberline {3.5.0.5}5. Varying means, equal variances, and varying covariances (model 5)}{35}{subsubsection.3.5.0.5}
+\contentsline {subsubsection}{\numberline {3.5.0.6}6. Varying means, varying variances, and varying covariances (model 6)}{35}{subsubsection.3.5.0.6}
+\contentsline {section}{\numberline {3.6}Power Analysis}{42}{section.3.6}
+\contentsline {section}{\numberline {3.7}Limitations}{42}{section.3.7}
+\contentsline {section}{\numberline {3.8}Descriptive Statistics}{43}{section.3.8}
+\contentsline {section}{\numberline {3.9}Research Question \#1}{43}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Statistical software developed}{44}{subsection.3.9.1}
+\contentsline {subsection}{\numberline {3.9.2}Overall solutions for all models}{44}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}In-depth statistics for particular models}{46}{subsection.3.9.3}
+\contentsline {subsection}{\numberline {3.9.4}Comparison of candidate solutions}{50}{subsection.3.9.4}
+\contentsline {subsubsection}{\numberline {3.9.4.1}Model: 1, Profiles: 6}{50}{subsubsection.3.9.4.1}
+\contentsline {subsubsection}{\numberline {3.9.4.2}Model: 1, Profiles: 7}{52}{subsubsection.3.9.4.2}
+\contentsline {subsubsection}{\numberline {3.9.4.3}Looking across model 1 and model 2 solutions}{54}{subsubsection.3.9.4.3}
+\contentsline {section}{\numberline {3.10}Research Question \#2}{56}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Model 1, six profile solution}{56}{subsection.3.10.1}
+\contentsline {subsection}{\numberline {3.10.2}Null models}{57}{subsection.3.10.2}
+\contentsline {subsection}{\numberline {3.10.3}Correlations between individual aspects of work with data and the composite and the profiles and individual interest}{58}{subsection.3.10.3}
+\contentsline {subsection}{\numberline {3.10.4}Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest}{60}{subsection.3.10.4}
+\contentsline {subsection}{\numberline {3.10.5}Models with the work with data variables added separate}{62}{subsection.3.10.5}
+\contentsline {subsection}{\numberline {3.10.6}Models with the composite added}{64}{subsection.3.10.6}
+\contentsline {subsection}{\numberline {3.10.7}Looking across findings for research question \#2}{66}{subsection.3.10.7}
+\contentsline {section}{\numberline {3.11}Research Question \#3}{66}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Differences across profiles by activity}{66}{subsection.3.11.1}
+\contentsline {subsection}{\numberline {3.11.2}Differences across the variables that make up the profiles by activity}{67}{subsection.3.11.2}
+\contentsline {subsection}{\numberline {3.11.3}Models with activity}{67}{subsection.3.11.3}
+\contentsline {subsection}{\numberline {3.11.4}Models with activity and the composite}{69}{subsection.3.11.4}
+\contentsline {subsection}{\numberline {3.11.5}Models with activity interacted with the composite}{71}{subsection.3.11.5}
+\contentsline {section}{\numberline {3.12}Research Question \#4}{73}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Models with pre interest, composite, and activity}{73}{subsection.3.12.1}
+\contentsline {subsection}{\numberline {3.12.2}Models with pre interest interacted with the composite}{75}{subsection.3.12.2}
+\contentsline {subsection}{\numberline {3.12.3}Models with pre interest interacted with youth activity}{77}{subsection.3.12.3}
+\contentsline {subsection}{\numberline {3.12.4}Looking across findings for research question \#4}{79}{subsection.3.12.4}
+\contentsline {section}{\numberline {3.13}Research Question \#5}{79}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Why is support for work with data not related to the PECs?}{79}{subsection.3.13.1}
+\contentsline {subsection}{\numberline {3.13.2}How does support for work with data lead to specific student activities related to work with data?}{79}{subsection.3.13.2}
+\contentsline {subsection}{\numberline {3.13.3}What affordances and constraints do summer STEM programs have for work with data?}{79}{subsection.3.13.3}
+\contentsline {subsection}{\numberline {3.13.4}What are characteristics of especially engaging moments?}{79}{subsection.3.13.4}
+\contentsline {chapter}{\chapternumberline {4}Discussion}{80}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.1}Key Findings}{80}{subsection.4.0.1}
+\contentsline {subsection}{\numberline {4.0.2}Limitations of the Study}{80}{subsection.4.0.2}
+\contentsline {subsection}{\numberline {4.0.3}Recommendations for Future Research}{80}{subsection.4.0.3}
+\contentsline {subsection}{\numberline {4.0.4}Implications for Practice}{80}{subsection.4.0.4}
+\contentsline {chapter}{\chapternumberline {5}References}{81}{chapter.5}
+\contentsline {section}{\numberline {5.1}Appendix}{89}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Statistical software developed}{89}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Other models considered}{91}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Model 1 candidate solutions}{91}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}Model: 1, Profiles: 3}{91}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}Model: 1, Profiles: 4}{92}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}Model: 1, Profiles: 5}{93}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}Model: 1, Profiles: 6 (alternate)}{94}{subsubsection.5.1.3.4}
+\contentsline {subsubsection}{\numberline {5.1.3.5}Model: 1, Profiles: 7 (alternate)}{95}{subsubsection.5.1.3.5}
+\contentsline {subsection}{\numberline {5.1.4}Model 2 candidate solutions}{96}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.1}Model: 2, Profiles: 3}{96}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.2}Model: 2, Profiles: 4}{97}{subsubsection.5.1.4.2}
+\contentsline {subsubsection}{\numberline {5.1.4.3}Model: 2, Profiles: 5}{98}{subsubsection.5.1.4.3}
