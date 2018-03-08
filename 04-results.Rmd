@@ -419,8 +419,8 @@ There is a wide range of profiles. Some appear very commonly, particularly those
 ```{r, compare-profiles-by-solution}
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
 
-d[-1, ] %>% 
-  mutate(Model = NA) %>% 
+d
+d[, -1] %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>%
@@ -860,7 +860,7 @@ o %>%
 
 When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. This seemed to be the case for whether profiles or the variables that make up profiles were considered. Reasons for why this may be are discussed in the next chapter. 
 
-## Research Question #3
+## Research Question #3: Relations Between Activity and PECs
 
 This question focuses on whether the relations differ on the basis on the activity students are doing. This section first describes differences across profiles by youth activity and by the variables that make up the profiles by youth activity. Next, findings from mixed effects models predicting activity, activity and the composite, and the activity interacted with the composite are presented.
 

@@ -39,47 +39,47 @@
 \contentsline {subsubsection}{\numberline {3.10.4.1}Model: 1, Profiles: 6}{49}{subsubsection.3.10.4.1}
 \contentsline {subsubsection}{\numberline {3.10.4.2}Model: 1, Profiles: 7}{51}{subsubsection.3.10.4.2}
 \contentsline {subsubsection}{\numberline {3.10.4.3}Looking across model 1 and model 2 solutions}{53}{subsubsection.3.10.4.3}
-\contentsline {section}{\numberline {3.11}Research Question \#2: Relations Between Instructional Support for Work With Data and the PECs}{55}{section.3.11}
-\contentsline {subsection}{\numberline {3.11.1}Null models}{55}{subsection.3.11.1}
-\contentsline {subsection}{\numberline {3.11.2}Correlations between individual aspects of work with data and the composite and the profiles and individual interest}{56}{subsection.3.11.2}
-\contentsline {subsection}{\numberline {3.11.3}Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest}{58}{subsection.3.11.3}
-\contentsline {subsection}{\numberline {3.11.4}Models with the work with data variables added separate}{60}{subsection.3.11.4}
-\contentsline {subsection}{\numberline {3.11.5}Models with the composite added}{62}{subsection.3.11.5}
-\contentsline {subsection}{\numberline {3.11.6}Looking across findings for research question \#2}{64}{subsection.3.11.6}
-\contentsline {section}{\numberline {3.12}Research Question \#3}{64}{section.3.12}
-\contentsline {subsection}{\numberline {3.12.1}Differences across profiles by activity}{64}{subsection.3.12.1}
-\contentsline {subsection}{\numberline {3.12.2}Differences across the variables that make up the profiles by activity}{65}{subsection.3.12.2}
-\contentsline {subsection}{\numberline {3.12.3}Models with activity}{65}{subsection.3.12.3}
-\contentsline {subsection}{\numberline {3.12.4}Models with activity and the composite}{67}{subsection.3.12.4}
-\contentsline {subsection}{\numberline {3.12.5}Models with activity interacted with the composite}{69}{subsection.3.12.5}
-\contentsline {subsection}{\numberline {3.12.6}Looking across findings for research question \#3}{71}{subsection.3.12.6}
-\contentsline {section}{\numberline {3.13}Research Question \#4}{71}{section.3.13}
-\contentsline {subsection}{\numberline {3.13.1}Models with pre interest, composite, and activity}{71}{subsection.3.13.1}
-\contentsline {subsection}{\numberline {3.13.2}Models with pre interest interacted with the composite}{73}{subsection.3.13.2}
-\contentsline {subsection}{\numberline {3.13.3}Models with pre interest interacted with youth activity}{75}{subsection.3.13.3}
-\contentsline {subsection}{\numberline {3.13.4}Looking across findings for research question \#4}{77}{subsection.3.13.4}
-\contentsline {section}{\numberline {3.14}Research Question \#5}{77}{section.3.14}
-\contentsline {subsection}{\numberline {3.14.1}Why is support for work with data not related to the PECs?}{77}{subsection.3.14.1}
-\contentsline {subsection}{\numberline {3.14.2}Why is the activity related to work with data?}{77}{subsection.3.14.2}
-\contentsline {subsection}{\numberline {3.14.3}How does support for work with data lead to specific student activities related to work with data?}{77}{subsection.3.14.3}
-\contentsline {subsection}{\numberline {3.14.4}What affordances and constraints do summer STEM programs have for work with data?}{77}{subsection.3.14.4}
-\contentsline {subsection}{\numberline {3.14.5}What are characteristics of especially engaging moments?}{77}{subsection.3.14.5}
-\contentsline {chapter}{\chapternumberline {4}Discussion}{78}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Key Findings}{78}{subsection.4.0.1}
-\contentsline {subsection}{\numberline {4.0.2}Limitations of the Study}{78}{subsection.4.0.2}
-\contentsline {subsection}{\numberline {4.0.3}Recommendations for Future Research}{78}{subsection.4.0.3}
-\contentsline {subsection}{\numberline {4.0.4}Implications for Practice}{78}{subsection.4.0.4}
-\contentsline {chapter}{\chapternumberline {5}References}{79}{chapter.5}
-\contentsline {section}{\numberline {5.1}Appendix}{87}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Statistical software developed}{87}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Other models considered}{89}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Model 1 candidate solutions}{89}{subsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.3.1}Model: 1, Profiles: 3}{89}{subsubsection.5.1.3.1}
-\contentsline {subsubsection}{\numberline {5.1.3.2}Model: 1, Profiles: 4}{90}{subsubsection.5.1.3.2}
-\contentsline {subsubsection}{\numberline {5.1.3.3}Model: 1, Profiles: 5}{91}{subsubsection.5.1.3.3}
-\contentsline {subsubsection}{\numberline {5.1.3.4}Model: 1, Profiles: 6 (alternate)}{92}{subsubsection.5.1.3.4}
-\contentsline {subsubsection}{\numberline {5.1.3.5}Model: 1, Profiles: 7 (alternate)}{93}{subsubsection.5.1.3.5}
-\contentsline {subsection}{\numberline {5.1.4}Model 2 candidate solutions}{94}{subsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.4.1}Model: 2, Profiles: 3}{94}{subsubsection.5.1.4.1}
-\contentsline {subsubsection}{\numberline {5.1.4.2}Model: 2, Profiles: 4}{95}{subsubsection.5.1.4.2}
-\contentsline {subsubsection}{\numberline {5.1.4.3}Model: 2, Profiles: 5}{96}{subsubsection.5.1.4.3}
+\contentsline {section}{\numberline {3.11}Research Question \#2: Relations Between Instructional Support for Work With Data and the PECs}{56}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Null models}{56}{subsection.3.11.1}
+\contentsline {subsection}{\numberline {3.11.2}Correlations between individual aspects of work with data and the composite and the profiles and individual interest}{57}{subsection.3.11.2}
+\contentsline {subsection}{\numberline {3.11.3}Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest}{59}{subsection.3.11.3}
+\contentsline {subsection}{\numberline {3.11.4}Models with the work with data variables added separate}{61}{subsection.3.11.4}
+\contentsline {subsection}{\numberline {3.11.5}Models with the composite added}{63}{subsection.3.11.5}
+\contentsline {subsection}{\numberline {3.11.6}Looking across findings for research question \#2}{65}{subsection.3.11.6}
+\contentsline {section}{\numberline {3.12}Research Question \#3}{65}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Differences across profiles by activity}{65}{subsection.3.12.1}
+\contentsline {subsection}{\numberline {3.12.2}Differences across the variables that make up the profiles by activity}{66}{subsection.3.12.2}
+\contentsline {subsection}{\numberline {3.12.3}Models with activity}{66}{subsection.3.12.3}
+\contentsline {subsection}{\numberline {3.12.4}Models with activity and the composite}{68}{subsection.3.12.4}
+\contentsline {subsection}{\numberline {3.12.5}Models with activity interacted with the composite}{70}{subsection.3.12.5}
+\contentsline {subsection}{\numberline {3.12.6}Looking across findings for research question \#3}{72}{subsection.3.12.6}
+\contentsline {section}{\numberline {3.13}Research Question \#4}{72}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Models with pre interest, composite, and activity}{72}{subsection.3.13.1}
+\contentsline {subsection}{\numberline {3.13.2}Models with pre interest interacted with the composite}{74}{subsection.3.13.2}
+\contentsline {subsection}{\numberline {3.13.3}Models with pre interest interacted with youth activity}{76}{subsection.3.13.3}
+\contentsline {subsection}{\numberline {3.13.4}Looking across findings for research question \#4}{78}{subsection.3.13.4}
+\contentsline {section}{\numberline {3.14}Research Question \#5}{78}{section.3.14}
+\contentsline {subsection}{\numberline {3.14.1}Why is support for work with data not related to the PECs?}{78}{subsection.3.14.1}
+\contentsline {subsection}{\numberline {3.14.2}Why is the activity related to work with data?}{78}{subsection.3.14.2}
+\contentsline {subsection}{\numberline {3.14.3}How does support for work with data lead to specific student activities related to work with data?}{78}{subsection.3.14.3}
+\contentsline {subsection}{\numberline {3.14.4}What affordances and constraints do summer STEM programs have for work with data?}{78}{subsection.3.14.4}
+\contentsline {subsection}{\numberline {3.14.5}What are characteristics of especially engaging moments?}{78}{subsection.3.14.5}
+\contentsline {chapter}{\chapternumberline {4}Discussion}{79}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.1}Key Findings}{79}{subsection.4.0.1}
+\contentsline {subsection}{\numberline {4.0.2}Limitations of the Study}{79}{subsection.4.0.2}
+\contentsline {subsection}{\numberline {4.0.3}Recommendations for Future Research}{79}{subsection.4.0.3}
+\contentsline {subsection}{\numberline {4.0.4}Implications for Practice}{79}{subsection.4.0.4}
+\contentsline {chapter}{\chapternumberline {5}References}{80}{chapter.5}
+\contentsline {section}{\numberline {5.1}Appendix}{88}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Statistical software developed}{88}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Other models considered}{90}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Model 1 candidate solutions}{90}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}Model: 1, Profiles: 3}{90}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}Model: 1, Profiles: 4}{91}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}Model: 1, Profiles: 5}{92}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}Model: 1, Profiles: 6 (alternate)}{93}{subsubsection.5.1.3.4}
+\contentsline {subsubsection}{\numberline {5.1.3.5}Model: 1, Profiles: 7 (alternate)}{94}{subsubsection.5.1.3.5}
+\contentsline {subsection}{\numberline {5.1.4}Model 2 candidate solutions}{95}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.1}Model: 2, Profiles: 3}{95}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.2}Model: 2, Profiles: 4}{96}{subsubsection.5.1.4.2}
+\contentsline {subsubsection}{\numberline {5.1.4.3}Model: 2, Profiles: 5}{97}{subsubsection.5.1.4.3}
