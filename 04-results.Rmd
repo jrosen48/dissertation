@@ -25,6 +25,7 @@ library(kableExtra)
 library(sjPlot)
 library(broom)
 library(broom.mixed)
+library(konfound)
 ```
 
 ```{r, loading-data, eval = F}
@@ -210,7 +211,7 @@ df %>%
 
 
 
-## Research Question #1
+## Research Question #1: Profiles of Engagement and Its Conditions (PECs)
 
 This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
 
@@ -248,7 +249,7 @@ overall_stats_for_all_models[[1]] %>%
 
 First, I examined a wide range of models and solutions. I did this in order to select particular, candidate models to scrutinize in greater detail. In order to carry out this analysis, I followed guidelines recommended by the developers of MPlus (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
 
-The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, "LL not replicated" is reported as the value. If none of the 120 runs converge, then "Did not converge" is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 and 2 are explored in subsequent sections.
+The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, "LL not replicated" is reported as the value. If none of the 120 runs converge, then "Did not converge" is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections.
 
 ### In-depth statistics for particular models
 
@@ -311,18 +312,18 @@ For solutions associated with model 2, only those associated with 2-5 profile so
 
 ### Comparison of candidate solutions
 
-In this section, specific models are examined so that candidate solutions can be compared. For all of the solutions, the data are centered to have a mean equal to 0, but not scaled to have a standard deviation equal to 1.
+In this section, specific models are examined so that candidate solutions can be compared. For all of the solutions, the data are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
 #### Model: 1, Profiles: 6
 
 This solution is characterized by: 
 
-- a **full** profile, profile 6
-- a **universally low** profile, profile 2
-- an **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
-- an **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- an **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- an **engaged and competent but not challenged** profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
+- A **full** profile, profile 6
+- An **universally low** profile, profile 2
+- An **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
+- An **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- An **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- An **engaged and competent but not challenged** profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
 The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge--different from the profile associated with the model 1, four profile solution characterized by high levels of competence--this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses. 
 
@@ -339,7 +340,22 @@ write_rds(m1_6, "data/models/m1_6.rds")
 
 ```{r, m1_6p, cache = FALSE, eval = TRUE}
 m1_6 <- read_rds("data/models/m1_6.rds")
-plot_profiles_mplus(m1_6, to_scale = TRUE)
+
+p <- m1_6 %>% 
+  plot_profiles_mplus(to_scale = TRUE) +
+  scale_x_discrete("", labels = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) +
+  xlab(NULL) +
+  ylab("Z-score") +
+  viridis::scale_fill_viridis("", 
+                      limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                      labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
+
+p
 ```
 
 ```{r, m1_6p-ll, eval = TRUE, cache = FALSE, eval = FALSE}
@@ -350,13 +366,13 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 This solution is characterized by: 
 
-- a **full** profile, profile 7
-- a **universally low** profile, profile 1
-- a **competent but not engaged or challenged** profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
-- a **moderately low** profile, profile 3, characterized by moderately low levels of all of the variables
-- a **challenged** profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
-- a **highly challenged** profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
-- a **challenged but not engaged or competent** profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
+- A **full** profile, profile 7
+- A **universally low** profile, profile 1
+- A **competent but not engaged or challenged** profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
+- A **moderately low** profile, profile 3, characterized by moderately low levels of all of the variables
+- A **challenged** profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
+- A **highly challenged** profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
+- A **challenged but not engaged or competent** profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
@@ -372,8 +388,22 @@ write_rds(m1_7, "data/models/m1_7.rds")
 ```
 
 ```{r, m1_7p, cache = FALSE, eval = TRUE}
-m1_7 <- read_rds("data/models/m1_7.rds")
-plot_profiles_mplus(m1_7, to_scale = TRUE)
+m1_7 <- readr::read_rds("data/models/m1_7.rds")
+
+m1_7 %>% 
+  tidyLPA::plot_profiles_mplus(to_scale = TRUE) +
+  scale_x_discrete(labels = c("Universally low (n = 181)",
+                                 "Competent but not engaged or challenged (n = 317)",
+                                 "Moderately low (n = 651)",
+                                 "Challenged (n = 569)",
+                                 "Highly challenged (n = 222)",
+                                 "Engaged and competent but not challenged (n = 568)",
+                                 "Full (n = 450)")) +
+  xlab(NULL) +
+  ylab("Z-score") +
+  viridis::scale_fill_viridis("", 
+                      limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                      labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
 ```
 
 ```{r, m1_7-ll, cache = FALSE, eval = FALSE}
@@ -390,7 +420,8 @@ There is a wide range of profiles. Some appear very commonly, particularly those
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
 
 d[-1, ] %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution", linesep = "", align=rep('c', 13)) %>% 
+  mutate(Model = NA) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>%
   kableExtra::row_spec(0, angle = -60) %>% 
@@ -400,37 +431,15 @@ d[-1, ] %>%
 
 The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix.
 
-## Research Question #2
+## Research Question #2: Relations Between Instructional Support for Work With Data and the PECs
 
-Research question #2 is focused on the relations between each of the profiles and the aspects of work with data. Here is the order of this section:
-
-- Model 1, six profile solution
-- Null models
-- Correlations between individual aspects of work with data and the composite and the profiles and individual interest
-- Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
-- Models with the work with data variables added separate
-- Models with the composite added
-
-### Model 1, six profile solution
-
-Here is the model 1, six profile solution.  [need to change profile names in this plot and subsequent models]
-
-```{r, rq2-3-proc, cache = FALSE}
-m <- read_rds("data/models/m1_6.rds")
-plot_profiles_mplus(m1_6, to_scale = TRUE) +
-  scale_x_discrete(labels = c("Only behavioral (n = 370)",
-                              "Universally low (n = 667)",
-                              "Engaged and competent but not challenged (n = 450)",
-                              "All moderate (n = 638)",
-                              "Only affective (n = 638)",
-                              "Full (n = 488)"))
-```
+Research question #2 is focused on the relations between each of the profiles and instructional support for work with data. This section first presents null models. These are followed by two findings related to a variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles and individual interest and correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data.
 
 ```{r}
 cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
-C <- m %>% pull(C)
+C <- m1_6 %>% pull(C)
 
-C_p <- select(m, CPROB1:CPROB6) %>% 
+C_p <- select(m1_6, CPROB1:CPROB6) %>% 
   apply(MARGIN = 1, FUN = max)
 
 df_ss <- df[cc, ]
@@ -632,6 +641,7 @@ tidy_model <- function(model) {
   ddd
 }
 
+
 ```
 
 ### Null models
@@ -657,7 +667,7 @@ o %>%
 
 ### Correlations between individual aspects of work with data and the composite and the profiles and individual interest
 
-First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworth is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations etween communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. 
+First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. 
 
 ```{r, rq2-1-corr}
 d %>% 
@@ -672,7 +682,7 @@ d %>%
   kableExtra::landscape()
 ```
 
-In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and teh aspects of work with data, ranging from (in absolute value terms) .00 to .06.
+In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and the aspects of work with data, ranging from (in absolute value terms) .00 to .06.
 
 ```{r, rq2-1-corr-components, eval = F}
 d %>% 
@@ -690,7 +700,7 @@ p_vals <- d %>%
   select(dm_ask:dm_com, dm_composite,
          profile_1_p:profile_6_p,
          overall_pre_interest) %>%
-  psych::corr.test() %>% 
+  psych::corr.test() %>%
   pluck(4) %>% 
   round(3)
 ```
@@ -721,7 +731,7 @@ p_vals <- d %>%
 
 ### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
 
-Next, Pearson correlations between individual aspects of work with data (and the composite) and the variables that make up the profiles are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). 
+Next, correlations between individual aspects of work with data (and the composite) and the variables that make up the profiles are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). 
 
 ```{r, rq2-1-corr-ind-aspects}
 d %>% 
@@ -738,7 +748,7 @@ d %>%
 
 ### Models with the work with data variables added separate
 
-When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (B = 0.027 (0.016), p = .04) and between generating data and full engagement (B = 0.027 (0.014), p = .03). For this profile, the participant-level ICC decreased slightly.
+When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (*B* = 0.03 (0.016), *p* = .04) and between generating data and full engagement (*B* = 0.03 (0.016), *p* = .03). Sensitivity analysis for the effect of generating data suggested that 1.47% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, this effect was no longer significant when the Kenward-Roger approximation was used. The results were similar for the effect of generating data. For this profile, the participant-level ICC decreased slightly.
 
 ```{r, rq2-1-tab}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
@@ -760,9 +770,19 @@ o %>%
   kableExtra::landscape()
 ```
 
+```{r, sensitivity-analysis-for-rq1, eval = F}
+
+# Particularly for studies that do not use experimental designs, it can be important to determine how robust an inference is to alternative explanations. One approach to addressing this is sensitivity analysis, which involves quantifying the amount of bias that would be needed to invalidate an inference (hypothetically, this bias might be due to omitted or confounding variables, measurement, missing data, etc.). Using the approach described in Frank, Maroulis, Duong, and Kelcey (2013), we carried out sensitivity analysis for inferences we made relative to our key findings. The result is a numeric value for each effect that indicates the proportion of the estimate that would have to be biased in order to invalidate the inference: higher values indicate more robust estimates in that the inferences would still hold even if there were substantial bias in the estimate. For the effect of affect upon engagement, we determined that 84.94% of the estimate in Model 1 and 73.22% of the estimate in Model 2 would have to be due to bias to invalidate the inferences about these relationships. For the sensitivity of the effect of choice in Models 1 and 2, we found that 41.95% and 42.13% of the estimate would have to be due to bias to invalidate the inference, respectively. For the effect of location 54.97% of the estimate in Model 1 and 55.30% of the estimate in Model 2 would have to be due to bias to invalidate the inferences. These large values across all the sensitivity analyses conducted are considered high relative to prior studies using this method (see Frank et al., 2013 for many examples), and suggest that these findings are likely robust in light of possible confounding variables (such as covariates that were not included in the analyses in this study) and other sources of potential bias. Further, we can consider the impact of data that is not missing at random. A small number of missing responses associated with null effects could invalidate inferences about key findings assuming the percent bias needed to invalidate the inferences is small. Considering the large proportions of estimates that would have to be biased to invalidate the inferences made, we can conclude that these findings are robust in light of the data that is presently missing.
+
+konfound::konfound(m6a,dm_gen)
+# To sustain an inference, 4.941% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
+konfound::konfound(m6a,dm_mod)
+# To invalidate an inference, 1.477% of the estimate would have to be due to bias. This is based on a threshold of 0.03 for statistical significance (alpha = 0.05).
+```
+
 ### Models with the composite added
 
-For the composite of work with data, the composite predicted profile 1, only behavioral (B = 0.008 (0.004), p = .019), but not any of the other profiles. However, this coefficient is very small. 
+For the composite of work with data, the composite predicted profile 1, only behavioral (*B* = 0.008 (0.004), *p* = .019), but not any of the other profiles. Sensitivity analysis suggests However, this coefficient is very small. 
 
 ```{r, tidy-model-com-func, cache = FALSE}
 
@@ -810,7 +830,10 @@ tidy_model_com <- function(model) {
   ddd <- cbind(dd, as.data.frame(t(icc_vals)))
   ddd
 }
+```
 
+```{r, eval = F, sens-2}
+konfound(m1c, dm_composite)
 ```
 
 ```{r}
@@ -839,13 +862,7 @@ When looking across findings, we find very few relations between work with data 
 
 ## Research Question #3
 
-This question focuses on whether the relations differ on the basis on the activity students are doing. Here is the order of this section:
-
-1. Differences across profiles aby youth activity
-1. Differences across the variables that make up the profiles by youth activity
-1. Models with activity
-1. Models with activity and the composite
-1. Models with activity interacted with the composite
+This question focuses on whether the relations differ on the basis on the activity students are doing. This section first describes differences across profiles by youth activity and by the variables that make up the profiles by youth activity. Next, findings from mixed effects models predicting activity, activity and the composite, and the activity interacted with the composite are presented.
 
 ### Differences across profiles by activity
 
@@ -874,7 +891,7 @@ tidyttest::t_test(d, profile_6_p, inquiry_based) # p < .001, d = .16
 
 ### Differences across the variables that make up the profiles by activity
 
-Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; studnets were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27)
+Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27)
 
 ```{r, rq3-1-diff-by-ind-vars}
 d %>% 
@@ -988,7 +1005,11 @@ tidy_model_inq <- function(model) {
 
 ```
 
-These models show that the activity predicts full engagement (*p* = .006 (0.016), *p* < .001). None of the other profiles were statistically significantly related.
+```{r, eval = F, sens-RQ3}
+konfound::konfound(m6oi, inquiry_based)
+```
+
+These models show that the activity predicts full engagement (*p* = .006 (0.016), *p* < .001). However, this effect is associated with a very small coefficient. Sensitivity analysis suggests that 51.55% of the inference would need to be due to bias to invalidate the effect.  None of the other profiles were statistically significantly related. 
 
 ```{r, inquiry-separate}
 l <- list(m1oi, m2oi, m3oi, m4oi, m5oi, m6oi)
@@ -1145,7 +1166,12 @@ m6iio <- lmer(profile_6_p ~ 1 +
               data = d)
 ```
 
-These models show that the acitivty is still related to full engagement (B = 0.063 (0.015), p < .001) and that the work with data composite is related to only behavioral (B = 0.008 (0.004), p = .016). These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
+These models show that the activity is still related to full engagement (*B* = 0.063 (0.015), *p* < .001) and that the work with data composite is related to only behavioral (*B* = 0.008 (0.004), *p* = .016). The effect of activity is robust, with 3.08% of the effect needing to be due to bias to invalidate the inference. The effect of the composite was not, with only 1.375% of the effect needing to be due to bias to invalidate the inference. These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
+
+```{r, rq-3-sens-2, eval = F}
+konfound::konfound(m6iio, inquiry_based)
+konfound::konfound(m1iio, dm_composite)
+```
 
 ```{r, inquiry-composite-and-activity}
 l <- list(m1iio, m2iio, m3iio, m4iio, m5iio, m6iio)
@@ -1214,7 +1240,12 @@ m6ii <- lmer(profile_6_p ~ 1 +
              data = d)
 ```
 
-These models show a similar pattern as the model without the interaction, with statistically significant relationships between the activity and full engagement (B = 0.078 (0.026), p < .001) and between the composite and only behavioral (B = 0.008 (0.005), p = .034).
+These models show a similar pattern as the model without the interaction, with statistically significant relationships between the activity and full engagement (*B* = 0.078 (0.026), *p* < .001) and between the composite and only behavioral (*B* = 0.008 (0.005), *p* = .034). The effect of activity was once again robust, with 34.35% of the effect needing to be due to bias to invalidate the inference; the effect of the composite on the probability of an only behavioral profile was not as robust, with 18.93% of the effect needing to be due to bias to invalidate the inference.
+
+```{r, rq-3-sens-3, eval = F}
+konfound::konfound(m6ii, inquiry_based)
+konfound::konfound(m1ii, dm_composite)
+```
 
 ```{r, inquiry-composite-interaction}
 l <- list(m1ii, m2ii, m3ii, m4ii, m5ii, m6ii)
@@ -1238,13 +1269,13 @@ o %>%
   kableExtra::landscape()
 ```
 
+### Looking across findings for research question #3
+
+The most robust finding appears to be the relation between the activity and full engagement. Otherwise, the findings suggest minimal relations. 
+
 ## Research Question #4
 
-Research question #4 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest. Here is the order of this section:
-
-- Models with pre interest, composite, and activity
-- Models with pre interest interacted with the composite
-- Models with pre interest interacted with youth activity
+Research question #4 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest. In this section, findings from models with pre interest, composite, and activity, with pre interest interacted with the composite, and with pre interest interacted with youth activity, are presented.
 
 ```{r, rq3-1-all-vars-sep, eval = TRUE}
 m1c <- lmer(profile_1_p ~ 1 +
@@ -1404,7 +1435,13 @@ m6e <- lmer(profile_6_p ~ 1 +
 
 ### Models with pre interest, composite, and activity
 
-These results were also very similar to when interest was added as a control: The activity and full engagement were statistically signifincantly related (B = 0.056 (0.016), p < .001) and between the composite and only behavioral (B = 0.008 (0.004), p = .027). Interest predicted the engaged and competent but not challenged profile (B = 0.037 (0.016), p = .008).
+These results were also very similar to when interest was added as a control: The activity and full engagement were statistically significantly related (*B* = 0.056 (0.016), *p* < .001) and between the composite and only behavioral (*B* = 0.008 (0.004), *p* = .027). Interest predicted the engaged and competent but not challenged profile (*B* = 0.037 (0.016), *p* = .008). 43.69% of the effect of activity upon full engagement would need to be due to bias to invalidate the inference. The effect of the composite on behavioral was not robust, with only 1.34% needing to be due to bias to invalidate the inference. The effect of interest was robust, with 13.34% needing to be due to bias to invalidate the inference.
+
+```{r, rq-4-sens, eval = F}
+konfound::konfound(m6c, inquiry_based)
+konfound::konfound(m1c, dm_composite)
+konfound::konfound(m3c, overall_pre_interest)
+```
 
 ```{r, eval = TRUE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
@@ -1430,7 +1467,7 @@ o %>%
 
 ### Models with pre interest interacted with the composite
 
-These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (B = .005 (.004), p = .081).
+These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .005 (.004), *p* = .081).
 
 ```{r, eval = TRUE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
@@ -1457,7 +1494,7 @@ o %>%
 
 ### Models with pre interest interacted with youth activity
 
-These models show no statistically significant relations, though the activity by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (B = .023 (.017), p = .079).
+These models show no statistically significant relations, though the activity by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .023 (.017), *p* = .079).
 
 ```{r, eval = TRUE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
@@ -1484,7 +1521,7 @@ o %>%
 
 ### Looking across findings for research question #4
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter.
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
 ## Research Question #5
 
@@ -1503,6 +1540,8 @@ d3 <- rs_read(g1, ws = 3)
 Research question #5 is focused on investigating specific findings of interest. 
 
 ### Why is support for work with data not related to the PECs?
+
+### Why is the activity related to work with data?
 
 ### How does support for work with data lead to specific student activities related to work with data?
 

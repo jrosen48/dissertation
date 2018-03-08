@@ -27,7 +27,7 @@ The five aspects of work with data. The definition of working with data used in 
 
 The five practices depicted in Figure 1, are a cycle because not only does each part follow that before it, but also because the overall process is iterative: interpreting findings commonly leads to new questions and subsequent engagement in work with data. The first process, asking questions, is about generating questions that can be answered with empirical evidence. The next, making observations is about watching phenomena and noticing what is happening with respect to the phenomena or problem being investigated. This is followed by generating data, the process of figuring out how or why to inscribe an observation as data about a phenomena, as well as generating coding frames or tools for measuring. Next, because data are often messy, data modeling is a necessary step follows from its creation or collection. Data models include simple statistics, such as the mean and variance, as well as more complicated models, such as linear models and extensions of the linear model. Finally, the last step is to interpret and communicate findings regarding the phenomena that the question is about. 
 
-```{r, caption = "Work with data in STEM education settings"}
+```{r, fig.cap = "Work with data in STEM education settings"}
 knitr::include_graphics("images/figure1.png")
 ```
  
@@ -99,7 +99,7 @@ In addition to this general need to study engagement in work with data from the 
 
 The present study is about how engagement can be used to understand how learners are involved in work with data and how characteristics of activities and learners impact the relationships between work with data and engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2 and is unpacked in the remainder of this section. 
  
-```{r, caption = "A conceptual framework for this study with research questions labeled"}
+```{r, fig.cap = "A conceptual framework for this study with research questions labeled"}
 knitr::include_graphics("images/figure2.png")
 ``` 
 
@@ -120,12 +120,12 @@ In addition, a pre-program measure of learners’ individual interest in STEM is
 
 The four research questions are as follows:
 1. What profiles of engagement and its conditions (PECs) emerge from the participants’ responses?
-2. How does work with data relate to each PEC?
+2. How does instructional support for work with data relate to each PEC?
     a. How does work with data, in general, relate to PEC?
     b. How do the specific aspects of work with data (i.e., asking questions or identifying problems, constructing measures, accounting for variability or uncertainty, and interpreting and communicating findings), and other activities that are not work with data, relate to each PEC?
-3. How do the relationships identified as part of answering research question #2 differ depending on whether or not instructional support for work with data was provided?
-    a. How do the relationships between work with data, in general, and PECs differ on the basis of instructional support for work with data?
-    b. How do the relationships between the specific aspects of work with data and PECs differ on the basis of instructional support for work with data?
+3. How do the relationships identified as part of answering research question #2 differ depending on whether or not students are engaged in laboratory activities or are creating products?
+    a. How do the relationships between work with data, in general, and PECs differ on the basis of whether or not students are engaged in laboratory activities or are creating products?
+    b. How do the relationships between the specific aspects of work with data and PECs differ on the basis of whether or not students are engaged in laboratory activities or are creating products?
 4. Do the relationships between work with data and the PECs vary depending on students’ pre-program interest in STEM? 
     a. How do these relations differ for work with data on its own?
     b. How do these relations differ for work with data with support?

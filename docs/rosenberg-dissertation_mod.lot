@@ -1,16 +1,18 @@
-\contentsline {table}{\numberline {3.1}{\ignorespaces Descriptive statistics for continuous study variables}}{43}{table.3.1}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Overall statistics for all models}}{45}{table.3.2}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Solutions for models that converged with replicated LL}}{48}{table.3.3}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Profile assignments by LPA solution}}{55}{table.3.4}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Results of mixed effects models for null models}}{57}{table.3.5}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Correlations between individual aspects of work with data nad the composite and the variables that make up the profiles}}{61}{table.3.6}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Results of mixed effects models for all variables separate}}{63}{table.3.7}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Results of mixed effects models for the composite}}{65}{table.3.8}
-\contentsline {table}{\numberline {3.9}{\ignorespaces Differences across profiles by youth activity}}{66}{table.3.9}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Differences across variables that make up profiles by activity}}{67}{table.3.10}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Results of mixed effects models for activity}}{68}{table.3.11}
-\contentsline {table}{\numberline {3.12}{\ignorespaces Results of mixed effects models for activity and composites}}{70}{table.3.12}
-\contentsline {table}{\numberline {3.13}{\ignorespaces Results of mixed effects models for activity and composites interactions}}{72}{table.3.13}
-\contentsline {table}{\numberline {3.14}{\ignorespaces Results of mixed effects models with interest, composite, and activity}}{74}{table.3.14}
-\contentsline {table}{\numberline {3.15}{\ignorespaces Results of mixed effects models with interest and composite interaction}}{76}{table.3.15}
-\contentsline {table}{\numberline {3.16}{\ignorespaces Results of mixed effects models with interest and activity interaction}}{78}{table.3.16}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Coding Frame for Work With Data}}{28}{table.3.1}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Coding Frame for Instructional Support for Work With Data}}{29}{table.3.2}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Descriptive statistics for continuous study variables}}{42}{table.3.3}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Overall statistics for all models}}{44}{table.3.4}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Solutions for models that converged with replicated LL}}{47}{table.3.5}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Profile assignments by LPA solution (models and numbers of profiles)}}{54}{table.3.6}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Results of mixed effects models for null models}}{56}{table.3.7}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Correlations between individual aspects of work with data nad the composite and the variables that make up the profiles}}{59}{table.3.8}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Results of mixed effects models for all variables separate}}{61}{table.3.9}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Results of mixed effects models for the composite}}{63}{table.3.10}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Differences across profiles by youth activity}}{64}{table.3.11}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Differences across variables that make up profiles by activity}}{65}{table.3.12}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Results of mixed effects models for activity}}{66}{table.3.13}
+\contentsline {table}{\numberline {3.14}{\ignorespaces Results of mixed effects models for activity and composites}}{68}{table.3.14}
+\contentsline {table}{\numberline {3.15}{\ignorespaces Results of mixed effects models for activity and composites interactions}}{70}{table.3.15}
+\contentsline {table}{\numberline {3.16}{\ignorespaces Results of mixed effects models with interest, composite, and activity}}{72}{table.3.16}
+\contentsline {table}{\numberline {3.17}{\ignorespaces Results of mixed effects models with interest and composite interaction}}{74}{table.3.17}
+\contentsline {table}{\numberline {3.18}{\ignorespaces Results of mixed effects models with interest and activity interaction}}{76}{table.3.18}

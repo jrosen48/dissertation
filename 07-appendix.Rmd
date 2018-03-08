@@ -53,7 +53,7 @@ This solution is characterized by:
 - a **full** profile, profile 2
 - a **universally low** profile, profile 1
 - an **all moderate** profile, profile 3. 
-- a **competent but not engaged or challenged** profile, with high levels of challenge and low levels of engagement and competence
+- a **competent but not engaged or challenged** profile, with high levels of competence and low levels of engagement and challenge
 
 Most profiles are in the all moderate profile (*n* = 1,288), with a large number in the full (*n* = 920) profile, and fewer in the universally low and competent (*n* n = 427) but not engaged or challenged profiles (*n* = 415). With somewhat more purchase in terms of its interpretability than the solution for model 1 with three profiles, like that solution, this one may not be as useful as more complex models for understanding youth's experiences.
 
