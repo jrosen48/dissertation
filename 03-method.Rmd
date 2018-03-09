@@ -16,10 +16,7 @@ This is a causal comparative study, in that explanations for differences in PECs
 
 ## Participants
 
-Participants will consist of 203 youth. Students in these programs are from diverse racial and ethnic backgrounds. Most participants are around 13 years old (from students whose age was available: *M* = 12.71, *SD* = 1.70, *min.* = 10.75, *max.* = 16.36). Detailed demographic characteristics of learners are presented in Table 1.
-
-**Table 1
-Demographic Characteristics of Learners**
+Participants will consist of 203 youth. Students in these programs are from diverse racial and ethnic backgrounds (see Table 1). Most participants are around 13 years old (from students whose age was available: *M* = 12.71, *SD* = 1.70, *min.* = 10.75, *max.* = 16.36). Detailed demographic characteristics of learners are presented in Table 1.
 
 ```{r, eval = T}
 d <- tibble::tribble(
@@ -39,15 +36,12 @@ d <- tibble::tribble(
 )
 
 d %>% 
-  kable(booktabs = TRUE)
+  kable(booktabs = TRUE, caption = "Demographic Characteristics of Learners")
 ```
 
 ## Context	
 
 The setting for this study will be nine out-of-school STEM programs designed around best practices in urban areas in the Northeast United States during the summer of 2015. These are described in Table 2 with pseudonyms for the program names. 
-
-**Table 2 
-STEM Enrichment Program Names and Their Descriptions**
 
 ```{r}
 d <- tibble::tribble(
@@ -66,7 +60,7 @@ d <- tibble::tribble(
 )
 
 d %>% 
-  knitr::kable(booktabs = TRUE)
+  knitr::kable(booktabs = TRUE, caption = "STEM Enrichment Program Names and Their Descriptions")
 ```
 
 Two intermediary organizations contracted by the urban area school districts to administer the summer programs. The two intermediaries were responsible for soliciting and enrolling youth; establishing guidelines for the design of the programs, and the goals of the programs; and provide training and professional development for the program’s staff. A key difference between the intermediary organizations was that one separated academic and enrichment-related activities, whereas, in another, which was more closely involved in the day-to-day activities of the program, the academic and enrichment components were more integrated, which may have program-specific effects on learners’ engagement. Many of the programs aim to involve learners in work with data. These learning environments bring together youth activity leaders, educators, and those with technical expertise in STEM domains. Students spent around three hours per day for four days per week for the approximately four-week programs, which were taught by youth activity leaders and scientists, engineers, and other community members with technical expertise. 
@@ -83,10 +77,9 @@ In a reflection of the dynamic conceptualization of engagement, this study uses 
 
 Data sources will consist of self-reported ESM measures of engagement and learners’ perceptions of themselves and the activity, pre-survey measures of students’ interest, students’ demographic information, and video-recordings of programs. 
 
-ESM measures of learners’ engagement and its conditions. Measures for engagement and its conditions will be constructed from three ESM responses for engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items will be used to construct PECs. Each of the ESM items consisted of the item text and the following four item response options, of which students were directed to select one: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4), as presented in Table 3. 
+### ESM measures of learners’ engagement and its conditions
 
-**Table 3
-ESM measures for profiles of engagement and its conditions (PECs)** 
+Measures for engagement and its conditions will be constructed from three ESM responses for engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items will be used to construct PECs. Each of the ESM items consisted of the item text and the following four item response options, of which students were directed to select one: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4), as presented in Table 3. 
 
 ```{r}
 d <- tibble::tribble(
@@ -98,14 +91,12 @@ d <- tibble::tribble(
    "Perceived competence",                        "As you were signaled, were you good at the main activity?"
   )
 
-d %>% knitr::kable(booktabs = TRUE)
+d %>% knitr::kable(booktabs = TRUE, caption = "ESM measures for profiles of engagement and its conditions (PECs)")
 ```
 
-Survey measures of pre-interest. Measures of students’ pre-interest are used as student-level influencers of PECs. In particular, three items adapted from Vandell, Hall, O’Cadiz, and Karsh (2012) were used, with directions for students to rate their agreement with the items’ text using the same scale as the ESM items: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4). The items are presented in Table 4.
+### Survey measures of pre-interest
 
-**Table 4
-Survey Measure Used in This Study**
-
+Measures of students’ pre-interest are used as student-level influencers of PECs. In particular, three items adapted from Vandell, Hall, O’Cadiz, and Karsh (2012) were used, with directions for students to rate their agreement with the items’ text using the same scale as the ESM items: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4). The items are presented in Table 4.
 
 ```{r}
 d <- tibble::tribble(
@@ -115,10 +106,12 @@ d <- tibble::tribble(
                              NA, "I have always been fascinated by science / mathematics / engineering)"
   )
 
-d %>% knitr::kable(booktabs = TRUE)
+d %>% knitr::kable(booktabs = TRUE, caption = "Survey Measure Used in This Study")
 ```
 
-Codes for the activity from the video-recordings. Different aspects of work with data will be identified from video-recordings with the use of a coding frame with seven codes: five for each of the aspects of work with data and the remaining two codes are for other instructional activities, such as listening to a youth activity leader or completing a worksheet, in order to compare work with data to other activities which are potentially engaging but not oriented toward work with data, and one for other activities, such as traveling between program sites or the time in between activities. These codes are summarized in Table 5.
+### Codes for instructional support for work with data from the video-recordings
+
+Different aspects of instructional support for work with data will be identified from video-recordings with the use of a coding frame with five for each of the aspects of work with data and the remaining two codes are for other instructional activities, such as listening to a youth activity leader or completing a worksheet, in order to compare work with data to other activities which are potentially engaging but not oriented toward work with data, and one for other activities, such as traveling between program sites or the time in between activities. These codes are summarized in Table 5.
 
 <!-- Revised Proposed Plan -->
 <!-- ●	First, use video codes for Work With Data in place of the coding frame I developed from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs  -->
@@ -133,33 +126,11 @@ Codes for the activity from the video-recordings. Different aspects of work with
 <!-- ■	Document other characteristics of highly engaging (or disengaging) signals, such as being focused on phenomena, associated with an activity that is sustained over time, and collaborative -->
 <!-- ■	Investigate in greater detail findings, such as relationships between the aspects of work with data and the profiles of engagement and its conditions that are of particular interest (such as the relationship between data modeling and one of the profiles) or findings that are discrepant and in need of further investigation in order to be understood better.  -->
 
-References
-Forum for Youth Investment. (2012). Youth Program Quality Assessment. Washington, DC: The Forum for Youth Investment
-Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, K. S., & Devaney, T. (2012).Continuous quality improvement in afterschool settings: Impact findings from the Youth Program Quality Intervention study. Washington, DC: The Forum for Youth Investment. 
-
-```{r}
-d <- tibble::tribble(
-                ~Aspect.of.Work.With.Data,            ~Code,
-  "Asking questions or defining problems", "0: Not present",
-                                       NA,     "1: present",
-                    "Making observations", "0: Not present",
-                                       NA,     "1: present",
-                        "Generating data", "0: Not present",
-                                       NA,     "1: present",
-                          "Data modeling", "0: Not present",
-                                       NA,     "1: present"
-  )
-
-d %>% knitr::kable(booktabs = TRUE, caption = "Coding Frame for Work With Data")
-```
-
-To determine the potential viability of this coding frame, observational notes from trained observers were analyzed. There were at least three observations for each of the nine programs. While these observation notes were collected only on a small number of days, video recordings of the programs (analyzed in the present study) were much more comprehensive. 31 observation notes were collected in total. A coding framework for work with data with three levels was used: 0 (no evidence of work with data), 1 (some evidence of work with data), and 3 (evidence of work with data). This analysis demonstrated that 36.6 % of notes revealed no evidence of work with data, 40 % of notes revealed some / potential evidence of work with data, and 23.3% revealed evidence of work with data.
-
 In addition to the codes for aspects of work with data, all of the video are also coded as occurring in the classroom or in a field setting. These codes were created by research team members on the basis of documentation from the intermediary program providers, who alternated between classroom and field experiences on the basis of a set schedule. Furthermore, the videos are also coded regarding the instructional leader support for STEM-related practices created through the use of the Program Quality Assessment (Akiva, 2005). Accordingly, codes for instructional leader support for STEM practice to correspond to the codes for work with data will be created. These codes will equal to 1 only when both the aspect of work with data (in Table 5) is present as is the PQA code(s) associated with that aspect of work with data; accordingly, these codes will represent students’ engagement in aspects of work with data that are also observed to be supported by youth instructional leaders. These codes are presented in Table 6.
 
 ```{r}
 d <- tibble::tribble(
-  ~`Work with data codes`,                                                                                                    ~Description,                                                                                                                                                                                                                                                                                                                                                        ~`Categories from STEM-PQA`,
+  ~`Work with data code`,                                                                                                    ~Description,                                                                                                                                                                                                                                                                                                                                                        ~`Categories from STEM-PQA`,
   "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                                                   "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
   "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                                                        "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
   "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                                                                                                               "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
@@ -172,7 +143,13 @@ d <- tibble::tribble(
 d %>% knitr::kable(booktabs = TRUE, caption = "Coding Frame for Instructional Support for Work With Data")
 ```
 
-Demographic variables. In addition to the measures described in this section, demographic information for youths’ gender and their racial and ethnic group will be used to construct demographic variables for gender and membership in an under-represented (in STEM) group; membership in an under-represented group will be identified on the basis of students’ racial and ethnic group being Hispanic, African American, Asian or Pacific Islanders, or native American. 
+### Codes for activity
+
+Codes for the activity are created on the basis of codes for the student activity. A coding frame with the following categories was used to code all of the data. This coding frame included categories for both inquiry-based (i.e., laboratory activties and those in which youth are creating products) as well as more traditional (i.e., listening to a lecture). A code for inquiry-based activities, reflecting activities in which students may be doing more hands-on work that may be supportive of work with data, was created. This code had a value of one if either laboratory activities or those in which youth are creating products had a value of one and was otherwise zero.
+
+### Demographic variables
+
+In addition to the measures described in this section, demographic information for youths’ gender and their racial and ethnic group will be used to construct demographic variables for gender and membership in an under-represented (in STEM) group; membership in an under-represented group will be identified on the basis of students’ racial and ethnic group being Hispanic, African American, Asian or Pacific Islanders, or native American. 
 
 ## Data Analysis
 
@@ -242,11 +219,11 @@ $$
 \left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
 $$
 
-Profiles will be constructed with the five self-reported ESM measures for cognitive, behavioral, and affective engagement and perceptions of challenge and competence. Once this step is carried out, the probability of a response being associated with a profile of engagement and its conditions will be used as the dependent variable for subsequent analyses. An interface to the MCLUST software will be developed and used to carry out the LPA. The number of profiles will be determined on the basis of the log-likelihood and bootstrapped likelihood ratio test, entropy, Akaike Information Criteria, and Bayesian Information Criteria statistics, as well as concerns of parsimony and interpretability. Scholars have pointed out the importance of cross-validation for mixture modeling (Steinley & Brusco, 2011); accordingly, double-split half cross-validation (Breckenridge, 2000) will also be carried out. Because of sampling error possible through the resampling needed for this approach, the cross-validation will be repeated at least 30 times for each candidate profile solution. This analysis can help us to understand how patterns in higher or lower levels of the variables used to construct the profiles group together in PECs, providing insight into both how engagement is commonly experienced as a meta-construct as well as how key conditions influence engagement. 
+Profiles will be constructed with the five self-reported ESM measures for cognitive, behavioral, and affective engagement and perceptions of challenge and competence. Once this step is carried out, the probability of a response being associated with a profile of engagement and its conditions will be used as the dependent variable for subsequent analyses. An interface to the MCLUST software will be developed and used to carry out the LPA. The number of profiles will be determined on the basis of the log-likelihood and bootstrapped likelihood ratio test, entropy, Akaike Information Criteria, and Bayesian Information Criteria statistics, as well as concerns of parsimony and interpretability. Because of sampling error possible through the resampling needed for this approach, the cross-validation will be repeated at least 30 times for each candidate profile solution. This analysis can help us to understand how patterns in higher or lower levels of the variables used to construct the profiles group together in PECs, providing insight into both how engagement is commonly experienced as a meta-construct as well as how key conditions influence engagement. 
 
 ### Primary analyses for RQ #2
 
-To answer this question, on how well the aspects of work with data predict the PECs, first, indicators for activities coded for any of the five aspects of work with data and either of the other two activities will be used to predict each PEC. This will help us to understand how work with data, in general, is different from other activities in terms of predicting each PEC. Next, how each of the five aspects of work with data, as well as the other activities, predict each PEC will be explored. This will help us understand how learners engage in specific aspects of work with data.
+To answer this question, on how well the aspects of instructional support for work with data predict the PECs, first, indicators for activities coded for any of the five aspects of work with data and either of the other two activities will be used to predict each PEC. This will help us to understand how work with data, in general, is different from other activities in terms of predicting each PEC. Next, how each of the five aspects of work with data, as well as the other activities, predict each PEC will be explored. This will help us understand how learners engage in specific aspects of work with data.
 
 Due to similar mixed-effects models used to analyze data to answer RQ #2 and #3, the data analysis strategy for these steps is described together here. First, the general approach used for specifying the mixed effects is first described, followed by details about how the models will be used to provide answers to the specific research questions.
 
@@ -264,9 +241,9 @@ Findings associated with this research question will help us understand how lear
 
 ### Primary analyses for RQ #3
 
-To answer this question, on how well the aspects of work with data with instructional support predict the PECs, first, indicators for activities coded for any of the five aspects of work with data will be interacted with a dummy code indicating instructional support in general, created on the basis of any of the variables for instructional support for work with data being equal to 1. This dummy coded variable will then be interacted with any of the aspects of work with data with relations to the PECs. Second, each of aspects of work with data with relations to the PECs will be interacted with a dummy code for the specific aspect of instructional support (in Table 6).  This will help us to understand how work with data, in general and in terms of specific forms of instructional support, differs from other activities and how support from the instructor can contribute to more engaging work with data.
+To answer this question, on how well the code for the inquiry-based activity predicts the PECs, first, indicators for activities coded for any of the five aspects of work with data will be interacted with a dummy code indicating instructional support in general, created on the basis of any of the variables for instructional support for work with data being equal to 1. This dummy coded variable will then be interacted with any of the aspects of work with data with relations to the PECs. Second, each of aspects of work with data with relations to the PECs will be interacted with a dummy code for the specific aspect of instructional support (in Table 6).  This will help us to understand how work with data, in general and in terms of specific forms of instructional support, differs from other activities and how support from the instructor can contribute to more engaging work with data.
 
-### Primary analyses for RQ
+### Primary analyses for RQ #4
 
 To answer this question, on how the relationships between work with data and the PECs depends on students’ pre-program interest in STEM, first, differences in the relationships between work with data in general and the PECs on the basis of students’ individual interest in STEM will be explored, using an interaction between practices and individual interest in STEM. These analyses will be carried out separately for relations between work with data (on its own, corresponding to the analyses carried out for RQ #3) and work with data with instructional support (for RQ #4). Next, for any specific aspect of work with data that significantly predicts each PEC, the same will be carried out, so that the interaction between individual interest in STEM and the specific aspect of work with data will be used to predict each PEC. These interactions between individual interest in STEM and the dummy codes for aspects of work with data will be added to the model specification for RQ #2. Answers to this question will help us learn how the relationships between the PECs and the aspects of work with data vary on the basis of a trait-like characteristic of the learner may have important impacts. Given the exploratory nature of discovering which PECs emerge and how other factors relate to them, specific hypotheses are not made at this time.
 
@@ -286,7 +263,7 @@ Few publications and tools address the question of statistical power for models 
 
 ## Sensitivity Analysis
 
-[add]
+For observational studies, such as the present study, it can be important to determine how robust an inference is to alternative explanations. One approach to addressing this is sensitivity analysis, which involves quantifying the amount of bias that would be needed to invalidate an inference (hypothetically, this bias might be due to omitted or confounding variables, measurement, missing data, etc.). Using the approach described in Frank, Maroulis, Duong, and Kelcey (2013), I carried out sensitivity analysis for inferences we made relative to our key findings. The result, and what is used to interpret and contextualize findings, is a numeric value for each effect that indicates the proportion of the estimate that would have to be biased in order to invalidate the inference: higher values indicate more robust estimates in that the inferences would still hold even if there were substantial bias in the estimate. 
 
 ## Limitations
 

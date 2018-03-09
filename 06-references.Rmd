@@ -15,6 +15,7 @@ Csikszentmihalyi, M. (1997). Finding flow: The psychology of engagement with eve
 Creswell, J. W., Plano Clark, V. L., Gutmann, M. L., & Hanson, W. E. (2003). Advanced mixed methods research designs. In A. Tashakkori & C. Teddlie (Eds.), Handbook of mixed methods in social and behavioral research (pp. 209–240). Thousand Oaks, CA: Sage.  
 English, L. D. (2012). Data modelling with first-grade students. Educational Studies in Mathematics, 81(1), 15-30.  
 Finzer, W. (2013). The data science education dilemma. Technology Innovations in Statistics Education, 7(2), p. 1-9.  
+Forum for Youth Investment. (2012). Youth Program Quality Assessment. Washington, DC: The Forum for Youth Investment
 Franklin, C., Kader, G., Mewborn, D., Moreno, J., Peck, R., Perry, M., & Scheaffer, R. (2007). Guidelines for assessment and instruction in statistics education (GAISE) report. Alexandria, VA: American Statistical Association.  
 Fredricks, J. A., & McColskey, W. (2012). The measurement of student engagement: A comparative analysis of various methods and student self-report instruments. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), The handbook of research on student engagement (pp. 763–782). New York: Springer Science. https://doi.org/10.1007/978-1-4614-2018-7_37  
 Fredricks, J. A., Blumenfeld, P. C., & Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. Review of Educational Research, 74(1), 59-109.  
@@ -29,7 +30,7 @@ Harring, J. R., & Hodis, F. A. (2016). Mixture modeling: Applications in educati
 Hasson, E., & Yarden, A. (2012). Separating the research question from the laboratory techniques: Advancing high‐school biology teachers' ability to ask research questions. Journal of Research in Science Teaching, 49(10), 1296-1320.  
 Hayenga, A. O., & Corpus, J. H. (2010). Profiles of intrinsic and extrinsic motivations: A person-centered approach to motivation and achievement in middle school. Motivation and Emotion, 34(4), 371-383.  
 Hektner, J. M., Schmidt, J. A., & Csikszentmihalyi, M. (2007). Experience sampling method: Measuring the quality of everyday life. Sage.  
-Jahnukainen, M. (2010). Extreme cases. Encyclopedia of Case Study Research. Thousand Oaks, CA: Sage.  
+Jahnukainen, M. (2010). Extreme cases. Encyclopedia of Case Study Research. Thousand Oaks, CA: Sage.
 Konold, C., & Pollatsek, A. (2002). Data analysis as the search for signals in noisy processes. Journal for Research in Mathematics Education, 33(4), 259-289.  
 Lauer, P. A., Akiba, M., Wilkerson, S. B., Apthorp, H. S., Snow, D., & Martin-Glenn, M. L. (2006). Out-of-school-time programs: A meta-analysis of effects for at-risk students. Review of educational research, 76(2), 275-313.  
 Lee, H. S., Angotti, R. L., & Tarr, J. E. (2010). Making comparisons between observed data and expected outcomes: students’ informal hypothesis testing with probability simulation tools. Statistics Education Research Journal, 9(1), 68-96.  
@@ -66,12 +67,13 @@ Shernoff, D. J., Csikszentmihalyi, M., Schneider, B., & Shernoff, E. S. (2003). 
 Shernoff, D. J., Kelly, S., Tonks, S. M., Anderson, B., Cavanagh, R. F., Sinha, S., & Abdi, B. (2016). Student engagement as a function of environmental complexity in high school classrooms. Learning and Instruction, 43, 52-60.  
 Shumow, L., & Schmidt, J. A. (2013). STEM interest and engagement (STEM I.E.). National Science Foundation proposal for award number 1421198.  
 Sinatra, G. M., Heddy, B. C., & Lombardi, D. (2015). The challenges of defining and measuring student engagement in science. Educational Psychologist, 50(1), 1-13. doi:10.1080/00461520.2014.1002924  
-Singh, K., Granville, M., & Dika, S. (2002). Mathematics and science achievement: Effects of motivation, interest, and academic engagement. The Journal of Educational Research, 95(6), 323-332.  
+Singh, K., Granville, M., & Dika, S. (2002). Mathematics and science achievement: Effects of motivation, interest, and academic engagement. The Journal of Educational Research, 95(6), 323-332.
 Shernoff, D. J., & Schmidt, J. A. (2008). Further Evidence of an Engagement–Achievement Paradox Among U.S. High School Students. Journal of Youth and Adolescence, 37(5), 564–580. http://doi.org/10.1007/s10964-007-9241-z  
 Shumow, L., Schmidt, J. A., & Zaleski, D. J. (2013). Multiple perspectives on student learning, engagement, and motivation in high school biology labs. The High School Journal, 96(3), 232-252.  
 Skinner, E. A., & Pitzer, J. (2012). Developmental dynamics of engagement, coping, and everyday resilience. In S. Christenson, A. Reschly, & C. Wylie (Eds.), Handbook of Research on Student Engagement (pp. 21-45). New York: Springer Science.  
 Skinner, E. A., Kindermann, T. A., & Furrer, C. J. (2009). A motivational perspective on engagement and disaffection: Conceptualization and assessment of children's behavioral and emotional participation in academic activities in the classroom. Educational and Psychological Measurement, 69(3), 493-525.  
 Skinner, E., Furrer, C., Marchand, G., & Kindermann, T. (2008). Engagement and disaffection in the classroom: Part of a larger motivational dynamic? Journal of Educational Psychology, 100(4), 765.  
+Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, K. S., & Devaney, T. (2012).Continuous quality improvement in afterschool settings: Impact findings from the Youth Program Quality Intervention study. Washington, DC: The Forum for Youth Investment. 
 Steinley, D., & Brusco, M. J. (2011). Evaluating mixture modeling for clustering: recommendations and cautions. Psychological Methods, 16(1), 63.  
 Stohl, H., & Tarr, J. E. (2002). Developing notions of inference using probability simulation tools. The Journal of Mathematical Behavior, 21(3), 319-337.  
 Stroupe, D. (2014). Examining classroom science practice communities: How teachers and students negotiate epistemic agency and learn science‐as‐practice. Science Education, 98(3), 487-516.  

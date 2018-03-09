@@ -1,5 +1,7 @@
 ## Appendix
 
+## Method additional materials
+
 ### Statistical software developed
 
 In order to provide results for this research question, the MPlus software (Muthen & Muthen, 2017) was used. While MPlus is powerful and widely-used, it can be very difficult to use as part of complex analyses. One reason for why it is difficult to use is that while it provides an environment for executing model *syntax*, it is not an environment, such as SPSS or R, for statistical computing (i.e., preparing data, processing and presenting results). Because of this, I created with colleagues an open-source tool, tidyLPA, in the statistical software R (Rosenberg, Schmidt, Beymer, & Steingut, 2018). This package is available on the R Comprehensive Archive Network. This software provides wrappers--functions that provide an interface--to MPlus functions via the MplusAutomation R package (Hallquist, 2018). 
@@ -8,8 +10,7 @@ These wrapper functions dynamically generate MPlus syntax, so that, for example,
 
 Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, & Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., "spherical, equal volume"), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses. 
 
-### Other models considered
-
+## Research Question #1 additional materials
 
 ### Model 1 candidate solutions
 
@@ -266,4 +267,185 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 
 ```{r, m2_5p-ll, cache = FALSE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
+```
+
+## Research Question 2 additional materials
+
+```{r, rq2-0-tab}
+l <- list(m1, m2, m3, m4, m5, m6)
+
+o <- map_df(l, tidy_model)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models", linesep = "")
+```
+
+```{r, rq2-1-corr-ind-aspects}
+d %>% 
+  select(dm_ask:dm_com, dm_composite,
+         dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+         overall_pre_interest) %>% 
+  corrr::correlate() %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations between individual aspects of work with data nad the composite and the variables that make up the profiles") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+## Research Question #3 additional materials
+
+```{r, rq3-1-diff-by-profiles}
+rounded_mean <- function(x) {
+  round(mean(x), 3)
+}
+
+d %>% 
+  select(inquiry_based, profile_1_p:profile_6_p) %>% 
+  group_by(inquiry_based) %>% 
+  summarize_all(rounded_mean) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Differences across profiles by youth activity")
+```
+
+```{r, rq3-1-t-tests, eval = F}
+tidyttest::t_test(d, profile_1_p, inquiry_based)
+tidyttest::t_test(d, profile_2_p, inquiry_based) # p = .003, d = .13
+tidyttest::t_test(d, profile_3_p, inquiry_based)
+tidyttest::t_test(d, profile_4_p, inquiry_based)
+tidyttest::t_test(d, profile_5_p, inquiry_based)
+tidyttest::t_test(d, profile_6_p, inquiry_based) # p < .001, d = .16
+```
+
+```{r, rq3-1-diff-by-profiles}
+rounded_mean <- function(x) {
+  round(mean(x), 3)
+}
+
+d %>% 
+  select(inquiry_based, profile_1_p:profile_6_p) %>% 
+  group_by(inquiry_based) %>% 
+  summarize_all(rounded_mean) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Differences across profiles by youth activity")
+```
+
+
+```{r, rq3-1-diff-by-ind-vars}
+d %>% 
+  select(inquiry_based, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
+  group_by(inquiry_based) %>% 
+  summarize_all(rounded_mean) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Differences across variables that make up profiles by activity")
+```
+
+```{r, rq3-1-t-tests-ind-vars, eval = F}
+tidyttest::t_test(d, dm_cog_eng, inquiry_based) # p = .036, d = .09
+tidyttest::t_test(d, dm_beh_eng, inquiry_based) # p = .002, d = .13
+tidyttest::t_test(d, dm_aff_eng, inquiry_based) # p < .001, d = .17
+tidyttest::t_test(d, dm_competence, inquiry_based) # p = .223
+tidyttest::t_test(d, dm_challenge, inquiry_based) # p < .001, d = .27
+```
+
+
+```{r, rq3-1-diff-by-ind-vars}
+d %>% 
+  select(inquiry_based_three, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
+  group_by(inquiry_based_three) %>% 
+  summarize_all(rounded_mean) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Differences across variables that make up profiles by activity")
+```
+
+
+```{r, inquiry-separate}
+l <- list(m1oi, m2oi, m3oi, m4oi, m5oi, m6oi)
+
+o <- map_df(l, tidy_model_inq)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         inquiry_based, 
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, inquiry-separate-comp, eval = FALSE}
+l <- list(m1i, m2i, m3i, m4i, m5i, m6i)
+
+o <- map_df(l, tidy_model_inq)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         inquiry_based, 
+         dm_ask:`inquiry_based:dm_com`,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for composites", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, inquiry-composite-and-activity}
+l <- list(m1iio, m2iio, m3iio, m4iio, m5iio, m6iio)
+
+o <- map_df(l, tidy_model_inq)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         inquiry_based, 
+         dm_composite, 
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+## Research question #4 additional materials
+
+```{r, eval = TRUE}
+l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
+
+o <- map_df(l, tidy_model_inq)
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         overall_pre_interest,
+         dm_composite,
+         inquiry_based,
+         `dm_composite:overall_pre_interest`,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```

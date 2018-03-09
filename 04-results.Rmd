@@ -150,7 +150,9 @@ df <- df %>%
 
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 
-df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" | youth_activity_rc == "Lab Activity", 1, 0)) 
+df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" | youth_activity_rc == "Lab Activity", 1, 0),
+             inquiry_based_three = ifelse(youth_activity_rc == "Creating Product" | youth_activity_rc == "Lab Activity", "inquiry-based",
+                                          ifelse(youth_activity_rc == "Not Focused", "not-focused", "other"))) 
 ```
 
 ## Descriptive Statistics
@@ -419,7 +421,6 @@ There is a wide range of profiles. Some appear very commonly, particularly those
 ```{r, compare-profiles-by-solution}
 d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
 
-d
 d[, -1] %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
@@ -429,11 +430,13 @@ d[, -1] %>%
   kableExtra::group_rows("Model 2", 7, 9)
 ```
 
-The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix.
+The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it also is a standard model for LPA, in that it meets the assumption of independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
 
 ## Research Question #2: Relations Between Instructional Support for Work With Data and the PECs
 
-Research question #2 is focused on the relations between each of the profiles and instructional support for work with data. This section first presents null models. These are followed by two findings related to a variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles and individual interest and correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data.
+Broadly, this question is focused on how instructional support for work with data, as coded from video-recordings of the programs, relates to the PECs. For the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used. For the outcome (*y* variable), the probability of a response belonging to the profile is used; thus, there are six models, for each of the six profiles, for each specification of the predictor (*x*) variables. 
+
+First, null models showing the proportion of variance (via the intra-class correlation) are interpreted. The more detailed results (in a table) are presented in the appendix. These are followed by the interpretation of findings related to a more variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles (and the variables that make them up) and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data are interpreted and presented. 
 
 ```{r}
 cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
@@ -446,7 +449,7 @@ df_ss <- df[cc, ]
 df_ss$profile <- C
 df_ss$profile_p <- C_p
 
-d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based)
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based, inquiry_based_three, classroom_versus_field_enrichment)
 
 d <- d %>% 
   mutate(
@@ -648,26 +651,15 @@ tidy_model <- function(model) {
 
 The null models presented in table 4.5 provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Noteworthy, the ICC was highest for the full profile. The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, .265.
 
-```{r, rq2-0-tab}
-l <- list(m1, m2, m3, m4, m5, m6)
-
-o <- map_df(l, tidy_model)
-
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models", linesep = "")
-```
-
 ### Correlations between individual aspects of work with data and the composite and the profiles and individual interest
 
 First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. 
+
+In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and the aspects of work with data, ranging from (in absolute value terms) .00 to .06.
+
+### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
+
+Next, correlations between individual aspects of work with data (and the composite) and the variables that make up the profiles are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). 
 
 ```{r, rq2-1-corr}
 d %>% 
@@ -681,8 +673,6 @@ d %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
-
-In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and the aspects of work with data, ranging from (in absolute value terms) .00 to .06.
 
 ```{r, rq2-1-corr-components, eval = F}
 d %>% 
@@ -704,6 +694,7 @@ p_vals <- d %>%
   pluck(4) %>% 
   round(3)
 ```
+
 
 ```{r, rq2-1-corr-spearman, eval = F}
 
@@ -729,23 +720,6 @@ p_vals <- d %>%
   round(3)
 ```
 
-### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
-
-Next, correlations between individual aspects of work with data (and the composite) and the variables that make up the profiles are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). 
-
-```{r, rq2-1-corr-ind-aspects}
-d %>% 
-  select(dm_ask:dm_com, dm_composite,
-         dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-         overall_pre_interest) %>% 
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations between individual aspects of work with data nad the composite and the variables that make up the profiles") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
 ### Models with the work with data variables added separate
 
 When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (*B* = 0.03 (0.016), *p* = .04) and between generating data and full engagement (*B* = 0.03 (0.016), *p* = .03). Sensitivity analysis for the effect of generating data suggested that 1.47% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, this effect was no longer significant when the Kenward-Roger approximation was used. The results were similar for the effect of generating data. For this profile, the participant-level ICC decreased slightly.
@@ -765,6 +739,12 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for all variables separate", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -782,8 +762,8 @@ konfound::konfound(m6a,dm_mod)
 
 ### Models with the composite added
 
-For the composite of work with data, the composite predicted profile 1, only behavioral (*B* = 0.008 (0.004), *p* = .019), but not any of the other profiles. Sensitivity analysis suggests However, this coefficient is very small. 
-
+For the composite of work with data, the composite predicted profile 1, only behavioral (*B* = 0.008 (0.004), *p* = .019), but not any of the other profiles. However, this coefficient is very small in practical terms.
+i
 ```{r, tidy-model-com-func, cache = FALSE}
 
 # get_kr_df <- function(model_object) {
@@ -851,6 +831,12 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -858,56 +844,25 @@ o %>%
 
 ### Looking across findings for research question #2
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, we find very few relations between work with data and the profiles. This seemed to be the case for whether profiles or the variables that make up profiles were considered. Reasons for why this may be are discussed in the next chapter. 
+When looking across findings, we find very few relations between instructional support for work with data and the profiles. The effects that were found (i.e., between modeling and generating data and full engagement) were very small in terms of their practical significance or were not very robust. Broadly, reasons for why this may be--focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #5 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3 and #4. 
 
 ## Research Question #3: Relations Between Activity and PECs
 
-This question focuses on whether the relations differ on the basis on the activity students are doing. This section first describes differences across profiles by youth activity and by the variables that make up the profiles by youth activity. Next, findings from mixed effects models predicting activity, activity and the composite, and the activity interacted with the composite are presented.
+Broadly, this question is focused on how the activity, in terms of whether students are doing an inquiry-based activity, relates to the profiles. Like for research question #2, for the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used; instead of codes for instructional support for work with data, codes for the activity are used. 
+
+First, differences across profiles by youth activity and by the variables that make up the profiles by youth activity are described. Next, findings from mixed effects models predicting profiles on the basis of the inquiry based activity are interpreted (like for research question #1, additional materials are included in the appendix), in order to see the effect of the activity on its own (indepedent from instructional support for work with data. Next, the composite for work with data is added to these models, and these models are interpreted. Finally, models with activity interacted with the composite are presented and interpreted.
 
 ### Differences across profiles by activity
 
 Mean differences across profiles by youth activity are examined using *t*-tests. Of these six mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between profiles 2, which was less common during inquiry-based activities (*p* = .003, *d* = 0.13), and 6, which was more common during inquiry-based activities (*p* < .001, *d* = 0.16).
 
-```{r, rq3-1-diff-by-profiles}
-rounded_mean <- function(x) {
-  round(mean(x), 3)
-}
-
-d %>% 
-  select(inquiry_based, profile_1_p:profile_6_p) %>% 
-  group_by(inquiry_based) %>% 
-  summarize_all(rounded_mean) %>% 
-  knitr::kable(booktabs = TRUE, caption = "Differences across profiles by youth activity")
-```
-
-```{r, rq3-1-t-tests, eval = F}
-tidyttest::t_test(d, profile_1_p, inquiry_based)
-tidyttest::t_test(d, profile_2_p, inquiry_based) # p = .003, d = .13
-tidyttest::t_test(d, profile_3_p, inquiry_based)
-tidyttest::t_test(d, profile_4_p, inquiry_based)
-tidyttest::t_test(d, profile_5_p, inquiry_based)
-tidyttest::t_test(d, profile_6_p, inquiry_based) # p < .001, d = .16
-```
-
 ### Differences across the variables that make up the profiles by activity
 
 Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27)
 
-```{r, rq3-1-diff-by-ind-vars}
-d %>% 
-  select(inquiry_based, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
-  group_by(inquiry_based) %>% 
-  summarize_all(rounded_mean) %>% 
-  knitr::kable(booktabs = TRUE, caption = "Differences across variables that make up profiles by activity")
-```
+<!-- ### Differences across the variables that make up the profiles by activity (with other and not focused activities) -->
 
-```{r, rq3-1-t-tests-ind-vars, eval = F}
-tidyttest::t_test(d, dm_cog_eng, inquiry_based) # p = .036, d = .09
-tidyttest::t_test(d, dm_beh_eng, inquiry_based) # p = .002, d = .13
-tidyttest::t_test(d, dm_aff_eng, inquiry_based) # p < .001, d = .17
-tidyttest::t_test(d, dm_competence, inquiry_based) # p = .223
-tidyttest::t_test(d, dm_challenge, inquiry_based) # p < .001, d = .27
-```
+<!-- Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27) -->
 
 ### Models with activity
 
@@ -954,7 +909,6 @@ m6oi <- lmer(profile_6_p ~ 1 +
                (1 | program_ID),
              data = d)
 ```
-
 
 ```{r, tidy-model-inquiry-separate, cache = FALSE}
 
@@ -1009,27 +963,7 @@ tidy_model_inq <- function(model) {
 konfound::konfound(m6oi, inquiry_based)
 ```
 
-These models show that the activity predicts full engagement (*p* = .006 (0.016), *p* < .001). However, this effect is associated with a very small coefficient. Sensitivity analysis suggests that 51.55% of the inference would need to be due to bias to invalidate the effect.  None of the other profiles were statistically significantly related. 
-
-```{r, inquiry-separate}
-l <- list(m1oi, m2oi, m3oi, m4oi, m5oi, m6oi)
-
-o <- map_df(l, tidy_model_inq)
-
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         inquiry_based, 
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
+These models show that the activity predicts full engagement (*B* = .027 (0.016), *p* < .001). However, this effect is associated with a very small coefficient. Sensitivity analysis suggests that 51.55% of the inference would need to be due to bias to invalidate the effect. None of the other profiles were statistically significantly related. 
 
 ```{r, rq3-2-interactions-with-work-with-data, cache = TRUE, eval = FALSE}
 m1i <- lmer(profile_1_p ~ 1 +
@@ -1099,27 +1033,6 @@ m6i <- lmer(profile_6_p ~ 1 +
             data = d)
 ```
 
-```{r, inquiry-separate-comp, eval = FALSE}
-l <- list(m1i, m2i, m3i, m4i, m5i, m6i)
-
-o <- map_df(l, tidy_model_inq)
-
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         inquiry_based, 
-         dm_ask:`inquiry_based:dm_com`,
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for composites", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
 ### Models with activity and the composite 
 
 ```{r, rq3-2-inq-and-composite, cache = TRUE}
@@ -1166,32 +1079,11 @@ m6iio <- lmer(profile_6_p ~ 1 +
               data = d)
 ```
 
-These models show that the activity is still related to full engagement (*B* = 0.063 (0.015), *p* < .001) and that the work with data composite is related to only behavioral (*B* = 0.008 (0.004), *p* = .016). The effect of activity is robust, with 3.08% of the effect needing to be due to bias to invalidate the inference. The effect of the composite was not, with only 1.375% of the effect needing to be due to bias to invalidate the inference. These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
+These models show that the activity is still related to full engagement (*B* = 0.063 (0.015), *p* < .001) and that the work with data composite is related to only behavioral (*B* = 0.008 (0.004), *p* = .016). The effect of activity is robust, with 53.08% of the effect needing to be due to bias to invalidate the inference. The effect of the composite was not, with only 1.375% of the effect needing to be due to bias to invalidate the inference. These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
 
 ```{r, rq-3-sens-2, eval = F}
 konfound::konfound(m6iio, inquiry_based)
 konfound::konfound(m1iio, dm_composite)
-```
-
-```{r, inquiry-composite-and-activity}
-l <- list(m1iio, m2iio, m3iio, m4iio, m5iio, m6iio)
-
-o <- map_df(l, tidy_model_inq)
-
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         inquiry_based, 
-         dm_composite, 
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
 ```
 
 ### Models with activity interacted with the composite
@@ -1264,6 +1156,12 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites interactions", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -1271,11 +1169,11 @@ o %>%
 
 ### Looking across findings for research question #3
 
-The most robust finding appears to be the relation between the activity and full engagement. Otherwise, the findings suggest minimal relations. 
+The strongest finding appears to be the relation between inquiry-based activities and full engagement; the difference in probability of full engagement was around 0.06 - 0.07, suggesting that this profile was around 6-7% more likely when learners were doing one of these activities. This effect was fairly robust to potential sources of bias. Reasons for the effect of the activity are explored further as part of research question #5 and are discussed in the next chapter. Apart from full engagement, the models presented in this section suggest minimal relations between inquiry-based activities and the profiles. Importantly, these inquiry-based activities do not necessarily involve work with data, suggesting that the activity in general may impact learners' (full) engagement, but that support for specific activities may not. In the next section, the interactive effect of the factors explored as part of research questions #2 and #3 (instructional support for work with data and the activity being inquiry-based) with learners' pre-program interest is described.
 
-## Research Question #4
+## Research Question #4: Effects of Youth's Pre-Program Interest 
 
-Research question #4 is focused on how the relationships observed as part of RQ2 differ on the basis of pre-program interest. In this section, findings from models with pre interest, composite, and activity, with pre interest interacted with the composite, and with pre interest interacted with youth activity, are presented.
+Research question #4 is focused on how the relationships of instructional support for work with data and the activity differ on the basis of pre-program interest. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, composite, and activity are interpreted, and findings from models with pre interest interacted with the composite, and with pre interest interacted with youth activity, are presented and interpreted.
 
 ```{r, rq3-1-all-vars-sep, eval = TRUE}
 m1c <- lmer(profile_1_p ~ 1 +
@@ -1460,6 +1358,12 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest, composite, and activity", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -1468,29 +1372,6 @@ o %>%
 ### Models with pre interest interacted with the composite
 
 These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .005 (.004), *p* = .081).
-
-```{r, eval = TRUE}
-l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
-
-o <- map_df(l, tidy_model_inq)
-
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         overall_pre_interest,
-         dm_composite,
-         inquiry_based,
-         `dm_composite:overall_pre_interest`,
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
 
 ### Models with pre interest interacted with youth activity
 
@@ -1514,6 +1395,12 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral (n = 370)",
+                                  "Universally low (n = 667)",
+                                  "Engaged and competent but not challenged (n = 450)",
+                                  "Only affective (n = 345)",
+                                  "All moderate (n = 638)",
+                                  "Full (n = 488)")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and activity interaction", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -1521,7 +1408,7 @@ o %>%
 
 ### Looking across findings for research question #4
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, like for research question #2, we find very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
+When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, there are very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
 ## Research Question #5
 
