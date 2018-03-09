@@ -1,3 +1,5 @@
+# Method
+
 In this section, results in terms of the research questions are presented.
 
 ```{r, setup-results-fix, include=FALSE}
