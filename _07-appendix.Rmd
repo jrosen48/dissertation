@@ -271,7 +271,7 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 ## Research Question 2 additional materials
 
-```{r, rq2-0-tab}
+```{r, rq2-0-tab, cache = TRUE}
 l <- list(m1, m2, m3, m4, m5, m6)
 
 o <- map_df(l, tidy_model)
@@ -286,19 +286,6 @@ o %>%
          participant_ID_ICC,
          program_ID_ICC) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models", linesep = "")
-```
-
-```{r, rq2-1-corr-ind-aspects}
-d %>% 
-  select(dm_ask:dm_com, dm_composite,
-         dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-         overall_pre_interest) %>% 
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations between individual aspects of work with data nad the composite and the variables that make up the profiles") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
 ```
 
 ## Research Question #3 additional materials
@@ -324,7 +311,7 @@ tidyttest::t_test(d, profile_5_p, inquiry_based)
 tidyttest::t_test(d, profile_6_p, inquiry_based) # p < .001, d = .16
 ```
 
-```{r, rq3-1-diff-by-profiles}
+```{r, rq3-1-diff-by-profiles-2}
 rounded_mean <- function(x) {
   round(mean(x), 3)
 }
@@ -354,7 +341,7 @@ tidyttest::t_test(d, dm_challenge, inquiry_based) # p < .001, d = .27
 ```
 
 
-```{r, rq3-1-diff-by-ind-vars}
+```{r, rq3-1-diff-by-ind-vars-2}
 d %>% 
   select(inquiry_based_three, dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence) %>% 
   group_by(inquiry_based_three) %>% 
@@ -363,7 +350,7 @@ d %>%
 ```
 
 
-```{r, inquiry-separate}
+```{r, inquiry-separate, cache = TRUE}
 l <- list(m1oi, m2oi, m3oi, m4oi, m5oi, m6oi)
 
 o <- map_df(l, tidy_model_inq)
@@ -383,7 +370,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, inquiry-separate-comp, eval = FALSE}
+```{r, inquiry-separate-comp, eval = FALSE, cache = TRUE}
 l <- list(m1i, m2i, m3i, m4i, m5i, m6i)
 
 o <- map_df(l, tidy_model_inq)
@@ -427,11 +414,14 @@ o %>%
 
 ## Research question #4 additional materials
 
-```{r, eval = TRUE}
+
+```{r, eval = TRUE, cache = TRUE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 
 o <- map_df(l, tidy_model_inq)
+```
 
+```{r}
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -441,11 +431,17 @@ o %>%
          overall_pre_interest,
          dm_composite,
          inquiry_based,
-         `dm_composite:overall_pre_interest`,
+                  gender_female, urm,
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
+    mutate(model = c("Only behavioral",
+                                  "Universally low",
+                                  "Engaged and competent but not challenged",
+                                  "Only affective",
+                                  "All moderate",
+                                  "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest, composite, and activity", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```

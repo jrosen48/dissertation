@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = FALSE,
 # Method
 
 This is a causal comparative study, in that explanations for differences in PECs are sought after their occurrence. This study uses ESM (Hektner et al., 2007) data collected as part of a study of learners’ interest and engagement in outside-of-school STEM enrichment programs (Shumow & Schmidt, 2013). It makes use of a sequential exploratory data analysis strategy, in which qualitative data is analyzed to enrich quantitative findings (Creswell, Clark, Gutmann, & Hanson, 2003). In particular, moments in which learners are particularly engaged are identified as part of the quantitative analysis; these moments are then coded qualitatively to identify their common characteristics, first through an inductive step and then through a confirmatory step involving a second rater. While programs have been video-recorded, the video has not been coded for the aspects of work with data, and the other measures from ESM and pre-survey data are to be constructed for this study. 
-
 ## Participants
 
 Participants will consist of 203 youth. Students in these programs are from diverse racial and ethnic backgrounds (see Table 1). Most participants are around 13 years old (from students whose age was available: *M* = 12.71, *SD* = 1.70, *min.* = 10.75, *max.* = 16.36). Detailed demographic characteristics of learners are presented in Table 1.
