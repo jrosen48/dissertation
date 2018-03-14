@@ -964,9 +964,8 @@ qualitatively to identify their common characteristics, first through an
 inductive step and then through a confirmatory step involving a second
 rater. While programs have been video-recorded, the video has not been
 coded for the aspects of work with data, and the other measures from ESM
-and pre-survey data are to be constructed for this study.
-
-\section{Participants}\label{participants}
+and pre-survey data are to be constructed for this study. \#\#
+Participants
 
 Participants will consist of 203 youth. Students in these programs are
 from diverse racial and ethnic backgrounds (see Table 1). Most
@@ -1739,11 +1738,24 @@ developed. This tool provides interfaces to the MPlus software as well
 as to the open-source mclust software. In addition to being used as part
 of this study, this package is provided free of use to other analysts as
 the first tool dedicated to carrying out LPA as part of the R software.
-Since being released, the package has been downloaded more than 100
-times (Wickham, 2018).
 
 \subsection{Overall solutions for all
 models}\label{overall-solutions-for-all-models}
+
+First, I examined a wide range of models and solutions. I did this in
+order to select particular, candidate models to scrutinize in greater
+detail. In order to carry out this analysis, I followed guidelines
+recommended by the developers of MPlus (Asparouhov \& Muthen, 2012;
+Muthen \& Muthen, 2017) as well as those making recommendations about
+its use (Geiser, 2012). In particular, I set the number of starts to 600
+for initial stage starts, and to 120 for the number of starts to be
+optimized. This means that for each model estimated, 600 random starting
+values for the parameters were used to initialize the EM algorithm. Of
+these 600, 120 that demonstrated the lowest log-likelihood were allowed
+to continue until they reached convergence or the limit for the number
+of iterations. In order for a model to me considered trustworthy, of
+these 120 runs, the lowest log-likelihood must be replicated at least
+one time.
 
 \begin{landscape}\begin{table}
 
@@ -1766,21 +1778,6 @@ n\_profiles & model\_1 & model\_2 & model\_3 & model\_4 & model\_5 & model\_6\\
 \end{tabular}}
 \end{table}
 \end{landscape}
-
-First, I examined a wide range of models and solutions. I did this in
-order to select particular, candidate models to scrutinize in greater
-detail. In order to carry out this analysis, I followed guidelines
-recommended by the developers of MPlus (Asparouhov \& Muthen, 2012;
-Muthen \& Muthen, 2017) as well as those making recommendations about
-its use (Geiser, 2012). In particular, I set the number of starts to 600
-for initial stage starts, and to 120 for the number of starts to be
-optimized. This means that for each model estimated, 600 random starting
-values for the parameters were used to initialize the EM algorithm. Of
-these 600, 120 that demonstrated the lowest log-likelihood were allowed
-to continue until they reached convergence or the limit for the number
-of iterations. In order for a model to me considered trustworthy, of
-these 120 runs, the lowest log-likelihood must be replicated at least
-one time.
 
 The results are presented in Figure 5.1. If this is the case, then the
 log-likelihood would appear in the table below; if not, ``LL not
@@ -2147,9 +2144,10 @@ Noteworthy, the ICC was highest for the full profile. The other profile
 characterized by a consistent pattern across all of the variables--the
 universally low profile--had a modest ICC, .265.
 
-\subsection{Correlations between individual aspects of work with data
-and the composite and the profiles and individual
-interest}\label{correlations-between-individual-aspects-of-work-with-data-and-the-composite-and-the-profiles-and-individual-interest}
+\subsection{Correlations between individual aspects of instructional
+support for work with data and the composite and the profiles and
+individual
+interest}\label{correlations-between-individual-aspects-of-instructional-support-for-work-with-data-and-the-composite-and-the-profiles-and-individual-interest}
 
 First, a correlation matrix of each of the profiles and each of the
 aspects of work with data (as well as overall pre interest and an
@@ -2170,6 +2168,30 @@ were examined. These correlations were about the same as those between
 the profiles and the aspects of work with data, ranging from (in
 absolute value terms) .00 to .06.
 
+\begin{landscape}\begin{table}[H]
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}{llllllllllllll}
+\toprule
+rowname & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & dm\_composite & profile\_1\_p & profile\_2\_p & profile\_3\_p & profile\_4\_p & profile\_5\_p & profile\_6\_p & overall\_pre\_interest\\
+\midrule
+dm\_ask &  &  &  &  &  &  &  &  &  &  &  &  & \\
+dm\_obs & .38 &  &  &  &  &  &  &  &  &  &  &  & \\
+dm\_gen & .31 & .30 &  &  &  &  &  &  &  &  &  &  & \\
+dm\_mod & .42 & .19 & .35 &  &  &  &  &  &  &  &  &  & \\
+dm\_com & .43 & .20 & .38 & .50 &  &  &  &  &  &  &  &  & \\
+dm\_composite & .74 & .59 & .68 & .71 & .73 &  &  &  &  &  &  &  & \\
+profile\_1\_p & .02 & .03 & .04 & -.01 & .04 & .04 &  &  &  &  &  &  & \\
+profile\_2\_p & -.01 & -.01 & .00 & .01 & .02 & .00 & -.20 &  &  &  &  &  & \\
+profile\_3\_p & .01 & .02 & .00 & .02 & .02 & .02 & -.18 & -.25 &  &  &  &  & \\
+profile\_4\_p & -.01 & -.03 & -.02 & -.02 & .00 & -.02 & -.14 & -.18 & -.17 &  &  &  & \\
+profile\_5\_p & .01 & .01 & -.00 & -.01 & -.02 & -.00 & -.14 & -.34 & -.20 & -.17 &  &  & \\
+profile\_6\_p & -.03 & -.03 & -.02 & .01 & -.06 & -.04 & -.18 & -.26 & -.11 & -.18 & -.24 &  & \\
+overall\_pre\_interest & -.05 & .02 & .05 & -.03 & -.05 & -.02 & -.03 & -.10 & .12 & .02 & -.05 & .08 & \\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
 \subsection{Correlations between individual aspects of work with data
 and the composite and the variables that make up the profiles and
 individual
@@ -2183,60 +2205,58 @@ work with data (with values ranging from .00 to .06).
 
 \begin{landscape}\begin{table}[H]
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}{llllllllllllll}
+\resizebox{\linewidth}{!}{\begin{tabular}{lllllllllll}
 \toprule
-rowname & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & dm\_composite & profile\_1\_p & profile\_2\_p & profile\_3\_p & profile\_4\_p & profile\_5\_p & profile\_6\_p & overall\_pre\_interest\\
+rowname & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & dm\_cog\_eng & dm\_beh\_eng & dm\_aff\_eng & dm\_challenge & dm\_competence\\
 \midrule
-dm\_ask &  &  &  &  &  &  &  &  &  &  &  &  & \\
-dm\_obs & .38 &  &  &  &  &  &  &  &  &  &  &  & \\
-dm\_gen & .31 & .30 &  &  &  &  &  &  &  &  &  &  & \\
-dm\_mod & .42 & .19 & .35 &  &  &  &  &  &  &  &  &  & \\
-dm\_com & .43 & .20 & .38 & .50 &  &  &  &  &  &  &  &  & \\
-dm\_composite & .74 & .59 & .68 & .71 & .73 &  &  &  &  &  &  &  & \\
-profile\_1\_p & .02 & .03 & .04 & -.00 & .04 & .04 &  &  &  &  &  &  & \\
-profile\_2\_p & -.01 & -.01 & .00 & .01 & .02 & .00 & -.20 &  &  &  &  &  & \\
-profile\_3\_p & .01 & .02 & -.00 & .01 & .01 & .02 & -.16 & -.23 &  &  &  &  & \\
-profile\_4\_p & -.01 & -.03 & -.03 & -.02 & .00 & -.02 & -.14 & -.20 & -.15 &  &  &  & \\
-profile\_5\_p & .01 & .02 & -.01 & -.01 & -.02 & -.00 & -.19 & -.28 & -.22 & -.19 &  &  & \\
-profile\_6\_p & -.03 & -.03 & -.02 & -.00 & -.06 & -.04 & -.16 & -.24 & -.18 & -.16 & -.23 &  & \\
-overall\_pre\_interest & -.05 & .02 & .05 & -.03 & -.05 & -.02 & -.03 & -.10 & .11 & .02 & -.04 & .08 & \\
+dm\_ask &  &  &  &  &  &  &  &  &  & \\
+dm\_obs & .38 &  &  &  &  &  &  &  &  & \\
+dm\_gen & .31 & .30 &  &  &  &  &  &  &  & \\
+dm\_mod & .42 & .19 & .35 &  &  &  &  &  &  & \\
+dm\_com & .43 & .20 & .38 & .50 &  &  &  &  &  & \\
+dm\_cog\_eng & .02 & .01 & .02 & .02 & .00 &  &  &  &  & \\
+dm\_beh\_eng & .01 & .03 & .02 & .01 & -.02 & .60 &  &  &  & \\
+dm\_aff\_eng & .00 & -.01 & -.03 & .01 & -.05 & .59 & .57 &  &  & \\
+dm\_challenge & -.01 & -.02 & -.01 & .03 & -.06 & .30 & .27 & .27 &  & \\
+dm\_competence & -.01 & -.00 & -.05 & -.00 & -.03 & .40 & .41 & .47 & .08 & \\
 \bottomrule
 \end{tabular}}
 \end{table}
 \end{landscape}
 
-\subsection{Models with the work with data variables added
-separate}\label{models-with-the-work-with-data-variables-added-separate}
+\subsection{Models with variables for aspects of instructional support
+for work with data added
+separately}\label{models-with-variables-for-aspects-of-instructional-support-for-work-with-data-added-separately}
 
 When the predictor variables for work with data are added, some overall
 patterns and specific findings can be identified. The only relations
 with \emph{p}-values that were below the criterion for statistical
 significance (.05) were for the relations between modeling data and full
-engagement (\emph{B} = 0.03 (0.016), \emph{p} = .04) and between
-generating data and full engagement (\emph{B} = 0.03 (0.016), \emph{p} =
-.03). Sensitivity analysis for the effect of generating data suggested
+engagement (\emph{B} = 0.03 (0.016), \emph{p} = .033) and between
+generating data and full engagement (\emph{B} = 0.03 (0.015), \emph{p} =
+.02). Sensitivity analysis for the effect of generating data suggested
 that 1.47\% of the inference would have to be due to bias to invalidate
 the inference, suggesting that this effect is not very robust to
 potential sources of bias, such as an omitted (in this analysis)
-confounding (or control) variable. For the effect of modeling, this
-effect was no longer significant when the Kenward-Roger approximation
-was used. The results were similar for the effect of generating data.
-For this profile, the participant-level ICC decreased slightly.
+confounding (or control) variable. For the effect of modeling, 4.939\%
+would need to be due to bias to invalidate the inference. The effect of
+being female upon universally low engagement was moderate (\emph{B} =
+0.057 (0.035), p = .050).
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:rq2-1-tab}Results of mixed effects models for all variables separate}
+\caption{\label{tab:unnamed-chunk-13}Results of mixed effects models for instructional support for work with data as separate variables}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllllrrr}
 \toprule
-model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral (n = 370) & 0.099 (0.015) (p < .001) & 0.014 (0.014) (p = 0.158) & 0.019 (0.015) (p = 0.095) & 0.01 (0.014) (p = 0.225) & -0.02 (0.015) (p = 0.911) & 0.018 (0.014) (p = 0.107) & 0.010 & 0.094 & 0.008\\
-Universally low (n = 667) & 0.231 (0.029) (p < .001) & -0.005 (0.017) (p = 0.624) & 0.009 (0.017) (p = 0.301) & -0.013 (0.017) (p = 0.788) & 0.003 (0.017) (p = 0.421) & -0.013 (0.017) (p = 0.784) & 0.004 & 0.267 & 0.026\\
-Engaged and competent but not challenged (n = 450) & 0.138 (0.015) (p < .001) & -0.009 (0.014) (p = 0.742) & 0.011 (0.014) (p = 0.221) & -0.017 (0.014) (p = 0.894) & 0.007 (0.015) (p = 0.322) & -0.004 (0.014) (p = 0.599) & 0.013 & 0.287 & 0.000\\
-Only affective (n = 345) & 0.113 (0.011) (p < .001) & 0.004 (0.013) (p = 0.375) & -0.018 (0.013) (p = 0.915) & -0.014 (0.013) (p = 0.872) & -0.015 (0.013) (p = 0.867) & 0.018 (0.013) (p = 0.089) & 0.000 & 0.098 & 0.000\\
-All moderate (n = 638) & 0.195 (0.021) (p < .001) & 0.011 (0.017) (p = 0.27) & 0.012 (0.017) (p = 0.25) & 0.011 (0.016) (p = 0.243) & -0.01 (0.017) (p = 0.722) & -0.001 (0.017) (p = 0.528) & 0.007 & 0.226 & 0.008\\
-Full (n = 488) & 0.153 (0.025) (p < .001) & -0.02 (0.015) (p = 0.902) & -0.026 (0.015) (p = 0.955) & 0.027 (0.014) (p = 0.03) & 0.027 (0.016) (p = 0.04) & -0.018 (0.015) (p = 0.881) & 0.026 & 0.449 & 0.020\\
+Only behavioral & 0.06 (0.027) (p = 0.013) & 0.013 (0.014) (p = 0.193) & 0.017 (0.014) (p = 0.122) & 0.01 (0.014) (p = 0.242) & -0.026 (0.015) (p = 0.956) & 0.025 (0.014) (p = 0.045) & 0.02 (0.018) (p = 0.134) & 0.036 (0.025) (p = 0.078) & 0.008 & 0.094 & 0.008\\
+Universally low & 0.205 (0.053) (p < .001) & -0.01 (0.018) (p = 0.719) & 0.008 (0.018) (p = 0.325) & -0.017 (0.017) (p = 0.837) & 0.01 (0.018) (p = 0.292) & -0.005 (0.018) (p = 0.618) & 0.058 (0.035) (p = 0.049) & -0.002 (0.05) (p = 0.514) & 0.006 & 0.270 & 0.024\\
+Engaged and competent but not challenged & 0.153 (0.039) (p < .001) & -0.011 (0.015) (p = 0.771) & 0.008 (0.015) (p = 0.294) & -0.015 (0.014) (p = 0.858) & 0 (0.016) (p = 0.488) & 0.007 (0.015) (p = 0.32) & 0.034 (0.027) (p = 0.104) & -0.027 (0.039) (p = 0.752) & 0.019 & 0.302 & 0.000\\
+Only affective & 0.112 (0.025) (p < .001) & 0.005 (0.013) (p = 0.348) & -0.017 (0.013) (p = 0.898) & -0.016 (0.013) (p = 0.895) & -0.012 (0.014) (p = 0.799) & 0.014 (0.013) (p = 0.147) & -0.023 (0.017) (p = 0.906) & 0.014 (0.024) (p = 0.282) & 0.000 & 0.098 & 0.000\\
+All moderate & 0.308 (0.045) (p < .001) & 0.015 (0.017) (p = 0.184) & 0.003 (0.017) (p = 0.433) & 0.015 (0.016) (p = 0.172) & -0.01 (0.017) (p = 0.711) & -0.009 (0.017) (p = 0.709) & -0.031 (0.031) (p = 0.836) & -0.068 (0.045) (p = 0.936) & 0.006 & 0.262 & 0.005\\
+Full & 0.162 (0.052) (p = 0.001) & -0.016 (0.016) (p = 0.852) & -0.025 (0.016) (p = 0.946) & 0.029 (0.015) (p = 0.024) & 0.036 (0.016) (p = 0.016) & -0.031 (0.015) (p = 0.976) & -0.044 (0.035) (p = 0.895) & 0.038 (0.051) (p = 0.232) & 0.028 & 0.456 & 0.016\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -2246,24 +2266,26 @@ Full (n = 488) & 0.153 (0.025) (p < .001) & -0.02 (0.015) (p = 0.902) & -0.026 (
 added}\label{models-with-the-composite-added}
 
 For the composite of work with data, the composite predicted profile 1,
-only behavioral (\emph{B} = 0.008 (0.004), \emph{p} = .019), but not any
+only behavioral (\emph{B} = 0.008 (0.004), \emph{p} = .016), but not any
 of the other profiles. However, this coefficient is very small in
-practical terms. i
+practical terms, and only 1.395\% would need to be due to bias to
+invalidate the inference. Being female again predicted universally low
+engagement (\emph{B} = 0.057 (0.035), p = .050).
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-13}Results of mixed effects models for the composite}
+\caption{\label{tab:unnamed-chunk-15}Results of mixed effects models for the composite}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
 \toprule
-model & intercept & dm\_composite & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & dm\_composite & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral (n = 370) & 0.101 (0.014) (p < .001) & 0.007 (0.004) (p = 0.019) & 0.009 & 0.094 & 0.007\\
-Universally low (n = 667) & 0.229 (0.029) (p < .001) & -0.004 (0.004) (p = 0.841) & 0.003 & 0.267 & 0.026\\
-Engaged and competent but not challenged (n = 450) & 0.136 (0.015) (p < .001) & -0.003 (0.004) (p = 0.781) & 0.012 & 0.287 & 0.000\\
-Only affective (n = 345) & 0.115 (0.011) (p < .001) & -0.005 (0.003) (p = 0.919) & 0.000 & 0.098 & 0.000\\
-All moderate (n = 638) & 0.195 (0.021) (p < .001) & 0.004 (0.004) (p = 0.181) & 0.006 & 0.226 & 0.008\\
-Full (n = 488) & 0.153 (0.025) (p < .001) & -0.001 (0.004) (p = 0.558) & 0.027 & 0.447 & 0.020\\
+Only behavioral & 0.065 (0.027) (p = 0.009) & 0.007 (0.004) (p = 0.022) & 0.021 (0.018) (p = 0.124) & 0.035 (0.025) (p = 0.083) & 0.008 & 0.094 & 0.008\\
+Universally low & 0.203 (0.053) (p < .001) & -0.003 (0.004) (p = 0.782) & 0.057 (0.035) (p = 0.049) & -0.002 (0.05) (p = 0.513) & 0.004 & 0.270 & 0.023\\
+Engaged and competent but not challenged & 0.152 (0.039) (p < .001) & -0.003 (0.004) (p = 0.759) & 0.034 (0.027) (p = 0.104) & -0.026 (0.039) (p = 0.748) & 0.018 & 0.302 & 0.000\\
+Only affective & 0.113 (0.024) (p < .001) & -0.004 (0.003) (p = 0.895) & -0.022 (0.017) (p = 0.897) & 0.014 (0.024) (p = 0.285) & 0.000 & 0.098 & 0.000\\
+All moderate & 0.309 (0.045) (p < .001) & 0.003 (0.004) (p = 0.248) & -0.03 (0.031) (p = 0.833) & -0.069 (0.045) (p = 0.938) & 0.005 & 0.262 & 0.005\\
+Full & 0.16 (0.052) (p = 0.001) & -0.001 (0.004) (p = 0.591) & -0.046 (0.035) (p = 0.902) & 0.038 (0.051) (p = 0.231) & 0.030 & 0.453 & 0.017\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -2357,29 +2379,29 @@ composite}\label{models-with-activity-interacted-with-the-composite}
 
 These models show a similar pattern as the model without the
 interaction, with statistically significant relationships between the
-activity and full engagement (\emph{B} = 0.078 (0.026), \emph{p}
-\textless{} .001) and between the composite and only behavioral
-(\emph{B} = 0.008 (0.005), \emph{p} = .034). The effect of activity was
-once again robust, with 34.35\% of the effect needing to be due to bias
-to invalidate the inference; the effect of the composite on the
-probability of an only behavioral profile was not as robust, with
-18.93\% of the effect needing to be due to bias to invalidate the
-inference.
+activity and full engagement (\emph{B} = 0.079 (0.026), \emph{p} = .001)
+and between the composite and only behavioral (\emph{B} = 0.008 (0.005),
+\emph{p} = .034). There were no statistically significant effects of
+gender and URM status. The effect of activity was once again robust,
+with 34.35\% of the effect needing to be due to bias to invalidate the
+inference; the effect of the composite on the probability of an only
+behavioral profile was not as robust, with 18.93\% of the effect needing
+to be due to bias to invalidate the inference.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:inquiry-composite-interaction}Results of mixed effects models for activity and composites interactions}
+\caption{\label{tab:unnamed-chunk-16}Results of mixed effects models for activity and composites interactions}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
 \toprule
-model & intercept & inquiry\_based & dm\_composite & inquiry\_based:dm\_composite & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & inquiry\_based & dm\_composite & inquiry\_based:dm\_composite & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral (n = 370) & 0.103 (0.015) (p < .001) & -0.016 (0.025) (p = 0.733) & 0.008 (0.005) (p = 0.034) & 0 (0.009) (p = 0.502) & 0.010 & 0.089 & 0.008\\
-Universally low (n = 667) & 0.227 (0.029) (p < .001) & -0.016 (0.03) (p = 0.697) & -0.001 (0.005) (p = 0.585) & 0 (0.01) (p = 0.51) & 0.005 & 0.274 & 0.023\\
-Engaged and competent but not challenged (n = 450) & 0.143 (0.016) (p < .001) & -0.06 (0.024) (p = 0.993) & -0.003 (0.004) (p = 0.768) & 0.012 (0.008) (p = 0.077) & 0.011 & 0.284 & 0.000\\
-Only affective (n = 345) & 0.114 (0.012) (p < .001) & 0.004 (0.023) (p = 0.428) & -0.003 (0.004) (p = 0.784) & -0.003 (0.008) (p = 0.669) & 0.000 & 0.102 & 0.000\\
-All moderate (n = 638) & 0.198 (0.022) (p < .001) & 0.003 (0.03) (p = 0.462) & 0 (0.005) (p = 0.477) & 0.006 (0.01) (p = 0.293) & 0.007 & 0.219 & 0.009\\
-Full (n = 488) & 0.145 (0.024) (p < .001) & 0.078 (0.026) (p = 0.001) & -0.004 (0.005) (p = 0.818) & -0.007 (0.009) (p = 0.775) & 0.024 & 0.451 & 0.014\\
+Only behavioral & 0.064 (0.027) (p = 0.01) & -0.017 (0.025) (p = 0.749) & 0.008 (0.005) (p = 0.049) & 0.001 (0.009) (p = 0.471) & 0.024 (0.018) (p = 0.092) & 0.038 (0.025) (p = 0.065) & 0.008 & 0.089 & 0.009\\
+Universally low & 0.207 (0.053) (p < .001) & -0.013 (0.031) (p = 0.669) & -0.001 (0.006) (p = 0.591) & 0 (0.01) (p = 0.505) & 0.054 (0.035) (p = 0.063) & -0.005 (0.05) (p = 0.537) & 0.006 & 0.277 & 0.021\\
+Engaged and competent but not challenged & 0.158 (0.039) (p < .001) & -0.057 (0.025) (p = 0.989) & -0.003 (0.005) (p = 0.71) & 0.011 (0.009) (p = 0.106) & 0.033 (0.027) (p = 0.113) & -0.025 (0.039) (p = 0.74) & 0.017 & 0.300 & 0.000\\
+Only affective & 0.114 (0.025) (p < .001) & 0.006 (0.023) (p = 0.393) & -0.002 (0.004) (p = 0.724) & -0.004 (0.008) (p = 0.715) & -0.023 (0.017) (p = 0.902) & 0.012 (0.024) (p = 0.313) & 0.000 & 0.101 & 0.000\\
+All moderate & 0.305 (0.045) (p < .001) & 0.001 (0.029) (p = 0.485) & 0 (0.005) (p = 0.49) & 0.005 (0.01) (p = 0.323) & -0.026 (0.031) (p = 0.795) & -0.065 (0.044) (p = 0.928) & 0.006 & 0.257 & 0.006\\
+Full & 0.153 (0.051) (p = 0.002) & 0.079 (0.026) (p = 0.001) & -0.003 (0.005) (p = 0.76) & -0.008 (0.009) (p = 0.81) & -0.048 (0.035) (p = 0.912) & 0.035 (0.051) (p = 0.245) & 0.028 & 0.457 & 0.010\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -2433,32 +2455,33 @@ behavioral was not robust, with only 1.34\% needing to be due to bias to
 invalidate the inference. The effect of interest was robust, with
 13.34\% needing to be due to bias to invalidate the inference.
 
-\begin{landscape}\begin{table}
-
-\caption{\label{tab:unnamed-chunk-14}Results of mixed effects models with interest, composite, and activity}
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
-\toprule
-model & intercept & overall\_pre\_interest & dm\_composite & inquiry\_based & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
-\midrule
-Only behavioral (n = 370) & 0.143 (0.038) (p < .001) & -0.012 (0.011) (p = 0.861) & 0.008 (0.004) (p = 0.027) & -0.014 (0.015) (p = 0.822) & 0.008 & 0.090 & 0.011\\
-Universally low (n = 667) & 0.386 (0.071) (p < .001) & -0.05 (0.022) (p = 0.989) & -0.002 (0.005) (p = 0.653) & -0.012 (0.019) (p = 0.741) & 0.004 & 0.281 & 0.012\\
-Engaged and competent but not challenged (n = 450) & 0.02 (0.05) (p = 0.342) & 0.037 (0.016) (p = 0.008) & 0 (0.004) (p = 0.538) & -0.031 (0.015) (p = 0.984) & 0.009 & 0.283 & 0.000\\
-Only affective (n = 345) & 0.093 (0.034) (p = 0.003) & 0.008 (0.011) (p = 0.22) & -0.005 (0.004) (p = 0.92) & -0.007 (0.014) (p = 0.7) & 0.000 & 0.100 & 0.001\\
-All moderate (n = 638) & 0.23 (0.063) (p < .001) & -0.013 (0.019) (p = 0.745) & 0.004 (0.005) (p = 0.185) & 0.019 (0.018) (p = 0.148) & 0.005 & 0.214 & 0.015\\
-Full (n = 488) & 0.095 (0.066) (p = 0.075) & 0.017 (0.021) (p = 0.209) & -0.006 (0.004) (p = 0.928) & 0.056 (0.016) (p < .001) & 0.023 & 0.467 & 0.000\\
-\bottomrule
-\end{tabular}}
-\end{table}
-\end{landscape}
-
 \subsection{Models with pre interest interacted with the
 composite}\label{models-with-pre-interest-interacted-with-the-composite}
 
 These models show no statistically significant relations, though the
 composite by pre interest interaction for the engaged and competent but
 not challenged profile has a p-value less than .10 (\emph{B} = .005
-(.004), \emph{p} = .081).
+(.004), \emph{p} = .081). There were no significant relations between
+gender and URM status.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-17}Results of mixed effects models with interest and composite interaction}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
+\toprule
+model & intercept & overall\_pre\_interest & dm\_composite & inquiry\_based & dm\_composite:overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.091 (0.051) (p = 0.039) & -0.006 (0.014) (p = 0.676) & 0.015 (0.013) (p = 0.12) & -0.014 (0.016) (p = 0.813) & -0.003 (0.004) (p = 0.746) & 0.007 & 0.090 & 0.011\\
+profile\_2 & 0.372 (0.091) (p < .001) & -0.051 (0.024) (p = 0.982) & -0.005 (0.016) (p = 0.626) & -0.01 (0.019) (p = 0.692) & 0.001 (0.005) (p = 0.42) & 0.005 & 0.283 & 0.014\\
+profile\_3 & 0.048 (0.067) (p = 0.235) & 0.03 (0.018) (p = 0.046) & -0.016 (0.012) (p = 0.9) & -0.03 (0.015) (p = 0.978) & 0.005 (0.004) (p = 0.088) & 0.014 & 0.303 & 0.000\\
+profile\_4 & 0.06 (0.047) (p = 0.104) & 0.018 (0.013) (p = 0.09) & 0.011 (0.012) (p = 0.188) & -0.006 (0.014) (p = 0.659) & -0.005 (0.004) (p = 0.905) & 0.000 & 0.096 & 0.003\\
+profile\_5 & 0.353 (0.08) (p < .001) & -0.014 (0.021) (p = 0.747) & 0.003 (0.015) (p = 0.43) & 0.011 (0.018) (p = 0.269) & 0 (0.005) (p = 0.469) & 0.005 & 0.251 & 0.010\\
+profile\_6 & 0.095 (0.085) (p = 0.133) & 0.016 (0.022) (p = 0.231) & -0.006 (0.012) (p = 0.676) & 0.054 (0.016) (p < .001) & 0 (0.004) (p = 0.492) & 0.028 & 0.472 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 \subsection{Models with pre interest interacted with youth
 activity}\label{models-with-pre-interest-interacted-with-youth-activity}
@@ -2466,22 +2489,22 @@ activity}\label{models-with-pre-interest-interacted-with-youth-activity}
 These models show no statistically significant relations, though the
 activity by pre interest interaction for the engaged and competent but
 not challenged profile has a p-value less than .10 (\emph{B} = .023
-(.017), \emph{p} = .079).
+(.017), \emph{p} = .079). There were no gender or URM status effects.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-15}Results of mixed effects models with interest and activity interaction}
+\caption{\label{tab:unnamed-chunk-19}Results of mixed effects models with interest and activity interaction}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllllrrr}
 \toprule
-model & intercept & overall\_pre\_interest & dm\_composite & inquiry\_based & inquiry\_based:overall\_pre\_interest & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & overall\_pre\_interest & dm\_composite & inquiry\_based & inquiry\_based:overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral (n = 370) & 0.152 (0.04) (p < .001) & -0.015 (0.012) (p = 0.897) & 0.008 (0.004) (p = 0.026) & -0.057 (0.058) (p = 0.836) & 0.013 (0.018) (p = 0.223) & 0.009 & 0.089 & 0.010\\
-Universally low (n = 667) & 0.365 (0.073) (p < .001) & -0.043 (0.022) (p = 0.973) & -0.002 (0.005) (p = 0.661) & 0.093 (0.072) (p = 0.098) & -0.033 (0.022) (p = 0.935) & 0.004 & 0.281 & 0.013\\
-Engaged and competent but not challenged (n = 450) & 0.034 (0.051) (p = 0.249) & 0.032 (0.016) (p = 0.021) & 0 (0.004) (p = 0.533) & -0.106 (0.055) (p = 0.973) & 0.023 (0.017) (p = 0.079) & 0.009 & 0.283 & 0.000\\
-Only affective (n = 345) & 0.08 (0.035) (p = 0.012) & 0.012 (0.011) (p = 0.132) & -0.005 (0.004) (p = 0.92) & 0.06 (0.056) (p = 0.139) & -0.021 (0.017) (p = 0.896) & 0.000 & 0.100 & 0.000\\
-All moderate (n = 638) & 0.241 (0.064) (p < .001) & -0.016 (0.02) (p = 0.791) & 0.004 (0.005) (p = 0.183) & -0.03 (0.07) (p = 0.667) & 0.016 (0.021) (p = 0.233) & 0.005 & 0.214 & 0.015\\
-Full (n = 488) & 0.095 (0.067) (p = 0.077) & 0.017 (0.021) (p = 0.213) & -0.006 (0.004) (p = 0.928) & 0.055 (0.053) (p = 0.152) & 0 (0.016) (p = 0.49) & 0.023 & 0.467 & 0.000\\
+Only behavioral & 0.115 (0.047) (p = 0.008) & -0.014 (0.012) (p = 0.879) & 0.007 (0.004) (p = 0.038) & -0.05 (0.058) (p = 0.803) & 0.011 (0.018) (p = 0.265) & 0.023 (0.019) (p = 0.119) & 0.033 (0.026) (p = 0.108) & 0.007 & 0.090 & 0.012\\
+Universally low & 0.343 (0.088) (p < .001) & -0.042 (0.023) (p = 0.968) & -0.002 (0.005) (p = 0.671) & 0.1 (0.072) (p = 0.082) & -0.034 (0.022) (p = 0.943) & 0.055 (0.037) (p = 0.072) & -0.01 (0.053) (p = 0.577) & 0.005 & 0.283 & 0.014\\
+Engaged and competent but not challenged & 0.036 (0.064) (p = 0.289) & 0.035 (0.016) (p = 0.018) & 0 (0.004) (p = 0.491) & -0.113 (0.054) (p = 0.981) & 0.026 (0.016) (p = 0.055) & 0.026 (0.028) (p = 0.182) & -0.012 (0.04) (p = 0.616) & 0.014 & 0.303 & 0.000\\
+Only affective & 0.075 (0.043) (p = 0.042) & 0.012 (0.011) (p = 0.144) & -0.005 (0.004) (p = 0.891) & 0.062 (0.055) (p = 0.132) & -0.022 (0.017) (p = 0.9) & -0.02 (0.018) (p = 0.864) & 0.019 (0.025) (p = 0.227) & 0.000 & 0.097 & 0.003\\
+All moderate & 0.362 (0.077) (p < .001) & -0.017 (0.02) (p = 0.804) & 0.004 (0.005) (p = 0.203) & -0.041 (0.067) (p = 0.729) & 0.016 (0.02) (p = 0.212) & -0.034 (0.033) (p = 0.853) & -0.072 (0.046) (p = 0.939) & 0.005 & 0.252 & 0.011\\
+Full & 0.095 (0.083) (p = 0.127) & 0.016 (0.021) (p = 0.221) & -0.005 (0.004) (p = 0.895) & 0.05 (0.053) (p = 0.172) & 0.001 (0.016) (p = 0.475) & -0.038 (0.037) (p = 0.847) & 0.041 (0.053) (p = 0.22) & 0.028 & 0.472 & 0.000\\
 \bottomrule
 \end{tabular}}
 \end{table}
