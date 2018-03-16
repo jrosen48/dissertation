@@ -1553,6 +1553,47 @@ qual_sheets <- readr::read_csv("qual-coding.csv")
 
 Research question #5 is focused on investigating specific findings of interest. To code the data, three research assistants trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#4, establishing reliability among the coders was not carried out. The coders sought to document specific instances of work with data that may have instigated the coders for instructional support for work with data to code the segment the way they did, as well as potential discrepencies between the coders' understanding of the coding frame for instructional support for work with data, and any other moments that seemed to be particularly engaging or disengaging to students. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. In the remainder of this section, five findings associated with the qualitative coding are presented. Three of these findings emerged from findings associated with research questions #2-#4, whereas two emerged exclusively from the coding. 
 
+measurement
+affordances 
+affordances
+affordances
+discrepant
+discrepant
+affordances
+affordances
+constraint
+affordances
+applied
+applied(BAU)
+measurement
+applied
+measurement
+constraint
+applied, affordance
+applied
+affordance, constraint
+affordance
+measurement
+affordance
+measurement
+applied
+affordance, cycle
+affordance
+constraint
+affordance
+affordance, applied
+measurement
+constraint
+applied, affordance
+affordance
+measurement
+measurement (opp)
+measurement
+measurement
+constraint
+measurement
+affordance
+
 ### Why is support for work with data not related to the PECs?
 
 This finding of interest emerged from the analyses research question #2 (as well as research question #4)
@@ -1567,6 +1608,12 @@ This finding of interest also emerged from the analyses research question #2 (as
 
 ### What affordances and constraints do summer STEM programs have for work with data?
 
-This finding related to qualitative analyses for other features of interest. 
+This finding relates to qualitative analyses for other features of interest. 
 
 ### Challenges of fostering a complete cycle of investiation in summer STEM programs not focused on work with data
+
+This finding relates to 
+
+### Coding for other
+
+Some / many instances (20-30%) of codes not being aligned with coding frame. Some / many instances of work with data not leading to student work with data (20-30%). Not so many instances of students doing work with data when support was not provided (5-10%).
