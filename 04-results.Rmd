@@ -1517,6 +1517,7 @@ When looking across findings, we find very few relations between work with data 
 
 ```{r, loading-spreadsheets, eval = FALSE}
 library(googlesheets)
+library(dplyr)
 
 g1 <- gs_title("USE THIS! New Coding Frame - KMS")
 g2 <- gs_title("USE THIS! New Coding Frame - HM")
@@ -1526,34 +1527,46 @@ d1 <- gs_read(g1, ws = 1)
 d2 <- gs_read(g2, ws = 1)
 d3 <- gs_read(g3, ws = 1)
 
-d1_na <- is.na(d1$`Qualitative Coding`)
-d2_na <- is.na(d2$`Qualitative Coding`)
-d3_na <- is.na(d3$`Qualitative Coding`)
+d1 <- dplyr::select(d1, program_name, response_date, signal_number, KMS_qual = `Qualitative Coding`)
+d2 <- dplyr::select(d2, program_name, response_date, signal_number, HM_qual = `Qualitative Coding`)
+d3 <- rename(d3, KLS_qual = `Qualitative Coding`)
 
-d1i <- dplyr::pull(d1, `Qualitative Coding`)
-d2i <- dplyr::pull(d2, `Qualitative Coding`)
-d3i <- dplyr::pull(d3, `Qualitative Coding`)
+d3 <- d3 %>%
+  left_join(d2) %>% 
+  left_join(d1)
 
-d2 <- dplyr::mutate(d2, 
-                    harmony_qual = d2i,
-             kathryn_qual = d3i)
+d_proc <- d3 %>% 
+  select(everything(), contains("qual"), -`Josh notes`, -Initials)
 
 # d1i <- dplyr::pull(d1, `Qualitative Coding`)[!d1_na]
 # d2i <- dplyr::pull(d2, `Qualitative Coding`)[!d2_na]
 # d3i <- dplyr::pull(d3, `Qualitative Coding`)[!d3_na]
+
+readr::write_csv(d_proc, "qual-coding.csv")
 ```
 
-Research question #5 is focused on investigating specific findings of interest. 
+
+```{r, read-proc-sheet, eval = F}
+qual_sheets <- readr::read_csv("qual-coding.csv")
+```
+
+
+Research question #5 is focused on investigating specific findings of interest. To code the data, three research assistants trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#4, establishing reliability among the coders was not carried out. The coders sought to document specific instances of work with data that may have instigated the coders for instructional support for work with data to code the segment the way they did, as well as potential discrepencies between the coders' understanding of the coding frame for instructional support for work with data, and any other moments that seemed to be particularly engaging or disengaging to students. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. In the remainder of this section, five findings associated with the qualitative coding are presented. Three of these findings emerged from findings associated with research questions #2-#4, whereas two emerged exclusively from the coding. 
 
 ### Why is support for work with data not related to the PECs?
 
-In terms of this question,
-
+This finding of interest emerged from the analyses research question #2 (as well as research question #4)
 
 ### Why is the activity related to work with data?
 
-### How does support for work with data lead to specific student activities related to work with data?
+This finding of interest emerged from the analyses for research question #3 (as well as research question #4)
+
+### How does support for work with data lead to specific student activities related to work with data, i.e., what do we notice with respect to generating and modeling data?
+
+This finding of interest also emerged from the analyses research question #2 (as well as research question #4)
 
 ### What affordances and constraints do summer STEM programs have for work with data?
 
-### What are characteristics of especially engaging moments?
+This finding related to qualitative analyses for other features of interest. 
+
+### Challenges of fostering a complete cycle of investiation in summer STEM programs not focused on work with data
