@@ -1522,14 +1522,33 @@ g1 <- gs_title("USE THIS! New Coding Frame - KMS")
 g2 <- gs_title("USE THIS! New Coding Frame - HM")
 g3 <- gs_title("USE THIS! New Coding Frame - KS")
 
-d1 <- rs_read(g1, ws = 1)
-d2 <- rs_read(g1, ws = 2)
-d3 <- rs_read(g1, ws = 3)
+d1 <- gs_read(g1, ws = 1)
+d2 <- gs_read(g2, ws = 1)
+d3 <- gs_read(g3, ws = 1)
+
+d1_na <- is.na(d1$`Qualitative Coding`)
+d2_na <- is.na(d2$`Qualitative Coding`)
+d3_na <- is.na(d3$`Qualitative Coding`)
+
+d1i <- dplyr::pull(d1, `Qualitative Coding`)
+d2i <- dplyr::pull(d2, `Qualitative Coding`)
+d3i <- dplyr::pull(d3, `Qualitative Coding`)
+
+d2 <- dplyr::mutate(d2, 
+                    harmony_qual = d2i,
+             kathryn_qual = d3i)
+
+# d1i <- dplyr::pull(d1, `Qualitative Coding`)[!d1_na]
+# d2i <- dplyr::pull(d2, `Qualitative Coding`)[!d2_na]
+# d3i <- dplyr::pull(d3, `Qualitative Coding`)[!d3_na]
 ```
 
 Research question #5 is focused on investigating specific findings of interest. 
 
 ### Why is support for work with data not related to the PECs?
+
+In terms of this question,
+
 
 ### Why is the activity related to work with data?
 
