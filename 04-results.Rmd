@@ -1550,70 +1550,58 @@ readr::write_csv(d_proc, "qual-coding.csv")
 qual_sheets <- readr::read_csv("qual-coding.csv")
 ```
 
+Research question #5 is focused on investigating specific findings of interest. To code the data, three research assistants trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#4, establishing reliability among the coders was not carried out. The coders sought to document:
 
-Research question #5 is focused on investigating specific findings of interest. To code the data, three research assistants trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#4, establishing reliability among the coders was not carried out. The coders sought to document specific instances of work with data that may have instigated the coders for instructional support for work with data to code the segment the way they did, as well as potential discrepencies between the coders' understanding of the coding frame for instructional support for work with data, and any other moments that seemed to be particularly engaging or disengaging to students. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. In the remainder of this section, five findings associated with the qualitative coding are presented. Three of these findings emerged from findings associated with research questions #2-#4, whereas two emerged exclusively from the coding. 
+* The characteristics of instructional support for work with data
+* Other aspects of the instructional context that impacts student work with data
 
-measurement
-affordances 
-affordances
-affordances
-discrepant
-discrepant
-affordances
-affordances
-constraint
-affordances
-applied
-applied(BAU)
-measurement
-applied
-measurement
-constraint
-applied, affordance
-applied
-affordance, constraint
-affordance
-measurement
-affordance
-measurement
-applied
-affordance, cycle
-affordance
-constraint
-affordance
-affordance, applied
-measurement
-constraint
-applied, affordance
-affordance
-measurement
-measurement (opp)
-measurement
-measurement
-constraint
-measurement
-affordance
+Note that while the first of the two aspects focuses on the support provided by the instructor, the second aspect focuses on how students engage in work with data in ways that on occasion diverge (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the findings for research questions #2-#4 and, beyond these findings, to better understand the nature of work with data in summer STEM programs.
+This analysis resulted in themes organized around the following two themes. The first theme concerned measurement issues for instructional support for work with data. The second concerned affordances and constraints of summer STEM programs for work with data. Both are described in the remainder of this section. 
 
-### Why is support for work with data not related to the PECs?
+### Measurement issues for instructional support for work with data
 
-This finding of interest emerged from the analyses research question #2 (as well as research question #4)
+This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2-4. 
 
-### Why is the activity related to work with data?
+##### General measurement issues
 
-This finding of interest emerged from the analyses for research question #3 (as well as research question #4)
-
-### How does support for work with data lead to specific student activities related to work with data, i.e., what do we notice with respect to generating and modeling data?
-
-This finding of interest also emerged from the analyses research question #2 (as well as research question #4)
-
-### What affordances and constraints do summer STEM programs have for work with data?
-
-This finding relates to qualitative analyses for other features of interest. 
-
-### Challenges of fostering a complete cycle of investiation in summer STEM programs not focused on work with data
-
-This finding relates to 
-
-### Coding for other
+First, there were wide discrepencies between how instructional support for work with data was conceptualized and how it was measured via the STEM-PQA. For example...
 
 Some / many instances (20-30%) of codes not being aligned with coding frame. Some / many instances of work with data not leading to student work with data (20-30%). Not so many instances of students doing work with data when support was not provided (5-10%).
+
+These discrepencies led to
+
+##### Relations of work with data to engagement in work with data
+
+How instructional support for work with data was measured appear to have impacted the findings.
+
+For the relations that were statistically significant,
+
+For the relations that were not statistically significant,
+
+In summary,
+
+### Affordances and constraints of summer STEM programs for work with data
+
+This theme concerned how summer STEM program afforded and constrained work with data. Thus, different from the previous theme that was focused on a study-related issue, this theme concerns differences in the nature of the instruction and learning opportunities that learners experienced as part of their time in the summer stem programs.
+
+#### Affordances
+
+Affordances included the relevance of the program, the community setting, and field trip speakers. 
+
+#### Constraints
+
+Constraints included the challenge of linking activities as a part of a complete cycle of investigation and an emphasis on outcomes other than the capacity to work with data.
+
+##### Challenge of linking activities as part of a complete cycle of investigation
+
+Youth activity leaders faced challenges linking activities as part of a complete cycle of investigation.
+
+One aspect of this concerned both creating and modeling data.
+
+A related aspect concerned what the programs focused on. For example, the mathematics-focused programs emphasized measuring, while the science-focused programs emphasized making observations and communicating and interpreting findings. The engineering-focused programs emphasized using models, but often concrete models, rather than statistical models of data.
+
+##### Emphasis on outcomes other than the capacity to work with data
+
+First, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data. 
+
+Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities.
