@@ -93,21 +93,7 @@ d %>% knitr::kable(booktabs = TRUE, caption = "Survey Measure Used in This Study
 
 ### Codes for instructional support for work with data from the video-recordings
 
-Different aspects of instructional support for work with data will be identified from video-recordings with the use of a coding frame with five for each of the aspects of work with data and the remaining two codes are for other instructional activities, such as listening to a youth activity leader or completing a worksheet, in order to compare work with data to other activities which are potentially engaging but not oriented toward work with data, and one for other activities, such as traveling between program sites or the time in between activities. These codes are summarized in Table 5.
-
-<!-- Revised Proposed Plan -->
-<!-- ●	First, use video codes for Work With Data in place of the coding frame I developed from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs  -->
-<!-- ○	This coding frame aligns closely with the original coding frame for Work With Data that I proposed, particularly the codes for STEM Skill-building, although there are some differences (described in the table at the end of this document) -->
-<!-- ○	Each segment is coded with a 1 (present) or 0 (not present) for each of the codes for STEM Skill-building. -->
-<!-- ○	The STEM-PQA instrument was adapted from the overall PQA instrument (see Smith et al., 2012). In particular: -->
-<!-- ■	The items for STEM skill-building (and another set of codes for self-transcendent-goals) were added to the PQA -->
-<!-- ■	A dichotomous scoring approach (observed or not observed) was used -->
-<!-- ○	Reliability of the raters' use of the overall PQA instrument and the STEM-PQA was established, though the process of establishing reliability for the PQA was more in-depth than for the STEM-PQA (described in the notes below). -->
-<!-- ○	Second, use a qualitative approach for the same reasons described in the initial plan - understand quantitative findings that are of particular interest or findings that are discrepant (with other findings or with the study's hypotheses), for example: -->
-<!-- ■	Describe the characteristics of aspects of work with data, such as generating data or modeling and analyzing data, to better understand how they are carried out in these out of school STEM programs -->
-<!-- ■	Document other characteristics of highly engaging (or disengaging) signals, such as being focused on phenomena, associated with an activity that is sustained over time, and collaborative -->
-<!-- ■	Investigate in greater detail findings, such as relationships between the aspects of work with data and the profiles of engagement and its conditions that are of particular interest (such as the relationship between data modeling and one of the profiles) or findings that are discrepant and in need of further investigation in order to be understood better.  -->
-<!-- In addition to the codes for aspects of work with data, all of the video are also coded as occurring in the classroom or in a field setting. These codes were created by research team members on the basis of documentation from the intermediary program providers, who alternated between classroom and field experiences on the basis of a set schedule. Furthermore, the videos are also coded regarding the instructional leader support for STEM-related practices created through the use of the Program Quality Assessment (Akiva, 2005). Accordingly, codes for instructional leader support for STEM practice to correspond to the codes for work with data will be created. These codes will equal to 1 only when both the aspect of work with data (in Table 5) is present as is the PQA code(s) associated with that aspect of work with data; accordingly, these codes will represent students’ engagement in aspects of work with data that are also observed to be supported by youth instructional leaders.  -->
+Different aspects of instructional support for work with data will be identified from video-recordings with the use of a coding frame with five for each of the aspects of instructional support for work with data. These codes are developed from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs. Specific details on how the measure aligns iwth the original STEM-PQA on which this measure is based are presented in the appendix.
 
 ```{r}
 d <- tibble::tribble(
@@ -121,13 +107,14 @@ d <- tibble::tribble(
 )
 
 
-d %>% knitr::kable(booktabs = TRUE, caption = "Coding Frame for Instructional Support for Work With Data") %>% 
+d[, -3] %>%
+  select(knitr::kable(booktabs = TRUE, caption = "Coding Frame for Instructional Support for Work With Data")) %>% 
     kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-### Codes for activity
+<!-- ### Codes for activity -->
 
-Codes for the activity are created on the basis of codes for the student activity. A coding frame with the following categories was used to code all of the data. This coding frame included categories for both inquiry-based (i.e., laboratory activties and those in which youth are creating products) as well as more traditional (i.e., listening to a lecture). A code for inquiry-based activities, reflecting activities in which students may be doing more hands-on work that may be supportive of work with data, was created. This code had a value of one if either laboratory activities or those in which youth are creating products had a value of one and was otherwise zero.
+<!-- Codes for the activity are created on the basis of codes for the student activity. A coding frame with the following categories was used to code all of the data. This coding frame included categories for both inquiry-based (i.e., laboratory activties and those in which youth are creating products) as well as more traditional (i.e., listening to a lecture). A code for inquiry-based activities, reflecting activities in which students may be doing more hands-on work that may be supportive of work with data, was created. This code had a value of one if either laboratory activities or those in which youth are creating products had a value of one and was otherwise zero. -->
 
 ### Demographic variables
 
@@ -219,9 +206,9 @@ First, null models with only the random parts (i.e., random learner, momentary, 
 
 Here, the probability of a response being associated with a profile is predicted by the direct effects of indicators for the aspects of instructional support work with data measured at the momentary level, their individual interest in STEM measured at the youth level, and the random learner, moment, and program effects. The general specification for the models for learner i during moment j in program k is written as:
 
-$$
-For\quad learner\quad i\quad during\quad moment\quad j\quad in\quad program\quad k:\\ \\ Pr({ { profile }_{ ijk })\quad =\quad  }\\ \\ Fixed\quad parts:\\ \\ { \beta  }_{ 00 }\quad +\\ { { \beta  }_{ 01 }(Indicator\quad for\quad support\quad for\quad asking\quad questions) }_{ j }\quad +\\ { { \beta  }_{ 02 }(Indicator\quad for\quad support\quad for\quad making\quad observations) }_{ j }\quad +\\ { { \beta  }_{ 03 }(Indicator\quad for\quad support\quad for\quad generating\quad data) }_{ j }\quad +\\ { { \beta  }_{ 04 }(Indicator\quad for\quad support\quad for\quad data\quad modeling) }_{ j }\quad +\\ { { \beta  }_{ 06 }(Dummy\quad code\quad for\quad female\quad gender) }_{ i }\quad +\\ { { \beta  }_{ 07 }(Dummy\quad code\quad for\quad member\quad of\quad under-represented\quad group) }_{ i }\quad +\\ { { \beta  }_{ 08 }(Pre-program\quad STEM\quad interest) }_{ i }\quad +\\ \\ Random\quad parts:\\ \\ { \alpha  }_{ learner }(Youth\quad effect)_{ i }\quad +\\ { { { \alpha  }_{ moment } }(Momentary\quad effect) }_{ j }\quad +\\ { { \alpha  }_{ program }(Program\quad effect) }_{ k }\quad +\\ { \varepsilon  }_{ ijk }\\ \\ Where\quad { \alpha  }_{ learner },\quad { \alpha  }_{ moment },\quad and\quad { \alpha  }_{ program }\quad are\quad assumed\quad to\quad \~ \quad N({ { \mu  }_{ \alpha  } },\quad { \sigma  }_{ \alpha  }^{ 2 })
-$$
+<!-- $$ -->
+<!-- For\quad learner\quad i\quad during\quad moment\quad j\quad in\quad program\quad k:\\ \\ Pr({ { profile }_{ ijk })\quad =\quad  }\\ \\ Fixed\quad parts:\\ \\ { \beta  }_{ 00 }\quad +\\ { { \beta  }_{ 01 }(Indicator\quad for\quad support\quad for\quad asking\quad questions) }_{ j }\quad +\\ { { \beta  }_{ 02 }(Indicator\quad for\quad support\quad for\quad making\quad observations) }_{ j }\quad +\\ { { \beta  }_{ 03 }(Indicator\quad for\quad support\quad for\quad generating\quad data) }_{ j }\quad +\\ { { \beta  }_{ 04 }(Indicator\quad for\quad support\quad for\quad data\quad modeling) }_{ j }\quad +\\ { { \beta  }_{ 06 }(Dummy\quad code\quad for\quad female\quad gender) }_{ i }\quad +\\ { { \beta  }_{ 07 }(Dummy\quad code\quad for\quad member\quad of\quad under-represented\quad group) }_{ i }\quad +\\ { { \beta  }_{ 08 }(Pre-program\quad STEM\quad interest) }_{ i }\quad +\\ \\ Random\quad parts:\\ \\ { \alpha  }_{ learner }(Youth\quad effect)_{ i }\quad +\\ { { { \alpha  }_{ moment } }(Momentary\quad effect) }_{ j }\quad +\\ { { \alpha  }_{ program }(Program\quad effect) }_{ k }\quad +\\ { \varepsilon  }_{ ijk }\\ \\ Where\quad { \alpha  }_{ learner },\quad { \alpha  }_{ moment },\quad and\quad { \alpha  }_{ program }\quad are\quad assumed\quad to\quad \~ \quad N({ { \mu  }_{ \alpha  } },\quad { \sigma  }_{ \alpha  }^{ 2 }) -->
+<!-- $$ -->
 
 Findings associated with this research question will help to understand how learners engage during different aspects of work with data and how engagement during the aspects of data differ from engagement during non-instructional activities. Another benefit of these models is the variance components, which can be interpreted in terms of the intraclass correlations. Because momentary and learner random effects are crossed and both nested with the program random effects, estimates for each of these random effects can provide information on the sources of unexplained variability in the PECs, thus helping us to understand the amount of variation that variables at each of the levels of the random effects (learner, moment, and program) can be explained.
 

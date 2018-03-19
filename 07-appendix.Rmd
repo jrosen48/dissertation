@@ -1,6 +1,23 @@
-## Appendix
+# Appendix
 
-## Appendix A: Method additional materials
+## Appendix: STEM-PQA alignment
+
+```{r}
+tibble::tribble(
+  ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description, ~Categories.from.STEM-PQA.(Already.Coded).With.Descriptions,
+    "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                       "Predict, conjecture, or hypothesize",
+                      "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                      "Classify or abstract",
+                          "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.", "Collect data or measure; Highlight precision and accuracy",
+                                         NA,                                                                                                              NA,                                                          NA,
+                            "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model",
+  "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                            "Analyze; Use symbols or models",
+                                         NA,                                                                                                              NA,                                                          NA,
+                                         NA,                                                                                                              NA,                                                          NA
+  ) %>% 
+    knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
+```
+
+## Appendix: Method additional materials
 
 ### Statistical software developed
 
@@ -10,7 +27,7 @@ These wrapper functions dynamically generate MPlus syntax, so that, for example,
 
 Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, & Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., "spherical, equal volume"), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses. 
 
-### Appendix B: Descriptive statistics additional materials
+### Appendix: Descriptive statistics additional materials
 
 The Spearman rank (because the data were dichotomous) correlations among the aspects of instructional support for work with data are presented. The variables were moderately correlated, with *rho* values between .18 and .50. These suggest that signals are assocaited
 
@@ -29,7 +46,7 @@ dfs %>%
     knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations among codes for instructional support for work with data (and composite of all codes)")
 ```
 
-### Appendix C: Program descriptions
+### Appendix: Program descriptions
 
 ```{r}
 d <- tibble::tribble(
@@ -53,7 +70,7 @@ d %>%
   landscape()
 ```
 
-### Appendix D: Research Question #1 additional materials
+### Appendix: Research Question #1 additional materials
 
 ### Model 1 candidate solutions
 
@@ -309,7 +326,7 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-## Appendix E: Research question #2 additional materials
+## Appendix: Research question #2 additional materials
 
 ```{r, rq2-0-tab, eval = FALSE}
 l <- list(m1, m2, m3, m4, m5, m6)
@@ -331,7 +348,7 @@ o %>%
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for null models", linesep = "")
 ```
 
-## Appendix F: Research question #3 additional materials
+## Appendix: Research question #3 additional materials
 
 ```{r, rq3-supp, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
