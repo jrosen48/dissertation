@@ -1461,143 +1461,7 @@ fit statistics (such as information criteria and the entropy statistic)
 as well as concerns of parsimony and interpretability. In general, the
 approach to choosing the model is similar to choosing the number of
 profiles, requiring deciding on the basis of evidence from multiple
-sources.
-
-Here, the six models that are possible to specify in LPA are described
-in terms of how the variables used to create the profiles are estimated.
-Note that \emph{p} represents different profiles and each
-parameterization is represented by a 4 x 4 covariance matrix and
-therefore would represent the parameterization for a four-profile
-solution. In all of the models, the means are estimated freely in the
-different profiles. Imagine that each row and column represents a
-different variable, i.e., the first row (and column) represents broad
-interest, the second enjoyment, the third self-efficacy, and the fourth
-another variable, i.e., future goals and plans. Models 1 and 3 meet the
-assumption of independence, that is, that, after accounting for their
-relations with the profile, the variables used to estimate the profiles
-are independent (Collins \& Lanza, 2010). They estimate variable
-variances but do not estimate covariances (i.e., as can be seen, the
-covariance matrices are ``diagonal,'' without any off-diagonal
-parameters that are estimated). These models are estimated by default in
-MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
-2017). Importantly, this does not mean the variables used to create the
-profile are assumed to be not related; as Collins and Lanza (2010)
-explain:
-
-\begin{quote}
-The local independence assumption refers only to conditioning on the
-latent variable. It does not imply that in a data set that is to be
-analyzed, the observed variables are independent. In fact, it is the
-relations among the observed variables that are explained by the latent
-classes. An observed data set is a mixture of all the latent classes.
-Independence is assumed to hold only within each latent class, which is
-why it is called ``local''.
-\end{quote}
-
-Despite the assumption of independence, as Collins and Lanza (2010),
-Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
-\& Magidson, 2002) note, it can be lifted to improve model fit, though
-these models without the assumption of independence may be better
-described as general or Gaussian mixture models (Fraley et al., 2017).
-
-\subsubsection{1. Varying means, equal variances, and covariances fixed
-to 0 (model
-1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
-
-In this model, which corresponds to the mclust model wit the name
-``EEI'', the variances are estimated to be equal across profiles,
-indicated by the absence of a p subscript for any of the diagonal
-elements of the matrix. The covariances are constrained to be zero, as
-indicated by the 0's between every combination of the variables. Thus,
-this model is highly constrained but also parsimonious: the profiles are
-estimated in such a way that the variables' variances are identical for
-each of the profiles, and the relationships between the variables are
-not estimated. In this way, less degrees of freedom are taken used to
-explain the observations that make up the data. However, estimating more
-parameters--as in the other models--may better explain the data,
-justifying the addition in complexity that their addition involves (and
-their reduction in degrees of freedom).
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{2. Varying means, equal variances, and equal covariances
-(model
-2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
-
-This model corresponds to the mclust model ``EEE''. In this model, the
-variances are still constrained to be the same across the profiles,
-although now the covariances are estimated (but like the variances, are
-constrained to be the same across profiles). Thus, this model is the
-first to estimate the covariance (or correlations) of the variables used
-to create the profiles, thus adding more information that can be used to
-better understand the characteristics of the profiles (and, potentially,
-better explain the data).
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{3. Varying means, varying variances, and covariances
-fixed to 0 (model
-3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
-
-This model corresponds to the mclust model ``VVI'' and allows for the
-variances to be freely estimated across profiles. The covariances are
-constrained to zero. Thus, it is more flexible (and less parsimonious)
-than model 1, but in terms of the covariances, is more constrained than
-model 2.
-
-\[ 
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{4. Varying means, varying variances, and equal
-covariances (model
-4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
-
-This model, which specifies for the variances to be freely estimated
-across the profiles and for the covariances to be estimated to be equal
-across profiles, extends model 3. Unfortunately, this model cannot be
-specified with mclust, though it can be with MPlus; this model
-\emph{can} be used with the functions to interface to MPlus described
-below.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{5. Varying means, equal variances, and varying
-covariances (model
-5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
-
-This model specifies the variances to be equal across the profiles, but
-allows the covariances to be freely estimated across the profiles. Like
-model 4, this model cannot be specified with mclust, though it can be
-with MPlus. Again, this model \emph{can} be used with the functions to
-interface to MPlus described below.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
-\]
-
-\subsubsection{6. Varying means, varying variances, and varying
-covariances (model
-6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
-
-This model corresponds to the mclust model ``VVV''. It allows the
-variances and the covariances to be freely estimated across profiles.
-Thus, it is the most complex model, with the potential to allow for
-understanding many aspects of the variables that are used to estimate
-the profiles and how they are related. However, it is less parsimonious
-than all of the other models, and the added parameters should be
-considered in light of how preferred this model is relative to those
-with more simple specifications.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
+sources. The models are described in-depth in the appendix.
 
 Profiles will be constructed with the five self-reported ESM measures
 for cognitive, behavioral, and affective engagement and perceptions of
@@ -1856,13 +1720,22 @@ interest}\label{correlations-between-individual-aspects-of-work-with-data-and-th
 Next, correlations between individual aspects of work with data (and the
 composite) and the variables that are used to create the PECs are
 presented. These correlations suggest that the aspects of work with data
-are not only not related to the profiles, but also not related to the
-aspects of work with data (with values ranging from .00 to .06). The
-Spearman rank correlations were also considered for all of the
-correlations that involved the individual aspects of instructional
-support for work with data; these are presented in the appendix because
-these were all within a .02 value (i.e., each Spearman's \emph{rho}
-compared to its corresponding Pearson's \emph{r} was within .02).
+are not related to the aspects of work with data to a large degree,
+which is not surprising given the small ICC values for the momentary
+level, as the aspects of work with data are associated with this level.
+Most noteworthy is the very small correlations between the aspects of
+work with data and the profiles; these correlations range (in absolute
+values) from .00 to .05. Only the relations between communicating and
+profile six are statistically significant. The composite variable was
+correlated with the profiles from (in absolute values) 0.002 to 0.035,
+none statistically significant. The aspects of work with data are
+modestly correlated with one another, with correlations ranging from .16
+to .46; all were significant. The Spearman rank correlations were also
+considered for all of the correlations that involved the individual
+aspects of instructional support for work with data; these are presented
+in the appendix because these were all within a .02 value (i.e., each
+Spearman's \emph{rho} compared to its corresponding Pearson's \emph{r}
+was within .02).
 
 \begin{landscape}\begin{table}[H]
 \centering
@@ -2371,54 +2244,6 @@ Finally, a large amount of variability is associated with the residual
 levels). This suggests that there is wide variation in students'
 responses that may not be readily explained or predicted.
 
-\subsection{Correlations between individual aspects of instructional
-support for work with data and the composite and the profiles and
-individual
-interest}\label{correlations-between-individual-aspects-of-instructional-support-for-work-with-data-and-the-composite-and-the-profiles-and-individual-interest}
-
-First, a correlation matrix of each of the profiles and each of the
-aspects of work with data (as well as overall pre interest and an
-overall measure of work with data) is presented. Most noteworthy is the
-very small correlations between the aspects of work with data and the
-profiles; these correlations range (in absolute values) from .00 to .05.
-Only the relations between communicating and profile six are
-statistically significant. The composite variable was correlated with
-the profiles from (in absolute values) 0.002 to 0.035, none
-statistically significant. The aspects of work with data are modestly
-correlated with one another, with correlations ranging from .16 to .46;
-all were significant.
-
-In order to determine whether there were greater correlations with the
-variables that make up the profiles, the correlations between the five
-variables that comprise the PECs and the five aspects of work with data
-were examined. These correlations were about the same as those between
-the profiles and the aspects of work with data, ranging from (in
-absolute value terms) .00 to .06.
-
-\begin{landscape}\begin{table}[H]
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}{llllllllllllll}
-\toprule
-rowname & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & dm\_composite & profile\_1\_p & profile\_2\_p & profile\_3\_p & profile\_4\_p & profile\_5\_p & profile\_6\_p & overall\_pre\_interest\\
-\midrule
-dm\_ask &  &  &  &  &  &  &  &  &  &  &  &  & \\
-dm\_obs & .38 &  &  &  &  &  &  &  &  &  &  &  & \\
-dm\_gen & .31 & .30 &  &  &  &  &  &  &  &  &  &  & \\
-dm\_mod & .42 & .19 & .35 &  &  &  &  &  &  &  &  &  & \\
-dm\_com & .43 & .20 & .38 & .50 &  &  &  &  &  &  &  &  & \\
-dm\_composite & .74 & .59 & .68 & .71 & .73 &  &  &  &  &  &  &  & \\
-profile\_1\_p & .02 & .03 & .04 & -.01 & .04 & .04 &  &  &  &  &  &  & \\
-profile\_2\_p & -.01 & -.01 & .00 & .01 & .02 & .00 & -.20 &  &  &  &  &  & \\
-profile\_3\_p & .01 & .02 & .00 & .02 & .02 & .02 & -.18 & -.25 &  &  &  &  & \\
-profile\_4\_p & -.01 & -.03 & -.02 & -.02 & .00 & -.02 & -.14 & -.18 & -.17 &  &  &  & \\
-profile\_5\_p & .01 & .01 & -.00 & -.01 & -.02 & -.00 & -.14 & -.34 & -.20 & -.17 &  &  & \\
-profile\_6\_p & -.03 & -.03 & -.02 & .01 & -.06 & -.04 & -.18 & -.26 & -.11 & -.18 & -.24 &  & \\
-overall\_pre\_interest & -.05 & .02 & .05 & -.03 & -.05 & -.02 & -.03 & -.10 & .12 & .02 & -.05 & .08 & \\
-\bottomrule
-\end{tabular}}
-\end{table}
-\end{landscape}
-
 \subsection{Models with variables for aspects of instructional support
 for work with data added
 separately}\label{models-with-variables-for-aspects-of-instructional-support-for-work-with-data-added-separately}
@@ -2531,10 +2356,6 @@ behavioral was not robust, with only 1.34\% needing to be due to bias to
 invalidate the inference. The effect of interest was robust, with
 13.34\% needing to be due to bias to invalidate the inference.
 
-\begin{verbatim}
-## Error in as_mapper(.f, ...): object 'tidy_model_inq' not found
-\end{verbatim}
-
 \begin{landscape}\begin{table}
 
 \caption{\label{tab:reading-for-rq4}Results of mixed effects models with interest and composite interaction}
@@ -2558,10 +2379,6 @@ profile\_6 & 0.168 (0.025) (p < .001) &  &  &  & 0.030 & 0.452 & 0.021\\
 with data
 composite}\label{models-with-pre-interest-gender-and-urm-status-and-work-with-data-composite}
 
-\begin{verbatim}
-## Error in as_mapper(.f, ...): object 'tidy_model_inq' not found
-\end{verbatim}
-
 \begin{landscape}\begin{table}
 
 \caption{\label{tab:pre-int-int-present}Results of mixed effects models with interest and activity interaction}
@@ -2584,10 +2401,6 @@ Full & 0.168 (0.025) (p < .001) & -0.001 (0.004) (p = 0.599) &  &  &  & 0.030 & 
 \subsection{Models with interactions between pre interest, gender, and
 URM status and work with data
 composite}\label{models-with-interactions-between-pre-interest-gender-and-urm-status-and-work-with-data-composite}
-
-\begin{verbatim}
-## Error in as_mapper(.f, ...): object 'tidy_model_inq' not found
-\end{verbatim}
 
 \begin{verbatim}
 ## Error in FUN(X[[i]], ...): object 'dm_composite:gender_female' not found
@@ -3178,6 +2991,145 @@ Adventures in Mathematics & A mathematics-focused program that aims to help yout
 \subsection{Appendix: Research Question \#1 additional
 materials}\label{appendix-research-question-1-additional-materials}
 
+\subsection{Model specifications
+details}\label{model-specifications-details}
+
+Here, the six models that are possible to specify in LPA are described
+in terms of how the variables used to create the profiles are estimated.
+Note that \emph{p} represents different profiles and each
+parameterization is represented by a 4 x 4 covariance matrix and
+therefore would represent the parameterization for a four-profile
+solution. In all of the models, the means are estimated freely in the
+different profiles. Imagine that each row and column represents a
+different variable, i.e., the first row (and column) represents broad
+interest, the second enjoyment, the third self-efficacy, and the fourth
+another variable, i.e., future goals and plans. Models 1 and 3 meet the
+assumption of independence, that is, that, after accounting for their
+relations with the profile, the variables used to estimate the profiles
+are independent (Collins \& Lanza, 2010). They estimate variable
+variances but do not estimate covariances (i.e., as can be seen, the
+covariance matrices are ``diagonal,'' without any off-diagonal
+parameters that are estimated). These models are estimated by default in
+MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
+2017). Importantly, this does not mean the variables used to create the
+profile are assumed to be not related; as Collins and Lanza (2010)
+explain:
+
+\begin{quote}
+The local independence assumption refers only to conditioning on the
+latent variable. It does not imply that in a data set that is to be
+analyzed, the observed variables are independent. In fact, it is the
+relations among the observed variables that are explained by the latent
+classes. An observed data set is a mixture of all the latent classes.
+Independence is assumed to hold only within each latent class, which is
+why it is called ``local''.
+\end{quote}
+
+Despite the assumption of independence, as Collins and Lanza (2010),
+Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
+\& Magidson, 2002) note, it can be lifted to improve model fit, though
+these models without the assumption of independence may be better
+described as general or Gaussian mixture models (Fraley et al., 2017).
+
+\subsubsection{Varying means, equal variances, and covariances fixed to
+0 (model
+1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
+
+In this model, which corresponds to the mclust model wit the name
+``EEI'', the variances are estimated to be equal across profiles,
+indicated by the absence of a p subscript for any of the diagonal
+elements of the matrix. The covariances are constrained to be zero, as
+indicated by the 0's between every combination of the variables. Thus,
+this model is highly constrained but also parsimonious: the profiles are
+estimated in such a way that the variables' variances are identical for
+each of the profiles, and the relationships between the variables are
+not estimated. In this way, less degrees of freedom are taken used to
+explain the observations that make up the data. However, estimating more
+parameters--as in the other models--may better explain the data,
+justifying the addition in complexity that their addition involves (and
+their reduction in degrees of freedom).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and equal covariances
+(model
+2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
+
+This model corresponds to the mclust model ``EEE''. In this model, the
+variances are still constrained to be the same across the profiles,
+although now the covariances are estimated (but like the variances, are
+constrained to be the same across profiles). Thus, this model is the
+first to estimate the covariance (or correlations) of the variables used
+to create the profiles, thus adding more information that can be used to
+better understand the characteristics of the profiles (and, potentially,
+better explain the data).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and covariances fixed
+to 0 (model
+3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
+
+This model corresponds to the mclust model ``VVI'' and allows for the
+variances to be freely estimated across profiles. The covariances are
+constrained to zero. Thus, it is more flexible (and less parsimonious)
+than model 1, but in terms of the covariances, is more constrained than
+model 2.
+
+\[ 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and equal covariances
+(model
+4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
+
+This model, which specifies for the variances to be freely estimated
+across the profiles and for the covariances to be estimated to be equal
+across profiles, extends model 3. Unfortunately, this model cannot be
+specified with mclust, though it can be with MPlus; this model
+\emph{can} be used with the functions to interface to MPlus described
+below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and varying covariances
+(model
+5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
+
+This model specifies the variances to be equal across the profiles, but
+allows the covariances to be freely estimated across the profiles. Like
+model 4, this model cannot be specified with mclust, though it can be
+with MPlus. Again, this model \emph{can} be used with the functions to
+interface to MPlus described below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\]
+
+\subsubsection{Varying means, varying variances, and varying covariances
+(model
+6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
+
+This model corresponds to the mclust model ``VVV''. It allows the
+variances and the covariances to be freely estimated across profiles.
+Thus, it is the most complex model, with the potential to allow for
+understanding many aspects of the variables that are used to estimate
+the profiles and how they are related. However, it is less parsimonious
+than all of the other models, and the added parameters should be
+considered in light of how preferred this model is relative to those
+with more simple specifications.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
 \subsection{Model 1 candidate
 solutions}\label{model-1-candidate-solutions}
 
@@ -3452,24 +3404,6 @@ be interpreted with some caution.
 
 \section{Appendix: Research question \#2 additional
 materials}\label{appendix-research-question-2-additional-materials}
-
-\begin{table}
-
-\caption{\label{tab:rq2-0-tab-pres}Results of mixed effects models for null models}
-\centering
-\begin{tabular}[t]{llrrr}
-\toprule
-model & intercept & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
-\midrule
-profile\_1 & 0.116 (0.013) (p < .001) & 0.006 & 0.093 & 0.009\\
-profile\_2 & 0.223 (0.027) (p < .001) & 0.006 & 0.267 & 0.023\\
-profile\_3 & 0.144 (0.014) (p < .001) & 0.015 & 0.310 & 0.000\\
-profile\_4 & 0.112 (0.009) (p < .001) & 0.009 & 0.100 & 0.000\\
-profile\_5 & 0.24 (0.017) (p < .001) & 0.004 & 0.262 & 0.003\\
-profile\_6 & 0.164 (0.023) (p < .001) & 0.031 & 0.432 & 0.019\\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \section{Appendix: Research question \#3 additional
 materials}\label{appendix-research-question-3-additional-materials}

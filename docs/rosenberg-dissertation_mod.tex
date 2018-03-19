@@ -1156,44 +1156,30 @@ video-recordings}\label{codes-for-instructional-support-for-work-with-data-from-
 
 Different aspects of instructional support for work with data will be
 identified from video-recordings with the use of a coding frame with
-five for each of the aspects of work with data and the remaining two
-codes are for other instructional activities, such as listening to a
-youth activity leader or completing a worksheet, in order to compare
-work with data to other activities which are potentially engaging but
-not oriented toward work with data, and one for other activities, such
-as traveling between program sites or the time in between activities.
-These codes are summarized in Table 5.
+five for each of the aspects of instructional support for work with
+data. These codes are developed from the STEM-Program Quality Assessment
+(STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality
+programming in after school programs. Specific details on how the
+measure aligns iwth the original STEM-PQA on which this measure is based
+are presented in the appendix.
 
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-6}Coding Frame for Instructional Support for Work With Data}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lll}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{ll}
 \toprule
-Work with data code & Description & Categories from STEM-PQA\\
+Work with data code & Description\\
 \midrule
-Asking questions or defining problems & Discussing and exploring topics to investigate and pose questions. & Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))\\
-Making observations & Watching and noticing what is happening with respect to the phenomena or problem being investigated. & Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))\\
-Generating data & Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools. & Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))\\
-NA & NA & Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))\\
-Data modeling & Understanding and explaining phenomena using models of the data that account for variability or uncertainty. & Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))\\
-Interpreting and communicating findings & Discussing and sharing and presenting findings. & Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like "Your heartbeat increases when you exercise", etc.))\\
+Asking questions or defining problems & Discussing and exploring topics to investigate and pose questions.\\
+Making observations & Watching and noticing what is happening with respect to the phenomena or problem being investigated.\\
+Generating data & Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.\\
+NA & NA\\
+Data modeling & Understanding and explaining phenomena using models of the data that account for variability or uncertainty.\\
+Interpreting and communicating findings & Discussing and sharing and presenting findings.\\
 \bottomrule
 \end{tabular}}
 \end{table}
-
-\subsection{Codes for activity}\label{codes-for-activity}
-
-Codes for the activity are created on the basis of codes for the student
-activity. A coding frame with the following categories was used to code
-all of the data. This coding frame included categories for both
-inquiry-based (i.e., laboratory activties and those in which youth are
-creating products) as well as more traditional (i.e., listening to a
-lecture). A code for inquiry-based activities, reflecting activities in
-which students may be doing more hands-on work that may be supportive of
-work with data, was created. This code had a value of one if either
-laboratory activities or those in which youth are creating products had
-a value of one and was otherwise zero.
 
 \subsection{Demographic variables}\label{demographic-variables}
 
@@ -1283,143 +1269,7 @@ fit statistics (such as information criteria and the entropy statistic)
 as well as concerns of parsimony and interpretability. In general, the
 approach to choosing the model is similar to choosing the number of
 profiles, requiring deciding on the basis of evidence from multiple
-sources.
-
-Here, the six models that are possible to specify in LPA are described
-in terms of how the variables used to create the profiles are estimated.
-Note that \emph{p} represents different profiles and each
-parameterization is represented by a 4 x 4 covariance matrix and
-therefore would represent the parameterization for a four-profile
-solution. In all of the models, the means are estimated freely in the
-different profiles. Imagine that each row and column represents a
-different variable, i.e., the first row (and column) represents broad
-interest, the second enjoyment, the third self-efficacy, and the fourth
-another variable, i.e., future goals and plans. Models 1 and 3 meet the
-assumption of independence, that is, that, after accounting for their
-relations with the profile, the variables used to estimate the profiles
-are independent (Collins \& Lanza, 2010). They estimate variable
-variances but do not estimate covariances (i.e., as can be seen, the
-covariance matrices are ``diagonal,'' without any off-diagonal
-parameters that are estimated). These models are estimated by default in
-MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
-2017). Importantly, this does not mean the variables used to create the
-profile are assumed to be not related; as Collins and Lanza (2010)
-explain:
-
-\begin{quote}
-The local independence assumption refers only to conditioning on the
-latent variable. It does not imply that in a data set that is to be
-analyzed, the observed variables are independent. In fact, it is the
-relations among the observed variables that are explained by the latent
-classes. An observed data set is a mixture of all the latent classes.
-Independence is assumed to hold only within each latent class, which is
-why it is called ``local''.
-\end{quote}
-
-Despite the assumption of independence, as Collins and Lanza (2010),
-Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
-\& Magidson, 2002) note, it can be lifted to improve model fit, though
-these models without the assumption of independence may be better
-described as general or Gaussian mixture models (Fraley et al., 2017).
-
-\subsubsection{1. Varying means, equal variances, and covariances fixed
-to 0 (model
-1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
-
-In this model, which corresponds to the mclust model wit the name
-``EEI'', the variances are estimated to be equal across profiles,
-indicated by the absence of a p subscript for any of the diagonal
-elements of the matrix. The covariances are constrained to be zero, as
-indicated by the 0's between every combination of the variables. Thus,
-this model is highly constrained but also parsimonious: the profiles are
-estimated in such a way that the variables' variances are identical for
-each of the profiles, and the relationships between the variables are
-not estimated. In this way, less degrees of freedom are taken used to
-explain the observations that make up the data. However, estimating more
-parameters--as in the other models--may better explain the data,
-justifying the addition in complexity that their addition involves (and
-their reduction in degrees of freedom).
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{2. Varying means, equal variances, and equal covariances
-(model
-2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
-
-This model corresponds to the mclust model ``EEE''. In this model, the
-variances are still constrained to be the same across the profiles,
-although now the covariances are estimated (but like the variances, are
-constrained to be the same across profiles). Thus, this model is the
-first to estimate the covariance (or correlations) of the variables used
-to create the profiles, thus adding more information that can be used to
-better understand the characteristics of the profiles (and, potentially,
-better explain the data).
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{3. Varying means, varying variances, and covariances
-fixed to 0 (model
-3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
-
-This model corresponds to the mclust model ``VVI'' and allows for the
-variances to be freely estimated across profiles. The covariances are
-constrained to zero. Thus, it is more flexible (and less parsimonious)
-than model 1, but in terms of the covariances, is more constrained than
-model 2.
-
-\[ 
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{4. Varying means, varying variances, and equal
-covariances (model
-4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
-
-This model, which specifies for the variances to be freely estimated
-across the profiles and for the covariances to be estimated to be equal
-across profiles, extends model 3. Unfortunately, this model cannot be
-specified with mclust, though it can be with MPlus; this model
-\emph{can} be used with the functions to interface to MPlus described
-below.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
-
-\subsubsection{5. Varying means, equal variances, and varying
-covariances (model
-5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
-
-This model specifies the variances to be equal across the profiles, but
-allows the covariances to be freely estimated across the profiles. Like
-model 4, this model cannot be specified with mclust, though it can be
-with MPlus. Again, this model \emph{can} be used with the functions to
-interface to MPlus described below.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
-\]
-
-\subsubsection{6. Varying means, varying variances, and varying
-covariances (model
-6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
-
-This model corresponds to the mclust model ``VVV''. It allows the
-variances and the covariances to be freely estimated across profiles.
-Thus, it is the most complex model, with the potential to allow for
-understanding many aspects of the variables that are used to estimate
-the profiles and how they are related. However, it is less parsimonious
-than all of the other models, and the added parameters should be
-considered in light of how preferred this model is relative to those
-with more simple specifications.
-
-\[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
-\]
+sources. The models are described in-depth in the appendix.
 
 Profiles will be constructed with the five self-reported ESM measures
 for cognitive, behavioral, and affective engagement and perceptions of
@@ -1678,13 +1528,22 @@ interest}\label{correlations-between-individual-aspects-of-work-with-data-and-th
 Next, correlations between individual aspects of work with data (and the
 composite) and the variables that are used to create the PECs are
 presented. These correlations suggest that the aspects of work with data
-are not only not related to the profiles, but also not related to the
-aspects of work with data (with values ranging from .00 to .06). The
-Spearman rank correlations were also considered for all of the
-correlations that involved the individual aspects of instructional
-support for work with data; these are presented in the appendix because
-these were all within a .02 value (i.e., each Spearman's \emph{rho}
-compared to its corresponding Pearson's \emph{r} was within .02).
+are not related to the aspects of work with data to a large degree,
+which is not surprising given the small ICC values for the momentary
+level, as the aspects of work with data are associated with this level.
+Most noteworthy is the very small correlations between the aspects of
+work with data and the profiles; these correlations range (in absolute
+values) from .00 to .05. Only the relations between communicating and
+profile six are statistically significant. The composite variable was
+correlated with the profiles from (in absolute values) 0.002 to 0.035,
+none statistically significant. The aspects of work with data are
+modestly correlated with one another, with correlations ranging from .16
+to .46; all were significant. The Spearman rank correlations were also
+considered for all of the correlations that involved the individual
+aspects of instructional support for work with data; these are presented
+in the appendix because these were all within a .02 value (i.e., each
+Spearman's \emph{rho} compared to its corresponding Pearson's \emph{r}
+was within .02).
 
 \begin{landscape}\begin{table}[H]
 \centering
@@ -1843,9 +1702,33 @@ it is also the most computationally-intensive to carry out (Asparouhov
 associated p-value are provided; a p-value greater than .05 suggests
 that the model with fewer profiles should be preferred.
 
-\begin{verbatim}
-## Error in mutate_impl(.data, dots): Evaluation error: object 'LMV_p' not found.
-\end{verbatim}
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrlll}
+\toprule
+Number of Profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR & LMR & BLRT\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Model 1}}\\
+\hspace{1em}2 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 (0) & 3397.353 (0) & 3468.199 (0)\\
+\hspace{1em}3 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 (0.0126) & 863.512 (0.0136) & 881.519 (0)\\
+\hspace{1em}4 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 (0) & 503.605 (0) & 514.107 (0)\\
+\hspace{1em}5 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 (0) & 741.329 (0) & 756.788 (0)\\
+\hspace{1em}6 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 (0) & 331.386 (0) & 338.296 (0)\\
+\hspace{1em}7 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 (0.0112) & 512.455 (0.0121) & 523.141 (0)\\
+\hspace{1em}9 & -18186.35 & -18186.35 & 36836.25 & 36651.96 & 36491.06 & 0.899 & 171.674 (0.1322) & 168.167 (0.1359) & 171.674 (0)\\
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Model 2}}\\
+\hspace{1em}2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 (0) & 832.934 (0) & 850.304 (0)\\
+\hspace{1em}3 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 (0) & 412.736 (0) & 421.343 (0)\\
+\hspace{1em}4 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 (0) & 465.075 (0) & 474.773 (0)\\
+\hspace{1em}5 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 (0) & 298.709 (0) & 304.938 (0)\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 \begin{figure}
 
@@ -1955,9 +1838,9 @@ models}\label{examination-of-specific-candidate-models}
 In this section, specific model solutions - the model 1, six profile,
 and model 1 type, seven profile - solutio are described in-depth. Other
 candidate solutions are described in the appendix. For all of the
-solutions, the data are centered to have a mean equal to 0 and a
-standard deviation of 1 (thus, the y-axis on each of the plots is
-labeled ``Z-score'').
+solutions, the raw data and the data that are centered to have a mean
+equal to 0 and a standard deviation of 1 (thus, the y-axis on each of
+the plots is labeled ``Z-score'').
 
 \subsubsection{Model: 1, Profiles: 6}\label{model-1-profiles-6}
 
@@ -2013,6 +1896,8 @@ subsequent analyses.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-1} \end{center}
 
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-2} \end{center}
+
 \subsubsection{Model: 1, Profiles: 7}\label{model-1-profiles-7}
 
 This solution is characterized by:
@@ -2061,6 +1946,8 @@ possibly suggesting preference for model 1 five and six profile
 solutions.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-2} \end{center}
 
 \subsubsection{Looking across model 1 and model 2
 solutions}\label{looking-across-model-1-and-model-2-solutions}
@@ -2165,30 +2052,6 @@ Finally, a large amount of variability is associated with the residual
 levels). This suggests that there is wide variation in students'
 responses that may not be readily explained or predicted.
 
-\subsection{Correlations between individual aspects of instructional
-support for work with data and the composite and the profiles and
-individual
-interest}\label{correlations-between-individual-aspects-of-instructional-support-for-work-with-data-and-the-composite-and-the-profiles-and-individual-interest}
-
-First, a correlation matrix of each of the profiles and each of the
-aspects of work with data (as well as overall pre interest and an
-overall measure of work with data) is presented. Most noteworthy is the
-very small correlations between the aspects of work with data and the
-profiles; these correlations range (in absolute values) from .00 to .05.
-Only the relations between communicating and profile six are
-statistically significant. The composite variable was correlated with
-the profiles from (in absolute values) 0.002 to 0.035, none
-statistically significant. The aspects of work with data are modestly
-correlated with one another, with correlations ranging from .16 to .46;
-all were significant.
-
-In order to determine whether there were greater correlations with the
-variables that make up the profiles, the correlations between the five
-variables that comprise the PECs and the five aspects of work with data
-were examined. These correlations were about the same as those between
-the profiles and the aspects of work with data, ranging from (in
-absolute value terms) .00 to .06.
-
 \subsection{Models with variables for aspects of instructional support
 for work with data added
 separately}\label{models-with-variables-for-aspects-of-instructional-support-for-work-with-data-added-separately}
@@ -2197,31 +2060,32 @@ When the predictor variables for work with data are added, some overall
 patterns and specific findings can be identified. The only relations
 with \emph{p}-values that were below the criterion for statistical
 significance (.05) were for the relations between modeling data and full
-engagement (\emph{B} = 0.03 (0.016), \emph{p} = .033) and between
-generating data and full engagement (\emph{B} = 0.03 (0.015), \emph{p} =
-.02). Sensitivity analysis for the effect of generating data suggested
-that 1.47\% of the inference would have to be due to bias to invalidate
-the inference, suggesting that this effect is not very robust to
-potential sources of bias, such as an omitted (in this analysis)
-confounding (or control) variable. For the effect of modeling, 4.939\%
-would need to be due to bias to invalidate the inference. The effect of
-being female upon universally low engagement was moderate (\emph{B} =
-0.057 (0.035), p = .050).
+engagement (\emph{B} = 0.036 (0.016), \emph{p} = .016) and between
+generating data and full engagement (\emph{B} = 0.029 (0.015), \emph{p}
+= .024). The effect of being female upon universally low engagement was
+moderate (\emph{B} = 0.057 (0.035), p = .050).
+
+Sensitivity analysis for the effect of generating data suggested that
+1.883\% of the inference would have to be due to bias to invalidate the
+inference, suggesting that this effect is not very robust to potential
+sources of bias, such as an omitted (in this analysis) confounding (or
+control) variable. For the effect of modeling, XXX\% would need to be
+due to bias to invalidate the inference.
 
 \begin{landscape}\begin{table}
 
 \caption{\label{tab:rq2-1-tab-pres}Results of mixed effects models for instructional support for work with data as separate variables}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
 \toprule
-model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral & 0.06 (0.027) (p = 0.013) & 0.013 (0.014) (p = 0.193) & 0.017 (0.014) (p = 0.122) & 0.01 (0.014) (p = 0.242) & -0.026 (0.015) (p = 0.956) & 0.025 (0.014) (p = 0.045) & 0.02 (0.018) (p = 0.134) & 0.036 (0.025) (p = 0.078) & 0.008 & 0.094 & 0.008\\
-Universally low & 0.205 (0.053) (p < .001) & -0.01 (0.018) (p = 0.719) & 0.008 (0.018) (p = 0.325) & -0.017 (0.017) (p = 0.837) & 0.01 (0.018) (p = 0.292) & -0.005 (0.018) (p = 0.618) & 0.058 (0.035) (p = 0.049) & -0.002 (0.05) (p = 0.514) & 0.006 & 0.270 & 0.024\\
-Engaged and competent but not challenged & 0.153 (0.039) (p < .001) & -0.011 (0.015) (p = 0.771) & 0.008 (0.015) (p = 0.294) & -0.015 (0.014) (p = 0.858) & 0 (0.016) (p = 0.488) & 0.007 (0.015) (p = 0.32) & 0.034 (0.027) (p = 0.104) & -0.027 (0.039) (p = 0.752) & 0.019 & 0.302 & 0.000\\
-Only affective & 0.112 (0.025) (p < .001) & 0.005 (0.013) (p = 0.348) & -0.017 (0.013) (p = 0.898) & -0.016 (0.013) (p = 0.895) & -0.012 (0.014) (p = 0.799) & 0.014 (0.013) (p = 0.147) & -0.023 (0.017) (p = 0.906) & 0.014 (0.024) (p = 0.282) & 0.000 & 0.098 & 0.000\\
-All moderate & 0.308 (0.045) (p < .001) & 0.015 (0.017) (p = 0.184) & 0.003 (0.017) (p = 0.433) & 0.015 (0.016) (p = 0.172) & -0.01 (0.017) (p = 0.711) & -0.009 (0.017) (p = 0.709) & -0.031 (0.031) (p = 0.836) & -0.068 (0.045) (p = 0.936) & 0.006 & 0.262 & 0.005\\
-Full & 0.162 (0.052) (p = 0.001) & -0.016 (0.016) (p = 0.852) & -0.025 (0.016) (p = 0.946) & 0.029 (0.015) (p = 0.024) & 0.036 (0.016) (p = 0.016) & -0.031 (0.015) (p = 0.976) & -0.044 (0.035) (p = 0.895) & 0.038 (0.051) (p = 0.232) & 0.028 & 0.456 & 0.016\\
+Only behavioral & 0.1 (0.014) (p < .001) & 0.013 (0.014) (p = 0.188) & 0.017 (0.014) (p = 0.122) & 0.009 (0.014) (p = 0.244) & -0.026 (0.015) (p = 0.957) & 0.025 (0.014) (p = 0.043) & 0.008 & 0.097 & 0.007\\
+Universally low & 0.231 (0.029) (p < .001) & -0.008 (0.017) (p = 0.685) & 0.01 (0.017) (p = 0.277) & -0.017 (0.017) (p = 0.839) & 0.007 (0.018) (p = 0.356) & -0.006 (0.017) (p = 0.626) & 0.005 & 0.269 & 0.026\\
+Engaged and competent but not challenged & 0.148 (0.016) (p < .001) & -0.012 (0.015) (p = 0.797) & 0.009 (0.015) (p = 0.267) & -0.016 (0.014) (p = 0.871) & 0.001 (0.015) (p = 0.487) & 0.008 (0.014) (p = 0.284) & 0.017 & 0.305 & 0.000\\
+Only affective & 0.115 (0.011) (p < .001) & 0.005 (0.013) (p = 0.362) & -0.019 (0.013) (p = 0.919) & -0.015 (0.013) (p = 0.874) & -0.011 (0.014) (p = 0.787) & 0.012 (0.013) (p = 0.175) & 0.000 & 0.100 & 0.000\\
+All moderate & 0.234 (0.02) (p < .001) & 0.016 (0.017) (p = 0.169) & 0.001 (0.016) (p = 0.477) & 0.015 (0.016) (p = 0.169) & -0.007 (0.017) (p = 0.651) & -0.009 (0.016) (p = 0.716) & 0.005 & 0.260 & 0.005\\
+Full & 0.171 (0.025) (p < .001) & -0.017 (0.015) (p = 0.859) & -0.024 (0.015) (p = 0.943) & 0.029 (0.015) (p = 0.025) & 0.035 (0.016) (p = 0.016) & -0.03 (0.015) (p = 0.976) & 0.028 & 0.455 & 0.019\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -2241,16 +2105,16 @@ engagement (\emph{B} = 0.057 (0.035), p = .050).
 
 \caption{\label{tab:unnamed-chunk-11}Results of mixed effects models for the composite}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
 \toprule
-model & intercept & dm\_composite & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+model & intercept & dm\_composite & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-Only behavioral & 0.065 (0.027) (p = 0.009) & 0.007 (0.004) (p = 0.022) & 0.021 (0.018) (p = 0.124) & 0.035 (0.025) (p = 0.083) & 0.008 & 0.094 & 0.008\\
-Universally low & 0.203 (0.053) (p < .001) & -0.003 (0.004) (p = 0.782) & 0.057 (0.035) (p = 0.049) & -0.002 (0.05) (p = 0.513) & 0.004 & 0.270 & 0.023\\
-Engaged and competent but not challenged & 0.152 (0.039) (p < .001) & -0.003 (0.004) (p = 0.759) & 0.034 (0.027) (p = 0.104) & -0.026 (0.039) (p = 0.748) & 0.018 & 0.302 & 0.000\\
-Only affective & 0.113 (0.024) (p < .001) & -0.004 (0.003) (p = 0.895) & -0.022 (0.017) (p = 0.897) & 0.014 (0.024) (p = 0.285) & 0.000 & 0.098 & 0.000\\
-All moderate & 0.309 (0.045) (p < .001) & 0.003 (0.004) (p = 0.248) & -0.03 (0.031) (p = 0.833) & -0.069 (0.045) (p = 0.938) & 0.005 & 0.262 & 0.005\\
-Full & 0.16 (0.052) (p = 0.001) & -0.001 (0.004) (p = 0.591) & -0.046 (0.035) (p = 0.902) & 0.038 (0.051) (p = 0.231) & 0.030 & 0.453 & 0.017\\
+Only behavioral & 0.104 (0.014) (p < .001) & 0.007 (0.004) (p = 0.021) & 0.008 & 0.097 & 0.008\\
+Universally low & 0.229 (0.029) (p < .001) & -0.003 (0.004) (p = 0.784) & 0.004 & 0.269 & 0.026\\
+Engaged and competent but not challenged & 0.148 (0.016) (p < .001) & -0.002 (0.004) (p = 0.754) & 0.016 & 0.305 & 0.000\\
+Only affective & 0.117 (0.011) (p < .001) & -0.005 (0.003) (p = 0.912) & 0.000 & 0.100 & 0.000\\
+All moderate & 0.24 (0.017) (p < .001) &  & 0.004 & 0.262 & 0.003\\
+Full & 0.168 (0.025) (p < .001) & -0.001 (0.004) (p = 0.599) & 0.030 & 0.452 & 0.021\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -2270,21 +2134,23 @@ terms of codes from the video--are the focus on research question \#5
 and are discussed in the next chapter. Moreover, these findings are
 deepened in subsequent analyses for research questions \#3 and \#4.
 
-\section{Research Question \#4: Effects of Youth's Pre-Program
-Interest}\label{research-question-4-effects-of-youths-pre-program-interest}
+\section{Research Question \#3: Effects of pre-program interest and
+other youth
+characteristics}\label{research-question-3-effects-of-pre-program-interest-and-other-youth-characteristics}
 
 Research question \#4 is focused on how the relationships of
 instructional support for work with data and the activity differ on the
 basis of pre-program interest. Like for the previous two research
 questions, linear models that account for the cross-classification of
 the moment and the youth--and their nesting within the programs--are
-used. Findings from models with pre interest, composite, and activity
-are interpreted, and findings from models with pre interest interacted
-with the composite, and with pre interest interacted with youth
-activity, are presented and interpreted.
+used. Findings from models with pre interest, gender, and URM status are
+first presented. Then, models with these variable and the composite for
+work with data are added and then models with the interaction between
+these characteristics and the composite.
 
-\subsection{Models with pre interest, composite, and
-activity}\label{models-with-pre-interest-composite-and-activity}
+\subsection{Models with pre interest, gender, and under-represented
+minority (URM)
+status}\label{models-with-pre-interest-gender-and-under-represented-minority-urm-status}
 
 These results were also very similar to when interest was added as a
 control: The activity and full engagement were statistically
@@ -2298,8 +2164,58 @@ behavioral was not robust, with only 1.34\% needing to be due to bias to
 invalidate the inference. The effect of interest was robust, with
 13.34\% needing to be due to bias to invalidate the inference.
 
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:reading-for-rq4}Results of mixed effects models with interest and composite interaction}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
+\toprule
+model & intercept & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+profile\_1 & 0.104 (0.014) (p < .001) &  &  &  & 0.008 & 0.097 & 0.008\\
+profile\_2 & 0.229 (0.029) (p < .001) &  &  &  & 0.004 & 0.269 & 0.026\\
+profile\_3 & 0.148 (0.016) (p < .001) &  &  &  & 0.016 & 0.305 & 0.000\\
+profile\_4 & 0.117 (0.011) (p < .001) &  &  &  & 0.000 & 0.100 & 0.000\\
+profile\_5 & 0.24 (0.017) (p < .001) &  &  &  & 0.004 & 0.262 & 0.003\\
+profile\_6 & 0.168 (0.025) (p < .001) &  &  &  & 0.030 & 0.452 & 0.021\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\subsection{Models with pre interest, gender, and URM status and work
+with data
+composite}\label{models-with-pre-interest-gender-and-urm-status-and-work-with-data-composite}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:pre-int-int-present}Results of mixed effects models with interest and activity interaction}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
+\toprule
+model & intercept & dm\_composite & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Only behavioral & 0.104 (0.014) (p < .001) & 0.007 (0.004) (p = 0.021) &  &  &  & 0.008 & 0.097 & 0.008\\
+Universally low & 0.229 (0.029) (p < .001) & -0.003 (0.004) (p = 0.784) &  &  &  & 0.004 & 0.269 & 0.026\\
+Engaged and competent but not challenged & 0.148 (0.016) (p < .001) & -0.002 (0.004) (p = 0.754) &  &  &  & 0.016 & 0.305 & 0.000\\
+Only affective & 0.117 (0.011) (p < .001) & -0.005 (0.003) (p = 0.912) &  &  &  & 0.000 & 0.100 & 0.000\\
+All moderate & 0.24 (0.017) (p < .001) &  &  &  &  & 0.004 & 0.262 & 0.003\\
+Full & 0.168 (0.025) (p < .001) & -0.001 (0.004) (p = 0.599) &  &  &  & 0.030 & 0.452 & 0.021\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\subsection{Models with interactions between pre interest, gender, and
+URM status and work with data
+composite}\label{models-with-interactions-between-pre-interest-gender-and-urm-status-and-work-with-data-composite}
+
+\begin{verbatim}
+## Error in FUN(X[[i]], ...): object 'dm_composite:gender_female' not found
+\end{verbatim}
+
 \subsection{Looking across findings for research question
-\#4}\label{looking-across-findings-for-research-question-4}
+\#3}\label{looking-across-findings-for-research-question-3}
 
 When looking across findings, we find very few relations between work
 with data and the profiles. When looking across findings, there are very
@@ -2308,7 +2224,7 @@ question \#2, reasons for why this may be are explored in the next
 chapter. The effect of the activity appears robust, as in research
 question \#3
 
-\section{Research Question \#5}\label{research-question-5}
+\section{Research Question \#4}\label{research-question-4}
 
 This analysis resulted in themes organized around the following two
 themes. The first theme concerned measurement issues for instructional
@@ -2761,10 +2677,20 @@ publication). A new look at multiple goal pursuit: The promise of a
 person-centered approach. Educational Psychology Review.
 \url{doi:10.1007/s10648-016-9358-2}
 
-\section{Appendix}\label{appendix}
+\chapter{Appendix}\label{appendix}
 
-\section{Appendix A: Method additional
-materials}\label{appendix-a-method-additional-materials}
+\section{Appendix: STEM-PQA
+alignment}\label{appendix-stem-pqa-alignment}
+
+\begin{verbatim}
+## Error: <text>:2:200: unexpected symbol
+## 1: tibble::tribble(
+## 2:   ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description, ~Categories.from.STEM-PQA.(Already
+##                                                                                                                                                                                                           ^
+\end{verbatim}
+
+\section{Appendix: Method additional
+materials}\label{appendix-method-additional-materials}
 
 \subsection{Statistical software
 developed}\label{statistical-software-developed-1}
@@ -2819,8 +2745,8 @@ of differences in how the E-M algorithm is initialized as well as other
 estimation-related differences, output will likely not be identical for
 many analyses.
 
-\subsection{Appendix B: Descriptive statistics additional
-materials}\label{appendix-b-descriptive-statistics-additional-materials}
+\subsection{Appendix: Descriptive statistics additional
+materials}\label{appendix-descriptive-statistics-additional-materials}
 
 The Spearman rank (because the data were dichotomous) correlations among
 the aspects of instructional support for work with data are presented.
@@ -2829,7 +2755,7 @@ The variables were moderately correlated, with \emph{rho} values between
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-13}Correlations among codes for instructional support for work with data (and composite of all codes)}
+\caption{\label{tab:unnamed-chunk-14}Correlations among codes for instructional support for work with data (and composite of all codes)}
 \centering
 \begin{tabular}[t]{llllll}
 \toprule
@@ -2844,12 +2770,12 @@ Communicating Findings & .73 & .55 & .65 & .67 & \\
 \end{tabular}
 \end{table}
 
-\subsection{Appendix C: Program
-descriptions}\label{appendix-c-program-descriptions}
+\subsection{Appendix: Program
+descriptions}\label{appendix-program-descriptions}
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-14}STEM Enrichment Program Names and Their Descriptions}
+\caption{\label{tab:unnamed-chunk-15}STEM Enrichment Program Names and Their Descriptions}
 \centering
 \begin{tabular}[t]{ll}
 \toprule
@@ -2870,8 +2796,147 @@ Adventures in Mathematics & A mathematics-focused program that aims to help yout
 \end{table}
 \end{landscape}
 
-\subsection{Appendix D: Research Question \#1 additional
-materials}\label{appendix-d-research-question-1-additional-materials}
+\subsection{Appendix: Research Question \#1 additional
+materials}\label{appendix-research-question-1-additional-materials}
+
+\subsection{Model specifications
+details}\label{model-specifications-details}
+
+Here, the six models that are possible to specify in LPA are described
+in terms of how the variables used to create the profiles are estimated.
+Note that \emph{p} represents different profiles and each
+parameterization is represented by a 4 x 4 covariance matrix and
+therefore would represent the parameterization for a four-profile
+solution. In all of the models, the means are estimated freely in the
+different profiles. Imagine that each row and column represents a
+different variable, i.e., the first row (and column) represents broad
+interest, the second enjoyment, the third self-efficacy, and the fourth
+another variable, i.e., future goals and plans. Models 1 and 3 meet the
+assumption of independence, that is, that, after accounting for their
+relations with the profile, the variables used to estimate the profiles
+are independent (Collins \& Lanza, 2010). They estimate variable
+variances but do not estimate covariances (i.e., as can be seen, the
+covariance matrices are ``diagonal,'' without any off-diagonal
+parameters that are estimated). These models are estimated by default in
+MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
+2017). Importantly, this does not mean the variables used to create the
+profile are assumed to be not related; as Collins and Lanza (2010)
+explain:
+
+\begin{quote}
+The local independence assumption refers only to conditioning on the
+latent variable. It does not imply that in a data set that is to be
+analyzed, the observed variables are independent. In fact, it is the
+relations among the observed variables that are explained by the latent
+classes. An observed data set is a mixture of all the latent classes.
+Independence is assumed to hold only within each latent class, which is
+why it is called ``local''.
+\end{quote}
+
+Despite the assumption of independence, as Collins and Lanza (2010),
+Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
+\& Magidson, 2002) note, it can be lifted to improve model fit, though
+these models without the assumption of independence may be better
+described as general or Gaussian mixture models (Fraley et al., 2017).
+
+\subsubsection{Varying means, equal variances, and covariances fixed to
+0 (model
+1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
+
+In this model, which corresponds to the mclust model wit the name
+``EEI'', the variances are estimated to be equal across profiles,
+indicated by the absence of a p subscript for any of the diagonal
+elements of the matrix. The covariances are constrained to be zero, as
+indicated by the 0's between every combination of the variables. Thus,
+this model is highly constrained but also parsimonious: the profiles are
+estimated in such a way that the variables' variances are identical for
+each of the profiles, and the relationships between the variables are
+not estimated. In this way, less degrees of freedom are taken used to
+explain the observations that make up the data. However, estimating more
+parameters--as in the other models--may better explain the data,
+justifying the addition in complexity that their addition involves (and
+their reduction in degrees of freedom).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and equal covariances
+(model
+2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
+
+This model corresponds to the mclust model ``EEE''. In this model, the
+variances are still constrained to be the same across the profiles,
+although now the covariances are estimated (but like the variances, are
+constrained to be the same across profiles). Thus, this model is the
+first to estimate the covariance (or correlations) of the variables used
+to create the profiles, thus adding more information that can be used to
+better understand the characteristics of the profiles (and, potentially,
+better explain the data).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and covariances fixed
+to 0 (model
+3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
+
+This model corresponds to the mclust model ``VVI'' and allows for the
+variances to be freely estimated across profiles. The covariances are
+constrained to zero. Thus, it is more flexible (and less parsimonious)
+than model 1, but in terms of the covariances, is more constrained than
+model 2.
+
+\[ 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and equal covariances
+(model
+4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
+
+This model, which specifies for the variances to be freely estimated
+across the profiles and for the covariances to be estimated to be equal
+across profiles, extends model 3. Unfortunately, this model cannot be
+specified with mclust, though it can be with MPlus; this model
+\emph{can} be used with the functions to interface to MPlus described
+below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and varying covariances
+(model
+5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
+
+This model specifies the variances to be equal across the profiles, but
+allows the covariances to be freely estimated across the profiles. Like
+model 4, this model cannot be specified with mclust, though it can be
+with MPlus. Again, this model \emph{can} be used with the functions to
+interface to MPlus described below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\]
+
+\subsubsection{Varying means, varying variances, and varying covariances
+(model
+6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
+
+This model corresponds to the mclust model ``VVV''. It allows the
+variances and the covariances to be freely estimated across profiles.
+Thus, it is the most complex model, with the potential to allow for
+understanding many aspects of the variables that are used to estimate
+the profiles and how they are related. However, it is less parsimonious
+than all of the other models, and the added parameters should be
+considered in light of how preferred this model is relative to those
+with more simple specifications.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
 
 \subsection{Model 1 candidate
 solutions}\label{model-1-candidate-solutions}
@@ -3145,29 +3210,11 @@ be interpreted with some caution.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_5p-1} \end{center}
 
-\section{Appendix E: Research question \#2 additional
-materials}\label{appendix-e-research-question-2-additional-materials}
+\section{Appendix: Research question \#2 additional
+materials}\label{appendix-research-question-2-additional-materials}
 
-\begin{table}
-
-\caption{\label{tab:rq2-0-tab-pres}Results of mixed effects models for null models}
-\centering
-\begin{tabular}[t]{llrrr}
-\toprule
-model & intercept & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
-\midrule
-profile\_1 & 0.116 (0.013) (p < .001) & 0.006 & 0.093 & 0.009\\
-profile\_2 & 0.223 (0.027) (p < .001) & 0.006 & 0.267 & 0.023\\
-profile\_3 & 0.144 (0.014) (p < .001) & 0.015 & 0.310 & 0.000\\
-profile\_4 & 0.112 (0.009) (p < .001) & 0.009 & 0.100 & 0.000\\
-profile\_5 & 0.24 (0.017) (p < .001) & 0.004 & 0.262 & 0.003\\
-profile\_6 & 0.164 (0.023) (p < .001) & 0.031 & 0.432 & 0.019\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Appendix F: Research question \#3 additional
-materials}\label{appendix-f-research-question-3-additional-materials}
+\section{Appendix: Research question \#3 additional
+materials}\label{appendix-research-question-3-additional-materials}
 
 \bibliography{book.bib,packages.bib}
 

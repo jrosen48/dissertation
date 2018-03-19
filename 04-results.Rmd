@@ -185,7 +185,7 @@ o <- d_red %>%
 
 ### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
 
-Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
+Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not related to the aspects of work with data to a large degree, which is not surprising given the small ICC values for the momentary level, as the aspects of work with data are associated with this level. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant.  The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
 
 ```{r, rq2-1-corr-components, eval = T}
 d_red %>% 
@@ -716,51 +716,6 @@ m6b <- lmer(profile_6_p ~ 1 +
 The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability that is able to be explained. In turn, this suggests that these variables, including those for instructional support for work with data, may not have strong effects in terms of their relations with the PECs. 
 
 In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the full profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted. 
-
-<!-- This variation can also be due to interactions between factors at each of the levels (i.e., interactions of youths' characteristics with specific aspects of the instruction).  -->
-
-### Correlations between individual aspects of instructional support for work with data and the composite and the profiles and individual interest
-
-First, a correlation matrix of each of the profiles and each of the aspects of work with data (as well as overall pre interest and an overall measure of work with data) is presented. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. 
-
-In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and the aspects of work with data, ranging from (in absolute value terms) .00 to .06.
-
-```{r, rq2-1-corr, eval = TRUE}
-d %>% 
-  select(dm_ask:dm_com, dm_composite,
-         profile_1_p:profile_6_p,
-         overall_pre_interest) %>% 
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", format = "latex") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-```{r, rq2-1-corr-spearman, eval = F}
-
-# In order to determine whether these very small correlations are in part due to the dichotomous codes for work with data, a Spearman's correlation between the profile classifications (as a dichotomous variable) and the aspects of work with data was also carried out. These values were also very small, ranging from .00 to .04. 
-
-d %>% 
-  select(dm_ask:dm_com,
-         profile_1:profile_6) %>% 
-  corrr::correlate(method = "spearman") %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations between individual aspects of work with data nad the composite and the profiles") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-```{r, rq2-1-corr-p-spearman, eval = F}
-p_vals <- d %>% 
-  select(dm_ask:dm_com,
-         profile_1:profile_6) %>% 
-  psych::corr.test(method = "spearman") %>% 
-  pluck(4) %>% 
-  round(3)
-```
 
 ### Models with variables for aspects of instructional support for work with data added separately
 
