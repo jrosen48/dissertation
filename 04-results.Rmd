@@ -788,7 +788,7 @@ p_vals <- d %>%
 
 When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (*B* = 0.03 (0.016), *p* = .033) and between generating data and full engagement (*B* = 0.03 (0.015), *p* = .02). Sensitivity analysis for the effect of generating data suggested that 1.47% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 4.939% would need to be due to bias to invalidate the inference. The effect of being female upon universally low engagement was moderate (*B* = 0.057 (0.035), p = .050).
 
-```{r, rq2-1-tab}
+```{r, rq2-1-tab, eval = F}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/rq2-1-tab.rds")
@@ -877,7 +877,7 @@ tidy_model_com <- function(model) {
 konfound(m1c, dm_composite)
 ```
 
-```{r, not-cacheing}
+```{r, not-cacheing, eval = FALSE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
 o <- map_df(l, tidy_model_com)
 write_rds(o, "data/comp-l.rds")
@@ -1476,7 +1476,7 @@ konfound::konfound(m3c, overall_pre_interest)
 
 These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .005 (.004), *p* = .081). There were no significant relations between gender and URM status.
 
-```{r, md-block-for-rq4}
+```{r, md-block-for-rq4, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 o <- map_df(l, tidy_model_inq)
 write_rds(o, "data/md-block-for-rq4")
@@ -1507,7 +1507,7 @@ o %>%
 
 These models show no statistically significant relations, though the activity by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .023 (.017), *p* = .079). There were no gender or URM status effects.
 
-```{r, pre-int-interaction}
+```{r, pre-int-interaction, eval = FALSE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
 o <- map_df(l, tidy_model_inq)
 write_rds(o, "data/pre-int-interaction.rds")

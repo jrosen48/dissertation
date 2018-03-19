@@ -287,7 +287,7 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 ## Appendix D: Research Question 2 additional materials
 
-```{r, rq2-0-tab}
+```{r, rq2-0-tab, eval = FALSE}
 l <- list(m1, m2, m3, m4, m5, m6)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/rq2-0-tab.rds")
@@ -309,14 +309,14 @@ o %>%
 
 ## Appendix E: Research question #3 additional materials
 
-```{r, rq3-supp}
+```{r, rq3-supp, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 o <- map_df(l, tidy_model_inq)
 write_rds(o, "data/rq3-supp.rds")
 ```
 
 ```{r}
-read_rds(o, "rq3-supp.rds")
+o <- read_rds("data/rq3-supp.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
