@@ -2,11 +2,44 @@
 
 ### Key Findings
 
+##### The nature of engagement in summer STEM programs
+
+We can identify profiles of engagement 
+
+##### What explains PECs
+
+Engagement varies from moment-to-moment
+
+##### Summer STEM programs as a context for work with data
+
 ### Limitations of the Study
+
+##### Measurement issues
+
+How instructional support for work with data was measured seems to have been an issue, given the qualitative coding
+
+##### Context issues
+
+These programs were not designed to support work with data
 
 ### Recommendations for Future Research
 
+##### Explore work with data in settings designed to support it
+
+There are increasingly "data camps"
+
+##### Measure student work with data as well as instructional support for work with data
+
+Measuring what students do in addition to what teachers do is important
+
+##### Explore changes in longer-term outcomes
+
+Changes in longer-term outcomes, such as future plans and goals, are an important goal for summer STEM educators and other stakeholders in such programs. 
+
 ### Implications for Practice
 
-<!-- ## Significance  -->
-<!-- Viewing engagement in work with data in terms of engagement can help us to build the knowledge base around key data analytic practices for learners. In STEM settings, being engaged predicts key learning-related outcomes (Sinatra et al., 2015). As a consequence, what learners are thinking, feeling, and doing while engaged in work with data, and how challenged or good at data doing any or all of the aspects of work with data they perceive themselves to be, may important predictors of key outcomes and learners’ preparation for future learning (Bransford & Schwartz, 1999), especially for learning in data-rich areas of studies and occupations, such as data science. Engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives. -->
+##### Engage students in complete cycles of investigation
+
+##### Support engagement in specific moments
+
+Viewing engagement in work with data in terms of engagement can help us to build the knowledge base around key data analytic practices for learners. In STEM settings, being engaged predicts key learning-related outcomes (Sinatra et al., 2015). As a consequence, what learners are thinking, feeling, and doing while engaged in work with data, and how challenged or good at data doing any or all of the aspects of work with data they perceive themselves to be, may important predictors of key outcomes and learners’ preparation for future learning (Bransford & Schwartz, 1999), especially for learning in data-rich areas of studies and occupations, such as data science. Engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives.

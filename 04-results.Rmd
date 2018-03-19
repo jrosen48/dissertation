@@ -1,4 +1,4 @@
-# Method
+# Results
 
 In this section, results in terms of the research questions are presented.
 
@@ -12,7 +12,8 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.asp = .618,
                       out.width = "80%", 
                       fig.align = "center", 
-                      results = "hold") 
+                      results = "hold",
+                      knitr.kable.na = '') 
 
 options(knitr.kable.NA = '')
 ```
@@ -159,61 +160,93 @@ df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" 
 
 ## Descriptive Statistics
 
-First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first in table 4.1.
+First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged vetween zero and five. 
 
 ```{r}
-df %>% 
+d_red <- df %>% 
+  group_by(participant_ID) %>% 
+  mutate(rownum = row_number()) %>% 
+  mutate(overall_pre_interest = ifelse(rownum == 1, overall_pre_interest, NA)) %>% 
+  ungroup() %>% 
+  select(-participant_ID)
+
+d_red %>% 
   select(overall_pre_interest, 
          dm_cog_eng,
          dm_beh_eng,
          dm_aff_eng,
          dm_challenge,
-         dm_competence) %>% 
-  psych::describe() %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for continuous study variables", linesep = "") %>% 
+         dm_competence,
+         dm_ask:dm_com, dm_composite) %>% 
+  skimr::skim() %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-```{r, include = FALSE}
-df %>% 
-  select(dm_ask:dm_com) %>% 
-  count(dm_ask) %>% 
-  knitr::kable(booktabs = TRUE)
+### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
 
-df %>% 
-  select(dm_ask:dm_com) %>% 
-  count(dm_obs) %>% 
-  knitr::kable(booktabs = TRUE)
+Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
 
-df %>% 
-  select(dm_ask:dm_com) %>% 
-  count(dm_gen) %>% 
-  knitr::kable(booktabs = TRUE)
-
-df %>% 
-  select(dm_ask:dm_com) %>% 
-  count(dm_mod) %>% 
-  knitr::kable(booktabs = TRUE)
-
-df %>% 
-  select(dm_ask:dm_com) %>% 
-  count(dm_com) %>% 
-  knitr::kable(booktabs = TRUE)
-
-# knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for binary study variables", linesep = "")
+```{r, rq2-1-corr-components, eval = T}
+d_red %>% 
+  select(dm_ask:dm_com, dm_cog_eng:dm_competence) %>%
+  corrr::correlate() %>% 
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  knitr::kable(booktabs = TRUE, format = "latex", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
-Also, here are the youth activity codes and their counts and proportions.
+```{r, rq2-1-corr-p, eval = F}
+p_vals <- d %>% 
+  select(dm_ask:dm_com, dm_composite,
+         profile_1_p:profile_6_p,
+         overall_pre_interest) %>%
+  psych::corr.test() %>%
+  pluck(4) %>% 
+  round(3)
+```
+
+```{r, eval = FALSE}
+dfs %>% 
+  count(dm_ask) %>% 
+  filter(!is.na(dm_ask)) %>% 
+  mutate(prop = n / sum(n))
+
+dfs %>% 
+  count(dm_obs) %>% 
+  filter(!is.na(dm_obs)) %>% 
+  mutate(prop = n / sum(n))
+
+dfs %>% 
+  count(dm_gen) %>% 
+  filter(!is.na(dm_gen)) %>% 
+  mutate(prop = n / sum(n))
+
+dfs %>% 
+  count(dm_mod) %>% 
+  filter(!is.na(dm_mod)) %>% 
+  mutate(prop = n / sum(n))
+
+dfs %>% 
+  count(dm_com) %>% 
+  filter(!is.na(dm_com)) %>% 
+  mutate(prop = n / sum(n))
+
+dfs %>% 
+  count(dm_composite) %>% 
+  filter(!is.na(dm_com)) %>% 
+  mutate(prop = n / sum(n))
+```
+
+From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for instructional support for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for instructional support for work with data associated with these responses. 
 
 ```{r}
-df %>% 
-  count(inquiry_based) %>% 
-  mutate(prop = round(n / sum(n), 3)) %>% 
-  arrange(desc(prop)) %>% 
-  knitr::kable(booktabs = TRUE)
+data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
+           Proportion = c(.389, .258, .453, .288, .470)) %>% 
+    knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present") %>% 
 ```
-
-
 
 ## Research Question #1: Profiles of Engagement and Its Conditions (PECs)
 
@@ -221,7 +254,7 @@ This question addresses what profiles emerged from the data. This section first 
 
 ### Statistical software developed
 
-The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA, was developed. This tool provides interfaces to the MPlus software as well as to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software.
+The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces toboth the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
 ### Overall solutions for all models
 
@@ -242,7 +275,7 @@ d <- compare_solutions_mplus(df,
 write_rds(d, "data/overall-stats-for-all-models.rds")
 ```
 
-```{r, printing-solutions-overall-stats, eval = T}
+```{r, printing-solutions-overall-stats, eval = F}
 # d <- read_rds("data/overall-stats-for-all-models.rds")
 
 overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
@@ -253,20 +286,30 @@ overall_stats_for_all_models[[1]] %>%
   kableExtra::landscape()
 ```
 
-The results are presented in Figure 5.1. If this is the case, then the log-likelihood would appear in the table below; if not, "LL not replicated" is reported as the value. If none of the 120 runs converge, then "Did not converge" is reported as the value. As can be seen from this table, only models associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections.
+If the log-likelihood is not replicated, then the estimation completed one or more times, but because the same log-likelihood value (and parameter estimates) were not obtained, then the solution can be considered to be "under-identified", a term used to describe solutions that depend strongly upon minor fluctuations in the data (Asparouhov & Muthen, 2007). Accordingly, these solutions may not represent meaningful values and may not be replicable in light of very small changes to the data; these are not considered as candidate solutions for use in subsequent analyses. If no log-likelihood is obtained for any of the random starts, then the software returns an error; in these cases, the convergence criteria--values that determine when a solution has been obtained--are not met. This may be due to a large number of parameters that are estimated relative to the data, such that the number of iterations that the estimation is allowed to go through are not sufficient to obtain a solution (Asparouhov & Muthen, 2007). Like when the log-likelihood is not replicated, these solutions are not considered for use in subsequent analyses.
+
+For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analyis.
 
 ### In-depth statistics for particular models
 
 After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented. 
 
-The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in Figures 5.1 and 5.2 
+The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in the figures.
 
 In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
 
 ```{r, printing-solutions-spec-stats, eval = TRUE}
+paste_stats <- function(stat, paren_statement) {
+  stringr::str_c(stat, " (", paren_statement, ")")
+}
+
 overall_stats_for_all_models[[2]] %>% 
   arrange(model, n_profile) %>% 
-  select(-model, n_profiles = n_profile) %>% 
+  select(-model, n_profiles = `Number of Profiles`) %>% 
+  mutate(VLMR = paste_stats(VLMR_val, VLMR_p),
+         LMR = paste_stats(LMR_val, LMV_p),
+         BLRT = paste_stats(BLRT_val, BLRT_p)) %>% 
+  select(everything, -VLMR_val, -VLMR_p, -LMR_val, -LMR_p, -BLRT_val, -BLRT_p) %>% 
   knitr::kable(format = "latex", caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape() %>% 
@@ -274,8 +317,7 @@ overall_stats_for_all_models[[2]] %>%
   kableExtra::group_rows("Model 2", 8, 11)
 ```
 
-```{r, model1, eval = T, cache = F, out.width = "60%", fig.cap = "Fit statistics for model 1"}
-
+```{r, model1, eval = T, cache = F, out.width = "50%", fig.cap = "Fit statistics for model 1 solutions"}
 overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
   filter(model == 1) %>% 
@@ -291,7 +333,7 @@ overall_stats_for_all_models[[2]] %>%
   ylab(NULL)
 ```
 
-```{r, model2, eval = T, cache = F, out.width = "50%", fig.cap = "Fit statistics for model 2"}
+```{r, model2, eval = T, cache = F, out.width = "40%", fig.cap = "Fit statistics for model 2 solutions"}
 
 overall_stats_for_all_models[[2]] %>% 
   select(n_profile:CAIC, Entropy) %>% 
@@ -308,15 +350,33 @@ overall_stats_for_all_models[[2]] %>%
   ylab(NULL)
 ```
 
-Looking across the statistics presented in Table 4.3 and Figures 4.1 and 4.2, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
+Looking across the statistics presented, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
 
 For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
 
 For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decreased in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
 
-### Comparison of candidate solutions
+### Comparison of model 1 and model 2 type solutions
 
-In this section, specific models are examined so that candidate solutions can be compared. For all of the solutions, the data are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
+When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In the table, which profiles emerge from which solution is presented.
+
+There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables. Moderate profiles, both all moderate (characterized by moderately high levels across all of the variables) and moderately low (characterized by low levels across all of the variables), also appeared commonly, particularly for the solutions for model 1.
+
+```{r, compare-profiles-by-solution}
+d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
+
+d[, -1] %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape() %>%
+  kableExtra::row_spec(0, angle = -60) %>% 
+  kableExtra::group_rows("Model 1", 1, 6) %>% 
+  kableExtra::group_rows("Model 2", 7, 9)
+```
+
+### Examination of specific candidate models 
+
+In this section, specific model solutions - the model 1, six profile, and model 1 type, seven profile - solutio are described in-depth. Other candidate solutions are described in the appendix. For all of the solutions, the data are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
 #### Model: 1, Profiles: 6
 
@@ -329,7 +389,7 @@ This solution is characterized by:
 - An **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - An **engaged and competent but not challenged** profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
-The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. While the engaged and competent but not challenged was distinguished by low levels of challenge--different from the profile associated with the model 1, four profile solution characterized by high levels of competence--this solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., Tables 5.1 and 5.2 and Figure 5.1). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. Pending further exploration, this solution seems like a potential candidate for use in subsequent analyses. 
+The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. This solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., the tables and figure). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. This solution is a strong candidate for use in subsequent analyses. 
 
 ```{r, spec-solutions-m1_6, cache = FALSE, eval = FALSE, fig.width = 6, out.width = "100%"}
 m1_6 <- estimate_profiles_mplus(df,  
@@ -378,7 +438,7 @@ This solution is characterized by:
 - A **highly challenged** profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
 - A **challenged but not engaged or competent** profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
-The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Where the universally low profile exhibited the same number of observations in the model 1, five and six profile solutions, for this solution, there were far fewer observations. Also distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
+The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
 ```{r, spec-solutions-m1_7, cache = FALSE, eval = FALSE, fig.width = 6, out.width = "100%"}
 m1_7 <- estimate_profiles_mplus(df,  
@@ -416,29 +476,17 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 #### Looking across model 1 and model 2 solutions
 
-When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In table 4.3, which profiles emerge from which solution is presented.
+The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the soutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estiamted for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
 
-There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables. Moderate profiles, both all moderate (characterized by moderately high levels across all of the variables) and moderately low (characterized by low levels across all of the variables), also appeared commonly, particularly for the solutions for model 1.
+For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred and is selected for use in subsequent analyses.
 
-```{r, compare-profiles-by-solution}
-d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
-
-d[, -1] %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape() %>%
-  kableExtra::row_spec(0, angle = -60) %>% 
-  kableExtra::group_rows("Model 1", 1, 6) %>% 
-  kableExtra::group_rows("Model 2", 7, 9)
-```
-
-The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it also is a standard model for LPA, in that it meets the assumption of independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred. As a type of sensitivity analysis, the model 1, seven profile solution is also explored, but results for it are included in an appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
+As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in an appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
 
 ## Research Question #2: Relations Between Instructional Support for Work With Data and the PECs
 
 Broadly, this question is focused on how instructional support for work with data, as coded from video-recordings of the programs, relates to the PECs. For the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used. For the outcome (*y* variable), the probability of a response belonging to the profile is used; thus, there are six models, for each of the six profiles, for each specification of the predictor (*x*) variables. 
 
-First, null models showing the proportion of variance (via the intra-class correlation) are interpreted. The more detailed results (in a table) are presented in the appendix. These are followed by the interpretation of findings related to a more variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles (and the variables that make them up) and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data are interpreted and presented. 
+Null models showing the proportion of variance (via the intra-class correlation) are interpreted. The more detailed results (in a table) are presented in the appendix. These are followed by the interpretation of findings related to a more variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles (and the variables that make them up) and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data are interpreted and presented. 
 
 ```{r}
 cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
@@ -687,7 +735,11 @@ tidy_model <- function(model) {
 
 ### Null models
 
-The null models presented in table 4.5 provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Noteworthy, the ICC was highest for the full profile. The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, .265.
+The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability that is able to be explained. In turn, this suggests that these variables, including those for instructional support for work with data, may not have strong effects in terms of their relations with the PECs. 
+
+In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the full profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted. 
+
+<!-- This variation can also be due to interactions between factors at each of the levels (i.e., interactions of youths' characteristics with specific aspects of the instruction).  -->
 
 ### Correlations between individual aspects of instructional support for work with data and the composite and the profiles and individual interest
 
@@ -695,7 +747,7 @@ First, a correlation matrix of each of the profiles and each of the aspects of w
 
 In order to determine whether there were greater correlations with the variables that make up the profiles, the correlations between the five variables that comprise the PECs and the five aspects of work with data were examined. These correlations were about the same as those between the profiles and the aspects of work with data, ranging from (in absolute value terms) .00 to .06.
 
-```{r, rq2-1-corr}
+```{r, rq2-1-corr, eval = F}
 d %>% 
   select(dm_ask:dm_com, dm_composite,
          profile_1_p:profile_6_p,
@@ -707,32 +759,6 @@ d %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
-
-### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
-
-Next, correlations between individual aspects of work with data (and the composite) and the variables that make up the profiles are presented. These correlations suggest that the aspects of work with data are not only not related to the profiles, but also not related to the aspects of work with data (with values ranging from .00 to .06). 
-
-```{r, rq2-1-corr-components, eval = T}
-d %>% 
-  select(dm_ask:dm_com, dm_cog_eng:dm_competence) %>%
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-```{r, rq2-1-corr-p, eval = F}
-p_vals <- d %>% 
-  select(dm_ask:dm_com, dm_composite,
-         profile_1_p:profile_6_p,
-         overall_pre_interest) %>%
-  psych::corr.test() %>%
-  pluck(4) %>% 
-  round(3)
-```
-
 
 ```{r, rq2-1-corr-spearman, eval = F}
 
@@ -762,14 +788,15 @@ p_vals <- d %>%
 
 When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (*B* = 0.03 (0.016), *p* = .033) and between generating data and full engagement (*B* = 0.03 (0.015), *p* = .02). Sensitivity analysis for the effect of generating data suggested that 1.47% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 4.939% would need to be due to bias to invalidate the inference. The effect of being female upon universally low engagement was moderate (*B* = 0.057 (0.035), p = .050).
 
-
-```{r, rq2-1-tab, cache = TRUE}
+```{r, rq2-1-tab}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
-
 o <- map_df(l, tidy_model)
+write_rds(o, "data/rq2-1-tab.rds")
 ```
 
-```{r}
+```{r, rq2-1-tab-pres}
+o <- read_rds("data/rq2-1-tab.rds")
+
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -850,13 +877,14 @@ tidy_model_com <- function(model) {
 konfound(m1c, dm_composite)
 ```
 
-```{r, cache = TRUE}
+```{r, not-cacheing}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
-
 o <- map_df(l, tidy_model_com)
+write_rds(o, "data/comp-l.rds")
 ```
 
 ```{r}
+o <- read_rds("data/comp-l.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -883,360 +911,360 @@ o %>%
 
 When looking across findings, we find very few relations between instructional support for work with data and the profiles. The effects that were found (i.e., between modeling and generating data and full engagement) were very small in terms of their practical significance or were not very robust. Broadly, reasons for why this may be--focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #5 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3 and #4. 
 
-## Research Question #3: Relations Between Activity and PECs
+<!-- ## Research Question #3: Relations Between Activity and PECs -->
 
-Broadly, this question is focused on how the activity, in terms of whether students are doing an inquiry-based activity, relates to the profiles. Like for research question #2, for the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used; instead of codes for instructional support for work with data, codes for the activity are used. 
+<!-- Broadly, this question is focused on how the activity, in terms of whether students are doing an inquiry-based activity, relates to the profiles. Like for research question #2, for the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used; instead of codes for instructional support for work with data, codes for the activity are used.  -->
 
-First, differences across profiles by youth activity and by the variables that make up the profiles by youth activity are described. Next, findings from mixed effects models predicting profiles on the basis of the inquiry based activity are interpreted (like for research question #1, additional materials are included in the appendix), in order to see the effect of the activity on its own (indepedent from instructional support for work with data. Next, the composite for work with data is added to these models, and these models are interpreted. Finally, models with activity interacted with the composite are presented and interpreted.
+<!-- First, differences across profiles by youth activity and by the variables that make up the profiles by youth activity are described. Next, findings from mixed effects models predicting profiles on the basis of the inquiry based activity are interpreted (like for research question #1, additional materials are included in the appendix), in order to see the effect of the activity on its own (indepedent from instructional support for work with data. Next, the composite for work with data is added to these models, and these models are interpreted. Finally, models with activity interacted with the composite are presented and interpreted. -->
 
-### Differences across profiles by activity
+<!-- ### Differences across profiles by activity -->
 
-Mean differences across profiles by youth activity are examined using *t*-tests. Of these six mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between profiles 2, which was less common during inquiry-based activities (*p* = .003, *d* = 0.13), and 6, which was more common during inquiry-based activities (*p* < .001, *d* = 0.16).
+<!-- Mean differences across profiles by youth activity are examined using *t*-tests. Of these six mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between profiles 2, which was less common during inquiry-based activities (*p* = .003, *d* = 0.13), and 6, which was more common during inquiry-based activities (*p* < .001, *d* = 0.16). -->
 
-### Differences across the variables that make up the profiles by activity
-
-Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27)
-
-<!-- ### Differences across the variables that make up the profiles by activity (with other and not focused activities) -->
+<!-- ### Differences across the variables that make up the profiles by activity -->
 
 <!-- Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27) -->
 
-### Models with activity
+<!-- <!-- ### Differences across the variables that make up the profiles by activity (with other and not focused activities) --> -->
 
-```{r, rq3-2-inq, cache = FALSE}
-m1oi <- lmer(profile_1_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- <!-- Mean differences across the variables that make up the profiles and youth activity are examined using *t*-tests. Of these five mean differences, there were statistically significant differences between inquiry-based and non-inquiry-based activities between all of the variables except for competence; students were more cognitively (*p* = .036, *d* = 0.09), behaviorally (*p* = .002, *d* = 0.13), and affectively (*p* < .001, *d* = .17), and were also more challenged (*p* < .00, *d* = .27) --> -->
 
-m2oi <- lmer(profile_2_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- ### Models with activity -->
 
-m3oi <- lmer(profile_3_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- ```{r, rq3-2-inq, cache = FALSE} -->
+<!-- m1oi <- lmer(profile_1_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-m4oi <- lmer(profile_4_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m2oi <- lmer(profile_2_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-m5oi <- lmer(profile_5_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m3oi <- lmer(profile_3_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-m6oi <- lmer(profile_6_p ~ 1 +
-               inquiry_based +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-```
+<!-- m4oi <- lmer(profile_4_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-```{r, tidy-model-inquiry-separate, cache = FALSE}
+<!-- m5oi <- lmer(profile_5_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-tidy_model_inq <- function(model) {
-  
-  fixef_names <- c("(Intercept)", "inquiry_based", "dm_ask", "dm_obs", "dm_gen", "dm_mod", "dm_com", "inquiry_based:dm_ask", "inquiry_based:dm_obs", "inquiry_based:dm_gen", "inquiry_based:dm_mod", "inquiry_based:dm_com", "dm_composite", "overall_pre_interest", "gender_female", "urm")
-  
-  d <- as.data.frame(matrix(rep(NA, 16), ncol = 16))
-  names(d) <- fixef_names
-  
-  kr_df <- get_kr_df(model)
-  kr_df <- kr_df %>% as.data.frame() %>% rownames_to_column()
-  names(kr_df) <- c("term", "df")
-  
-  # fixefs
-  fixef_vals <- tidy(model) %>%
-    filter(effect == "fixed") %>%
-    mutate(est = round(estimate, 3),
-           se = round(std.error, 3)) %>% 
-    left_join(kr_df) %>% 
-    mutate(p_val = t_dist_p(statistic, df),
-           est_se = ifelse(p_val < .001, 
-                           str_c(est, " (", se, ")", " (p < .001)"),
-                           str_c(est, " (", se, ")", " (p = ", round(p_val, 3), ")"))) %>% 
-    select(term, est_se) %>% 
-    spread(term, est_se)
-  
-  dd <- bind_rows(d, fixef_vals)[-1, ]
-  
-  # ICCs
-  icc_vals <- sjstats::icc(model) %>%
-    as.numeric() %>%
-    round(3)
-  
-  # To return
-  names(icc_vals) <- str_c(names(sjstats::icc(model)), "_ICC")
-  ddd <- cbind(dd, as.data.frame(t(icc_vals)))
-  ddd
-}
+<!-- m6oi <- lmer(profile_6_p ~ 1 + -->
+<!--                inquiry_based + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
+<!-- ``` -->
 
-```
+<!-- ```{r, tidy-model-inquiry-separate, cache = FALSE} -->
 
-```{r, eval = FALSE, sens-RQ3,  cache = FALSE}
-konfound::konfound(m6oi, inquiry_based)
-```
+<!-- tidy_model_inq <- function(model) { -->
 
-These models show that the activity predicts full engagement (*B* = .027 (0.016), *p* < .001). However, this effect is associated with a very small coefficient. Sensitivity analysis suggests that 51.55% of the inference would need to be due to bias to invalidate the effect. None of the other profiles were statistically significantly related. 
+<!--   fixef_names <- c("(Intercept)", "inquiry_based", "dm_ask", "dm_obs", "dm_gen", "dm_mod", "dm_com", "inquiry_based:dm_ask", "inquiry_based:dm_obs", "inquiry_based:dm_gen", "inquiry_based:dm_mod", "inquiry_based:dm_com", "dm_composite", "overall_pre_interest", "gender_female", "urm") -->
 
-```{r, rq3-2-interactions-with-work-with-data, cache = FALSE, eval = FALSE}
-m1i <- lmer(profile_1_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+<!--   d <- as.data.frame(matrix(rep(NA, 16), ncol = 16)) -->
+<!--   names(d) <- fixef_names -->
 
-m2i <- lmer(profile_2_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+<!--   kr_df <- get_kr_df(model) -->
+<!--   kr_df <- kr_df %>% as.data.frame() %>% rownames_to_column() -->
+<!--   names(kr_df) <- c("term", "df") -->
 
-m3i <- lmer(profile_3_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+<!--   # fixefs -->
+<!--   fixef_vals <- tidy(model) %>% -->
+<!--     filter(effect == "fixed") %>% -->
+<!--     mutate(est = round(estimate, 3), -->
+<!--            se = round(std.error, 3)) %>%  -->
+<!--     left_join(kr_df) %>%  -->
+<!--     mutate(p_val = t_dist_p(statistic, df), -->
+<!--            est_se = ifelse(p_val < .001,  -->
+<!--                            str_c(est, " (", se, ")", " (p < .001)"), -->
+<!--                            str_c(est, " (", se, ")", " (p = ", round(p_val, 3), ")"))) %>%  -->
+<!--     select(term, est_se) %>%  -->
+<!--     spread(term, est_se) -->
 
-m4i <- lmer(profile_4_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+<!--   dd <- bind_rows(d, fixef_vals)[-1, ] -->
 
-m5i <- lmer(profile_5_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+<!--   # ICCs -->
+<!--   icc_vals <- sjstats::icc(model) %>% -->
+<!--     as.numeric() %>% -->
+<!--     round(3) -->
 
-m6i <- lmer(profile_6_p ~ 1 +
-              inquiry_based*dm_ask +
-              inquiry_based*dm_obs +
-              inquiry_based*dm_gen +
-              inquiry_based*dm_mod +
-              inquiry_based*dm_com +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-```
+<!--   # To return -->
+<!--   names(icc_vals) <- str_c(names(sjstats::icc(model)), "_ICC") -->
+<!--   ddd <- cbind(dd, as.data.frame(t(icc_vals))) -->
+<!--   ddd -->
+<!-- } -->
 
-### Models with activity and the composite 
+<!-- ``` -->
 
-```{r, rq3-2-inq-and-composite, cache = FALSE}
-m1iio <- lmer(profile_1_p ~ 1 +
-                inquiry_based + dm_composite +
-                gender_female +
-                urm + 
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
+<!-- ```{r, eval = FALSE, sens-RQ3,  cache = FALSE} -->
+<!-- konfound::konfound(m6oi, inquiry_based) -->
+<!-- ``` -->
 
-m2iio <- lmer(profile_2_p ~ 1 +
-                inquiry_based + dm_composite +
-                gender_female +
-                urm + 
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
+<!-- These models show that the activity predicts full engagement (*B* = .027 (0.016), *p* < .001). However, this effect is associated with a very small coefficient. Sensitivity analysis suggests that 51.55% of the inference would need to be due to bias to invalidate the effect. None of the other profiles were statistically significantly related.  -->
 
-m3iio <- lmer(profile_3_p ~ 1 +
-                inquiry_based + dm_composite +
-                gender_female +
-                urm + 
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
+<!-- ```{r, rq3-2-interactions-with-work-with-data, cache = FALSE, eval = FALSE} -->
+<!-- m1i <- lmer(profile_1_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
 
-m4iio <- lmer(profile_4_p ~ 1 +
-                inquiry_based + dm_composite +
-                gender_female +
-                urm + 
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
+<!-- m2i <- lmer(profile_2_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
 
-m5iio <- lmer(profile_5_p ~ 1 +
-                inquiry_based + dm_composite +
-                gender_female +
-                urm + 
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
+<!-- m3i <- lmer(profile_3_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
 
-m6iio <- lmer(profile_6_p ~ 1 +
-                inquiry_based + dm_composite +
-                (1 | participant_ID) +
-                (1 | beep_ID) +
-                (1 | program_ID),
-              data = d)
-```
+<!-- m4i <- lmer(profile_4_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
 
-These models show that the activity is still related to full engagement (*B* = 0.063 (0.015), *p* < .001) and that the work with data composite is related to only behavioral (*B* = 0.008 (0.004), *p* = .016). The effect of activity is robust, with 53.08% of the effect needing to be due to bias to invalidate the inference. The effect of the composite was not, with only 1.375% of the effect needing to be due to bias to invalidate the inference. These patterns were very similar to those found in earlier models with each of the predictor variables on their own.
+<!-- m5i <- lmer(profile_5_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
 
-```{r, rq-3-sens-2, eval = FALSE,  cache = FALSE}
-konfound::konfound(m6iio, inquiry_based)
-konfound::konfound(m1iio, dm_composite)
-```
+<!-- m6i <- lmer(profile_6_p ~ 1 + -->
+<!--               inquiry_based*dm_ask + -->
+<!--               inquiry_based*dm_obs + -->
+<!--               inquiry_based*dm_gen + -->
+<!--               inquiry_based*dm_mod + -->
+<!--               inquiry_based*dm_com + -->
+<!--               (1 | participant_ID) + -->
+<!--               (1 | beep_ID) + -->
+<!--               (1 | program_ID), -->
+<!--             data = d) -->
+<!-- ``` -->
 
-### Models with activity interacted with the composite
+<!-- ### Models with activity and the composite  -->
 
-```{r, rq3-2-interactions-with-composite, cache = FALSE}
-m1ii <- lmer(profile_1_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- ```{r, rq3-2-inq-and-composite, cache = FALSE} -->
+<!-- m1iio <- lmer(profile_1_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 gender_female + -->
+<!--                 urm +  -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
 
-m2ii <- lmer(profile_2_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m2iio <- lmer(profile_2_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 gender_female + -->
+<!--                 urm +  -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
 
-m3ii <- lmer(profile_3_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m3iio <- lmer(profile_3_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 gender_female + -->
+<!--                 urm +  -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
 
-m4ii <- lmer(profile_4_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m4iio <- lmer(profile_4_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 gender_female + -->
+<!--                 urm +  -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
 
-m5ii <- lmer(profile_5_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
+<!-- m5iio <- lmer(profile_5_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 gender_female + -->
+<!--                 urm +  -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
 
-m6ii <- lmer(profile_6_p ~ 1 +
-               inquiry_based*dm_composite +
-               gender_female +
-               urm + 
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-```
+<!-- m6iio <- lmer(profile_6_p ~ 1 + -->
+<!--                 inquiry_based + dm_composite + -->
+<!--                 (1 | participant_ID) + -->
+<!--                 (1 | beep_ID) + -->
+<!--                 (1 | program_ID), -->
+<!--               data = d) -->
+<!-- ``` -->
 
-These models show a similar pattern as the model without the interaction, with statistically significant relationships between the activity and full engagement (*B* = 0.079 (0.026), *p* = .001) and between the composite and only behavioral (*B* = 0.008 (0.005), *p* = .034). There were no statistically significant effects of gender and URM status. The effect of activity was once again robust, with 34.35% of the effect needing to be due to bias to invalidate the inference; the effect of the composite on the probability of an only behavioral profile was not as robust, with 18.93% of the effect needing to be due to bias to invalidate the inference.
+<!-- These models show that the activity is still related to full engagement (*B* = 0.063 (0.015), *p* < .001) and that the work with data composite is related to only behavioral (*B* = 0.008 (0.004), *p* = .016). The effect of activity is robust, with 53.08% of the effect needing to be due to bias to invalidate the inference. The effect of the composite was not, with only 1.375% of the effect needing to be due to bias to invalidate the inference. These patterns were very similar to those found in earlier models with each of the predictor variables on their own. -->
 
-```{r, rq-3-sens-3, eval = FALSE,  cache = FALSE}
-konfound::konfound(m6ii, inquiry_based)
-konfound::konfound(m1ii, dm_composite)
-```
+<!-- ```{r, rq-3-sens-2, eval = FALSE,  cache = FALSE} -->
+<!-- konfound::konfound(m6iio, inquiry_based) -->
+<!-- konfound::konfound(m1iio, dm_composite) -->
+<!-- ``` -->
 
-```{r, inquiry-composite-interaction, cache = TRUE}
-l <- list(m1ii, m2ii, m3ii, m4ii, m5ii, m6ii)
+<!-- ### Models with activity interacted with the composite -->
 
-o <- map_df(l, tidy_model_inq)
-```
+<!-- ```{r, rq3-2-interactions-with-composite, cache = FALSE} -->
+<!-- m1ii <- lmer(profile_1_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-```{r}
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
+<!-- m2ii <- lmer(profile_2_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-         inquiry_based, 
-         dm_composite, 
-         `inquiry_based:dm_composite`,
-         gender_female,
-         urm,
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-  mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites interactions", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
+<!-- m3ii <- lmer(profile_3_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-### Looking across findings for research question #3
+<!-- m4ii <- lmer(profile_4_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
 
-The strongest finding appears to be the relation between inquiry-based activities and full engagement; the difference in probability of full engagement was around 0.06 - 0.07, suggesting that this profile was around 6-7% more likely when learners were doing one of these activities. This effect was fairly robust to potential sources of bias. Reasons for the effect of the activity are explored further as part of research question #5 and are discussed in the next chapter. Apart from full engagement, the models presented in this section suggest minimal relations between inquiry-based activities and the profiles. Importantly, these inquiry-based activities do not necessarily involve work with data, suggesting that the activity in general may impact learners' (full) engagement, but that support for specific activities may not. In the next section, the interactive effect of the factors explored as part of research questions #2 and #3 (instructional support for work with data and the activity being inquiry-based) with learners' pre-program interest is described.
+<!-- m5ii <- lmer(profile_5_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
+
+<!-- m6ii <- lmer(profile_6_p ~ 1 + -->
+<!--                inquiry_based*dm_composite + -->
+<!--                gender_female + -->
+<!--                urm +  -->
+<!--                (1 | participant_ID) + -->
+<!--                (1 | beep_ID) + -->
+<!--                (1 | program_ID), -->
+<!--              data = d) -->
+<!-- ``` -->
+
+<!-- These models show a similar pattern as the model without the interaction, with statistically significant relationships between the activity and full engagement (*B* = 0.079 (0.026), *p* = .001) and between the composite and only behavioral (*B* = 0.008 (0.005), *p* = .034). There were no statistically significant effects of gender and URM status. The effect of activity was once again robust, with 34.35% of the effect needing to be due to bias to invalidate the inference; the effect of the composite on the probability of an only behavioral profile was not as robust, with 18.93% of the effect needing to be due to bias to invalidate the inference. -->
+
+<!-- ```{r, rq-3-sens-3, eval = FALSE,  cache = FALSE} -->
+<!-- konfound::konfound(m6ii, inquiry_based) -->
+<!-- konfound::konfound(m1ii, dm_composite) -->
+<!-- ``` -->
+
+<!-- ```{r, inquiry-composite-interaction, cache = TRUE} -->
+<!-- l <- list(m1ii, m2ii, m3ii, m4ii, m5ii, m6ii) -->
+
+<!-- o <- map_df(l, tidy_model_inq) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- o <- mutate(o, model = c( -->
+<!--   str_c("profile_", 1:6))) -->
+
+<!-- o %>%  -->
+<!--   select(model,  -->
+<!--          intercept = `(Intercept)`, -->
+<!--          inquiry_based,  -->
+<!--          dm_composite,  -->
+<!--          `inquiry_based:dm_composite`, -->
+<!--          gender_female, -->
+<!--          urm, -->
+<!--          beep_ID_ICC = beep_ID_ICC, -->
+<!--          participant_ID_ICC, -->
+<!--          program_ID_ICC) %>%  -->
+<!--   mutate(model = c("Only behavioral", -->
+<!--                    "Universally low", -->
+<!--                    "Engaged and competent but not challenged", -->
+<!--                    "Only affective", -->
+<!--                    "All moderate", -->
+<!--                    "Full")) %>%  -->
+<!--   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for activity and composites interactions", linesep = "") %>%  -->
+<!--   kableExtra::kable_styling(latex_options = "scale_down") %>%  -->
+<!--   kableExtra::landscape() -->
+<!-- ``` -->
+
+<!-- ### Looking across findings for research question #3 -->
+
+<!-- The strongest finding appears to be the relation between inquiry-based activities and full engagement; the difference in probability of full engagement was around 0.06 - 0.07, suggesting that this profile was around 6-7% more likely when learners were doing one of these activities. This effect was fairly robust to potential sources of bias. Reasons for the effect of the activity are explored further as part of research question #5 and are discussed in the next chapter. Apart from full engagement, the models presented in this section suggest minimal relations between inquiry-based activities and the profiles. Importantly, these inquiry-based activities do not necessarily involve work with data, suggesting that the activity in general may impact learners' (full) engagement, but that support for specific activities may not. In the next section, the interactive effect of the factors explored as part of research questions #2 and #3 (instructional support for work with data and the activity being inquiry-based) with learners' pre-program interest is described. -->
 
 ## Research Question #4: Effects of Youth's Pre-Program Interest 
 
@@ -1448,13 +1476,15 @@ konfound::konfound(m3c, overall_pre_interest)
 
 These models show no statistically significant relations, though the composite by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .005 (.004), *p* = .081). There were no significant relations between gender and URM status.
 
-```{r, md-block-for-rq4, eval = TRUE, cache = TRUE}
+```{r, md-block-for-rq4}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
-
 o <- map_df(l, tidy_model_inq)
+write_rds(o, "data/md-block-for-rq4")
 ```
 
-```{r}
+```{r, reading-for-rq4}
+o <-read_rds("data/md-block-for-rq4")
+
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -1477,13 +1507,14 @@ o %>%
 
 These models show no statistically significant relations, though the activity by pre interest interaction for the engaged and competent but not challenged profile has a p-value less than .10 (*B* = .023 (.017), *p* = .079). There were no gender or URM status effects.
 
-```{r, eval = TRUE, cache = TRUE}
+```{r, pre-int-interaction}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
-
 o <- map_df(l, tidy_model_inq)
+write_rds(o, "data/pre-int-interaction.rds")
 ```
 
-```{r}
+```{r, pre-int-int-present}
+o <- read_rds("data/pre-int-interaction.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -1550,12 +1581,6 @@ readr::write_csv(d_proc, "qual-coding.csv")
 qual_sheets <- readr::read_csv("qual-coding.csv")
 ```
 
-Research question #5 is focused on investigating specific findings of interest. To code the data, three research assistants trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#4, establishing reliability among the coders was not carried out. The coders sought to document:
-
-* The characteristics of instructional support for work with data
-* Other aspects of the instructional context that impacts student work with data
-
-Note that while the first of the two aspects focuses on the support provided by the instructor, the second aspect focuses on how students engage in work with data in ways that on occasion diverge (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the findings for research questions #2-#4 and, beyond these findings, to better understand the nature of work with data in summer STEM programs.
 This analysis resulted in themes organized around the following two themes. The first theme concerned measurement issues for instructional support for work with data. The second concerned affordances and constraints of summer STEM programs for work with data. Both are described in the remainder of this section. 
 
 ### Measurement issues for instructional support for work with data
