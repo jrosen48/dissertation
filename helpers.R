@@ -23,7 +23,7 @@ tidy_model <- function(model) {
                    "overall_pre_interest:dm_gen", "overall_pre_interest:dm_mod",
                    "overall_pre_interest:dm_obs", "gender_female", "urm", "dm_composite")
 
-  d <- as.data.frame(matrix(rep(NA, 14), ncol = 14))
+  d <- as.data.frame(matrix(rep(NA, 15), ncol = 15))
   names(d) <- fixef_names
 
   kr_df <- get_kr_df(model)

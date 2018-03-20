@@ -15,6 +15,9 @@ knitr::opts_chunk$set(echo = FALSE,
                       results = "hold",
                       knitr.kable.na = '') 
 
+```
+
+```{r}
 options(knitr.kable.NA = '')
 ```
 
@@ -159,7 +162,9 @@ df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" 
                                           ifelse(youth_activity_rc == "Not Focused", "not-focused", "other"))) 
 ```
 
-## Descriptive Statistics
+## Preliminary analysis
+
+### Descriptive statistics for study variables
 
 First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged vetween zero and five. 
 
@@ -183,7 +188,7 @@ o <- d_red %>%
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-### Correlations between individual aspects of work with data and the composite and the variables that make up the profiles and individual interest
+### Correlations among study variables
 
 Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not related to the aspects of work with data to a large degree, which is not surprising given the small ICC values for the momentary level, as the aspects of work with data are associated with this level. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant.  The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
 
@@ -193,7 +198,7 @@ d_red %>%
   corrr::correlate() %>% 
   corrr::shave() %>%
   corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "") %>% 
+  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among study variables") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
@@ -248,17 +253,19 @@ data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Dat
     knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
 ```
 
-## Research Question #1: Profiles of Engagement and Its Conditions (PECs)
-
-This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
-
-### Statistical software developed
+## Statistical software developed
 
 The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces toboth the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
-### Overall solutions for all models
+## Results for Research Question #2
 
-First, I examined a wide range of models and solutions. I did this in order to select particular, candidate models to scrutinize in greater detail. In order to carry out this analysis, I followed guidelines recommended by the developers of MPlus (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
+This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
+
+### Exploration of a wide range of models a
+
+First, I examined a wide range of model types (i.e., the parameterization of the model) and the numbers of profiles. Note that six model types are able to be specified. These roughly became more complex, with additional parameters estimated, as the number for the model type increases from one to six.
+
+This step is taken to select candidate soutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
 
 ```{r, compare-solutions-overall-stats, eval = FALSE}
 d <- compare_solutions_mplus(df,  
@@ -380,18 +387,18 @@ d[, -1] %>%
 
 ### Examination of specific candidate models 
 
-In this section, specific model solutions - the model 1, six profile, and model 1 type, seven profile - solutio are described in-depth. Other candidate solutions are described in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
+Following from the in-depth exploration of the candidate solutions, in this section, model solutions associated with specific model types and the number of profiles are investigated. In particular, the model one type, six profile, and model one type, seven profile solutiosn are described. Descriptions of other candidate solutions is included in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
-#### Model: 1, Profiles: 6
+#### Model type: 1, Profiles: 6
 
 This solution is characterized by: 
 
-- A **full** profile, profile 6
-- An **universally low** profile, profile 2
-- An **all moderate** profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
-- An **only behaviorally engaged** profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- An **only affectively engaged** profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- An **engaged and competent but not challenged** profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
+- A *full* profile, profile 6
+- An *universally low* profile, profile 2
+- An *all moderate* profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
+- An *only behaviorally engaged* profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- An *only affectively engaged* profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
+- An *engaged and competent but not challenged* profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
 The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. This solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., the tables and figure). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. This solution is a strong candidate for use in subsequent analyses. 
 
@@ -421,7 +428,8 @@ p <- m1_6 %>%
   ylab("Z-score") +
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
 
 p
 
@@ -439,7 +447,8 @@ p <- m1_6 %>%
   ylab("Value") +
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
 
 p
 ```
@@ -448,17 +457,17 @@ p
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-#### Model: 1, Profiles: 7
+#### Model type: 1, Profiles: 7
 
 This solution is characterized by: 
 
-- A **full** profile, profile 7
-- A **universally low** profile, profile 1
-- A **competent but not engaged or challenged** profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
-- A **moderately low** profile, profile 3, characterized by moderately low levels of all of the variables
-- A **challenged** profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
-- A **highly challenged** profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
-- A **challenged but not engaged or competent** profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
+- A *full* profile, profile 7
+- A *universally low* profile, profile 1
+- A *competent but not engaged or challenged* profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
+- A *moderately low* profile, profile 3, characterized by moderately low levels of all of the variables
+- A *challenged* profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
+- A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
+- A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
@@ -489,7 +498,8 @@ m1_7 %>%
   ylab("Z-score") +
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
 
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
@@ -506,14 +516,15 @@ m1_7 %>%
   ylab("Value") +
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE)
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
 ```
 
 ```{r, m1_7-ll, cache = FALSE, eval = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-#### Looking across model 1 and model 2 solutions
+#### Looking across model 1 and model 2 type solutions
 
 The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the soutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estiamted for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
 
@@ -798,11 +809,11 @@ o %>%
   kableExtra::landscape()
 ```
 
-### Looking across findings for research question #2
+### Summary of findings for research question #2
 
 When looking across findings, we find very few relations between instructional support for work with data and the profiles. The effects that were found (i.e., between modeling and generating data and full engagement) were very small in terms of their practical significance or were not very robust. Broadly, reasons for why this may be--focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #5 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3 and #4. 
 
-## Research Question #3: Effects of pre-program interest and other youth characteristics
+## Results for Research Question #3
 
 Research question #4 is focused on how the relationships of instructional support for work with data and the activity differ on the basis of pre-program interest. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the composite for work with data are added and then models with the interaction between these characteristics and the composite.
 
@@ -978,19 +989,14 @@ m6e <- lmer(profile_6_p ~ 1 +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
+
 ```
 
 ### Models with pre interest, gender, and under-represented minority (URM) status
 
 These results were also very similar to when interest was added as a control: The activity and full engagement were statistically significantly related (*B* = 0.056 (0.016), *p* < .001) and between the composite and only behavioral (*B* = 0.008 (0.004), *p* = .027). Interest predicted the engaged and competent but not challenged profile (*B* = 0.037 (0.016), *p* = .008). 43.69% of the effect of activity upon full engagement would need to be due to bias to invalidate the inference. The effect of the composite on behavioral was not robust, with only 1.34% needing to be due to bias to invalidate the inference. The effect of interest was robust, with 13.34% needing to be due to bias to invalidate the inference.
 
-```{r, rq-4-sens, eval = FALSE, cache = FALSE}
-konfound::konfound(m6c, inquiry_based)
-konfound::konfound(m1c, dm_composite)
-konfound::konfound(m3c, overall_pre_interest)
-```
-
-```{r, md-block-for-rq4, eval = FALSE}
+```{r, md-block-for-rq4, eval = TRUE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/md-block-for-rq4")
@@ -1018,7 +1024,9 @@ o %>%
 
 ### Models with pre interest, gender, and URM status and work with data composite
 
-```{r, pre-int, eval = FALSE}
+These results show that
+
+```{r, pre-int, eval = TRUE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-no-interaction.rds")
@@ -1052,7 +1060,9 @@ o %>%
 
 ### Models with interactions between pre interest, gender, and URM status and work with data composite
 
-```{r, pre-int-interactions, eval = FALSE}
+These results show that
+
+```{r, pre-int-interactions, eval = TRUE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-interaction.rds")
@@ -1087,11 +1097,11 @@ o %>%
   kableExtra::landscape()
 ```
 
-### Looking across findings for research question #3
+### Summary of findings for research question #3
 
 When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, there are very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
-## Research Question #4
+## Results for Research Question #4
 
 ```{r, loading-spreadsheets, eval = FALSE}
 library(googlesheets)
@@ -1177,3 +1187,6 @@ A related aspect concerned what the programs focused on. For example, the mathem
 First, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data. 
 
 Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities.
+
+### Summary of Findings for Research Question #4
+
