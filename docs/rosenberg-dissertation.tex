@@ -85,7 +85,7 @@ Approach}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-03-19}
+  \date{2018-03-20}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -2243,6 +2243,26 @@ Full & 0.171 (0.025) (p < .001) & -0.017 (0.015) (p = 0.859) & -0.024 (0.015) (p
 \end{table}
 \end{landscape}
 
+\begin{verbatim}
+## Error in if (est_eff < 0) {: argument is of length zero
+## Replacement of Cases Approach:
+## To sustain an inference, 1.884% of the estimate would have to be due to bias. This is based on a threshold of 0.03 for statistical significance (alpha = 0.05).
+## To sustain an inference, 4 of the cases with 0 effect would have to be replaced with cases at the threshold of inference.
+## 
+## Correlation-based Approach:
+## An omitted variable would have to be correlated at 0.046 with the outcome and at 0.046 with the predictor of interest (conditioning on observed covariates) to sustain an inference based on a threshold of 0.03 for statistical significance (alpha = 0.05).
+## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.046 X 0.046 = 0.002 to sustain an inference.
+## NULL
+## Replacement of Cases Approach:
+## To invalidate an inference, 9.835% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
+## To invalidate an inference, 19 observations would have to be replaced with cases for which the effect is 0.
+## 
+## Correlation-based Approach:
+## An omitted variable would have to be correlated at 0.132 with the outcome and at 0.132 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.141 for statistical significance (alpha = 0.05).
+## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.132 X 0.132 = 0.017 to invalidate an inference.
+## NULL
+\end{verbatim}
+
 \subsection{Models with the composite
 added}\label{models-with-the-composite-added}
 
@@ -2253,9 +2273,13 @@ practical terms, and only 1.395\% would need to be due to bias to
 invalidate the inference. Being female again predicted universally low
 engagement (\emph{B} = 0.057 (0.035), p = .050).
 
+\begin{verbatim}
+## Error in if (est_eff < 0) {: argument is of length zero
+\end{verbatim}
+
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-13}Results of mixed effects models for the composite}
+\caption{\label{tab:just-composite-red}Results of mixed effects models for the composite}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
 \toprule
@@ -2265,7 +2289,7 @@ Only behavioral & 0.104 (0.014) (p < .001) & 0.007 (0.004) (p = 0.021) & 0.008 &
 Universally low & 0.229 (0.029) (p < .001) & -0.003 (0.004) (p = 0.784) & 0.004 & 0.269 & 0.026\\
 Engaged and competent but not challenged & 0.148 (0.016) (p < .001) & -0.002 (0.004) (p = 0.754) & 0.016 & 0.305 & 0.000\\
 Only affective & 0.117 (0.011) (p < .001) & -0.005 (0.003) (p = 0.912) & 0.000 & 0.100 & 0.000\\
-All moderate & 0.24 (0.017) (p < .001) &  & 0.004 & 0.262 & 0.003\\
+All moderate & 0.234 (0.02) (p < .001) & 0.003 (0.004) (p = 0.212) & 0.005 & 0.259 & 0.005\\
 Full & 0.168 (0.025) (p < .001) & -0.001 (0.004) (p = 0.599) & 0.030 & 0.452 & 0.021\\
 \bottomrule
 \end{tabular}}
@@ -2323,22 +2347,44 @@ invalidate the inference. The effect of interest was robust, with
 \toprule
 model & intercept & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
 \midrule
-profile\_1 & 0.131 (0.044) (p = 0.002) & -0.014 (0.011) (p = 0.89) & 0.018 (0.019) (p = 0.168) & 0.025 (0.026) (p = 0.168) & 0.006 & 0.091 & 0.012\\
-profile\_2 & 0.33 (0.084) (p < .001) & -0.042 (0.021) (p = 0.974) & 0.059 (0.036) (p = 0.054) & -0.003 (0.051) (p = 0.525) & 0.005 & 0.276 & 0.012\\
-profile\_3 & 0.017 (0.062) (p = 0.392) & 0.039 (0.016) (p = 0.009) & 0.026 (0.028) (p = 0.18) & -0.011 (0.04) (p = 0.613) & 0.014 & 0.306 & 0.000\\
-profile\_4 & 0.075 (0.042) (p = 0.037) & 0.009 (0.011) (p = 0.214) & -0.022 (0.018) (p = 0.883) & 0.025 (0.025) (p = 0.159) & 0.011 & 0.094 & 0.005\\
-profile\_5 & 0.374 (0.073) (p < .001) & -0.016 (0.019) (p = 0.806) & -0.037 (0.032) (p = 0.872) & -0.077 (0.046) (p = 0.952) & 0.005 & 0.258 & 0.006\\
-profile\_6 & 0.084 (0.08) (p = 0.149) & 0.019 (0.02) (p = 0.17) & -0.036 (0.036) (p = 0.842) & 0.043 (0.051) (p = 0.2) & 0.030 & 0.452 & 0.001\\
+Only behavioral & 0.131 (0.044) (p = 0.002) & -0.014 (0.011) (p = 0.89) & 0.018 (0.019) (p = 0.168) & 0.025 (0.026) (p = 0.168) & 0.006 & 0.091 & 0.012\\
+Universally low & 0.33 (0.084) (p < .001) & -0.042 (0.021) (p = 0.974) & 0.059 (0.036) (p = 0.054) & -0.003 (0.051) (p = 0.525) & 0.005 & 0.276 & 0.012\\
+Engaged and competent but not challenged & 0.017 (0.062) (p = 0.392) & 0.039 (0.016) (p = 0.009) & 0.026 (0.028) (p = 0.18) & -0.011 (0.04) (p = 0.613) & 0.014 & 0.306 & 0.000\\
+Only affective & 0.075 (0.042) (p = 0.037) & 0.009 (0.011) (p = 0.214) & -0.022 (0.018) (p = 0.883) & 0.025 (0.025) (p = 0.159) & 0.011 & 0.094 & 0.005\\
+All moderate & 0.374 (0.073) (p < .001) & -0.016 (0.019) (p = 0.806) & -0.037 (0.032) (p = 0.872) & -0.077 (0.046) (p = 0.952) & 0.005 & 0.258 & 0.006\\
+Full & 0.084 (0.08) (p = 0.149) & 0.019 (0.02) (p = 0.17) & -0.036 (0.036) (p = 0.842) & 0.043 (0.051) (p = 0.2) & 0.030 & 0.452 & 0.001\\
 \bottomrule
 \end{tabular}}
 \end{table}
 \end{landscape}
+
+\begin{verbatim}
+## Replacement of Cases Approach:
+## To invalidate an inference, 17.879% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
+## To invalidate an inference, 11 observations would have to be replaced with cases for which the effect is 0.
+## 
+## Correlation-based Approach:
+## An omitted variable would have to be correlated at 0.263 with the outcome and at 0.263 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.258 for statistical significance (alpha = 0.05).
+## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.263 X 0.263 = 0.069 to invalidate an inference.
+## NULL
+\end{verbatim}
 
 \subsection{Models with pre interest, gender, and URM status and work
 with data
 composite}\label{models-with-pre-interest-gender-and-urm-status-and-work-with-data-composite}
 
 These results show that
+
+\begin{verbatim}
+## Replacement of Cases Approach:
+## To invalidate an inference, 17.826% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
+## To invalidate an inference, 10 observations would have to be replaced with cases for which the effect is 0.
+## 
+## Correlation-based Approach:
+## An omitted variable would have to be correlated at 0.265 with the outcome and at 0.265 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.262 for statistical significance (alpha = 0.05).
+## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.265 X 0.265 = 0.07 to invalidate an inference.
+## NULL
+\end{verbatim}
 
 \begin{landscape}\begin{table}
 
@@ -2364,6 +2410,17 @@ URM status and work with data
 composite}\label{models-with-interactions-between-pre-interest-gender-and-urm-status-and-work-with-data-composite}
 
 These results show that
+
+\begin{verbatim}
+## Replacement of Cases Approach:
+## To invalidate an inference, 1.953% of the estimate would have to be due to bias. This is based on a threshold of 0.012 for statistical significance (alpha = 0.05).
+## To invalidate an inference, 47 observations would have to be replaced with cases for which the effect is 0.
+## 
+## Correlation-based Approach:
+## An omitted variable would have to be correlated at 0.029 with the outcome and at 0.029 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.04 for statistical significance (alpha = 0.05).
+## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.029 X 0.029 = 0.001 to invalidate an inference.
+## NULL
+\end{verbatim}
 
 \begin{landscape}\begin{table}
 
@@ -2929,7 +2986,7 @@ The variables were moderately correlated, with \emph{rho} values between
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-16}Correlations among codes for instructional support for work with data (and composite of all codes)}
+\caption{\label{tab:unnamed-chunk-15}Correlations among codes for instructional support for work with data (and composite of all codes)}
 \centering
 \begin{tabular}[t]{llllll}
 \toprule
@@ -2949,7 +3006,7 @@ descriptions}\label{appendix-program-descriptions}
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-17}STEM Enrichment Program Names and Their Descriptions}
+\caption{\label{tab:unnamed-chunk-16}STEM Enrichment Program Names and Their Descriptions}
 \centering
 \begin{tabular}[t]{ll}
 \toprule

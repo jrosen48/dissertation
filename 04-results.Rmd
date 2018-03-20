@@ -778,7 +778,7 @@ For the composite of work with data, the composite predicted profile 1, only beh
 konfound(m1a, dm_composite)
 ```
 
-```{r, just-composite-mod, eval = TRUE}
+```{r, just-composite-mod, eval = FALSE}
 l <- list(m1b, m2b, m3b, m4b, m5b, m6b)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/comp-l.rds")
@@ -1021,7 +1021,7 @@ o %>%
                    "Only affective",
                    "All moderate",
                    "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
@@ -1040,7 +1040,7 @@ o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-no-interaction.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq2b, eval = TRUE, cache = TRUE}
 konfound::konfound(m3d, overall_pre_interest)
 ```
 
@@ -1065,7 +1065,7 @@ o %>%
                    "Only affective",
                    "All moderate",
                    "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and activity interaction", linesep = "") %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the composite work with data", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
@@ -1080,7 +1080,7 @@ o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-interaction.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq2c, eval = TRUE, cache = TRUE}
 konfound::konfound(m6e, `dm_composite:gender_female`)
 ```
 
@@ -1108,7 +1108,7 @@ o %>%
                    "Only affective",
                    "All moderate",
                    "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and activity interaction", linesep = "") %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
