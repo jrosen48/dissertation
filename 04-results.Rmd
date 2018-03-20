@@ -704,7 +704,7 @@ m4b <- lmer(profile_4_p ~ 1 +
             data = d)
 
 m5b <- lmer(profile_5_p ~ 1 +
-              # dm_composite +
+              dm_composite +
               # gender_female +
               # urm + 
               (1 | participant_ID) +
@@ -764,11 +764,9 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, sensitivity-analysis-for-rq1, eval = F, cache = FALSE}
+```{r, sensitivity-analysis-for-rq1, eval = TRUE, cache = TRUE}
 konfound::konfound(m6a, dm_gen)
-# To sustain an inference, 1.883% of the estimate would have to be due to bias. This is based on a threshold of 0.03 for statistical significance (alpha = 0.05).
 konfound::konfound(m6a, dm_mod)
-
 konfound::konfound(m6a, gender_female) # need to add
 ```
 
@@ -776,17 +774,17 @@ konfound::konfound(m6a, gender_female) # need to add
 
 For the composite of work with data, the composite predicted profile 1, only behavioral (*B* = 0.008 (0.004), *p* = .016), but not any of the other profiles. However, this coefficient is very small in practical terms, and only 1.395% would need to be due to bias to invalidate the inference. Being female again predicted universally low engagement (*B* = 0.057 (0.035), p = .050). 
 
-```{r, sens-2, eval = FALSE, cache = FALSE}
-konfound(m1b, dm_composite)
+```{r, sens-2, eval = TRUE, cache = TRUE}
+konfound(m1a, dm_composite)
 ```
 
-```{r, not-cacheing, eval = FALSE}
+```{r, just-composite-mod, eval = TRUE}
 l <- list(m1b, m2b, m3b, m4b, m5b, m6b)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/comp-l.rds")
 ```
 
-```{r}
+```{r, just-composite-red}
 o <- read_rds("data/comp-l.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
@@ -996,7 +994,7 @@ m6e <- lmer(profile_6_p ~ 1 +
 
 These results were also very similar to when interest was added as a control: The activity and full engagement were statistically significantly related (*B* = 0.056 (0.016), *p* < .001) and between the composite and only behavioral (*B* = 0.008 (0.004), *p* = .027). Interest predicted the engaged and competent but not challenged profile (*B* = 0.037 (0.016), *p* = .008). 43.69% of the effect of activity upon full engagement would need to be due to bias to invalidate the inference. The effect of the composite on behavioral was not robust, with only 1.34% needing to be due to bias to invalidate the inference. The effect of interest was robust, with 13.34% needing to be due to bias to invalidate the inference.
 
-```{r, md-block-for-rq4, eval = TRUE}
+```{r, md-block-for-rq4, eval = FALSE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/md-block-for-rq4")
@@ -1017,19 +1015,33 @@ o %>%
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
          program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and composite interaction", linesep = "") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
+```
+
+```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+konfound::konfound(m3c, overall_pre_interest)
 ```
 
 ### Models with pre interest, gender, and URM status and work with data composite
 
 These results show that
 
-```{r, pre-int, eval = TRUE}
+```{r, pre-int, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-no-interaction.rds")
+```
+
+```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+konfound::konfound(m3d, overall_pre_interest)
 ```
 
 ```{r, pre-int-int-present, eval = TRUE}
@@ -1062,10 +1074,14 @@ o %>%
 
 These results show that
 
-```{r, pre-int-interactions, eval = TRUE}
+```{r, pre-int-interactions, eval = FALSE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-interaction.rds")
+```
+
+```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+konfound::konfound(m6e, `dm_composite:gender_female`)
 ```
 
 ```{r, pre-int-comp, eval = TRUE}
