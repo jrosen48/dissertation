@@ -1349,7 +1349,7 @@ five for each of the aspects of instructional support for work with
 data. These codes are developed from the STEM-Program Quality Assessment
 (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality
 programming in after school programs. Specific details on how the
-measure aligns iwth the original STEM-PQA on which this measure is based
+measure aligns with the original STEM-PQA on which this measure is based
 are presented in the appendix.
 
 \begin{table}
@@ -1413,11 +1413,21 @@ study, in particular, to identify the number and nature of PECs. LPA
 allows for capturing the multidimensional nature of engagement. From
 this approach, different parameters - means, variances, and covariances
 - are freely estimated across profiles, fixed to be the same across
-profiles, or constrained to be zero. The MPlus software is commonly used
-to estimate these models (see
-\href{https://www.statmodel.com/examples/mixture.shtml}{here}) using the
-expectation-maximization (EM) algorithm to obtain the maximum likelihood
-estimates for the parameters.
+profiles, or constrained to be zero. In order to provide results for
+this research question, the MPlus software (Muthen \& Muthen, 2017) was
+used. While MPlus is powerful and widely-used, it can be very difficult
+to use as part of complex analyses. One reason for why it is difficult
+to use is that while it provides an environment for executing model
+\emph{syntax}, it is not an environment, such as SPSS or R, for
+statistical computing (i.e., preparing data, processing and presenting
+results). Because of this, I created with colleagues an open-source
+tool, tidyLPA (Rosenberg, Schmidt, Beymer, \& Steingut, 2018 in the
+statistical software R (R Core Team, 2018). This package is available on
+the R Comprehensive Archive Network (CRAN). This software provides
+wrappers--functions that provide an interface--to MPlus functions via
+the MplusAutomation R package (Hallquist, 2018). It also provides an
+interface to open-source functions for carrying out LPA that can be used
+to compare results to those from MPlus.
 
 LPA can be used to identify common patterns in learners' ESM responses
 as part of a person-oriented analysis to construct PECs. These profiles
@@ -1463,14 +1473,15 @@ support for work with data predict the PECs, first, indicators for
 activities coded for any of the five aspects of work with data and
 either of the other two activities are used to predict each PEC. Next,
 how each of the five aspects of work with data, as well as the other
-activities, predict each PEC are explored. Due to similarility in the
+activities, predict each PEC are explored. Due to similarity in the
 mixed-effects models used to analyze data to answer RQ \#2 and \#3, the
 data analysis strategy for these steps is described together here.
 First, the general approach used for specifying the mixed effects is
 first described, followed by details about how the models are used to
 provide answers to the specific research questions.
 
-All of the models use random effects for learner, momentary, and program
+The lme4 R package is used (Bates, Martin, Bolker, \& Walker, 2015). All
+of the models use random effects for learner, momentary, and program
 effects. Learner and moment can be considered to be crossed with both
 nested within the program. Because the outcome from LPA is not a hard
 classification (i.e., an observation is in a profile---or not) but a
@@ -1505,7 +1516,7 @@ in program k is written as {[}i:
 For\quad learner\quad i\quad during\quad moment\quad j\quad in\quad program\quad k:\\ \\ Pr({ { profile }_{ ijk })\quad =\quad  }\\ \\ Fixed\quad parts:\\ \\ { \beta  }_{ 00 }\quad +\\ { { \beta  }_{ 01 }(Indicator\quad for\quad support\quad for\quad asking\quad questions) }_{ j }\quad +\\ { { \beta  }_{ 02 }(Indicator\quad for\quad support\quad for\quad making\quad observations) }_{ j }\quad +\\ { { \beta  }_{ 03 }(Indicator\quad for\quad support\quad for\quad generating\quad data) }_{ j }\quad +\\ { { \beta  }_{ 04 }(Indicator\quad for\quad support\quad for\quad data\quad modeling) }_{ j }\quad +\\ { { \beta  }_{ 06 }(Dummy\quad code\quad for\quad female\quad gender) }_{ i }\quad +\\ { { \beta  }_{ 07 }(Dummy\quad code\quad for\quad member\quad of\quad under-represented\quad group) }_{ i }\quad +\\ { { \beta  }_{ 08 }(Pre-program\quad STEM\quad interest) }_{ i }\quad +\\ \\ Random\quad parts:\\ \\ { \alpha  }_{ learner }(Youth\quad effect)_{ i }\quad +\\ { { { \alpha  }_{ moment } }(Momentary\quad effect) }_{ j }\quad +\\ { { \alpha  }_{ program }(Program\quad effect) }_{ k }\quad +\\ { \varepsilon  }_{ ijk }\\ \\ Where\quad { \alpha  }_{ learner },\quad { \alpha  }_{ moment },\quad and\quad { \alpha  }_{ program }\quad are\quad assumed\quad to\quad vary \quad N({ { \mu  }_{ \alpha  } },\quad { \sigma  }_{ \alpha  }^{ 2 })
 \]
 
-\subsection{Analysis RQ \#3}\label{analysis-rq-3}
+\subsection{Analysis for RQ \#3}\label{analysis-for-rq-3}
 
 To answer this question, on how the relationships between work with data
 and the PECs depends on student characteristics, the direct effects of
@@ -1513,7 +1524,7 @@ pre-program interest in STEM, gender, and under-represented minority
 {[}URM{]} status, without other predictor variables, were explored.
 Then, models with these variables and the composite variable for
 instructional support for work with data were specified.These analyses
-were carrued out separately for relations between work with data (on its
+were carried out separately for relations between work with data (on its
 own, corresponding to the analyses carried out for RQ \#3) and work with
 data with instructional support (for RQ \#4). Next, for any specific
 aspect of work with data that significantly predicts each PEC, the same
@@ -1523,7 +1534,7 @@ PEC. These interactions between individual interest in STEM and the
 dummy codes for aspects of work with data are added to the model
 specification for RQ \#2.
 
-\subsection{AnalysisRQ \#4}\label{analysisrq-4}
+\subsection{Analysis for RQ \#4}\label{analysis-for-rq-4}
 
 To answer this question, on the common characteristics of potentially
 adaptive PECs, a sequential exploratory data analysis strategy was used.
@@ -1580,7 +1591,7 @@ findings associated with research questions \#2-\#4, establishing
 reliability among the coders was not carried out. The coders sought to
 document a) the characteristics of instructional support for work with
 data and b) other aspects of the instructional context that impacts
-student work with data
+student work with data.
 
 Note that while the first of the two aspects focuses on the support
 provided by the instructor, the second aspect focuses on how students
@@ -1617,8 +1628,9 @@ invalidate an inference (hypothetically, this bias might be due to
 omitted or confounding variables, measurement, missing data, etc.).
 Using the approach described in Frank, Maroulis, Duong, and Kelcey
 (2013), I carried out sensitivity analysis for inferences we made
-relative to our key findings. The result, and what is used to interpret
-and contextualize findings, is a numeric value for each effect that
+relative to our key findings. I used the R package konfound (Rosenberg,
+Xu, \& Frank, 2018). The result, and what is used to interpret and
+contextualize findings, is a numeric value for each effect that
 indicates the proportion of the estimate that would have to be biased in
 order to invalidate the inference: higher values indicate more robust
 estimates in that the inferences would still hold even if there were
@@ -1662,7 +1674,7 @@ variables used to estimate the PECs are presented first. The composite
 variable for instructional support for work with data was constructed as
 the sum of each of the five dichotomous variables that represented the
 aspects of instructional support for work with data; thus, its possible
-values ranged vetween zero and five.
+values ranged between zero and five.
 
 \subsection{Correlations among study
 variables}\label{correlations-among-study-variables}
@@ -1741,7 +1753,7 @@ developed}\label{statistical-software-developed}
 The MPlus software is used to carry out LPA as part of this study. In
 order to more flexibly carry out LPA, an open-source tool, tidyLPA
 (Rosenberg, Schmidt, Beymer, \& Steingut, 2018), was developed. This
-tool provides interfaces toboth the MPlus software and to the
+tool provides interfaces to both the MPlus software and to the
 open-source mclust software. In addition to being used as part of this
 study, this package is provided free of use to other analysts as the
 first tool dedicated to carrying out LPA as part of the R software. More
@@ -1757,7 +1769,17 @@ was developed and solutions for all models (whether models converged and
 the log-likelihood was replicated). Then, fit statistics for models that
 converged and for which the log-likelihood was replicated are described,
 followed by a comparison of specific, candidate solutions. At the end of
-this section, models selected are described in detail.
+this section, models selected are described in detail. Note that while
+the posterior probability was used as the outcome, there are two
+approaches to their use in subsequent analyses. One way is to only use
+the largest posterior probability, setting the other posterior
+probabilities to a value of zero; in this way, the uncertainty in the
+profile assignment is accounted for, but partial assignment to other
+profiles is not considered in their use in subsequent models. The other
+way is to use the posterior probabilities for all of the subsequent
+models. In this analysis, the latter option is used: posterior
+probabilities are used as-is (i.e., none are assigned to zero), though
+the former approach was used and was found to yield comparable results.
 
 \subsection{Exploration of a wide range of models
 a}\label{exploration-of-a-wide-range-of-models-a}
@@ -1768,7 +1790,7 @@ six model types are able to be specified. These roughly became more
 complex, with additional parameters estimated, as the number for the
 model type increases from one to six.
 
-This step is taken to select candidate soutions to investigate in more
+This step is taken to select candidate solutions to investigate in more
 detail. In order to carry out this analysis, I followed guidelines
 recommended by the developers of the MPlus software (Asparouhov \&
 Muthen, 2012; Muthen \& Muthen, 2017) as well as those making
@@ -1808,7 +1830,7 @@ models 1 (the model with varying means, equal variances, and covariances
 fixed to zero) and model 2 (varying means, equal variances, and equal
 covariances) are explored in subsequent sections. This suggests that the
 more complex models were too complex given the systematic variability in
-the data used for the analyis.
+the data used for the analysis.
 
 \subsection{In-depth statistics for particular
 models}\label{in-depth-statistics-for-particular-models}
@@ -1986,7 +2008,7 @@ models}\label{examination-of-specific-candidate-models}
 Following from the in-depth exploration of the candidate solutions, in
 this section, model solutions associated with specific model types and
 the number of profiles are investigated. In particular, the model one
-type, six profile, and model one type, seven profile solutiosn are
+type, six profile, and model one type, seven profile solutions are
 described. Descriptions of other candidate solutions is included in the
 appendix. For all of the solutions, the raw data and the data that are
 centered to have a mean equal to 0 and a standard deviation of 1 (thus,
@@ -2045,9 +2067,13 @@ detail, to see whether--and if so, how--it differs from the solution
 interpreted here. This solution is a strong candidate for use in
 subsequent analyses.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-1} \end{center}
+\begin{center}\includegraphics[width=0.95\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-1} \end{center}
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-2} \end{center}
+\begin{center}\includegraphics[width=0.95\linewidth]{rosenberg-dissertation_files/figure-latex/m1_6p-2} \end{center}
+
+\begin{verbatim}
+## Error: 'i.out' does not exist in current working directory ('/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss').
+\end{verbatim}
 
 \subsubsection{Model type: 1, Profiles:
 7}\label{model-type-1-profiles-7}
@@ -2097,10 +2123,6 @@ this solution raises questions about whether it may be too complex,
 possibly suggesting preference for model 1 five and six profile
 solutions.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-2} \end{center}
-
 \subsubsection{Looking across model 1 and model 2 type
 solutions}\label{looking-across-model-1-and-model-2-type-solutions}
 
@@ -2114,11 +2136,11 @@ model 3 type (which did not lead to solutions for any of the numbers of
 profiles specified) also is a standard model for LPA, in that it meets
 the assumption of local independence (of the variables that make up the
 profiles--unlike for models in which covariances are estimated) typical
-common to LPA (see Muthen \& Muthen, 2016). While some of the soutions
+common to LPA (see Muthen \& Muthen, 2016). While some of the solutions
 associated with the model 2 type did reach solutions, these demonstrated
 less appealing properties in terms of their fit statistics as well as
 their interpretability and with respect to concerns of parsimony. Thus,
-while no covariances are estiamted for the model 1 type solutions, there
+while no covariances are estimated for the model 1 type solutions, there
 is no requirement that these be specified; their benefit, when models
 associated with them are preferred, is that they can provide better fit:
 they can be used to better explain or predict the data in a sample, but
@@ -2140,7 +2162,7 @@ As a type of sensitivity analysis focused on alternate model
 specifications (different from the kind described earlier for
 quantifying how robust an inference is to potential sources of bias or
 confounding variables, e.g.~Frank, 2003), the model 1, seven profile
-solution is also explored, but results for it are included in an
+solution is also explored, but results for it are included in the
 appendix. This model is less restrictive but does not meet the
 assumption of independence; some scholars refer to it, as such, as a
 general or Guassian mixture model solution, instead of an LPA solution
@@ -2194,15 +2216,15 @@ instructional support for work with data, may not have strong effects in
 terms of their relations with the PECs.
 
 In terms of specific ICCs at the youth level, the value for the
-youth-level ICC was highest for the full profile, suggesting that some
-youth have a strong tendency to be fully engaged (possibly due to their
-initial interest or other individual characteristics and differences).
-The other profile characterized by a consistent pattern across all of
-the variables--the universally low profile--had a modest ICC, .265.
-Finally, a large amount of variability is associated with the residual
-(variance that is not associated with the program, momentary, or youth
-levels). This suggests that there is wide variation in students'
-responses that may not be readily explained or predicted.
+youth-level ICC was highest for the \emph{full} profile, suggesting that
+some youth have a strong tendency to be fully engaged (possibly due to
+their initial interest or other individual characteristics and
+differences). The other profile characterized by a consistent pattern
+across all of the variables--the \emph{universally low} profile--had a
+modest ICC, .265. Finally, a large amount of variability is associated
+with the residual (variance that is not associated with the program,
+momentary, or youth levels). This suggests that there is wide variation
+in students' responses that may not be readily explained or predicted.
 
 \subsection{Models with variables for aspects of instructional support
 for work with data added
@@ -2211,18 +2233,25 @@ separately}\label{models-with-variables-for-aspects-of-instructional-support-for
 When the predictor variables for work with data are added, some overall
 patterns and specific findings can be identified. The only relations
 with \emph{p}-values that were below the criterion for statistical
-significance (.05) were for the relations between modeling data and full
-engagement (\emph{B} = 0.036 (0.016), \emph{p} = .016) and between
-generating data and full engagement (\emph{B} = 0.029 (0.015), \emph{p}
-= .024). The effect of being female upon universally low engagement was
-moderate (\emph{B} = 0.057 (0.035), p = .050).
+significance (.05) were for the relations between modeling data and the
+\emph{full} profile (\emph{B} = 0.036 (0.016), \emph{p} = .016) and
+between generating data and the full profile (\emph{B} = 0.029 (0.015),
+\emph{p} = .024).
 
-Sensitivity analysis for the effect of generating data suggested that
-1.883\% of the inference would have to be due to bias to invalidate the
-inference, suggesting that this effect is not very robust to potential
-sources of bias, such as an omitted (in this analysis) confounding (or
-control) variable. For the effect of modeling, XXX\% would need to be
-due to bias to invalidate the inference.
+Adding these variables changed the (conditional upon the random effects)
+r-squared values from, .002 to .018, very small changes suggesting that
+the aspects of work with data do not strongly predict the PECs. This is
+in-line with the correlations for these variables with those variables
+that make up the profiles, and the ICC values at the momentary level.
+
+The sensitivity analysis for the effect of generating data suggested
+that 1.884\% of the inference would have to be due to bias to invalidate
+the inference, suggesting that this effect is not very robust to
+potential sources of bias, such as an omitted (in this analysis)
+confounding (or control) variable. For the effect of modeling, 9.835\%
+would need to be due to bias to invalidate the inference. This effect,
+then, is less sensitive to possible sources of bias, but is still not
+highly robust.
 
 \begin{landscape}\begin{table}
 
@@ -2243,39 +2272,22 @@ Full & 0.171 (0.025) (p < .001) & -0.017 (0.015) (p = 0.859) & -0.024 (0.015) (p
 \end{table}
 \end{landscape}
 
-\begin{verbatim}
-## Error in if (est_eff < 0) {: argument is of length zero
-## Replacement of Cases Approach:
-## To sustain an inference, 1.884% of the estimate would have to be due to bias. This is based on a threshold of 0.03 for statistical significance (alpha = 0.05).
-## To sustain an inference, 4 of the cases with 0 effect would have to be replaced with cases at the threshold of inference.
-## 
-## Correlation-based Approach:
-## An omitted variable would have to be correlated at 0.046 with the outcome and at 0.046 with the predictor of interest (conditioning on observed covariates) to sustain an inference based on a threshold of 0.03 for statistical significance (alpha = 0.05).
-## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.046 X 0.046 = 0.002 to sustain an inference.
-## NULL
-## Replacement of Cases Approach:
-## To invalidate an inference, 9.835% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
-## To invalidate an inference, 19 observations would have to be replaced with cases for which the effect is 0.
-## 
-## Correlation-based Approach:
-## An omitted variable would have to be correlated at 0.132 with the outcome and at 0.132 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.141 for statistical significance (alpha = 0.05).
-## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.132 X 0.132 = 0.017 to invalidate an inference.
-## NULL
-\end{verbatim}
-
 \subsection{Models with the composite
 added}\label{models-with-the-composite-added}
 
-For the composite of work with data, the composite predicted profile 1,
-only behavioral (\emph{B} = 0.008 (0.004), \emph{p} = .016), but not any
-of the other profiles. However, this coefficient is very small in
-practical terms, and only 1.395\% would need to be due to bias to
-invalidate the inference. Being female again predicted universally low
-engagement (\emph{B} = 0.057 (0.035), p = .050).
-
-\begin{verbatim}
-## Error in if (est_eff < 0) {: argument is of length zero
-\end{verbatim}
+For the composite of work with data, the composite predicted the profile
+for \emph{only behavioral} (\emph{B} = 0.007 (0.004), \emph{p} = .021),
+but not any of the other profiles. However, this coefficient is very
+small in practical terms, and 12.261\% would need to be due to bias to
+invalidate the inference. The change in r-squared values ranged from
+.003 to .020, suggesting minimal potential relations among factors (such
+as support for work with data as measured by the composite variable) at
+the momentary level. When the composite was treated as a dichotomous
+(instead of a continuous) variable, so that the variable takes a value
+of one if any of the aspects of work with data are present, the results
+are similar in terms of the magnitude of the effects and their
+significance, as none of the relations are statistically significant
+when the dichotomous variable is used.
 
 \begin{landscape}\begin{table}
 
@@ -2299,49 +2311,66 @@ Full & 0.168 (0.025) (p < .001) & -0.001 (0.004) (p = 0.599) & 0.030 & 0.452 & 0
 \subsection{Summary of findings for research question
 \#2}\label{summary-of-findings-for-research-question-2}
 
-When looking across findings, we find very few relations between
-instructional support for work with data and the profiles. The effects
-that were found (i.e., between modeling and generating data and full
-engagement) were very small in terms of their practical significance or
-were not very robust. Broadly, reasons for why this may be--focusing on
-the characteristics of instructional support for work with data in the
-context of summer STEM programs and how this support is measured in
-terms of codes from the video--are the focus on research question \#5
-and are discussed in the next chapter. Moreover, these findings are
-deepened in subsequent analyses for research questions \#3 and \#4.
+When looking across findings, we find few relations between
+instructional support for work with data and the profiles, though there
+were notable effects of modeling, though they were small effects (i.e.,
+when students are doing this, they are around 3\% more likely to be
+responding in a way associated with the \emph{full} profile). The
+composite for work with data had a relation of around 0.01 with the
+\emph{only behavioral} profile, suggesting that for each one-value
+increase in the composite (which has a range from one to five), this
+profile is around 1\% more likely. Broadly, further explanations and
+investigations of these effects --focusing on the characteristics of
+instructional support for work with data in the context of summer STEM
+programs and how this support is measured in terms of codes from the
+video--are the focus on research question \#4 and are discussed in the
+next chapter. Moreover, these findings are deepened in subsequent
+analyses for research questions \#3.
 
 \section{Results for Research Question
 \#3}\label{results-for-research-question-3}
 
-Research question \#4 is focused on how the relationships of
-instructional support for work with data and the activity differ on the
-basis of pre-program interest. Like for the previous two research
-questions, linear models that account for the cross-classification of
-the moment and the youth--and their nesting within the programs--are
-used. Findings from models with pre interest, gender, and URM status are
-first presented. Then, models with these variable and the composite for
-work with data are added and then models with the interaction between
-these characteristics and the composite.
+Research question \#3 is focused on how the relationships of
+instructional support for work with data differ on the basis of
+pre-program interest and other youth characteristics. Like for the
+previous two research questions, linear models that account for the
+cross-classification of the moment and the youth--and their nesting
+within the programs--are used. Findings from models with pre interest,
+gender, and URM status are first presented. Then, models with these
+variable and the individual aspects and composite of work with data are
+added and then models with the interaction between these characteristics
+and the composite.
 
 \subsection{Models with pre interest, gender, and under-represented
 minority (URM)
 status}\label{models-with-pre-interest-gender-and-under-represented-minority-urm-status}
 
-These results were also very similar to when interest was added as a
-control: The activity and full engagement were statistically
-significantly related (\emph{B} = 0.056 (0.016), \emph{p} \textless{}
-.001) and between the composite and only behavioral (\emph{B} = 0.008
-(0.004), \emph{p} = .027). Interest predicted the engaged and competent
-but not challenged profile (\emph{B} = 0.037 (0.016), \emph{p} = .008).
-43.69\% of the effect of activity upon full engagement would need to be
-due to bias to invalidate the inference. The effect of the composite on
-behavioral was not robust, with only 1.34\% needing to be due to bias to
-invalidate the inference. The effect of interest was robust, with
-13.34\% needing to be due to bias to invalidate the inference.
+These results show that overall pre-interest is associated with the
+\emph{engaged and competent but not challenged} profile (\emph{B} =
+0.039 (0.021), p = .009). The effect of being a female has a relation of
+0.059 (0.036, p = .054) upon the probability of a response being
+associated with the \emph{universally low} profile; though this effect
+did not meet the criteria for statistical significance, sensitivity
+analysis to determine how much more robust the effect would need to be
+to make an inference. For the effect of overall pre-interest upon the
+\emph{engaged and competent but not challenged} profile, 17.879\% would
+be needed to invalidate the inference, suggesting a moderately robust
+effect. For the effect of gender upon the \emph{universally low}
+profile, 16.996\% of the bias would need to be removed (or the effect
+would need to be larger by this percentage) to sustain the inference.
+The change in r-squared values ranged from .004 to .007, suggesting that
+pre-interest and other individual characteristics - in addition to the
+aspects of work with data - have minimal relations with the PECs. Thai
+is more surprising than the similarly minimal relations observed for
+work with data: as the null models indicate, there were large ICCs (a
+large proportion of the variability in the outcome variables) at the
+youth-level (as pre-interest, gender, and URM status are variables
+associated with this level) This is discussed further in the next
+chapter.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:reading-for-rq4}Results of mixed effects models with interest and composite interaction}
+\caption{\label{tab:reading-for-rq4}Results of mixed effects models with interest and other characteristics}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
 \toprule
@@ -2358,37 +2387,68 @@ Full & 0.084 (0.08) (p = 0.149) & 0.019 (0.02) (p = 0.17) & -0.036 (0.036) (p = 
 \end{table}
 \end{landscape}
 
-\begin{verbatim}
-## Replacement of Cases Approach:
-## To invalidate an inference, 17.879% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
-## To invalidate an inference, 11 observations would have to be replaced with cases for which the effect is 0.
-## 
-## Correlation-based Approach:
-## An omitted variable would have to be correlated at 0.263 with the outcome and at 0.263 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.258 for statistical significance (alpha = 0.05).
-## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.263 X 0.263 = 0.069 to invalidate an inference.
-## NULL
-\end{verbatim}
+\subsection{Models with pre interest, gender, and URM status and the
+aspects of work with
+data}\label{models-with-pre-interest-gender-and-urm-status-and-the-aspects-of-work-with-data}
 
-\subsection{Models with pre interest, gender, and URM status and work
-with data
-composite}\label{models-with-pre-interest-gender-and-urm-status-and-work-with-data-composite}
-
-These results show that
-
-\begin{verbatim}
-## Replacement of Cases Approach:
-## To invalidate an inference, 17.826% of the estimate would have to be due to bias. This is based on a threshold of 0.032 for statistical significance (alpha = 0.05).
-## To invalidate an inference, 10 observations would have to be replaced with cases for which the effect is 0.
-## 
-## Correlation-based Approach:
-## An omitted variable would have to be correlated at 0.265 with the outcome and at 0.265 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.262 for statistical significance (alpha = 0.05).
-## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.265 X 0.265 = 0.07 to invalidate an inference.
-## NULL
-\end{verbatim}
+These results show very similar patterns to those observed in the models
+with pre-interest and the other individual characteristics and the
+models with the aspects of work with data separate. Like in the models
+with only pre-interest and the other individual characteristics,
+pre-interest is related to the \emph{only behavioral} profile (\emph{B}
+= 0.039 (0.016), p = .009). Being female is again related but not to a
+level that it meets the criteria for statistical significance (\emph{B}
+= 0.06 (0.037), p = .051). Generating data (\emph{B} = 0.027 (0.015), p
+= .033) and modeling data (\emph{B} = 0.034 (0.017), p = .020) were both
+related to the \emph{full} profile to a similar extent and with similar
+robustness as found in the separate models. Compared to the null models,
+the r-squared values changed from .001 to .029, suggesting small
+improvements from the additions of the individual characteristics and
+the codes for the aspects of work with data.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:pre-int-int-present}Results of mixed effects models with interest and activity interaction}
+\caption{\label{tab:pre-int-ind-present}Results of mixed effects models with interest and other characteristics and the aspects of work with data}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllllllrrr}
+\toprule
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Only behavioral & 0.107 (0.045) (p = 0.01) & 0.015 (0.015) (p = 0.158) & 0.013 (0.015) (p = 0.191) & 0.014 (0.014) (p = 0.17) & -0.023 (0.016) (p = 0.929) & 0.018 (0.015) (p = 0.115) & -0.013 (0.012) (p = 0.873) & 0.019 (0.019) (p = 0.159) & 0.031 (0.026) (p = 0.122) & 0.008 & 0.095 & 0.010\\
+Universally low & 0.356 (0.086) (p < .001) & -0.015 (0.018) (p = 0.789) & 0.003 (0.018) (p = 0.427) & -0.014 (0.017) (p = 0.789) & 0.004 (0.019) (p = 0.407) & 0.002 (0.018) (p = 0.461) & -0.047 (0.022) (p = 0.982) & 0.06 (0.037) (p = 0.051) & -0.01 (0.052) (p = 0.575) & 0.005 & 0.276 & 0.015\\
+Engaged and competent but not challenged & 0.022 (0.063) (p = 0.362) & -0.011 (0.015) (p = 0.763) & 0.009 (0.015) (p = 0.266) & -0.014 (0.014) (p = 0.833) & 0 (0.015) (p = 0.504) & 0.004 (0.015) (p = 0.404) & 0.039 (0.016) (p = 0.009) & 0.025 (0.028) (p = 0.188) & -0.012 (0.04) (p = 0.614) & 0.015 & 0.304 & 0.000\\
+Only affective & 0.09 (0.04) (p = 0.015) & 0.004 (0.014) (p = 0.397) & -0.017 (0.014) (p = 0.886) & -0.02 (0.013) (p = 0.938) & -0.012 (0.015) (p = 0.8) & 0.016 (0.014) (p = 0.124) & 0.007 (0.01) (p = 0.264) & -0.02 (0.018) (p = 0.867) & 0.018 (0.025) (p = 0.234) & 0.000 & 0.095 & 0.001\\
+All moderate & 0.354 (0.075) (p < .001) & 0.023 (0.017) (p = 0.09) & 0.007 (0.017) (p = 0.342) & 0.012 (0.016) (p = 0.233) & -0.004 (0.018) (p = 0.593) & -0.011 (0.017) (p = 0.747) & -0.012 (0.019) (p = 0.743) & -0.038 (0.033) (p = 0.875) & -0.076 (0.046) (p = 0.95) & 0.005 & 0.256 & 0.007\\
+Full & 0.094 (0.083) (p = 0.132) & -0.019 (0.016) (p = 0.887) & -0.025 (0.016) (p = 0.94) & 0.027 (0.015) (p = 0.033) & 0.034 (0.017) (p = 0.02) & -0.027 (0.016) (p = 0.956) & 0.018 (0.021) (p = 0.195) & -0.035 (0.037) (p = 0.827) & 0.043 (0.053) (p = 0.207) & 0.027 & 0.476 & 0.002\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\subsection{Models with pre-interest, gender, and URM status and work
+with data
+composite}\label{models-with-pre-interest-gender-and-urm-status-and-work-with-data-composite}
+
+Like for the individual aspects, these models with the composite for
+work with data instead of the individual aspects. These results show
+very similar patterns to those observed in the models with pre-interest
+and the other individual characteristics and the models with the aspects
+of work with data separate. Like in the models with only pre-interest
+and the other individual characteristics alone (and like in the model
+with the individual aspects), pre-interest is related to the \emph{only
+behavioral} profile (\emph{B} = 0.039 (0.016), p = .009). Being female
+is again related but not to a level that it meets the criteria for
+statistical significance (\emph{B} = 0.06 (0.037), p = .052). The
+composite was significantly related to the \emph{only behavioral}
+profile (\emph{B} = 0.007 (0.004), p = .027) to a similar extent and
+with similar robustness as found in the separate model. Compared to the
+null models, the r-squared values changed from .008 to .026, once again
+suggesting small improvements from the additions of the individual
+characteristics and the composite for the aspects of work with data.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:pre-int-int-present}Results of mixed effects models with interest and other characteristics and the composite work with data}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
 \toprule
@@ -2409,22 +2469,26 @@ Full & 0.089 (0.083) (p = 0.144) & -0.001 (0.004) (p = 0.62) & 0.019 (0.021) (p 
 URM status and work with data
 composite}\label{models-with-interactions-between-pre-interest-gender-and-urm-status-and-work-with-data-composite}
 
-These results show that
-
-\begin{verbatim}
-## Replacement of Cases Approach:
-## To invalidate an inference, 1.953% of the estimate would have to be due to bias. This is based on a threshold of 0.012 for statistical significance (alpha = 0.05).
-## To invalidate an inference, 47 observations would have to be replaced with cases for which the effect is 0.
-## 
-## Correlation-based Approach:
-## An omitted variable would have to be correlated at 0.029 with the outcome and at 0.029 with the predictor of interest (conditioning on observed covariates) to invalidate an inference based on a threshold of 0.04 for statistical significance (alpha = 0.05).
-## Correspondingly the impact of an omitted variable (as defined in Frank 2000) must be 0.029 X 0.029 = 0.001 to invalidate an inference.
-## NULL
-\end{verbatim}
+These results show similar patterns to the earlier models.Like in the
+models with only pre-interest and the other individual characteristics
+alone (and like in the model with the individual aspects), pre-interest
+is related to the \emph{only behavioral} profile (\emph{B} = 0.033
+(0.018), p = .033). Being female is again related but not to a level
+that it meets the criteria for statistical significance (\emph{B} =
+0.064 (0.041), p = .059). With the interactions added, the composite was
+no significantly related to the \emph{only behavioral} profile (\emph{B}
+= 0.016 (0.016), p = .156) to a similar extent and with similar
+robustness as found in the separate model. One interaction, between
+pre-interest and being female, had a significant effect upon the profile
+for \emph{full} engagement (\emph{B} = 0.012 (0.006), p = .026).
+However, only 1.953\% of the effect would need to be due to bias to
+invalidate the inference. The r-squared values, relative to the models
+with only random effects (the null models), increased from .003 to .028,
+again suggesting small effects of the predictors upon the PECs.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:pre-int-comp}Results of mixed effects models with interest and activity interaction}
+\caption{\label{tab:pre-int-comp}Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data}
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllllrrr}
 \toprule
@@ -2444,12 +2508,22 @@ Full & 0.119 (0.087) (p = 0.087) & -0.017 (0.014) (p = 0.886) & 0.016 (0.022) (p
 \subsection{Summary of findings for research question
 \#3}\label{summary-of-findings-for-research-question-3}
 
-When looking across findings, we find very few relations between work
-with data and the profiles. When looking across findings, there are very
-few relations between work with data and the profiles. Like for research
-question \#2, reasons for why this may be are explored in the next
-chapter. The effect of the activity appears robust, as in research
-question \#3
+When looking across findings, we find minimal relations between
+pre-interest and other individual characteristics. In particular, we
+found that pre-interest was related to the \emph{engaged and comptent
+but not challenged} profile to a modest extent. Being female did not
+demonstrate statistically significant relations with the
+\emph{univerally low} profile, though some moderately-sized effects that
+were nearly statistically significant were observed and interpreted in
+terms of how much bias would need to be reduced (or how much the larger
+the effect would need to be) in order for this relation to be
+statistically significant. There were few interactive effects observed;
+the magnitude of the effect of the composite and gender interaction was
+small (as were the changes in the r-squared value as a consequence of
+adding this interaction), and the effect appears to not be highly robust
+to potential sources of bias. Like for research question \#2, reasons
+for why this may be are explored in the next chapter. The effect of the
+activity appears robust, as in research question \#3
 
 \section{Results for Research Question
 \#4}\label{results-for-research-question-4}
@@ -2466,9 +2540,10 @@ data}\label{measurement-issues-for-instructional-support-for-work-with-data}
 This theme concerned how instructional support was measured and how this
 impacted the findings presented in research questions \#2-4.
 
-\paragraph{General measurement issues}\label{general-measurement-issues}
+\subsubsection{General measurement
+issues}\label{general-measurement-issues}
 
-First, there were wide discrepencies between how instructional support
+First, there were wide discrepancies between how instructional support
 for work with data was conceptualized and how it was measured via the
 STEM-PQA. For example\ldots{}
 
@@ -2477,9 +2552,9 @@ frame. Some / many instances of work with data not leading to student
 work with data (20-30\%). Not so many instances of students doing work
 with data when support was not provided (5-10\%).
 
-These discrepencies led to
+These discrepancies led to
 
-\paragraph{Relations of work with data to engagement in work with
+\subsubsection{Relations of work with data to engagement in work with
 data}\label{relations-of-work-with-data-to-engagement-in-work-with-data}
 
 How instructional support for work with data was measured appear to have
@@ -2512,10 +2587,6 @@ Constraints included the challenge of linking activities as a part of a
 complete cycle of investigation and an emphasis on outcomes other than
 the capacity to work with data.
 
-\paragraph{Challenge of linking activities as part of a complete cycle
-of
-investigation}\label{challenge-of-linking-activities-as-part-of-a-complete-cycle-of-investigation}
-
 Youth activity leaders faced challenges linking activities as part of a
 complete cycle of investigation.
 
@@ -2528,9 +2599,6 @@ communicating and interpreting findings. The engineering-focused
 programs emphasized using models, but often concrete models, rather than
 statistical models of data.
 
-\paragraph{Emphasis on outcomes other than the capacity to work with
-data}\label{emphasis-on-outcomes-other-than-the-capacity-to-work-with-data}
-
 First, the programs emphasized outcomes such as youth's confidence in
 their learning, planning skills, and ability to collaborate. These
 outcomes are complimentary to building youth's ability to work with
@@ -2542,6 +2610,8 @@ they perceived as ``school'' activities.
 
 \subsection{Summary of Findings for Research Question
 \#4}\label{summary-of-findings-for-research-question-4}
+
+These findings show that
 
 \chapter{Discussion}\label{discussion}
 
@@ -2926,20 +2996,7 @@ materials}\label{appendix-method-additional-materials}
 \subsection{Statistical software
 developed}\label{statistical-software-developed-1}
 
-In order to provide results for this research question, the MPlus
-software (Muthen \& Muthen, 2017) was used. While MPlus is powerful and
-widely-used, it can be very difficult to use as part of complex
-analyses. One reason for why it is difficult to use is that while it
-provides an environment for executing model \emph{syntax}, it is not an
-environment, such as SPSS or R, for statistical computing (i.e.,
-preparing data, processing and presenting results). Because of this, I
-created with colleagues an open-source tool, tidyLPA, in the statistical
-software R (Rosenberg, Schmidt, Beymer, \& Steingut, 2018). This package
-is available on the R Comprehensive Archive Network. This software
-provides wrappers--functions that provide an interface--to MPlus
-functions via the MplusAutomation R package (Hallquist, 2018).
-
-These wrapper functions dynamically generate MPlus syntax, so that, for
+The functions in tidyLPA dynamically generate MPlus syntax, so that, for
 example, a user can simply provide a data frame with variables to be
 used in the analysis, the specification for one of six models, the
 number of profiles to be estimated as part of the analysis, and a number
@@ -3441,11 +3498,149 @@ be interpreted with some caution.
 
 \begin{center}\includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/m2_5p-1} \end{center}
 
-\section{Appendix: Research question \#2 additional
-materials}\label{appendix-research-question-2-additional-materials}
+\section{Appendix: Models for research question \#2 and \#3 with the
+seven-profile
+solution}\label{appendix-models-for-research-question-2-and-3-with-the-seven-profile-solution}
 
-\section{Appendix: Research question \#3 additional
-materials}\label{appendix-research-question-3-additional-materials}
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:rq2-1-tab-pres-i}Results of mixed effects models for instructional support for work with data as separate variables}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllrrr}
+\toprule
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.072 (0.01) (p < .001) & -0.011 (0.011) (p = 0.839) & 0.001 (0.011) (p = 0.457) & -0.005 (0.01) (p = 0.686) & -0.002 (0.011) (p = 0.58) & -0.002 (0.01) (p = 0.583) & 0.008 & 0.176 & 0.002\\
+Competent but not engaged or challenged & 0.111 (0.019) (p < .001) & 0.002 (0.013) (p = 0.428) & -0.007 (0.013) (p = 0.696) & -0.01 (0.012) (p = 0.78) & -0.025 (0.014) (p = 0.969) & -0.002 (0.013) (p = 0.549) & 0.014 & 0.222 & 0.021\\
+Moderately low & 0.186 (0.029) (p < .001) & 0.024 (0.017) (p = 0.077) & 0.024 (0.017) (p = 0.074) & 0.009 (0.016) (p = 0.281) & -0.002 (0.018) (p = 0.544) & 0.027 (0.017) (p = 0.053) & 0.016 & 0.279 & 0.033\\
+Challenged & 0.197 (0.023) (p < .001) & 0.011 (0.016) (p = 0.252) & -0.013 (0.016) (p = 0.799) & 0.034 (0.015) (p = 0.015) & -0.005 (0.017) (p = 0.626) & -0.002 (0.016) (p = 0.561) & 0.007 & 0.261 & 0.015\\
+Highly challenged & 0.083 (0.01) (p < .001) & -0.007 (0.012) (p = 0.714) & 0 (0.012) (p = 0.504) & -0.016 (0.012) (p = 0.913) & 0.017 (0.013) (p = 0.1) & -0.013 (0.012) (p = 0.859) & 0.023 & 0.104 & 0.000\\
+Engaged and competent but not challenged & 0.199 (0.018) (p < .001) & -0.014 (0.017) (p = 0.787) & 0.019 (0.017) (p = 0.129) & -0.033 (0.016) (p = 0.979) & -0.013 (0.018) (p = 0.77) & 0.019 (0.017) (p = 0.127) & 0.015 & 0.286 & 0.000\\
+Full & 0.154 (0.023) (p < .001) & -0.009 (0.014) (p = 0.748) & -0.024 (0.014) (p = 0.961) & 0.022 (0.013) (p = 0.048) & 0.032 (0.014) (p = 0.012) & -0.025 (0.013) (p = 0.97) & 0.018 & 0.513 & 0.012\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:just-composite-red-i}Results of mixed effects models for the composite}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
+\toprule
+model & intercept & dm\_composite & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.071 (0.01) (p < .001) & -0.004 (0.003) (p = 0.937) & 0.007 & 0.176 & 0.002\\
+Competent but not engaged or challenged & 0.113 (0.019) (p < .001) & -0.008 (0.003) (p = 0.993) & 0.013 & 0.222 & 0.022\\
+Moderately low & 0.188 (0.029) (p < .001) & 0.016 (0.004) (p < .001) & 0.015 & 0.279 & 0.032\\
+Challenged & 0.2 (0.023) (p < .001) & 0.005 (0.004) (p = 0.09) & 0.007 & 0.260 & 0.015\\
+Highly challenged & 0.08 (0.01) (p < .001) & -0.004 (0.003) (p = 0.917) & 0.022 & 0.104 & 0.000\\
+Engaged and competent but not challenged & 0.2 (0.018) (p < .001) & -0.005 (0.004) (p = 0.887) & 0.015 & 0.285 & 0.000\\
+Full & 0.151 (0.023) (p < .001) & 0 (0.003) (p = 0.527) & 0.019 & 0.510 & 0.013\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:just-composite-red-2-i}Results of mixed effects models for the composite}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllrrr}
+\toprule
+model & intercept & dm\_composite\_di & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.078 (0.012) (p < .001) & -0.02 (0.01) (p = 0.98) & 0.006 & 0.176 & 0.003\\
+Competent but not engaged or challenged & 0.118 (0.019) (p < .001) & -0.03 (0.012) (p = 0.993) & 0.014 & 0.223 & 0.021\\
+Moderately low & 0.175 (0.029) (p < .001) & 0.063 (0.016) (p < .001) & 0.015 & 0.279 & 0.031\\
+Challenged & 0.203 (0.024) (p < .001) & 0.01 (0.015) (p = 0.261) & 0.008 & 0.260 & 0.014\\
+Highly challenged & 0.083 (0.011) (p < .001) & -0.016 (0.011) (p = 0.922) & 0.023 & 0.104 & 0.000\\
+Engaged and competent but not challenged & 0.198 (0.019) (p < .001) & -0.011 (0.016) (p = 0.763) & 0.015 & 0.285 & 0.000\\
+Full & 0.146 (0.024) (p < .001) & 0.006 (0.013) (p = 0.308) & 0.019 & 0.510 & 0.014\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:reading-for-rq4-i}Results of mixed effects models with interest and other characteristics}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllrrr}
+\toprule
+model & intercept & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.069 (0.04) (p = 0.042) & -0.002 (0.01) (p = 0.569) & 0.017 (0.018) (p = 0.177) & -0.005 (0.025) (p = 0.576) & 0.016 & 0.194 & 0.000\\
+Competent but not engaged or challenged & 0.126 (0.049) (p = 0.006) & -0.011 (0.013) (p = 0.808) & 0.021 (0.022) (p = 0.165) & -0.007 (0.031) (p = 0.591) & 0.017 & 0.211 & 0.003\\
+Moderately low & 0.301 (0.082) (p < .001) & -0.023 (0.021) (p = 0.869) & 0.02 (0.034) (p = 0.275) & -0.018 (0.048) (p = 0.642) & 0.017 & 0.290 & 0.030\\
+Challenged & 0.297 (0.073) (p < .001) & -0.013 (0.019) (p = 0.757) & -0.04 (0.031) (p = 0.9) & -0.032 (0.044) (p = 0.768) & 0.013 & 0.254 & 0.016\\
+Highly challenged & 0.108 (0.034) (p = 0.001) & -0.014 (0.009) (p = 0.946) & -0.013 (0.015) (p = 0.803) & 0.016 (0.021) (p = 0.221) & 0.026 & 0.112 & 0.001\\
+Engaged and competent but not challenged & 0.065 (0.07) (p = 0.177) & 0.033 (0.018) (p = 0.034) & 0.042 (0.032) (p = 0.094) & -0.002 (0.045) (p = 0.518) & 0.013 & 0.275 & 0.000\\
+Full & 0.048 (0.082) (p = 0.28) & 0.022 (0.021) (p = 0.142) & -0.043 (0.037) (p = 0.878) & 0.06 (0.053) (p = 0.129) & 0.023 & 0.510 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:pre-int-ind-present-i}Results of mixed effects models with interest and other characteristics and the aspects of work with data}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllllllrrr}
+\toprule
+model & intercept & dm\_ask & dm\_obs & dm\_gen & dm\_mod & dm\_com & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.077 (0.041) (p = 0.031) & -0.01 (0.011) (p = 0.822) & 0.002 (0.011) (p = 0.429) & -0.003 (0.011) (p = 0.612) & -0.003 (0.012) (p = 0.616) & -0.002 (0.011) (p = 0.569) & -0.003 (0.01) (p = 0.63) & 0.017 (0.018) (p = 0.166) & -0.002 (0.025) (p = 0.535) & 0.008 & 0.189 & 0.004\\
+Competent but not engaged or challenged & 0.141 (0.05) (p = 0.003) & 0.002 (0.013) (p = 0.432) & -0.011 (0.013) (p = 0.803) & -0.007 (0.013) (p = 0.718) & -0.028 (0.014) (p = 0.978) & 0.003 (0.013) (p = 0.421) & -0.013 (0.013) (p = 0.839) & 0.021 (0.022) (p = 0.167) & -0.011 (0.03) (p = 0.644) & 0.013 & 0.201 & 0.011\\
+Moderately low & 0.271 (0.084) (p < .001) & 0.024 (0.018) (p = 0.087) & 0.027 (0.017) (p = 0.061) & 0.002 (0.017) (p = 0.447) & 0 (0.018) (p = 0.499) & 0.033 (0.017) (p = 0.03) & -0.024 (0.021) (p = 0.869) & 0.02 (0.034) (p = 0.284) & -0.019 (0.049) (p = 0.649) & 0.014 & 0.288 & 0.036\\
+Challenged & 0.279 (0.075) (p < .001) & 0.018 (0.017) (p = 0.138) & -0.003 (0.017) (p = 0.568) & 0.029 (0.016) (p = 0.036) & -0.005 (0.017) (p = 0.606) & -0.006 (0.017) (p = 0.648) & -0.011 (0.019) (p = 0.725) & -0.042 (0.032) (p = 0.906) & -0.032 (0.045) (p = 0.762) & 0.007 & 0.253 & 0.022\\
+Highly challenged & 0.128 (0.035) (p < .001) & -0.004 (0.013) (p = 0.63) & -0.008 (0.013) (p = 0.722) & -0.016 (0.012) (p = 0.9) & 0.023 (0.014) (p = 0.048) & -0.022 (0.013) (p = 0.951) & -0.015 (0.009) (p = 0.959) & -0.009 (0.015) (p = 0.721) & 0.013 (0.021) (p = 0.263) & 0.025 & 0.108 & 0.000\\
+Engaged and competent but not challenged & 0.071 (0.071) (p = 0.161) & -0.018 (0.017) (p = 0.854) & 0.017 (0.017) (p = 0.164) & -0.027 (0.016) (p = 0.948) & -0.013 (0.018) (p = 0.759) & 0.017 (0.017) (p = 0.168) & 0.034 (0.018) (p = 0.034) & 0.046 (0.032) (p = 0.079) & -0.001 (0.045) (p = 0.509) & 0.013 & 0.279 & 0.000\\
+Full & 0.053 (0.085) (p = 0.266) & -0.015 (0.014) (p = 0.852) & -0.026 (0.014) (p = 0.967) & 0.022 (0.013) (p = 0.048) & 0.029 (0.015) (p = 0.026) & -0.022 (0.014) (p = 0.938) & 0.023 (0.021) (p = 0.148) & -0.043 (0.038) (p = 0.868) & 0.063 (0.055) (p = 0.127) & 0.021 & 0.534 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:pre-int-int-present-i}Results of mixed effects models with interest and other characteristics and the composite work with data}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{llllllrrr}
+\toprule
+model & intercept & dm\_composite & overall\_pre\_interest & gender\_female & urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.077 (0.041) (p = 0.031) & -0.004 (0.003) (p = 0.908) & -0.004 (0.01) (p = 0.632) & 0.017 (0.018) (p = 0.168) & -0.002 (0.025) (p = 0.533) & 0.007 & 0.189 & 0.004\\
+Competent but not engaged or challenged & 0.144 (0.05) (p = 0.002) & -0.008 (0.003) (p = 0.992) & -0.013 (0.013) (p = 0.841) & 0.022 (0.022) (p = 0.159) & -0.012 (0.03) (p = 0.65) & 0.012 & 0.201 & 0.012\\
+Moderately low & 0.273 (0.083) (p < .001) & 0.017 (0.004) (p < .001) & -0.024 (0.021) (p = 0.871) & 0.02 (0.034) (p = 0.278) & -0.019 (0.049) (p = 0.653) & 0.013 & 0.288 & 0.034\\
+Challenged & 0.28 (0.075) (p < .001) & 0.007 (0.004) (p = 0.044) & -0.011 (0.019) (p = 0.717) & -0.042 (0.032) (p = 0.905) & -0.032 (0.045) (p = 0.763) & 0.006 & 0.253 & 0.022\\
+Highly challenged & 0.125 (0.035) (p < .001) & -0.005 (0.003) (p = 0.951) & -0.016 (0.009) (p = 0.964) & -0.01 (0.015) (p = 0.733) & 0.014 (0.021) (p = 0.254) & 0.024 & 0.109 & 0.000\\
+Engaged and competent but not challenged & 0.072 (0.071) (p = 0.156) & -0.006 (0.004) (p = 0.911) & 0.033 (0.018) (p = 0.035) & 0.046 (0.032) (p = 0.078) & 0 (0.045) (p = 0.503) & 0.012 & 0.279 & 0.000\\
+Full & 0.05 (0.085) (p = 0.278) & -0.001 (0.004) (p = 0.657) & 0.023 (0.021) (p = 0.143) & -0.045 (0.038) (p = 0.878) & 0.063 (0.055) (p = 0.126) & 0.022 & 0.532 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:pre-int-comp-i}Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllllllrrr}
+\toprule
+model & intercept & dm\_composite & overall\_pre\_interest & gender\_female & urm & overall\_pre\_interest:dm\_composite & dm\_composite:gender\_female & dm\_composite:urm & beep\_ID\_ICC & participant\_ID\_ICC & program\_ID\_ICC\\
+\midrule
+Universally low & 0.113 (0.046) (p = 0.008) & -0.022 (0.012) (p = 0.973) & -0.014 (0.012) (p = 0.878) & 0.025 (0.021) (p = 0.113) & -0.012 (0.029) (p = 0.663) & 0.005 (0.003) (p = 0.038) & -0.004 (0.005) (p = 0.761) & 0.005 (0.007) (p = 0.225) & 0.007 & 0.189 & 0.004\\
+Competent but not engaged or challenged & 0.133 (0.056) (p = 0.009) & -0.002 (0.013) (p = 0.553) & -0.01 (0.015) (p = 0.761) & 0.031 (0.025) (p = 0.106) & -0.013 (0.035) (p = 0.643) & -0.001 (0.003) (p = 0.656) & -0.005 (0.006) (p = 0.784) & 0.001 (0.008) (p = 0.466) & 0.012 & 0.201 & 0.011\\
+Moderately low & 0.256 (0.089) (p = 0.002) & 0.026 (0.017) (p = 0.071) & -0.017 (0.023) (p = 0.774) & 0.015 (0.038) (p = 0.345) & -0.02 (0.053) (p = 0.643) & -0.003 (0.005) (p = 0.767) & 0.003 (0.008) (p = 0.376) & 0 (0.011) (p = 0.505) & 0.013 & 0.287 & 0.034\\
+Challenged & 0.262 (0.082) (p < .001) & 0.016 (0.017) (p = 0.178) & -0.002 (0.021) (p = 0.542) & -0.063 (0.035) (p = 0.961) & -0.03 (0.05) (p = 0.724) & -0.004 (0.005) (p = 0.83) & 0.011 (0.008) (p = 0.094) & -0.002 (0.011) (p = 0.573) & 0.006 & 0.253 & 0.022\\
+Highly challenged & 0.12 (0.042) (p = 0.002) & -0.003 (0.013) (p = 0.608) & -0.018 (0.011) (p = 0.951) & -0.015 (0.019) (p = 0.778) & 0.03 (0.026) (p = 0.126) & 0.001 (0.003) (p = 0.368) & 0.003 (0.006) (p = 0.317) & -0.008 (0.008) (p = 0.851) & 0.025 & 0.108 & 0.000\\
+Engaged and competent but not challenged & 0.07 (0.078) (p = 0.185) & -0.004 (0.017) (p = 0.593) & 0.029 (0.02) (p = 0.079) & 0.065 (0.036) (p = 0.034) & 0.007 (0.05) (p = 0.441) & 0.002 (0.005) (p = 0.319) & -0.01 (0.008) (p = 0.888) & -0.003 (0.011) (p = 0.624) & 0.012 & 0.277 & 0.000\\
+Full & 0.073 (0.088) (p = 0.205) & -0.014 (0.013) (p = 0.848) & 0.021 (0.022) (p = 0.172) & -0.057 (0.04) (p = 0.921) & 0.049 (0.057) (p = 0.196) & 0.001 (0.003) (p = 0.38) & 0.006 (0.006) (p = 0.148) & 0.007 (0.008) (p = 0.202) & 0.022 & 0.532 & 0.000\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 \bibliography{book.bib,packages.bib}
 

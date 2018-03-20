@@ -153,7 +153,8 @@ df <- df %>%
   mutate(ov_cog_eng = (important + future_goals) / 2,
          ov_beh_eng = (hard_working + concentrating) / 2,
          ov_aff_eng = (enjoy + interest) / 2) %>% 
-  mutate(dm_composite = dm_ask + dm_obs + dm_gen + dm_mod + dm_com)
+  mutate(dm_composite = dm_ask + dm_obs + dm_gen + dm_mod + dm_com,
+         dm_composite_di = ifelse(dm_ask == 1 | dm_obs == 1 | dm_gen == 1 | dm_mod == 1 | dm_com == 1, 1, 0))
 
 df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
 
@@ -166,7 +167,7 @@ df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" 
 
 ### Descriptive statistics for study variables
 
-First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged vetween zero and five. 
+First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged between zero and five. 
 
 ```{r}
 d_red <- df %>% 
@@ -255,17 +256,17 @@ data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Dat
 
 ## Statistical software developed
 
-The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces toboth the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
+The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
 ## Results for Research Question #2
 
-This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail.
+This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail. Note that while the posterior probability was used as the outcome, there are two approaches to their use in subsequent analyses. One way is to only use the largest posterior probability, setting the other posterior probabilities to a value of zero; in this way, the uncertainty in the profile assignment is accounted for, but partial assignment to other profiles is not considered in their use in subsequent models. The other way is to use the posterior probabilities for all of the subsequent models. In this analysis, the latter option is used: posterior probabilities are used as-is (i.e., none are assigned to zero), though the former approach was used and was found to yield comparable results.
 
 ### Exploration of a wide range of models a
 
 First, I examined a wide range of model types (i.e., the parameterization of the model) and the numbers of profiles. Note that six model types are able to be specified. These roughly became more complex, with additional parameters estimated, as the number for the model type increases from one to six.
 
-This step is taken to select candidate soutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
+This step is taken to select candidate solutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
 
 ```{r, compare-solutions-overall-stats, eval = FALSE}
 d <- compare_solutions_mplus(df,  
@@ -292,7 +293,7 @@ overall_stats_for_all_models[[1]] %>%
 
 If the log-likelihood is not replicated, then the estimation completed one or more times, but because the same log-likelihood value (and parameter estimates) were not obtained, then the solution can be considered to be "under-identified", a term used to describe solutions that depend strongly upon minor fluctuations in the data (Asparouhov & Muthen, 2007). Accordingly, these solutions may not represent meaningful values and may not be replicable in light of very small changes to the data; these are not considered as candidate solutions for use in subsequent analyses. If no log-likelihood is obtained for any of the random starts, then the software returns an error; in these cases, the convergence criteria--values that determine when a solution has been obtained--are not met. This may be due to a large number of parameters that are estimated relative to the data, such that the number of iterations that the estimation is allowed to go through are not sufficient to obtain a solution (Asparouhov & Muthen, 2007). Like when the log-likelihood is not replicated, these solutions are not considered for use in subsequent analyses.
 
-For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analyis.
+For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analysis.
 
 ### In-depth statistics for particular models
 
@@ -387,7 +388,7 @@ d[, -1] %>%
 
 ### Examination of specific candidate models 
 
-Following from the in-depth exploration of the candidate solutions, in this section, model solutions associated with specific model types and the number of profiles are investigated. In particular, the model one type, six profile, and model one type, seven profile solutiosn are described. Descriptions of other candidate solutions is included in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
+Following from the in-depth exploration of the candidate solutions, in this section, model solutions associated with specific model types and the number of profiles are investigated. In particular, the model one type, six profile, and model one type, seven profile solutions are described. Descriptions of other candidate solutions is included in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
 #### Model type: 1, Profiles: 6
 
@@ -413,7 +414,7 @@ m1_6 <- estimate_profiles_mplus(df,
 write_rds(m1_6, "data/models/m1_6.rds")
 ```
 
-```{r, m1_6p, cache = FALSE, eval = TRUE}
+```{r, m1_6p, cache = FALSE, eval = TRUE, fig.width = 7, fig.asp = .618, out.width = "95%", fig.align = "center"}
 m1_6 <- read_rds("data/models/m1_6.rds")
 
 p <- m1_6 %>% 
@@ -429,7 +430,7 @@ p <- m1_6 %>%
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 
 p
 
@@ -448,12 +449,12 @@ p <- m1_6 %>%
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 
 p
 ```
 
-```{r, m1_6p-ll, eval = TRUE, cache = FALSE, eval = FALSE}
+```{r, m1_6p-ll, eval = TRUE, cache = FALSE}
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
@@ -471,7 +472,7 @@ This solution is characterized by:
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
 
-```{r, spec-solutions-m1_7, cache = FALSE, eval = FALSE, fig.width = 6, out.width = "100%"}
+```{r, spec-solutions-m1_7, cache = FALSE, eval = FALSE}
 m1_7 <- estimate_profiles_mplus(df,  
                                 dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
                                 starts = c(600, 120),
@@ -482,7 +483,7 @@ m1_7 <- estimate_profiles_mplus(df,
 write_rds(m1_7, "data/models/m1_7.rds")
 ```
 
-```{r, m1_7p, cache = FALSE, eval = TRUE}
+```{r, m1_7p, cache = FALSE, eval = TRUE,  eval = FALSE, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
 m1_7 %>% 
@@ -499,7 +500,7 @@ m1_7 %>%
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
@@ -517,7 +518,7 @@ m1_7 %>%
   viridis::scale_fill_viridis("", 
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(0, 0, 0, 1, "cm"))
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 ```
 
 ```{r, m1_7-ll, cache = FALSE, eval = FALSE}
@@ -526,11 +527,11 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 #### Looking across model 1 and model 2 type solutions
 
-The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the soutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estiamted for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
+The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the solutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estimated for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
 
 For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred and is selected for use in subsequent analyses.
 
-As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in an appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
+As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
 
 ## Research Question #2: Relations Between Instructional Support for Work With Data and the PECs
 
@@ -539,6 +540,7 @@ Broadly, this question is focused on how instructional support for work with dat
 Null models showing the proportion of variance (via the intra-class correlation) are interpreted. The more detailed results (in a table) are presented in the appendix. These are followed by the interpretation of findings related to a more variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles (and the variables that make them up) and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data are interpreted and presented. 
 
 ```{r}
+df <- read_csv("data/for-seven-profiles.csv")
 cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
 C <- select(m1_6, C)
 
@@ -553,7 +555,7 @@ df_ss <- bind_cols(df_ss, C_p)
 df_ss$profile <- C
 df_ss$profile_p <- C_p_m
 
-d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based, inquiry_based_three, classroom_versus_field_enrichment, gender_female, urm, contains("cprob"))
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based, inquiry_based_three, classroom_versus_field_enrichment, gender_female, urm, contains("cprob"), dm_composite_di)
 
 d <- d %>% 
   mutate(
@@ -572,7 +574,7 @@ d <- d %>%
   )
 ```
 
-```{r, rq2-0-null, cache = FALSE, eval = FALSE}
+```{r, rq2-0-null, cache = FALSE, eval = TRUE}
 m1 <- lmer(profile_1_p ~ 1 +
              (1 | participant_ID) +
              (1 | beep_ID) +
@@ -722,17 +724,89 @@ m6b <- lmer(profile_6_p ~ 1 +
             data = d)
 ```
 
+```{r, rq2-2-composite-keep-2, cache = FALSE}
+m1bi <- lmer(profile_1_p ~ 1 +
+              dm_composite_di +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2bi <- lmer(profile_2_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3bi <- lmer(profile_3_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4bi <- lmer(profile_4_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5bi <- lmer(profile_5_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6bi <- lmer(profile_6_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
 ### Null models
 
 The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability that is able to be explained. In turn, this suggests that these variables, including those for instructional support for work with data, may not have strong effects in terms of their relations with the PECs. 
 
-In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the full profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the universally low profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted. 
+In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted. 
 
 ### Models with variables for aspects of instructional support for work with data added separately
 
-When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and full engagement (*B* = 0.036 (0.016), *p* = .016) and between generating data and full engagement (*B* = 0.029 (0.015), *p* = .024). The effect of being female upon universally low engagement was moderate (*B* = 0.057 (0.035), p = .050).
+When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile (*B* = 0.036 (0.016), *p* = .016) and between generating data and the full profile (*B* = 0.029 (0.015), *p* = .024). 
 
-Sensitivity analysis for the effect of generating data suggested that 1.883% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, XXX% would need to be due to bias to invalidate the inference. 
+Adding these variables changed the (conditional upon the random effects) r-squared values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the PECs. This is in-line with the correlations for these variables with those variables that make up the profiles, and the ICC values at the momentary level.
+
+```{r-r2-1, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1a) # .115
+MuMIn::r.squaredGLMM(m2a) # .300
+MuMIn::r.squaredGLMM(m3a) # .321
+MuMIn::r.squaredGLMM(m4a) # .101
+MuMIn::r.squaredGLMM(m5a) # .270
+MuMIn::r.squaredGLMM(m6a) # .50
+```
+
+The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference. This effect, then, is less sensitive to possible sources of bias, but is still not highly robust. 
 
 ```{r, rq2-1-tab, eval = FALSE}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
@@ -764,7 +838,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, sensitivity-analysis-for-rq1, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq1, eval = FALSE, cache = FALSE}
 konfound::konfound(m6a, dm_gen)
 konfound::konfound(m6a, dm_mod)
 konfound::konfound(m6a, gender_female) # need to add
@@ -772,10 +846,26 @@ konfound::konfound(m6a, gender_female) # need to add
 
 ### Models with the composite added
 
-For the composite of work with data, the composite predicted profile 1, only behavioral (*B* = 0.008 (0.004), *p* = .016), but not any of the other profiles. However, this coefficient is very small in practical terms, and only 1.395% would need to be due to bias to invalidate the inference. Being female again predicted universally low engagement (*B* = 0.057 (0.035), p = .050). 
+For the composite of work with data, the composite predicted the profile for *only behavioral* (*B* = 0.007 (0.004), *p* = .021), but not any of the other profiles. However, this coefficient is very small in practical terms, and 12.261% would need to be due to bias to invalidate the inference. The change in r-squared values ranged from .003 to .020, suggesting minimal potential relations among factors (such as support for work with data as measured by the composite variable) at the momentary level. When the composite was treated as a dichotomous (instead of a continuous) variable, so that the variable takes a value of one if any of the aspects of work with data are present, the results are similar in terms of the magnitude of the effects and their significance, as none of the relations are statistically significant when the dichotomous variable is used.
 
-```{r, sens-2, eval = TRUE, cache = TRUE}
-konfound(m1a, dm_composite)
+```{r, sens-2, eval = FALSE, cache = FALSE}
+konfound(m1b, dm_composite)
+```
+
+```{r-r2-2, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1b) # .113
+MuMIn::r.squaredGLMM(m2b) # .298
+MuMIn::r.squaredGLMM(m3b) # .320
+MuMIn::r.squaredGLMM(m4b) # .100
+MuMIn::r.squaredGLMM(m5b) # .269
+MuMIn::r.squaredGLMM(m6b) # .502
 ```
 
 ```{r, just-composite-mod, eval = FALSE}
@@ -807,13 +897,42 @@ o %>%
   kableExtra::landscape()
 ```
 
+```{r, just-composite-mod-2, eval = FALSE}
+l <- list(m1bi, m2bi, m3bi, m4bi, m5bi, m6bi)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/comp-l-2.rds")
+```
+
+```{r, just-composite-red-2, eval = FALSE}
+o <- read_rds("data/comp-l-2.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite_di,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
 ### Summary of findings for research question #2
 
-When looking across findings, we find very few relations between instructional support for work with data and the profiles. The effects that were found (i.e., between modeling and generating data and full engagement) were very small in terms of their practical significance or were not very robust. Broadly, reasons for why this may be--focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #5 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3 and #4. 
+When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
 
 ## Results for Research Question #3
 
-Research question #4 is focused on how the relationships of instructional support for work with data and the activity differ on the basis of pre-program interest. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the composite for work with data are added and then models with the interaction between these characteristics and the composite.
+Research question #3 is focused on how the relationships of instructional support for work with data differ on the basis of pre-program interest and other youth characteristics. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the individual aspects and composite of work with data are added and then models with the interaction between these characteristics and the composite.
 
 ```{r, rq3-2-all-vars-sep-interaction-keep, eval = TRUE}
 m1c <- lmer(profile_1_p ~ 1 +
@@ -871,7 +990,7 @@ m6c <- lmer(profile_6_p ~ 1 +
             data = d)
 ```
 
-```{r, rq3-2-all-vars-sep-keep, eval = TRUE}
+```{r, rq3-2-all-vars-com-keep, eval = TRUE}
 m1d <- lmer(profile_1_p ~ 1 +
               dm_composite + 
               overall_pre_interest +
@@ -924,6 +1043,68 @@ m5d <- lmer(profile_5_p ~ 1 +
 
 m6d <- lmer(profile_6_p ~ 1 +
               dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq3-2-all-vars-sep-keep, eval = TRUE}
+m1di <- lmer(profile_1_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2di <- lmer(profile_2_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3di <- lmer(profile_3_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4di <- lmer(profile_4_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5di <- lmer(profile_5_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6di <- lmer(profile_6_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               overall_pre_interest +
               gender_female +
               urm + 
@@ -987,12 +1168,27 @@ m6e <- lmer(profile_6_p ~ 1 +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
-
 ```
 
 ### Models with pre interest, gender, and under-represented minority (URM) status
 
-These results were also very similar to when interest was added as a control: The activity and full engagement were statistically significantly related (*B* = 0.056 (0.016), *p* < .001) and between the composite and only behavioral (*B* = 0.008 (0.004), *p* = .027). Interest predicted the engaged and competent but not challenged profile (*B* = 0.037 (0.016), *p* = .008). 43.69% of the effect of activity upon full engagement would need to be due to bias to invalidate the inference. The effect of the composite on behavioral was not robust, with only 1.34% needing to be due to bias to invalidate the inference. The effect of interest was robust, with 13.34% needing to be due to bias to invalidate the inference.
+These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile (*B* = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in r-squared values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the PECs. Thai is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level) This is discussed further in the next chapter.
+
+```{r-r2-3, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1c) # .112
+MuMIn::r.squaredGLMM(m2c) # .302
+MuMIn::r.squaredGLMM(m3c) # .328
+MuMIn::r.squaredGLMM(m4c) # .112
+MuMIn::r.squaredGLMM(m5c) # .275
+MuMIn::r.squaredGLMM(m6c) # .487
+```
 
 ```{r, md-block-for-rq4, eval = FALSE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
@@ -1026,13 +1222,82 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, sensitivity-analysis-for-rq2a, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq2a, eval = FALSE, cache = FALSE}
 konfound::konfound(m3c, overall_pre_interest)
+konfound::konfound(m2c, gender_female)
 ```
 
-### Models with pre interest, gender, and URM status and work with data composite
+### Models with pre interest, gender, and URM status and the aspects of work with data
 
-These results show that
+These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics, pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .051). Generating data (*B* = 0.027 (0.015), p = .033) and modeling data (*B* = 0.034 (0.017), p = .020) were both related to the *full* profile to a similar extent and with similar robustness as found in the separate models. Compared to the null models, the r-squared values changed from .001 to .029, suggesting small improvements from the additions of the individual characteristics and the codes for the aspects of work with data.
+
+```{r-r2-2i, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1di) # .119
+MuMIn::r.squaredGLMM(m2di) # .307
+MuMIn::r.squaredGLMM(m3di) # .328
+MuMIn::r.squaredGLMM(m4di) # .100
+MuMIn::r.squaredGLMM(m5di) # .276
+MuMIn::r.squaredGLMM(m6di) # .511
+```
+
+```{r, pre-int-ind, eval = FALSE}
+l <- list(m1di, m2di, m3di, m4di, m5di, m6di)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-ind-interaction.rds")
+```
+
+```{r, pre-int-ind-present, eval = TRUE}
+o <- read_rds("data/pre-int-ind-interaction.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the aspects of work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+### Models with pre-interest, gender, and URM status and work with data composite
+
+Like for the individual aspects, these models with the composite for work with data instead of the individual aspects. These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .052). The composite was significantly related to the *only behavioral* profile (*B* = 0.007 (0.004), p = .027) to a similar extent and with similar robustness as found in the separate model. Compared to the null models, the r-squared values changed from .008 to .026, once again suggesting small improvements from the additions of the individual characteristics and the composite for the aspects of work with data.
+
+```{r-r2-2iii, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1d) # .118
+MuMIn::r.squaredGLMM(m2d) # .307
+MuMIn::r.squaredGLMM(m3d) # .327
+MuMIn::r.squaredGLMM(m4d) # .099
+MuMIn::r.squaredGLMM(m5d) # .276
+MuMIn::r.squaredGLMM(m6d) # .508
+```
 
 ```{r, pre-int, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
@@ -1040,7 +1305,7 @@ o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-no-interaction.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2b, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq2b, eval = FALSE, cache = FALSE}
 konfound::konfound(m3d, overall_pre_interest)
 ```
 
@@ -1072,7 +1337,23 @@ o %>%
 
 ### Models with interactions between pre interest, gender, and URM status and work with data composite
 
-These results show that
+These results show similar patterns to the earlier models.Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.033 (0.018), p = .033). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.064 (0.041), p = .059). With the interactions added, the composite was no significantly related to the *only behavioral* profile (*B* = 0.016 (0.016), p = .156) to a similar extent and with similar robustness as found in the separate model. One interaction, between pre-interest and being female, had a significant effect upon the profile for *full* engagement (*B* = 0.012 (0.006), p = .026). However, only 1.953% of the effect would need to be due to bias to invalidate the inference. The r-squared values, relative to the models with only random effects (the null models), increased from .003 to .028, again suggesting small effects of the predictors upon the PECs.
+
+```{r-r2-2ii, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1e) # .118
+MuMIn::r.squaredGLMM(m2e) # .307
+MuMIn::r.squaredGLMM(m3e) # .327
+MuMIn::r.squaredGLMM(m4e) # .102
+MuMIn::r.squaredGLMM(m5e) # .276
+MuMIn::r.squaredGLMM(m6e) # .510
+```
 
 ```{r, pre-int-interactions, eval = FALSE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
@@ -1080,7 +1361,7 @@ o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-interaction.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2c, eval = TRUE, cache = TRUE}
+```{r, sensitivity-analysis-for-rq2c, eval = FALSE, cache = FALSE}
 konfound::konfound(m6e, `dm_composite:gender_female`)
 ```
 
@@ -1115,7 +1396,7 @@ o %>%
 
 ### Summary of findings for research question #3
 
-When looking across findings, we find very few relations between work with data and the profiles. When looking across findings, there are very few relations between work with data and the profiles. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
+When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
 ## Results for Research Question #4
 
@@ -1149,7 +1430,6 @@ d_proc <- d3 %>%
 readr::write_csv(d_proc, "qual-coding.csv")
 ```
 
-
 ```{r, read-proc-sheet, eval = F}
 qual_sheets <- readr::read_csv("qual-coding.csv")
 ```
@@ -1160,15 +1440,15 @@ This analysis resulted in themes organized around the following two themes. The 
 
 This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2-4. 
 
-##### General measurement issues
+#### General measurement issues
 
-First, there were wide discrepencies between how instructional support for work with data was conceptualized and how it was measured via the STEM-PQA. For example...
+First, there were wide discrepancies between how instructional support for work with data was conceptualized and how it was measured via the STEM-PQA. For example...
 
 Some / many instances (20-30%) of codes not being aligned with coding frame. Some / many instances of work with data not leading to student work with data (20-30%). Not so many instances of students doing work with data when support was not provided (5-10%).
 
-These discrepencies led to
+These discrepancies led to
 
-##### Relations of work with data to engagement in work with data
+#### Relations of work with data to engagement in work with data
 
 How instructional support for work with data was measured appear to have impacted the findings.
 
@@ -1190,15 +1470,11 @@ Affordances included the relevance of the program, the community setting, and fi
 
 Constraints included the challenge of linking activities as a part of a complete cycle of investigation and an emphasis on outcomes other than the capacity to work with data.
 
-##### Challenge of linking activities as part of a complete cycle of investigation
-
 Youth activity leaders faced challenges linking activities as part of a complete cycle of investigation.
 
 One aspect of this concerned both creating and modeling data.
 
 A related aspect concerned what the programs focused on. For example, the mathematics-focused programs emphasized measuring, while the science-focused programs emphasized making observations and communicating and interpreting findings. The engineering-focused programs emphasized using models, but often concrete models, rather than statistical models of data.
-
-##### Emphasis on outcomes other than the capacity to work with data
 
 First, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data. 
 
@@ -1206,3 +1482,4 @@ Related, on occasion, youth demonstrated a reluctance to engage in what they per
 
 ### Summary of Findings for Research Question #4
 
+These findings show that

@@ -26,5 +26,3 @@ source("0_clean-up.R")
 system("git status; git add *; git add -u")
 system("git commit -m 'update diss'")
 system("git push")
-
-=

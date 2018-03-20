@@ -5,25 +5,23 @@
 ```{r}
 tibble::tribble(
   ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description, ~Categories.from.STEM-PQA.(Already.Coded).With.Descriptions,
-    "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                       "Predict, conjecture, or hypothesize",
-                      "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                      "Classify or abstract",
-                          "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.", "Collect data or measure; Highlight precision and accuracy",
-                                         NA,                                                                                                              NA,                                                          NA,
-                            "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model",
+  "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                       "Predict, conjecture, or hypothesize",
+  "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                      "Classify or abstract",
+  "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.", "Collect data or measure; Highlight precision and accuracy",
+  NA,                                                                                                              NA,                                                          NA,
+  "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model",
   "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                            "Analyze; Use symbols or models",
-                                         NA,                                                                                                              NA,                                                          NA,
-                                         NA,                                                                                                              NA,                                                          NA
-  ) %>% 
-    knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
-```
+  NA,                                                                                                              NA,                                                          NA,
+  NA,                                                                                                              NA,                                                          NA
+) %>% 
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
+  ```
 
 ## Appendix: Method additional materials
 
 ### Statistical software developed
 
-In order to provide results for this research question, the MPlus software (Muthen & Muthen, 2017) was used. While MPlus is powerful and widely-used, it can be very difficult to use as part of complex analyses. One reason for why it is difficult to use is that while it provides an environment for executing model *syntax*, it is not an environment, such as SPSS or R, for statistical computing (i.e., preparing data, processing and presenting results). Because of this, I created with colleagues an open-source tool, tidyLPA, in the statistical software R (Rosenberg, Schmidt, Beymer, & Steingut, 2018). This package is available on the R Comprehensive Archive Network. This software provides wrappers--functions that provide an interface--to MPlus functions via the MplusAutomation R package (Hallquist, 2018). 
-
-These wrapper functions dynamically generate MPlus syntax, so that, for example, a user can simply provide a data frame with variables to be used in the analysis, the specification for one of six models, the number of profiles to be estimated as part of the analysis, and a number of fine-grained options concerning the estimation and the output generated. From these inputs, a data file for MPlus is prepared and saved, the model syntax is created and saved in a model input file, the model is run, and the output, including the "savedata", or the data with its associated posterior probabilities and profile assignments, is returned to R for use plots or in subsequent analyses. 
+The functions in tidyLPA dynamically generate MPlus syntax, so that, for example, a user can simply provide a data frame with variables to be used in the analysis, the specification for one of six models, the number of profiles to be estimated as part of the analysis, and a number of fine-grained options concerning the estimation and the output generated. From these inputs, a data file for MPlus is prepared and saved, the model syntax is created and saved in a model input file, the model is run, and the output, including the "savedata", or the data with its associated posterior probabilities and profile assignments, is returned to R for use plots or in subsequent analyses. 
 
 Because of the considerable time that it takes to generate MPlus model syntax (i.e., when choosing to specify a model with different parameters or when changing the number of profiles to be estimated as part of the solution), this package makes it easier to carry out LPA in a flexible way, while retaining the power of the MPlus software. While this functionality makes it considerably easier to carry out LPA, it requires that MPlus be purchased and installed. Because of this, the R package I developed also includes wrapper functions to an open-source tool, mclust (Scrucca, Fop, Murphy, & Raftery, 2016). This is a very widely-used package for mixture modeling. While some authors have suggested that it can be used to carry out LPA (Oberski, 2016), a key challenge for analysts using it concerns specifying the models. This is because the models are described in terms of the geometric properties of the multivariate distributions being estimated (i.e., "spherical, equal volume"), rather than in terms of whether and how the means, variances, and covariances are estimated. This R package corresponds LPA models to the mclust models and provides the same functionality that the functions that use MPlus provide, namely, preparing data, running the model, and returning the output or use in subsequent analyses. As part of incorporating the mclust functionality, the functions that use MPlus and those that use mclust have been benchmarked (Rosenberg, 2018). Despite leading to identical results (in most cases) for small datasets, because of differences in how the E-M algorithm is initialized as well as other estimation-related differences, output will likely not be identical for many analyses. 
 
@@ -43,7 +41,7 @@ dfs %>%
   corrr::correlate(method = "spearman") %>%
   fashion() %>%
   slice() %>%
-    knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations among codes for instructional support for work with data (and composite of all codes)")
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Correlations among codes for instructional support for work with data (and composite of all codes)")
 ```
 
 ### Appendix: Program descriptions
@@ -382,6 +380,752 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-## Appendix: Research question #2 additional materials
+## Appendix: Models for research question #2 and #3 with the seven-profile solution
 
-## Appendix: Research question #3 additional materials
+<!-- # Model start here -->
+
+
+```{r}
+df <- read_csv("data/for-seven-profiles.csv")
+m1_7 <- readr::read_rds("data/models/m1_7.rds")
+
+cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
+C <- select(m1_7, C)
+
+C_p_m <- select(m1_7, CPROB1:CPROB7) %>% 
+  apply(MARGIN = 1, FUN = max)
+
+C_p <- select(m1_7, CPROB1:CPROB7)
+
+df_ss <- df[cc, ]
+
+df_ss <- bind_cols(df_ss, C_p)
+df_ss <- mutate(df_ss, 
+                profile = C,
+                profile_p = C_p_m)
+
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based, inquiry_based_three, classroom_versus_field_enrichment, gender_female, urm, contains("cprob"), dm_composite_di)
+
+d <- d %>% 
+  mutate(
+    # profile_1 = ifelse(profile == 1, 1, 0),
+    # profile_2 = ifelse(profile == 2, 1, 0),
+    # profile_3 = ifelse(profile == 3, 1, 0),
+    # profile_4 = ifelse(profile == 4, 1, 0),
+    # profile_5 = ifelse(profile == 5, 1, 0),
+    # profile_6 = ifelse(profile == 6, 1, 0),
+    # profile_7 = ifelse(profile == 7, 1, 0),
+    profile_1_p = CPROB1,
+    profile_2_p = CPROB2,
+    profile_3_p = CPROB3,
+    profile_4_p = CPROB4,
+    profile_5_p = CPROB5,
+    profile_6_p = CPROB6,
+    profile_7_p = CPROB7
+  )
+
+labs <- c("Universally low",
+          "Competent but not engaged or challenged",
+          "Moderately low",
+          "Challenged",
+          "Highly challenged",
+          "Engaged and competent but not challenged",
+          "Full")
+```
+
+```{r, rq2-0-null-i, cache = FALSE, eval = TRUE}
+m1 <- lmer(profile_1_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m2 <- lmer(profile_2_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m3 <- lmer(profile_3_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m4 <- lmer(profile_4_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m5 <- lmer(profile_5_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m6 <- lmer(profile_6_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m7 <- lmer(profile_7_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+```
+
+```{r, rq2-1-all-vars-com-keep-i, cache = FALSE}
+m1a <- lmer(profile_1_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2a <- lmer(profile_2_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3a <- lmer(profile_3_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4a <- lmer(profile_4_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5a <- lmer(profile_5_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6a <- lmer(profile_6_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m7a <- lmer(profile_7_p ~ 1 +
+              # gender_female +
+              # urm + 
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq2-2-composite-keep-i, cache = FALSE}
+m1b <- lmer(profile_1_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2b <- lmer(profile_2_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3b <- lmer(profile_3_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4b <- lmer(profile_4_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5b <- lmer(profile_5_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6b <- lmer(profile_6_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m7b <- lmer(profile_7_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq2-2-composite-keep-2-i, cache = FALSE}
+m1bi <- lmer(profile_1_p ~ 1 +
+               dm_composite_di +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m2bi <- lmer(profile_2_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m3bi <- lmer(profile_3_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m4bi <- lmer(profile_4_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m5bi <- lmer(profile_5_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m6bi <- lmer(profile_6_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m7bi <- lmer(profile_7_p ~ 1 +
+               dm_composite_di +
+               # gender_female +
+               # urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+```
+
+```{r, rq3-2-all-vars-sep-interaction-keep-i, eval = TRUE}
+m1c <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2c <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3c <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4c <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5c <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6c <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m7c <- lmer(profile_7_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq3-2-all-vars-com-keep-i, eval = TRUE}
+m1d <- lmer(profile_1_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2d <- lmer(profile_2_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3d <- lmer(profile_3_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4d <- lmer(profile_4_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5d <- lmer(profile_5_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6d <- lmer(profile_6_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m7d <- lmer(profile_7_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+```{r, rq3-2-all-vars-sep-keep-i, eval = TRUE}
+m1di <- lmer(profile_1_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m2di <- lmer(profile_2_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m3di <- lmer(profile_3_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m4di <- lmer(profile_4_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m5di <- lmer(profile_5_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m6di <- lmer(profile_6_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+
+m7di <- lmer(profile_7_p ~ 1 +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest +
+               gender_female +
+               urm + 
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
+```
+
+```{r, rq3-2-all-vars-interaction-inq-keep-i, eval = TRUE}
+m1e <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2e <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3e <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4e <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5e <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6e <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m7e <- lmer(profile_7_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
+
+<!-- # Models start running here -->
+
+```{r, rq2-1-tab-i, eval = TRUE}
+l <- list(m1a, m2a, m3a, m4a, m5a, m6a, m7a)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/rq2-1-tab-i.rds")
+```
+
+```{r, rq2-1-tab-pres-i}
+o <- read_rds("data/rq2-1-tab-i.rds")
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for instructional support for work with data as separate variables", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, just-composite-mod-i, eval = TRUE}
+l <- list(m1b, m2b, m3b, m4b, m5b, m6b, m7b)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/comp-l-i.rds")
+```
+
+```{r, just-composite-red-i, eval = TRUE}
+o <- read_rds("data/comp-l-i.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, just-composite-mod-2-i, eval = TRUE}
+l <- list(m1bi, m2bi, m3bi, m4bi, m5bi, m6bi, m7bi)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/comp-l-2-i.rds")
+```
+
+```{r, just-composite-red-2-i, eval = TRUE}
+o <- read_rds("data/comp-l-2-i.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite_di,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, md-block-for-rq4-i, eval = TRUE}
+l <- list(m1c, m2c, m3c, m4c, m5c, m6c, m7c)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/md-block-for-rq4-i")
+```
+
+```{r, reading-for-rq4-i, eval = TRUE}
+o <-read_rds("data/md-block-for-rq4-i")
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model =labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, pre-int-ind-i, eval = TRUE}
+l <- list(m1di, m2di, m3di, m4di, m5di, m6di, m7di)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-ind-interaction-i.rds")
+```
+
+```{r, pre-int-ind-present-i, eval = TRUE}
+o <- read_rds("data/pre-int-ind-interaction-i.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the aspects of work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, pre-int-i, eval = TRUE}
+l <- list(m1d, m2d, m3d, m4d, m5d, m6d, m7d)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-no-interaction-i.rds")
+```
+
+```{r, pre-int-int-present-i, eval = TRUE}
+o <- read_rds("data/pre-int-no-interaction-i.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the composite work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, pre-int-interactions-i, eval = TRUE}
+l <- list(m1e, m2e, m3e, m4e, m5e, m6e, m7e)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-interaction-i.rds")
+```
+
+```{r, pre-int-comp-i, eval = TRUE}
+o <- read_rds("data/pre-int-interaction-i.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:7)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         `overall_pre_interest:dm_composite`,
+         `dm_composite:gender_female`,
+         `dm_composite:urm`,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = labs) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
