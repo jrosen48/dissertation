@@ -928,7 +928,7 @@ o %>%
 
 ### Summary of findings for research question #2
 
-When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
+When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
 
 ## Results for Research Question #3
 
@@ -1396,7 +1396,7 @@ o %>%
 
 ### Summary of findings for research question #3
 
-When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
+When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
 ## Results for Research Question #4
 
@@ -1434,51 +1434,53 @@ readr::write_csv(d_proc, "qual-coding.csv")
 qual_sheets <- readr::read_csv("qual-coding.csv")
 ```
 
-This analysis resulted in themes organized around the following two themes. The first theme concerned measurement issues for instructional support for work with data. The second concerned affordances and constraints of summer STEM programs for work with data. Both are described in the remainder of this section. 
+To code the data, three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. This coding took around 75 hours of coding by the research assistants. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2-#3, establishing reliability among the coders was not carried out. The coders sought to document a) the characteristics of instructional support for work with data and b) other aspects of the instructional context that impacts student work with data.
 
-### Measurement issues for instructional support for work with data
+Note that while the first of the two aspects focuses on the support provided by the instructor, the second aspect focuses on how students engage in work with data in ways that on occasion diverge (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the findings for research questions #2-#4 and, beyond these findings, to better understand the nature of work with data in summer STEM programs.
 
-This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2-4. 
-
-#### General measurement issues
-
-First, there were wide discrepancies between how instructional support for work with data was conceptualized and how it was measured via the STEM-PQA. For example...
-
-Some / many instances (20-30%) of codes not being aligned with coding frame. Some / many instances of work with data not leading to student work with data (20-30%). Not so many instances of students doing work with data when support was not provided (5-10%).
-
-These discrepancies led to
-
-#### Relations of work with data to engagement in work with data
-
-How instructional support for work with data was measured appear to have impacted the findings.
-
-For the relations that were statistically significant,
-
-For the relations that were not statistically significant,
-
-In summary,
+These themes presented as findings for this question can be considered as possible explanations for the findings for research questions #2 and #3. For these questions, little variability was found to exist at the momentary level, and the predictors at the momentary level (instructional support for work with data) and at the youth level (pre-interest, gender, and URM status) demonstrated modest relations with the profiles. These relations can be due to a variety of reasons, particularly 1) how the variables for the PECs and how instructional support for work with data is measured, and 2) how suitable of summer STEM programs for work with data. Accordingly, this analysis resulted in findings organized around the following two themes. The first theme concerned *affordances and constraints of summer STEM programs for work with data*. The second concerned *how  instructional support for work with data was measured*. Both are described in the remainder of this section. Another possible explanation related to whether PECs and the variables that make them up are appropriate outcomes, and how the PECS are measured, is an important question, but one that cannot readily be assessed from the video data that was analyzed; however, this topic is explored in the next chapter.
 
 ### Affordances and constraints of summer STEM programs for work with data
 
-This theme concerned how summer STEM program afforded and constrained work with data. Thus, different from the previous theme that was focused on a study-related issue, this theme concerns differences in the nature of the instruction and learning opportunities that learners experienced as part of their time in the summer stem programs.
+Summer STEM program have affordances and constraints work with data. Thus, different from the previous theme that was focused on a study-related issue, this theme concerns differences in the nature of the instruction and learning opportunities that learners experienced as part of their time in the summer stem programs.
 
 #### Affordances
 
 Affordances included the relevance of the program, the community setting, and field trip speakers. 
 
+For example, ...
+
+For example, ...
+
+For example, ...
+
 #### Constraints
 
 Constraints included the challenge of linking activities as a part of a complete cycle of investigation and an emphasis on outcomes other than the capacity to work with data.
 
-Youth activity leaders faced challenges linking activities as part of a complete cycle of investigation.
+Youth activity leaders faced challenges linking activities as part of a complete cycle of investigation. For example, ... One aspect of this concerned both creating and modeling data. For example, ... A related aspect concerned what the programs focused on. For example, the mathematics-focused programs emphasized measuring, while the science-focused programs emphasized making observations and communicating and interpreting findings. The engineering-focused programs emphasized using models, but often concrete models, rather than statistical models of data.
 
-One aspect of this concerned both creating and modeling data.
+Regarding emphasizing outcomes other than the capacity to work with data, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data ... Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities.
 
-A related aspect concerned what the programs focused on. For example, the mathematics-focused programs emphasized measuring, while the science-focused programs emphasized making observations and communicating and interpreting findings. The engineering-focused programs emphasized using models, but often concrete models, rather than statistical models of data.
+### How instructional support for work with data was measured
 
-First, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data. 
+This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2-#3. 
 
-Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities.
+#### General measurement issues
+
+First, the coding revealed discrepancies between how instructional support for work with data was conceptualized and how it was measured with the STEM-PQA measure. Approximately instances (20-30%) of codes were not being aligned with coding frame and about the same percentage (20-30%) were focused on teacher, rather than youth, work with data.
+
+A case is presented as an example. In a video associated with the XXX program, ... 
+
+As another example, ...
+
+#### Relations of work with data to engagement in work with data
+
+For the relations between generating data and modeling data and the profile for full engagement ...
+
+For example, ... 
+
+For the relations that were not statistically significant, there were ...
 
 ### Summary of Findings for Research Question #4
 

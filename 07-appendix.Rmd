@@ -946,7 +946,7 @@ m7e <- lmer(profile_7_p ~ 1 +
 
 <!-- # Models start running here -->
 
-```{r, rq2-1-tab-i, eval = TRUE}
+```{r, rq2-1-tab-i, eval = FALSE}
 l <- list(m1a, m2a, m3a, m4a, m5a, m6a, m7a)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/rq2-1-tab-i.rds")
@@ -971,7 +971,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, just-composite-mod-i, eval = TRUE}
+```{r, just-composite-mod-i, eval = FALSE}
 l <- list(m1b, m2b, m3b, m4b, m5b, m6b, m7b)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/comp-l-i.rds")
@@ -995,7 +995,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, just-composite-mod-2-i, eval = TRUE}
+```{r, just-composite-mod-2-i, eval = FALSE}
 l <- list(m1bi, m2bi, m3bi, m4bi, m5bi, m6bi, m7bi)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/comp-l-2-i.rds")
@@ -1019,7 +1019,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, md-block-for-rq4-i, eval = TRUE}
+```{r, md-block-for-rq4-i, eval = FALSE}
 l <- list(m1c, m2c, m3c, m4c, m5c, m6c, m7c)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/md-block-for-rq4-i")
@@ -1046,7 +1046,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, pre-int-ind-i, eval = TRUE}
+```{r, pre-int-ind-i, eval = FALSE}
 l <- list(m1di, m2di, m3di, m4di, m5di, m6di, m7di)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-ind-interaction-i.rds")
@@ -1073,7 +1073,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, pre-int-i, eval = TRUE}
+```{r, pre-int-i, eval = FALSE}
 l <- list(m1d, m2d, m3d, m4d, m5d, m6d, m7d)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-no-interaction-i.rds")
@@ -1100,7 +1100,7 @@ o %>%
   kableExtra::landscape()
 ```
 
-```{r, pre-int-interactions-i, eval = TRUE}
+```{r, pre-int-interactions-i, eval = FALSE}
 l <- list(m1e, m2e, m3e, m4e, m5e, m6e, m7e)
 o <- map_df(l, tidy_model)
 write_rds(o, "data/pre-int-interaction-i.rds")
