@@ -55,3 +55,10 @@ tidy_model <- function(model) {
   ddd <- cbind(dd, as.data.frame(t(icc_vals)))
   ddd
 }
+
+paste_stats <- function(stat, paren_statement) {
+  if (paren_statement < .001) {
+    stringr::str_c(stat, " (< .001)")
+  }
+  stringr::str_c(stat, " (", paren_statement, ")")
+}
