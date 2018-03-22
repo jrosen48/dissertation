@@ -18,6 +18,7 @@ system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 
 # 5. convert tex to .docx
 # system("cd docs; pandoc rosenberg-dissertation_mod.tex --reference-docx=rosenberg-template.docx -s -o rosenberg-dissertation_mod.docx")
+rmarkdown::render_site(output_format = 'bookdown::word_document2', encoding = 'UTF-8')
 
 # 6. clean up
 source("0_clean-up.R")
