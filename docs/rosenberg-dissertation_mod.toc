@@ -73,28 +73,28 @@
 \contentsline {paragraph}{Engage students in complete cycles of investigation}{71}{section*.13}
 \contentsline {paragraph}{Support engagement in specific moments}{71}{section*.14}
 \contentsline {chapter}{\chapternumberline {6}References}{72}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Appendix}{81}{chapter.7}
-\contentsline {section}{\numberline {7.1}Appendix: STEM-PQA alignment}{81}{section.7.1}
-\contentsline {section}{\numberline {7.2}Appendix: Method additional materials}{81}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Statistical software developed}{81}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Appendix: Descriptive statistics additional materials}{82}{subsection.7.2.2}
+\contentsline {chapter}{\chapternumberline {7}Appendix}{82}{chapter.7}
+\contentsline {section}{\numberline {7.1}Appendix: STEM-PQA alignment}{82}{section.7.1}
+\contentsline {section}{\numberline {7.2}Appendix: Method additional materials}{82}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Statistical software developed}{82}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Appendix: Descriptive statistics additional materials}{83}{subsection.7.2.2}
 \contentsline {subsection}{\numberline {7.2.3}Appendix: Program descriptions}{83}{subsection.7.2.3}
-\contentsline {subsection}{\numberline {7.2.4}Appendix: Research Question \#1 additional materials}{85}{subsection.7.2.4}
-\contentsline {subsection}{\numberline {7.2.5}Model specifications details}{85}{subsection.7.2.5}
-\contentsline {subsubsection}{\numberline {7.2.5.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{86}{subsubsection.7.2.5.1}
-\contentsline {subsubsection}{\numberline {7.2.5.2}Varying means, equal variances, and equal covariances (model 2)}{86}{subsubsection.7.2.5.2}
-\contentsline {subsubsection}{\numberline {7.2.5.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{87}{subsubsection.7.2.5.3}
-\contentsline {subsubsection}{\numberline {7.2.5.4}Varying means, varying variances, and equal covariances (model 4)}{87}{subsubsection.7.2.5.4}
-\contentsline {subsubsection}{\numberline {7.2.5.5}Varying means, equal variances, and varying covariances (model 5)}{88}{subsubsection.7.2.5.5}
-\contentsline {subsubsection}{\numberline {7.2.5.6}Varying means, varying variances, and varying covariances (model 6)}{88}{subsubsection.7.2.5.6}
-\contentsline {subsection}{\numberline {7.2.6}Model 1 candidate solutions}{89}{subsection.7.2.6}
-\contentsline {subsubsection}{\numberline {7.2.6.1}Model: 1, Profiles: 3}{89}{subsubsection.7.2.6.1}
-\contentsline {subsubsection}{\numberline {7.2.6.2}Model: 1, Profiles: 4}{90}{subsubsection.7.2.6.2}
-\contentsline {subsubsection}{\numberline {7.2.6.3}Model: 1, Profiles: 5}{90}{subsubsection.7.2.6.3}
-\contentsline {subsubsection}{\numberline {7.2.6.4}Model: 1, Profiles: 6 (alternate)}{92}{subsubsection.7.2.6.4}
-\contentsline {subsubsection}{\numberline {7.2.6.5}Model: 1, Profiles: 7 (alternate)}{93}{subsubsection.7.2.6.5}
-\contentsline {subsection}{\numberline {7.2.7}Model 2 candidate solutions}{94}{subsection.7.2.7}
-\contentsline {subsubsection}{\numberline {7.2.7.1}Model: 2, Profiles: 3}{94}{subsubsection.7.2.7.1}
-\contentsline {subsubsection}{\numberline {7.2.7.2}Model: 2, Profiles: 4}{95}{subsubsection.7.2.7.2}
-\contentsline {subsubsection}{\numberline {7.2.7.3}Model: 2, Profiles: 5}{96}{subsubsection.7.2.7.3}
-\contentsline {section}{\numberline {7.3}Appendix: Models for research question \#2 and \#3 with the seven-profile solution}{97}{section.7.3}
+\contentsline {subsection}{\numberline {7.2.4}Appendix: Research Question \#1 additional materials}{86}{subsection.7.2.4}
+\contentsline {subsection}{\numberline {7.2.5}Model specifications details}{86}{subsection.7.2.5}
+\contentsline {subsubsection}{\numberline {7.2.5.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{87}{subsubsection.7.2.5.1}
+\contentsline {subsubsection}{\numberline {7.2.5.2}Varying means, equal variances, and equal covariances (model 2)}{87}{subsubsection.7.2.5.2}
+\contentsline {subsubsection}{\numberline {7.2.5.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{88}{subsubsection.7.2.5.3}
+\contentsline {subsubsection}{\numberline {7.2.5.4}Varying means, varying variances, and equal covariances (model 4)}{88}{subsubsection.7.2.5.4}
+\contentsline {subsubsection}{\numberline {7.2.5.5}Varying means, equal variances, and varying covariances (model 5)}{89}{subsubsection.7.2.5.5}
+\contentsline {subsubsection}{\numberline {7.2.5.6}Varying means, varying variances, and varying covariances (model 6)}{89}{subsubsection.7.2.5.6}
+\contentsline {subsection}{\numberline {7.2.6}Model 1 candidate solutions}{90}{subsection.7.2.6}
+\contentsline {subsubsection}{\numberline {7.2.6.1}Model: 1, Profiles: 3}{90}{subsubsection.7.2.6.1}
+\contentsline {subsubsection}{\numberline {7.2.6.2}Model: 1, Profiles: 4}{91}{subsubsection.7.2.6.2}
+\contentsline {subsubsection}{\numberline {7.2.6.3}Model: 1, Profiles: 5}{92}{subsubsection.7.2.6.3}
+\contentsline {subsubsection}{\numberline {7.2.6.4}Model: 1, Profiles: 6 (alternate)}{93}{subsubsection.7.2.6.4}
+\contentsline {subsubsection}{\numberline {7.2.6.5}Model: 1, Profiles: 7 (alternate)}{94}{subsubsection.7.2.6.5}
+\contentsline {subsection}{\numberline {7.2.7}Model 2 candidate solutions}{95}{subsection.7.2.7}
+\contentsline {subsubsection}{\numberline {7.2.7.1}Model: 2, Profiles: 3}{95}{subsubsection.7.2.7.1}
+\contentsline {subsubsection}{\numberline {7.2.7.2}Model: 2, Profiles: 4}{97}{subsubsection.7.2.7.2}
+\contentsline {subsubsection}{\numberline {7.2.7.3}Model: 2, Profiles: 5}{98}{subsubsection.7.2.7.3}
+\contentsline {section}{\numberline {7.3}Appendix: Models for research question \#2 and \#3 with the seven-profile solution}{99}{section.7.3}
