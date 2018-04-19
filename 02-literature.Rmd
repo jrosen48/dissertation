@@ -120,13 +120,9 @@ In addition, a pre-program measure of learners’ individual interest in STEM is
 
 ## Research Questions
 
-The four research questions are as follows:
+The five research questions are as follows:
 
-1. What profiles of engagement and its conditions (PECs) emerge from the participants’ responses?
-1. How do activity-level characteristics relate to each PEC?
-    1. How does instructional support for work with data, in general, relate to PEC?
-    1. How do the specific aspects of instructional support for work with data (i.e., asking questions or identifying problems, constructing measures, accounting for variability or uncertainty, and interpreting and communicating findings), and other activities that are not work with data, relate to each PEC?
-1. How do  youth-level characteristics relate to each PEC? 
-    1. How do these relations differ for work with data on its own?
-    1. How do these relations differ for work with data with support?
-1. What are the common characteristics of potentially adaptive PECs beyond the presence of the aspects of work with data and other activities or the characteristics of learners?
+1. What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
+2. What profiles of youth engagement and its conditions emerge from experiential data collected in these programs?
+3. How does youth engagement relate to data practices?
+4. How do youth characteristics relate to their engagement in summer STEM programs?

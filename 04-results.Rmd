@@ -258,7 +258,14 @@ data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Dat
 
 The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
-## Results for Research Question #2
+## Results for Research Question #1: What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
+
+
+
+
+
+
+
 
 This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail. Note that while the posterior probability was used as the outcome, there are two approaches to their use in subsequent analyses. One way is to only use the largest posterior probability, setting the other posterior probabilities to a value of zero; in this way, the uncertainty in the profile assignment is accounted for, but partial assignment to other profiles is not considered in their use in subsequent models. The other way is to use the posterior probabilities for all of the subsequent models. In this analysis, the latter option is used: posterior probabilities are used as-is (i.e., none are assigned to zero), though the former approach was used and was found to yield comparable results.
 
@@ -526,7 +533,7 @@ For each solution, alternate solutions associated with higher log-likelihoods we
 
 As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
 
-## Research Question #2: Relations Between Instructional Support for Work With Data and the PECs
+## Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in these programs?
 
 Broadly, this question is focused on how instructional support for work with data, as coded from video-recordings of the programs, relates to the PECs. For the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used. For the outcome (*y* variable), the probability of a response belonging to the profile is used; thus, there are six models, for each of the six profiles, for each specification of the predictor (*x*) variables. 
 
@@ -923,7 +930,7 @@ o %>%
 
 When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
 
-## Results for Research Question #3
+## Results for Research Question #3: How does youth engagement relate to data practices?
 
 Research question #3 is focused on how the relationships of instructional support for work with data differ on the basis of pre-program interest and other youth characteristics. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the individual aspects and composite of work with data are added and then models with the interaction between these characteristics and the composite.
 
@@ -1391,9 +1398,10 @@ o %>%
 
 When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3
 
-## Results for Research Question #4
+## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
-```{r, loading-spreadsheets, eval = FALSE}
+```{r, loading-spreadsheets, eval = FALSE}65ewas c
+
 library(googlesheets)
 library(dplyr)
 
