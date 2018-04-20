@@ -1,3 +1,20 @@
+# Results - 2
+
+```{r, setup-results-fix, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      collapse = TRUE,
+                      error = TRUE,
+                      fig.width = 6,
+                      fig.asp = .618,
+                      out.width = "80%", 
+                      fig.align = "center", 
+                      results = "hold",
+                      knitr.kable.na = '') 
+
+```
+
 ## Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in these programs?
 
 Broadly, this question is focused on how instructional support for work with data, as coded from video-recordings of the programs, relates to the PECs. For the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used. For the outcome (*y* variable), the probability of a response belonging to the profile is used; thus, there are six models, for each of the six profiles, for each specification of the predictor (*x*) variables.
