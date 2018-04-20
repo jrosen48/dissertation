@@ -1,6 +1,6 @@
-# Results - 4
+# Results for Research Question #4
 
-```{r, setup-results-fix, include=FALSE}
+```{r, setup-results-4, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
@@ -17,71 +17,468 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
-```{r, loading-spreadsheets, eval = FALSE}
+Research question #3 is focused on how the relationships of instructional support for work with data differ on the basis of pre-program interest and other youth characteristics. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the individual aspects and composite of work with data are added and then models with the interaction between these characteristics and the composite.
 
-library(googlesheets)
-library(dplyr)
+```{r, rq3-2-all-vars-sep-interaction-keep, eval = TRUE}
+m1c <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-g1 <- gs_title("USE THIS! New Coding Frame - KMS")
-g2 <- gs_title("USE THIS! New Coding Frame - HM")
-g3 <- gs_title("USE THIS! New Coding Frame - KS")
+m2c <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-d1 <- gs_read(g1, ws = 1)
-d2 <- gs_read(g2, ws = 1)
-d3 <- gs_read(g3, ws = 1)
+m3c <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-d1 <- dplyr::select(d1, program_name, response_date, signal_number, KMS_qual = `Qualitative Coding`)
-d2 <- dplyr::select(d2, program_name, response_date, signal_number, HM_qual = `Qualitative Coding`)
-d3 <- rename(d3, KLS_qual = `Qualitative Coding`)
+m4c <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-d3 <- d3 %>%
-  left_join(d2) %>%
-  left_join(d1)
+m5c <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-d_proc <- d3 %>%
-  select(everything(), contains("qual"), -`Josh notes`, -Initials)
-
-# d1i <- dplyr::pull(d1, `Qualitative Coding`)[!d1_na]
-# d2i <- dplyr::pull(d2, `Qualitative Coding`)[!d2_na]
-# d3i <- dplyr::pull(d3, `Qualitative Coding`)[!d3_na]
-
-readr::write_csv(d_proc, "qual-coding.csv")
+m6c <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 ```
 
-```{r, read-proc-sheet, eval = F}
-qual_sheets <- readr::read_csv("qual-coding.csv")
+```{r, rq3-2-all-vars-com-keep, eval = TRUE}
+m1d <- lmer(profile_1_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2d <- lmer(profile_2_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3d <- lmer(profile_3_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4d <- lmer(profile_4_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5d <- lmer(profile_5_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6d <- lmer(profile_6_p ~ 1 +
+              dm_composite + 
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 ```
 
-To code the data, three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. This coding took around 75 hours of coding by the research assistants. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2 and #3, establishing reliability among the coders was not carried out. The coders sought to document a) the characteristics of instructional support for work with data and b) other aspects of the instructional context that impacts student work with data.
+```{r, rq3-2-all-vars-sep-keep, eval = TRUE}
+m1di <- lmer(profile_1_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Note that while the first of the two aspects focuses on the support provided by the instructor, the second aspect focuses on how students engage in work with data in ways that on occasion diverge (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the findings for research questions #2-#4 and, beyond these findings, to better understand the nature of work with data in summer STEM programs.
+m2di <- lmer(profile_2_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-### Affordances and constraints of summer STEM programs for work with data
+m3di <- lmer(profile_3_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Summer STEM program have affordances and constraints work with data. Thus, different from the previous theme that was focused on a study-related issue, this theme concerns differences in the nature of the instruction and learning opportunities that learners experienced as part of their time in the summer STME programs.
+m4di <- lmer(profile_4_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-#### Affordances
+m5di <- lmer(profile_5_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Affordances included the community setting and the relevance of the program to youth's lives.
+m6di <- lmer(profile_6_p ~ 1 +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest +
+              gender_female +
+              urm + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
 
-For example, in the *Marine Investigators*, youth participated in activities designed to help them understand water quality in their ecosystem. Youth collected trash from sites around their community (in different "districts") and then brought the trash and recyclable plastic back to the classroom. Then, the youth activity leaders asked students to figure out how much plastic enters local waterways. As a part of this activity, youth activity leaders asked students not only to determine the quantity of trash that entered the waterways, but asked students about *why* they used math in particular ways (i.e., adding the quantity of trash collected and then extrapolating from this quantity to the amount from across the entire city over the course of the year). This appeared to be a powerful activity, one that was coded as involving all five aspects of work with data according to the measures for instructional support for work with data; this type of activity seemed to suggest that instructional support for work with data may impact youth's engagement.
+```{r, rq3-2-all-vars-interaction-inq-keep, eval = TRUE}
+m1e <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Another affordance concerned the relevance of the program to youth's lives. For example, in the *Building Mania* program, youth are involved in engineering design (i.e., identifying a problem and designing a solution), particularly around the use of simple machines. In a day in the classroom setting, youth are creating, testing, and revising catapults. In the next day, youth visit an area University, and are led in a discussion by a physicist who works with particle colliders. In this example, the expertise of the physicist, who explicitly mentions the benefits of engaging in the engineering design process and the importance of combining engineering to addressing problems (such as mitigating the damage of earthquakes), seems to be highly relevant to what youth are doing in their class. In these two days of class, youth are engaged in different aspects of work with data as indicated by the codes for instructional support for work with data (collecting data on the efficacy of their designs in the classroom day, and asking questions in the subsequent day, particularly); these seem to suggest, like the example of work work with data from the *Marine Investigators* program, affordances of work with data for summer STEM programs.
+m2e <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-#### Constraints
+m3e <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Constraints included the challenge of linking activities as a part of a complete cycle of investigation and an emphasis on different aspects of work with data as part of programming.
+m4e <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-Youth activity leaders faced challenges linking activities as part of a complete cycle of investigation. For example, in the *Ecosphere* program, youth collected water samples in the field. They then brought these samples to the classroom and tested the water, involving students in both collecting and, to a degree, generating data (by noting the pH levels of the water). However, later in the day, youth created a small-scale model (with inclined trays of dirt, rocks, and plants) of an ecosystem, in which they added food coloring to determine the impacts of chemicals and acid rain. Youth then interpreted and discussed these findings, but did not connect the discussion to the water samples youth collected and tested earlier. This activity presented an opportunity for deeper engagement, in which youth could interpret and communicate findings related to the state of the water in their ecosystem, but, instead, it was potentially limiting in terms of youth's engagement in work with data.
+m5e <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 
-A theme related to the challenge of linking activities concerned what the programs focused on. For example, the mathematics-focused programs, such as the *Adventures in Mathematics* program, the youth activity leaders recognizing that youth had difficulty solving equations, used duct tape and a "hippity hoppity", building on an earlier activity in which youth considered what constituted a rate, on how many "hops" it would take someone to move from one end of the line of duct tape to the other; the youth activity leader than asked youth to consider how far they could move in one hop and to consider how they could find out many hops it would take, using a mathematical equation. In this activity, youth were supported to approach mathematics problem-solving in creative ways. However, apart from data modeling, other aspects of work with data were rarely present, and most of the data that youth worked with was provided by the teacher or considered in the abstract. Programs focused on science or engineering, similarly, emphasized other aspects of work with data: The science-focused programs (*Island Explorers*, *The Ecosphere*, and *Marine Investigators*) all emphasized collecting and generating data, but data, particularly the data collected or generated, was rarely modeled or interpreted. In the engineering-focused programs (*Uptown Architecture*, *Crazy Machines*, and *Dorchester House*, youth often collected data that resulted from their engineering designs, and communicated and interpreted their findings, but, did not generate data, and, accordingly, (and like the science-focused programs) did not model data as a regular part of their activities. This finding suggests that while work with data may have been common overall, different aspects of instructional support for work with data were emphasized to different degrees based on the focus of the program.
+m6e <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest*dm_composite + 
+              gender_female*dm_composite +
+              urm*dm_composite + 
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+```
 
-<!-- A final constraint Regarding emphasizing outcomes other than the capacity to work with data, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data ... Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities. -->
+### Models with pre interest, gender, and under-represented minority (URM) status
 
-### How instructional support for work with data was measured
+These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile (*B* = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in r-squared values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the PECs. Thai is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level) This is discussed further in the next chapter.
 
-This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2 and #3. As an example, in a video associated with a mathematics-focused activity in the Comunidad de Aprendizaje program, a youth activity leader is discussing with youth opportunities for them to market products that they developed to sell in their communities and highlighting the expense of creating the product, its sale price, and its potential process. In this example, observing data is coded, but this aspect of instructional support for work with data does not appear to be present. Considering the STEM-PQA code on which the code for making observations is based, this difference is possibly due to a distinction in what both codes are focused on. The STEM-PQA code is for *classifying or abstracting*, and its operationalization emphasizes staff supporting youth in linking concrete examples to principles, categories, or formulas. The conceptual definition of *making observations*, though, emphasizes watching and noticing what is happening with respect to the phenomena being investigated. In this case, the application of the STEM-PQA code was sensible, as the youth activity leader was connecting the products youth created to mathematical ideas (formulas) for how much they could expect to earn from the sale of their products; in terms of work with data, however, youth were not observing or noticing phenomena. This suggests that differences in how work with data was conceptualized and operationalized may lead, in some cases, to codes that do not reflect work with data accurately, and can lead to some findings that seem unexpected given what we know about the potential for work with data to be engaging to youth.
+```{r-r2-3, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
 
-### Summary of Findings for Research Question #4
+MuMIn::r.squaredGLMM(m1c) # .112
+MuMIn::r.squaredGLMM(m2c) # .302
+MuMIn::r.squaredGLMM(m3c) # .328
+MuMIn::r.squaredGLMM(m4c) # .112
+MuMIn::r.squaredGLMM(m5c) # .275
+MuMIn::r.squaredGLMM(m6c) # .487
+```
 
-These findings focused on the affordances and constrained of work with data in summer STEM programs and how instructional support for work with data was measured. Broadly, the qualitative analysis suggested possible explanations for the findings for research questions #2 and #3. For these questions, little variability was found to exist at the momentary level, and the predictors at the momentary level (instructional support for work with data) and at the youth level (pre-interest, gender, and URM status) demonstrated modest relations with the profiles. These relations can be due to a variety of reasons, particularly 1) how the variables for the PECs and how instructional support for work with data is measured, and 2) how suitable of summer STEM programs for work with data. Accordingly, this analysis resulted in findings organized around the following two themes. The first theme concerned *affordances and constraints of summer STEM programs for work with data*. The second concerned *howinstructional support for work with data was measured*. Both are described in the remainder of this section. Another possible explanation related to whether PECs and the variables that make them up are appropriate outcomes, and how the PECS are measured, is an important question, but one that cannot readily be assessed from the video data that was analyzed; however, this topic is explored in the next chapter.
+```{r, md-block-for-rq4, eval = FALSE}
+l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/md-block-for-rq4")
+```
+
+```{r, reading-for-rq4, eval = TRUE}
+o <-read_rds("data/md-block-for-rq4")
+
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+              overall_pre_interest,
+              gender_female,
+              urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+    mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+```{r, sensitivity-analysis-for-rq2a, eval = FALSE, cache = FALSE}
+konfound::konfound(m3c, overall_pre_interest)
+konfound::konfound(m2c, gender_female)
+```
+
+### Models with pre interest, gender, and URM status and the aspects of work with data
+
+These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics, pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .051). Generating data (*B* = 0.027 (0.015), p = .033) and modeling data (*B* = 0.034 (0.017), p = .020) were both related to the *full* profile to a similar extent and with similar robustness as found in the separate models. Compared to the null models, the r-squared values changed from .001 to .029, suggesting small improvements from the additions of the individual characteristics and the codes for the aspects of work with data.
+
+```{r-r2-2i, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1di) # .119
+MuMIn::r.squaredGLMM(m2di) # .307
+MuMIn::r.squaredGLMM(m3di) # .328
+MuMIn::r.squaredGLMM(m4di) # .100
+MuMIn::r.squaredGLMM(m5di) # .276
+MuMIn::r.squaredGLMM(m6di) # .511
+```
+
+```{r, pre-int-ind, eval = FALSE}
+l <- list(m1di, m2di, m3di, m4di, m5di, m6di)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-ind-interaction.rds")
+```
+
+```{r, pre-int-ind-present, eval = TRUE}
+o <- read_rds("data/pre-int-ind-interaction.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the aspects of work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+### Models with pre-interest, gender, and URM status and work with data composite
+
+Like for the individual aspects, these models with the composite for work with data instead of the individual aspects. These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .052). The composite was significantly related to the *only behavioral* profile (*B* = 0.007 (0.004), p = .027) to a similar extent and with similar robustness as found in the separate model. Compared to the null models, the r-squared values changed from .008 to .026, once again suggesting small improvements from the additions of the individual characteristics and the composite for the aspects of work with data.
+
+```{r-r2-2iii, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1d) # .118
+MuMIn::r.squaredGLMM(m2d) # .307
+MuMIn::r.squaredGLMM(m3d) # .327
+MuMIn::r.squaredGLMM(m4d) # .099
+MuMIn::r.squaredGLMM(m5d) # .276
+MuMIn::r.squaredGLMM(m6d) # .508
+```
+
+```{r, pre-int, eval = FALSE}
+l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-no-interaction.rds")
+```
+
+```{r, sensitivity-analysis-for-rq2b, eval = FALSE, cache = FALSE}
+konfound::konfound(m3d, overall_pre_interest)
+```
+
+```{r, pre-int-int-present, eval = TRUE}
+o <- read_rds("data/pre-int-no-interaction.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the composite work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+### Models with interactions between pre interest, gender, and URM status and work with data composite
+
+These results show similar patterns to the earlier models.Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.033 (0.018), p = .033). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.064 (0.041), p = .059). With the interactions added, the composite was no significantly related to the *only behavioral* profile (*B* = 0.016 (0.016), p = .156) to a similar extent and with similar robustness as found in the separate model. One interaction, between pre-interest and being female, had a significant effect upon the profile for *full* engagement (*B* = 0.012 (0.006), p = .026). However, only 1.953% of the effect would need to be due to bias to invalidate the inference. The r-squared values, relative to the models with only random effects (the null models), increased from .003 to .028, again suggesting small effects of the predictors upon the PECs.
+
+```{r-r2-2ii, eval = FALSE}
+MuMIn::r.squaredGLMM(m1) # .108
+MuMIn::r.squaredGLMM(m2) # .295
+MuMIn::r.squaredGLMM(m3) # .324
+MuMIn::r.squaredGLMM(m4) # .109
+MuMIn::r.squaredGLMM(m5) # .268
+MuMIn::r.squaredGLMM(m6) # .482
+
+MuMIn::r.squaredGLMM(m1e) # .118
+MuMIn::r.squaredGLMM(m2e) # .307
+MuMIn::r.squaredGLMM(m3e) # .327
+MuMIn::r.squaredGLMM(m4e) # .102
+MuMIn::r.squaredGLMM(m5e) # .276
+MuMIn::r.squaredGLMM(m6e) # .510
+```
+
+```{r, pre-int-interactions, eval = FALSE}
+l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/pre-int-interaction.rds")
+```
+
+```{r, sensitivity-analysis-for-rq2c, eval = FALSE, cache = FALSE}
+konfound::konfound(m6e, `dm_composite:gender_female`)
+```
+
+```{r, pre-int-comp, eval = TRUE}
+o <- read_rds("data/pre-int-interaction.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+o %>% 
+  select(model, 
+         intercept = `(Intercept)`,
+         dm_composite,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         `overall_pre_interest:dm_composite`,
+         `dm_composite:gender_female`,
+         `dm_composite:urm`,
+         beep_ID_ICC = beep_ID_ICC,
+         participant_ID_ICC,
+         program_ID_ICC) %>% 
+  mutate(model = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full")) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
+```
+
+### Summary of findings for research question #3
+
+When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3.

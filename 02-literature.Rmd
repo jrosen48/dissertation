@@ -123,6 +123,6 @@ In addition, a pre-program measure of learners’ individual interest in STEM is
 The four research questions are as follows:
 
 1. What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
-2. What profiles of youth engagement and its conditions emerge from experiential data collected in these programs?
-3. How does youth engagement relate to data practices?
-4. How do youth characteristics relate to their engagement in summer STEM programs?
+2. What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
+3. How do data practices relate to youth engagement in the programs?
+4. How do youth characteristics relate to their engagement?

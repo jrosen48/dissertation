@@ -1,6 +1,6 @@
-# Results - 3
+# Results for Research Question #3
 
-```{r, setup-results-fix, include=FALSE}
+```{r, setup-results-3, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
@@ -15,251 +15,264 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ```
 
-## Results for Research Question #3
+## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
 
-Research question #3 is focused on how the relationships of instructional support for work with data differ on the basis of pre-program interest and other youth characteristics. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the individual aspects and composite of work with data are added and then models with the interaction between these characteristics and the composite.
+Broadly, this question is focused on how instructional support for work with data, as coded from video-recordings of the programs, relates to the PECs. For the primary results for this question, linear models that account for the cross-classification of the moment and youth are used and for the "nesting" of both within each of the nine programs are used. For the outcome (*y* variable), the probability of a response belonging to the profile is used; thus, there are six models, for each of the six profiles, for each specification of the predictor (*x*) variables.
 
-```{r, rq3-2-all-vars-sep-interaction-keep, eval = TRUE}
-m1c <- lmer(profile_1_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+Null models showing the proportion of variance (via the intra-class correlation) are interpreted. The more detailed results (in a table) are presented in the appendix. These are followed by the interpretation of findings related to a more variable-centered approach, namely, correlations between individual aspects of work with data and the composite and the profiles (and the variables that make them up) and individual interest. Finally, results of mixed effects models with the work with data variables added separate and then with the composite for instructional support for work with data are interpreted and presented.
+
+```{r}
+df <- read_csv("data/for-seven-profiles.csv")
+cc <- df %>% select(dm_cog_eng:dm_competence) %>% complete.cases()
+C <- select(m1_6, C)
+
+C_p_m <- select(m1_6, CPROB1:CPROB6) %>%
+  apply(MARGIN = 1, FUN = max)
+
+C_p <- select(m1_6, CPROB1:CPROB6)
+
+df_ss <- df[cc, ]
+
+df_ss <- bind_cols(df_ss, C_p)
+df_ss$profile <- C
+df_ss$profile_p <- C_p_m
+
+d <- df_ss %>% select(contains("dm"), participant_ID, program_ID, beep_ID = beep_ID_new, profile, profile_p, overall_pre_interest, youth_activity_rc, inquiry_based, inquiry_based_three, classroom_versus_field_enrichment, gender_female, urm, contains("cprob"), dm_composite_di)
+
+d <- d %>%
+  mutate(
+    profile_1 = ifelse(profile == 1, 1, 0),
+    profile_2 = ifelse(profile == 2, 1, 0),
+    profile_3 = ifelse(profile == 3, 1, 0),
+    profile_4 = ifelse(profile == 4, 1, 0),
+    profile_5 = ifelse(profile == 5, 1, 0),
+    profile_6 = ifelse(profile == 6, 1, 0),
+    profile_1_p = CPROB1,
+    profile_2_p = CPROB2,
+    profile_3_p = CPROB3,
+    profile_4_p = CPROB4,
+    profile_5_p = CPROB5,
+    profile_6_p = CPROB6
+  )
+```
+
+```{r, rq2-0-null, cache = FALSE, eval = TRUE}
+m1 <- lmer(profile_1_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m2 <- lmer(profile_2_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m3 <- lmer(profile_3_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m4 <- lmer(profile_4_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m5 <- lmer(profile_5_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+
+m6 <- lmer(profile_6_p ~ 1 +
+             (1 | participant_ID) +
+             (1 | beep_ID) +
+             (1 | program_ID),
+           data = d)
+```
+
+```{r, rq2-1-all-vars-com-keep, cache = FALSE}
+m1a <- lmer(profile_1_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m2c <- lmer(profile_2_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m2a <- lmer(profile_2_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m3c <- lmer(profile_3_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m3a <- lmer(profile_3_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m4c <- lmer(profile_4_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m4a <- lmer(profile_4_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m5c <- lmer(profile_5_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m5a <- lmer(profile_5_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m6c <- lmer(profile_6_p ~ 1 +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m6a <- lmer(profile_6_p ~ 1 +
+              # gender_female +
+              # urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 ```
 
-```{r, rq3-2-all-vars-com-keep, eval = TRUE}
-m1d <- lmer(profile_1_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+```{r, rq2-2-composite-keep, cache = FALSE}
+m1b <- lmer(profile_1_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m2d <- lmer(profile_2_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m2b <- lmer(profile_2_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m3d <- lmer(profile_3_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m3b <- lmer(profile_3_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m4d <- lmer(profile_4_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m4b <- lmer(profile_4_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m5d <- lmer(profile_5_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m5b <- lmer(profile_5_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m6d <- lmer(profile_6_p ~ 1 +
-              dm_composite + 
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m6b <- lmer(profile_6_p ~ 1 +
+              dm_composite +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 ```
 
-```{r, rq3-2-all-vars-sep-keep, eval = TRUE}
-m1di <- lmer(profile_1_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+```{r, rq2-2-composite-keep-2, cache = FALSE}
+m1bi <- lmer(profile_1_p ~ 1 +
+              dm_composite_di +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m2di <- lmer(profile_2_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m2bi <- lmer(profile_2_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m3di <- lmer(profile_3_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m3bi <- lmer(profile_3_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m4di <- lmer(profile_4_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m4bi <- lmer(profile_4_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m5di <- lmer(profile_5_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m5bi <- lmer(profile_5_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m6di <- lmer(profile_6_p ~ 1 +
-              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-              overall_pre_interest +
-              gender_female +
-              urm + 
+m6bi <- lmer(profile_6_p ~ 1 +
+              dm_composite_di +
+              # gender_female +
+              # urm +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 ```
 
-```{r, rq3-2-all-vars-interaction-inq-keep, eval = TRUE}
-m1e <- lmer(profile_1_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+### Null models
 
-m2e <- lmer(profile_2_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability that is able to be explained. In turn, this suggests that these variables, including those for instructional support for work with data, may not have strong effects in terms of their relations with the PECs.
 
-m3e <- lmer(profile_3_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted.
 
-m4e <- lmer(profile_4_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+### Models with variables for aspects of instructional support for work with data added separately
 
-m5e <- lmer(profile_5_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile (*B* = 0.036 (0.016), *p* = .016) and between generating data and the full profile (*B* = 0.029 (0.015), *p* = .024).
 
-m6e <- lmer(profile_6_p ~ 1 +
-              overall_pre_interest*dm_composite + 
-              gender_female*dm_composite +
-              urm*dm_composite + 
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-```
+Adding these variables changed the (conditional upon the random effects) r-squared values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the PECs. This is in-line with the correlations for these variables with those variables that make up the profiles, and the ICC values at the momentary level.
 
-### Models with pre interest, gender, and under-represented minority (URM) status
-
-These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile (*B* = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in r-squared values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the PECs. Thai is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level) This is discussed further in the next chapter.
-
-```{r-r2-3, eval = FALSE}
+```{r-r2-1, eval = FALSE}
 MuMIn::r.squaredGLMM(m1) # .108
 MuMIn::r.squaredGLMM(m2) # .295
 MuMIn::r.squaredGLMM(m3) # .324
@@ -267,108 +280,61 @@ MuMIn::r.squaredGLMM(m4) # .109
 MuMIn::r.squaredGLMM(m5) # .268
 MuMIn::r.squaredGLMM(m6) # .482
 
-MuMIn::r.squaredGLMM(m1c) # .112
-MuMIn::r.squaredGLMM(m2c) # .302
-MuMIn::r.squaredGLMM(m3c) # .328
-MuMIn::r.squaredGLMM(m4c) # .112
-MuMIn::r.squaredGLMM(m5c) # .275
-MuMIn::r.squaredGLMM(m6c) # .487
+MuMIn::r.squaredGLMM(m1a) # .115
+MuMIn::r.squaredGLMM(m2a) # .300
+MuMIn::r.squaredGLMM(m3a) # .321
+MuMIn::r.squaredGLMM(m4a) # .101
+MuMIn::r.squaredGLMM(m5a) # .270
+MuMIn::r.squaredGLMM(m6a) # .50
 ```
 
-```{r, md-block-for-rq4, eval = FALSE}
-l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
+The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference. This effect, then, is less sensitive to possible sources of bias, but is still not highly robust.
+
+```{r, rq2-1-tab, eval = FALSE}
+l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
 o <- map_df(l, tidy_model)
-write_rds(o, "data/md-block-for-rq4")
+write_rds(o, "data/rq2-1-tab.rds")
 ```
 
-```{r, reading-for-rq4, eval = TRUE}
-o <-read_rds("data/md-block-for-rq4")
+```{r, rq2-1-tab-pres}
+o <- read_rds("data/rq2-1-tab.rds")
 
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
-o %>% 
-  select(model, 
-         intercept = `(Intercept)`,
-              overall_pre_interest,
-              gender_female,
-              urm,
-         beep_ID_ICC = beep_ID_ICC,
-         participant_ID_ICC,
-         program_ID_ICC) %>% 
-    mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-```{r, sensitivity-analysis-for-rq2a, eval = FALSE, cache = FALSE}
-konfound::konfound(m3c, overall_pre_interest)
-konfound::konfound(m2c, gender_female)
-```
-
-### Models with pre interest, gender, and URM status and the aspects of work with data
-
-These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics, pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .051). Generating data (*B* = 0.027 (0.015), p = .033) and modeling data (*B* = 0.034 (0.017), p = .020) were both related to the *full* profile to a similar extent and with similar robustness as found in the separate models. Compared to the null models, the r-squared values changed from .001 to .029, suggesting small improvements from the additions of the individual characteristics and the codes for the aspects of work with data.
-
-```{r-r2-2i, eval = FALSE}
-MuMIn::r.squaredGLMM(m1) # .108
-MuMIn::r.squaredGLMM(m2) # .295
-MuMIn::r.squaredGLMM(m3) # .324
-MuMIn::r.squaredGLMM(m4) # .109
-MuMIn::r.squaredGLMM(m5) # .268
-MuMIn::r.squaredGLMM(m6) # .482
-
-MuMIn::r.squaredGLMM(m1di) # .119
-MuMIn::r.squaredGLMM(m2di) # .307
-MuMIn::r.squaredGLMM(m3di) # .328
-MuMIn::r.squaredGLMM(m4di) # .100
-MuMIn::r.squaredGLMM(m5di) # .276
-MuMIn::r.squaredGLMM(m6di) # .511
-```
-
-```{r, pre-int-ind, eval = FALSE}
-l <- list(m1di, m2di, m3di, m4di, m5di, m6di)
-o <- map_df(l, tidy_model)
-write_rds(o, "data/pre-int-ind-interaction.rds")
-```
-
-```{r, pre-int-ind-present, eval = TRUE}
-o <- read_rds("data/pre-int-ind-interaction.rds")
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-o %>% 
-  select(model, 
+o %>%
+  select(model,
          intercept = `(Intercept)`,
          dm_ask, dm_obs, dm_gen, dm_mod, dm_com,
-         overall_pre_interest,
-         gender_female,
-         urm,
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
-         program_ID_ICC) %>% 
+         program_ID_ICC) %>%
   mutate(model = c("Only behavioral",
                    "Universally low",
                    "Engaged and competent but not challenged",
                    "Only affective",
                    "All moderate",
-                   "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the aspects of work with data", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+                   "Full")) %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for instructional support for work with data as separate variables", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
 
-### Models with pre-interest, gender, and URM status and work with data composite
+```{r, sensitivity-analysis-for-rq1, eval = FALSE, cache = FALSE}
+konfound::konfound(m6a, dm_gen)
+konfound::konfound(m6a, dm_mod)
+konfound::konfound(m6a, gender_female) # need to add
+```
 
-Like for the individual aspects, these models with the composite for work with data instead of the individual aspects. These results show very similar patterns to those observed in the models with pre-interest and the other individual characteristics and the models with the aspects of work with data separate. Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.039 (0.016), p = .009). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.06 (0.037), p = .052). The composite was significantly related to the *only behavioral* profile (*B* = 0.007 (0.004), p = .027) to a similar extent and with similar robustness as found in the separate model. Compared to the null models, the r-squared values changed from .008 to .026, once again suggesting small improvements from the additions of the individual characteristics and the composite for the aspects of work with data.
+### Models with the composite added
 
-```{r-r2-2iii, eval = FALSE}
+For the composite of work with data, the composite predicted the profile for *only behavioral* (*B* = 0.007 (0.004), *p* = .021), but not any of the other profiles. However, this coefficient is very small in practical terms, and 12.261% would need to be due to bias to invalidate the inference. The change in r-squared values ranged from .003 to .020, suggesting minimal potential relations among factors (such as support for work with data as measured by the composite variable) at the momentary level. When the composite was treated as a dichotomous (instead of a continuous) variable, so that the variable takes a value of one if any of the aspects of work with data are present, the results are similar in terms of the magnitude of the effects and their significance, as none of the relations are statistically significant when the dichotomous variable is used.
+
+```{r, sens-2, eval = FALSE, cache = FALSE}
+konfound(m1b, dm_composite)
+```
+
+```{r-r2-2, eval = FALSE}
 MuMIn::r.squaredGLMM(m1) # .108
 MuMIn::r.squaredGLMM(m2) # .295
 MuMIn::r.squaredGLMM(m3) # .324
@@ -376,109 +342,72 @@ MuMIn::r.squaredGLMM(m4) # .109
 MuMIn::r.squaredGLMM(m5) # .268
 MuMIn::r.squaredGLMM(m6) # .482
 
-MuMIn::r.squaredGLMM(m1d) # .118
-MuMIn::r.squaredGLMM(m2d) # .307
-MuMIn::r.squaredGLMM(m3d) # .327
-MuMIn::r.squaredGLMM(m4d) # .099
-MuMIn::r.squaredGLMM(m5d) # .276
-MuMIn::r.squaredGLMM(m6d) # .508
+MuMIn::r.squaredGLMM(m1b) # .113
+MuMIn::r.squaredGLMM(m2b) # .298
+MuMIn::r.squaredGLMM(m3b) # .320
+MuMIn::r.squaredGLMM(m4b) # .100
+MuMIn::r.squaredGLMM(m5b) # .269
+MuMIn::r.squaredGLMM(m6b) # .502
 ```
 
-```{r, pre-int, eval = FALSE}
-l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
+```{r, just-composite-mod, eval = FALSE}
+l <- list(m1b, m2b, m3b, m4b, m5b, m6b)
 o <- map_df(l, tidy_model)
-write_rds(o, "data/pre-int-no-interaction.rds")
+write_rds(o, "data/comp-l.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2b, eval = FALSE, cache = FALSE}
-konfound::konfound(m3d, overall_pre_interest)
-```
-
-```{r, pre-int-int-present, eval = TRUE}
-o <- read_rds("data/pre-int-no-interaction.rds")
+```{r, just-composite-red}
+o <- read_rds("data/comp-l.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
-o %>% 
-  select(model, 
+o %>%
+  select(model,
          intercept = `(Intercept)`,
          dm_composite,
-         overall_pre_interest,
-         gender_female,
-         urm,
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
-         program_ID_ICC) %>% 
+         program_ID_ICC) %>%
   mutate(model = c("Only behavioral",
                    "Universally low",
                    "Engaged and competent but not challenged",
                    "Only affective",
                    "All moderate",
-                   "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics and the composite work with data", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+                   "Full")) %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
 
-### Models with interactions between pre interest, gender, and URM status and work with data composite
-
-These results show similar patterns to the earlier models.Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile (*B* = 0.033 (0.018), p = .033). Being female is again related but not to a level that it meets the criteria for statistical significance (*B* = 0.064 (0.041), p = .059). With the interactions added, the composite was no significantly related to the *only behavioral* profile (*B* = 0.016 (0.016), p = .156) to a similar extent and with similar robustness as found in the separate model. One interaction, between pre-interest and being female, had a significant effect upon the profile for *full* engagement (*B* = 0.012 (0.006), p = .026). However, only 1.953% of the effect would need to be due to bias to invalidate the inference. The r-squared values, relative to the models with only random effects (the null models), increased from .003 to .028, again suggesting small effects of the predictors upon the PECs.
-
-```{r-r2-2ii, eval = FALSE}
-MuMIn::r.squaredGLMM(m1) # .108
-MuMIn::r.squaredGLMM(m2) # .295
-MuMIn::r.squaredGLMM(m3) # .324
-MuMIn::r.squaredGLMM(m4) # .109
-MuMIn::r.squaredGLMM(m5) # .268
-MuMIn::r.squaredGLMM(m6) # .482
-
-MuMIn::r.squaredGLMM(m1e) # .118
-MuMIn::r.squaredGLMM(m2e) # .307
-MuMIn::r.squaredGLMM(m3e) # .327
-MuMIn::r.squaredGLMM(m4e) # .102
-MuMIn::r.squaredGLMM(m5e) # .276
-MuMIn::r.squaredGLMM(m6e) # .510
-```
-
-```{r, pre-int-interactions, eval = FALSE}
-l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
+```{r, just-composite-mod-2, eval = FALSE}
+l <- list(m1bi, m2bi, m3bi, m4bi, m5bi, m6bi)
 o <- map_df(l, tidy_model)
-write_rds(o, "data/pre-int-interaction.rds")
+write_rds(o, "data/comp-l-2.rds")
 ```
 
-```{r, sensitivity-analysis-for-rq2c, eval = FALSE, cache = FALSE}
-konfound::konfound(m6e, `dm_composite:gender_female`)
-```
-
-```{r, pre-int-comp, eval = TRUE}
-o <- read_rds("data/pre-int-interaction.rds")
+```{r, just-composite-red-2, eval = FALSE}
+o <- read_rds("data/comp-l-2.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
-o %>% 
-  select(model, 
+o %>%
+  select(model,
          intercept = `(Intercept)`,
-         dm_composite,
-         overall_pre_interest,
-         gender_female,
-         urm,
-         `overall_pre_interest:dm_composite`,
-         `dm_composite:gender_female`,
-         `dm_composite:urm`,
+         dm_composite_di,
          beep_ID_ICC = beep_ID_ICC,
          participant_ID_ICC,
-         program_ID_ICC) %>% 
+         program_ID_ICC) %>%
   mutate(model = c("Only behavioral",
                    "Universally low",
                    "Engaged and competent but not challenged",
                    "Only affective",
                    "All moderate",
-                   "Full")) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+                   "Full")) %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
 
-### Summary of findings for research question #3
+### Summary of findings for research question #2
 
-When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3.
+When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
