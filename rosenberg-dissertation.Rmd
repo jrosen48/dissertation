@@ -632,537 +632,7 @@ data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Dat
 
 The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
-## Results for Research Question #1: What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
-
-This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail. Note that while the posterior probability was used as the outcome, there are two approaches to their use in subsequent analyses. One way is to only use the largest posterior probability, setting the other posterior probabilities to a value of zero; in this way, the uncertainty in the profile assignment is accounted for, but partial assignment to other profiles is not considered in their use in subsequent models. The other way is to use the posterior probabilities for all of the subsequent models. In this analysis, the latter option is used: posterior probabilities are used as-is (i.e., none are assigned to zero), though the former approach was used and was found to yield comparable results.
-
-### Exploration of a wide range of models a
-
-First, I examined a wide range of model types (i.e., the parameterization of the model) and the numbers of profiles. Note that six model types are able to be specified. These roughly became more complex, with additional parameters estimated, as the number for the model type increases from one to six.
-
-This step is taken to select candidate solutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen, 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time. 
-
-```{r, compare-solutions-overall-stats, eval = FALSE}
-d <- compare_solutions_mplus(df,  
-                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                             starts = c(600, 120),
-                             n_profiles_min = 2, 
-                             n_profiles_max = 10,
-                             return_stats_df = TRUE,
-                             return_table = TRUE,
-                             n_processors = 6, 
-                             save_models = TRUE,
-                             include_BLRT = TRUE)
-
-write_rds(d, "data/overall-stats-for-all-models.rds")
-```
-
-```{r, printing-solutions-overall-stats, eval = F}
-# d <- read_rds("data/overall-stats-for-all-models.rds")
-overall_stats_for_all_models[[1]] %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Overall statistics for all models", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-If the log-likelihood is not replicated, then the estimation completed one or more times, but because the same log-likelihood value (and parameter estimates) were not obtained, then the solution can be considered to be "under-identified", a term used to describe solutions that depend strongly upon minor fluctuations in the data (Asparouhov & Muthen, 2007). Accordingly, these solutions may not represent meaningful values and may not be replicable in light of very small changes to the data; these are not considered as candidate solutions for use in subsequent analyses. If no log-likelihood is obtained for any of the random starts, then the software returns an error; in these cases, the convergence criteria--values that determine when a solution has been obtained--are not met. This may be due to a large number of parameters that are estimated relative to the data, such that the number of iterations that the estimation is allowed to go through are not sufficient to obtain a solution (Asparouhov & Muthen, 2007). Like when the log-likelihood is not replicated, these solutions are not considered for use in subsequent analyses.
-
-For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analysis.
-
-### In-depth statistics for particular models
-
-After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented. 
-
-The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in the figures.
-
-In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
-
-```{r, reading-overall-stats}
-overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
-```
-
-```{r, printing-solutions-spec-stats, eval = TRUE}
-overall_stats_for_all_models[[2]] %>% 
-  arrange(model, n_profile) %>% 
-  select(-model, `Number of Profiles` = n_profile) %>% 
-  mutate(VLMR = paste_stats(VLMR_val, VLMR_p),
-         LMR = paste_stats(LMR_val, LMR_p),
-         BLRT = paste_stats(BLRT_val, BLRT_p)) %>% 
-  select(everything(), -VLMR_val, -VLMR_p, -LMR_val, -LMR_p, -BLRT_val, -BLRT_p) %>% 
-  knitr::kable(format = "latex", caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape() %>% 
-  kableExtra::group_rows("Model 1", 1, 7) %>% 
-  kableExtra::group_rows("Model 2", 8, 11)
-```
-
-```{r, model1, eval = T, cache = F, out.width = "50%", fig.cap = "Fit statistics for model 1 solutions"}
-overall_stats_for_all_models[[2]] %>% 
-  select(n_profile:CAIC, Entropy) %>% 
-  filter(model == 1) %>% 
-  mutate(AIC = AIC * -1,
-         LL = LL * -1) %>% 
-  gather(key, val, -n_profile, -model) %>% 
-  ggplot(aes(x = n_profile, y = val)) +
-  geom_point() +
-  geom_line() +
-  facet_grid(key ~ model, scales = "free") +
-  theme_bw() +
-  xlab("Number of Profiles") +
-  ylab(NULL)
-```
-
-```{r, model2, eval = T, cache = F, out.width = "40%", fig.cap = "Fit statistics for model 2 solutions"}
-
-overall_stats_for_all_models[[2]] %>% 
-  select(n_profile:CAIC, Entropy) %>% 
-  filter(model == 2) %>% 
-  mutate(AIC = AIC * -1,
-         LL = LL * -1) %>% 
-  gather(key, val, -n_profile, -model) %>% 
-  ggplot(aes(x = n_profile, y = val)) +
-  geom_point() +
-  geom_line() +
-  facet_grid(key ~ model, scales = "free") +
-  theme_bw() +
-  xlab("Number of Profiles") +
-  ylab(NULL)
-```
-
-Looking across the statistics presented, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
-
-For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
-
-For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decreased in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
-
-### Comparison of model 1 and model 2 type solutions
-
-When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In the table, which profiles emerge from which solution is presented.
-
-There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables. Moderate profiles, both all moderate (characterized by moderately high levels across all of the variables) and moderately low (characterized by low levels across all of the variables), also appeared commonly, particularly for the solutions for model 1.
-
-```{r, compare-profiles-by-solution}
-d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
-
-d[, -1] %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape() %>%
-  kableExtra::row_spec(0, angle = -60) %>% 
-  kableExtra::group_rows("Model 1", 1, 6) %>% 
-  kableExtra::group_rows("Model 2", 7, 9)
-```
-
-### Examination of specific candidate models 
-
-Following from the in-depth exploration of the candidate solutions, in this section, model solutions associated with specific model types and the number of profiles are investigated. In particular, the model one type, six profile, and model one type, seven profile solutions are described. Descriptions of other candidate solutions is included in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
-
-#### Model type: 1, Profiles: 6
-
-This solution is characterized by: 
-
-- A *full* profile, profile 6
-- An *universally low* profile, profile 2
-- An *all moderate* profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
-- An *only behaviorally engaged* profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- An *only affectively engaged* profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- An *engaged and competent but not challenged* profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
-
-The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667; the same number for this profile as in the model 1, five profile solution), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike the model 1, four and five profile solutions, which distinguished observations on *either* a condition of engagement (i.e., competence) or one of its dimensions (i.e., cognitive, behavioral, and affective), this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. This solution is compelling because it appears to group students on the basis of multiple of the indicators, and demonstrate viability on the basis of the fit statistics (i.e., the tables and figure). The log-likelihood was replicated two times, with the next lowest log-likelihood not being replicated, followed by a log-likelihood that was replicated (at least) seven times. This solution (associated with the log-likelihood that was replicated [at least] seven times) could be investigated in further detail, to see whether--and if so, how--it differs from the solution interpreted here. This solution is a strong candidate for use in subsequent analyses. 
-
-```{r, spec-solutions-m1_6, cache = FALSE, eval = FALSE, fig.width = 6, out.width = "100%"}
-m1_6 <- estimate_profiles_mplus(df,  
-                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                                starts = c(600, 120),
-                                model = 1,
-                                n_profiles = 6,
-                                include_BLRT=TRUE,
-                                n_processors = 6, remove_tmp_files = FALSE)
-write_rds(m1_6, "data/models/m1_6.rds")
-```
-
-```{r, m1_6p, cache = FALSE, eval = TRUE, fig.width = 7, fig.asp = .618, out.width = "95%", fig.align = "center"}
-m1_6 <- read_rds("data/models/m1_6.rds")
-
-p <- m1_6 %>% 
-  plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
-  scale_x_discrete("", labels = c("Only behavioral (n = 370)",
-                                  "Universally low (n = 667)",
-                                  "Engaged and competent but not challenged (n = 450)",
-                                  "Only affective (n = 345)",
-                                  "All moderate (n = 638)",
-                                  "Full (n = 488)")) +
-  xlab(NULL) +
-  ylab("Z-score") +
-  viridis::scale_fill_viridis("", 
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
-
-p
-
-m1_6 <- read_rds("data/models/m1_6.rds")
-
-p <- m1_6 %>% 
-  plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
-  scale_x_discrete("", labels = c("Only behavioral (n = 370)",
-                                  "Universally low (n = 667)",
-                                  "Engaged and competent but not challenged (n = 450)",
-                                  "Only affective (n = 345)",
-                                  "All moderate (n = 638)",
-                                  "Full (n = 488)")) +
-  xlab(NULL) +
-  ylab("Value") +
-  viridis::scale_fill_viridis("", 
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
-
-p
-```
-
-```{r, m1_6p-ll, eval = TRUE, cache = FALSE}
-extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
-```
-
-#### Model type: 1, Profiles: 7
-
-This solution is characterized by: 
-
-- A *full* profile, profile 7
-- A *universally low* profile, profile 1
-- A *competent but not engaged or challenged* profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
-- A *moderately low* profile, profile 3, characterized by moderately low levels of all of the variables
-- A *challenged* profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
-- A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
-- A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
-
-The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions. 
-
-```{r, spec-solutions-m1_7, cache = FALSE, eval = FALSE}
-m1_7 <- estimate_profiles_mplus(df,  
-                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
-                                starts = c(600, 120),
-                                model = 1,
-                                n_profiles = 7,
-                                include_BLRT=TRUE,
-                                n_processors = 6, remove_tmp_files = FALSE)
-write_rds(m1_7, "data/models/m1_7.rds")
-```
-
-```{r, m1_7p, cache = FALSE, eval = TRUE,  eval = FALSE, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
-m1_7 <- readr::read_rds("data/models/m1_7.rds")
-
-m1_7 %>% 
-  tidyLPA::plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
-  scale_x_discrete(labels = c("Universally low (n = 181)",
-                              "Competent but not engaged or challenged (n = 317)",
-                              "Moderately low (n = 651)",
-                              "Challenged (n = 569)",
-                              "Highly challenged (n = 222)",
-                              "Engaged and competent but not challenged (n = 568)",
-                              "Full (n = 450)")) +
-  xlab(NULL) +
-  ylab("Z-score") +
-  viridis::scale_fill_viridis("", 
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
-
-m1_7 <- readr::read_rds("data/models/m1_7.rds")
-
-m1_7 %>% 
-  tidyLPA::plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
-  scale_x_discrete(labels = c("Universally low (n = 181)",
-                              "Competent but not engaged or challenged (n = 317)",
-                              "Moderately low (n = 651)",
-                              "Challenged (n = 569)",
-                              "Highly challenged (n = 222)",
-                              "Engaged and competent but not challenged (n = 568)",
-                              "Full (n = 450)")) +
-  xlab(NULL) +
-  ylab("Value") +
-  viridis::scale_fill_viridis("", 
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
-```
-
-```{r, m1_7-ll, cache = FALSE, eval = FALSE}
-extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
-```
-
-#### Looking across model 1 and model 2 type solutions
-
-The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the solutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estimated for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
-
-For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred and is selected for use in subsequent analyses.
-
-As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
-
-<!--chapter:end:04-results.Rmd-->
-
-# Results
-
-In this section, results in terms of the research questions are presented.
-
-```{r, setup-results-fix, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      message = FALSE, 
-                      warning = FALSE, 
-                      collapse = TRUE,
-                      error = TRUE,
-                      fig.width = 6,
-                      fig.asp = .618,
-                      out.width = "80%", 
-                      fig.align = "center", 
-                      results = "hold",
-                      knitr.kable.na = '') 
-
-```
-
-```{r}
-options(knitr.kable.NA = '')
-```
-
-```{r, loading-packages}
-library(tidyverse)
-library(lme4)
-library(corrr)
-library(jmRtools)
-library(tidyLPA)
-library(kableExtra)
-library(sjPlot)
-library(broom)
-library(broom.mixed)
-library(konfound)
-source("helpers.R")
-```
-
-```{r, loading-data, eval = F}
-esm <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-esm.csv")
-pre_survey_data_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pre-survey.csv")
-post_survey_data_partially_processed <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-post-survey.csv")
-video <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-video.csv")
-pqa <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-pqa.csv")
-attendance <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-attendance.csv")
-class_data <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-class-video.csv")
-demographics <- read_csv("/Volumes/SCHMIDTLAB/PSE/data/STEM-IE/STEM-IE-demographics.csv")
-pm <- read_csv("/Volumes/SCHMIDTLAB/PSE/Data/STEM-IE/STEM-IE-program-match.csv")
-```
-
-```{r, loading-rdata}
-# save.image("~/desktop/sandbox-01.Rdata")
-load("~/desktop/sandbox-01.Rdata")
-```
-
-```{r, processing-attendance-demo-esm-data}
-attendance <- rename(attendance, participant_ID = ParticipantID)
-attendance <- mutate(attendance, prop_attend = DaysAttended / DaysScheduled, 
-                     participant_ID = as.integer(participant_ID))
-attendance <- select(attendance, participant_ID, prop_attend)
-
-demographics <- filter(demographics, participant_ID!= 7187)
-demographics <- left_join(demographics, attendance)
-
-esm$overall_engagement <- jmRtools::composite_mean_maker(esm, hard_working, concentrating, enjoy, interest)
-```
-
-```{r, joining-to-df}
-df <- left_join(esm, pre_survey_data_processed, by = "participant_ID") # df & post-survey
-df <- left_join(df, video, by = c("program_ID", "response_date", "sociedad_class", "signal_number")) # df & video
-df <- left_join(df, demographics, by = c("participant_ID", "program_ID")) # df and demographics
-```
-
-```{r, proc-beep-actvariables, echo = F}
-df$participant_ID <- as.factor(df$participant_ID)
-df$program_ID <- as.factor(df$program_ID)
-df$beep_ID <- as.factor(df$beep_ID)
-df$beep_ID_new <- as.factor(df$beep_ID_new)
-
-df$youth_activity_rc <- ifelse(df$youth_activity == "Off Task", "Not Focused", df$youth_activity)
-
-df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Student Presentation" | df$youth_activity_rc == "Problem Solving", "Creating Product", df$youth_activity_rc)
-
-df$youth_activity_rc <- ifelse(df$youth_activity_rc == "Showing Video", "Program Staff Led", df$youth_activity_rc)
-
-df$youth_activity_rc <- as.factor(df$youth_activity_rc)
-
-df$youth_activity_rc <- forcats::fct_relevel(df$youth_activity_rc, "Not Focused")
-
-df$relevance <- jmRtools::composite_mean_maker(df, use_outside, future_goals, important)
-```
-
-```{r proc-demographics}
-df$urm <- ifelse(df$race %in% c("White", "Asian"), 0, 1)
-df$race <- as.factor(df$race)
-df$race <- fct_lump(df$race, n = 2)
-df$race_other <- fct_relevel(df$race, "Other")
-df$gender_female <- as.factor(df$gender) # female is comparison_group
-df$gender_female <- ifelse(df$gender_female == "F", 1, 
-                           ifelse(df$gender_female == "M", 0, NA))
-```
-
-```{r, proc-pqa-data}
-pqa <- mutate(pqa, 
-              active = active_part_1 + active_part_2,
-              ho_thinking = ho_thinking_1 + ho_thinking_2 + ho_thinking_3,
-              belonging = belonging_1 + belonging_2,
-              agency = agency_1 + agency_2 + agency_3 + agency_4,
-              youth_development_overall = active_part_1 + active_part_2 + ho_thinking_1 + ho_thinking_2 + ho_thinking_3 + belonging_1 + belonging_2 + agency_1 + agency_2 + agency_3 + agency_4,
-              making_observations = stem_sb_8,
-              data_modeling = stem_sb_2 + stem_sb_3 + stem_sb_9,
-              interpreting_communicating = stem_sb_6,
-              generating_data = stem_sb_4,
-              asking_questions = stem_sb_1,
-              stem_sb = stem_sb_1 + stem_sb_2 + stem_sb_3 + stem_sb_4 + stem_sb_5 + stem_sb_6 + stem_sb_7 + stem_sb_8 + stem_sb_9)
-
-pqa$sociedad_class <- ifelse(pqa$eighth_math == 1, "8th Math",
-                             ifelse(pqa$seventh_math == 1, "7th Math",
-                                    ifelse(pqa$sixth_math == 1, "6th Math",
-                                           ifelse(pqa$robotics == 1, "Robotics",
-                                                  ifelse(pqa$dance == 1, "Dance", NA)))))
-
-pqa <- rename(pqa, 
-              program_ID = SiteIDNumeric,
-              response_date = resp_date,
-              signal_number = signal)
-
-pqa$program_ID <- as.character(pqa$program_ID)
-
-df <- left_join(df, pqa, by = c("response_date", "program_ID", "signal_number", "sociedad_class"))
-```
-
-```{r, proc-vars-for-modeling}
-df <- df %>% 
-  mutate(dm_cog_eng = learning,
-         dm_beh_eng = hard_working,
-         dm_aff_eng = enjoy,
-         dm_challenge = challenge,
-         dm_competence = good_at) %>% 
-  rename(ssb_predict = stem_sb_1,
-         ssb_model = stem_sb_2 ,
-         ssb_analyze = stem_sb_3,
-         ssb_measure = stem_sb_4,
-         ssb_tools = stem_sb_5,
-         ssb_precision = stem_sb_6,
-         ssb_vocabulary = stem_sb_7,
-         ssb_classification = stem_sb_8,
-         ssb_symbols = stem_sb_9) %>% 
-  mutate(dm_ask = ssb_predict,
-         dm_obs = ssb_classification,
-         dm_gen = ifelse(ssb_measure == 1 | ssb_precision == 1, 1, 0),
-         dm_mod = ssb_model,
-         dm_com = ifelse(ssb_symbols == 1 | ssb_analyze == 1, 1, 0)) %>% 
-  mutate(ov_cog_eng = (important + future_goals) / 2,
-         ov_beh_eng = (hard_working + concentrating) / 2,
-         ov_aff_eng = (enjoy + interest) / 2) %>% 
-  mutate(dm_composite = dm_ask + dm_obs + dm_gen + dm_mod + dm_com,
-         dm_composite_di = ifelse(dm_ask == 1 | dm_obs == 1 | dm_gen == 1 | dm_mod == 1 | dm_com == 1, 1, 0))
-
-df$dm_overall_eng <- composite_mean_maker(df, dm_cog_eng, dm_beh_eng, dm_aff_eng)
-
-df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" | youth_activity_rc == "Lab Activity", 1, 0),
-             inquiry_based_three = ifelse(youth_activity_rc == "Creating Product" | youth_activity_rc == "Lab Activity", "inquiry-based",
-                                          ifelse(youth_activity_rc == "Not Focused", "not-focused", "other"))) 
-```
-
-## Preliminary analysis
-
-### Descriptive statistics for study variables
-
-First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged between zero and five. 
-
-```{r}
-d_red <- df %>% 
-  group_by(participant_ID) %>% 
-  mutate(rownum = row_number()) %>% 
-  mutate(overall_pre_interest = ifelse(rownum == 1, overall_pre_interest, NA)) %>% 
-  ungroup() %>% 
-  select(-participant_ID)
-
-o <- d_red %>% 
-  select(overall_pre_interest, 
-         dm_cog_eng,
-         dm_beh_eng,
-         dm_aff_eng,
-         dm_challenge,
-         dm_competence,
-         dm_ask:dm_com, dm_composite) %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "", digits = 3) %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
-```
-
-### Correlations among study variables
-
-Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not related to the aspects of work with data to a large degree, which is not surprising given the small ICC values for the momentary level, as the aspects of work with data are associated with this level. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant.  The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
-
-```{r, rq2-1-corr-components, eval = T}
-d_red %>% 
-  select(dm_ask:dm_com, dm_cog_eng:dm_competence) %>%
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among study variables") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
-
-```{r, rq2-1-corr-p, eval = F}
-p_vals <- d %>% 
-  select(dm_ask:dm_com, dm_composite,
-         profile_1_p:profile_6_p,
-         overall_pre_interest) %>%
-  psych::corr.test() %>%
-  pluck(4) %>% 
-  round(3)
-```
-
-```{r, eval = FALSE}
-dfs %>% 
-  count(dm_ask) %>% 
-  filter(!is.na(dm_ask)) %>% 
-  mutate(prop = n / sum(n))
-
-dfs %>% 
-  count(dm_obs) %>% 
-  filter(!is.na(dm_obs)) %>% 
-  mutate(prop = n / sum(n))
-
-dfs %>% 
-  count(dm_gen) %>% 
-  filter(!is.na(dm_gen)) %>% 
-  mutate(prop = n / sum(n))
-
-dfs %>% 
-  count(dm_mod) %>% 
-  filter(!is.na(dm_mod)) %>% 
-  mutate(prop = n / sum(n))
-
-dfs %>% 
-  count(dm_com) %>% 
-  filter(!is.na(dm_com)) %>% 
-  mutate(prop = n / sum(n))
-
-dfs %>% 
-  count(dm_composite) %>% 
-  filter(!is.na(dm_com)) %>% 
-  mutate(prop = n / sum(n))
-```
-
-From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for instructional support for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for instructional support for work with data associated with these responses. 
-
-```{r}
-data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-           Proportion = c(.389, .258, .453, .288, .470)) %>% 
-    knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
-```
-
-## Statistical software developed
-
-The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
-
-<!--chapter:end:04.0-results-0.Rmd-->
+<!--chapter:end:04-results-0.Rmd-->
 
 # Results - 1
 
@@ -1449,7 +919,7 @@ For each solution, alternate solutions associated with higher log-likelihoods we
 
 As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
 
-<!--chapter:end:04.0-results-1.Rmd-->
+<!--chapter:end:05-results-1.Rmd-->
 
 # Results - 2
 
@@ -1865,7 +1335,7 @@ o %>%
 
 When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
 
-<!--chapter:end:04.1-results-2.RMD-->
+<!--chapter:end:06-results-2.RMD-->
 
 # Results - 3
 
@@ -2352,7 +1822,7 @@ o %>%
 
 When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3.
 
-<!--chapter:end:04.2-results-3.Rmd-->
+<!--chapter:end:07-results-3.Rmd-->
 
 # Results - 4
 
@@ -2442,7 +1912,7 @@ This theme concerned how instructional support was measured and how this impacte
 
 These findings focused on the affordances and constrained of work with data in summer STEM programs and how instructional support for work with data was measured. Broadly, the qualitative analysis suggested possible explanations for the findings for research questions #2 and #3. For these questions, little variability was found to exist at the momentary level, and the predictors at the momentary level (instructional support for work with data) and at the youth level (pre-interest, gender, and URM status) demonstrated modest relations with the profiles. These relations can be due to a variety of reasons, particularly 1) how the variables for the PECs and how instructional support for work with data is measured, and 2) how suitable of summer STEM programs for work with data. Accordingly, this analysis resulted in findings organized around the following two themes. The first theme concerned *affordances and constraints of summer STEM programs for work with data*. The second concerned *howinstructional support for work with data was measured*. Both are described in the remainder of this section. Another possible explanation related to whether PECs and the variables that make them up are appropriate outcomes, and how the PECS are measured, is an important question, but one that cannot readily be assessed from the video data that was analyzed; however, this topic is explored in the next chapter.
 
-<!--chapter:end:04.3-results-4.Rmd-->
+<!--chapter:end:08-results-4.Rmd-->
 
 # Discussion
 
@@ -2492,7 +1962,7 @@ Viewing engagement in work with data in terms of engagement can help us to build
 
 \newpage
 
-<!--chapter:end:05-discussion.Rmd-->
+<!--chapter:end:09-discussion.Rmd-->
 
 # References
 
@@ -2592,7 +2062,7 @@ Wilkerson, M. H. & Fenwick, M. (2017). The practice of using mathematics and com
 Witherington, D. C. (2015). Dynamic systems in developmental science. In W. F. Overton & P. C. M. Molenaar (Vol. Eds.) & R. M. Lerner (Ed.), Handbook of child psychology and developmental science. Vol. 1: Theory & method (7th ed., pp. 63-112). Hoboken, NJ: Wiley.  
 Wormington, S. V., & Linnenbrink-Garcia, L. (advance online publication). A new look at multiple goal pursuit: The promise of a person-centered approach. Educational Psychology Review. doi:10.1007/s10648-016-9358-2  
 
-<!--chapter:end:06-references.Rmd-->
+<!--chapter:end:10-references.Rmd-->
 
 # Appendix
 
@@ -3726,5 +3196,5 @@ o %>%
   kableExtra::landscape()
 ```
 
-<!--chapter:end:07-appendix.Rmd-->
+<!--chapter:end:11-appendix.Rmd-->
 
