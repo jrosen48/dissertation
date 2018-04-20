@@ -10,91 +10,75 @@
 \contentsline {section}{\numberline {2.6}Need for the Present Study}{17}{section.2.6}
 \contentsline {section}{\numberline {2.7}Conceptual Framework}{18}{section.2.7}
 \contentsline {section}{\numberline {2.8}Research Questions}{20}{section.2.8}
-\contentsline {chapter}{\chapternumberline {3}Method}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}Context}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Procedure}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}Data Sources and Measures}{25}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}ESM measures of learners' engagement and its conditions}{25}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Survey measures of pre-interest}{25}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Codes for instructional support for work with data from the video-recordings}{26}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Demographic variables}{26}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Data Analysis}{27}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Preliminary analyses}{27}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Analysis for Research Question \#1}{27}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Analysis for Research Question \#2}{29}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Analysis for Research Question \#3}{30}{subsection.3.4.4}
-\contentsline {subsection}{\numberline {3.4.5}Analysis for Research Question \#4}{31}{subsection.3.4.5}
-\contentsline {section}{\numberline {3.5}Power Analysis}{31}{section.3.5}
-\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{32}{section.3.6}
-\contentsline {section}{\numberline {3.7}Limitations}{32}{section.3.7}
-\contentsline {chapter}{\chapternumberline {4}Results}{34}{chapter.4}
-\contentsline {section}{\numberline {4.1}Preliminary analysis}{34}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for study variables}{34}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Correlations among study variables}{34}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Statistical software developed}{37}{section.4.2}
-\contentsline {section}{\numberline {4.3}Results for Research Question \#2}{37}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Exploration of a wide range of models a}{38}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}In-depth statistics for particular models}{39}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Comparison of model 1 and model 2 type solutions}{43}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Examination of specific candidate models}{45}{subsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.4.1}Model type: 1, Profiles: 6}{45}{subsubsection.4.3.4.1}
-\contentsline {subsubsection}{\numberline {4.3.4.2}Model type: 1, Profiles: 7}{47}{subsubsection.4.3.4.2}
-\contentsline {subsubsection}{\numberline {4.3.4.3}Looking across model 1 and model 2 type solutions}{48}{subsubsection.4.3.4.3}
-\contentsline {section}{\numberline {4.4}Research Question \#2: Relations Between Instructional Support for Work With Data and the PECs}{49}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Null models}{50}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Models with variables for aspects of instructional support for work with data added separately}{51}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Models with the composite added}{53}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Summary of findings for research question \#2}{55}{subsection.4.4.4}
-\contentsline {section}{\numberline {4.5}Results for Research Question \#3}{55}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Models with pre interest, gender, and under-represented minority (URM) status}{56}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Models with pre interest, gender, and URM status and the aspects of work with data}{58}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Models with pre-interest, gender, and URM status and work with data composite}{60}{subsection.4.5.3}
-\contentsline {subsection}{\numberline {4.5.4}Models with interactions between pre interest, gender, and URM status and work with data composite}{62}{subsection.4.5.4}
-\contentsline {subsection}{\numberline {4.5.5}Summary of findings for research question \#3}{64}{subsection.4.5.5}
-\contentsline {section}{\numberline {4.6}Results for Research Question \#4}{64}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Affordances and constraints of summer STEM programs for work with data}{65}{subsection.4.6.1}
-\contentsline {subsubsection}{\numberline {4.6.1.1}Affordances}{65}{subsubsection.4.6.1.1}
-\contentsline {subsubsection}{\numberline {4.6.1.2}Constraints}{66}{subsubsection.4.6.1.2}
-\contentsline {subsection}{\numberline {4.6.2}How instructional support for work with data was measured}{68}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Summary of Findings for Research Question \#4}{69}{subsection.4.6.3}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{70}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Key Findings}{70}{subsection.5.0.1}
-\contentsline {paragraph}{The nature of engagement in summer STEM programs}{70}{section*.5}
-\contentsline {paragraph}{What explains PECs}{70}{section*.6}
-\contentsline {paragraph}{Summer STEM programs as a context for work with data}{70}{section*.7}
-\contentsline {subsection}{\numberline {5.0.2}Limitations of the Study}{70}{subsection.5.0.2}
-\contentsline {paragraph}{Measurement issues}{70}{section*.8}
-\contentsline {paragraph}{Context issues}{70}{section*.9}
-\contentsline {subsection}{\numberline {5.0.3}Recommendations for Future Research}{70}{subsection.5.0.3}
-\contentsline {paragraph}{Explore work with data in settings designed to support it}{70}{section*.10}
-\contentsline {paragraph}{Measure student work with data as well as instructional support for work with data}{70}{section*.11}
-\contentsline {paragraph}{Explore changes in longer-term outcomes}{71}{section*.12}
-\contentsline {subsection}{\numberline {5.0.4}Implications for Practice}{71}{subsection.5.0.4}
-\contentsline {paragraph}{Engage students in complete cycles of investigation}{71}{section*.13}
-\contentsline {paragraph}{Support engagement in specific moments}{71}{section*.14}
-\contentsline {chapter}{\chapternumberline {6}References}{72}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Appendix}{82}{chapter.7}
-\contentsline {section}{\numberline {7.1}Appendix: STEM-PQA alignment}{82}{section.7.1}
-\contentsline {section}{\numberline {7.2}Appendix: Method additional materials}{82}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Statistical software developed}{82}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Appendix: Descriptive statistics additional materials}{83}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Appendix: Program descriptions}{83}{subsection.7.2.3}
-\contentsline {subsection}{\numberline {7.2.4}Appendix: Research Question \#1 additional materials}{86}{subsection.7.2.4}
-\contentsline {subsection}{\numberline {7.2.5}Model specifications details}{86}{subsection.7.2.5}
-\contentsline {subsubsection}{\numberline {7.2.5.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{87}{subsubsection.7.2.5.1}
-\contentsline {subsubsection}{\numberline {7.2.5.2}Varying means, equal variances, and equal covariances (model 2)}{87}{subsubsection.7.2.5.2}
-\contentsline {subsubsection}{\numberline {7.2.5.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{88}{subsubsection.7.2.5.3}
-\contentsline {subsubsection}{\numberline {7.2.5.4}Varying means, varying variances, and equal covariances (model 4)}{88}{subsubsection.7.2.5.4}
-\contentsline {subsubsection}{\numberline {7.2.5.5}Varying means, equal variances, and varying covariances (model 5)}{89}{subsubsection.7.2.5.5}
-\contentsline {subsubsection}{\numberline {7.2.5.6}Varying means, varying variances, and varying covariances (model 6)}{89}{subsubsection.7.2.5.6}
-\contentsline {subsection}{\numberline {7.2.6}Model 1 candidate solutions}{90}{subsection.7.2.6}
-\contentsline {subsubsection}{\numberline {7.2.6.1}Model: 1, Profiles: 3}{90}{subsubsection.7.2.6.1}
-\contentsline {subsubsection}{\numberline {7.2.6.2}Model: 1, Profiles: 4}{91}{subsubsection.7.2.6.2}
-\contentsline {subsubsection}{\numberline {7.2.6.3}Model: 1, Profiles: 5}{92}{subsubsection.7.2.6.3}
-\contentsline {subsubsection}{\numberline {7.2.6.4}Model: 1, Profiles: 6 (alternate)}{93}{subsubsection.7.2.6.4}
-\contentsline {subsubsection}{\numberline {7.2.6.5}Model: 1, Profiles: 7 (alternate)}{94}{subsubsection.7.2.6.5}
-\contentsline {subsection}{\numberline {7.2.7}Model 2 candidate solutions}{95}{subsection.7.2.7}
-\contentsline {subsubsection}{\numberline {7.2.7.1}Model: 2, Profiles: 3}{95}{subsubsection.7.2.7.1}
-\contentsline {subsubsection}{\numberline {7.2.7.2}Model: 2, Profiles: 4}{97}{subsubsection.7.2.7.2}
-\contentsline {subsubsection}{\numberline {7.2.7.3}Model: 2, Profiles: 5}{98}{subsubsection.7.2.7.3}
-\contentsline {section}{\numberline {7.3}Appendix: Models for research question \#2 and \#3 with the seven-profile solution}{99}{section.7.3}
+\contentsline {chapter}{\chapternumberline {3}Method}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Context}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Procedure}{22}{section.3.2}
+\contentsline {section}{\numberline {3.3}Data Sources and Measures}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}ESM measures of learners' engagement and its conditions}{24}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Survey measures of pre-interest}{24}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Codes for instructional support for work with data from the video-recordings}{25}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Demographic variables}{25}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Data Analysis}{26}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Preliminary analyses}{26}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Analysis for Research Question \#1}{26}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Analysis for Research Question \#2}{28}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Analysis for Research Question \#3}{29}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Analysis for Research Question \#4}{30}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Power Analysis}{30}{section.3.5}
+\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{31}{section.3.6}
+\contentsline {section}{\numberline {3.7}Limitations}{31}{section.3.7}
+\contentsline {chapter}{\chapternumberline {4}Results}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminary analysis}{33}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for study variables}{33}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Correlations among study variables}{33}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Statistical software developed}{36}{section.4.2}
+\contentsline {section}{\numberline {4.3}Results for Research Question \#1: What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?}{36}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Exploration of a wide range of models a}{37}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}In-depth statistics for particular models}{38}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Comparison of model 1 and model 2 type solutions}{42}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Examination of specific candidate models}{44}{subsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.4.1}Model type: 1, Profiles: 6}{44}{subsubsection.4.3.4.1}
+\contentsline {subsubsection}{\numberline {4.3.4.2}Model type: 1, Profiles: 7}{46}{subsubsection.4.3.4.2}
+\contentsline {subsubsection}{\numberline {4.3.4.3}Looking across model 1 and model 2 type solutions}{47}{subsubsection.4.3.4.3}
+\contentsline {section}{\numberline {4.4}Research Question \#2: What profiles of youth engagement and its conditions emerge from experiential data collected in these programs?}{48}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Null models}{49}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Models with variables for aspects of instructional support for work with data added separately}{50}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Models with the composite added}{52}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Summary of findings for research question \#2}{54}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Results for Research Question \#3: How does youth engagement relate to data practices?}{54}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Models with pre interest, gender, and under-represented minority (URM) status}{55}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Models with pre interest, gender, and URM status and the aspects of work with data}{57}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Models with pre-interest, gender, and URM status and work with data composite}{59}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}Models with interactions between pre interest, gender, and URM status and work with data composite}{61}{subsection.4.5.4}
+\contentsline {subsection}{\numberline {4.5.5}Summary of findings for research question \#3}{63}{subsection.4.5.5}
+\contentsline {section}{\numberline {4.6}Results for Research Question \#4: How do youth characteristics relate to their engagement in summer STEM programs?}{63}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}d1i \textless {}- dplyr::pull(d1, \texttt {Qualitative\ Coding}){[}!d1\_na{]}}{65}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}d2i \textless {}- dplyr::pull(d2, \texttt {Qualitative\ Coding}){[}!d2\_na{]}}{66}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}d3i \textless {}- dplyr::pull(d3, \texttt {Qualitative\ Coding}){[}!d3\_na{]}}{67}{chapter.7}
+\contentsline {section}{\numberline {7.1}Error: :2:200: unexpected symbol}{74}{section.7.1}
+\contentsline {section}{\numberline {7.2}1: tibble::tribble(}{74}{section.7.2}
+\contentsline {section}{\numberline {7.3}2: \textasciitilde {}Work.With.Data.Codes.Originally.Proposed, \textasciitilde {}Description, \textasciitilde {}Categories.from.STEM-PQA.(Already}{74}{section.7.3}
+\contentsline {section}{\numberline {7.4}\^{}}{74}{section.7.4}
+\contentsline {section}{\numberline {7.5}Appendix: Method additional materials}{74}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Statistical software developed}{74}{subsection.7.5.1}
+\contentsline {subsection}{\numberline {7.5.2}Appendix: Descriptive statistics additional materials}{75}{subsection.7.5.2}
+\contentsline {subsection}{\numberline {7.5.3}Appendix: Program descriptions}{76}{subsection.7.5.3}
+\contentsline {subsection}{\numberline {7.5.4}Appendix: Research Question \#1 additional materials}{78}{subsection.7.5.4}
+\contentsline {subsection}{\numberline {7.5.5}Model specifications details}{78}{subsection.7.5.5}
+\contentsline {subsubsection}{\numberline {7.5.5.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{79}{subsubsection.7.5.5.1}
+\contentsline {subsubsection}{\numberline {7.5.5.2}Varying means, equal variances, and equal covariances (model 2)}{79}{subsubsection.7.5.5.2}
+\contentsline {subsubsection}{\numberline {7.5.5.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{80}{subsubsection.7.5.5.3}
+\contentsline {subsubsection}{\numberline {7.5.5.4}Varying means, varying variances, and equal covariances (model 4)}{80}{subsubsection.7.5.5.4}
+\contentsline {subsubsection}{\numberline {7.5.5.5}Varying means, equal variances, and varying covariances (model 5)}{81}{subsubsection.7.5.5.5}
+\contentsline {subsubsection}{\numberline {7.5.5.6}Varying means, varying variances, and varying covariances (model 6)}{81}{subsubsection.7.5.5.6}
+\contentsline {subsection}{\numberline {7.5.6}Model 1 candidate solutions}{82}{subsection.7.5.6}
+\contentsline {subsubsection}{\numberline {7.5.6.1}Model: 1, Profiles: 3}{82}{subsubsection.7.5.6.1}
+\contentsline {subsubsection}{\numberline {7.5.6.2}Model: 1, Profiles: 4}{83}{subsubsection.7.5.6.2}
+\contentsline {subsubsection}{\numberline {7.5.6.3}Model: 1, Profiles: 5}{83}{subsubsection.7.5.6.3}
+\contentsline {subsubsection}{\numberline {7.5.6.4}Model: 1, Profiles: 6 (alternate)}{85}{subsubsection.7.5.6.4}
+\contentsline {subsubsection}{\numberline {7.5.6.5}Model: 1, Profiles: 7 (alternate)}{86}{subsubsection.7.5.6.5}
+\contentsline {subsection}{\numberline {7.5.7}Model 2 candidate solutions}{87}{subsection.7.5.7}
+\contentsline {subsubsection}{\numberline {7.5.7.1}Model: 2, Profiles: 3}{87}{subsubsection.7.5.7.1}
+\contentsline {subsubsection}{\numberline {7.5.7.2}Model: 2, Profiles: 4}{88}{subsubsection.7.5.7.2}
+\contentsline {subsubsection}{\numberline {7.5.7.3}Model: 2, Profiles: 5}{89}{subsubsection.7.5.7.3}
+\contentsline {section}{\numberline {7.6}Appendix: Models for research question \#2 and \#3 with the seven-profile solution}{90}{section.7.6}
