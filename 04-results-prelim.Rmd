@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Preliminary results
 
 ```{r, setup-results-prelim, include=FALSE}
@@ -213,6 +218,9 @@ p_vals <- d %>%
 ```
 
 ```{r, eval = FALSE}
+dfs <- df %>% 
+  distinct(beep_ID, sociedad_class, .keep_all=T)
+
 dfs %>% 
   count(dm_ask) %>% 
   filter(!is.na(dm_ask)) %>% 
@@ -240,18 +248,10 @@ dfs %>%
 
 dfs %>% 
   count(dm_composite) %>% 
-  filter(!is.na(dm_com)) %>% 
+  filter(!is.na(dm_composite)) %>% 
   mutate(prop = n / sum(n))
-```
-
-From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for instructional support for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for instructional support for work with data associated with these responses. 
-
-```{r}
-data_frame(Aspect = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-           Proportion = c(.389, .258, .453, .288, .470)) %>% 
-    knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
 ```
 
 ## Statistical software developed
 
-The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, & Steingut, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
+The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, Steingut, van Lissa, & Anderson, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.

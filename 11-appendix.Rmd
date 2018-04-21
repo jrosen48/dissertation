@@ -380,6 +380,192 @@ plot_profiles_mplus(m2_5, to_scale = TRUE)
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
+
+### Exploration of a wide range of models a
+
+First, I examined a wide range of model types (i.e., the parameterization of the model) and the numbers of profiles. Note that six model types are able to be specified. These roughly became more complex, with additional parameters estimated, as the number for the model type increases from one to six.
+
+This step is taken to select candidate solutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen,dfs 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time.
+
+```{r, compare-solutions-overall-stats, eval = FALSE}
+d <- compare_solutions_mplus(df,
+                             dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                             starts = c(600, 120),
+                             n_profiles_min = 2,
+                             n_profiles_max = 10,
+                             return_stats_df = TRUE,
+                             return_table = TRUE,
+                             n_processors = 6,
+                             save_models = TRUE,
+                             include_BLRT = TRUE)
+
+write_rds(d, "data/overall-stats-for-all-models.rds")
+```
+
+```{r, printing-solutions-overall-stats, eval = F}
+# d <- read_rds("data/overall-stats-for-all-models.rds")
+overall_stats_for_all_models[[1]] %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Overall statistics for all models", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape()
+```
+
+If the log-likelihood is not replicated, then the estimation completed one or more times, but because the same log-likelihood value (and parameter estimates) were not obtained, then the solution can be considered to be "under-identified", a term used to describe solutions that depend strongly upon minor fluctuations in the data (Asparouhov & Muthen, 2007). Accordingly, these solutions may not represent meaningful values and may not be replicable in light of very small changes to the data; these are not considered as candidate solutions for use in subsequent analyses. If no log-likelihood is obtained for any of the random starts, then the software returns an error; in these cases, the convergence criteria--values that determine when a solution has been obtained--are not met. This may be due to a large number of parameters that are estimated relative to the data, such that the number of iterations that the estimation is allowed to go through are not sufficient to obtain a solution (Asparouhov & Muthen, 2007). Like when the log-likelihood is not replicated, these solutions are not considered for use in subsequent analyses.
+
+For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analysis.
+
+### In-depth statistics for particular models
+
+After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented.
+
+The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in the figures.
+
+In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
+
+```{r, reading-overall-stats}
+overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
+```
+
+```{r, printing-solutions-spec-stats, eval = TRUE}
+overall_stats_for_all_models[[2]] %>%
+  arrange(model, n_profile) %>%
+  select(-model, `Number of Profiles` = n_profile) %>%
+  mutate(VLMR = paste_stats(VLMR_val, VLMR_p),
+         LMR = paste_stats(LMR_val, LMR_p),
+         BLRT = paste_stats(BLRT_val, BLRT_p)) %>%
+  select(everything(), -VLMR_val, -VLMR_p, -LMR_val, -LMR_p, -BLRT_val, -BLRT_p) %>%
+  knitr::kable(format = "latex", caption = "Solutions for models that converged with replicated LL", booktabs = TRUE, linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape() %>%
+  kableExtra::group_rows("Model 1", 1, 7) %>%
+  kableExtra::group_rows("Model 2", 8, 11)
+```
+
+```{r, model1, eval = T, cache = F, out.width = "50%", fig.cap = "Fit statistics for model 1 solutions"}
+overall_stats_for_all_models[[2]] %>%
+  select(n_profile:CAIC, Entropy) %>%
+  filter(model == 1) %>%
+  mutate(AIC = AIC * -1,
+         LL = LL * -1) %>%
+  gather(key, val, -n_profile, -model) %>%
+  ggplot(aes(x = n_profile, y = val)) +
+  geom_point() +
+  geom_line() +
+  facet_grid(key ~ model, scales = "free") +
+  theme_bw() +
+  xlab("Number of Profiles") +
+  ylab(NULL)
+```
+
+```{r, model2, eval = T, cache = F, out.width = "40%", fig.cap = "Fit statistics for model 2 solutions"}
+
+overall_stats_for_all_models[[2]] %>%
+  select(n_profile:CAIC, Entropy) %>%
+  filter(model == 2) %>%
+  mutate(AIC = AIC * -1,
+         LL = LL * -1) %>%
+  gather(key, val, -n_profile, -model) %>%
+  ggplot(aes(x = n_profile, y = val)) +
+  geom_point() +
+  geom_line() +
+  facet_grid(key ~ model, scales = "free") +
+  theme_bw() +
+  xlab("Number of Profiles") +
+  ylab(NULL)
+```
+
+Looking across the statistics presented, some general ideas about which models are to be preferred emerge. Solutions are interpreted first for each model individually and then across models with the goal of choosing a smaller number of models to investigate in more detail.
+
+For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
+
+For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decreased in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The entropy statistic decreases from 2 to 3 profile solutions, increases from 3 to 4 profile solutions, and then decreases slightly from 4 to 5 profile solutions, providing some information that models associated with 4 profiles be preferred to the others. All of the LRTs suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred. On the basis of these pieces of evidence, models with 3, 4, and 5 solutions may be considered in more depth. However, there is a lack of consistent evidence favoring more or less complex models.
+
+### Comparison of model 1 and model 2 type solutions
+
+When looking across solutions, some overall patterns in terms of what profiles emerge and some directions for which models are to be selected for use in subsequent analysis can be identified. First, overall patterns are discussed. In the table, which profiles emerge from which solution is presented.
+
+There is a wide range of profiles. Some appear very commonly, particularly those (full and universally low) characterized by high or low levels across all of the variables. Moderate profiles, both all moderate (characterized by moderately high levels across all of the variables) and moderately low (characterized by low levels across all of the variables), also appeared commonly, particularly for the solutions for model 1.
+
+```{r, compare-profiles-by-solution}
+d <- readxl::read_xlsx("tables/prof-assignments.xlsx")
+
+d[, -1] %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Profile assignments by LPA solution (models and numbers of profiles)", linesep = "", align=rep('c', 13)) %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape() %>%
+  kableExtra::row_spec(0, angle = -60) %>%
+  kableExtra::group_rows("Model 1", 1, 6) %>%
+  kableExtra::group_rows("Model 2", 7, 9)
+```
+
+
+#### Model type: 1, Profiles: 7
+
+This solution is characterized by:
+
+- A *full* profile, profile 7
+- A *universally low* profile, profile 1
+- A *competent but not engaged or challenged* profile, profile 2, characterized by high competence and moderate (low) or low levels of engagement and challenge
+- A *moderately low* profile, profile 3, characterized by moderately low levels of all of the variables
+- A *challenged* profile, profile 4, characterized by high challenge, moderate (high) levels of engagement, and moderate (low) levels of competence
+- A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
+- A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
+
+The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions.
+
+```{r, spec-solutions-m1_7, cache = FALSE, eval = FALSE}
+m1_7 <- estimate_profiles_mplus(df,
+                                dm_cog_eng, dm_beh_eng, dm_aff_eng, dm_challenge, dm_competence,
+                                starts = c(600, 120),
+                                model = 1,
+                                n_profiles = 7,
+                                include_BLRT=TRUE,
+                                n_processors = 6, remove_tmp_files = FALSE)
+write_rds(m1_7, "data/models/m1_7.rds")
+```
+
+```{r, m1_7p, cache = FALSE, eval = TRUE,  eval = FALSE, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
+m1_7 <- readr::read_rds("data/models/m1_7.rds")
+
+m1_7 %>%
+  tidyLPA::plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
+  scale_x_discrete(labels = c("Universally low (n = 181)",
+                              "Competent but not engaged or challenged (n = 317)",
+                              "Moderately low (n = 651)",
+                              "Challenged (n = 569)",
+                              "Highly challenged (n = 222)",
+                              "Engaged and competent but not challenged (n = 568)",
+                              "Full (n = 450)")) +
+  xlab(NULL) +
+  ylab("Z-score") +
+  viridis::scale_fill_viridis("",
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+
+m1_7 <- readr::read_rds("data/models/m1_7.rds")
+
+m1_7 %>%
+  tidyLPA::plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
+  scale_x_discrete(labels = c("Universally low (n = 181)",
+                              "Competent but not engaged or challenged (n = 317)",
+                              "Moderately low (n = 651)",
+                              "Challenged (n = 569)",
+                              "Highly challenged (n = 222)",
+                              "Engaged and competent but not challenged (n = 568)",
+                              "Full (n = 450)")) +
+  xlab(NULL) +
+  ylab("Value") +
+  viridis::scale_fill_viridis("",
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+```
+
+```{r, m1_7-ll, cache = FALSE, eval = FALSE}
+extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
+```
+
 ## Appendix: Models for research question #2 and #3 with the seven-profile solution
 
 <!-- # Model start here -->
