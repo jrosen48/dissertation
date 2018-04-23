@@ -1,4 +1,4 @@
-# Results for Research Question #1
+## Results for Research Question #1
 
 ```{r, setup-results-1, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ```
 
-## Frequency of work with data
+### Frequency of work with data
 
 From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for instructional support for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for instructional support for work with data associated with these responses. 
 
@@ -28,18 +28,14 @@ data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observatio
 
 The composite measure, created on the basis of summing the codes for the five aspects of work with data, has a minimum value of 0 and a maximum of 5. Its mean is 1.86 (*SD* = 1.61). This indicates that, on average, youth were engaged in 1.86 aspects of the work with data during the program.
 
-## Nature of work with data
+### Nature of work with data
 
-### Coding
+#### Coding
 
-To code the data, three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. After the coding was complete, the three research assistants and I met to discuss how well the coding frame and potential sources of disagreement. Then, two coders coded every segment that was coded for at least one of the aspects of instructional support for work with data. This coding took around 75 hours of coding by the research assistants. After each program, the coders met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame. As this was open-ended coding with the aim to provide greater detail and context for the findings associated with research questions #2 and #3, establishing reliability among the coders was not carried out. The coders sought to document a) the characteristics of instructional support for work with data and b) other aspects of the instructional context that impacts student work with data.
-
-Note that while the first of the two aspects focuses on the support provided by the instructor, the second aspect focuses on how students engage in work with data in ways that on occasion diverge (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the findings for research questions #2-#4 and, beyond these findings, to better understand the nature of work with data in summer STEM programs.
-
-### Findings
+#### Findings
 
 [add]
 
-### How instructional support for work with data was measured
+#### How instructional support for work with data was measured
 
 This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2 and #3. As an example, in a video associated with a mathematics-focused activity in the Comunidad de Aprendizaje program, a youth activity leader is discussing with youth opportunities for them to market products that they developed to sell in their communities and highlighting the expense of creating the product, its sale price, and its potential process. In this example, observing data is coded, but this aspect of instructional support for work with data does not appear to be present. Considering the STEM-PQA code on which the code for making observations is based, this difference is possibly due to a distinction in what both codes are focused on. The STEM-PQA code is for *classifying or abstracting*, and its operationalization emphasizes staff supporting youth in linking concrete examples to principles, categories, or formulas. The conceptual definition of *making observations*, though, emphasizes watching and noticing what is happening with respect to the phenomena being investigated. In this case, the application of the STEM-PQA code was sensible, as the youth activity leader was connecting the products youth created to mathematical ideas (formulas) for how much they could expect to earn from the sale of their products; in terms of work with data, however, youth were not observing or noticing phenomena. This suggests that differences in how work with data was conceptualized and operationalized may lead, in some cases, to codes that do not reflect work with data accurately, and can lead to some findings that seem unexpected given what we know about the potential for work with data to be engaging to youth.

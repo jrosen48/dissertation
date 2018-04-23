@@ -1,4 +1,4 @@
-# Results for Research Question #2
+## Results for Research Question #2
 
 ```{r, setup-results-2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -15,15 +15,13 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ```
 
-## Results for Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
+### Results for Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
 
-This question addresses what profiles emerged from the data. This section first provides information about the statistical software that was developed and solutions for all models (whether models converged and the log-likelihood was replicated). Then, fit statistics for models that converged and for which the log-likelihood was replicated are described, followed by a comparison of specific, candidate solutions. At the end of this section, models selected are described in detail. Note that while the posterior probability was used as the outcome, there are two approaches to their use in subsequent analyses. One way is to only use the largest posterior probability, setting the other posterior probabilities to a value of zero; in this way, the uncertainty in the profile assignment is accounted for, but partial assignment to other profiles is not considered in their use in subsequent models. The other way is to use the posterior probabilities for all of the subsequent models. In this analysis, the latter option is used: posterior probabilities are used as-is (i.e., none are assigned to zero), though the former approach was used and was found to yield comparable results.
-
-### Examination of specific candidate models
+#### Examination of specific candidate models
 
 Following from the in-depth exploration of the candidate solutions (described in the Appendix), in this section, model solutions associated with specific model types and the number of profiles are investigated. In particular, the model one type, six profile, and model one type, seven profile solutions are described. Descriptions of other candidate solutions is included in the appendix. For all of the solutions, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
-#### Model type: 1, Profiles: 6
+##### Model type: 1, Profiles: 6
 
 This solution is characterized by:
 
@@ -91,7 +89,7 @@ p
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
-#### Looking across model 1 and model 2 type solutions
+##### Looking across model 1 and model 2 type solutions
 
 The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the solutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estimated for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
 

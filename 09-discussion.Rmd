@@ -34,6 +34,8 @@ A theme related to the challenge of linking activities concerned what the progra
 
 ### Limitations of the Study
 
+First, this study does not consider outcomes from engaging, such as the products of neither youths’ work, nor the specific cognitive capabilities they develop through their participation. Second, the context for this study is suited to understanding engagement in aspects of work with data but not explicitly designed for it, and learning environments that deliberately support work with data over a long period may demonstrate different patterns of engagement than those examined in this study because of the focus on and sequencing of the aspects of work with data, which may make it more (or less) cognitively, behaviorally, or affectively engaging than is determined in this study. Third, this program is not representation of all outside-of-school programs, as many of the programs were based on characteristics of model STEM enrichment programs; as a result, engagement may be different in other STEM enrichment programs depending on characteristics of the programs and their activities, and findings from this study should be interpreted in terms of programs that share similar features in terms of their design. 
+
 ##### Measurement issues
 
 How instructional support for work with data was measured seems to have been an issue, given the qualitative coding ...
@@ -43,6 +45,8 @@ As a type of sensitivity analysis focused on alternate model specifications (dif
 ##### Context issues
 
 These programs were not designed to support work with data ...
+
+You don’t need to say this here (though you might in the discussion), but it may be that either the analytic approach you used (LPA) or the particular 5 variables you chose to focus on are not the ideal way to capture engagement that varies by program activity – something else may vary more by program activity.
 
 ### Recommendations for Future Research
 

@@ -1,4 +1,4 @@
-# Results for Research Question #4
+## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
 ```{r, setup-results-4, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -14,10 +14,6 @@ knitr::opts_chunk$set(echo = FALSE,
                       knitr.kable.na = '') 
 
 ```
-
-## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
-
-Research question #3 is focused on how the relationships of instructional support for work with data differ on the basis of pre-program interest and other youth characteristics. Like for the previous two research questions, linear models that account for the cross-classification of the moment and the youth--and their nesting within the programs--are used. Findings from models with pre interest, gender, and URM status are first presented. Then, models with these variable and the individual aspects and composite of work with data are added and then models with the interaction between these characteristics and the composite.
 
 ```{r, rq3-2-all-vars-sep-interaction-keep, eval = TRUE}
 m1c <- lmer(profile_1_p ~ 1 +
@@ -481,4 +477,8 @@ o %>%
 
 ### Summary of findings for research question #3
 
-When looking across findings, we find minimal relations between pre-interest and other individual characteristics. In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3.
+When looking across findings, we find minimal relations between pre-interest and other individual characteristics.
+
+[add table]
+
+In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the r-squared value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. The effect of the activity appears robust, as in research question #3.

@@ -1,9 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Preliminary results
+# Results
 
 ```{r, setup-results-prelim, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
