@@ -1,6 +1,6 @@
 ## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
 
-```{r, setup-results-3, include=FALSE}
+```{r, setup-3, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       results = "hold",
                       knitr.kable.na = '') 
 
+options(knitr.kable.NA = '')
 ```
 
 ```{r}
@@ -256,11 +257,11 @@ m6bi <- lmer(profile_6_p ~ 1 +
 
 ### Null models
 
-The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for instructional support for work with data, may not have strong effects in terms of their relations with the PECs.
+The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. Looking across these values, considering variability at the program, momentary, and youth levels, most of the explained variability in the responses is associated with youth; the program and momentary levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for work with data, may not have strong effects in terms of their relations with the PECs.
 
 In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted.
 
-### Models with variables for aspects of instructional support for work with data added separately
+### Models with variables for aspects of work with data added separately
 
 When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile (*B* = 0.036 (0.016), *p* = .016) and between generating data and the full profile (*B* = 0.029 (0.015), *p* = .024).
 
@@ -309,7 +310,7 @@ o %>%
                    "Only affective",
                    "All moderate",
                    "Full")) %>%
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for instructional support for work with data as separate variables", linesep = "") %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for work with data as separate variables", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
@@ -404,8 +405,8 @@ o %>%
 
 ### Summary of findings for research question #2
 
-When looking across findings, we find few relations between instructional support for work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). 
+When looking across findings, we find few relations between work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). 
 
 [add table]
 
-The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of instructional support for work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
+The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.

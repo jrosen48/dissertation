@@ -381,11 +381,7 @@ extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
 
-### Exploration of a wide range of models a
-
-First, I examined a wide range of model types (i.e., the parameterization of the model) and the numbers of profiles. Note that six model types are able to be specified. These roughly became more complex, with additional parameters estimated, as the number for the model type increases from one to six.
-
-This step is taken to select candidate solutions to investigate in more detail. In order to carry out this analysis, I followed guidelines recommended by the developers of the MPlus software (Asparouhov & Muthen, 2012; Muthen & Muthen,dfs 2017) as well as those making recommendations about its use (Geiser, 2012). In particular, I set the number of starts to 600 for initial stage starts, and to 120 for the number of starts to be optimized. This means that for each model estimated, 600 random starting values for the parameters were used to initialize the EM algorithm. Of these 600, 120 that demonstrated the lowest log-likelihood were allowed to continue until they reached convergence or the limit for the number of iterations. In order for a model to me considered trustworthy, of these 120 runs, the lowest log-likelihood must be replicated at least one time.
+### Exploration of a wide range of models
 
 ```{r, compare-solutions-overall-stats, eval = FALSE}
 d <- compare_solutions_mplus(df,
@@ -410,17 +406,8 @@ overall_stats_for_all_models[[1]] %>%
   kableExtra::landscape()
 ```
 
-If the log-likelihood is not replicated, then the estimation completed one or more times, but because the same log-likelihood value (and parameter estimates) were not obtained, then the solution can be considered to be "under-identified", a term used to describe solutions that depend strongly upon minor fluctuations in the data (Asparouhov & Muthen, 2007). Accordingly, these solutions may not represent meaningful values and may not be replicable in light of very small changes to the data; these are not considered as candidate solutions for use in subsequent analyses. If no log-likelihood is obtained for any of the random starts, then the software returns an error; in these cases, the convergence criteria--values that determine when a solution has been obtained--are not met. This may be due to a large number of parameters that are estimated relative to the data, such that the number of iterations that the estimation is allowed to go through are not sufficient to obtain a solution (Asparouhov & Muthen, 2007). Like when the log-likelihood is not replicated, these solutions are not considered for use in subsequent analyses.
-
-For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) are explored in subsequent sections. This suggests that the more complex models were too complex given the systematic variability in the data used for the analysis.
-
 ### In-depth statistics for particular models
 
-After investigating the general information about a range of model solutions, solutions associated with models 1 and 2 are explored in greater detail, following recommendations associated with mixture modeling (Collins and Lanza, 2009; Geiser, 2012) and the authors of the MPlus software (Muthen & Muthen, 2017) as well as recent peer-reviewed articles (Pastor et al., 2007). For these models, the log-likelihood (LL), a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability) are presented.
-
-The information criteria are based on the log-likelihood but take various steps to penalize complex models, and so can be used to directly compare models (i.e., the model with the lowest values for these statistics can be considered to better reflect the underlying properties of the profiles). Simulation studies have suggested that BIC, CAIC, SABIC, and BLRT are most helpful for selecting the correct number of profiles (Nylund, Asparouhov, & Muthen, 2007). For the entropy statistic, higher values are considered better, though scholars have suggested that the entropy statistic not be used for model selection (Lubke & Muthen, 2007).The log-likelihood should not be interpreted directly but is presented in conjunction with the information criteria for context about how each of them differs from the log-likelihood. These are also presented in the figures.
-
-In addition to these statistics, a number of modified likelihood ratio tests (LRTs) are used, as the test statistics associated with unmodified LRT do not follow the distribution that the test is based on (Muthen & Muthen, 2017). These are the Vu-Lo-Mendell-Rubin LRT, Lo-Mendell-Rubin LRT, and the bootstrapped LRT. Of the three, the bootstrapped is considered to be the best indicator of which of two models, one nested (with certain parameters fixed to 0) within the other, fits better, but it is also the most computationally-intensive to carry out (Asparouhov & Muthen, 2012). For each of the LRTs, the test statistic and its associated p-value are provided; a p-value greater than .05 suggests that the model with fewer profiles should be preferred.
 
 ```{r, reading-overall-stats}
 overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")

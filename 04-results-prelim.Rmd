@@ -1,6 +1,8 @@
 # Results
 
-```{r, setup-results-prelim, include=FALSE}
+I present results associated with the preliminary analysis and the four research questions. 
+
+```{r, setup-prelim, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
@@ -13,9 +15,6 @@ knitr::opts_chunk$set(echo = FALSE,
                       results = "hold",
                       knitr.kable.na = '') 
 
-```
-
-```{r}
 options(knitr.kable.NA = '')
 ```
 
@@ -161,11 +160,11 @@ df <- mutate(df, inquiry_based = ifelse(youth_activity_rc == "Creating Product" 
                                           ifelse(youth_activity_rc == "Not Focused", "not-focused", "other"))) 
 ```
 
-## Preliminary analysis
+## Results from the preliminary analysis
 
 ### Descriptive statistics for study variables
 
-First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for instructional support for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of instructional support for work with data; thus, its possible values ranged between zero and five. 
+First, descriptive statistics for all of the study variables--overall pre-interest, the five variables that are used to estimate the PECs, and the variables for each of the five aspects of work with data (which are dichotomous variables)--are presented. Overall pre-interest and the variables used to estimate the PECs are presented first. The composite variable for work with data was constructed as the sum of each of the five dichotomous variables that represented the aspects of work with data; thus, its possible values ranged between zero and five. 
 
 ```{r}
 d_red <- df %>% 
@@ -189,7 +188,9 @@ o <- d_red %>%
 
 ### Correlations among study variables
 
-Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not related to the aspects of work with data to a large degree, which is not surprising given the small ICC values for the momentary level, as the aspects of work with data are associated with this level. Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant.  The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of instructional support for work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
+Next, correlations between individual aspects of work with data (and the composite) and the variables that are used to create the PECs are presented. These correlations suggest that the aspects of work with data are not related to the aspects of work with data to a large degree, which is not surprising given the small ICC values for the momentary level, as the aspects of work with data are associated with this level. 
+
+Most noteworthy is the very small correlations between the aspects of work with data and the profiles; these correlations range (in absolute values) from .00 to .05. Only the relations between communicating and profile six are statistically significant. The composite variable was correlated with the profiles from (in absolute values) 0.002 to 0.035, none statistically significant. The aspects of work with data are modestly correlated with one another, with correlations ranging from .16 to .46; all were significant. The Spearman rank correlations were also considered for all of the correlations that involved the individual aspects of work with data; these are presented in the appendix because these were all within a .02 value (i.e., each Spearman's *rho* compared to its corresponding Pearson's *r* was within .02).
 
 ```{r, rq2-1-corr-components, eval = T}
 d_red %>% 
@@ -246,7 +247,3 @@ dfs %>%
   filter(!is.na(dm_composite)) %>% 
   mutate(prop = n / sum(n))
 ```
-
-## Statistical software developed
-
-The MPlus software is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, Beymer, Steingut, van Lissa, & Anderson, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.

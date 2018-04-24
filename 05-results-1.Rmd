@@ -1,6 +1,6 @@
 ## Results for Research Question #1
 
-```{r, setup-results-1, include=FALSE}
+```{r, setup-1, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
@@ -13,11 +13,12 @@ knitr::opts_chunk$set(echo = FALSE,
                       results = "hold",
                       knitr.kable.na = '') 
 
+options(knitr.kable.NA = '')
 ```
 
 ### Frequency of work with data
 
-From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for instructional support for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for instructional support for work with data associated with these responses. 
+From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, students may have still replied to signals, but it was not possible to code for work with data associated with these responses. 
 
 ```{r}
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
@@ -30,12 +31,67 @@ The composite measure, created on the basis of summing the codes for the five as
 
 ### Nature of work with data
 
-#### Coding
+```{r}
+library(googlesheets)
+library(dplyr)
 
-#### Findings
+g1 <- gs_title("USE THIS! New Coding Frame - KMS")
+g2 <- gs_title("USE THIS! New Coding Frame - HM")
+g3 <- gs_title("USE THIS! New Coding Frame - KS")
 
-[add]
+d1 <- gs_read(g1, ws = 1)
+d2 <- gs_read(g2, ws = 1)
+d3 <- gs_read(g3, ws = 1)
 
-#### How instructional support for work with data was measured
+d1 <- rename(d1, KMS_codes = `Qualitative Coding`)
+d2 <- select(d2, program_name, response_date, signal_number, HM_codes = `Qualitative Coding`)
+d3 <- select(d3, program_name, response_date, signal_number, KS_codes = `Qualitative Coding`)
 
-This theme concerned how instructional support was measured and how this impacted the findings presented in research questions #2 and #3. As an example, in a video associated with a mathematics-focused activity in the Comunidad de Aprendizaje program, a youth activity leader is discussing with youth opportunities for them to market products that they developed to sell in their communities and highlighting the expense of creating the product, its sale price, and its potential process. In this example, observing data is coded, but this aspect of instructional support for work with data does not appear to be present. Considering the STEM-PQA code on which the code for making observations is based, this difference is possibly due to a distinction in what both codes are focused on. The STEM-PQA code is for *classifying or abstracting*, and its operationalization emphasizes staff supporting youth in linking concrete examples to principles, categories, or formulas. The conceptual definition of *making observations*, though, emphasizes watching and noticing what is happening with respect to the phenomena being investigated. In this case, the application of the STEM-PQA code was sensible, as the youth activity leader was connecting the products youth created to mathematical ideas (formulas) for how much they could expect to earn from the sale of their products; in terms of work with data, however, youth were not observing or noticing phenomena. This suggests that differences in how work with data was conceptualized and operationalized may lead, in some cases, to codes that do not reflect work with data accurately, and can lead to some findings that seem unexpected given what we know about the potential for work with data to be engaging to youth.
+d1 %>% 
+  left_join(d2, by = c("program_name", "response_date", "signal_number")) %>% 
+  left_join(d3, by = c("program_name", "response_date", "signal_number"))
+
+d1 <- dplyr::select(d1, program_name, response_date, signal_number, KMS_qual = `Qualitative Coding`)
+d2 <- dplyr::select(d2, program_name, response_date, signal_number, HM_qual = `Qualitative Coding`)
+d3 <- rename(d3, KLS_qual = `Qualitative Coding`)
+
+d3 <- d3 %>%
+  left_join(d2) %>% 
+  left_join(d1)
+
+d_proc <- d3 %>% 
+  select(everything(), contains("qual"), -`Josh notes`, -Initials)
+
+# d1i <- dplyr::pull(d1, `Qualitative Coding`)[!d1_na]
+# d2i <- dplyr::pull(d2, `Qualitative Coding`)[!d2_na]
+# d3i <- dplyr::pull(d3, `Qualitative Coding`)[!d3_na]
+
+readr::write_csv(d_proc, "qual-coding.csv")
+```
+
+Each of the segments of video was coded. Students engagde in work with data in ways that on occasion diverged (in ways productive and not productive in terms of student work with data) from what would be expected on the basis of the instructional support. This coding resulted in around three to four sentence notes associated with each segment from each of two raters. Then, I reviewed these notes with the aim to identify themes based on enriching and better understanding the aspects of work with data.
+
+In a video associated with a mathematics-focused activity in the Comunidad de Aprendizaje program, a youth activity leader is discussing with youth opportunities for them to market products that they developed to sell in their communities and highlighting the expense of creating the product, its sale price, and its potential process. In this example, observing data is coded, but this aspect of work with data does not appear to be present. Considering the STEM-PQA code on which the code for making observations is based, this difference is possibly due to a distinction in what both codes are focused on. The STEM-PQA code is for *classifying or abstracting*, and its operationalization emphasizes staff supporting youth in linking concrete examples to principles, categories, or formulas. The conceptual definition of *making observations*, though, emphasizes watching and noticing what is happening with respect to the phenomena being investigated. In this case, the application of the STEM-PQA code was sensible, as the youth activity leader was connecting the products youth created to mathematical ideas (formulas) for how much they could expect to earn from the sale of their products; in terms of work with data, however, youth were not observing or noticing phenomena. 
+
+#### Asking questions or identifying problems
+
+
+
+#### Making observations
+
+This code 
+
+#### Generating data
+
+
+
+#### Data modeling
+
+
+
+#### Interpreting and communicating findings
+
+
+### Summary of Findings for Research Question #1
+
+This suggests that differences in how work with data was conceptualized and operationalized may lead, in some cases, to codes that do not reflect work with data accurately, and can lead to some findings that seem unexpected given what we know about the potential for work with data to be engaging to youth.

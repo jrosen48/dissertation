@@ -1,14 +1,17 @@
-```{r, setup-lit-review-fix, include=FALSE}
+```{r, setup-lit-review, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE, 
                       warning = FALSE, 
                       collapse = TRUE,
+                      error = TRUE,
                       fig.width = 6,
                       fig.asp = .618,
                       out.width = "80%", 
                       fig.align = "center", 
-                      results = "hold") 
+                      results = "hold",
+                      knitr.kable.na = '') 
 
+options(knitr.kable.NA = '')
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -16,21 +19,26 @@ library(kableExtra)
 
 # Literature Review
 
-I define work with data as a key practice across STEM domains, with a focus on activities that are more general across STEM domains (i.e., asking questions and interpreting findings). I present a multi-dimensional approach to understanding engagment that considers engagement and “influencers” of engagement, or factors that past research indicates can impact learners’ engagement, to establish the conceptual framework used in the present study. 
+I define work with data as a key practice across STEM domains. I also present a multi-dimensional approach to understanding engagement that considers engagement and the two influencers of engagement (perceptions of competence and challenge) in order to establish the conceptual framework used in the present study. 
 
 ## Defining Work With Data
 
-Scholars have conceived of working with data in different ways, but some core components have emerged. Some scholars have focused on a few key pieces of data analysis connected through the use of “data to solve real problems and to answer authentic questions” (Hancock et al., 1992, p. 337). This approach is commonly described as including two goals: 1) creating data through constructing measures and collecting data and 2) accounting for variability in data through models, or data modeling (English, 2012; Hancock et al., 1992; Lehrer & Romberg, 1996; Lesh et al., 2008). This approach has primarily been taken up by mathematics educators and is reflected in statistics curriculum documents (Franklin et al., 2007). In science settings, where answering questions about phenomena serve as the focus of activities, it shares features of the process of engaging in scientific and engineering practices but has been less often studied. 
+Scholars have conceived of working with data in different ways, but some core components have emerged. Some scholars have focused on a few key pieces of data analysis connected through the use of “data to solve real problems and to answer authentic questions” (Hancock et al., 1992, p. 337). This approach is commonly described as including two goals: 
+
+1. Creating data through constructing measures and collecting data
+2. Accounting for variability in data through models, or data modeling (English, 2012; Hancock et al., 1992; Lehrer & Romberg, 1996; Lesh et al., 2008)
+
+This approach has primarily been taken up by mathematics educators and is reflected in statistics curriculum documents (Franklin et al., 2007). In science settings, where answering questions about phenomena serve as the focus of activities, it shares features of the process of engaging in scientific and engineering practices but has been less often studied. 
 
 Wild and Pfannkuch (1999) consider the process in terms of identifying a problem, generating a measurement system and sampling plan, collecting and cleaning the data, exploring the data and carrying out planned analyses, and interpreting the findings from the analysis. Such a process is common in STEM content areas, particularly across statistics education research and is instantiated in standards for curricula: Franklin et al.’s guidelines for the American Statistical Association focus on the Framework for statistical problem solving: formulating questions, collecting data, analyzing data, and interpreting results (2007). The goals of this framework and its components are similar to Hancock et al.’s (1992) description of “using data to solve real problems and to answer authentic questions” (p. 337). Scholars have subsequently expanded Hancock et al.’s definition of to include six components: asking questions, generating measures, collecting data, structuring data, visualizing data, and making inferences in light of variability (see Lehrer & Schauble, 2004). The last of these components is crucial across all of the visions of work with data reviewed here and distinguishes these processes from other aspects of data analysis: Accounting for variability (or uncertainty) is central to solving real-world problems with data and the process of data modeling.
 
-In the present studies, these different approaches to working with data are distilled into five key aspects (See Figure 1) that guide the conceptualization of this study:
+In the present studies, these different approaches to working with data are distilled into five key aspects (see Figure 1) that guide the conceptualization of this study:
 
-* Asking Quesions – generating questions that can be answered with empirical evidence. 
-* making observations –watching phenomena and noticing what is happening with respect to the phenomena or problem being investigated. 
-* generating data – the process of figuring out how or why to inscribe an observation as data about a phenomena, as well as generating coding frames or tools for measuring. 
-* data modeling – includes simple statistics, such as the mean and variance, as well as more complicated models, such as linear models and extensions of the linear model. 
-* interpret and communicate findings – regarding the phenomena that the question is about.
+* Asking questions: Generating questions that can be answered with empirical evidence
+* Making observations: Watching phenomena and noticing what is happening with respect to the phenomena or problem being investigated
+* Generating data: The process of figuring out how or why to inscribe an observation as data about a phenomena, as well as generating coding frames or tools for measuring
+* Data modeling: Includes simple statistics, such as the mean and variance, as well as more complicated models, such as linear models and extensions of the linear model
+* Interpreting and communicating findings: Activities related to identifying a driving question regarding the phenomena that the question is about
 
 ```{r, fig.cap = "Work with data in STEM education settings"}
 knitr::include_graphics("images/figure1.png")
@@ -40,7 +48,9 @@ The five practices are a cycle because not only does each part follow that befor
 
 Also, as depicted in Figure 1, scholars have pointed out some key features of how work with data is carried out that impact their effectiveness as a pedagogical approach. These key features include an emphasis on making sense of real-world phenomena and iterative cycles of engaging in work with data and collaboration and dialogue, through which ideas and intermediate findings are critiqued and subject to critique, and revised over time (McNeill & Berland, 2017). As I will discuss later, these factors might have the potential to impact engagement through the proximal conditions of challenge and competence.
 
-The role of work with data in the curriculum. Scholars argue that work with data can serve as an organizing set of practices for engaging in inquiry in STEM settings (Lehrer & Schauble, 2015). Data are both encountered and generated by learners, and so opportunities for STEM students to work with data provide many opportunities to leverage students’ curiosity because processes of inquiry can be grounded in phenomena that learners themselves can see and manipulate or phenomena that learners are interested in. Also important, becoming proficient in work with data can provide learners with an in-demand capability in society, owing to the number of occupations, from education to entrepreneurship, that demand or involve taking action based on data (Wilkerson & Fenwick, 2017). Furthermore, becoming proficient in work with data can be personally empowering because of the parts of our lives—from paying energy bills to interpreting news articles—that use data.
+## The role of work with data in the curriculum
+
+Scholars argue that work with data can serve as an organizing set of practices for engaging in inquiry in STEM settings (Lehrer & Schauble, 2015). Data are both encountered and generated by learners, and so opportunities for STEM students to work with data provide many opportunities to leverage students’ curiosity because processes of inquiry can be grounded in phenomena that learners themselves can see and manipulate or phenomena that learners are interested in. Also important, becoming proficient in work with data can provide learners with an in-demand capability in society, owing to the number of occupations, from education to entrepreneurship, that demand or involve taking action based on data (Wilkerson & Fenwick, 2017). Furthermore, becoming proficient in work with data can be personally empowering because of the parts of our lives—from paying energy bills to interpreting news articles—that use data.
 
 Recent reform efforts emphasize work with data (i.e., the scientific and engineering practices in the NGSS and the standards for mathematical practice in the Common Core State Standards). However, work with data is uncommon in many classroom settings (McNeill & Berland, 2017), and so learning environments suited to engaging in work with data, but not explicitly designed to support it, may be valuable to study because they may serve as incubators of these rare and challenging learning activities.
 
@@ -88,9 +98,9 @@ Research has shown us how the use of ESM can lead to distinct research contribut
 
 Other research shows us that there are newer approaches to analyzing ESM data that can contribute insights into the dynamics of engagement in a more fine-grained way. For example, Strati et al. (2017) explored the relations between engagement to measures of teacher support, finding associations between instrumental support and engagement and powerfully demonstrating the capacity of ESM to understand some of the dynamics of engagement. Similarly, Poysa et al. (2017) used a similar data analytic approach as Strati et al. (2017), that is, use of crossed effects models for variation within both students and time points, both within and between days. These studies establish the value of the use of ESM to understand the dynamics of engagement and that such an approach may be able to be used to understand engaging in work with data. Additionally, these studies show that how effects at different levels are treated, namely, how variability at these levels is accounted for through random effects as part of mixed effects models, is a key practical consideration for analysts of ESM data.
 
-## A Person-Oriented Approach to Engagement
+## A Person-Oriented Approach to Momentary Engagement
 
-One powerful and increasingly widely used way to examine dynamic constructs holistically is a person-oriented approach, which can be used to consider the way in which psychological constructs are experienced together and at once in the experiences of learners. In the context of the present study, this approach can help us to identify naturally occurring profiles of engagement and its conditions that capture both the cognitive, behavioral, and affective dimensions of engagement and the subjective conditions of challenge and competence to understand how students experience engagement and its conditions in a more holistic way. The person-oriented view, developed within developmental science, emphasizes these groups of constructs in light of the dynamic nature of learning and development, and the importance of both person-level and contextual factors upon these dynamics (Bergman & El-Khouri, 1997; Magnusson & Cairns, 1996), though recent conceptions of the developmental science approach sometimes differ in the extent to which they acknowledge these contextual factors (Witherington, 2015). Though studies examining learning from a person-oriented perspective are not very common, some examples include studies of intrinsic and extrinsic motivation (Corpus & Wormington, 2014; Hayenga & Corpus, 2010), profiles of achievement goals (see Wormington & Linnenbrink-Garcia, advance online publication, for a review), and epistemic cognition (Trevors, Kendeou, Braten, & Braasch, 2017). 
+One powerful and increasingly widely used way to examine dynamic constructs holistically is a person-oriented approach, which can be used to consider the way in which psychological constructs are experienced together and at once in the experiences of learners. In the context of the present study, this approach can help us to identify naturally occurring profiles of momentary engagement. In the context of the present study, these profiles seek to capture both the cognitive, behavioral, and affective dimensions of engagement and the subjective conditions of challenge and competence to understand how students experience engagement and its conditions in a more holistic way. The person-oriented view, developed within developmental science, emphasizes these groups of constructs in light of the dynamic nature of learning and development, and the importance of both person-level and contextual factors upon these dynamics (Bergman & El-Khouri, 1997; Magnusson & Cairns, 1996), though recent conceptions of the developmental science approach sometimes differ in the extent to which they acknowledge these contextual factors (Witherington, 2015). Though studies examining learning from a person-oriented perspective are not very common, some examples include studies of intrinsic and extrinsic motivation (Corpus & Wormington, 2014; Hayenga & Corpus, 2010), profiles of achievement goals (see Wormington & Linnenbrink-Garcia, advance online publication, for a review), and epistemic cognition (Trevors, Kendeou, Braten, & Braasch, 2017). 
 
 There are some recent studies taking a person-oriented approach to the study of engagement (i.e., Salmela-Aro, Moeller, Schneider, Spicer, & Lavonen, 2016a; Salmela-Aro, Muotka, Alho, Hakkarainen, & Lonka, 2016b; Van Rooij, Jansen, & van de Grift, 2017; Schmidt, Rosenberg, & Beymer, advance online publication). Van Rooij et al. (2017) identified five secondary school student profiles, derived from three dimensions of student engagement: behavioral engagement, cognitive engagement, and intellectual engagement. Salmela-Aro et al. (2016b) examined burnout and engagement using a person-oriented approach. While not using ESM, this study demonstrated the use of a person-oriented approach including (although not focused on profiles comprised exclusively of) engagement. Examining the same variables (engagement and the three aspects of school burn-out) and others, Salmela-Aro et al. (2016b) demonstrated substantial differences in student momentary resources, demands, and engagement across the four profiles and contributes to a rich understanding of engagement in situ yet does not conduct profiles of engagement at the momentary level. 
 
@@ -100,32 +110,29 @@ To account for the dynamic nature of engagement, some past studies have used oth
 
 ## Need for the Present Study
 
-While many scholars have argued that work with data can be understood in terms of the capabilities learners develop and the outcome learners achieve, there is a need to better understand learners’ experience in terms of contemporary engagement theory. Doing so can help us to understand work with data in terms of learner's experience, which we know from past research impacts what and how students learn (Sinatra et al., 2015), yet which has not been brought to bear on the topic of engagement in work with data. In particular, the use of ESM and a person-oriented approach allow us to study engage in a way aligned with how scholars have recently considered engagement, namely, as something that is dynamic and as something that is multifaceted, including multiple dimensions of engagement and the (subjective and instruction-related) conditions that support engagement. Knowing more about students’ engagement can help us to design activities and interventions focused around work with data that are more engaging and which provide more support to learners in terms of their perceptions of challenge and their own competence. While other lenses can be brought to bear to better understand—and support—engagement in work with data, contemporary engagement theory not only has the power to explain differences in how students engage in data modeling, but it also aligns with how both teachers and recent curricular standards consider engagement. 
+While many scholars have argued that work with data can be understood in terms of the capabilities learners develop and the outcome learners achieve, there is a need to better understand learners’ experiences working with data. The present study does this through the use of contemporary engagement theory and innovative methodological and analytic approaches. Doing this can help us to understand work with data in terms of learner's experience, which we know from past research impacts what and how students learn (Sinatra et al., 2015), yet which has not been brought to bear on the topic of engagement in work with data. In particular, the use of ESM and a person-oriented approach allow us to study engage in a way aligned with how scholars have recently considered engagement, namely, as something that is dynamic and as something that is multifaceted, including multiple dimensions of engagement and the (subjective and instruction-related) conditions that support engagement. Knowing more about students’ engagement can help us to design activities and interventions focused around work with data that are more engaging and which provide more support to learners in terms of their perceptions of challenge and their own competence. While other lenses can be brought to bear to better understand—and support—engagement in work with data, contemporary engagement theory not only has the power to explain differences in how students engage in data modeling, but it also aligns with how both teachers and recent curricular standards consider engagement. 
 
 In addition to this general need to study engagement in work with data from the perspective of contemporary engagement theory, no research that I am aware of has examined work with data or data analysis more generally in the context of outside-of-school programs. These settings are potentially rich with opportunities for highly engaged learners to analyze authentic data sources. Third, little research has examined how data is part of the experiences of youth in out-of-school-time programs, despite its place as one of a few core practices in STEM. Fourth, this study employs a data analytic approach that allows for accounting for student, program, and momentary impacts on engagement, at this time an approach that has only been conducted as part of two studies, Strati et al. (2017) and Poysa et al. (2017). Fifth, most studies of engagement have considered it in terms of the individual components of engagement, rather than in terms of profiles of engagement.
 
-## Conceptual Framework
+## Conceptual Framework and Research Questions
 
 The present study is about how engagement can be used to understand how learners are involved in work with data and how characteristics of activities and learners impact the relationships between work with data and engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2 and is unpacked in the remainder of this section. 
  
-```{r, fig.cap = "A conceptual framework for this study with research questions labeled"}
+```{r, eval = T, fig.cap = "A conceptual framework for this study with research questions labeled"}
 knitr::include_graphics("images/figure2.png")
 ``` 
 
 There are five aspects of work with data synthesized from past research (i.e., Hancock et al., 1992; Lehrer & Romberg, 1996; Wild & Pfannkuch, 1999):
-1. Asking questions or identifying problems
-2. Making observations
-3. Generating data
-4. Data modeling
-5. Interpreting and communicating findings
 
-In addition to these five aspects of work with data, two activities that are not part of work with data will be coded so engagement in each aspect of work with data can be compared to other during other times. Other instructional activities, such as listening to a lecture by an instructor, and other activities, such as activities characterized by students being not focused on STEM, off-task, or unfocused.
-v
+1. Asking questions or identifying problems
+1. Making observations
+1. Generating data
+1. Data modeling
+1. Interpreting and communicating findings
+
 In this figure, engagement in work with data is associated with different profiles of engagement and its conditions (PECs). The theoretical framework for the person-oriented approach suggests that while the dynamics among the individual aspects of engagement emerge in complex and situation-specific ways, it is possible to consider engagement in terms of patterns among its components. In most settings, a relatively small number of these patterns can be identified in most developmental (and learning-related) settings (Bergman & Magnusson, 1997) and these patterns can be considered in terms of profiles of engagement (Schmidt et al., 2017). 
 
 In addition, a pre-program measure of learners’ individual interest in STEM is hypothesized to be associated with both the relationship between learners’ perception of the activity and themselves and the relationship between the aspects of work with data and engagement because some learners may be inclined from the start to be more engaged. This inclination could explain some of the variability in relations between engaging in work with data and the PECs. ESM responses are associated with students, moments, and program effects that must be accounted for (Strati et al., 2017). Each student in the same program was signaled at the same time, so that each student will have a response associated with each moment (within the same program), and each moment will have a response associated with each student (again, within the same program).
-
-## Research Questions
 
 The four research questions are as follows:
 
