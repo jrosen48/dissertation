@@ -405,8 +405,24 @@ o %>%
 
 ### Summary of findings for research question #2
 
-When looking across findings, we find few relations between work with data and the profiles, though there were notable effects of modeling, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). 
+When looking across findings, we find few relations between work with data and the profiles, though there were notable effects of modeling and generating data, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). 
 
-[add table]
+```{r}
+data_frame(profile = c("Only behavioral",
+                   "Universally low",
+                   "Engaged and competent but not challenged",
+                   "Only affective",
+                   "All moderate",
+                   "Full"),
+           asking_questions = c(NA, NA, NA, NA, NA, NA),
+           observing = c(NA, NA, NA, NA, NA, NA),
+           generating = c(NA, NA, NA, NA, NA, "+"), 
+           modeling = c(NA, NA, NA, NA, NA, "+"), 
+           communicating = c("+", NA, NA, NA, NA, NA),
+           composite = c("+", NA, NA, NA, NA, NA)) %>% 
+    knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for research question #3", linesep = "") %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape()
+```
 
 The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #3.
