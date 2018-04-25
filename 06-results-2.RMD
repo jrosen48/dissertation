@@ -1,4 +1,4 @@
-## Results for Research Question #2
+# Results for Research Question #2
 
 ```{r, setup-2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 

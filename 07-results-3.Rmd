@@ -1,4 +1,4 @@
-## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
+# Results for Research Question #3: How do data practices relate to youth engagement in the programs?
 
 ```{r, setup-3, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 

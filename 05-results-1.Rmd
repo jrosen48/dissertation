@@ -1,9 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-## Results for Research Question #1
+# Results for Research Question #1
 
 ```{r, setup-1, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 

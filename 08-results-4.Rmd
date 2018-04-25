@@ -1,4 +1,4 @@
-## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
+# Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
 In this section, models with the individual characteristics added separately followed by models with their interactions with the work with data composite are specified.
 
