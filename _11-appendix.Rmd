@@ -553,6 +553,12 @@ m1_7 %>%
 extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 ```
 
+##### Looking across model 1 and model 2 type solutions
+
+The model 1, six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence). Note that for this model, only the means and variances are estimated (and so no covariances are estimated), and the variances are constrained to be the same across the profiles. While this is a very restrictive model, it, along with the model 3 type (which did not lead to solutions for any of the numbers of profiles specified) also is a standard model for LPA, in that it meets the assumption of local independence (of the variables that make up the profiles--unlike for models in which covariances are estimated) typical common to LPA (see Muthen & Muthen, 2016). While some of the solutions associated with the model 2 type did reach solutions, these demonstrated less appealing properties in terms of their fit statistics as well as their interpretability and with respect to concerns of parsimony. Thus, while no covariances are estimated for the model 1 type solutions, there is no requirement that these be specified; their benefit, when models associated with them are preferred, is that they can provide better fit: they can be used to better explain or predict the data in a sample, but their inclusion also means that over-fitting the model to the data can become a greater concern.
+
+For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution may be preferred and is selected for use in subsequent analyses.
+
 ## Appendix: Models for research question #2 and #3 with the seven-profile solution
 
 <!-- # Model start here -->
