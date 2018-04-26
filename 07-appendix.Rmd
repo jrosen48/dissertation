@@ -170,7 +170,7 @@ This solution is characterized by:
 - A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
 - A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
-```{r, m1_7p, cache = FALSE, eval = TRUE,  eval = FALSE, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
+```{r, m1_7p, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
 m1_7 %>%
