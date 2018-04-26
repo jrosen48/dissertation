@@ -1,22 +1,40 @@
 # Discussion
 
-### Key Findings
+## Key Findings
 
-##### The nature of engagement in summer STEM programs
+In terms of the frequency and nature of work with data, work with data was found to be common in the summer STEM programs that made the context for this study, with frequencies ranging from .258 (making observations) to .470 (communicating findings) of the programs, with any aspect being present in [add] of the program. Data modeling was, like making observations, less common, whereas asking questions and generating data, like communicating findings, were relatively more common. This suggests that work with data is, in general, common across STEM programs, as expected based on past research (Lee & Wilkerson, in press) and the design and goals of such programs (Dabney et al., 2012; Elam et al., 2012; add). Subsequent qualitative showed that asking questions, generating data, and interpreting and communicating findings, the three aspects that were *more frequent* in the programs, also were the most inconsistent with how work with data was conceptualized in this study. This suggests that while work with data is somewhat common, more veridical forms of it are somewhat less common, occurring in around 25% of the programs' time. 
 
-We can identify profiles of engagement ...
+Six profiles of engagement and its conditions were identified. These profiles included those that were strongly negative (*Universally low*) and strongly positive (*Full*), as well as those characterized by different levels of engagement (*Only behavioral* and *Only affective*) and by different levels of the conditions of engagement (Engaged and Competent but not Challenged). An *All moderate* profile was also identified. The profiles suggest that the experiences of youth in summer STEM programs are variable and that the use of ESM can aid in the study of youths' engagement. 
 
-##### What explains PECs
+Before relations between the groups of "predictor" variables, work with data and youth characteristics, and the profiles, were explored, the amount of variability that could be explained at the program, youth, and momentary levels were explored. The amount of variability that could be explained at the program and momentary level was very small (no larger for any profile than .023, and as low as .00 at the program level and .004 at the momentary level for some profiles), while the amount of variability that could be explained at the youth level was moderate to large (between .099 and .427). This suggests that while there is variability in the composition of the profiles that were identified, youth characteristics--their pre-program thoughts, beliefs, and characteristics and their inclination to engage in particular ways throughout the program--largely explains the prevalence of the profiles. This also suggests that what youth do during the programs, and the design and implementation of the programs themselves, have little to do with how youth engage in them. This implies that even the strongest predictor variables at these (momentary and program) levels would likely not explain much variability in the profiles (though this is not always the case, as there are cases in which adding variables at one level can increase the amount of variability that can be explained at another; Gelman & Hill, 2007). 
 
-Engagement varies from moment-to-moment ...
+In line with what the preliminary analysis of the amount of variability that could be explained at the youth, momentary, and program levels, relations between work with data were largely not found, though some small, statistically significant relations were identified. Importantly, both generating and modeling data were found to be positively related to the *Full* profile, suggesting that when youth are involved in these practices, then they are more likely to report high levels of cognitive, behavioral, and affective engagement, and high perceptions of competence and challenge. The effect of data modeling was more robust than that for generating data, the latter which should be interpreted with caution. In short, this suggests that these activities are beneficial to youths' engagement. Both communicating and interpreting findings and the composite measure for work with data were positively related to the *Only behavioral* profile and these findings were fairly robust. This profile may indicate that students are experiencing a routine engagement (and not particularly adaptive) when they are communicating findings and being involved in work with data in general.
 
-##### Summer STEM programs as a context for work with data
+Not as much in line with expectations given the preliminary analysis, relations between youth characteristics and the profiles were found to be small. In this way, these small relations were similar (in magnitude) to those between work with data and the profiles. Youth with higher pre-program interest were more likely to be *Engaged and competent but not challenged*, suggesting that youth with higher interest in STEM are inclined to be highly engaged and good at what they are doing, but are not challenged by the activities they experience. This could be a function of the relationship between youths' interest and their competence before the program, which are often strongly related ([add]); these youth, as a result of their higher interest and competence, need more challenging activities to be more fully engaged. This effect was fairly robust. The interaction with gender and the work with data composite revealed a positive relationship with *Full* engagement, suggesting that the more that female youth work with data, the more likely they are to be positively engaged. However, sensitivity analysis revealed that this effect was not very robust, which, along with its small magnitude, suggests that it should be interpreted with some caution.
 
-Summer STEM program have affordances and constraints work with data. Thus, different from the previous theme that was focused on a study-related issue, this theme concerns differences in the nature of the instruction and learning opportunities that learners experienced as part of their time in the summer STME programs.
+## Limitations of the Study 
+
+First, this study does not consider outcomes from engaging, such as the products of neither youths’ work, nor the specific cognitive capabilities they develop through their participation. 
+
+Second, the context for this study is suited to understanding engagement in aspects of work with data but not explicitly designed for it, and learning environments that deliberately support work with data over a long period may demonstrate different patterns of engagement than those examined in this study because of the focus on and sequencing of the aspects of work with data, which may make it more (or less) cognitively, behaviorally, or affectively engaging than is determined in this study. 
+
+Third, this program is not representation of all outside-of-school programs, as many of the programs were based on characteristics of model STEM enrichment programs; as a result, engagement may be different in other STEM enrichment programs depending on characteristics of the programs and their activities, and findings from this study should be interpreted in terms of programs that share similar features in terms of their design. 
+
+How instructional support for work with data was measured seems to have been an issue, given the qualitative coding. 
+
+As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
+
+These programs were not designed to support work with data ...
+
+You don’t need to say this here (though you might in the discussion), but it may be that either the analytic approach you used (LPA) or the particular 5 variables you chose to focus on are not the ideal way to capture engagement that varies by program activity – something else may vary more by program activity.
+
+Engage students in complete cycles of investigation
+
+Support engagement in specific moments
+
+Viewing engagement in work with data in terms of engagement can help us to build the knowledge base around key data analytic practices for learners. In STEM settings, being engaged predicts key learning-related outcomes (Sinatra et al., 2015). As a consequence, what learners are thinking, feeling, and doing while engaged in work with data, and how challenged or good at data doing any or all of the aspects of work with data they perceive themselves to be, may important predictors of key outcomes and learners’ preparation for future learning (Bransford & Schwartz, 1999), especially for learning in data-rich areas of studies and occupations, such as data science. Engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives.
 
 ##### Affordances
-
-Affordances included the community setting and the relevance of the program to youth's lives.
 
 For example, in the *Marine Investigators*, youth participated in activities designed to help them understand water quality in their ecosystem. Youth collected trash from sites around their community (in different "districts") and then brought the trash and recyclable plastic back to the classroom. Then, the youth activity leaders asked students to figure out how much plastic enters local waterways. As a part of this activity, youth activity leaders asked students not only to determine the quantity of trash that entered the waterways, but asked students about *why* they used math in particular ways (i.e., adding the quantity of trash collected and then extrapolating from this quantity to the amount from across the entire city over the course of the year). This appeared to be a powerful activity, one that was coded as involving all five aspects of work with data according to the measures for instructional support for work with data; this type of activity seemed to suggest that instructional support for work with data may impact youth's engagement.
 
@@ -30,44 +48,13 @@ Youth activity leaders faced challenges linking activities as part of a complete
 
 A theme related to the challenge of linking activities concerned what the programs focused on. For example, the mathematics-focused programs, such as the *Adventures in Mathematics* program, the youth activity leaders recognizing that youth had difficulty solving equations, used duct tape and a "hippity hoppity", building on an earlier activity in which youth considered what constituted a rate, on how many "hops" it would take someone to move from one end of the line of duct tape to the other; the youth activity leader than asked youth to consider how far they could move in one hop and to consider how they could find out many hops it would take, using a mathematical equation. In this activity, youth were supported to approach mathematics problem-solving in creative ways. However, apart from data modeling, other aspects of work with data were rarely present, and most of the data that youth worked with was provided by the teacher or considered in the abstract. Programs focused on science or engineering, similarly, emphasized other aspects of work with data: The science-focused programs (*Island Explorers*, *The Ecosphere*, and *Marine Investigators*) all emphasized collecting and generating data, but data, particularly the data collected or generated, was rarely modeled or interpreted. In the engineering-focused programs (*Uptown Architecture*, *Crazy Machines*, and *Dorchester House*, youth often collected data that resulted from their engineering designs, and communicated and interpreted their findings, but, did not generate data, and, accordingly, (and like the science-focused programs) did not model data as a regular part of their activities. This finding suggests that while work with data may have been common overall, different aspects of instructional support for work with data were emphasized to different degrees based on the focus of the program.
 
-<!-- A final constraint Regarding emphasizing outcomes other than the capacity to work with data, the programs emphasized outcomes such as youth's confidence in their learning, planning skills, and ability to collaborate. These outcomes are complimentary to building youth's ability to work with data, but at the same time, they meant that over the approximately four weeks of the program, limited time was dedicated to work with data ... Related, on occasion, youth demonstrated a reluctance to engage in what they perceived as "school" activities. -->
-
-### Limitations of the Study
-
-First, this study does not consider outcomes from engaging, such as the products of neither youths’ work, nor the specific cognitive capabilities they develop through their participation. Second, the context for this study is suited to understanding engagement in aspects of work with data but not explicitly designed for it, and learning environments that deliberately support work with data over a long period may demonstrate different patterns of engagement than those examined in this study because of the focus on and sequencing of the aspects of work with data, which may make it more (or less) cognitively, behaviorally, or affectively engaging than is determined in this study. Third, this program is not representation of all outside-of-school programs, as many of the programs were based on characteristics of model STEM enrichment programs; as a result, engagement may be different in other STEM enrichment programs depending on characteristics of the programs and their activities, and findings from this study should be interpreted in terms of programs that share similar features in terms of their design. 
-
-##### Measurement issues
-
-How instructional support for work with data was measured seems to have been an issue, given the qualitative coding ...
-
-As a type of sensitivity analysis focused on alternate model specifications (different from the kind described earlier for quantifying how robust an inference is to potential sources of bias or confounding variables, e.g. Frank, 2003), the model 1, seven profile solution is also explored, but results for it are included in the appendix. This model is less restrictive but does not meet the assumption of independence; some scholars refer to it, as such, as a general or Guassian mixture model solution, instead of an LPA solution (Bauer, 2004). Because covariances are estimated, relationships between the variables not captured in their mean levels estimated for each profile are also estimated. This suggests that these models may be modeling different relations between the variables than those associated with model 1 and that they may fit the data better, but they are also more complex and so should be interpreted with consideration these added parameters.
-
-##### Context issues
-
-These programs were not designed to support work with data ...
-
-You don’t need to say this here (though you might in the discussion), but it may be that either the analytic approach you used (LPA) or the particular 5 variables you chose to focus on are not the ideal way to capture engagement that varies by program activity – something else may vary more by program activity.
 
 ### Recommendations for Future Research
 
-##### Explore work with data in settings designed to support it
+Explore work with data in settings designed to support it ... There are increasingly "data camps" ...
 
-There are increasingly "data camps" ...
+Measure student work with data as well as instructional support for work with data ... Measuring what students do in addition to what teachers do is important ...
 
-##### Measure student work with data as well as instructional support for work with data
-
-Measuring what students do in addition to what teachers do is important ...
-
-##### Explore changes in longer-term outcomes
-
-Changes in longer-term outcomes, such as future plans and goals, are an important goal for summer STEM educators and other stakeholders in such programs ...
-
-### Implications for Practice
-
-##### Engage students in complete cycles of investigation
-
-##### Support engagement in specific moments
-
-Viewing engagement in work with data in terms of engagement can help us to build the knowledge base around key data analytic practices for learners. In STEM settings, being engaged predicts key learning-related outcomes (Sinatra et al., 2015). As a consequence, what learners are thinking, feeling, and doing while engaged in work with data, and how challenged or good at data doing any or all of the aspects of work with data they perceive themselves to be, may important predictors of key outcomes and learners’ preparation for future learning (Bransford & Schwartz, 1999), especially for learning in data-rich areas of studies and occupations, such as data science. Engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives.
+Explore changes in longer-term outcomes... changes in longer-term outcomes, such as future plans and goals, are an important goal for summer STEM educators and other stakeholders in such programs ...
 
 \newpage
