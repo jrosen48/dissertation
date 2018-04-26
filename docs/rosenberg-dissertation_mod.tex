@@ -5727,7 +5727,326 @@ person-centered approach. Educational Psychology Review.
 
 \chapter{Appendix}\label{appendix}
 
-some test text
+\section{Appendix A: STEM-PQA
+alignment}\label{appendix-a-stem-pqa-alignment}
+
+\begin{verbatim}
+## Error: <text>:2:200: unexpected symbol
+## 1: tibble::tribble(
+## 2:   ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description, ~Categories.from.STEM-PQA.(Already
+##                                                                                                                                                                                                           ^
+\end{verbatim}
+
+\subsection{Appendix B: Program
+descriptions}\label{appendix-b-program-descriptions}
+
+\subsection{Appendix C: Model specifications
+details}\label{appendix-c-model-specifications-details}
+
+Here, the six models that are possible to specify in LPA are described
+in terms of how the variables used to create the profiles are estimated.
+Note that \emph{p} represents different profiles and each
+parameterization is represented by a 4 x 4 covariance matrix and
+therefore would represent the parameterization for a four-profile
+solution. In all of the models, the means are estimated freely in the
+different profiles. Imagine that each row and column represents a
+different variable, i.e., the first row (and column) represents broad
+interest, the second enjoyment, the third self-efficacy, and the fourth
+another variable, i.e., future goals and plans. Models 1 and 3 meet the
+assumption of independence, that is, that, after accounting for their
+relations with the profile, the variables used to estimate the profiles
+are independent (Collins \& Lanza, 2010). They estimate variable
+variances but do not estimate covariances (i.e., as can be seen, the
+covariance matrices are ``diagonal,'' without any off-diagonal
+parameters that are estimated). These models are estimated by default in
+MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
+2017). Importantly, this does not mean the variables used to create the
+profile are assumed to be not related; as Collins and Lanza (2010)
+explain:
+
+\begin{quote}
+The local independence assumption refers only to conditioning on the
+latent variable. It does not imply that in a data set that is to be
+analyzed, the observed variables are independent. In fact, it is the
+relations among the observed variables that are explained by the latent
+classes. An observed data set is a mixture of all the latent classes.
+Independence is assumed to hold only within each latent class, which is
+why it is called ``local''.
+\end{quote}
+
+Despite the assumption of independence, as Collins and Lanza (2010),
+Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
+\& Magidson, 2002) note, it can be lifted to improve model fit, though
+these models without the assumption of independence may be better
+described as general or Gaussian mixture models (Fraley et al., 2017).
+
+\subsubsection{Varying means, equal variances, and covariances fixed to
+0 (model
+1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
+
+In this model, which corresponds to the mclust model wit the name
+``EEI'', the variances are estimated to be equal across profiles,
+indicated by the absence of a p subscript for any of the diagonal
+elements of the matrix. The covariances are constrained to be zero, as
+indicated by the 0's between every combination of the variables. Thus,
+this model is highly constrained but also parsimonious: the profiles are
+estimated in such a way that the variables' variances are identical for
+each of the profiles, and the relationships between the variables are
+not estimated. In this way, less degrees of freedom are taken used to
+explain the observations that make up the data. However, estimating more
+parameters--as in the other models--may better explain the data,
+justifying the addition in complexity that their addition involves (and
+their reduction in degrees of freedom).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and equal covariances
+(model
+2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
+
+This model corresponds to the mclust model ``EEE''. In this model, the
+variances are still constrained to be the same across the profiles,
+although now the covariances are estimated (but like the variances, are
+constrained to be the same across profiles). Thus, this model is the
+first to estimate the covariance (or correlations) of the variables used
+to create the profiles, thus adding more information that can be used to
+better understand the characteristics of the profiles (and, potentially,
+better explain the data).
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and covariances fixed
+to 0 (model
+3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
+
+This model corresponds to the mclust model ``VVI'' and allows for the
+variances to be freely estimated across profiles. The covariances are
+constrained to zero. Thus, it is more flexible (and less parsimonious)
+than model 1, but in terms of the covariances, is more constrained than
+model 2.
+
+\[ 
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, varying variances, and equal covariances
+(model
+4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
+
+This model, which specifies for the variances to be freely estimated
+across the profiles and for the covariances to be estimated to be equal
+across profiles, extends model 3. Unfortunately, this model cannot be
+specified with mclust, though it can be with MPlus; this model
+\emph{can} be used with the functions to interface to MPlus described
+below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsubsection{Varying means, equal variances, and varying covariances
+(model
+5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
+
+This model specifies the variances to be equal across the profiles, but
+allows the covariances to be freely estimated across the profiles. Like
+model 4, this model cannot be specified with mclust, though it can be
+with MPlus. Again, this model \emph{can} be used with the functions to
+interface to MPlus described below.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\]
+
+\subsubsection{Varying means, varying variances, and varying covariances
+(model
+6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
+
+This model corresponds to the mclust model ``VVV''. It allows the
+variances and the covariances to be freely estimated across profiles.
+Thus, it is the most complex model, with the potential to allow for
+understanding many aspects of the variables that are used to estimate
+the profiles and how they are related. However, it is less parsimonious
+than all of the other models, and the added parameters should be
+considered in light of how preferred this model is relative to those
+with more simple specifications.
+
+\[
+\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\]
+
+\subsection{Appendix D: Additional details on the model selection
+process}\label{appendix-d-additional-details-on-the-model-selection-process}
+
+Looking across the statistics presented, some general ideas about which
+models are to be preferred emerge. Solutions are interpreted first for
+each model individually and then across models with the goal of choosing
+a smaller number of models to investigate in more detail.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
+\centering
+\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrlll}
+\toprule
+Number of Profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR & LMR & BLRT\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Model 1}}\\
+\hspace{1em}2 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 (0) & 3397.353 (0) & 3468.199 (0)\\
+\hspace{1em}3 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 (0.0126) & 863.512 (0.0136) & 881.519 (0)\\
+\hspace{1em}4 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 (0) & 503.605 (0) & 514.107 (0)\\
+\hspace{1em}5 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 (0) & 741.329 (0) & 756.788 (0)\\
+\hspace{1em}6 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 (0) & 331.386 (0) & 338.296 (0)\\
+\hspace{1em}7 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 (0.0112) & 512.455 (0.0121) & 523.141 (0)\\
+\hspace{1em}9 & -18186.35 & -18186.35 & 36836.25 & 36651.96 & 36491.06 & 0.899 & 171.674 (0.1322) & 168.167 (0.1359) & 171.674 (0)\\
+\addlinespace[0.3em]
+\multicolumn{10}{l}{\textbf{Model 2}}\\
+\hspace{1em}2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 (0) & 832.934 (0) & 850.304 (0)\\
+\hspace{1em}3 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 (0) & 412.736 (0) & 421.343 (0)\\
+\hspace{1em}4 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 (0) & 465.075 (0) & 474.773 (0)\\
+\hspace{1em}5 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 (0) & 298.709 (0) & 304.938 (0)\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} 
+
+}
+
+\caption{Fit statistics for model 1 solutions}\label{fig:model1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1} 
+
+}
+
+\caption{Fit statistics for model 2 solutions}\label{fig:model2}
+\end{figure}
+
+For solutions associated with model 1, the decrease (indicating a
+preferred model) in information criteria becomes smaller as the number
+of profiles increases from 5 to 6 and 6 to 7. A solution associated with
+8 profiles did not replicate the log-likelihood and the VLMR and LMR
+suggest that the solution associated with 9 profiles did not fit better
+than that with 8 profiles, suggesting that models with 7 or fewer
+profiles be preferred. Considering these models, the entropy statistic
+increases by a large amount between the solution associated with 4 and 5
+profiles (and then decreases slightly between 5 and 6 and 6 and 7
+profile solutions), suggesting (but not providing conclusive evidence)
+that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests
+that, until the log-likelihood is not replicated, every more complex
+model be selected. Taking these pieces of evidence into conclusion, for
+model 1, solutions associated with 4 through 7 may be considered in more
+depth, with an emphasis on solutions associated with profiles with 5 and
+6 profiles on the basis of the slowing of the decrease in the
+information criteria associated with the solutions with greater profiles
+than these, and the increase in the entropy from 4 to 5 (and 6) profile
+solutions.
+
+For solutions associated with model 2, only those associated with 2-5
+profile solutions were associated with log-likelihoods that were
+replicated. For these four models, the log-likelihood decreased in a
+mostly consistent way, such that changes in the decrease are not as
+evident as those associated with model 1. The entropy statistic
+decreases from 2 to 3 profile solutions, increases from 3 to 4 profile
+solutions, and then decreases slightly from 4 to 5 profile solutions,
+providing some information that models associated with 4 profiles be
+preferred to the others. All of the LRTs suggest that the more complex
+model be selected, not providing clear information about which solutions
+are to be preferred. On the basis of these pieces of evidence, models
+with 3, 4, and 5 solutions may be considered in more depth. However,
+there is a lack of consistent evidence favoring more or less complex
+models.
+
+The model 1, six and seven profile solutions are compelling because both
+show profiles that are distinguished by dimensions of engagement and its
+conditions (challenge and competence). Note that for this model, only
+the means and variances are estimated (and so no covariances are
+estimated), and the variances are constrained to be the same across the
+profiles. While this is a very restrictive model, it, along with the
+model 3 type (which did not lead to solutions for any of the numbers of
+profiles specified) also is a standard model for LPA, in that it meets
+the assumption of local independence (of the variables that make up the
+profiles--unlike for models in which covariances are estimated) typical
+common to LPA (see Muthen \& Muthen, 2016). While some of the solutions
+associated with the model 2 type did reach solutions, these demonstrated
+less appealing properties in terms of their fit statistics as well as
+their interpretability and with respect to concerns of parsimony. Thus,
+while no covariances are estimated for the model 1 type solutions, there
+is no requirement that these be specified; their benefit, when models
+associated with them are preferred, is that they can provide better fit:
+they can be used to better explain or predict the data in a sample, but
+their inclusion also means that over-fitting the model to the data can
+become a greater concern.
+
+For each solution, alternate solutions associated with higher
+log-likelihoods were explored. One advantage of the six profile solution
+is that most of its profiles can also be identified in solutions with
+fewer profiles. For the six profile solutions, this alternate solution
+was very different, whereas for the seven profile solutions, this
+alternate solution was highly similar. The model solutions exhibit a
+less clear pattern in terms of which profiles appear when. All else
+being equal, on the basis of parsimony, the model 1, six profile
+solution is preferred and was selected for use in subsequent analyses.
+
+\subsection{Appendix E: Alternate model selected (model type 1, seven
+profile
+solution)}\label{appendix-e-alternate-model-selected-model-type-1-seven-profile-solution}
+
+This solution is characterized by:
+
+\begin{itemize}
+\tightlist
+\item
+  A \emph{full} profile, profile 7
+\item
+  A \emph{universally low} profile, profile 1
+\item
+  A \emph{competent but not engaged or challenged} profile, profile 2,
+  characterized by high competence and moderate (low) or low levels of
+  engagement and challenge
+\item
+  A \emph{moderately low} profile, profile 3, characterized by
+  moderately low levels of all of the variables
+\item
+  A \emph{challenged} profile, profile 4, characterized by high
+  challenge, moderate (high) levels of engagement, and moderate (low)
+  levels of competence
+\item
+  A \emph{highly challenged} profile, profile 5, characterized by
+  patterns similar to those of the challenged profile, but with higher
+  challenge and with low levels of both engagement and challenge
+\item
+  A \emph{challenged but not engaged or competent} profile, profile 6,
+  characterized by low levels of challenge, and high levels of
+  engagement and competence
+\end{itemize}
+
+The number of observations associated with each of the profiles is not
+very balanced, with few (\emph{n} = 181) observations associated with
+the universally low profile and few (\emph{n} = 222) observations
+associated with the highly challenged profile. The number of
+observations associated with the other profiles ranged from 317 to 651.
+Distinct from other solutions, none of the other five profiles were
+found in the other model 1 solutions. Two pairs of the
+profiles--challenged and highly challenged and universally low and
+moderately low--exhibited similar patterns among the variables that were
+distinguished by different mean levels. The log-likelihood was
+replicated twice, with the next lowest log-likelihood being replicate
+four times, possibly warranting further investigation. Taken together,
+this solution raises questions about whether it may be too complex,
+possibly suggesting preference for model 1 five and six profile
+solutions.
 
 \bibliography{book.bib,packages.bib}
 

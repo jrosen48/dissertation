@@ -62,3 +62,14 @@
 \contentsline {subsection}{\numberline {6.2.1}Recommendations for Future Research}{68}{subsection.6.2.1}
 \contentsline {chapter}{\chapternumberline {7}References}{69}{chapter.7}
 \contentsline {chapter}{\chapternumberline {8}Appendix}{78}{chapter.8}
+\contentsline {section}{\numberline {8.1}Appendix A: STEM-PQA alignment}{78}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Appendix B: Program descriptions}{78}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Appendix C: Model specifications details}{78}{subsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.2.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{79}{subsubsection.8.1.2.1}
+\contentsline {subsubsection}{\numberline {8.1.2.2}Varying means, equal variances, and equal covariances (model 2)}{80}{subsubsection.8.1.2.2}
+\contentsline {subsubsection}{\numberline {8.1.2.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{80}{subsubsection.8.1.2.3}
+\contentsline {subsubsection}{\numberline {8.1.2.4}Varying means, varying variances, and equal covariances (model 4)}{81}{subsubsection.8.1.2.4}
+\contentsline {subsubsection}{\numberline {8.1.2.5}Varying means, equal variances, and varying covariances (model 5)}{81}{subsubsection.8.1.2.5}
+\contentsline {subsubsection}{\numberline {8.1.2.6}Varying means, varying variances, and varying covariances (model 6)}{82}{subsubsection.8.1.2.6}
+\contentsline {subsection}{\numberline {8.1.3}Appendix D: Additional details on the model selection process}{82}{subsection.8.1.3}
+\contentsline {subsection}{\numberline {8.1.4}Appendix E: Alternate model selected (model type 1, seven profile solution)}{86}{subsection.8.1.4}
