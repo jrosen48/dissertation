@@ -15,7 +15,7 @@ tibble::tribble(
   NA,                                                                                                              NA,                                                          NA
 ) %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
-  knitr::landscape()
+  kableExtra::landscape()
 ```
 
 ### Appendix B: Program descriptions
@@ -35,6 +35,10 @@ d <- tibble::tribble(
   "Building Mania",                                                                                                                                                                                                                                                                         "An engineering-focused program that aims to provide youth with the opportunity to experiment with designing and using simple machines. A goal of the program is to have youth engage in the engineering design process by determining a need, brainstorming possible designs, selecting a design, planning and drawing out the design, creating and testing and revising it, and producing a final machine. Located in the classroom, design labs, and other local locations. 24 youth who are rising 6th to 9th graders. Youth attended programming in a classroom at an area middle school and a field-based setting on alternating days. Field-based settings included a design lab at a community-based organization and field trips to sites in the community related to the program's focus.",
   "Adventures in Mathematics",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             "A mathematics-focused program that aims to help youth to develop the basic math skills and prevent summer learning loss among participating youth through direct instruction and participation in math-related games. Located primarily in the classroom. 20 youth who are rising 8th to 10th graders. Youth participated in direct instructions in mathematics and math-related games in small groups. Program content was aligned with the state's standards in mathematics."
 )
+
+d %>% 
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Program (with pseudonyms) descriptions") %>% 
+  kableExtra::landscape()
 ```
 
 ### Appendix C: Model specifications details

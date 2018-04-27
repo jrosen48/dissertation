@@ -101,7 +101,6 @@ The composite measure, created on the basis of summing the codes for the five as
 We can also examine the breakdown by program, which shows that, descriptively, there exists substantial variability.
 
 ```{r}
-
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
            Proportion = c(.389, .258, .453, .288, .470),
            N = c(92, 61, 107, 68, 111)) %>%
@@ -123,8 +122,9 @@ pnn <- pn %>%
          modeling = modeling/total_segments,
          communicating=communicating/total_segments)
 
-names(pnn) <- c("", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Total Segments")
+names(pnn) <- c("Variable", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Total Segments")
 
+pnn <- mutate_if(pnn, is.numeric, round, 3)
 
 pnn %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present by program") %>% 
