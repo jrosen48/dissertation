@@ -4,7 +4,7 @@
 
 ```{r}
 tibble::tribble(
-  ~Work.With.Data.Codes.Originally.Proposed,                                                                                                    ~Description, ~Categories.from.STEM-PQA.(Already.Coded).With.Descriptions,
+  ~Work.With.Data,                                                                                                    ~Description, ~STEM.PQA,
   "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                       "Predict, conjecture, or hypothesize",
   "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                      "Classify or abstract",
   "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.", "Collect data or measure; Highlight precision and accuracy",

@@ -149,6 +149,17 @@ d_red <- df %>%
 ##   pluck(4) %>%
 ##   round(3)
 
+# dfss <- d_red %>% distinct(beep_ID, sociedad_class, .keep_all=T)
+# dfss %>%
+#   select(dm_composite) %>%
+#   summarize(m_dm_composite = mean(dm_composite, na.rm = T),
+#             sd_dm_composite = sd(dm_composite, na.rm = T))
+#
+# # A tibble: 1 x 2
+# m_dm_composite sd_dm_composite
+# <dbl>           <dbl>
+#   1           1.86            1.61
+
 ## ---- eval = FALSE-------------------------------------------------------
 ## dfs <- df %>%
 ##   distinct(beep_ID, sociedad_class, .keep_all=T)
