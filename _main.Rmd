@@ -1,5 +1,5 @@
 --- 
-title: "Examining Work With Data in STEM Education Through the Lens of Engagement Theory: A Person-Oriented Approach Using an Experience Sampling Method"
+title: "Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach"
 author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -16,7 +16,7 @@ description: "This is Joshua Rosenberg's dissertation"
 
 ### Dedication
 
-This dissertation is dedicated to Katie.
+This dissertation is dedicated to Katie and to Jonah, who (mostly) happily slept through most of its writing.
 
 ### Acknowledgments
 
@@ -24,7 +24,15 @@ First, I would like to acknowledge my advisor and dissertation co-director Matth
 
 ### Abstract
 
-This study will examine how 203 early adolescent learners work with data, or engage in activities focused on constructing measures of and modeling data, in the context of STEM summer enrichment programs. Video recordings of programs will be coded to identify the presence of five aspects of learners’ work with data: asking questions or identifying problems, constructing measures, collecting data, accounting for variability or uncertainty, and interpreting and communicating findings. Additionally, measures of instructional support for such practices will be used, so codes for work with data with instructional support are also created. Youth’s responses to the Experience Sampling Method (ESM) will be used to examine their cognitive, behavioral, and affective engagement as well as their perceptions of challenge and competence. A person-oriented analytic approach will be used to identify profiles of engagement that will help us to understand how learners engage in work with data. Examining work with data in terms of contemporary engagement theory can help us to understand these key STEM activities in terms of learner's experience, which past research suggests impacts student learning, yet which has not been brought to bear on the topic of work with data. Knowing more about students’ engagement can help us to design activities and interventions around work with data that are highly engaging to students and that support their capabilities to work with data. 
+Data-rich activities provide an opportunity for science and mathematics learners to develop empowering capabilities. Aspects of work with data are recognized have been core competencies in both science and mathematics curricular standards and have been the focus of research over the past three decades. While past research on work with data has focused on cognitive outcomes and the development of specific practices at the student and classroom levels, little research has considered learners' experience--their perceptions of themselves, the activity, and of how engaged they are--of work with data and engaging in data science. Contemporary engagement theory suggests the importance of considering youths' experiences and provides a framework for understanding and measuring them.
+
+The present study explores learners engagement in work with data in the context of summer STEM programs. The data practices that are the focus of this study are selected on the basis of past research in science and mathematics education and data science education research. They are a) asking questions, b) observing phenomena, c) constructing measures and generating data, d) data modeling, and e) interpreting findings. Data from measures of learners' engagement is collected through the Experience Sampling Method (ESM) that involves asking learners at random intervals to answer short questions about their experience and are analyzed with a person-oriented approach to discover profiles of learners' engagement.
+
+The following research questions guide the study: 1) What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs? 2) What profiles of youth engagement and its conditions emerge from experiential data collected in these programs? 3) How does youth engagement relate to data practices? 4) How do youth characteristics relate to their engagement in summer STEM programs?
+
+These questions are explored in the context of nine summer STEM programs that took place over four week in large cities in the Northeastern United States. 203 learners reported 2,970 responses via short ESM surveys of how engaged they were (cognitively, behaviorally, and affectively, assessed through separate items) and of their perceptions of themselves (their competence) and of the activity (its challenge). Programs were video-recorded, and segments of video associated with ESM responses were qualitatively coded for each of the data practices. Relations of learners engagement to the data practices were analyzed using multi-level models. After being coded for work with data, activities were coded in an open-ended fashion to better understand the particular nature of work with data in this study's context.
+
+Findings show that aspects of work with data were fairly common overall, though there were some misalignment revealed by the open-ended coding that suggests that some aspects were not carried out in a way that completely aligns with work with data as conceptualized and championed by past research. Six profiles of youth engagement that ranged from universally low to full, with intermediate profiles with d were identified with different configurations of cognitive, behavioral, and affective engagement, and youths' perceptions of competence and challenge. Relations of specific practices show that generating data and data modeling are associated with full engagement, but that these effects were small; overall, work with data was not strongly related to the profiles. Female engaged in work with data as measured by a composite were more likely to be fully engaged, but, like for the relations of the individual aspects of work with data, this relationship was small, and relations overall were weak. Findings have implications for supporting work with data in informal and formal learning environments and for how researchers can use a person-in-context approach to study engaging in data science in a way that is sensitive to moment-to-moment changes in learners' experience.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

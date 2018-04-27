@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach</a></li>
+        <li><a href="./">Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
