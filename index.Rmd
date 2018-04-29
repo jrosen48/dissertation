@@ -1,5 +1,5 @@
 --- 
-title: "Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach"
+title: "Examining youth engagement during learning activities that involve work with data: An Experience Sampling Approach"
 author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
