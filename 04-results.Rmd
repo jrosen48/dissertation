@@ -94,9 +94,14 @@ Most noteworthy is the very small correlations between the aspects of work with 
 
 ### Frequency of work with data
 
-From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 236 were coded for work with data; for the other, not-coded segments, issues with the video-recordings were the primary source of the missing data; in these cases, youth may have still replied to signals, but it was not possible to code for work with data associated with these responses. 
+From the coding with the STEM-PQA, work with data appears common. Out of the 248 segments, 12 were codeable for work with data; for these, issues with the video-recordings were the primary source of the missing data; in these cases, youth may have still replied to signals, but it was not possible to code for work with data associated with these responses. 
 
-The composite measure, created on the basis of summing the codes for the five aspects of work with data, has a minimum value of 0 and a maximum of 5. Its mean is 1.86 (*SD* = 1.61). This indicates that, on average, youth were engaged in 1.86 aspects of the work with data during the program.
+<!-- 1.	Of all the coded video segments, what proportion were coded as having evidence of working with data of any kind. -->
+<!-- 2.	How often was each type of work with data observed? -->
+<!-- 3.	Then remind us that the different types of work with data can co-occur. How often did this happen? What you present here suggests that it’s typical to see 2 types happening at the same time. Are there certain pairs (or trios) of work with data that occur together  more frequently than others? -->
+<!-- 4.	As you are presenting these results you need to remind us that the time frame for what you are reporting is 10 minute spans of time in the program where they were supposed to be focused on STEM content. -->
+
+<!-- The composite measure, created on the basis of summing the codes for the five aspects of work with data, has a minimum value of 0 and a maximum of 5. Its mean is 1.86 (*SD* = 1.61). This indicates that, on average, youth were engaged in 1.86 aspects of the work with data during the program. -->
 
 We can also examine the breakdown by program, which shows that, descriptively, there exists substantial variability.
 
@@ -161,9 +166,7 @@ This suggests that differences in how work with data was conceptualized and oper
 
 ## Results for Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
 
-For every combination of models one through six and from two through ten profiles, only solutions associated with model specifications 1 and 2 (and among these two solutions, only those associated with particular number of profiles) converged. This suggests that the more complex models were too complex given the systematic variability in the data used for the analysis. Thus, only solutions associated with models 1 (the model with varying means, equal variances, and covariances fixed to zero) and model 2 (varying means, equal variances, and equal covariances) were explored in subsequent sections. 
-
-Following from the in-depth exploration of all of the models that converged (as described in the Appendix), the model one type, six profile model is selected on the basis of a range of criteria including fit statistics, statistical tests, and concerns of interpretability and parsimony. This model demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy) and it was also highly interpretable. The model one type, seven profile solution also demonstrated good fit and high interpretability; this model is presented in detail in the Appendix. For the selected model, presented below, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
+on the basis of the selection criteria  you used (you can name them again if you wish), the six profile solution with varying means, equal variances and covariances fixed to 0 emerged as the best fit of the data. This was on the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony. The model demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy). A seven profile solution with the same specifications regarding means, variances and covariances was also a similarly good fit (and is presented in the Appendix), but the 6 profile solution was ultimately chosen on the basis of parsimony and interpretability. For the selected model, presented below, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
 ```{r}
 m1_6 <- read_rds("data/models/m1_6.rds")
@@ -209,21 +212,17 @@ p
 This solution is characterized by:
 
 - A *full* profile, profile 6
-- An *universally low* profile, profile 2
-- An *all moderate* profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
+- A *universally low* profile, profile 2
+- A *all moderate* profile, profile 5--and, like, the model 1, six profile solution--with moderate levels of affective engagement
 - An *only behaviorally engaged* profile, profile 1, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - An *only affectively engaged* profile, profile 4, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - An *engaged and competent but not challenged* profile, profile 3, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
 
-The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. Unlike other solutions, this solution was associated with profiles that distinguished observations on the basis of both: There were profiles for only behaviorally and affectively engaged and for engaged and competent but not challenged. 
+The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations.
 
-### Summary of research question #2 findings
+### Sources of variability in momentary profiles
 
-After reviewing a wide range of models, a relatively simple model (model 1) with six profiles was selected for use in subsequent analyses. This model has momentary profiles of engagement and its conditions characterized by both varying levels on the dimensions of engagement and perceptions of challenge and competence. In addition, the number of observations across the profiles is relatively balanced. 
-
-## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
-
-### Null models
+#### Null models
 
 The null models presented in the table provide insight into the levels at which predictors may be able to explain the outcome. For all six profiles, the ICCs at the program level were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the momentary level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. 
 
@@ -231,12 +230,60 @@ Looking across these values, considering variability at the program, momentary, 
 
 In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, momentary, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted.
 
+#### Variability in momentary profiles across youth
+
+Variability in terms of the profiles youth report can also be considered. These show that a 
+
+```{r}
+x <- d %>% 
+  group_by(participant_ID) %>% 
+  select(participant_ID, profile_1_p:profile_6_p) %>% 
+  summarise_all(sum) %>% 
+  select(profile_1_p:profile_6_p)
+
+the_row_sum <- rowSums(as.data.frame(x))
+
+divide_by_the_row_sum <- function(x) {
+  x / the_row_sum
+}
+
+x <- mutate_all(x, divide_by_the_row_sum)
+
+t <- as.vector(x$which_max %>% table())
+
+x$which_max <- apply(x, 1, which.max)
+
+x %>% 
+  group_by(which_max) %>% 
+  summarize_all(mean) %>% 
+  gather(key, val, -which_max) %>% 
+  ggplot(aes(x = which_max, y = val, group = key, fill = key)) +
+  geom_col(position = "dodge") +
+  theme_bw() +
+  ylab("Probability") +
+  xlab("Profile") +
+  scale_fill_brewer("Profile", type = "qual", palette = 2, labels = 1:6) +
+  scale_x_continuous(breaks = 1:6, labels = 
+                       str_c(1:6, " (n = ", t, ")")
+  )
+```
+
+<!-- This then leads very nicely into your next step where you say – students show some within-person variability in their profiles, now I’m going to check the degree to which this variability might be due to work with data.  -->
+
+### Summary of research question #2 findings
+
+After reviewing a wide range of models, a relatively simple model (model 1) with six profiles was selected for use in subsequent analyses. This model has momentary profiles of engagement and its conditions characterized by both varying levels on the dimensions of engagement and perceptions of challenge and competence. In addition, the number of observations across the profiles is relatively balanced. 
+
+## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
+
 ### Models with variables for aspects of work with data added separately
 
+<!-- Start by saying that you ran one multilevel models predicting the probability of membership in each of the 6 profiles, using the work with data codes as predictors: Thus each of the rows in the table represents a different  -->
+ 
 When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile ($\beta$ = 0.036 (0.016), *p* = .016) and between generating data and the full profile ($\beta$ = 0.029 (0.015), *p* = .024). Interpreting and communicating findings was positively related to the *Only behavioral* profile ($\beta$ = 0.025 (0.014), *p* = .043).
 
 ```{r}
-o <- read_rds("data/rq2-1-tab.rds")
+o <- read_rds("data/m1a-6a.rds")
 
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
@@ -260,36 +307,7 @@ oo %>%
   kableExtra::landscape()
 ```
 
-Adding these variables changed the (conditional upon the random effects) R^2^ values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the profiles. This is in-line with the correlations for these variables with those variables that make up the profiles, and the ICC values at the momentary level. 
-
-The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference and for the effect of interpreting and communicating findings, 9.41% would need to be due to bias.
-
-### Models with the composite added
-
-For the composite of work with data, the composite predicted the profile for *only behavioral* ($\beta$ = 0.007 (0.004), *p* = .021), but not any of the other profiles. However, this coefficient is very small in practical terms. 12.261% would need to be due to bias to invalidate the inference. The change in R^2^ values ranged from .003 to .020, suggesting minimal potential relations among factors (such as support for work with data as measured by the composite variable) at the momentary level. When the composite was treated as a dichotomous (instead of a continuous) variable, so that the variable takes a value of one if any of the aspects of work with data are present, the results are similar in terms of the magnitude of the effects and their significance, as none of the relations are statistically significant when the dichotomous variable is used.
-
-```{r}
-o <- read_rds("data/comp-l.rds")
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-oo <- o %>%
-  select(model,
-         intercept = `(Intercept)`,
-         dm_composite) %>%
-  mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full"))
-
-names(oo) <- c("Profile", "Intercept", "Data Modeling Composite")
-
-oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down")
-```
+Adding these variables changed the (conditional upon the random effects) R^2^ values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the profiles. The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference and for the effect of interpreting and communicating findings, 9.41% would need to be due to bias.
 
 ### Summary of findings for research question #3
 
@@ -304,18 +322,18 @@ ds3 %>%
   kableExtra::landscape()
 ```
 
-The composite for work with data had a relation of around 0.01 with the *only behavioral* profile, suggesting that for each one-value increase in the composite (which has a range from one to five), this profile is around 1% more likely. These findings are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables; see the appendix for more detail. Broadly, further explanations and investigations of these effects --focusing on the characteristics of work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #4.
+Broadly, further explanations and investigations of these effects --focusing on the characteristics of work with data in the context of summer STEM programs and how this support is measured in terms of codes from the video--are the focus on research question #4 and are discussed in the next chapter. Moreover, these findings are deepened in subsequent analyses for research questions #4.
 
 ## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
-In this section, models with the individual characteristics added separately followed by models with their interactions with the work with data composite are specified.
+In this section, models with [add].
 
 ### Models with pre interest, gender, and under-represented minority (URM) status
 
 These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile ($\beta$ = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in R^2^ values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the profiles. This is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level). This is discussed further in the next chapter. 
 
 ```{r}
-o <-read_rds("data/md-block-for-rq4")
+o <-read_rds("data/m1b-6b.rds")
 
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
@@ -341,12 +359,12 @@ oo %>%
   kableExtra::landscape()
 ``` 
 
-### Pre-interest, gender, and URM status interactions work with data composite
+### Pre-interest, gender, and URM status and the aspects work with data seperately
 
 These results show similar patterns to the earlier models.Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile ($\beta$ = 0.033 (0.018), p = .033). Being female is again related but not to a level that it meets the criteria for statistical significance ($\beta$ = 0.064 (0.041), p = .059). With the interactions added, the composite was no significantly related to the *only behavioral* profile ($\beta$ = 0.016 (0.016), p = .156) to a similar extent and with similar robustness as found in the separate model. One interaction, between pre-interest and being female, had a significant effect upon the profile for *full* engagement ($\beta$ = 0.012 (0.006), p = .026). However, only 1.953% of the effect would need to be due to bias to invalidate the inference. The R^2^ values, relative to the models with only random effects (the null models), increased from .003 to .028, again suggesting small effects of the predictors upon the profiles. Note that "Comp." refers to the data modeling composite.
 
 ```{r}
-o <- read_rds("data/pre-int-interaction.rds")
+o <- read_rds("data/m1d-6d.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -375,11 +393,47 @@ oo %>%
   kableExtra::landscape()
 ```
 
+### Pre-interest, gender, and URM status interactions work with the codes for work with data
+
+```{r}
+o <- read_rds("data/m1e-m6ei-m6eii.rds")
+o <- mutate(o, model = c(
+  str_c("profile_", 1:6)))
+
+# oo <- o %>%
+#   select(model,
+#          intercept = `(Intercept)`,
+#          dm_composite,
+#          overall_pre_interest,
+#          gender_female,
+#          urm,
+#          `overall_pre_interest:dm_composite`,
+#          `dm_composite:gender_female`,
+#          `dm_composite:urm`) %>%
+#   mutate(model = c("Only behavioral",
+#                    "Universally low",
+#                    "Engaged and competent but not challenged",
+#                    "Only affective",
+#                    "All moderate",
+#                    "Full"))
+# 
+# names(oo) <- c("Profile", "Intercept", "Comp.", "Pre-interest", "Female", "URM status", "Pre-interest X Comp.", "Gender X Comp.", "URM status X Comp.")
+# 
+# oo %>% 
+#   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
+#   kableExtra::kable_styling(latex_options = "scale_down") %>%
+#   kableExtra::landscape()
+```
+
 ### Summary of findings for research question #4
 
 When looking across findings, we find minimal relations between pre-interest and other individual characteristics.
 
 ```{r}
+
+mtcars %>% 
+  select(hp) %>% 
+
 names(ds4) <-names(oo) <- c("Profile", "Pre-interest", "Female", "URM status", "Pre-interest X comp.", "Gender X comp.", "URM status X comp.")
   
 ds4 %>%
@@ -388,4 +442,4 @@ ds4 %>%
   kableExtra::landscape()
 ```
 
-In particular, we found that pre-interest was related to the *engaged and comptent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant.Note that the positive pre-interest coefficient is the estimate from the model with the interaction (without the interaction, the coefficient was also statistically significant and was 0.039). These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the R^2^ value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. 
+In particular, we found that pre-interest was related to the *engaged and competent but not challenged* profile to a modest extent. Being female did not demonstrate statistically significant relations with the *univerally low* profile, though some moderately-sized effects that were nearly statistically significant were observed and interpreted in terms of how much bias would need to be reduced (or how much the larger the effect would need to be) in order for this relation to be statistically significant. Note that the positive pre-interest coefficient is the estimate from the model with the interaction (without the interaction, the coefficient was also statistically significant and was 0.039). These results, like those for research question #2, are similar to those obtained when the model 1 type, seven profile solution is used for the outcome variables. There were few interactive effects observed; the magnitude of the effect of the composite and gender interaction was small (as were the changes in the R^2^ value as a consequence of adding this interaction), and the effect appears to not be highly robust to potential sources of bias. Like for research question #2, reasons for why this may be are explored in the next chapter. 

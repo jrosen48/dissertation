@@ -21,7 +21,13 @@ tidy_model <- function(model) {
   fixef_names <- c("(Intercept)", "dm_ask", "dm_ask:overall_pre_interest", "dm_com",
                    "dm_gen", "dm_mod", "dm_obs", "overall_pre_interest", "overall_pre_interest:dm_com",
                    "overall_pre_interest:dm_gen", "overall_pre_interest:dm_mod",
-                   "overall_pre_interest:dm_obs", "gender_female", "urm", "dm_composite")
+                   "overall_pre_interest:dm_obs", "gender_female", "urm", "dm_composite",
+                   "gender_female:dm_ask", "urm:dm_ask",
+                   "gender_female:dm_obs", "urm:dm_obs",
+                   "gender_female:dm_gen", "urm:dm_gen",
+                   "gender_female:dm_mod", "urm:dm_mod",
+                   "gender_female:dm_com", "urm:dm_com"
+                   )
 
   d <- as.data.frame(matrix(rep(NA, 15), ncol = 15))
   names(d) <- fixef_names

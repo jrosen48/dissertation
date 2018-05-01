@@ -342,6 +342,16 @@ d <- d %>%
     profile_6_p = CPROB6
   )
 
+d$profile <- as.vector(unlist(d$profile))
+d$profile_1 <- as.vector(d$profile_1)
+d$profile_2 <- as.vector(d$profile_2)
+d$profile_3 <- as.vector(d$profile_3)
+d$profile_4 <- as.vector(d$profile_4)
+d$profile_5 <- as.vector(d$profile_5)
+d$profile_6 <- as.vector(d$profile_6)
+
+d <- as.tibble(as.data.frame(d))
+
 ## ---- rq2-0-null, cache = FALSE, eval = TRUE-----------------------------
 m1 <- lmer(profile_1_p ~ 1 +
              (1 | participant_ID) +
@@ -434,190 +444,6 @@ m6a <- lmer(profile_6_p ~ 1 +
               (1 | program_ID),
             data = d)
 
-## ---- rq2-2-composite-keep, cache = FALSE--------------------------------
-m1b <- lmer(profile_1_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m2b <- lmer(profile_2_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m3b <- lmer(profile_3_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m4b <- lmer(profile_4_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m5b <- lmer(profile_5_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-m6b <- lmer(profile_6_p ~ 1 +
-              dm_composite +
-              # gender_female +
-              # urm +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
-
-## ---- rq2-2-composite-keep-2, cache = FALSE------------------------------
-m1bi <- lmer(profile_1_p ~ 1 +
-               dm_composite_di +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-m2bi <- lmer(profile_2_p ~ 1 +
-               dm_composite_di +
-               # gender_female +
-               # urm +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-m3bi <- lmer(profile_3_p ~ 1 +
-               dm_composite_di +
-               # gender_female +
-               # urm +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-m4bi <- lmer(profile_4_p ~ 1 +
-               dm_composite_di +
-               # gender_female +
-               # urm +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-m5bi <- lmer(profile_5_p ~ 1 +
-               dm_composite_di +
-               # gender_female +
-               # urm +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-m6bi <- lmer(profile_6_p ~ 1 +
-               dm_composite_di +
-               # gender_female +
-               # urm +
-               (1 | participant_ID) +
-               (1 | beep_ID) +
-               (1 | program_ID),
-             data = d)
-
-## -----r2-1, eval = FALSE-------------------------------------------------
-## MuMIn::r.squaredGLMM(m1) # .108
-## MuMIn::r.squaredGLMM(m2) # .295
-## MuMIn::r.squaredGLMM(m3) # .324
-## MuMIn::r.squaredGLMM(m4) # .109
-## MuMIn::r.squaredGLMM(m5) # .268
-## MuMIn::r.squaredGLMM(m6) # .482
-##
-## MuMIn::r.squaredGLMM(m1a) # .115
-## MuMIn::r.squaredGLMM(m2a) # .300
-## MuMIn::r.squaredGLMM(m3a) # .321
-## MuMIn::r.squaredGLMM(m4a) # .101
-## MuMIn::r.squaredGLMM(m5a) # .270
-## MuMIn::r.squaredGLMM(m6a) # .50
-
-## ---- rq2-1-tab, eval = FALSE--------------------------------------------
-## l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
-## o <- map_df(l, tidy_model)
-## write_rds(o, "data/rq2-1-tab.rds")
-
-## ---- sensitivity-analysis-for-rq1, eval = FALSE, cache = FALSE----------
-## konfound::konfound(m6a, dm_gen)
-## konfound::konfound(m6a, dm_mod)
-#konfound::konfound(m1a, dm_com)
-## konfound::konfound(m6a, gender_female) # need to add
-
-## ---- sens-2, eval = FALSE, cache = FALSE--------------------------------
-## konfound(m1b, dm_composite)
-
-## -----r2-2, eval = FALSE-------------------------------------------------
-## MuMIn::r.squaredGLMM(m1) # .108
-## MuMIn::r.squaredGLMM(m2) # .295
-## MuMIn::r.squaredGLMM(m3) # .324
-## MuMIn::r.squaredGLMM(m4) # .109
-## MuMIn::r.squaredGLMM(m5) # .268
-## MuMIn::r.squaredGLMM(m6) # .482
-##
-## MuMIn::r.squaredGLMM(m1b) # .113
-## MuMIn::r.squaredGLMM(m2b) # .298
-## MuMIn::r.squaredGLMM(m3b) # .320
-## MuMIn::r.squaredGLMM(m4b) # .100
-## MuMIn::r.squaredGLMM(m5b) # .269
-## MuMIn::r.squaredGLMM(m6b) # .502
-
-## ---- just-composite-mod, eval = FALSE-----------------------------------
-## l <- list(m1b, m2b, m3b, m4b, m5b, m6b)
-## o <- map_df(l, tidy_model)
-## write_rds(o, "data/comp-l.rds")
-
-## ---- just-composite-mod-2, eval = FALSE---------------------------------
-## l <- list(m1bi, m2bi, m3bi, m4bi, m5bi, m6bi)
-## o <- map_df(l, tidy_model)
-## write_rds(o, "data/comp-l-2.rds")
-
-## ---- just-composite-red-2, eval = FALSE---------------------------------
-## o <- read_rds("data/comp-l-2.rds")
-## o <- mutate(o, model = c(
-##   str_c("profile_", 1:6)))
-##
-## o %>%
-##   select(model,
-##          intercept = `(Intercept)`,
-##          dm_composite_di,
-##          beep_ID_ICC = beep_ID_ICC,
-##          participant_ID_ICC,
-##          program_ID_ICC) %>%
-##   mutate(model = c("Only behavioral",
-##                    "Universally low",
-##                    "Engaged and competent but not challenged",
-##                    "Only affective",
-##                    "All moderate",
-##                    "Full")) %>%
-##   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for the composite", linesep = "") %>%
-##   kableExtra::kable_styling(latex_options = "scale_down") %>%
-##   kableExtra::landscape()
-
 ## ---- rq3-2-all-vars-sep-interaction-keep, eval = TRUE-------------------
 m1c <- lmer(profile_1_p ~ 1 +
               overall_pre_interest +
@@ -673,104 +499,174 @@ m6c <- lmer(profile_6_p ~ 1 +
               (1 | program_ID),
             data = d)
 
-## ---- rq3-2-all-vars-interaction-inq-keep, eval = TRUE-------------------
+## ind all but no interactions yet
+m1d <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2d <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3d <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4d <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5d <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6d <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+## Spec interactions
+
 m1e <- lmer(profile_1_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              overall_pre_interest:dm_com +
+              gender_female:dm_com +
+              urm:dm_com +
               (1 | participant_ID) +
               (1 | beep_ID) +
               (1 | program_ID),
             data = d)
 
-m2e <- lmer(profile_2_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+# m2d <- lmer(profile_2_p ~ 1 +
+#               overall_pre_interest +
+#               gender_female +
+#               urm +
+#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+#               (1 | participant_ID) +
+#               (1 | beep_ID) +
+#               (1 | program_ID),
+#             data = d)
+#
+# m3d <- lmer(profile_3_p ~ 1 +
+#               overall_pre_interest +
+#               gender_female +
+#               urm +
+#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+#               (1 | participant_ID) +
+#               (1 | beep_ID) +
+#               (1 | program_ID),
+#             data = d)
+#
+# m4d <- lmer(profile_4_p ~ 1 +
+#               overall_pre_interest +
+#               gender_female +
+#               urm +
+#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+#               (1 | participant_ID) +
+#               (1 | beep_ID) +
+#               (1 | program_ID),
+#             data = d)
+#
+# m5d <- lmer(profile_5_p ~ 1 +
+#               overall_pre_interest +
+#               gender_female +
+#               urm +
+#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+#               (1 | participant_ID) +
+#               (1 | beep_ID) +
+#               (1 | program_ID),
+#             data = d)
 
-m3e <- lmer(profile_3_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+m6ei <- lmer(profile_6_p ~ 1 +
+               overall_pre_interest +
+               gender_female +
+               urm +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest:dm_gen +
+               gender_female:dm_gen +
+               urm:dm_gen +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
-m4e <- lmer(profile_4_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+m6eii <- lmer(profile_6_p ~ 1 +
+               overall_pre_interest +
+               gender_female +
+               urm +
+               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+               overall_pre_interest:dm_mod +
+               gender_female:dm_mod +
+               urm:dm_mod +
+               (1 | participant_ID) +
+               (1 | beep_ID) +
+               (1 | program_ID),
+             data = d)
 
-m5e <- lmer(profile_5_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+## tidying models
 
-m6e <- lmer(profile_6_p ~ 1 +
-              overall_pre_interest*dm_composite +
-              gender_female*dm_composite +
-              urm*dm_composite +
-              (1 | participant_ID) +
-              (1 | beep_ID) +
-              (1 | program_ID),
-            data = d)
+### m1-6 - null
+l <- list(m1, m2, m3, m4, m5, m6)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/m1-6.rds")
 
-## -----r2-3, eval = FALSE-------------------------------------------------
-## MuMIn::r.squaredGLMM(m1) # .108
-## MuMIn::r.squaredGLMM(m2) # .295
-## MuMIn::r.squaredGLMM(m3) # .324
-## MuMIn::r.squaredGLMM(m4) # .109
-## MuMIn::r.squaredGLMM(m5) # .268
-## MuMIn::r.squaredGLMM(m6) # .482
-##
-## MuMIn::r.squaredGLMM(m1c) # .112
-## MuMIn::r.squaredGLMM(m2c) # .302
-## MuMIn::r.squaredGLMM(m3c) # .328
-## MuMIn::r.squaredGLMM(m4c) # .112
-## MuMIn::r.squaredGLMM(m5c) # .275
-## MuMIn::r.squaredGLMM(m6c) # .487
+### m1a-6a - work with data
+l <- list(m1a, m2a, m3a, m4a, m5a, m6a)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/m1a-6a.rds")
 
-## ---- md-block-for-rq4, eval = FALSE-------------------------------------
-## l <- list(m1c, m2c, m3c, m4c, m5c, m6c)
-## o <- map_df(l, tidy_model)
-## write_rds(o, "data/md-block-for-rq4")
+### m1b-6b - ind chars
+l <- list(m1b, m2b, m3b, m4b, m5b, m6b)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/m1b-6b.rds")
 
-## ---- sensitivity-analysis-for-rq2a, eval = FALSE, cache = FALSE---------
-# konfound::konfound(m3c, overall_pre_interest)
-## konfound::konfound(m2c, gender_female)
+### m1d-6d - all vars
+l <- list(m1d, m2d, m3d, m4d, m5d, m6d)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/m1d-6d.rds")
 
-## -----r2-2ii, eval = FALSE-----------------------------------------------
-## MuMIn::r.squaredGLMM(m1) # .108
-## MuMIn::r.squaredGLMM(m2) # .295
-## MuMIn::r.squaredGLMM(m3) # .324
-## MuMIn::r.squaredGLMM(m4) # .109
-## MuMIn::r.squaredGLMM(m5) # .268
-## MuMIn::r.squaredGLMM(m6) # .482
-##
-## MuMIn::r.squaredGLMM(m1e) # .118
-## MuMIn::r.squaredGLMM(m2e) # .307
-## MuMIn::r.squaredGLMM(m3e) # .327
-## MuMIn::r.squaredGLMM(m4e) # .102
-## MuMIn::r.squaredGLMM(m5e) # .276
-## MuMIn::r.squaredGLMM(m6e) # .510
-
-## ---- pre-int-interactions, eval = FALSE---------------------------------
-## l <- list(m1e, m2e, m3e, m4e, m5e, m6e)
-## o <- map_df(l, tidy_model)
-## write_rds(o, "data/pre-int-interaction.rds")
+### m1e, m6ei, m6eii - select interactions
+l <- list(m1e, m6ei, m6eii)
+o <- map_df(l, tidy_model)
+write_rds(o, "data/m1e-m6ei-m6eii.rds")
 
 ## ---- sensitivity-analysis-for-rq2c, eval = FALSE, cache = FALSE---------
 ## konfound::konfound(m6e, `dm_composite:gender_female`)
