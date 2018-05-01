@@ -173,12 +173,19 @@ m1_6 <- read_rds("data/models/m1_6.rds")
 
 p <- m1_6 %>%
   plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
-  scale_x_discrete("", labels = c("Only behavioral (n = 370)",
-                                  "Universally low (n = 667)",
-                                  "Engaged and competent but not challenged (n = 450)",
-                                  "Only affective (n = 345)",
-                                  "All moderate (n = 638)",
-                                  "Full (n = 488)")) +
+  scale_x_discrete("", 
+                   limits = c("Profile 2 (n = 667)",
+                              "Profile 1 (n = 370)",
+                              "Profile 4 (n = 345)",
+                              "Profile 5 (n = 638)",
+                              "Profile 3 (n = 450)",
+                              "Profile 6 (n = 488)"),
+                   labels = c("Universally low (n = 667)",
+                              "Only behavioral (n = 370)",
+                              "Only affective (n = 345)",
+                              "All moderate (n = 638)",
+                              "Engaged and competent but not challenged (n = 450)",
+                              "Full (n = 488)")) +
   xlab(NULL) +
   ylab("Z-score") +
   viridis::scale_fill_viridis("",
@@ -192,12 +199,19 @@ m1_6 <- read_rds("data/models/m1_6.rds")
 
 p <- m1_6 %>%
   plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
-  scale_x_discrete("", labels = c("Only behavioral (n = 370)",
-                                  "Universally low (n = 667)",
-                                  "Engaged and competent but not challenged (n = 450)",
-                                  "Only affective (n = 345)",
-                                  "All moderate (n = 638)",
-                                  "Full (n = 488)")) +
+  scale_x_discrete("", 
+                   limits = c("Profile 2 (n = 667)",
+                              "Profile 1 (n = 370)",
+                              "Profile 4 (n = 345)",
+                              "Profile 5 (n = 638)",
+                              "Profile 3 (n = 450)",
+                              "Profile 6 (n = 488)"),
+                   labels = c("Universally low (n = 667)",
+                              "Only behavioral (n = 370)",
+                              "Only affective (n = 345)",
+                              "All moderate (n = 638)",
+                              "Engaged and competent but not challenged (n = 450)",
+                              "Full (n = 488)")) +
   xlab(NULL) +
   ylab("Value") +
   viridis::scale_fill_viridis("",
@@ -276,44 +290,81 @@ After reviewing a wide range of models, a relatively simple model (model 1) with
 
 ## Results for Research Question #3: How do data practices relate to youth engagement in the programs?
 
-### Models with variables for aspects of work with data added separately
+For this question, models with the aspects of work with data both separate from and together with the youth characteristics were fit. 
 
-<!-- Start by saying that you ran one multilevel models predicting the probability of membership in each of the 6 profiles, using the work with data codes as predictors: Thus each of the rows in the table represents a different  -->
- 
-When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile ($\beta$ = 0.036 (0.016), *p* = .016) and between generating data and the full profile ($\beta$ = 0.029 (0.015), *p* = .024). Interpreting and communicating findings was positively related to the *Only behavioral* profile ($\beta$ = 0.025 (0.014), *p* = .043).
+The models only with the aspects of work with data yielded very similar results; see the appendix.
 
-```{r}
-o <- read_rds("data/m1a-6a.rds")
+The models with both together were also used as part of research question #4, though they are presented here (and interpreted in the sections for both results).
 
+```{r, eval = T}
+o <- read_rds("data/m1d-6d.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
 oo <- o %>%
   select(model,
          intercept = `(Intercept)`,
-         dm_ask, dm_obs, dm_gen, dm_mod, dm_com) %>%
+         overall_pre_interest,
+         gender_female,
+         urm,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com
+  ) %>%
   mutate(model = c("Only behavioral",
                    "Universally low",
                    "Engaged and competent but not challenged",
                    "Only affective",
                    "All moderate",
-                   "Full"))
+                   "Full"),
+         the_order = c(2, 1, 3, 5, 3, 6)) %>% 
+  arrange(the_order) %>%
+  select(-the_order)
 
-names(oo) <- c("Profile", "Intercept", "Asking", "Observing", "Generating", "Modeling", "Communicating")
+# names(oo) <- c("Profile", "Intercept", "Comp.", "Pre-interest", "Female", "URM status", "Pre-interest X Comp.", "Gender X Comp.", "URM status X Comp.")
 
 oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for work with data as separate variables", linesep = "") %>%
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
 
-Adding these variables changed the (conditional upon the random effects) R^2^ values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the profiles. The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference and for the effect of interpreting and communicating findings, 9.41% would need to be due to bias.
+<!-- ### Models with variables for aspects of work with data added separately -->
+
+<!-- <!-- Start by saying that you ran one multilevel models predicting the probability of membership in each of the 6 profiles, using the work with data codes as predictors: Thus each of the rows in the table represents a different  --> -->
+
+<!-- When the predictor variables for work with data are added, some overall patterns and specific findings can be identified. The only relations with *p*-values that were below the criterion for statistical significance (.05) were for the relations between modeling data and the *full* profile ($\beta$ = 0.036 (0.016), *p* = .016) and between generating data and the full profile ($\beta$ = 0.029 (0.015), *p* = .024). Interpreting and communicating findings was positively related to the *Only behavioral* profile ($\beta$ = 0.025 (0.014), *p* = .043). -->
+
+<!-- ```{r, eval = F} -->
+<!-- o <- read_rds("data/m1a-6a.rds") -->
+
+<!-- o <- mutate(o, model = c( -->
+<!--   str_c("profile_", 1:6))) -->
+
+<!-- oo <- o %>% -->
+<!--   select(model, -->
+<!--          intercept = `(Intercept)`, -->
+<!--          dm_ask, dm_obs, dm_gen, dm_mod, dm_com) %>% -->
+<!--   mutate(model = c("Only behavioral", -->
+<!--                    "Universally low", -->
+<!--                    "Engaged and competent but not challenged", -->
+<!--                    "Only affective", -->
+<!--                    "All moderate", -->
+<!--                    "Full")) -->
+
+<!-- names(oo) <- c("Profile", "Intercept", "Asking", "Observing", "Generating", "Modeling", "Communicating") -->
+
+<!-- oo %>%  -->
+<!--   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models for work with data as separate variables", linesep = "") %>% -->
+<!--   kableExtra::kable_styling(latex_options = "scale_down") %>% -->
+<!--   kableExtra::landscape() -->
+<!-- ``` -->
+
+<!-- Adding these variables changed the (conditional upon the random effects) R^2^ values from, .002 to .018, very small changes suggesting that the aspects of work with data do not strongly predict the profiles. The sensitivity analysis for the effect of generating data suggested that 1.884% of the inference would have to be due to bias to invalidate the inference, suggesting that this effect is not very robust to potential sources of bias, such as an omitted (in this analysis) confounding (or control) variable. For the effect of modeling, 9.835% would need to be due to bias to invalidate the inference and for the effect of interpreting and communicating findings, 9.41% would need to be due to bias. -->
 
 ### Summary of findings for research question #3
 
 When looking across findings, we find few relations between work with data and the profiles, though there were notable effects of modeling and generating data, though they were small effects (i.e., when students are doing this, they are around 3% more likely to be responding in a way associated with the *full* profile). 
 
-```{r, eval = TRUE}
+```{r, eval = FALSE}
 names(ds3) <- c("Profile", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Composite")
 
 ds3 %>%
@@ -326,76 +377,52 @@ Broadly, further explanations and investigations of these effects --focusing on 
 
 ## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?
 
-In this section, models with [add].
+For this question, models with the youth characteristics separate from and together with the aspects of work with data were fit. 
 
-### Models with pre interest, gender, and under-represented minority (URM) status
+Like for the results for the previous question, the models only with the youth characteristics yielded very similar results; see the appendix.
 
-These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile ($\beta$ = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in R^2^ values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the profiles. This is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level). This is discussed further in the next chapter. 
+Thus, the model presented in the previous section with both youth characteristics and the aspects of work with data are interpreted here. 
 
-```{r}
-o <-read_rds("data/m1b-6b.rds")
+<!-- ### Models with pre interest, gender, and under-represented minority (URM) status -->
 
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
+<!-- These results show that overall pre-interest is associated with the *engaged and competent but not challenged* profile ($\beta$ = 0.039 (0.021), p = .009). The effect of being a female has a relation of 0.059 (0.036, p = .054) upon the probability of a response being associated with the *universally low* profile; though this effect did not meet the criteria for statistical significance, sensitivity analysis to determine how much more robust the effect would need to be to make an inference. For the effect of overall pre-interest upon the *engaged and competent but not challenged* profile, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. For the effect of gender upon the *universally low* profile, 16.996% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The change in R^2^ values ranged from .004 to .007, suggesting that pre-interest and other individual characteristics - in addition to the aspects of work with data - have minimal relations with the profiles. This is more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level). This is discussed further in the next chapter.  -->
 
-oo <- o %>%
-  select(model,
-         intercept = `(Intercept)`,
-         overall_pre_interest,
-         gender_female,
-         urm) %>%
-  mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full"))
+<!-- ```{r, eval = F} -->
+<!-- o <-read_rds("data/m1b-6b.rds") -->
 
-names(oo) <- c("Profile", "Intercept", "Pre-interest", "Female", "URM status")
+<!-- o <- mutate(o, model = c( -->
+<!--   str_c("profile_", 1:6))) -->
 
-oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
-``` 
+<!-- oo <- o %>% -->
+<!--   select(model, -->
+<!--          intercept = `(Intercept)`, -->
+<!--          overall_pre_interest, -->
+<!--          gender_female, -->
+<!--          urm) %>% -->
+<!--   mutate(model = c("Only behavioral", -->
+<!--                    "Universally low", -->
+<!--                    "Engaged and competent but not challenged", -->
+<!--                    "Only affective", -->
+<!--                    "All moderate", -->
+<!--                    "Full")) -->
+
+<!-- names(oo) <- c("Profile", "Intercept", "Pre-interest", "Female", "URM status") -->
+
+<!-- oo %>%  -->
+<!--   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with interest and other characteristics", linesep = "") %>% -->
+<!--   kableExtra::kable_styling(latex_options = "scale_down") %>% -->
+<!--   kableExtra::landscape() -->
+<!-- ```  -->
 
 ### Pre-interest, gender, and URM status and the aspects work with data seperately
 
 These results show similar patterns to the earlier models.Like in the models with only pre-interest and the other individual characteristics alone (and like in the model with the individual aspects), pre-interest is related to the *only behavioral* profile ($\beta$ = 0.033 (0.018), p = .033). Being female is again related but not to a level that it meets the criteria for statistical significance ($\beta$ = 0.064 (0.041), p = .059). With the interactions added, the composite was no significantly related to the *only behavioral* profile ($\beta$ = 0.016 (0.016), p = .156) to a similar extent and with similar robustness as found in the separate model. One interaction, between pre-interest and being female, had a significant effect upon the profile for *full* engagement ($\beta$ = 0.012 (0.006), p = .026). However, only 1.953% of the effect would need to be due to bias to invalidate the inference. The R^2^ values, relative to the models with only random effects (the null models), increased from .003 to .028, again suggesting small effects of the predictors upon the profiles. Note that "Comp." refers to the data modeling composite.
 
-```{r}
-o <- read_rds("data/m1d-6d.rds")
-o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
-
-oo <- o %>%
-  select(model,
-         intercept = `(Intercept)`,
-         dm_composite,
-         overall_pre_interest,
-         gender_female,
-         urm,
-         `overall_pre_interest:dm_composite`,
-         `dm_composite:gender_female`,
-         `dm_composite:urm`) %>%
-  mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full"))
-
-names(oo) <- c("Profile", "Intercept", "Comp.", "Pre-interest", "Female", "URM status", "Pre-interest X Comp.", "Gender X Comp.", "URM status X Comp.")
-
-oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
-```
-
 ### Pre-interest, gender, and URM status interactions work with the codes for work with data
 
-```{r}
+Here, interactions for the aspects of work with data that were statistically significant are considered. 
+
+```{r, eval = F}
 o <- read_rds("data/m1e-m6ei-m6eii.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
@@ -433,9 +460,9 @@ When looking across findings, we find minimal relations between pre-interest and
 
 mtcars %>% 
   select(hp) %>% 
-
-names(ds4) <-names(oo) <- c("Profile", "Pre-interest", "Female", "URM status", "Pre-interest X comp.", "Gender X comp.", "URM status X comp.")
   
+  names(ds4) <-names(oo) <- c("Profile", "Pre-interest", "Female", "URM status", "Pre-interest X comp.", "Gender X comp.", "URM status X comp.")
+
 ds4 %>%
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for Research Question 4 (how youth characteristics relate to engagement)", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>%

@@ -29,7 +29,7 @@ tidy_model <- function(model) {
                    "gender_female:dm_com", "urm:dm_com"
                    )
 
-  d <- as.data.frame(matrix(rep(NA, 15), ncol = 15))
+  d <- as.data.frame(matrix(rep(NA, 25), ncol = 25))
   names(d) <- fixef_names
 
   kr_df <- get_kr_df(model)
