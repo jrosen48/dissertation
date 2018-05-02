@@ -38,40 +38,34 @@
 \contentsline {subsubsection}{\numberline {4.2.2.3}Generating data}{32}{subsubsection.4.2.2.3}
 \contentsline {subsubsection}{\numberline {4.2.2.4}Data modeling}{33}{subsubsection.4.2.2.4}
 \contentsline {subsubsection}{\numberline {4.2.2.5}Interpreting and communicating findings}{33}{subsubsection.4.2.2.5}
-\contentsline {subsection}{\numberline {4.2.3}Summary of Findings for Research Question \#1}{34}{subsection.4.2.3}
 \contentsline {section}{\numberline {4.3}Results for Research Question \#2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?}{34}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Sources of variability in momentary profiles}{36}{subsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.1.1}Null models}{36}{subsubsection.4.3.1.1}
 \contentsline {subsubsection}{\numberline {4.3.1.2}Variability in momentary profiles across youth}{37}{subsubsection.4.3.1.2}
-\contentsline {subsection}{\numberline {4.3.2}Summary of research question \#2 findings}{38}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}Results for Research Question \#3: How do data practices relate to youth engagement in the programs?}{38}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Summary of findings for research question \#3}{40}{subsection.4.4.1}
-\contentsline {section}{\numberline {4.5}Results for Research Question \#4: How do youth characteristics relate to their engagement in summer STEM programs?}{40}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Pre-interest, gender, and URM status and the aspects work with data seperately}{40}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Pre-interest, gender, and URM status interactions work with the codes for work with data}{41}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Summary of findings for research question \#4}{41}{subsection.4.5.3}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{43}{chapter.5}
-\contentsline {section}{\numberline {5.1}Key Findings}{43}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Key findings for research question \#1 (on the frequency and nature of work with data)}{43}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Key findings for research question \#2 (what profiles of engagement emerge)}{44}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Key findings for research question \#3 (how work with data relates to engagement)}{44}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Key findings for research question \#4 (how youth characteristics relate to engagement)}{46}{subsection.5.1.4}
+\contentsline {section}{\numberline {4.5}Results for Research Question \#4: How do youth characteristics relate to their engagement in summer STEM programs?}{41}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{42}{chapter.5}
+\contentsline {section}{\numberline {5.1}Key Findings}{42}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Key findings for research question \#1 (on the frequency and nature of work with data)}{42}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Key findings for research question \#2 (what profiles of engagement emerge)}{43}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Key findings for research question \#3 (how work with data relates to engagement)}{43}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Key findings for research question \#4 (how youth characteristics relate to engagement)}{45}{subsection.5.1.4}
 \contentsline {section}{\numberline {5.2}Limitations of the Study and Recommendations for Future Research}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}Implications for Practice}{48}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Engage youth in key aspects of work with data}{48}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Leverage the affordances of summer STEM and other STEM enrichment programs}{49}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.3}Implications for Practice}{47}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Engage youth in key aspects of work with data}{47}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Leverage the affordances of summer STEM and other STEM enrichment programs}{48}{subsection.5.3.2}
 \contentsline {subsection}{\numberline {5.3.3}Consider the constraints of summer STEM and other STEM enrichment programs}{50}{subsection.5.3.3}
-\contentsline {section}{\numberline {5.4}Conclusion}{52}{section.5.4}
-\contentsline {chapter}{\chapternumberline {6}References}{54}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Appendix}{63}{chapter.7}
-\contentsline {section}{\numberline {7.1}Appendix A: STEM-PQA alignment}{63}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Appendix B: Program descriptions}{65}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Appendix C: Model specifications details}{67}{subsection.7.1.2}
-\contentsline {subsubsection}{\numberline {7.1.2.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{68}{subsubsection.7.1.2.1}
-\contentsline {subsubsection}{\numberline {7.1.2.2}Varying means, equal variances, and equal covariances (model 2)}{68}{subsubsection.7.1.2.2}
-\contentsline {subsubsection}{\numberline {7.1.2.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{69}{subsubsection.7.1.2.3}
-\contentsline {subsubsection}{\numberline {7.1.2.4}Varying means, varying variances, and equal covariances (model 4)}{69}{subsubsection.7.1.2.4}
-\contentsline {subsubsection}{\numberline {7.1.2.5}Varying means, equal variances, and varying covariances (model 5)}{70}{subsubsection.7.1.2.5}
-\contentsline {subsubsection}{\numberline {7.1.2.6}Varying means, varying variances, and varying covariances (model 6)}{70}{subsubsection.7.1.2.6}
-\contentsline {subsection}{\numberline {7.1.3}Appendix D: Additional details on the model selection process}{70}{subsection.7.1.3}
-\contentsline {subsection}{\numberline {7.1.4}Appendix E: Alternate model selected (model type 1, seven profile solution)}{75}{subsection.7.1.4}
+\contentsline {section}{\numberline {5.4}Conclusion}{51}{section.5.4}
+\contentsline {chapter}{\chapternumberline {6}References}{53}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Appendix}{62}{chapter.7}
+\contentsline {section}{\numberline {7.1}Appendix A: STEM-PQA alignment}{62}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Appendix B: Program descriptions}{64}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Appendix C: Model specifications details}{66}{subsection.7.1.2}
+\contentsline {subsubsection}{\numberline {7.1.2.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{67}{subsubsection.7.1.2.1}
+\contentsline {subsubsection}{\numberline {7.1.2.2}Varying means, equal variances, and equal covariances (model 2)}{67}{subsubsection.7.1.2.2}
+\contentsline {subsubsection}{\numberline {7.1.2.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{68}{subsubsection.7.1.2.3}
+\contentsline {subsubsection}{\numberline {7.1.2.4}Varying means, varying variances, and equal covariances (model 4)}{68}{subsubsection.7.1.2.4}
+\contentsline {subsubsection}{\numberline {7.1.2.5}Varying means, equal variances, and varying covariances (model 5)}{69}{subsubsection.7.1.2.5}
+\contentsline {subsubsection}{\numberline {7.1.2.6}Varying means, varying variances, and varying covariances (model 6)}{69}{subsubsection.7.1.2.6}
+\contentsline {subsection}{\numberline {7.1.3}Appendix D: Additional details on the model selection process}{69}{subsection.7.1.3}
+\contentsline {subsection}{\numberline {7.1.4}Appendix E: Alternate model selected (model type 1, seven profile solution)}{74}{subsection.7.1.4}

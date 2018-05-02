@@ -338,65 +338,65 @@ d <- as.tibble(as.data.frame(d))
 #             data = d)
 #
 # ## ind all but no interactions yet
-# m1d <- lmer(profile_1_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
-#
-# m2d <- lmer(profile_2_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
-#
-# m3d <- lmer(profile_3_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
-#
-# m4d <- lmer(profile_4_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
-#
-# m5d <- lmer(profile_5_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
-#
-# m6d <- lmer(profile_6_p ~ 1 +
-#               overall_pre_interest +
-#               gender_female +
-#               urm +
-#               dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
-#               (1 | participant_ID) +
-#               (1 | beep_ID) +
-#               (1 | program_ID),
-#             data = d)
+m1d <- lmer(profile_1_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m2d <- lmer(profile_2_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m3d <- lmer(profile_3_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m4d <- lmer(profile_4_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m5d <- lmer(profile_5_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
+
+m6d <- lmer(profile_6_p ~ 1 +
+              overall_pre_interest +
+              gender_female +
+              urm +
+              dm_ask + dm_obs + dm_gen + dm_mod + dm_com +
+              (1 | participant_ID) +
+              (1 | beep_ID) +
+              (1 | program_ID),
+            data = d)
 #
 # ## Spec interactions
 #
