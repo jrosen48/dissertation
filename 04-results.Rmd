@@ -456,12 +456,9 @@ o <- mutate(o, model = c(
 
 When looking across findings, we find minimal relations between pre-interest and other individual characteristics.
 
-```{r}
+```{r, eval = F}
 
-mtcars %>% 
-  select(hp) %>% 
-  
-  names(ds4) <-names(oo) <- c("Profile", "Pre-interest", "Female", "URM status", "Pre-interest X comp.", "Gender X comp.", "URM status X comp.")
+names(oo) <- c("Profile", "Pre-interest", "Female", "URM status", "Pre-interest X comp.", "Gender X comp.", "URM status X comp.")
 
 ds4 %>%
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for Research Question 4 (how youth characteristics relate to engagement)", linesep = "") %>%
