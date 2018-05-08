@@ -195,7 +195,7 @@ The number of observations associated with each of the profiles is somewhat bala
 
 A relatively simple model (model 1; with varying means, equal variances, and covariances fixed to 0) with six profiles was selected for use in subsequent analyses. This model has profiles characterized by both varying levels on both the dimensions of engagement (cognitive, behavioral, and affective) and youths' perceptions of challenge and competence. In addition, the number of observations across the profiles is relatively balanced. 
 
-### Sources of variability in momentary profiles
+### Sources of variability in profiles of engagement
 
 After identifying the model one type, six profile solution, sources of variability in these profiles can be explored in order to anticipate the effects of factors at the youth, instructional episode, and program levels. First, the proportion of the variability at each of these levels is explored through the use of null, or variance components, models, those that only include grouping (i.e., the variable identifying which youth a response is from, what signal the response is associated with, and from which program the youth and signal were from) factors.
 
@@ -220,7 +220,7 @@ Looking across these values, considering variability at the program, instruction
 
 In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted.
 
-#### Variability in momentary profiles across youth
+#### Variability in profiles of engagement across youth
 
 Variability in terms of the profiles youth report can also be considered. These show that there is substantial variability between youth, in that, when youth, for example, report *Full* engagement to a greater extent than any other profile of engagement, these youth (on average) report this engagement in just over 60% of their responses. Their other responses were (on average) associated with a mixture of other profiles. Youth who report more *Full* engagement than any other profile of engagement are the most consistent in reporting one of the profiles of engagement, with youth reporting engagement associated with the *All moderate* profile doing so just less than 40% of the time (with other profiles being associated with the remainder of their responses).
 
