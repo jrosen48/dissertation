@@ -1,5 +1,5 @@
 --- 
-title: "Examining youth engagement during learning activities that involve work with data: An Experience Sampling Approach"
+title: "Examining youth engagement during learning activities that involve work with data: An Experience Sampling approach"
 author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

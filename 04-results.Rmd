@@ -314,7 +314,7 @@ oo <- o %>%
   arrange(the_order) %>%
   select(-the_order)
 
-names(ds3) <- c("Profile", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Composite")
+names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
 
 oo %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
