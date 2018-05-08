@@ -41,7 +41,40 @@ d %>%
   kableExtra::landscape()
 ```
 
-### Appendix C: Model specifications details
+### Appendix C: Work with data by program
+
+```{r}
+data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
+           Proportion = c(.389, .258, .453, .288, .470),
+           N = c(92, 61, 107, 68, 111)) %>%
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
+
+pn <- data_frame(program_name = c("Island Explorers", "The Ecosphere", "Zoology Partners", "Marine Investigators", "Comunidad de Aprendizaje", "Jefferson House", "Uptown Architecture", "Building Mania", "Adventures in Mathematics"),
+                 asking = c(5, 15, 6, 11, 18, 4, 9, 8, 14),
+                 observing = c(6, 10, 4, 8, 10, 2, 5, 5, 7),
+                 generating = c(7, 12, 3, 6, 22, 13, 17, 9, 13),
+                 modeling = c(4, 7, 4, 9, 15, 11, 4, 8, 11),
+                 communicating = c(6, 12, 5, 13, 18, 18, 7, 12, 18),
+                 total_segments = c(16, 24, 24, 24, 55, 24, 24, 24, 24))
+
+
+pnn <- pn %>% 
+  mutate(asking = asking / total_segments,
+         observing=observing / total_segments,
+         generating = generating/total_segments,
+         modeling = modeling/total_segments,
+         communicating=communicating/total_segments)
+
+names(pnn) <- c("Variable", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Total Segments")
+
+pnn <- mutate_if(pnn, is.numeric, round, 3)
+
+pnn %>% 
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present by program") %>% 
+  kableExtra::landscape()
+```
+
+### Appendix D: Model specifications details
 
 Here, the six models that are possible to specify in LPA are described in terms of how the variables used to create the profiles are estimated. Note that *p* represents different profiles and each parameterization is represented by a 4 x 4 covariance matrix and therefore would represent the parameterization for a four-profile solution. In all of the models, the means are estimated freely in the different profiles. Imagine that each row and column represents a different variable, i.e., the first row (and column) represents broad interest, the second enjoyment, the third self-efficacy, and the fourth another variable, i.e., future goals and plans. Models 1 and 3 meet the assumption of independence, that is, that, after accounting for their relations with the profile, the variables used to estimate the profiles are independent (Collins & Lanza, 2010). They estimate variable variances but do not estimate covariances (i.e., as can be seen, the covariance matrices are "diagonal," without any off-diagonal parameters that are estimated). These models are estimated by default in MPlus, although these assumptions can be relaxed (Muthen & Muthen, 2017). Importantly, this does not mean the variables used to create the profile are assumed to be not related; as Collins and Lanza (2010) explain:
 
@@ -97,7 +130,7 @@ $$
 \left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
 $$
 
-### Appendix D: Additional details on the model selection process
+### Appendix E: Additional details on the model selection process
 
 ```{r, reading-overall-stats}
 overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
@@ -162,7 +195,7 @@ The model 1, six and seven profile solutions are compelling because both show pr
 
 For each solution, alternate solutions associated with higher log-likelihoods were explored. One advantage of the six profile solution is that most of its profiles can also be identified in solutions with fewer profiles. For the six profile solutions, this alternate solution was very different, whereas for the seven profile solutions, this alternate solution was highly similar. The model solutions exhibit a less clear pattern in terms of which profiles appear when. All else being equal, on the basis of parsimony, the model 1, six profile solution is preferred and was selected for use in subsequent analyses.
 
-### Appendix E: Alternate model selected (model type 1, seven profile solution)
+### Appendix F: Alternate model selected (model type 1, seven profile solution)
 
 This solution is characterized by:
 

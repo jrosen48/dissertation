@@ -134,19 +134,15 @@ First-order Pearson correlations and the frequency, range, mean, and standard de
 
 There are two primary steps taken to answer this question, one more quantitative in nature and one more qualitative. 
 
+<!-- You have to talk about how your qualitative coding suggested a lot of qualitative differences in the ways you actually saw students asking questions/ making observations etc. during those times that the instructional environment was coded as supporting those activities.  -->
+
 Specifically, first, the frequency of the codes for the individual aspects of work with data from the STEM PQA measure of work with data (described above in the measures) are calculated. Note that this coding frame focused on the degree of instructional support the activity leaders provided for youth to work with data. However, this framework provided no context on how particular types of work with data were enacted. So, to provide more context in the description of how work with data in the context of summer STEM programs, all of the segments were coded using an open-ended, qualitative approach. To qualitatively code the data, three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. The guiding questions for the qualitative coding were as follows:
 
-* What are youth doing?
 * When asking questions or defining problems is coded, what, if any are the questions or problems? Who is asking the question (i.e teacher or student)
 * When making observations is coded, what are youth doing?
 * When generating data is coded, how, if they are, are youth collecting or recording data?
 * When analyzing or modeling data is coded, what analysis are they doing, or what models are they using? Are they talking about variability or uncertainty? If so, how?
 * When interpreting and communicating findings is coded, what are youth interpreting or how are they communicating?
-* Is there a phenomenon being studied or a problem being investigated? If so, what is the phenomenon being studied or problem being investigated?
-* Is the activity related to something youth have previously done or learned about? If so, how?
-* Is the activity related to something youth will do or will learn about? If so, how?
-* Is the activity collaborative? If so, what is happening?
-* Is anything else of interest or that is noteworthy going on?
 
 Two coders coded every segment. This coding took around 75 hours of coding by the research assistants. After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments, and made notes associated with each of the five aspects of work with data (i.e., asking questions, making observations, and the other aspects). These notes focused on whether and in what ways there appeared to be alignment between the codes for work with data (from the PQA) and the conceptual framework for work with data. I used these notes to write detailed descriptions of each of the aspects of work with data.
 
