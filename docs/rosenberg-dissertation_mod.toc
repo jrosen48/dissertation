@@ -3,69 +3,68 @@
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}Literature Review}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Defining Work with Data}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}The role of work with data in STEM learning environments}{5}{section.2.2}
+\contentsline {section}{\numberline {2.2}The role of working with data in STEM learning environments}{4}{section.2.2}
 \contentsline {section}{\numberline {2.3}What We Know (And Do Not Know) About How Youth Work with Data}{6}{section.2.3}
 \contentsline {section}{\numberline {2.4}Engagement in General and in STEM Domains}{8}{section.2.4}
-\contentsline {section}{\numberline {2.5}What conditions and youth characteristics impact engagement}{10}{section.2.5}
+\contentsline {section}{\numberline {2.5}The conditions in which engagement may occur and the factors that impact engagement}{10}{section.2.5}
 \contentsline {section}{\numberline {2.6}Challenges of Studying Engagement as a Contextually-Dependent and Multidimensional Construct}{11}{section.2.6}
-\contentsline {section}{\numberline {2.7}Need for the Present Study}{14}{section.2.7}
-\contentsline {section}{\numberline {2.8}Conceptual Framework and Research Questions}{15}{section.2.8}
-\contentsline {chapter}{\chapternumberline {3}Method}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Context}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Participants}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}Procedure}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}Data Sources and Measures}{19}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}ESM measures of learners' engagement and its conditions for the profiles}{19}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Survey measures of pre-interest}{19}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Codes from video-recordings for work with data}{20}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Demographic variables used}{21}{subsection.3.4.4}
-\contentsline {section}{\numberline {3.5}Data Analysis}{22}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Preliminary analyses}{22}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Analysis for Research Question \#1 (on the frequency and nature of work with data)}{22}{subsection.3.5.2}
+\contentsline {section}{\numberline {2.7}Need for the Present Study}{15}{section.2.7}
+\contentsline {section}{\numberline {2.8}Conceptual Framework and Research Questions}{16}{section.2.8}
+\contentsline {chapter}{\chapternumberline {3}Method}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Context}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Participants}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Procedure}{19}{section.3.3}
+\contentsline {section}{\numberline {3.4}Data Sources and Measures}{20}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}ESM measures of youths' engagement and its conditions for the profiles}{20}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Survey measures of pre-interest}{20}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Codes from video-recordings for work with data}{21}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Demographic variables used}{22}{subsection.3.4.4}
+\contentsline {section}{\numberline {3.5}Data Analysis}{23}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Preliminary analyses}{23}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Analysis for Research Question \#1 (on the frequency and nature of work with data)}{23}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Analysis for Research Question \#2 (what profiles of engagement emerge)}{24}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Analysis for Research Question \#3 (how work with data relates to engagement)}{25}{subsection.3.5.4}
-\contentsline {subsection}{\numberline {3.5.5}Analysis for Research Question \#4 (how youth characteristics relate to engagement)}{26}{subsection.3.5.5}
-\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{26}{section.3.6}
-\contentsline {chapter}{\chapternumberline {4}Results}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Results from the preliminary analysis}{27}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for study variables}{27}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Correlations among study variables}{27}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Results for Research Question \#1}{29}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Frequency of work with data}{29}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Nature of work with data}{31}{subsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.1}Asking questions or identifying problems}{31}{subsubsection.4.2.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2.2}Making observations}{32}{subsubsection.4.2.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.3}Generating data}{32}{subsubsection.4.2.2.3}
-\contentsline {subsubsection}{\numberline {4.2.2.4}Data modeling}{33}{subsubsection.4.2.2.4}
-\contentsline {subsubsection}{\numberline {4.2.2.5}Interpreting and communicating findings}{33}{subsubsection.4.2.2.5}
-\contentsline {section}{\numberline {4.3}Results for Research Question \#2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?}{34}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Sources of variability in momentary profiles}{36}{subsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.1.1}Null models}{36}{subsubsection.4.3.1.1}
-\contentsline {subsubsection}{\numberline {4.3.1.2}Variability in momentary profiles across youth}{37}{subsubsection.4.3.1.2}
-\contentsline {section}{\numberline {4.4}Results for Research Question \#3: How do data practices relate to youth engagement in the programs?}{38}{section.4.4}
-\contentsline {section}{\numberline {4.5}Results for Research Question \#4: How do youth characteristics relate to their engagement in summer STEM programs?}{41}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{42}{chapter.5}
-\contentsline {section}{\numberline {5.1}Key Findings}{42}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Key findings for research question \#1 (on the frequency and nature of work with data)}{42}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Key findings for research question \#2 (what profiles of engagement emerge)}{43}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Key findings for research question \#3 (how work with data relates to engagement)}{43}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Key findings for research question \#4 (how youth characteristics relate to engagement)}{45}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}Limitations of the Study and Recommendations for Future Research}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}Implications for Practice}{47}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Engage youth in key aspects of work with data}{47}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Leverage the affordances of summer STEM and other STEM enrichment programs}{48}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Consider the constraints of summer STEM and other STEM enrichment programs}{50}{subsection.5.3.3}
-\contentsline {section}{\numberline {5.4}Conclusion}{51}{section.5.4}
-\contentsline {chapter}{\chapternumberline {6}References}{53}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Appendix}{62}{chapter.7}
-\contentsline {section}{\numberline {7.1}Appendix A: STEM-PQA alignment}{62}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Appendix B: Program descriptions}{64}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Appendix C: Model specifications details}{66}{subsection.7.1.2}
-\contentsline {subsubsection}{\numberline {7.1.2.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{67}{subsubsection.7.1.2.1}
-\contentsline {subsubsection}{\numberline {7.1.2.2}Varying means, equal variances, and equal covariances (model 2)}{67}{subsubsection.7.1.2.2}
-\contentsline {subsubsection}{\numberline {7.1.2.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{68}{subsubsection.7.1.2.3}
-\contentsline {subsubsection}{\numberline {7.1.2.4}Varying means, varying variances, and equal covariances (model 4)}{68}{subsubsection.7.1.2.4}
-\contentsline {subsubsection}{\numberline {7.1.2.5}Varying means, equal variances, and varying covariances (model 5)}{69}{subsubsection.7.1.2.5}
-\contentsline {subsubsection}{\numberline {7.1.2.6}Varying means, varying variances, and varying covariances (model 6)}{69}{subsubsection.7.1.2.6}
-\contentsline {subsection}{\numberline {7.1.3}Appendix D: Additional details on the model selection process}{69}{subsection.7.1.3}
-\contentsline {subsection}{\numberline {7.1.4}Appendix E: Alternate model selected (model type 1, seven profile solution)}{74}{subsection.7.1.4}
+\contentsline {subsection}{\numberline {3.5.4}Analysis for Research Question \#3 (how work with data relates to engagement)}{26}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Analysis for Research Question \#4 (how youth characteristics relate to engagement)}{27}{subsection.3.5.5}
+\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{28}{section.3.6}
+\contentsline {chapter}{\chapternumberline {4}Results}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminary results}{29}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for the study variables}{29}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Correlations among the study variables}{29}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Results for Research Question \#1}{32}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Frequency of work with data}{32}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Nature of work with data}{32}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}Asking questions or identifying problems}{33}{subsubsection.4.2.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2.2}Making observations}{33}{subsubsection.4.2.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.3}Generating data}{34}{subsubsection.4.2.2.3}
+\contentsline {subsubsection}{\numberline {4.2.2.4}Data modeling}{34}{subsubsection.4.2.2.4}
+\contentsline {subsubsection}{\numberline {4.2.2.5}Interpreting and communicating findings}{35}{subsubsection.4.2.2.5}
+\contentsline {section}{\numberline {4.3}Results for Research Question \#2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?}{35}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Sources of variability in profiles of engagement}{38}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}Results for Research Question \#3: Aspects of work with data and engagement}{41}{section.4.4}
+\contentsline {section}{\numberline {4.5}Results for Research Question \#4: Youth characteristics and engagement}{44}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Key Findings}{45}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Key findings for research question \#1 (on the frequency and nature of work with data)}{45}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Key findings for research question \#2 (what profiles of engagement emerge)}{46}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Key findings for research question \#3 (how work with data relates to engagement)}{46}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Key findings for research question \#4 (how youth characteristics relate to engagement)}{48}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}Limitations of the Study and Recommendations for Future Research}{49}{section.5.2}
+\contentsline {section}{\numberline {5.3}Implications for Practice}{50}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Engage youth in key aspects of work with data}{50}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Leverage the affordances of summer STEM and other STEM enrichment programs}{51}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Consider the constraints of summer STEM and other STEM enrichment programs}{53}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}Conclusion}{54}{section.5.4}
+\contentsline {chapter}{\chapternumberline {6}References}{56}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Appendix}{66}{chapter.7}
+\contentsline {section}{\numberline {7.1}Appendix A: STEM-PQA alignment}{66}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Appendix B: Program descriptions}{68}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Appendix C: Work with data by program}{70}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Appendix D: Model specifications details}{72}{subsection.7.1.3}
+\contentsline {subsubsection}{\numberline {7.1.3.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{73}{subsubsection.7.1.3.1}
+\contentsline {subsubsection}{\numberline {7.1.3.2}Varying means, equal variances, and equal covariances (model 2)}{73}{subsubsection.7.1.3.2}
+\contentsline {subsubsection}{\numberline {7.1.3.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{74}{subsubsection.7.1.3.3}
+\contentsline {subsubsection}{\numberline {7.1.3.4}Varying means, varying variances, and equal covariances (model 4)}{74}{subsubsection.7.1.3.4}
+\contentsline {subsubsection}{\numberline {7.1.3.5}Varying means, equal variances, and varying covariances (model 5)}{75}{subsubsection.7.1.3.5}
+\contentsline {subsubsection}{\numberline {7.1.3.6}Varying means, varying variances, and varying covariances (model 6)}{75}{subsubsection.7.1.3.6}
+\contentsline {subsection}{\numberline {7.1.4}Appendix E: Additional details on the model selection process}{76}{subsection.7.1.4}
+\contentsline {subsection}{\numberline {7.1.5}Appendix F: Alternate model selected (model type 1, seven profile solution)}{80}{subsection.7.1.5}
