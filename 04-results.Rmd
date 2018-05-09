@@ -2,16 +2,16 @@
 
 ```{r, setup-results, include =FALSE}
 knitr::opts_chunk$set(echo = FALSE,
-                      message = FALSE,
-                      warning = FALSE,
-                      collapse = TRUE,
-                      error = TRUE,
-                      fig.width = 6,
-                      fig.asp = .618,
-                      out.width = "80%",
-                      fig.align = "center",
-                      results = "hold",
-                      knitr.kable.na = '')
+           message = FALSE,
+           warning = FALSE,
+           collapse = TRUE,
+           error = TRUE,
+           fig.width = 6,
+           fig.asp = .618,
+           out.width = "80%",
+           fig.align = "center",
+           results = "hold",
+           knitr.kable.na = '')
 
 source("04-results.R")
 ```
@@ -26,27 +26,27 @@ First, descriptive statistics for all of the study variables--overall pre-intere
 
 ```{r}
 oo <- d_red %>% 
-  select(overall_pre_interest, 
-         dm_cog_eng,
-         dm_beh_eng,
-         dm_aff_eng,
-         dm_challenge,
-         dm_competence) %>% 
-  psych::describe() %>% 
-  as.data.frame() %>% 
-  tibble::rownames_to_column("var") %>% 
-  select(var, n, mean, sd) %>% 
-  mutate(var = c("Pre-interest",
-                 "Cog. eng.",
-                 "Beh. eng.",
-                 "Aff. eng.",
-                 "Challenge", 
-                 "Competence"))
+ select(overall_pre_interest, 
+     dm_cog_eng,
+     dm_beh_eng,
+     dm_aff_eng,
+     dm_challenge,
+     dm_competence) %>% 
+ psych::describe() %>% 
+ as.data.frame() %>% 
+ tibble::rownames_to_column("var") %>% 
+ select(var, n, mean, sd) %>% 
+ mutate(var = c("Pre-interest",
+         "Cog. eng.",
+         "Beh. eng.",
+         "Aff. eng.",
+         "Challenge", 
+         "Competence"))
 
 names(oo) <- c("", "n", "Mean", "SD")
 
 oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "", digits = 3)
+ knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "", digits = 3)
 ```
 
 ### Correlations among study variables
@@ -55,26 +55,26 @@ Next, correlations between the variables that are used to create the profiles ar
 
 ```{r}
 p <- d_red %>%
-  select(dm_cog_eng:dm_competence) %>%
-  corrr::correlate() %>%
-  corrr::shave() %>%
-  corrr::fashion() %>% 
-  mutate(rowname = c("Cog. eng.",
-                     "Beh. eng.",
-                     "Aff. eng.",
-                     "Challenge", 
-                     "Competence"))
+ select(dm_cog_eng:dm_competence) %>%
+ corrr::correlate() %>%
+ corrr::shave() %>%
+ corrr::fashion() %>% 
+ mutate(rowname = c("Cog. eng.",
+           "Beh. eng.",
+           "Aff. eng.",
+           "Challenge", 
+           "Competence"))
 
 names(p) <- c("",
-              "Cog. eng.",
-              "Beh. eng.",
-              "Aff. eng.",
-              "Challenge", 
-              "Competence")
+       "Cog. eng.",
+       "Beh. eng.",
+       "Aff. eng.",
+       "Challenge", 
+       "Competence")
 
 p %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among study variables") %>%
-  kableExtra::landscape()
+ knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among study variables") %>%
+ kableExtra::landscape()
 ```
 
 ## Results for Research Question #1
@@ -85,11 +85,11 @@ Out of the 248 segments, 236 were code-able for work with data; for the 12 that 
 
 ```{r, eval = F}
 # x <- d_red %>% 
-#   distinct(beep_ID_new, .keep_all = TRUE) %>% 
-#   select(beep_ID_new, dm_ask:dm_com) %>% 
-#   gather(key, val, -beep_ID_new) %>% 
-#   group_by(beep_ID_new) %>% 
-#   summarize(sum_v = sum(val, na.rm= T))
+#  distinct(beep_ID_new, .keep_all = TRUE) %>% 
+#  select(beep_ID_new, dm_ask:dm_com) %>% 
+#  gather(key, val, -beep_ID_new) %>% 
+#  group_by(beep_ID_new) %>% 
+#  summarize(sum_v = sum(val, na.rm= T))
 # 
 # xx <- x$sum_v > 0
 ```
@@ -100,7 +100,7 @@ Note that these results are for codes applied to approximately ten-minute (video
 
 For these results, the different aspects of work with data were looked at in more detail using an open-ended, qualitative approach in order to better understand the nuance of what was going on during these episodes. This coding resulted in approximately three to four sentence notes from each of two raters for every segment and showed the specific nature of work with data. 
 
-<!-- You have to talk about how your qualitative coding suggested a lot of qualitative differences in the ways you actually saw students asking questions/ making observations etc. during those times that the instructional environment was coded as supporting those activities.  -->
+<!-- You have to talk about how your qualitative coding suggested a lot of qualitative differences in the ways you actually saw students asking questions/ making observations etc. during those times that the instructional environment was coded as supporting those activities. -->
 
 #### Asking questions or identifying problems
 
@@ -124,59 +124,59 @@ Codes for interpreting and communicating were present in 103 segments (as coded 
 
 ## Results for Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
 
-on the basis of the selection criteria  you used (you can name them again if you wish), the six profile solution with varying means, equal variances and covariances fixed to 0 emerged as the best fit of the data. This was on the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony. The model demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy). A seven profile solution with the same specifications regarding means, variances and covariances was also a similarly good fit (and is presented in the Appendix), but the 6 profile solution was ultimately chosen on the basis of parsimony and interpretability. For the selected model, presented below, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
+on the basis of the selection criteria you used (you can name them again if you wish), the six profile solution with varying means, equal variances and covariances fixed to 0 emerged as the best fit of the data. This was on the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony. The model demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy). A seven profile solution with the same specifications regarding means, variances and covariances was also a similarly good fit (and is presented in the Appendix), but the 6 profile solution was ultimately chosen on the basis of parsimony and interpretability. For the selected model, presented below, the raw data and the data that are centered to have a mean equal to 0 and a standard deviation of 1 (thus, the y-axis on each of the plots is labeled "Z-score").
 
 ```{r, fig.width = 7, fig.asp = .618, out.width = "100%"}
 
 m1_6 <- read_rds("data/models/m1_6.rds")
 
 p <- m1_6 %>%
-  plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
-  scale_x_discrete("", 
-                   limits = c("Profile 2 (n = 667)",
-                              "Profile 1 (n = 370)",
-                              "Profile 4 (n = 345)",
-                              "Profile 5 (n = 638)",
-                              "Profile 3 (n = 450)",
-                              "Profile 6 (n = 488)"),
-                   labels = c("Universally low (n = 667)",
-                              "Only behavioral (n = 370)",
-                              "Only affective (n = 345)",
-                              "All moderate (n = 638)",
-                              "Engaged and competent but not challenged (n = 450)",
-                              "Full (n = 488)")) +
-  xlab(NULL) +
-  ylab("Z-score") +
-  viridis::scale_fill_viridis("",
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+ plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
+ scale_x_discrete("", 
+          limits = c("Profile 2 (n = 667)",
+               "Profile 1 (n = 370)",
+               "Profile 4 (n = 345)",
+               "Profile 5 (n = 638)",
+               "Profile 3 (n = 450)",
+               "Profile 6 (n = 488)"),
+          labels = c("Universally low (n = 667)",
+               "Only behavioral (n = 370)",
+               "Only affective (n = 345)",
+               "All moderate (n = 638)",
+               "Engaged and competent but not challenged (n = 450)",
+               "Full (n = 488)")) +
+ xlab(NULL) +
+ ylab("Z-score") +
+ viridis::scale_fill_viridis("",
+               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+ theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 
 p
 
 m1_6 <- read_rds("data/models/m1_6.rds")
 
 p <- m1_6 %>%
-  plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
-  scale_x_discrete("", 
-                   limits = c("Profile 2 (n = 667)",
-                              "Profile 1 (n = 370)",
-                              "Profile 4 (n = 345)",
-                              "Profile 5 (n = 638)",
-                              "Profile 3 (n = 450)",
-                              "Profile 6 (n = 488)"),
-                   labels = c("Universally low (n = 667)",
-                              "Only behavioral (n = 370)",
-                              "Only affective (n = 345)",
-                              "All moderate (n = 638)",
-                              "Engaged and competent but not challenged (n = 450)",
-                              "Full (n = 488)")) +
-  xlab(NULL) +
-  ylab("Value") +
-  viridis::scale_fill_viridis("",
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+ plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
+ scale_x_discrete("", 
+          limits = c("Profile 2 (n = 667)",
+               "Profile 1 (n = 370)",
+               "Profile 4 (n = 345)",
+               "Profile 5 (n = 638)",
+               "Profile 3 (n = 450)",
+               "Profile 6 (n = 488)"),
+          labels = c("Universally low (n = 667)",
+               "Only behavioral (n = 370)",
+               "Only affective (n = 345)",
+               "All moderate (n = 638)",
+               "Engaged and competent but not challenged (n = 450)",
+               "Full (n = 488)")) +
+ xlab(NULL) +
+ ylab("Value") +
+ viridis::scale_fill_viridis("",
+               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+ theme(plot.margin = margin(1, 0, 0, 1, "cm"))
 
 p
 
@@ -207,13 +207,13 @@ The null models (with only the grouping factors, or random effects, associated w
 i <- read_rds("data/m1-6.rds") 
 
 ii <- i %>% 
-  select(beep_ID_ICC:program_ID_ICC)
+ select(beep_ID_ICC:program_ID_ICC)
 
 names(ii) <- c("Instructional Episode", "Youth", "Program")
 
 ii %>% 
-    knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "") %>%
-  kableExtra::landscape()
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "") %>%
+ kableExtra::landscape()
 ```
 
 Looking across these values, considering variability at the program, instructional episode, and youth levels, most of the explained variability in the responses is associated with youth; the program and instructional episode levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for work with data, may not have strong effects in terms of their relations with the profiles.
@@ -237,41 +237,41 @@ Results of sensitivity analysis for these effects showed that the effect of mode
 ```{r, eval = T}
 o <- read_rds("data/m1d-6d.rds")
 o <- mutate(o, model = c(
-  str_c("profile_", 1:6)))
+ str_c("profile_", 1:6)))
 
 oo <- o %>%
-  select(model,
-         intercept = `(Intercept)`,
-         overall_pre_interest,
-         gender_female,
-         urm,
-         dm_ask, dm_obs, dm_gen, dm_mod, dm_com
-  ) %>%
-  mutate(model = c("Only behavioral",
-                   "Universally low",
-                   "Engaged and competent but not challenged",
-                   "Only affective",
-                   "All moderate",
-                   "Full"),
-         the_order = c(2, 1, 3, 5, 3, 6)) %>% 
-  arrange(the_order) %>%
-  select(-the_order)
+ select(model,
+     intercept = `(Intercept)`,
+     overall_pre_interest,
+     gender_female,
+     urm,
+     dm_ask, dm_obs, dm_gen, dm_mod, dm_com
+ ) %>%
+ mutate(model = c("Only behavioral",
+          "Universally low",
+          "Engaged and competent but not challenged",
+          "Only affective",
+          "All moderate",
+          "Full"),
+     the_order = c(2, 1, 3, 5, 3, 6)) %>% 
+ arrange(the_order) %>%
+ select(-the_order)
 
 names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
 
 oo %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+ knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
+ kableExtra::kable_styling(latex_options = "scale_down") %>%
+ kableExtra::landscape()
 ```
 
 ```{r, eval = FALSE}
 names(ds3) <- c("Profile", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Composite")
 
 ds3 %>%
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for research question 3 (how work with data relates to engagement)", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+ knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for research question 3 (how work with data relates to engagement)", linesep = "") %>%
+ kableExtra::kable_styling(latex_options = "scale_down") %>%
+ kableExtra::landscape()
 ```
 
 ## Results for Research Question #4: How do youth characteristics relate to their engagement in summer STEM programs?

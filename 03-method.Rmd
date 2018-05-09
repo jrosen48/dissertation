@@ -2,23 +2,23 @@
 
 ```{r, setup-method, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
-                      message = FALSE, 
-                      warning = FALSE, 
-                      collapse = TRUE,
-                      error = TRUE,
-                      fig.width = 6,
-                      fig.asp = .618,
-                      out.width = "80%", 
-                      fig.align = "center", 
-                      results = "hold",
-                      knitr.kable.na = '') 
+           message = FALSE, 
+           warning = FALSE, 
+           collapse = TRUE,
+           error = TRUE,
+           fig.width = 6,
+           fig.asp = .618,
+           out.width = "80%", 
+           fig.align = "center", 
+           results = "hold",
+           knitr.kable.na = '') 
 
 options(knitr.kable.NA = '')
 ```
 
 ## Context	
 
-The setting for this study is nine out-of-school STEM programs designed around best practices in urban areas in the Northeast United States during the summer of 2015. These are described in the appendix with pseudonyms for the program names. Two intermediary organizations contracted by the urban area school districts to administer the summer programs. The two intermediaries were responsible for soliciting and enrolling youth; establishing guidelines for the design of the programs, and the goals of the programs; and provide training and professional development for the program’s staff. A key difference between the intermediary organizations was that one separated academic and enrichment-related activities, whereas, in another, which was more closely involved in the day-to-day activities of the program, the academic and enrichment components were more integrated, which may have program-specific effects on youths’ engagement. Many of the programs aim to involve youth in work with data. These learning environments bring together youth activity leaders, educators, and those with technical expertise in STEM domains. Youth spent around three hours per day for four days per week for the approximately four-week programs, which were taught by youth activity leaders and scientists, engineers, and other community members with technical expertise. 
+The setting for the present study is nine out-of-school STEM programs designed around best practices in urban areas in the Northeast United States during the summer of 2015. These are described in the Appendix with pseudonyms for the program names. Two intermediary organizations contracted by the urban area school districts to administer the summer programs. The two intermediaries were responsible for soliciting and enrolling youth; establishing guidelines for the design of the programs, and the goals of the programs; and provide training and professional development for the program’s staff. A key difference between the intermediary organizations was that one separated academic and enrichment-related activities, whereas, in another, which was more closely involved in the day-to-day activities of the program, the academic and enrichment components were more integrated, which may have program-specific effects on youths’ engagement. Many of the programs aim to involve youth in work with data. These learning environments bring together youth activity leaders, educators, and those with technical expertise in STEM domains. Youth spent around three hours per day for four days per week for the approximately four-week programs, which were taught by youth activity leaders and scientists, engineers, and other community members with technical expertise. 
 
 ## Participants
 
@@ -26,23 +26,23 @@ Participants consist of 203 youth. Youth in these programs are from diverse raci
 
 ```{r, eval = T}
 d <- tibble::tribble(
-  ~Youth, ~Percentage,
-  "Sex",          NA,
-  "Male",         50L,
-  "Female",         50L,
-  "Race/Ethnicity",          NA,
-  "Hispanic",         48L,
-  "White",          6L,
-  "Black",         36L,
-  "Multi-racial",          3L,
-  "Asian/Pacific Islander",          7L,
-  "Parent Education",          NA,
-  "High School or Below",         79L,
-  "Graduated from College (B.A. or B.S.)",         21L
+ ~Youth, ~Percentage,
+ "Sex",     NA,
+ "Male",     50L,
+ "Female",     50L,
+ "Race/Ethnicity",     NA,
+ "Hispanic",     48L,
+ "White",     6L,
+ "Black",     36L,
+ "Multi-racial",     3L,
+ "Asian/Pacific Islander",     7L,
+ "Parent Education",     NA,
+ "High School or Below",     79L,
+ "Graduated from College (B.A. or B.S.)",     21L
 )
 
 d %>% 
-  kable(booktabs = TRUE, caption = "Demographic characteristics of youth")
+ kable(booktabs = TRUE, caption = "Demographic characteristics of youth")
 ```
 
 ## Procedure
@@ -57,61 +57,61 @@ Data sources consist of self-reported ESM measures of engagement and youths’ p
 
 ### ESM measures of youths’ engagement and its conditions for the profiles
 
-Measures for engagement and its conditions were constructed from three ESM responses for engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items are used to construct profiles. Each of the ESM items consisted of the item text and the following four item response options, of which youth were directed to select one: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4), as presented in Table 3. 
+Measures for engagement and its conditions were constructed from three ESM responses for engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items are used to construct profiles. Each of the ESM items consisted of the item text and the following four item response options, of which youth were directed to select one: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4), as presented in Table 2. 
 
 ```{r}
 d <- tibble::tribble(
-               ~Construct,                                                                         ~Item,
-   "Cognitive engagement", "As you were signaled, were you learning anything or getting better at something?",
-  "Behavioral engagement",                                 "As you were signaled, how hard were you working?",
-   "Affective engagement",                          "As you were signaled, did you enjoy what you are doing?",
-    "Perceived challenge",                     "As you were signaled, how challenging was the main activity?",
-   "Perceived competence",                        "As you were signaled, were you good at the main activity?"
-  )
+        ~Construct,                                     ~Item,
+  "Cognitive engagement", "As you were signaled, were you learning anything or getting better at something?",
+ "Behavioral engagement",                 "As you were signaled, how hard were you working?",
+  "Affective engagement",             "As you were signaled, did you enjoy what you are doing?",
+  "Perceived challenge",           "As you were signaled, how challenging was the main activity?",
+  "Perceived competence",            "As you were signaled, were you good at the main activity?"
+ )
 
 d %>% 
-  knitr::kable(booktabs = TRUE, caption = "ESM measures for profiles") %>% 
-    kableExtra::kable_styling(latex_options = "scale_down")
+ knitr::kable(booktabs = TRUE, caption = "ESM measures for profiles") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 
 ```
 
 ### Survey measures of pre-interest
 
-Measures of youths’ pre-interest are used as youth-level influencers of the profiles. In particular, three items adapted from Vandell, Hall, O’Cadiz, and Karsh (2012) were used, with directions for youth to rate their agreement with the items’ text using the same scale as the ESM items: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4). The measure was constructed by taking the maximum value for the scales for the different content areas (science, mathematics, and engineering), so that the value for a youth whose response for the science scale was 2.5 and for the mathematics scale was 2.75 would be 2.5. The items are presented in Table 2.
+Measures of youths’ pre-interest are used as youth-level influencers of the profiles. In particular, three items adapted from Vandell, Hall, O’Cadiz, and Karsh (2012) were used, with directions for youth to rate their agreement with the items’ text using the same scale as the ESM items: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4). The measure was constructed by taking the maximum value for the scales for the different content areas (science, mathematics, and engineering), so that the value for a youth whose response for the science scale was 2.5 and for the mathematics scale was 2.75 would be 2.5. The items are presented in Table 3.
 
 ```{r}
 d <- tibble::tribble(
-                     ~Construct,                                                            ~`Items.text`,
-  "Individual interest in STEM",               "I am interested in science / mathematics / engineering.",
-                             NA,                 "At school, science / mathematics / engineering is fun",
-                             NA, "I have always been fascinated by science / mathematics / engineering)"
-  )
+           ~Construct,                              ~`Items.text`,
+ "Individual interest in STEM",        "I am interested in science / mathematics / engineering.",
+               NA,         "At school, science / mathematics / engineering is fun",
+               NA, "I have always been fascinated by science / mathematics / engineering)"
+ )
 
 d %>% 
-  knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM") %>% 
-  kable_styling(full_width = FALSE)
+ knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM") %>% 
+ kable_styling(full_width = FALSE)
 ```
 
 ### Codes from video-recordings for work with data
 
-Different aspects of work with data are identified from video-recordings. Specifically, codes for work with data were generated on the basis of the activity that the youth activity leaders were facilitating. The activity youth activity leaders were facilitating were from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs. I then identified the specific activities that corresponded to the five aspects of work with data, as defined in table 4. Details on how the measure aligns with the original STEM-PQA on which this measure is based are presented in the appendix. Note that these codes were unique to each signal to which youth responded (but were not unique to each youth, as youth in the same program were signaled at the same time). I will discuss limitations to use of the STEM-PQA for work with data in the discussion. 
+Different aspects of work with data are identified from video-recordings. Specifically, codes for work with data were generated on the basis of the activity that the youth activity leaders were facilitating. The activity youth activity leaders were facilitating were from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs. I then identified the specific activities that corresponded to the five aspects of work with data, as defined in Table 4. Details on how the measure aligns with the original STEM-PQA on which this measure is based are presented in the appendix. Note that these codes were unique to each signal to which youth responded (but were not unique to each youth, as youth in the same program were signaled at the same time). I will discuss limitations to use of the STEM-PQA for work with data in the discussion. 
 
 ```{r}
 library(dplyr)
 d <- tibble::tribble(
-  ~Code,                                                                                                    ~Description,                                                                                                                                                                                                                                                                                                                                                        ~`Categories from STEM-PQA`,
-  "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                                                   "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
-  "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                                                        "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
-  "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                                                                                                               "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
-  NA,                                                                                                              NA, "Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))",
-  "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                                                       "Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
-  "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                                                                                                                                                                                               "Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like \"Your heartbeat increases when you exercise\", etc.))"
+ ~Code,                                                  ~Description,                                                                                                                                                                            ~`Categories from STEM-PQA`,
+ "Asking questions or defining problems",                      "Discussing and exploring topics to investigate and pose questions.",                          "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+ "Making observations",     "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                    "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
+ "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                        "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
+ NA,                                                       NA, "Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))",
+ "Data modeling", "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+ "Interpreting and communicating findings",                                "Discussing and sharing and presenting findings.",                                                                                                "Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like \"Your heartbeat increases when you exercise\", etc.))"
 )
 
 
 d[, -3] %>%
-  knitr::kable(booktabs = TRUE, caption = "Coding Frame for Work With Data") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down")
+ knitr::kable(booktabs = TRUE, caption = "Coding Frame for Work With Data") %>% 
+ kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 In February, 2017, raters contracted by American Institute of Research (AIR) were trained in the use of the Program Quality Assessment tool (PQA)--the broader assessment tool for which the STEM-PQA is a supplement. Raters completed a four-hour online training module on the overall PQA tool and then attended an in-person two-day training led by a trainer from the David P. Weikart Center for Youth Program Quality, the tool’s publisher, where they learned about the instrument, trained on its use, and then established inter-rater reliability with a master coder.
@@ -134,9 +134,13 @@ First-order Pearson correlations and the frequency, range, mean, and standard de
 
 There are two primary steps taken to answer this question, one more quantitative in nature and one more qualitative. 
 
-<!-- You have to talk about how your qualitative coding suggested a lot of qualitative differences in the ways you actually saw students asking questions/ making observations etc. during those times that the instructional environment was coded as supporting those activities.  -->
+<!-- You have to talk about how your qualitative coding suggested a lot of qualitative differences in the ways you actually saw students asking questions/ making observations etc. during those times that the instructional environment was coded as supporting those activities. -->
 
-Specifically, first, the frequency of the codes for the individual aspects of work with data from the STEM PQA measure of work with data (described above in the measures) are calculated. Note that this coding frame focused on the degree of instructional support the activity leaders provided for youth to work with data. However, this framework provided no context on how particular types of work with data were enacted. So, to provide more context in the description of how work with data in the context of summer STEM programs, all of the segments were coded using an open-ended, qualitative approach. To qualitatively code the data, three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. The guiding questions for the qualitative coding were as follows:
+Specifically, first, the frequency of the codes for the individual aspects of work with data from the STEM PQA measure of work with data (described above in the measures) are calculated. Note that this coding frame focused on the degree of instructional support the activity leaders provided for youth to work with data. 
+
+However, this framework provided no context on how particular types of work with data were enacted. Qualitative differences in *how*, for example, youth were asking questions are not evident from the STEM-PQA codes used to find the frequencies of the aspects of work with data. In order, to provide more context in the description of how work with data in the context of summer STEM programs, all of the segments were coded using an open-ended, qualitative approach. Three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. Two coders coded every segment, except for the 77 (out of the total 248) segments that the STEM-PQA coding that indicated no aspects of work with data were present. For these 77 segments, only one coder coded each segment. 
+
+The coders used the following five guiding questions, assocatiated with each of the five aspects of work with data, for the qualitative coding::
 
 * When asking questions or defining problems is coded, what, if any are the questions or problems? Who is asking the question (i.e teacher or student)
 * When making observations is coded, what are youth doing?
@@ -144,32 +148,28 @@ Specifically, first, the frequency of the codes for the individual aspects of wo
 * When analyzing or modeling data is coded, what analysis are they doing, or what models are they using? Are they talking about variability or uncertainty? If so, how?
 * When interpreting and communicating findings is coded, what are youth interpreting or how are they communicating?
 
-Two coders coded every segment. This coding took around 75 hours of coding by the research assistants. After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments, and made notes associated with each of the five aspects of work with data (i.e., asking questions, making observations, and the other aspects). These notes focused on whether and in what ways there appeared to be alignment between the codes for work with data (from the PQA) and the conceptual framework for work with data. I used these notes to write detailed descriptions of each of the aspects of work with data.
+This coding took around 75 hours of coding by the research assistants. After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write detailed descriptions of each of the aspects of work with data, which I grouped into the themes. I present these themes in the section of the results for this question.
 
 ### Analysis for Research Question #2 (what profiles of engagement emerge)
 
 To answer this question, Latent Profile Analysis (LPA; Harring & Hodis, 2016; Muthen, 2004) is used. LPA allows for capturing the multidimensional nature of engagement through profiles. A key benefit of the use of LPA, in addition to likelihood estimation-based fit indices, is probabilities of an observation being a member of a cluster (unlike in cluster analysis). These profiles make it possible to analyze the multivariate data collected on engagement in a way that balances the parsimony of a single model. 
 
-For these models, five variables were included: the three measures of engagement (cognitive, behavioral, and affective) and the two conditions for engagement (perceptions of challenge and competence).
+For these models, five variables were included: the three measures of engagement (cognitive, behavioral, and affective) and the two conditions for engagement (perceptions of challenge and competence). In addition, solutions with between two and 10 profiles were considered. As part of LPA, model type selection--in terms of which model type is used and how many profiles are identified--is a key topic. For the present study, six models were considered:
 
-As part of LPA, model selection--in terms of which model type is used and how many profiles are identified--is a key topic. For the present study, six models were considered:
-
-1. Varying means, equal variances, and covariances fixed to 0 (model one type)
-2. Varying means, equal variances, and equal covariances (model two type)
-3. Varying means, varying variances, and covariances fixed to 0 (model three type)
-4. Varying means, varying variances, and equal covariances (model four type)
-5. Varying means, equal variances, and varying covariances (model five type)
-6. Varying means, varying variances, and varying covariances (model six type)
-
-In addition, solutions with between two and 10 profiles were considered.
+1. Varying means, equal variances, and covariances fixed to 0 (model *one* type)
+2. Varying means, equal variances, and equal covariances (model *two* type)
+3. Varying means, varying variances, and covariances fixed to 0 (model *three* type)
+4. Varying means, varying variances, and equal covariances (model *four* type)
+5. Varying means, equal variances, and varying covariances (model *five* type)
+6. Varying means, varying variances, and varying covariances (model *six* type)
 
 The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, & Beymer, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
-To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations are taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the model one type, six profiles solution is selected and used as part of subsequent analyses.
+To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations are taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the *model one type, six profiles* solution is selected and used as part of subsequent analyses.
 
 ### Analysis for Research Question #3 (how work with data relates to engagement)
 
-Broadly, this question is focused on how work with data  as coded from video-recordings of the programs, relates to the profiles. For the primary results for this question, mixed effects models that account for the cross-classification of the instructional episode and youth are used and for the "nesting" of both within each of the nine programs are used. The *lme4* R package (Bates, Martin, Bolker, & Walker, 2015) is used. All of the models for this and research question #4 use random effects for youth, instructional episode, and program effects. Youth and instructional episode can be considered to be crossed with both nested within the program. 
+Broadly, this question is focused on how work with data as coded from video-recordings of the programs, relates to the profiles. For the primary results for this question, mixed effects models that account for the cross-classification of the instructional episode (because of the dependencies of the responses associated with each of the 248 distinct ESM signals) and youth are used and for the "nesting" of both within each of the nine programs are used. The *lme4* R package (Bates, Martin, Bolker, & Walker, 2015) is used. All of the models for this and the subsequent research question use random effects for youth, instructional episode, and program effects. Youth and instructional episode can be considered to be crossed with both nested within the program. 
 
 The probability of a response belonging to the profile is the dependent variable and the aspects of work with data are the independent variable. There are six models, for each of the six profiles. Because the outcome from LPA is not a hard classification (i.e., an observation is in a profile—or not) but a probability, the dependent variable is treated as a continuous variable. 
 
