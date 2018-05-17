@@ -1,4 +1,4 @@
-#! '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/0_render.R'
+#! '/Users/joshuarosenberg/Google Drive/1_Research/dissertation/rosenberg-diss/000_render.R'
 
 # 1. render PDF
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')

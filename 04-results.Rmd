@@ -85,15 +85,12 @@ p %>%
 
 Out of the 248 instructional episodes, 236 were code-able for work with data; for the 12 that were not codeable, issues with the video-recordings were the primary source of the missing data. Of the 236 code-able instructional episodes, 170 (72%) were coded as involving *any* of the aspects of work with data. Table 7 includes the frequency of the specific aspects of work with data, with interpreting and communicating findings being the most present (occurring in 47% of the coded instructional episodes), followed by generating data (in 45% of the instructional episodes), asking questions (in 39%), data modeling (29%), and then making observations (26%).
 
-```{r, eval = F}
-# x <- d_red %>% 
-#  distinct(beep_ID_new, .keep_all = TRUE) %>% 
-#  select(beep_ID_new, dm_ask:dm_com) %>% 
-#  gather(key, val, -beep_ID_new) %>% 
-#  group_by(beep_ID_new) %>% 
-#  summarize(sum_v = sum(val, na.rm= T))
-# 
-# xx <- x$sum_v > 0
+```{r, eval = T}
+data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
+           Proportion = c(.389, .258, .453, .288, .470),
+           N = c(92, 61, 107, 68, 111)) %>%
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
+
 ```
 
 Note that these results are for codes applied to approximately ten-minute (video-recorded) instructional episodes and that the aspects of work with data could co-occur. On average, there were 1.86 (*SD* = 1.61) aspects of work with data present in each 10-minute instructional episode. This indicates that, on average, youth were engaged in around two of aspects of the work with data during each instructional episode. There was considerable variation in the extent to which these types of work with data were supported in each program (see the Appendix).
@@ -104,7 +101,7 @@ For these results, the different aspects of work with data were looked at in mor
 
 #### Asking questions or identifying problems
 
-Among the instructional episodes focused on asking questions (as determined through coding with the STEM-PQA measure), qualitative analysis revealed that around one-third were focused on asking questions focused on youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. Other instructional episodes not focused on understanding the phenomenon or specific problem showed that many instructional episodes were focused around predicting, conjecturing, or hypothesizing. In these cases, the code was applied to instances in which the youth were asking generic questions (i.e., about how they do an assignment) or when the instructor was asking youth questions (i.e., math-related questions). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they saw. 
+Among the instructional episodes that included the asking questions aspect of work with data (as determined through coding with the STEM-PQA measure), qualitative analysis revealed that around one-third were focused on asking questions focused on youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. Other instructional episodes involving questioning were focused around predicting, conjecturing, or hypothesizing. In these cases, the code was applied to instances in which the youth were asking generic questions (i.e., about how they do an assignment) or when the instructor was asking youth questions (i.e., math-related questions). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed.
 
 #### Making observations
 

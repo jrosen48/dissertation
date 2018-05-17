@@ -22,7 +22,7 @@ The setting for the present study is nine out-of-school STEM programs designed a
 
 ## Participants
 
-Participants consist of 203 youth. Youth in these programs are from diverse racial and ethnic backgrounds (see Table 1). Most participants are around 13 years old (from youth whose age was available: *M* = 12.71, *SD* = 1.70, *min.* = 10.75, *max.* = 16.36). Detailed demographic characteristics of youth are presented in the table. 
+Participants consist of 203 youth. Participants were from diverse racial and ethnic backgrounds (see Table 1). The mean age of participants was around 13 years old (from youth whose age was available: *M* = 12.71, *SD* = 1.70, *min.* = 10.75, *max.* = 16.36). Detailed demographic characteristics of youth are presented in the table. 
 
 ```{r, eval = T}
 d <- tibble::tribble(
@@ -47,7 +47,7 @@ d %>%
 
 ## Procedure
 
-Youth completed a pre-survey before the program including questions about their experience in STEM, intention to pursue a STEM major or career, and questions for other motivation and engagement-related measures. At the beginning of the programs, youth were introduced to the study and the phones used for data collection related to the ESM. As indicated in the earlier section, ESM is a method of data collection that involves asking (signalling) youth to respond to short questions on phones that they were provided. Youth are signaled at random times (within intervals, so that the signals were not too near or far apart) in order to obtain a sample of youths' experiences throughout the program. ESM data were collected two days each week, for three weeks (weeks 2-4 of the program). In all of the programs, about equal video-recording time was dedicated to classroom and field experiences. This detail is important because programs associated with one of the intermediaries rotated between classroom and field experience days, while the other used the first half of each day for one (i.e., classroom activities) or the other (i.e., field experience days). 
+Youth completed a pre-survey before the program including questions about their experience in STEM, intention to pursue a STEM major or career, and questions for other motivation and engagement-related measures. At the beginning of the programs, youth were introduced to the study and the phones used for data collection related to the ESM. As indicated in the earlier section, ESM is a method of data collection that involves signalling youth to respond to short questions on phones that they were provided. Youth are signaled at random times (within intervals, so that the signals were not too near or far apart) in order to obtain a sample of youths' experiences throughout the program. ESM data were collected two days each week, for three weeks (weeks 2-4 of the program). In all of the programs, about equal video-recording time was dedicated to classroom and field experiences. This detail is important because programs associated with one of the intermediaries rotated between classroom and field experience days, while the other used the first half of each day for one (i.e., classroom activities) or the other (i.e., field experience days). 
 
 Each day, youth were signaled four times. These signals were at the same time for all of the youth within their program, but at different times between programs and between days within programs (with the constraint that no two signals could occur less than ten minutes apart). All of the programs were video-recorded by research team members. So that measures corresponding to the video and ESM data can be matched, videos include a signal from the video-recorder identifying the ESM signal to which youth responded at that point in the video. 
 
@@ -55,9 +55,9 @@ Each day, youth were signaled four times. These signals were at the same time fo
 
 Data sources consist of self-reported ESM measures of engagement and youths’ perceptions of themselves and the activity, pre-survey measures of youths’ interest, youths’ demographic information, and video-recordings of programs. 
 
-### ESM measures of youths’ engagement and its conditions for the profiles
+### ESM measures of engagement for the profiles
 
-Measures for engagement and its conditions were constructed from three ESM responses for engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items are used to construct profiles. Each of the ESM items consisted of the item text and the following four item response options, of which youth were directed to select one: Not at all (associated with the number 1 on the survey), A little (2), Somewhat (3), and Very Much (4), as presented in Table 2. 
+Measures for engagement were constructed from three ESM responses that served as indicators for the experience of engagement and two ESM responses for the conditions of engagement. The three variables for engagement are for learning (for the cognitive engagement construct), working hard (for behavioral engagement), and enjoying (for affective engagement). The variables for the conditions are for perceived challenge and perceived competence. All five items are used to construct profiles. Each of the ESM items consisted of the item text and the following four item response options, of which youth were directed to select one: Not at all (associated with the number 1 on the survey; 1), A little (2), Somewhat (3), and Very Much (4), as presented in Table 2. 
 
 ```{r}
 d <- tibble::tribble(
@@ -92,7 +92,7 @@ d %>%
  kable_styling(full_width = FALSE)
 ```
 
-### Codes from video-recordings for work with data
+### Key aspects of work with data
 
 Different aspects of work with data are identified from video-recordings. Specifically, codes for work with data were generated on the basis of the activity that the youth activity leaders were facilitating. The activity youth activity leaders were facilitating were from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth Investment, 2012), an assessment of quality programming in after school programs. I then identified the specific activities that corresponded to the five aspects of work with data, as defined in Table 4. Details on how the measure aligns with the original STEM-PQA on which this measure is based are presented in the appendix. Note that these codes were unique to each signal to which youth responded (but were not unique to each youth, as youth in the same program were signaled at the same time). I will discuss limitations to use of the STEM-PQA for work with data in the discussion. 
 
@@ -138,9 +138,9 @@ There are two primary steps taken to answer this question, one more quantitative
 
 Specifically, first, the frequency of the codes for the individual aspects of work with data from the STEM PQA measure of work with data (described above in the measures) are calculated. Note that this coding frame focused on the degree of instructional support the activity leaders provided for youth to work with data. 
 
-However, this framework provided no context on how particular types of work with data were enacted. Qualitative differences in *how*, for example, youth were asking questions are not evident from the STEM-PQA codes used to find the frequencies of the aspects of work with data. In order, to provide more context in the description of how work with data in the context of summer STEM programs, all of the segments were coded using an open-ended, qualitative approach. Three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. Two coders coded every segment, except for the 77 (out of the total 248) segments that the STEM-PQA coding that indicated no aspects of work with data were present. For these 77 segments, only one coder coded each segment. 
+However, this framework provided no context on how particular types of work with data were enacted. Qualitative differences in *how*, for example, youth were asking questions are not evident from the STEM-PQA codes used to find the frequencies of the aspects of work with data. In order to provide more context in the description of how work with data in the context of summer STEM programs, all of the segments were coded using an open-ended, qualitative approach. Three research assistants were trained for approximately eight hours over four meetings. Then, each research assistant coded all of the segments associated with one of the videos. Two coders coded every segment, except for the 77 (out of the total 248) segments that the STEM-PQA coding that indicated no aspects of work with data were present. For these 77 segments, only one coder coded each segment. 
 
-The coders used the following five guiding questions, assocatiated with each of the five aspects of work with data, for the qualitative coding::
+The coders used the following five guiding questions, associated with each of the five aspects of work with data, for the qualitative coding:
 
 * When asking questions or defining problems is coded, what, if any are the questions or problems? Who is asking the question (i.e teacher or student)
 * When making observations is coded, what are youth doing?
@@ -154,18 +154,18 @@ This coding took around 75 hours of coding by the research assistants. After cod
 
 To answer this question, Latent Profile Analysis (LPA; Harring & Hodis, 2016; Muthen, 2004) is used. LPA allows for capturing the multidimensional nature of engagement through profiles. A key benefit of the use of LPA, in addition to likelihood estimation-based fit indices, is probabilities of an observation being a member of a cluster (unlike in cluster analysis). These profiles make it possible to analyze the multivariate data collected on engagement in a way that balances the parsimony of a single model. 
 
-For these models, five variables were included: the three measures of engagement (cognitive, behavioral, and affective) and the two conditions for engagement (perceptions of challenge and competence). In addition, solutions with between two and 10 profiles were considered. As part of LPA, model type selection--in terms of which model type is used and how many profiles are identified--is a key topic. For the present study, six models were considered:
+For these analyses, five variables were included: the three indicators for the experience of engagement (cognitive, behavioral, and affective) and the two necessary conditions for it (perceptions of challenge and competence). In addition, solutions with between two and 10 profiles were considered. As part of LPA, the model type selection--where the type refers to which parameters are estimated--is a key topic. For the present study, six model types were considered:
 
-1. Varying means, equal variances, and covariances fixed to 0 (model *one* type)
-2. Varying means, equal variances, and equal covariances (model *two* type)
-3. Varying means, varying variances, and covariances fixed to 0 (model *three* type)
-4. Varying means, varying variances, and equal covariances (model *four* type)
-5. Varying means, equal variances, and varying covariances (model *five* type)
-6. Varying means, varying variances, and varying covariances (model *six* type)
+1. Varying means, equal variances, and covariances fixed to 0
+2. Varying means, equal variances, and equal covariances
+3. Varying means, varying variances, and covariances fixed to 0
+4. Varying means, varying variances, and equal covariances
+5. Varying means, equal variances, and varying covariances
+6. Varying means, varying variances, and varying covariances
 
 The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, & Beymer, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical software developed and included in the Appendix.
 
-To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations are taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the *model one type, six profiles* solution is selected and used as part of subsequent analyses.
+To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations were taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the *model one type, six profiles* solution is selected and used as part of subsequent analyses.
 
 ### Analysis for Research Question #3 (how work with data relates to engagement)
 
@@ -173,7 +173,7 @@ Broadly, this question is focused on how work with data as coded from video-reco
 
 The probability of a response belonging to the profile is the dependent variable and the aspects of work with data are the independent variable. There are six models, for each of the six profiles. Because the outcome from LPA is not a hard classification (i.e., an observation is in a profile—or not) but a probability, the dependent variable is treated as a continuous variable. 
 
-First, null models with only the random parts (i.e., random youth, instructional episode, and program effects) are specified. Then, the five aspects of work with data are added as predictors to the model. The results will be interpreted on the basis of which of the statistical significance and the magnitude and direction of the coefficients associated with these five predictors. For example, if the coefficient for the effect of the asking questions aspect of work with data upon one of the profiles is 0.10, and is determined to be statistically significant, then this would indicate that when youth are engaged in this aspect of work with data, then they are ten percentage points more likely to report a response in a particular profile.
+First, null models with only the random parts (i.e., random youth, instructional episode, and program effects) are specified. Then, the five aspects of work with data are added as predictors to the model. The results will be interpreted on the basis of which of the statistical significance and the magnitude and direction of the coefficients associated with these five predictors. For example, if the coefficient for the effect of the asking questions aspect of work with data upon one of the profiles is 0.10, and is determined to be statistically significant, then this would indicate that when youth are engaged in this aspect of work with data, then they are ten percentage points more likely to report a response in that particular profile.
 
 Because the results were found to be identical when the aspects of work with data and the youth characteristics are considered in separate and in the same model, the results from the two sets of variables being in the same model are used for both to provide answers to both this and the next research question. Note that a composite for work with data (made as the sum of the individual aspects of work with data) was considered, but as it did only yielded one (small) statistically significant result, the results for this analysis are not presented in the results.
 
