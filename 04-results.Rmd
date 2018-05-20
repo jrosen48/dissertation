@@ -22,7 +22,7 @@ In this section, results associated with the preliminary analysis and the four r
 
 ### Descriptive statistics for the engagement measures
 
-First, descriptive statistics for the engagement measures (the five variables that are used to estimate the profiles) are presented in Table 5. These values suggest moderately high levels of the three dimensions of engagement (with mean values between 2.768 (*SD* = 1.063) for cognitive engagement, and 2.863 (*SD* = 1.044), for behavioral engagement, on one-four scales) and high perceptions of competence (*M* = 3.000 (*SD* = 0.952)); the only continuous variable that was not measured using ESM) and lower perceptions of challenge (*M* = 2.270 (*SD* = 1.117)).
+First, descriptive statistics for the engagement measures (the five variables that were used to estimate the profiles) are presented in Table 5. These values suggest moderately high levels of the three dimensions of engagement (with mean values between 2.768 (*SD* = 1.063) for cognitive engagement, and 2.863 (*SD* = 1.044), for behavioral engagement, on one-four scales) and high perceptions of competence (*M* = 3.000 (*SD* = 0.952)); the only continuous variable that was not measured using ESM) and lower perceptions of challenge (*M* = 2.270 (*SD* = 1.117)).
 
 ```{r}
 oo <- d_red %>% 
@@ -59,13 +59,15 @@ p <- d_red %>%
   corrr::correlate() %>%
   corrr::shave() %>%
   corrr::fashion() %>% 
-  mutate(rowname = c( "Cog. eng.",
+  mutate(rowname = c("Pre-interest",
+                     "Cog. eng.",
                      "Beh. eng.",
                      "Aff. eng.",
                      "Challenge", 
                      "Competence"))
 
 names(p) <- c("",
+              "Pre-interest",
               "Cog. eng.",
               "Beh. eng.",
               "Aff. eng.",
@@ -99,7 +101,7 @@ For these results, the different aspects of work with data were looked at in mor
 
 #### Asking questions or identifying problems
 
-Among the instructional episodes that included the asking questions aspect of work with data (as determined through coding with the STEM-PQA measure), creating qualitative descriptions revealed that around one-third (36/92, or 39%) were focused on asking questions focused on youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. Other instructional episodes involving questioning were focused around predicting, conjecturing, or hypothesizing. In these cases, the code was applied to instances in which the youth were asking generic questions (i.e., about how they do an assignment) or when the instructor was asking youth questions (i.e., math-related questions). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed.
+Among the instructional episodes that included the asking questions aspect of work with data (as determined through coding with the STEM-PQA measure), creating qualitative descriptions revealed that around one-third (36/92, or 39%) were focused on asking questions focused on youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. Other instructional episodes involved questions that were not focused on predicting, conjecturing, or hypothesizing. In such cases, the code was applied to instances in which the youth were asking generic questions (i.e., about how they do an assignment) or when the instructor was asking youth questions (i.e., math-related questions). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed.
 
 #### Making observations
 
@@ -123,7 +125,7 @@ A relatively simple model (model *one* type; with varying means, equal variances
 
 This means that *six distinct profiles* were identified in the data. This selection was on the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony. The solution demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy). Note that a seven profile solution with the same specifications regarding means, variances and covariances was also a similarly good fit (and is presented in the Appendix), but the 6 profile solution was ultimately chosen on the basis of parsimony and interpretability. 
 
-For the six profiles, presented below in Figure 3, the *first* plot shows the profiles with variables that are centered to have a mean equal to 0 and a standard deviation of 1. Thus, the y-axis for this plot is labeled "Z-score"). The *second* plot shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value."
+For the six profiles, presented below in Figure 3, the *first* plot shows the profiles with variables that were centered to have a mean equal to 0 and a standard deviation of 1. Thus, the y-axis for this plot is labeled "Z-score"). The *second* plot shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value."
 
 ```{r, fig.width = 7, fig.asp = .618, out.width = "100%"}
 
@@ -193,7 +195,7 @@ The number of observations associated with each of the profiles is somewhat bala
 
 The remaining analyses use the six profiles described above. Sources of variability in these profiles can be used as additional information in their own right for interpreting the profiles and in order to anticipate the effects of predictor variables at the youth, instructional episode, and program levels. 
 
-First, the proportion of the variability at each of these levels is explored through the use of null, or variance components, in Table 8. Again, these are models that only include grouping (i.e., the variable identifying which youth a response is from, what signal the response is associated with, and from which program the youth and signal were from) factors. These models provide insight into at which of these "levels" predictors may be able to explain the outcome. For all six profiles, the ICCs at the program level were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the instructional episode level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. 
+First, the proportion of the variability at each of these levels is explored through the use of null, or variance components, in Table 4.3. Again, these are models that only include grouping (i.e., the variable identifying which youth a response is from, what signal the response is associated with, and from which program the youth and signal were from) factors. These models provide insight into at which of these "levels" predictors may be able to explain the outcome. For all six profiles, the ICCs at the program level were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the instructional episode level, the ICCs were also very small, ranging from 0.004 to 0.011. Finally, the youth-level ICCs ranged from .099 to .427. 
 
 ```{r}
 i <- read_rds("data/m1-6.rds") 
@@ -208,19 +210,31 @@ ii %>%
   kableExtra::landscape()
 ```
 
-Looking across these values, considering variability at the program, instructional episode, and youth levels, most of the explained variability in the responses is associated with youth; the program and instructional episode levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for work with data, may not have strong effects in terms of their relations with the profiles.
+Looking across these values, most of the explained variability in the responses is associated with youth; the program and instructional episode levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for work with data, may not have strong effects in terms of their relations with the profiles.
 
-In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *full* profile, suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *universally low* profile--had a modest ICC, .265. Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted.
+In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *Full* profile (*ICC* = .432), suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *Universally low* profile--had a modest value (*ICC* = .265). Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted by variables *at one level alone*. Remaining unexplained variability is the product of youth, instructional episode, and program effects together. Some youth from particular programs may engage during some episode instructional episodes in very high or low ways that are not captured by modeling the variability at each of these levels alone.
 
-Variability in terms of the number (and proportion) of profiles each youth reports can also be considered. These show that there is substantial variability between youth, in that, when youth, for example, report *Full* engagement to a greater extent than any other profile of engagement, these youth (on average) report this engagement in just over 60% of their responses. Their other responses were (on average) associated with a mixture of other profiles. Youth who report more *Full* engagement than any other profile of engagement are the most consistent in reporting one of the profiles of engagement, with youth reporting engagement associated with the *All moderate* profile doing so just less than 40% of the time (with other profiles being associated with the remainder of their responses).
+Variability in terms of the number (and proportion) of profiles each youth reports can also be considered. When the breakdown of responses in each of the six profiles by youth is explored: As presented in Figure X, the value of the mean for the proportion of responses for each youth in the profile they reported most was .540 (*SD* = .194, *min* = .182, *max* = 1.00). This indicates that on average youths' most reported profile comprises just over one-half of their responses, with substantial variability in their responses. Apart from this overall mean proportion, the mean proportion for specific profiles can be considered. For example, when *Full* engagement was reported by a youth more than any other profile, they reported it, on average, in just over 60% of their responses. No other profile that youth reported most was associated (on average) with a larger proportion of their responses. This suggests that even when youth report (relatively) stable engagement over the course of their time in the programs, they still engage in a variety of different ways. When youth reported *All moderate* engagement (the profile with the lowest proportion of responses, on average, when reported more than any other), they reported it in just less than 40% of their responses. This suggests that though youth may report one profile far more than others--and that youth who report particular (i.e., *Full*) profiles more than others may reflect somewhat stable engagement, there still exists substantial variability in youths' engagement.
+
+```{r}
+knitr::include_graphics("images/figure3.png")
+```
+
+<!-- the substantial variability in how youth are engaging becomes evident -->
+
+<!-- hat about explaining that if we try to characterize persons in terms of what their most frequently observed profile is, the ‘most frequent’ is not the vast majority -then give examples, that the most ‘stable’ is only 60%, which means in 40% of cases, they are engaging in some other way.  -->
+
+<!-- These show that there is substantial variability between youth, in that, when youth, for example, report *Full* engagement to a greater extent than any other profile of engagement, these youth (on average) report this engagement in just over 60% of their responses. Their other responses were (on average) associated with a mixture of other profiles. Youth who report more *Full* engagement than any other profile of engagement are the most consistent in reporting one of the profiles of engagement, with youth reporting engagement associated with the *All moderate* profile doing so just less than 40% of the time (with other profiles being associated with the remainder of their responses). -->
 
 ## Results for Research Question #3: Aspects of work with data and engagement
 
-For each model, results, presented in Table 4.4, use each row to represent the output from one of the six different models. For example, the first row includes the results for the model with the probability of a response being associated with the *Only behavioral* profile as the dependent variable. The cells across the columns contain the coefficients (and their standard errors and (*p*-values)) for each of the predictor variables. Only the coefficients associated with the aspects of work with data are interpreted to provide results for this research question, as the youth characteristics are interpreted for research question #4 (as described earlier, the results were practically the same for these sets of predictors being included in either separate or the same model, so they are included in the same model). 
+The results for this and the next research question are presented in Table 4.5. In this table, each column represent the output from one of the six different models. For example, the first column includes the results for the model with the probability of a response being associated with the *Only behavioral* profile as the dependent variable. The cells down the rows contain the coefficients (and their standard errors and (*p*-values)) for each of the predictor variables. 
 
-See the Appendix for the results from the model with the aspects of work with data included as predictors in separate (without the youth characteristics) models. The only relations that were statistically significant were for the relations between modeling data and the *full* profile ($\beta$ = 0.034 (0.017), *p* = .020) and between generating data and the *full* profile ($\beta$ = 0.027 (0.015), *p* = .033): When youth were either modeling or generating data, they were more likely to be fully engaged.
+Only the coefficients associated with the aspects of work with data are interpreted in this section in order to provide results for this research question, because the youth characteristics are interpreted for research question #4. As described earlier, the results were practically the same for these sets of predictors being included in either separate or the same model, so they are included in the same model. 
 
-Sensitivity analysis for these effects showed that the effect of modeling data on *full* engagement was more robust than that for generating data (also upon *full* engagement): 9.835% of the effect of modeling would have to be due to bias to invalidate the inference about its effect, whereas only 1.884% of the effect of generating data would need to be due to bias to invalidate the inference about its effect. Further explanations and investigations of these effects are the focus on research question #4 (in terms of the effect of youth characteristics) and are discussed in the next chapter.
+See the Appendix for the results from the model with the aspects of work with data included as predictors in separate (without the youth characteristics) models. Note that there were only significant relations with the *Full* profile (see the column with the column name *Full* for these results). The only relations that were statistically significant were for the relations between modeling data and the *Full* profile ($\beta$ = 0.034 (0.017), *p* = .020) and between generating data and the *Full* profile ($\beta$ = 0.027 (0.015), *p* = .033): When youth were either modeling or generating data, they were more likely to be fully engaged.
+
+After finding there to be few relations between the aspects of work with data and engagement, sensitivity analysis for the statistical significant effects was carried out. This revealed that the effect of modeling data on *Full* engagement was more robust than that for generating data (also upon *Full* engagement): 9.835% of the effect of modeling would have to be due to bias to invalidate the inference about its effect, whereas only 1.884% of the effect of generating data would need to be due to bias to invalidate the inference about its effect. Further explanations and investigations of these effects are the focus on research question #4 (in terms of the effect of youth characteristics) and are discussed in the next chapter.
 
 ```{r, eval = T}
 o <- read_rds("data/m1d-6d.rds")
@@ -248,22 +262,14 @@ oo <- o %>%
 names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
 
 oo %>% 
+  t() %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
-```
-
-```{r, eval = FALSE}
-names(ds3) <- c("Profile", "Asking", "Observing", "Generating", "Modeling", "Communicating", "Composite")
-
-ds3 %>%
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Summary of results for research question 3 (how work with data relates to engagement)", linesep = "") %>%
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+  kableExtra::landscape() 
 ```
 
 ## Results for Research Question #4: Youth characteristics and engagement
 
-Like for the results for research question #3, each row is associated with the results for a single model. For example, the first row is again associated with the results for the model predicting the probability of the *Only behavioral* profile, with the cells across the columns containing the coefficients, their standard errors, and their *p*-values. These results show that overall pre-interest is associated with the *Engaged and competent but not challenged* profile ($\beta$ = 0.039 (0.016), p = .009). For this effect, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. The effect of being a female was not statistically significant but has a relation of 0.060 (0.037, p = .051) upon the probability of a response being associated with the *Universally low* profile. For the effect of gender upon the *Universally low* profile, 17.843% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. 
+Like for the results for research question #3, each column is associated with the results for a single model, again in Table 4.5. For example, the first row is again associated with the results for the model predicting the probability of the *Only behavioral* profile, with the cells across the columns containing the coefficients, their standard errors, and their *p*-values. These results show that overall pre-interest is associated with the *Engaged and competent but not challenged* profile ($\beta$ = 0.039 (0.016), *p* = .009). For this effect, 17.879% would be needed to invalidate the inference, suggesting a moderately robust effect. The effect of being a female was not statistically significant but has a relation of 0.060 (0.037, *p* = .051) upon the probability of a response being associated with the *Universally low* profile. For the effect of gender upon the *Universally low* profile, 17.843% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. 
 
-These few, small findings are more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status are variables associated with this level). However it appears that the youth level variables of interest to this study were not effective at explaining much of this variability. This is discussed further in the next chapter.
+These few, small findings were more surprising than the similarly minimal relations observed for work with data: as the null models indicate, there were large ICCs (a large proportion of the variability in the outcome variables) at the youth-level (as pre-interest, gender, and URM status were variables associated with this level). However it appears that the youth level variables of interest to this study were not effective at explaining much of this variability. This is discussed further in the next chapter.

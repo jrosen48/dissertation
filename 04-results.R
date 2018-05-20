@@ -190,6 +190,28 @@ d$profile_6 <- as.vector(d$profile_6)
 
 d <- as.tibble(as.data.frame(d))
 
+p <- d %>%
+  count(participant_ID, profile) %>%
+  spread(profile, n, 0) %>%
+  gather(profile, n, -participant_ID) %>%
+  group_by(participant_ID) %>%
+  mutate(n_p = n / sum(n)) %>%
+  select(-n) %>%
+  summarize(m_n_p = max(n_p))
+
+p %>%
+  summarize(m_m_n_p = mean(m_n_p),
+            max_m_n_p = max(m_n_p),
+            min_m_n_p = min(m_n_p),
+            sd_m_n_p = sd(m_n_p))
+
+ggplot(p, aes(x = m_n_p)) +
+  geom_histogram(bins = 50) +
+  theme_bw() +
+  xlab("Proportion of responses for each youth in the profile they reported most") +
+  ylab("Number of Youth") +
+  theme(text = element_text(family = "Times"))
+
 # ## ---- rq2-0-null, cache = FALSE, eval = TRUE-----------------------------
 # m1 <- lmer(profile_1_p ~ 1 +
 #              (1 | participant_ID) +
