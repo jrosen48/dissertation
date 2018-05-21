@@ -172,6 +172,8 @@ p1 <- m1_6 %>%
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
   theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+
+p1
 ```
 
 ```{r, fig.cap = "The six profiles of engagement (with raw variable values)"}
@@ -235,6 +237,8 @@ Looking across these values, most of the explained variability in the responses 
 In terms of specific ICCs at the youth level, the value for the youth-level ICC was highest for the *Full* profile (*ICC* = .432), suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *Universally low* profile--had a modest value (*ICC* = .265). Finally, a large amount of variability is associated with the residual (variance that is not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in students' responses that may not be readily explained or predicted by variables *at one level alone*. Remaining unexplained variability is the product of youth, instructional episode, and program effects together. Some youth from particular programs may engage during some episode instructional episodes in very high or low ways that are not captured by modeling the variability at each of these levels alone.
 
 As presented in Figure 4.3, the value of the mean for the proportion of responses for each youth in the profile they reported most was .540 (*SD* = .194, *min* = .182, *max* = 1.00). When *Full* engagement was reported by a youth more than any other profile, they reported it, on average, in just over 60% of their responses. No other profile that youth reported most was associated (on average) with a larger proportion of their responses. This suggests that even when youth report (relatively) stable engagement over the course of their time in the programs, they still engage in a variety of different ways. When youth reported *All moderate* engagement (the profile with the lowest proportion of responses, on average, when reported more than any other), they reported it in just less than 40% of their responses. This suggests that though youth may report one profile far more than others--and that youth who report particular (i.e., *Full*) profiles more than others may reflect somewhat stable engagement, there still exists substantial variability in youths' engagement.
+
+In sum, these findings show substantial variabiliy in the profiles present at the youth level, with less explained by the program youth were in or the nature of the particular instructional episode present at the time youth were signaled. 
 
 ```{r, fig.cap = "Histogram of the proportion of responses for each youth in the profile they reported most"}
 p <- d %>%
