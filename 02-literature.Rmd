@@ -27,7 +27,7 @@ Some scholars have focused on a few key pieces of data analysis, connected throu
 
 Work with data has been conceived in different ways. For some specific examples from different domains, see Lee and Wikerson's (in press) forthcoming summary report for the National Academy of Sciences and Wild and Pfannkuch (1999), Franklin et al. (2007), and Lehrer and Schauble (2004). Because there is not an agreed upon definition of work with data--particularly across subject area domains--I focus on the core aspects that scholars have most often included in their conceptualizations of work with data. 
 
-These core components, synthesized from definitions across studies, are better for understanding work with data across STEM content areas--as in the present study--than the components from specific examples, which were developed for use in only one domain. The aspects of work with data that have been articulated in prior studies are distilled into five key aspects (Figure 1) for use in this study. They are:
+These core components, synthesized from definitions across studies, are better for understanding work with data across STEM content areas--as in the present study--than the components from specific examples, which were developed for use in only one domain. The aspects of work with data that have been articulated in prior studies are distilled into five key aspects (Figure 2.1) for use in this study. They are:
 
 * *Asking questions*: Generating questions that can be answered with empirical evidence
 * *Making observations*: Watching phenomena and noticing what is happening with respect to the phenomena or problem being investigated
@@ -109,7 +109,7 @@ While many scholars have argued that work with data can be understood in terms o
 
 ## Conceptual Framework and Research Questions
 
-To summarize, the present study is about how learning activities involving various aspects of work with data can be understood in terms of engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2 and is laid out in the remainder of this section. 
+To summarize, the present study is about how learning activities involving various aspects of work with data can be understood in terms of engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2.2 and is laid out in the remainder of this section. 
  
 ```{r, eval = T, fig.cap = "A conceptual framework for this study with research questions labeled"}
 knitr::include_graphics("images/figure2.png")
@@ -123,13 +123,14 @@ There are five aspects of work with data synthesized from past research (i.e., H
 1. Data modeling
 1. Interpreting and communicating findings
 
-In Figure 2, engagement in work with data is associated with different profiles of engagement. The theoretical framework for the profile approach suggests that engagement is a multi-dimensional construct consisting of cognitive, behavioral, and affective dimensions of engagement and perceptions of challenge and competence. In addition, a pre-program measure of youths' pre-program interest in STEM, along with youths' gender and URM status, are hypothesized to be associated with the profiles and the relations of work with data and the profiles. 
+In Figure 2.2, engagement in work with data is associated with different profiles of engagement. The theoretical framework for the profile approach suggests that engagement is a multi-dimensional construct consisting of cognitive, behavioral, and affective dimensions of engagement and perceptions of challenge and competence. In addition, a pre-program measure of youths' pre-program interest in STEM, along with youths' gender and URM status, are hypothesized to be associated with the profiles and the relations of work with data and the profiles. 
 
 The ESM responses that make up the profiles are associated with different groups. These groups, which may introduce dependencies that violate statistical assumptions of the independence of the responses, are commonly considered in the Hierarchical Linear Modeling (also known as multi-level or mixed effects modeling) literature as *random effects* (Gelman & Hill, 2007; West, Welch, & Galecki, 2015). In this study, there are three groups that can be modeled as random effects to account for the dependencies they introduce: They are at the youth, instructional episode (which are indicators for the moments--or segments--in which youth are asked to respond to the ESM signal), and program levels. Pre-program interest, gender, and URM status are predictor variables at the youth level and the aspects of work with data are predictor variables at the instructional level; while there are not any predictor variables considered at the program level in the study, dependencies among the responses from youth within each program are accounted for in the random effect. To summarize, the three groups (youth, instructional episode, and program) and predictor variables present given the data collection and sampling strategy are modeled using random effects in a multi-level modeling approach. 
 
-As depicted in the Figure 2, the four research questions are formalized as follows:
+The five research questions are formalized as follows:
 
 1. What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
-2. What profiles of engagement emerge from data collected via ESM in the programs?
-3. How do the five aspects of work with data relate to profiles of engagement?
-4. How do youth characteristics relate to profiles of engagement?
+1. What sources of variability are there for the profiles of engagement?
+1. What profiles of engagement emerge from data collected via ESM in the programs?
+1. How do the five aspects of work with data relate to profiles of engagement?
+1. How do youth characteristics relate to profiles of engagement?

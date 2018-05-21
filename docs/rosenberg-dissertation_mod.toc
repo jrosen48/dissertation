@@ -3,33 +3,33 @@
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}Literature Review}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Defining Work with Data}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}The role of working with data in STEM learning environments}{4}{section.2.2}
+\contentsline {section}{\numberline {2.2}The role of working with data in STEM learning environments}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}What We Know (And Do Not Know) About How Youth Work with Data}{6}{section.2.3}
 \contentsline {section}{\numberline {2.4}Engagement in General and in STEM Domains}{8}{section.2.4}
 \contentsline {section}{\numberline {2.5}Individual factors that may effect youths' engagement}{10}{section.2.5}
-\contentsline {section}{\numberline {2.6}Challenges of Measuring Engagement as a Contextually-Dependent and Multidimensional Construct}{11}{section.2.6}
+\contentsline {section}{\numberline {2.6}Challenges of Measuring Engagement as a Contextually-Dependent and Multidimensional Construct}{12}{section.2.6}
 \contentsline {section}{\numberline {2.7}Need for the Present Study}{15}{section.2.7}
-\contentsline {section}{\numberline {2.8}Conceptual Framework and Research Questions}{15}{section.2.8}
-\contentsline {chapter}{\chapternumberline {3}Method}{18}{chapter.3}
-\contentsline {section}{\numberline {3.1}Context}{18}{section.3.1}
-\contentsline {section}{\numberline {3.2}Participants}{18}{section.3.2}
-\contentsline {section}{\numberline {3.3}Procedure}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}Data Sources and Measures}{20}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}ESM measures of engagement for the profiles}{20}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Survey measures of pre-interest}{20}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Key aspects of work with data}{21}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Demographic variables used}{22}{subsection.3.4.4}
-\contentsline {section}{\numberline {3.5}Data Analysis}{23}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Preliminary analyses}{23}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Analysis for Research Question \#1 (on the frequency and nature of work with data)}{23}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Analysis for Research Question \#2 (what profiles of engagement emerge)}{24}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Analysis for Research Question \#3 (how work with data relates to engagement)}{26}{subsection.3.5.4}
-\contentsline {subsection}{\numberline {3.5.5}Analysis for Research Question \#4 (how youth characteristics relate to engagement)}{27}{subsection.3.5.5}
-\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{28}{section.3.6}
-\contentsline {chapter}{\chapternumberline {4}Results}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Preliminary results}{29}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for the study variables}{29}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Correlations among the study variables}{29}{subsection.4.1.2}
+\contentsline {section}{\numberline {2.8}Conceptual Framework and Research Questions}{16}{section.2.8}
+\contentsline {chapter}{\chapternumberline {3}Method}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Context}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Participants}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}Procedure}{20}{section.3.3}
+\contentsline {section}{\numberline {3.4}Data Sources and Measures}{21}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}ESM measures of engagement for the profiles}{21}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Survey measures of pre-interest in STEM}{22}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}The five key aspects of work with data}{22}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Demographic variables used}{23}{subsection.3.4.4}
+\contentsline {section}{\numberline {3.5}Data Analysis}{24}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Preliminary analyses}{24}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Analysis for Research Question \#1 (on the frequency and nature of work with data)}{24}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Analysis for Research Question \#2 (what profiles of engagement emerge)}{26}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Analysis for Research Question \#3 (how work with data relates to engagement)}{27}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Analysis for Research Question \#4 (how youth characteristics relate to engagement)}{29}{subsection.3.5.5}
+\contentsline {section}{\numberline {3.6}Sensitivity Analysis}{30}{section.3.6}
+\contentsline {chapter}{\chapternumberline {4}Results}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminary results}{31}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Descriptive statistics for the engagement measures}{31}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Correlations among the study variables}{31}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Results for Research Question \#1}{32}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Frequency of work with data}{32}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Nature of work with data}{33}{subsection.4.2.2}

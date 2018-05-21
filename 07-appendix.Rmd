@@ -15,6 +15,7 @@ tibble::tribble(
   NA,                                                                                                              NA,                                                          NA
 ) %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
 ```
 
@@ -38,7 +39,8 @@ d <- tibble::tribble(
 
 d %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Program (with pseudonyms) descriptions") %>% 
-  kableExtra::landscape()
+  kableExtra::landscape() %>% 
+  kableExtra::column_spec(1, width = "10em")
 ```
 
 ### Appendix C: Work with data by program
