@@ -111,7 +111,7 @@ While many scholars have argued that work with data can be understood in terms o
 
 To summarize, the present study is about how learning activities involving various aspects of work with data can be understood in terms of engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2.2 and is laid out in the remainder of this section. 
  
-```{r, eval = T, fig.cap = "A conceptual framework for this study with research questions labeled"}
+```{r, eval = T, fig.cap = "A conceptual framework for this study and research questions"}
 knitr::include_graphics("images/figure2.png")
 ``` 
 

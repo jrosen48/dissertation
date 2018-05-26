@@ -82,7 +82,7 @@ p %>%
 
 ### Frequency of work with data
 
-Of the 236 instructional episodes, 170 (72%) were coded as involving *any* of the aspects of work with data. Table 4.3 includes the frequency of the specific aspects of work with data, with interpreting and communicating findings being the most present (occurring in 47% of the coded instructional episodes), followed by generating data (in 45% of the instructional episodes), asking questions (in 39%), data modeling (29%), and then making observations (26%).
+Of the 236 instructional episodes, 170 (72%) were coded as involving *any* of the aspects of work with data. These 236 episodes are used as the sample for this study because the proportion of episodes that included any of the aspects of work with data is a question asked in this study. Table 4.3 includes the frequency of the specific aspects of work with data, with interpreting and communicating findings being the most present (occurring in 47% of the coded instructional episodes), followed by generating data (in 45% of the instructional episodes), asking questions (in 39%), data modeling (29%), and then making observations (26%).
 
 ```{r}
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),

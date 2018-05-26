@@ -116,7 +116,6 @@ d[, -3] %>%
  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
-### Demographic variables used
  
 In addition to the measures described in this section, demographic information for youths’ gender and their racial and ethnic group are used to construct demographic variables for gender and membership in an under-represented (in STEM) group; membership in an under-represented group are identified on the basis of youths’ racial and ethnic group being Hispanic, African American, Asian or Pacific Islanders, or native American. 
 
@@ -142,7 +141,7 @@ The coders used the following five guiding questions, associated with each of th
 * When analyzing or modeling data is coded, what analysis are they doing, or what models are they using? Are they talking about variability or uncertainty? If so, how?
 * When interpreting and communicating findings is coded, what are youth interpreting or how are they communicating?
 
-This coding took around 75 hours of coding by the research assistants. After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write detailed descriptions of each of the aspects of work with data, which I grouped into the themes. I present these themes in the section of the results for this question.
+After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write detailed descriptions of each of the aspects of work with data, which I grouped into the themes. I present these themes in the section of the results for this question.
 
 ### Analysis for Research Question #2 (what profiles of engagement emerge)
 
@@ -157,7 +156,7 @@ For these analyses, five variables were included: the three indicators for the e
 1. Varying means, equal variances, and varying covariances
 1. Varying means, varying variances, and varying covariances
 
-The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA as part of this study. In order to more flexibly carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, & Beymer, 2018), was developed. This tool provides interfaces to both the MPlus software and to the open-source mclust software. In addition to being used as part of this study, this package is provided free of use to other analysts as the first tool dedicated to carrying out LPA as part of the R software. More details on the statistical approach, particularly on the models available to specify, are included in Appendix D.
+The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA as part of this study. In order to more easily carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, & Beymer, 2018), was developed. More details on LPA are included in Appendix D.
 
 To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations were taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the *model one type, six profiles* solution is selected and used as part of subsequent analyses.
 
@@ -167,7 +166,7 @@ Sources of variability in these profiles can be used as additional information i
 
 Variability in terms of the number (and proportion) of profiles each youth reports can also be considered. The breakdown of responses in each of the six profiles by youth is used to capture the extent to which youth report their most reported profile. In addition,  apart from this overall mean proportion of youths' responses, the mean proportion for specific profiles (i.e., when youth report a particular profile the most, how often on average do they report it?) are also considered.
 
-### Analysis for Research Question #3 (how work with data relates to engagement)
+### Analysis for Research Question #4 (how work with data relates to engagement)
 
 Broadly, this question is focused on how work with data as coded from video-recordings of the programs, relates to the profiles. For the primary results for this question, mixed effects models that account for the cross-classification of the instructional episode (because of the dependencies of the responses associated with each of the 248 distinct ESM signals) and youth are used and for the "nesting" of both within each of the nine programs are used. The *lme4* R package (Bates, Martin, Bolker, & Walker, 2015) is used. All of the models for this and the subsequent research question use random effects for youth, instructional episode, and program effects. Youth and instructional episode can be considered to be crossed with both nested within the program. 
 
@@ -179,7 +178,7 @@ For this question, models with the aspects of work with data both separate from 
 
 Because the results were found to be identical when the aspects of work with data and the youth characteristics are considered in separate and in the same model, the results from the two sets of variables being in the same model are used for both to provide answers to both this and the next research question. Note that a composite for work with data (made as the sum of the individual aspects of work with data) was considered, but as it did only yielded one (small) statistically significant result, the results for this analysis are not presented in the results.
 
-### Analysis for Research Question #4 (how youth characteristics relate to engagement)
+### Analysis for Research Question #5 (how youth characteristics relate to engagement)
 
 Research question #4 is focused on how the relationships of work with data differ on the basis of youth characteristics--their pre-program interest, gender and URM status. Like for the previous research question, models that account for the cross-classification of the instructional episodes and the youth are used. The dependent variable is again the probability of a response being in the profile. The three youth characteristics (pre-program interest in STEM, gender (entered s a dummy code with the value of "1" indicating female), and URM status (also entered as a dummy code, with "1" indicating a youth from a URM group) are added as predictors. Like for the previous research question, the statistical significance and the magnitude and direction of the coefficients associated with each predictor are interpreted to answer this question. For example, and similar to the interpretation of the predictors associated with RQ #3, if the relationship between pre-program interest and a profile is 0.05, then for each one-unit increase in pre-program interest, then youth are are five percentage points more likely to report a response in a particular profile.
 
