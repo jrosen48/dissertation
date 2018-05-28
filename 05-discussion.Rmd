@@ -4,73 +4,111 @@
 
 ### Key findings for research question #1 (on the frequency and nature of work with data)
 
-- utility of video for studying this
 - first time finding how frequent this work is
-- first time describing this work
-- comparison of frequency to ambitious science teaching
-- comparison of nature to ambitious science teaching
 
 In terms of the frequency of work with data was found to be common in the summer STEM programs: 170 out of 236 of the instructional episodes contained *any* aspect of work with data. A coding frame for the aspects of work with data was used to find that work with work with data occurred from around one-quarter of the time of the program's time (making observations) to around one-half of the program's time (generating data and communicating findings). Data modeling was, like making observations, less common, whereas asking questions and generating data, like communicating findings, were relatively more common. These findings are as expected based on past research (Lee & Wilkerson, in press) and given the design and goals of summer STEM programs (Dabney et al., 2012; Elam et al., 2012), including those participating in the present study. 
 
+- first time describing this work
+
 In-depth qualitative showed that asking questions, generating data, and interpreting and communicating findings, the three aspects that were *more frequent* in the programs, also were the more superficial in terms of how they were enacted. This suggests that while work with data is somewhat common, qualitative analysis is an important part of understanding youths' engagement in work with data. More ambitious forms of work with data were somewhat less common, occurring in around 25% of the programs' time. While descriptive in nature, these results present the first insight that I am aware of of the extent of work with data in STEM enrichment programs. They suggest that, as past scholarship (National Research Council, 2009, 2012) can provide a context for youth to be involved in the type of scientific and engineering practices-focused activities that can be particularly powerful for youth (and students) in terms of their learning.
+
+- comparison of frequency to ambitious science teaching
+
+
+
+- comparison of nature to ambitious science teaching
+
+
+
+- utility of video for studying this
+
+
 
 ### Key findings for research question #2 (what profiles of engagement emerge)
 
 - what these profiles tell us
-- what the profile approach gives us apart from a variable oriented approach
-- how these profiles compare to those from past research
-- what this says about engagement and its conditions
 
 Six profiles of engagement were identified. These were selected using a rigorous model selection approach and through use of a sophisticated modeling approach (LPA) and statistically software developed for this analysis (tidyLPA). These profiles included those that were strongly negative (*Universally low*) and strongly positive (*Full*), as well as those characterized by different levels of engagement (*Only behavioral* and *Only affective*) and by different levels of the conditions of engagement (Engaged and Competent but not Challenged). An *All moderate* profile was also identified. 
 
+- what the profile approach gives us apart from a variable oriented approach
+
+
+
+- how these profiles compare to those from past research
+
+
+
+- what this says about engagement and its conditions
+
+
+
 ### Key findings for research question #3 (sources of variability for the profiles)
 
-- novel methodological approach
 - what sources of variability we can anticipate with profiles and profiles of engagement
-- not very hopefully, substantively
 
 The profiles suggest that the experiences of youth in summer STEM programs are variable and that the use of ESM can aid in the study of youths' engagement. The source of this variation can be due to many different factors, including individual differences between youth, the nature of the instruction carried out, and program-specific factors, as discussed later. Little research has examined profiles of engagement, though Schmidt et al. (2018) examined profiles of engagement, constructed from items for cognitive, behavioral, and affective engagement (but not perceptions of challenge and competence), and found six profiles, some of which partially overlap with those found in the present study. In particular, on the basis of the items shared between the studies, a *Universally low*, *All moderate*, and *Full* profile were found in both studies. However, as these profiles are characterized by the (uniform) level across all of the variables, this is only limited evidence for the presence of these profiles in the larger population of youth engaged in science and STEM-related learning activities.
+
+- not very hopefully, substantively
+
+
+
+- novel methodological approach
+
+A potential issue concerns the analytic approach. As noted above, the profiles demonstrated very little variability at the program and instructional episode level, suggesting that factors at this level would likely not strongly predict the profiles. This could be a function of the use of profiles and the specific variables selected. It may also be the result of the outcome (engagement and its conditions) selected. Other analytic approaches can be carried out to determine the viability of the profiles approach and use of the items for engagement and its conditions for understanding work with data.
+
+While these are important limitations, it is worth noting that the modeling strategy (with the mixed effects models) in inherently a conservative approach. Thus, while the findings detected are small, they can be considered to be trustworthy on the basis of the way the ESM data were analyzed. This trustworthiness is enhanced by the use of sensitivity analysis, which showed how much of the effects could be due to bias for them to be invalidated.
 
 ### Key findings for research question #4 (how work with data relates to engagement)
 
 - minimal but really important relations
-- importance given work with data
-- importance given past work on engaging youth in inquiry-based learning
-- why such minimal relations in the context of the sources of variability
 
 In line with what the preliminary analysis of the amount of variability that could be explained at the youth, instructional episode, and program levels, relations between work with data were largely not found, though some small, statistically significant relations were identified. Given the small amount of variability at the instructional episode level, this result was anticipated (on this basis). 
 
+- importance given work with data
+
 Importantly, however, there were some noteworthy findings. In particular, both generating and modeling data were found to be positively (and statistically significantly) related to the *Full* profile, suggesting that when youth are involved in these practices, then they are more likely to be highly engaged. In particular, given the makeup of this profile, this suggests that when youth are involved in these aspects of work with data, they are more likely to report high levels of cognitive, behavioral, and affective engagement, and high perceptions of competence and challenge. The effect of data modeling was more robust than that for generating data, the latter which should be interpreted with caution. In short, this suggests that these activities are beneficial to youths' engagement. 
 
-Both communicating and interpreting findings and the composite measure for work with data were positively related to the *Only behavioral* profile and these findings were fairly robust. This profile may indicate that students are experiencing a routine engagement (and not particularly adaptive) when they are communicating findings and being involved in work with data in general. As there is no research on how work with data relates to youths' engagement, the findings associated with this research question provide some, albeit limited, evidence (and directions for future research) for how some aspects of work with data relate to youths' engagement.
+- importance given past work on engaging youth in inquiry-based learning
+
+As there is no research on how work with data relates to youths' engagement, the findings associated with this research question provide some, albeit limited, evidence (and directions for future research) for how some aspects of work with data relate to youths' engagement.
+
+- why such minimal relations in the context of the sources of variability - also explored variable-centered approach
+
+
 
 ### Key findings for research question #5 (how youth characteristics relate to engagement)
 
 - minimal 
-- why such minimal relations in the context of the sources of variability
-- other?
 
 Not as much in line with expectations given the preliminary analysis, relations between youth characteristics and the profiles were found to be small. In this way, these small relations were similar (in magnitude) to those between work with data and the profiles, but were more surprising given the substantial variability at the youth level (see results for research question #3). Youth with higher pre-program interest were more likely to be *Engaged and competent but not challenged*, suggesting that youth with higher interest in STEM are inclined to be highly engaged and good at what they are doing, but are not challenged by the activities they experience. This could be a function of the relationship between youths' interest and their competence before the program, which are often strongly related ([add]); these youth, as a result of their higher interest and competence, need more challenging activities to be more fully engaged. This effect was fairly robust. The interaction with gender and the work with data composite revealed a positive relationship with *Full* engagement, suggesting that the more that female youth work with data, the more likely they are to be positively engaged. However, sensitivity analysis revealed that this effect was not very robust, which, along with its small magnitude, suggests that it should be interpreted with some caution. Finding that female youth who are engaged in work with data are more likely to be fully engaged is important, given that past research has suggested that female students are less likely to be engaged in STEM classes but we have limited information about what types of instruction may best support female students to be engaged and successful (e.g., Patall et al., 2017).
 
+- why such minimal relations in the context of the sources of variability - other sources of variability (not measured)
+
 ## Limitations of the Study and Recommendations for Future Research
+
+- not exploring longer-term outcomes
 
 This study examines youths' engagement as an outcome. Accordingly, outcomes from engaging, such as the products of neither youths’ work or the specific cognitive capabilities they develop through their participation, are not the focus. Thus, while some findings about how work with data and youth characteristics were found to be associated with different profiles of engagement, we do not have an understanding of how engaging in more or less adaptive ways relates to these outcomes. Examining how work with data and engagement relate to key learning, motivational, and future goals and plans-related outcomes is a topic for future research.
 
+- the programs are not designed or developed to focus on work with data
+
 Another limitation concerns the context of the study, summer STEM programs. While the programs that were involved in the study have many affordances for work with data and for being highly engaging for youth, they have some limitations, too, particularly with respect to support work with data. Importantly, these were not programs explicitly designed to support work with data; while such contexts are being developed, they are not yet widespread. Learning environments that deliberately support work with data over a long period may demonstrate different patterns of engagement than those examined in this study because of the focus on and sequencing of the aspects of work with data, which may make it more (or less) cognitively, behaviorally, or affectively engaging than is determined in this study. As Miller, Manz, Russ, Stroupe, and Berland (2018) highlight, truly engaging STEM activities are not easily come by; they require students to take ownership over and to make decisions about their explorations or designs. Thus, future research may study work with data in contexts designed to support it. A key part of this future research may be studying both work with data and how work with data is supported (most importantly by the instructor but also by the curriculum and technological tools).
+
+- measures for work with data
 
 A related limitation is that the programs that were the focus of this study were model programs, or those based on characteristics of exemplary STEM enrichment programs. As a result, engagement may be different in other STEM enrichment programs depending on characteristics of the programs and their activities, and findings from this study should be interpreted in terms of programs that share similar characteristics.
 
-A potential issue concerns the analytic approach. As noted above, the profiles demonstrated very little variability at the program and instructional episode level, suggesting that factors at this level would likely not strongly predict the profiles. This could be a function of the use of profiles and the specific variables selected. It may also be the result of the outcome (engagement and its conditions) selected. Other analytic approaches can be carried out to determine the viability of the profiles approach and use of the items for engagement and its conditions for understanding work with data.
+- other outcomes besides engagement
 
 A final limitation concerns the measures used. In particular, the qualitative coding revealed alignment but also discrepancies between work with data as determined from the PQA codes and the conceptual framework for work with data. While these issues were small, they suggest that the coding frame for work with data is a limitation of the present study.
 
-While these are important limitations, it is worth noting that the modeling strategy (with the mixed effects models) in inherently a conservative approach. Thus, while the findings detected are small, they can be considered to be trustworthy on the basis of the way the ESM data were analyzed. This trustworthiness is enhanced by the use of sensitivity analysis, which showed how much of the effects could be due to bias for them to be invalidated.
-
 ## Implications for Practice
 
-### Engage youth in generating and modeling data
+- engage youth in generating and modeling data
 
 While limited evidence, this study suggests that *generating data* and *modeling data* in particular may be beneficial in terms of engaging youth. Generating data in particular may be a key practice because it involves making work with data concrete; as Lehrer and Schauble (2015) describe, recording data in the form of "inscriptions" can serve as commitments that youth make (in terms of what data were chosen to be collected and recorded). This implication, in particular, should be interpreted with caution, however, given the very small magnitude of the effect. Similarly, data modeling has been described as *the* central scientific and engineering practice (Schwarz et al., 2009; Lehrer & Schauble, 2015; Weisberg, 2012), and its relations with full engagement provides some actionable evidence for its importance in the context of summer STEM programs.
+
+- include other practices to the extent that they involve youth in these practices as part of a complete cycle 
 
 Practically, youth activity leaders (in summer STEM and other STEM enrichment contexts) and teachers (in formal learning environments) can best include the beneficial practices of generating and modeling data not in isolation, but rather through involving youth and learners in complete cycles of investigation. This aligns with both foundational and contemporary research on work with data in education (Berland et al., 2018; McNeill & Berland, 2017; Hancock et al., 1992; Lee & Wilkerson, 2018). Recent curricular reform efforts also suggest that the best way to engage learners in particular practices is through the process of identifying a question or problem, marshaling sources of data that can be used to figure out what is happening, and developing model-based explanations that are then communicated (or even used in an argument; National Governors Association, 2013; National Research Council, 2012; NGSS Lead States, 2013). With respect to work with data in particular, youth activity leaders and teachers can use the findings from this study as a starting point to consider how engaging in work with data may also prepare learners to think of, understand, and take action based on data in their day-to-day lives. Many questions or problems learners face may involve data that can be meaningfully incorporated into engaging learning activities.
 
