@@ -4,19 +4,39 @@
 
 ### Key findings for research question #1 (on the frequency and nature of work with data)
 
+- utility of video for studying this
+- first time finding how frequent this work is
+- first time describing this work
+- comparison of frequency to ambitious science teaching
+- comparison of nature to ambitious science teaching
+
 In terms of the frequency of work with data was found to be common in the summer STEM programs: 170 out of 236 of the instructional episodes contained *any* aspect of work with data. A coding frame for the aspects of work with data was used to find that work with work with data occurred from around one-quarter of the time of the program's time (making observations) to around one-half of the program's time (generating data and communicating findings). Data modeling was, like making observations, less common, whereas asking questions and generating data, like communicating findings, were relatively more common. These findings are as expected based on past research (Lee & Wilkerson, in press) and given the design and goals of summer STEM programs (Dabney et al., 2012; Elam et al., 2012), including those participating in the present study. 
 
 In-depth qualitative showed that asking questions, generating data, and interpreting and communicating findings, the three aspects that were *more frequent* in the programs, also were the more superficial in terms of how they were enacted. This suggests that while work with data is somewhat common, qualitative analysis is an important part of understanding youths' engagement in work with data. More ambitious forms of work with data were somewhat less common, occurring in around 25% of the programs' time. While descriptive in nature, these results present the first insight that I am aware of of the extent of work with data in STEM enrichment programs. They suggest that, as past scholarship (National Research Council, 2009, 2012) can provide a context for youth to be involved in the type of scientific and engineering practices-focused activities that can be particularly powerful for youth (and students) in terms of their learning.
 
 ### Key findings for research question #2 (what profiles of engagement emerge)
 
+- what these profiles tell us
+- what the profile approach gives us apart from a variable oriented approach
+- how these profiles compare to those from past research
+- what this says about engagement and its conditions
+
 Six profiles of engagement were identified. These were selected using a rigorous model selection approach and through use of a sophisticated modeling approach (LPA) and statistically software developed for this analysis (tidyLPA). These profiles included those that were strongly negative (*Universally low*) and strongly positive (*Full*), as well as those characterized by different levels of engagement (*Only behavioral* and *Only affective*) and by different levels of the conditions of engagement (Engaged and Competent but not Challenged). An *All moderate* profile was also identified. 
 
 ### Key findings for research question #3 (sources of variability for the profiles)
 
+- novel methodological approach
+- what sources of variability we can anticipate with profiles and profiles of engagement
+- not very hopefully, substantively
+
 The profiles suggest that the experiences of youth in summer STEM programs are variable and that the use of ESM can aid in the study of youths' engagement. The source of this variation can be due to many different factors, including individual differences between youth, the nature of the instruction carried out, and program-specific factors, as discussed later. Little research has examined profiles of engagement, though Schmidt et al. (2018) examined profiles of engagement, constructed from items for cognitive, behavioral, and affective engagement (but not perceptions of challenge and competence), and found six profiles, some of which partially overlap with those found in the present study. In particular, on the basis of the items shared between the studies, a *Universally low*, *All moderate*, and *Full* profile were found in both studies. However, as these profiles are characterized by the (uniform) level across all of the variables, this is only limited evidence for the presence of these profiles in the larger population of youth engaged in science and STEM-related learning activities.
 
 ### Key findings for research question #4 (how work with data relates to engagement)
+
+- minimal but really important relations
+- importance given work with data
+- importance given past work on engaging youth in inquiry-based learning
+- why such minimal relations in the context of the sources of variability
 
 In line with what the preliminary analysis of the amount of variability that could be explained at the youth, instructional episode, and program levels, relations between work with data were largely not found, though some small, statistically significant relations were identified. Given the small amount of variability at the instructional episode level, this result was anticipated (on this basis). 
 
@@ -25,6 +45,10 @@ Importantly, however, there were some noteworthy findings. In particular, both g
 Both communicating and interpreting findings and the composite measure for work with data were positively related to the *Only behavioral* profile and these findings were fairly robust. This profile may indicate that students are experiencing a routine engagement (and not particularly adaptive) when they are communicating findings and being involved in work with data in general. As there is no research on how work with data relates to youths' engagement, the findings associated with this research question provide some, albeit limited, evidence (and directions for future research) for how some aspects of work with data relate to youths' engagement.
 
 ### Key findings for research question #5 (how youth characteristics relate to engagement)
+
+- minimal 
+- why such minimal relations in the context of the sources of variability
+- other?
 
 Not as much in line with expectations given the preliminary analysis, relations between youth characteristics and the profiles were found to be small. In this way, these small relations were similar (in magnitude) to those between work with data and the profiles, but were more surprising given the substantial variability at the youth level (see results for research question #3). Youth with higher pre-program interest were more likely to be *Engaged and competent but not challenged*, suggesting that youth with higher interest in STEM are inclined to be highly engaged and good at what they are doing, but are not challenged by the activities they experience. This could be a function of the relationship between youths' interest and their competence before the program, which are often strongly related ([add]); these youth, as a result of their higher interest and competence, need more challenging activities to be more fully engaged. This effect was fairly robust. The interaction with gender and the work with data composite revealed a positive relationship with *Full* engagement, suggesting that the more that female youth work with data, the more likely they are to be positively engaged. However, sensitivity analysis revealed that this effect was not very robust, which, along with its small magnitude, suggests that it should be interpreted with some caution. Finding that female youth who are engaged in work with data are more likely to be fully engaged is important, given that past research has suggested that female students are less likely to be engaged in STEM classes but we have limited information about what types of instruction may best support female students to be engaged and successful (e.g., Patall et al., 2017).
 
