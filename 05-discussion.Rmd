@@ -2,13 +2,11 @@
 
 ## Key Findings
 
-### Key findings for research question #1 (on the frequency and nature of work with data)
+### Key findings for the frequency and nature of work with data
 
-- first time finding how frequent this work is
+These findings provide the first information I am aware of on how frequent work with data is in summer STEM programs. In addition, the findings shed light on the specific, qualitative nature of work with data in these contexts. These findings have implications for how science is taught, both in similar, outside-of-school settings, and some lessons for formal, K-12 education. In the context of describing these findings, I also highlight how the use of video-recordings of the STEM programs was necessary for being able to make claims about the frequency and nature of work with data during them. 
 
 In terms of the frequency of work with data was found to be common in the summer STEM programs: 170 out of 236 of the instructional episodes contained *any* aspect of work with data. A coding frame for the aspects of work with data was used to find that work with work with data occurred from around one-quarter of the time of the program's time (making observations) to around one-half of the program's time (generating data and communicating findings). Data modeling was, like making observations, less common, whereas asking questions and generating data, like communicating findings, were relatively more common. These findings are as expected based on past research (Lee & Wilkerson, in press) and given the design and goals of summer STEM programs (Dabney et al., 2012; Elam et al., 2012), including those participating in the present study. 
-
-- first time describing this work
 
 In-depth qualitative showed that asking questions, generating data, and interpreting and communicating findings, the three aspects that were *more frequent* in the programs, also were the more superficial in terms of how they were enacted. This suggests that while work with data is somewhat common, qualitative analysis is an important part of understanding youths' engagement in work with data. More ambitious forms of work with data were somewhat less common, occurring in around 25% of the programs' time. While descriptive in nature, these results present the first insight that I am aware of of the extent of work with data in STEM enrichment programs. They suggest that, as past scholarship (National Research Council, 2009, 2012) can provide a context for youth to be involved in the type of scientific and engineering practices-focused activities that can be particularly powerful for youth (and students) in terms of their learning.
 
@@ -24,7 +22,7 @@ In-depth qualitative showed that asking questions, generating data, and interpre
 
 
 
-### Key findings for research question #2 (what profiles of engagement emerge)
+### Key findings for what profiles of engagement emerge
 
 - what these profiles tell us
 
@@ -42,7 +40,7 @@ Six profiles of engagement were identified. These were selected using a rigorous
 
 
 
-### Key findings for research question #3 (sources of variability for the profiles)
+### Key findings for sources of variability for the profiles
 
 - what sources of variability we can anticipate with profiles and profiles of engagement
 
@@ -58,7 +56,7 @@ A potential issue concerns the analytic approach. As noted above, the profiles d
 
 While these are important limitations, it is worth noting that the modeling strategy (with the mixed effects models) in inherently a conservative approach. Thus, while the findings detected are small, they can be considered to be trustworthy on the basis of the way the ESM data were analyzed. This trustworthiness is enhanced by the use of sensitivity analysis, which showed how much of the effects could be due to bias for them to be invalidated.
 
-### Key findings for research question #4 (how work with data relates to engagement)
+### Key findings for how work with data relates to engagement 
 
 - minimal but really important relations
 
@@ -76,7 +74,7 @@ As there is no research on how work with data relates to youths' engagement, the
 
 
 
-### Key findings for research question #5 (how youth characteristics relate to engagement)
+### Key findings for how youth characteristics relate to engagement
 
 - minimal 
 
@@ -116,4 +114,4 @@ Practically, youth activity leaders (in summer STEM and other STEM enrichment co
 
 Each of the disciplines that contribute to STEM learning involve work with data and how youth and students work with data in engaging ways is a concern of researchers and practitioners. While past research has focused on what aspects of work with data learners are involved in with respect to work with data, or specific conceptual outcomes from working with data, little research has considered youths' experience of working with data. In this study, engagement was used as a lens to understand the experience of youth working with data in the context of nine summer STEM programs. In particular, five aspects of work with data, a) asking questions, b) observing phenomena, c) constructing measures and generating data, d) data modeling, and e) interpreting and communicating findings, were identified from video-recordings of the programs. These codes were then used to predict profiles, or distinct groups on the basis of different levels, of youths' cognitive, behavioral, and affective engagement, and two other variables, youths' perceptions of challenge and competence. These measures were obtained using an innovative method, ESM, that provides some access to youths' experience in-the-moment of the activities they were involved in during the program. 
 
-Findings indicate that work with data occurs regularly in the programs and that there are some examples of ambitious activities centered on working with real-world data (and examples in which the work with data is not fully aligned with youth-driven work with data). Six profiles of engagement were identified, representing different configurations of the three dimensions of engagement and its conditions. Relations of work with data and youth characteristics (pre-program interest in STEM and youths' gender and status in terms of being a member of under-represented groups in STEM) were, overall, not strongly related with the profiles of engagement, though some key findings were identified. Generating and modeling data were both related to the most potentially beneficial profile, one characterized by high levels of all five of the variables used to create the profiles. Female youth who were involved in work with data (at the instructional episode level) to a greater extent were also more likely to be fully engaged. This study suggests that work with data has purchase as an organizing set of activities for STEM can have some benefits in terms of understanding the nature of what youth do in summer STEM programs. In addition, this study shows that ESM and engagement can be used to understand youths' experiences. Data--and who is able to work with data--have important roles in STEM learning and in society; efforts to understand and support learners engaging in these ambitious activities should be encouraged and expanded.
+Findings indicate that work with data occurs regularly in the programs and that there are some examples of ambitious activities centered on working with real-world data (and examples in which the work with data is not fully aligned with youth-driven work with data). Six profiles of engagement were identified, representing different configurations of engagement. Relations of work with data and youth characteristics (pre-program interest in STEM and youths' gender and status in terms of being a member of under-represented groups in STEM) were, overall, not strongly related with the profiles of engagement, though some key findings were identified. Generating and modeling data were both related to the most potentially beneficial profile, one characterized by high levels of all five of the variables used to create the profiles. Female youth who were involved in work with data (at the instructional episode level) to a greater extent were also more likely to be fully engaged. This study suggests that work with data has purchase as an organizing set of activities for STEM can have some benefits in terms of understanding the nature of what youth do in summer STEM programs. In addition, this study shows that ESM and engagement can be used to understand youths' experiences. Data--and who is able to work with data--have important roles in STEM learning and in society; efforts to understand and support learners engaging in these ambitious activities should be encouraged and expanded.

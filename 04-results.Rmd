@@ -22,7 +22,7 @@ In this section, results associated with the preliminary analysis and the five r
 
 ### Descriptive statistics for the engagement measures
 
-First, descriptive statistics for the engagement measures (the five variables that were used to estimate the profiles) are presented in Table 4.1. These values suggest moderately high levels of the three dimensions of engagement (with mean values between 2.768 (*SD* = 1.063) for cognitive engagement, and 2.863 (*SD* = 1.044), for behavioral engagement, on one-four scales) and high perceptions of competence (*M* = 3.000 (*SD* = 0.952)); the only continuous variable that was not measured using ESM) and lower perceptions of challenge (*M* = 2.270 (*SD* = 1.117)).
+First, descriptive statistics for the engagement measures (the five variables that were used to estimate the profiles) are presented in Table 4.1. These values suggest moderately high levels of the three indicators of engagement (with mean values between 2.768 (*SD* = 1.063) for cognitive engagement, and 2.863 (*SD* = 1.044), for behavioral engagement, on one-four scales) and high perceptions of competence (*M* = 3.000 (*SD* = 0.952)) and lower perceptions of challenge (*M* = 2.270 (*SD* = 1.117)).
 
 ```{r}
 oo <- d_red %>% 
@@ -95,7 +95,7 @@ Note that these results are for codes applied to approximately ten-minute (video
 
 ### The nature of work with data
 
-For these results, the different aspects of work with data were looked at in more detail using an open-ended, qualitative approach in order to better understand the nuance and the specific nature of what was going on during these episodes in terms of how students work with data. This coding, which showed there to be distinct, qualitative differences in the particular ways youth worked with data when, for example, they were data modeling, resulted in approximately three to four sentence notes from each of two raters for every instructional episode and showed the specific nature of work with data. 
+For these results, the different aspects of work with data were looked at in more detail using an open-ended, qualitative approach in order to better understand the nuance and the specific nature of what was going on during these episodes in terms of how students work with data. This coding showed there to be distinct, qualitative differences in the particular ways youth worked with data.
 
 <!-- One affordance of these programs relevant to these informal and to K-12 learning environments concerns selecting activities that are engaging to youth.  This appeared to be a powerful activity, one that was coded as involving all five aspects of work with data according to the measures for instructional support for work with data; this type of activity seemed to suggest that instructional support for work with data may impact youth's engagement. -->
 
@@ -105,9 +105,9 @@ For these results, the different aspects of work with data were looked at in mor
 
 #### Asking questions or identifying problems
 
-Among the instructional episodes that included the asking questions aspect of work with data (as determined through coding with the STEM-PQA measure), creating qualitative descriptions revealed that around one-third (36/92, or 39%) were focused on asking questions focused on youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. 
+Among the instructional episodes that involved asking questions, qualitative descriptions revealed that around one-third (36/92, or 39%) explicitly demonstrated youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. 
 
-Other instructional episodes involved questions that were not focused on predicting, conjecturing, or hypothesizing. In such cases (56/92; 61%), youth were asking generic questions (i.e., about how they do an assignment) or when the instructor was asking youth questions (i.e., math-related questions). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed.
+Other instructional episodes involved questions that were not focused on predicting, conjecturing, or hypothesizing. In such cases (56/92; 61%), youth were asking generic questions about understanding the general nature of the assignment (as opposed to the phenomenon on which the assignment was focused on). For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed. In addition to such questions focused on the general nature of the assignment, cases not focused on predicting and the like included episodes in which instructors were asking youth questions (i.e., math-related prompts or questions to elicit their conceptual understanding). 
 
 #### Making observations
 
@@ -139,9 +139,9 @@ In around half (49/103, 48%) of the instructional episodes in which youth were i
 
 In the approximately half of the responses that were not focused on youth sharing what they found from an investigation (54/103, 52%), youth were most commonly communicating about topics other than the results of an investigation or design process, such as trying to find out the answer to a question posed by the youth activity leader, or the youth activity leader was who was doing the interpreting and communicating. For example, in the *Adventures in Mathematics* program, the youth activity leader helped youth to solve problems on a worksheet, asking guiding questions to help youth start to solve problems on their own. 
 
-## Results for Research Question #2: What profiles of youth engagement and its conditions emerge from experiential data collected in the programs?
+## Results for Research Question #2: What profiles of youth engagement emerge from experiential data collected in the programs?
 
-A relatively simple model (model *one* type; with varying means, equal variances, and covariances fixed to 0) with six profiles was selected for use in subsequent analyses. This model has profiles characterized by both varying levels on both the dimensions of engagement--cognitive, behavioral, and affective--and youths' perceptions of challenge and competence. In addition, the number of observations across the profiles is relatively balanced. 
+A relatively simple model (with varying means, equal variances, and covariances fixed to 0) with six profiles was selected for use in subsequent analyses. This model has profiles characterized by both varying levels on both the indicators of engagement--cognitive, behavioral, and affective--and youths' perceptions of challenge and competence. In addition, the number of observations across the profiles is relatively balanced. 
 
 This means that *six distinct profiles* were identified in the data. This selection was on the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony. The solution demonstrated superior fit on the basis of the information criteria (AIC and BIC) and on the basis of the measure of classification accuracy (entropy). Note that a seven profile solution with the same specifications regarding means, variances and covariances was also a similarly good fit (and is presented in Appendix F), but the six profile solution was ultimately chosen on the basis of parsimony and interpretability. 
 
@@ -210,8 +210,8 @@ This solution is characterized by:
 - A *universally low* profile, characterized by low levels of engagement and challenge and competence
 - An *only behaviorally engaged* profile, with moderate levels of behavioral engagement, very low affective engagement, and moderately (low) levels of cognitive engagement and challenge and competence
 - An *only affectively engaged* profile, with moderate levels of affective engagement, low levels of behavioral engagement, and moderately (low) levels of cognitive engagement and challenge and competence
-- A *all moderate* profile, with moderate levels of the three dimensions of engagement and challenge and competence
-- An *engaged and competent but not challenged* profile, characterized by high levels of each of the three dimensions of engagement and of competence, but with low levels of challenge
+- A *all moderate* profile, with moderate levels of the three indicators of engagement and challenge and competence
+- An *engaged and competent but not challenged* profile, characterized by high levels of each of the three indicatorsof engagement and of competence, but with low levels of challenge
 - A *full* profile, with high levels of engagement, challenge, and competence
 
 The number of observations associated with each of the profiles is somewhat balanced, with the universally low profile with the largest number of observations (*n* = 667), followed by the all moderate profile (*n* = 638). Each of the other four profiles were associated with 300 to 400 observations. 
