@@ -400,6 +400,13 @@ d_out <- d
 #               (1 | program_ID),
 #             data = d)
 #
+# r2glmm::r2beta(m1d)
+# r2glmm::r2beta(m2d)
+# r2glmm::r2beta(m3d)
+# r2glmm::r2beta(m4d)
+# r2glmm::r2beta(m5d)
+# r2glmm::r2beta(m6d)
+
 # ## Spec interactions
 #
 # m1e <- lmer(profile_1_p ~ 1 +

@@ -135,17 +135,17 @@ However, this framework provided no context on how particular types of work with
 
 The coders used the following five guiding questions, associated with each of the five aspects of work with data, for the qualitative coding:
 
-* When asking questions or defining problems is coded, what, if any are the questions or problems? Who is asking the question (i.e teacher or student)
-* When making observations is coded, what are youth doing?
-* When generating data is coded, how, if they are, are youth collecting or recording data?
-* When analyzing or modeling data is coded, what analysis are they doing, or what models are they using? Are they talking about variability or uncertainty? If so, how?
-* When interpreting and communicating findings is coded, what are youth interpreting or how are they communicating?
+* When questioning or defining problems was observed, what types of questions/problems were involved? Who is asking the question (activity leader or youth)?
+* When making observations is coded, what are youth doing? Who is making observations?
+* When generating data is coded, how are youth collecting or recording data? 
+* When analyzing or modeling data is coded, what analysis are they doing, or what models are they using?
+* When interpreting and communicating findings is coded, what are youth interpreting or how are they communicating? What is the role of the youth activity leader?
 
-After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write detailed descriptions of each of the aspects of work with data, which I grouped into the themes. I present these themes in the section of the results for this question.
+After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding, and to clarify how they applied the coding frame (so the coders and I met nine times during the process to discuss the coding). I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write detailed descriptions of each of the aspects of work with data, which I grouped into the themes. I used these themes to calculate proportions which are presented in the findings. I also present these themes in the section of the results for this question.
 
 ### Analysis for Research Question #2 (what profiles of engagement emerge)
 
-To answer this question, Latent Profile Analysis (LPA; Harring & Hodis, 2016; Muthen, 2004) is used. LPA allows for capturing the multidimensional nature of engagement through profiles. A key benefit of the use of LPA, in addition to likelihood estimation-based fit indices, is probabilities of an observation being a member of a cluster (unlike in cluster analysis). These profiles make it possible to analyze the multivariate data collected on engagement in a way that balances the parsimony of a single model. 
+To answer this question, Latent Profile Analysis (LPA; Harring & Hodis, 2016; Muthen, 2004) is used. In the context of the present study, this approach can help to identify naturally occurring profiles of engagement, or engagement as reported by youth via ESM during particular moments. LPA allows for capturing the multidimensional nature of engagement through profiles. A key benefit of the use of LPA, in addition to likelihood estimation-based fit indices, is probabilities of an observation being a member of a cluster (unlike in cluster analysis). These profiles make it possible to analyze the multivariate data collected on engagement in a way that balances the parsimony of a single model. 
 
 For these analyses, five variables were included: the three indicators for the experience of engagement (cognitive, behavioral, and affective) and the two necessary conditions for it (perceptions of challenge and competence). In addition, solutions with between two and 10 profiles were considered. As part of LPA, the model type selection--where the type refers to which parameters are estimated--is a key topic. For the present study, six model types were considered:
 
@@ -156,9 +156,9 @@ For these analyses, five variables were included: the three indicators for the e
 1. Varying means, equal variances, and varying covariances
 1. Varying means, varying variances, and varying covariances
 
-The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA as part of this study. In order to more easily carry out LPA, an open-source tool, tidyLPA (Rosenberg, Schmidt, & Beymer, 2018), was developed. More details on LPA are included in Appendix D.
+The MPlus software (Muthen & Muthen, 1998-2017) is used to carry out LPA through statistical software I developed, *tidyLPA*. More details on LPA are included in Appendix D.
 
-To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations were taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. As described in more detail in the section of the results pertaining to this question, on the basis of these criteria, the *model one type, six profiles* solution is selected and used as part of subsequent analyses.
+To select a solution in terms of the model type and the number of profiles to be interpreted and used in subsequent analyses, a number of fit statistics and other considerations were taken into account. These include a range of information criteria (AIC, BIC, sample adjusted BIC [SABIC], consistent AIC [CAIC]), statistics about the quality of the profile assignments (entropy, which represents the mean posterior probability), statistical tests (Vu-Lo-Mendell-Rubin LRT [VLMR], Lo-Mendell-Rubin LRT [LMR], and the bootstrapped LRT [BLRT]), and concerns of interpretability and parsimony are used. On the basis of these criteria, a particular solution is selected and used as part of subsequent analyses.
 
 ### Analysis for Research Question #3 (sources of variability for the profiles)
 
