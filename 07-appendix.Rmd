@@ -40,7 +40,8 @@ d <- tibble::tribble(
 d %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Program (with pseudonyms) descriptions") %>% 
   kableExtra::landscape() %>% 
-  kableExtra::column_spec(1, width = "10em")
+  kableExtra::column_spec("6in")
+  
 ```
 
 ### Appendix C: Work with data by program
@@ -248,3 +249,5 @@ m1_7 %>%
 ```
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions.
+
+### Appendix F: Additional correlational analysis

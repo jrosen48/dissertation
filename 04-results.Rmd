@@ -223,7 +223,7 @@ The remaining analyses use the six profiles described above. How youth are engag
 For all six profiles, the ICCs at the program level were very small, from 0.00 to 0.023. This suggests that very little variability can be explained simply by the program. For the instructional episode level, the ICCs were also very small, ranging from 0.004 to 0.01. Finally, the youth-level ICCs ranged from .093 to .432. Looking across these values, most of the explained variability in the responses is associated with youth; the program and instructional episode levels were associated with very small values, suggesting that variables at these levels have minimal variability to explain. In turn, this suggests that these variables, including those for work with data, may not have strong effects in terms of their relations with the profiles.
 
 ```{r}
-i <- read_rds("data/m1-6.rds") 
+i <- readr::read_rds("data/m1-6.rds") 
 
 ii <- i %>% 
   select(beep_ID_ICC:program_ID_ICC) %>% 
