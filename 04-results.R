@@ -544,3 +544,8 @@ ds4 <- data_frame(profile = c("Only behavioral",
                   pre_interest_X_composite = c(NA, NA, NA, NA, NA, NA),
                   gender_female_X_composite = c(NA, NA, NA, NA, NA, 0.012),
                   composite = c(NA, NA, NA, NA, NA, NA))
+
+os <- read_csv("data/new-overall-coding.csv")
+
+os %>%
+  filter(Asking == 1)

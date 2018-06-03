@@ -85,9 +85,12 @@ p %>%
 Of the 236 instructional episodes, 170 (72%) were coded as involving *any* of the aspects of work with data. These 236 episodes are used as the sample for this study because the proportion of episodes that included any of the aspects of work with data is a question asked in this study. Table 4.3 includes the frequency of the specific aspects of work with data, with interpreting and communicating findings being the most present (occurring in 47% of the coded instructional episodes), followed by generating data (in 45% of the instructional episodes), asking questions (in 39%), data modeling (29%), and then making observations (26%).
 
 ```{r}
+# from here: https://docs.google.com/spreadsheets/d/1wx2J81vERpVZjIcQwiZb6vcz1U1eDFYEJDTYTLm6zqM/edit#gid=0
+the_ns <- c(90, 57, 102, 68, 103)
+
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-           Proportion = c(.389, .258, .453, .288, .470),
-           N = c(92, 61, 107, 68, 111)) %>%
+           Proportion = round(236/the_n, 3),
+           N = the_n) %>%
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
 ```
 
@@ -107,7 +110,11 @@ For these results, the different aspects of work with data were looked at in mor
 
 Among the instructional episodes that involved asking questions, qualitative descriptions revealed that around one-third (36/92, or 39%) explicitly demonstrated youth working to understand the phenomenon or problem they were investigating. For example, in an instructional episode during the *Ecosphere* program in which youth constructed inclined tables to study how water moved throughout the ecosystem, the youth activity leader prompted youth to generate hypotheses of what would happen when water was poured onto the table, before pouring the water. 
 
+[FIX ME!]
+
 Other instructional episodes (56/92; 61%) involved questions that were not focused on predicting, conjecturing, or hypothesizing, but rather on asking a more general type of question question; or, the instructor asking youth questions. In the former case, youth were asking generic questions about understanding the assignment, task, or even the phenomena. For example, in the *Marine Investigators* program, youth visited a water treatment site, and were provided opportunities to ask questions about what they observed: However, youths' questions were not questions that could then be answered with empirical data, but were rather to clarify their understanding. In the latter, instructors were asking youth questions (i.e., math-related prompts or questions to elicit their conceptual understanding). 
+
+Asking more general questions. The question was the one asking the question or defining the problem. 
 
 #### Making observations
 
@@ -115,7 +122,9 @@ In the instructional episodes when the STEM-PQA revealed that youth were making 
 
 Sometimes, while youth did make observations of phenomena, they faced the challenge of using that data in subsequent activities and through engaging in other aspects of work with data. For example, the science-focused programs (*Island Explorers*, *The Ecosphere*, and *Marine Investigators*) all emphasized making observations, but these observations were not frequently written down or entered into a spreadsheet as data. For example, in *Marine Investigators*, youth observed how the Atlantic Ocean brings salt water into the (freshwater) bay. Youth observe "buffers" between the salt and freshwater, but do not collect or otherwise generate data related to their observations. 
 
-In a small number of cases (8/57; 14%) making observations was focused on making observations not of phenomena, but of the instructor. For example, in the *Adventures in Mathematics* program, youth observed other youth or the youth activity leader solving a mathematics problem.
+[FIX ME!]
+
+In a small number of cases making observations were focused on making observations not of phenomena, but of something more general (8/57; 14%), or were unclear in their focus (8/57; 14%). For example, in the *Adventures in Mathematics* program, youth observed other youth or the youth activity leader solving a mathematics problem.
 
 #### Generating data
 
@@ -123,21 +132,37 @@ In about half (48/102; 47%) of the episodes that involved generating data, youth
 
 As described above, there were cases in which youth made observations but did not record data or use their observations as a context to generate data. Similarly, in a number of the cases in which youth generated data, they did not use the data they generated in subsequent activities. In the engineering-focused programs (*Uptown Architecture*, *Crazy Machines*, and *Dorchester House*, youth often generated data that resulted from their engineering designs (and communicated and interpreted their findings,) but did not model this data as a regular part of their activities. 
 
-The other half (54/102; 53%) of the cases involved youth recording pieces of data that were provided verbally by the activity leader or were focused on collecting specimens (but not writing them down or entering them into a spreadsheet). For example, again in the *Marine Investigators* program, youth used nets to collect saltwater organisms, which they then transported in buckets back to the classroom setting for subsequent analysis. While these specimens were collected to serve as data for a future activity, there was no recording observed during the episode. In another example, in the *Ecosphere* program, youth collected water samples in the field. They then brought these samples to the classroom and tested the water, involving students in both collecting and, to a degree, generating data (by noting the pH levels of the water). However, later in the day, youth created a small-scale model (with inclined trays of dirt, rocks, and plants) of an ecosystem, in which they added food coloring to determine the impacts of chemicals and acid rain. Youth then interpreted and discussed these findings, but did not connect the discussion to the water samples youth collected and tested earlier. This activity presented an opportunity for deeper engagement in generating data through using generated data in subsequent activities, in which youth could interpret and communicate findings related to the state of the water in their ecosystem; but, instead, it was potentially limiting in terms of youth's engagement in work with data.
+[FIX ME!]
+
+The other half of the cases involved youth recording pieces of data that were provided verbally by the activity leader (54/102; 53%) or were focused on collecting specimens (but not writing them down or entering them into a spreadsheet; 54/102; 53%). For example, again in the *Marine Investigators* program, youth used nets to collect saltwater organisms, which they then transported in buckets back to the classroom setting for subsequent analysis. While these specimens were collected to serve as data for a future activity, there was no recording observed during the episode. In another example, in the *Ecosphere* program, youth collected water samples in the field. They then brought these samples to the classroom and tested the water, involving students in both collecting and, to a degree, generating data (by noting the pH levels of the water). However, later in the day, youth created a small-scale model (with inclined trays of dirt, rocks, and plants) of an ecosystem, in which they added food coloring to determine the impacts of chemicals and acid rain. Youth then interpreted and discussed these findings, but did not connect the discussion to the water samples youth collected and tested earlier. This activity presented an opportunity for deeper engagement in generating data through using generated data in subsequent activities, in which youth could interpret and communicate findings related to the state of the water in their ecosystem; but, instead, it was potentially limiting in terms of youth's engagement in work with data.
+
+Very often, these are not clear. 
 
 #### Data modeling
 
 A large majority (49/68, 72%) of the instructional episodes coded (with the STEM-PQA) for data modeling were focused on youths' uses of statistical and mathematical models. For example, in the *Comunidad de Aprendizaje* program, youth accessed nationally-representative data and were tasked to solve problems, like finding out what percentage of people engage in particular activities, like donating to charity. In another example, in the *Marine Investigators*, youth participated in activities designed to help them understand water quality in their ecosystem. Youth collected trash from sites around their community (in different "districts") and then brought the trash and recyclable plastic back to the classroom. Then, the youth activity leaders involved youth in an ambitious data modeling activity. The aim was to figure out how much plastic enters local waterways. As a part of this activity, youth activity leaders asked youth not only to determine the quantity of trash that entered the waterways, but asked youth about *why* youth thought about and used math in particular ways (i.e., by adding the quantity of trash collected and then extrapolating from this quantity to the amount from across the entire city over the course of the year). This appeared to be an ambitious and powerful data modeling activity. 
 
+A model was not always one of data. Sometimes, the model was a physical model, such as during the *Crazy Machines* program, in which youth saw how changes to their Rube Goldberg machine worked or did not work. 
+
 Related, while the data modeling activities were often ambitious, youth activity leaders sometimes faced the challenge of linking data modeling activities to other aspects of work with data. For example, the mathematics-focused programs, such as the *Adventures in Mathematics* program, the youth activity leaders recognizing that youth had difficulty solving equations, used duct tape and a "hippity hoppity", building on an earlier activity in which youth considered what constituted a rate, on how many "hops" it would take someone to move from one end of the line of duct tape to the other; the youth activity leader than asked youth to consider how far they could move in one hop and to consider how they could find out many hops it would take, using a mathematical equation. In this activity, youth were supported in their attempts to approach mathematics problem-solving in creative ways. However, apart from data modeling, other aspects of work with data were rarely present, and most of the data that youth worked with was provided by the teacher or considered in the abstract.
 
-In a smaller number of instructional episodes not focused on ambitious data modeling activities (19/68; 28%), this aspect of work with data was present when the youth activity leader, rather than students, was doing the modeling, or the model was not one that could generate data. For example, in the *Marine Investigators* program, a youth activity leader used a plush toy seal designed to teach youth about anatomy and the dangers of aquatic mammals consuming trash and recyclables. 
+Solving an equation - is that modeling data?
+
+Very often these are focused on solving equations, even when related to real-life (as in buying groecries, how money is spent, and how to budget, in *Comunidad de Apendizaje*)
+
+[FIX ME!]
+
+In a smaller number of instructional episodes not focused on ambitious data modeling activities, this aspect of work with data was present when the youth activity leader, rather than students, was doing the modeling (19/68; 28%), or the model was not one that could generate data (19/68; 28%). For example, in the *Marine Investigators* program, a youth activity leader used a plush toy seal designed to teach youth about anatomy and the dangers of aquatic mammals consuming trash and recyclables. 
 
 #### Interpreting and communicating findings
 
 In around half (49/103, 48%) of the instructional episodes in which youth were interpreting and communicating findings (as coded by the STEM-PQA), youth were sharing what they found from an investigation or the results of using the product they designed. For example, in the *Comunidad de Aprendizaje* program, youth participated in an activity designed to support their thinking about creating a product to bring to market; the youth activity leaders described this as being akin to the television show the *Shark Tank*. In one instructional episode, the youth activity leader asks youth to think of an idea that would make an investor willing to invest in; students shared their ideas, describing what their ideas was, why it was a good idea, how much they could sell it for, and what their profit would be, while fielding questions from youth activity leaders and their peers. Interpreting and communicating findings was also commonly present in instructional episodes in which youth were debating the findings of an investigation, such as the results of calculations for the amount of recyclables entering waterways (in *Marine Investigators*). 
 
-In the approximately half of the responses that were not focused on youth sharing what they found from an investigation (54/103, 52%), youth were most commonly communicating about topics other than the results of an investigation or design process, such as trying to find out the answer to a discrete question posed by the youth activity leader, or the youth activity leader was who was doing the interpreting and communicating. For example, in the *Adventures in Mathematics* program, the youth activity leader helped youth to solve problems on a worksheet, asking guiding questions to help youth start to solve problems on their own. In the latter case (the youth activity leader was doing the interpreting and communicating), youth commonly engaged in other aspects of work with data (i.e., generating data), but the youth activity leader compiled, modeled, and then interpreted the data that the youth generated.
+[FIX ME!]
+
+In the approximately half of the responses that were not focused on youth sharing what they found from an investigation, youth were most commonly communicating about topics other than the results of an investigation or design process (54/103, 52%), such as trying to find out the answer to a discrete question posed by the youth activity leader, or the youth activity leader was who was doing the interpreting and communicating (54/103, 52%). 
+
+For example, in the *Adventures in Mathematics* program, the youth activity leader helped youth to solve problems on a worksheet, asking guiding questions to help youth start to solve problems on their own. In the latter case (the youth activity leader was doing the interpreting and communicating), youth commonly engaged in other aspects of work with data (i.e., generating data), but the youth activity leader compiled, modeled, and then interpreted the data that the youth generated.
 
 ## Results for Research Question #2: What profiles of youth engagement emerge from experiential data collected in the programs?
 

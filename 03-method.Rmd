@@ -116,7 +116,6 @@ d[, -3] %>%
  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
- 
 In addition to the measures described in this section, demographic information for youths’ gender and their racial and ethnic group are used to construct demographic variables for gender and membership in an under-represented (in STEM) group; membership in an under-represented group are identified on the basis of youths’ racial and ethnic group being Hispanic, African American, Asian or Pacific Islanders, or native American. 
 
 ## Data Analysis
