@@ -250,20 +250,3 @@ m1_7 %>%
 ```
 
 The number of observations associated with each of the profiles is not very balanced, with few (*n* = 181) observations associated with the universally low profile and few (*n* = 222) observations associated with the highly challenged profile. The number of observations associated with the other profiles ranged from 317 to 651. Distinct from other solutions, none of the other five profiles were found in the other model 1 solutions. Two pairs of the profiles--challenged and highly challenged and universally low and moderately low--exhibited similar patterns among the variables that were distinguished by different mean levels. The log-likelihood was replicated twice, with the next lowest log-likelihood being replicate four times, possibly warranting further investigation. Taken together, this solution raises questions about whether it may be too complex, possibly suggesting preference for model 1 five and six profile solutions.
-
-### Appendix F: Supplementary correlational analysis
-
-```{r, fig.cap = "Supplementary correlational analysis"}
-o <- d_red %>% 
-  select(dm_ask:dm_com, dm_cog_eng:dm_competence, overall_pre_interest) %>%
-  corrr::correlate() %>% 
-  corrr::shave() %>%
-  corrr::fashion()
-
-names(o) <- c("", "Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings", "Cog. eng.", "Beh. eng.", "Aff. eng.", "Challenge", "Competence", "Pre-interest")
-
-o %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
-```
