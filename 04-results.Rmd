@@ -233,9 +233,10 @@ ii <- i %>%
                      "Engaged and competent but not challenged (n = 450)",
                      "Full (n = 488)"))
 
-names(ii) <- c("Instructional Episode", "Youth", "Program")
+names(ii) <- c("Instructional Episode", "Youth", "Program", "order", "Profile")
 
 ii %>% 
+  select(-order) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "")
 ```
 
@@ -324,7 +325,7 @@ oo %>%
 
 While the section for results for research #4 focused on the rows for the variables for the aspects of work with data, this section focuses on those for the youth characteristics. As for the previous research question, the first row is again associated with the results for the model predicting the probability of the *Only behavioral* profile, with the cells across the columns containing the coefficients, their standard errors, and their *p*-values; for this question, the youth characteristics are interpreted. 
 
-In terms of youths' pre-program interest, these analyses show that youth who enter the program with higher levels of interest (in STEM) are more likely to report being in the *engaged and competent but not challenged* profile ($\beta$ = 0.039, *p* = .009; *partial R^2* = .001). In other words, youth who are more interested at the outset of the program report working harder, learning more, enjoying themselves more, and feeling more competent when they are actually involved in a program activities, though they also report lower levels of challenge. For this effect, 17.879% would be needed to invalidate the inference, a slightly larger value for the follow-up sensitivity analysis than those found for the (statistically significant) relations involving the aspects of work with data, suggesting a moderately robust effect. 
+In terms of youths' pre-program interest, these analyses show that youth who enter the program with higher levels of interest (in STEM) are more likely to report being in the *Engaged and competent but not challenged* profile ($\beta$ = 0.039, *p* = .009; *partial R^2* = .001). In other words, youth who are more interested at the outset of the program report working harder, learning more, enjoying themselves more, and feeling more competent when they are actually involved in a program activities, though they also report lower levels of challenge. For this effect, 17.879% would be needed to invalidate the inference, a slightly larger value for the follow-up sensitivity analysis than those found for the (statistically significant) relations involving the aspects of work with data, suggesting a moderately robust effect. 
 
 Female youth reported more often than males that they were in the *Universally low* profile, though this difference did not quite reach statistical significance ($\beta$ = 0.037, *p* = .051; *partial R^2* = .006). The effect size again suggest very small effects in substantive terms. For this effect, 17.843% of the bias would need to be removed (or the effect would need to be larger by this percentage) to sustain the inference. The moderately large amount of bias that would need to be removed for the effect of being female (on the *Universally low* profile) to be significant suggests that this effect should not be very seriously interpreted. 
 
