@@ -40,8 +40,7 @@ d <- tibble::tribble(
 d %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Program (with pseudonyms) descriptions") %>% 
   kableExtra::landscape() %>% 
-  kableExtra::column_spec(width = "6in")
-  
+  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 ### Appendix C: Work with data by program
@@ -50,7 +49,7 @@ d %>%
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
            Proportion = c(.389, .258, .453, .288, .470),
            N = c(92, 61, 107, 68, 111)) %>%
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of instructional episodes for which each of the aspects of work with data was present")
 
 pn <- data_frame(program_name = c("Island Explorers", "The Ecosphere", "Zoology Partners", "Marine Investigators", "Comunidad de Aprendizaje", "Jefferson House", "Uptown Architecture", "Building Mania", "Adventures in Mathematics"),
                  asking = c(5, 15, 6, 11, 18, 4, 9, 8, 14),
@@ -73,9 +72,11 @@ names(pnn) <- c("Variable", "Asking", "Observing", "Generating", "Modeling", "Co
 pnn <- mutate_if(pnn, is.numeric, round, 3)
 
 pnn %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present by program") %>% 
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of instructional episodes for which each of the aspects of work with data was present by program") %>% 
   kableExtra::landscape()
 ```
+
+*Note*. The *Comunidad de Aprendizaje* program had different sections in the morning and afternoon, which is why the number of instructional episodes is higher than in the other programs. 
 
 ### Appendix D: Model specifications details
 
