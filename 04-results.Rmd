@@ -21,6 +21,7 @@ source("04-results.R")
 ### Descriptive statistics for the engagement measures
 
 First, descriptive statistics for the engagement measures (the five variables that were used to estimate the profiles) are presented in Table 4.1. These descriptive statistics show high overall levels of the three indicators of engagement (with mean values on scales that ranged from one to four between 2.768 (*SD* = 1.063) for cognitive engagement, and 2.863 (*SD* = 1.044), for behavioral engagement). These statistics also show high perceptions of competence (*M* = 3.000 (*SD* = 0.952)) and more moderate perceptions of challenge (*M* = 2.270 (*SD* = 1.117)). There was a similar degree of (moderate) variability (see the *SD*s) across the five measures, indicating that, across all of the ESM responses, engagement was not the same (due to the youth, instructional episode, program, and for unexplained reasons). 
+
 ```{r}
 oo <- d_red %>% 
   select(dm_cog_eng,

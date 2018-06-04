@@ -2,16 +2,16 @@
 
 ```{r, setup-method, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
-           message = FALSE, 
-           warning = FALSE, 
-           collapse = TRUE,
-           error = TRUE,
-           fig.width = 6,
-           fig.asp = .618,
-           out.width = "80%", 
-           fig.align = "center", 
-           results = "hold",
-           knitr.kable.na = '') 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      collapse = TRUE,
+                      error = TRUE,
+                      fig.width = 6,
+                      fig.asp = .618,
+                      out.width = "80%", 
+                      fig.align = "center", 
+                      results = "hold",
+                      knitr.kable.na = '') 
 
 options(knitr.kable.NA = '')
 ```
@@ -28,23 +28,23 @@ Participants consisted of 203 youth. Participants were from diverse racial and e
 
 ```{r, eval = T}
 d <- tibble::tribble(
- ~Youth, ~Percentage,
- "Sex",     NA,
- "Male",     50L,
- "Female",     50L,
- "Race/Ethnicity",     NA,
- "Hispanic",     48L,
- "White",     6L,
- "Black",     36L,
- "Multi-racial",     3L,
- "Asian/Pacific Islander",     7L,
- "Parent Education",     NA,
- "High School or Below",     79L,
- "Graduated from College (B.A. or B.S.)",     21L
+  ~Youth, ~Percentage,
+  "Sex",     NA,
+  "Male",     50L,
+  "Female",     50L,
+  "Race/Ethnicity",     NA,
+  "Hispanic",     48L,
+  "White",     6L,
+  "Black",     36L,
+  "Multi-racial",     3L,
+  "Asian/Pacific Islander",     7L,
+  "Parent Education",     NA,
+  "High School or Below",     79L,
+  "Graduated from College (B.A. or B.S.)",     21L
 )
 
 d %>% 
- kable(booktabs = TRUE, caption = "Demographic characteristics of youth")
+  kable(booktabs = TRUE, caption = "Demographic characteristics of youth")
 ```
 
 ## Procedure
@@ -67,16 +67,16 @@ All five items are ultimately used to construct the profiles of engaged. Each of
 
 ```{r}
 d <- tibble::tribble(
-        ~Construct,                                     ~Item,
+  ~Construct,                                     ~Item,
   "Cognitive engagement", "As you were signaled, were you learning anything or getting better at something?",
- "Behavioral engagement",                 "As you were signaled, how hard were you working?",
+  "Behavioral engagement",                 "As you were signaled, how hard were you working?",
   "Affective engagement",             "As you were signaled, did you enjoy what you are doing?",
   "Perceived challenge",           "As you were signaled, how challenging was the main activity?",
   "Perceived competence",            "As you were signaled, were you good at the main activity?"
- )
+)
 
 d %>% 
- knitr::kable(booktabs = TRUE, caption = "ESM measures for profiles") %>% 
+  knitr::kable(booktabs = TRUE, caption = "ESM measures for profiles") %>% 
   kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
@@ -89,19 +89,20 @@ Raters contracted by American Institute of Research (AIR) were trained in the us
 ```{r}
 library(dplyr)
 d <- tibble::tribble(
- ~Code,                                                  ~Description,                                                                                                                                                                            ~`Categories from STEM-PQA`,
- "Asking questions",                      "Discussing and exploring topics to investigate and pose questions.",                          "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
- "Making observations",     "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                    "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
- "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                        "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
- NA,                                                       NA, "Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))",
- "Data modeling", "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
- "Interpreting and communicating findings",                                "Discussing and sharing and presenting findings.",                                                                                                "Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like \"Your heartbeat increases when you exercise\", etc.))"
+  ~Code,                                                  ~Description,                                                                                                                                                                            ~`Categories from STEM-PQA`,
+  "Asking questions",                      "Discussing and exploring topics to investigate and pose questions.",                          "Predict, conjecture, or hypothesize (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whetherit does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+  "Making observations",     "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                    "Classify or abstract (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas (e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.))",
+  "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.",                                                                                        "Collect data or measure (Staff support youth in collecting data or measuring (e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.))",
+  NA,                                                       NA, "Highlight precision and accuracy (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating (e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.))",
+  "Data modeling", "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses (e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.))",
+  "Interpreting and communicating findings",                                "Discussing and sharing and presenting findings.",                                                                                                "Analyze (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like \"Your heartbeat increases when you exercise\", etc.))"
 )
 
 
 d[, -3] %>%
- knitr::kable(booktabs = TRUE, caption = "Coding Frame for Work With Data") %>% 
- kableExtra::kable_styling(latex_options = "scale_down")
+  knitr::kable(booktabs = TRUE, caption = "Coding Frame for Work With Data") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::landscape()
 ```
 
 ### Survey measures of pre-interest in STEM
@@ -112,15 +113,14 @@ This measure was constructed by taking the maximum value for the scales for the 
 
 ```{r}
 d <- tibble::tribble(
-           ~Construct,                              ~`Items.text`,
- "Pre-program interest in STEM",        "I am interested in science / mathematics / engineering.",
-               NA,         "At school, science / mathematics / engineering is fun",
-               NA, "I have always been fascinated by science / mathematics / engineering)"
- )
+  ~Construct,                              ~`Items.text`,
+  "Pre-program interest in STEM",        "I am interested in science / mathematics / engineering.",
+  NA,         "At school, science / mathematics / engineering is fun",
+  NA, "I have always been fascinated by science / mathematics / engineering)"
+)
 
 d %>% 
- knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM") %>% 
- kableExtra::landscape()
+  knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM")
 ```
 
 ### Other youth characteristics
