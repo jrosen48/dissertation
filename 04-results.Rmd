@@ -299,23 +299,30 @@ oo <- o %>%
   mutate(model = c("Universally low",
                    "Only behavioral",
                    "Only affective",
-                   "All moderate",
                    "Eng. and comp. but not chall.",
+                   "All moderate",
                    "Full"))
 
 names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
 
 re_p <- function(x) {
   o <- str_sub(x, start = -6, end = -2)
-  str_c(str_remove(x, " \\(p.*"), ifelse(o < .05, "*", ""))
+  
+  p_vals <- str_extract_all(x, "\\([^)]*\\)") %>% 
+    map(~.[2]) %>% 
+    str_extract_all("\\(?[0-9,.]+") %>% 
+    as.numeric()
+  
+  str_c(str_remove(x, " \\(p.*"), ifelse(p_vals < .05, "*",
+                                         ifelse(p_vals > .05 & p_vals < .10, "+", "")))
 }
 
-oo <- mutate_all(oo, re_p)
+oo <- mutate_at(oo, vars(Intercept:Communicating), re_p)
 
 oo %>% 
   select(-Intercept) %>% 
-  t() %>% 
-  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
+  t() 
+knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
   kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape() %>% 
   group_rows("Youth characteristics", 1, 3) %>% 
