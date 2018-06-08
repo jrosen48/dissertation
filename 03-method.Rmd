@@ -86,6 +86,8 @@ Different aspects of work with data are identified from video-recordings. Specif
 
 Raters contracted by American Institute of Research (AIR) were trained in the use of the Program Quality Assessment tool (PQA)--the broader assessment tool for which the STEM-PQA is a supplement. Raters completed a four-hour online training module on the overall PQA tool and then attended an in-person two-day training led by a trainer from the David P. Weikart Center for Youth Program Quality, the tool’s publisher, where they learned about the instrument, trained on its use, and then established inter-rater reliability with a master coder. For the STEM-PQA, three of the same raters contracted by AIR to code the (overall) PQA measure used the STEM-PQA supplement to score one video segment, for which there were no disagreements on scoring for any of the items. The programs were divided up among all of the raters, so raters coded some of the videos for all of the programs. When the raters encountered a situation that was difficult to score, they would all discuss the issue by telephone or more often by email after viewing the video in question and reach a consensus on how to score the specific item. Note that these codes were unique to each signal to which youth responded (but were not unique to each youth, as youth in the same program were signaled at the same time).
 
+Out of the 248 instructional episodes, 236 were code-able for work with data; for the 12 that were not codeable, issues with the video-recordings were the primary source of the missing data. These 236 responses are used for all of the analyses. 
+
 ```{r}
 library(dplyr)
 d <- tibble::tribble(
@@ -131,7 +133,7 @@ In addition to the measures described in this section, demographic information f
 
 ### Preliminary analyses
 
-Correlations (first-order Pearson) and the frequency, range, mean (*M*), and standard deviation (*SD*) are first presented for all variables. In addition, the frequency of the codes for aspects of work with data and the numbers of responses by youth, program, and instructional episode are presented. Note that out of the 248 instructional episodes, 236 were code-able for work with data; for the 12 that were not codeable, issues with the video-recordings were the primary source of the missing data. These 236 responses are used for all of the analyses. 
+Correlations (first-order Pearson) and the frequency, range, mean (*M*), and standard deviation (*SD*) are first presented for all variables. In addition, the frequency of the codes for aspects of work with data and the numbers of responses by youth, program, and instructional episode are presented.
 
 ### Analysis for Research Question #1 (on the frequency and nature of work with data)
 
