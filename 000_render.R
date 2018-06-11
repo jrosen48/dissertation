@@ -20,10 +20,4 @@ system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 # system("cd docs; pandoc rosenberg-dissertation_mod.tex --reference-docx=rosenberg-template.docx -s -o rosenberg-dissertation_mod.docx")
 rmarkdown::render_site(output_format = 'bookdown::word_document2', encoding = 'UTF-8')
 
-# 6. clean up
-source("0_clean-up.R")
 
-# 7. update github
-system("git status; git add *; git add -u")
-system("git commit -m 'update diss'")
-system("git push")
