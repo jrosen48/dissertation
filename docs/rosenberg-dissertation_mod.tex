@@ -186,9 +186,9 @@
 
 Data-rich activities provide an opportunity to develop core competencies in both science and mathematics identified in curricular standards. Research on work with data has focused on cognitive outcomes and the development of specific practices at the student and classroom levels, and yet, little research has considered learners’ engagement and the conditions that facilitate it. The present study explores learners engagement in work with data in the context of summer STEM programs. The aspects of work with data that are the focus of this study are: a) asking questions, b) observing phenomena, c) constructing measures and generating data, d) data modeling, and e) interpreting findings. Data from measures of learners' engagement is collected through the Experience Sampling Method (ESM) that involves asking learners at random intervals to answer short questions about their engagement to discover profiles of learners' engagement.
 
-Data was collected from nine summer STEM programs over four weeks the Northeastern United States. 203 learners reported 2,970 responses via short ESM surveys of how engaged they were (cognitively, behaviorally, and affectively, assessed through separate items) and of their perceptions of themselves (their competence) and of the activity (its challenge).  These data were used to examine five specific research questions: 1) What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs? 2) What profiles of engagement emerge from data collected via ESM in the programs? 3) What sources of variability are there for the profiles of engagement? 4) How do the five aspects of work with data relate to profiles of engagement? 5) How do youth characteristics relate to profiles of engagement?
+Data was collected from nine summer STEM programs over four weeks the Northeastern United States. 203 learners reported 2,970 responses via short ESM surveys of how engaged they were (cognitively, behaviorally, and affectively, assessed through separate items) and of their perceptions of themselves (their competence) and of the activity (its challenge).  These data were used to examine five specific research questions: 1) What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs? 2) What profiles of engagement emerge from data collected via ESM in the programs? 3) What are sources of variability for the profiles of engagement? 4) How do the five aspects of work with data relate to profiles of engagement? 5) How do youth characteristics relate to profiles of engagement?
 
-Findings show that aspects of work with data were fairly common overall, but that work with data was enacted out in varying ways, including some that were superficial in nature. Six profiles of youth engagement were identified, representing distinct configurations of the five indicators of engagement.  Substantial variability in the profiles was present at the youth level, with less explained by the program youth were in or the nature of the particular instructional episode present at the time youth were signaled. Relations between the engagement profiles and each of the aspects of work with data were minimal. Notable exceptions were the generating data and data modeling were significantly associated with full engagement, where all engagement indicators were simultaneously high. However, while statistically significant, these effects were small.
+Findings show that aspects of work with data were fairly common overall, but that work with data was enacted out in varying ways, including some that were superficial in nature. Six profiles of youth engagement were identified, representing distinct configurations of the five indicators of engagement.  Substantial variability in the profiles was present at the youth level, with less explained by the program youth were in or the nature of the particular instructional episode present at the time youth were signaled. Relations between the profiles of engagement and each of the aspects of work with data were somewhat small: Notable exceptions were the generating data and data modeling were significantly associated with full engagement, where all engagement indicators were simultaneously high. Youth with higher pre-program interest in STEM were more likely to be engaged and competent but not challenged, though other youth characteristics were not highly related to the profiles.
 
 Findings from this study have implications for supporting work with data in informal and formal learning environments and for how researchers can use a person-in-context approach to study engaging in data science in a way that is sensitive to moment-to-moment changes in learners' experience.
 
@@ -1043,7 +1043,7 @@ item. Note that these codes were unique to each signal to which youth
 responded (but were not unique to each youth, as youth in the same
 program were signaled at the same time).
 
-\begin{table}
+\begin{landscape}\begin{table}
 
 \caption{\label{tab:unnamed-chunk-5}Coding Frame for Work With Data}
 \centering
@@ -1060,6 +1060,7 @@ Interpreting and communicating findings & Discussing and sharing and presenting 
 \bottomrule
 \end{tabular}}
 \end{table}
+\end{landscape}
 
 \subsection{Survey measures of pre-interest in
 STEM}\label{survey-measures-of-pre-interest-in-stem}
@@ -1082,7 +1083,7 @@ maximum value) measurement approach. The items are presented in Table
 3.3. Overall levels of this measure were high (\emph{M} = 3.044
 (\emph{SD} = 0.901).
 
-\begin{landscape}\begin{table}
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-6}Measure for pre-program interest in STEM}
 \centering
@@ -1096,7 +1097,6 @@ Pre-program interest in STEM & I am interested in science / mathematics / engine
 \bottomrule
 \end{tabular}
 \end{table}
-\end{landscape}
 
 \subsection{Other youth
 characteristics}\label{other-youth-characteristics}
@@ -1878,16 +1878,16 @@ level) can change the value of (other levels') ICCs (Gelman \& Hill,
 
 \caption{\label{tab:unnamed-chunk-13}Intra-class correlation (ICC) values for each of the three levels}
 \centering
-\begin{tabular}[t]{rrrl}
+\begin{tabular}[t]{lrrr}
 \toprule
-Instructional Episode & Youth & Program & Profile\\
+Profile & Instructional Episode & Youth & Program\\
 \midrule
-0.006 & 0.267 & 0.023 & Universally low (n = 667)\\
-0.006 & 0.093 & 0.009 & Only behavioral (n = 370)\\
-0.004 & 0.262 & 0.003 & Only affective (n = 345)\\
-0.015 & 0.310 & 0.000 & All moderate (n = 638)\\
-0.009 & 0.100 & 0.000 & Engaged and competent but not challenged (n = 450)\\
-0.031 & 0.432 & 0.019 & Full (n = 488)\\
+Universally low (n = 667) & 0.006 & 0.267 & 0.023\\
+Only behavioral (n = 370) & 0.006 & 0.093 & 0.009\\
+Only affective (n = 345) & 0.004 & 0.262 & 0.003\\
+All moderate (n = 638) & 0.015 & 0.310 & 0.000\\
+Engaged and competent but not challenged (n = 450) & 0.009 & 0.100 & 0.000\\
+Full (n = 488) & 0.031 & 0.432 & 0.019\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1967,7 +1967,7 @@ models) models.
 The results for this and the next research question are both presented
 in Table 4.5. In this table, each column represents the output from one
 of the six different models. As an example, the first column in Table
-5.4 includes results for the model predicting the probability of a
+4.5 includes results for the model predicting the probability of a
 response being associated with the \emph{Only behavioral} profile as the
 dependent variable. Each other cell in this column contains the
 coefficients (and their standard errors and asterisks indicating
@@ -2024,7 +2024,7 @@ significant upon the probability of a response being associated with the
 \centering
 \resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllll}
 \toprule
-Profile & Universally low & Only behavioral & Only affective & All moderate & Engaged and competent but not challenged & Full\\
+Profile & Universally low & Only behavioral & Only affective & All moderate & Eng. and comp. but not chall. & Full\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Youth characteristics}}\\
 \hspace{1em}Pre-interest & -0.047 (0.022) & -0.013 (0.012) & -0.012 (0.019) & 0.039 (0.016)* & 0.007 (0.01) & 0.018 (0.021)\\
