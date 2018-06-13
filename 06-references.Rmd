@@ -3,10 +3,15 @@
 \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{8pt}
 \noindent
+
 Akiva, T. (2005). Turning training into results: The new youth program quality assessment. *High/Scope Resource*, 24(2), 21-24.  
+
 Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319.  
+
 Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). *Studying individual development in an interindividual context: A person-oriented approach*. London, England: Psychology Press.
+
 Berland, L. K., Schwarz, C. V., Krist, C., Kenyon, L., Lo, A. S., & Reiser, B. J. (2016). Epistemologies in practice: Making scientific practices meaningful for students. *Journal of Research in Science Teaching, 53*(7), 1082-1112.  
+
 Beymer, P. N., Rosenberg, J. M., Schmidt, J. A., & Naftzger, N. (2018). Examining relationships between choice, affect, and engagement in out-of-school time STEM programs. *Journal of Youth and Adolescence, 47*(6), 1178-1191. https://doi.org/10.1007/s10964-018-0814-9  
 
 Bielik, T., & Yarden, A. (2016). Promoting the asking of research questions in a high-school biotechnology inquiry-oriented program. *International Journal of STEM Education, 3*(1), 15.  

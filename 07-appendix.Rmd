@@ -1,5 +1,10 @@
 # Appendix
 
+\setlength{\parindent}{0in}
+\setlength{\leftskip}{0in}
+\setlength{\parskip}{8pt}
+\noindent
+
 ## Appendix A: STEM-PQA alignment
 
 ```{r}
