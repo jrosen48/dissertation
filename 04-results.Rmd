@@ -137,16 +137,8 @@ In the other instructional episodes that were not focused on youth sharing what 
 
 On the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony, a solution with six profiles of engagement was selected. This solution represents the profiles of engagement identified to answer this research question and for use in subsequent analyses. This solution was associated with a model with varying means, equal variances, and covariances fixed to 0 (the first model type among those described in the methods). Because of the exploratory nature of the approach used to identify the profiles, LPA, it is important to consider alternate solutions. In particular, a seven profile solution with the same model specification was similar (but not superior) regarding the fit statistics and statistical tests. This solution, presented in Appendix F, was determined not to be superior to the six profile solution, ultimately chosen on the basis of parsimony and interpretability. 
 
-The result of this model selection process was the estimation of *six distinct profiles* identified from the data, as presented in Figures 4.1 and 4.2. Figure 4.1 shows the profiles with variables that were centered to have a *mean* of 0 and a *standard deviation* of 1. Thus, the *y*-axis for this plot is labeled "Z-score"). Figure 4.2 shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value." The two plots are presented because they provide a different view into the composition of the profiles: Those with the centered variables highlights positive and negative departures from the mean value for each variable, making differences between the profiles distinct. The plot with the raw data instead highlights the reported values of the variables, emphasizing the values of the variables in the profiles in the same units that youth were asked to consider when they responded (and potentially highlighting similarities that may seem very different in the plot with the centered data).
+The result of this model selection process was the estimation of *six distinct profiles* identified from the data, as presented in Figures 4.1 and 4.2. Figure 4.1 shows the profiles with variables that were centered to have a *mean* of 0 and a *standard deviation* of 1. Thus, the *y*-axis for this plot is labeled "Z-score"). Figure 4.2 shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value." 
 
-This solution is characterized by:
-
-- A *universally low* profile, characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence
-- An *only behaviorally engaged* profile, with moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence
-- An *only affectively engaged* profile, with moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence
-- An *all moderate* profile, with moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence
-- An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
-- A *full* profile, with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
 
 ```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
 
@@ -205,6 +197,17 @@ p2 <- m1_6 %>%
 
 p2
 ```
+
+The two plots are presented because they provide a different view into the composition of the profiles: Those with the centered variables highlights positive and negative departures from the mean value for each variable, making differences between the profiles distinct. The plot with the raw data instead highlights the reported values of the variables, emphasizing the values of the variables in the profiles in the same units that youth were asked to consider when they responded (and potentially highlighting similarities that may seem very different in the plot with the centered data).
+
+This solution is characterized by:
+
+- A *universally low* profile, characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence
+- An *only behaviorally engaged* profile, with moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence
+- An *only affectively engaged* profile, with moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence
+- An *all moderate* profile, with moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence
+- An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
+- A *full* profile, with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
 
 The six profiles are characterized by both varying levels on both the indicators of engagement (cognitive, behavioral, and affective) and perceptions of challenge and competence. Also, the number of observations across the profiles is relatively balanced (with no profiles associated with a very large or small number of observations). The universally low profile was associated with the most substantial number of observations (*n* = 667), followed by the all moderate profile (*n* = 638); each of the other four profiles was associated with 300 to 400 observations. The results for research questions 3-5 use this solution and the six profiles in subsequent analyses.
 
