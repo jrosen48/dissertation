@@ -7,16 +7,11 @@ Akiva, T. (2005). Turning training into results: The new youth program quality a
 Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319.  
 Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). *Studying individual development in an interindividual context: A person-oriented approach*. London, England: Psychology Press.
 Berland, L. K., Schwarz, C. V., Krist, C., Kenyon, L., Lo, A. S., & Reiser, B. J. (2016). Epistemologies in practice: Making scientific practices meaningful for students. *Journal of Research in Science Teaching, 53*(7), 1082-1112.  
-
 Beymer, P. N., Rosenberg, J. M., Schmidt, J. A., & Naftzger, N. (2018). Examining relationships between choice, affect, and engagement in out-of-school time STEM programs. *Journal of Youth and Adolescence, 47*(6), 1178-1191. https://doi.org/10.1007/s10964-018-0814-9  
 
 Bielik, T., & Yarden, A. (2016). Promoting the asking of research questions in a high-school biotechnology inquiry-oriented program. *International Journal of STEM Education, 3*(1), 15.  
 
-Breckenridge, J. N. (2000). Validating cluster analysis: Consistent replication and symmetry. *Multivariate Behavioral Research, 35*(2), 261-285.  
-
 Bystydzienski, J. M., Eisenhart, M., & Bruning, M. (2015). High school is not too late: Developing girls’ interest and engagement in engineering careers. *Career Development Quarterly, 63*(1), 88–95. http://doi.org/10.1002/j.2161-0045.2015.00097.x
-
-Cohen, J. (1992). A power primer. *Psychological Bulletin, 112*(1), 155.  
 
 National Governors Association Center for Best Practices, Council of Chief State School Officers. (2010). *Common Core State Standards for Mathematics*. Washington, DC: National Governors Association Center for Best Practices and the Council of Chief State School Officers. 
 
@@ -25,8 +20,6 @@ Corpus, J. H., & Wormington, S. V. (2014). Profiles of intrinsic and extrinsic m
 Csikszentmihalyi, M. (1990). *Flow: The psychology of optimal performance*. Cambridge, England: Cambridge University Press.  
 
 Csikszentmihalyi, M. (1997). *Finding flow: The psychology of engagement with everyday life*. New York, NY: Basic Books.  
-
-Creswell, J. W., Plano Clark, V. L., Gutmann, M. L., & Hanson, W. E. (2003). *Advanced mixed methods research designs*. In A. Tashakkori & C. Teddlie (Eds.), Handbook of mixed methods in social and behavioral research (pp. 209–240). Thousand Oaks, CA: Sage.  
 
 English, L. D. (2012). Data modelling with first-grade students. *Educational Studies in Mathematics, 81*(1), 15-30.  
 
@@ -58,11 +51,7 @@ Harring, J. R., & Hodis, F. A. (2016). Mixture modeling: Applications in educati
 
 Hasson, E., & Yarden, A. (2012). Separating the research question from the laboratory techniques: Advancing high‐school biology teachers' ability to ask research questions. *Journal of Research in Science Teaching, 49*(10), 1296-1320.  
 
-Hayenga, A. O., & Corpus, J. H. (2010). Profiles of intrinsic and extrinsic motivations: A person-centered approach to motivation and achievement in middle school. *Motivation and Emotion, 34*(4), 371-383.  
-
 Hektner, J. M., Schmidt, J. A., & Csikszentmihalyi, M. (2007). *Experience sampling method: Measuring the quality of everyday life*. Sage.  
-
-Jahnukainen, M. (2010). *Extreme cases*. Encyclopedia of Case Study Research. Thousand Oaks, CA: Sage.  
 
 Konold, C., & Pollatsek, A. (2002). Data analysis as the search for signals in noisy processes. *Journal for Research in Mathematics Education, 33*(4), 259-289.  
 
@@ -108,7 +97,6 @@ Piaget, J., & Inhelder, B. (1969). *The psychology of the child*. New York, NY: 
 
 Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M., & Nurmi, J. E. (2017). Variation in situation-specific engagement among lower secondary school students. *Learning and Instruction, 53*, 64-73. http://dx.doi.org/10.1016/j.learninstruc.2017.07.007  
 
-Rosenberg, J. M. (2018). Comparing mplus and mclust output. Retrieved from https://jrosen48.github.io/r-markdown/comparing-mplus-mclust.html  
 Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., & Lavonen, J. (2016). Integrating the light and dark sides of student engagement using person-oriented and situation-specific approaches. *Learning and Instruction, 43*, 61-70.  
 
 Salmela-Aro, K., Muotka, J., Alho, K., Hakkarainen, K., & Lonka, K. (2016). School burnout and engagement profiles among digital natives in Finland: A person-oriented approach. *European Journal of Developmental Psychology, 13*(6), 704-718.  
@@ -120,8 +108,6 @@ Schneider, B., Krajcik, J., Lavonen, J., Salmela‐Aro, K., Broda, M., Spicer, J
 Schmidt, J. A., Rosenberg, J. M., Beymer, P. (2018). A person-in-context approach to student engagement in science: Examining learning activities and choice. *Journal of Research in Science Teaching, 55*(1), 19-43 https://dx.doi.org/10.1002/tea.21409  
 
 Schwarz, N., Kahneman, D., & Xu, J. (2009). *Global and episodic reports of hedonic experience*. In R. Belli, D. Alwen, & F. Stafford (Eds.), Using calendar and diary methods in life events research (pp. 157-174). Newbury Park, CA: Sage.  
-
-Sfard, A. (1998). On two metaphors for learning and the dangers of choosing just one. *Educational Researcher, 27*(2), 4-13.  
 
 Shernoff, D. J., Csikszentmihalyi, M., Schneider, B., & Shernoff, E. S. (2003). Student engagement in high school classrooms from the perspective of flow theory. *School Psychology Quarterly, 18*(2), 158-176.  
 
@@ -165,8 +151,6 @@ Wang, M. T., & Eccles, J. S. (2012). Social support matters: Longitudinal effect
 
 Wang, M. T., & Holcombe, R. (2010). Adolescents’ perceptions of school environment, engagement, and academic achievement in middle school. *American Educational Research Journal, 47*(3), 633-662.  
 
-Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. *Journal of Experimental Psychology: General, 143*(5), 2020-2045.  
-
 Weisberg, M. (2012). *Simulation and similarity: Using models to understand the world*. Oxford University Press: Oxford, England.
 
 Wild, C. J., & Pfannkuch, M. (1999). Statistical thinking in empirical enquiry. *International Statistical Review, 67*(3), 223-248.  
@@ -176,8 +160,6 @@ Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., & Gravel, B. E. (2016). Wh
 Wilkerson, M. H. & Fenwick, M. (2017). *The practice of using mathematics and computational thinking*. In C. V. Schwarz, C. Passmore, & B. J. Reiser (Eds.), Helping Students Make Sense of the World Using Next Generation Science and Engineering Practices. Arlington, VA: National Science Teachers’ Association Press. pp. 181-204.  
 
 Windschitl, M., Thompson, J., & Braaten, M. (2018). *Ambitious science teaching*. Harvard University Press: Cambridge, Massachusettes.
-
-Witherington, D. C. (2015). *Dynamic systems in developmental science*. In W. F. Overton & P. C. M. Molenaar (Vol. Eds.) & R. M. Lerner (Ed.), Handbook of child psychology and developmental science. Vol. 1: Theory & method (7th ed., pp. 63-112). Hoboken, NJ: Wiley.  
 
 Wormington, S. V., & Linnenbrink-Garcia, L. (2017). A new look at multiple goal pursuit: The promise of a person-centered approach. *Educational Psychology Review, 29*(3), 407-445. doi:10.1007/s10648-016-9358-2  
 
