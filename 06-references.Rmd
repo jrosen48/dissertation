@@ -1,180 +1,184 @@
 # References
-
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{8pt}
 \noindent
+Akiva, T. (2005). Turning training into results: The new youth program quality assessment. *High/Scope Resource*, 24(2), 21-24.  
+Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319.  
+Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). *Studying individual development in an interindividual context: A person-oriented approach*. London, England: Psychology Press.
+Berland, L. K., Schwarz, C. V., Krist, C., Kenyon, L., Lo, A. S., & Reiser, B. J. (2016). Epistemologies in practice: Making scientific practices meaningful for students. *Journal of Research in Science Teaching, 53*(7), 1082-1112.  
 
-Akiva, T. (2005). Turning training into results: The new youth program quality assessment. High/Scope Resource, 24(2), 21-24.  
+Beymer, P. N., Rosenberg, J. M., Schmidt, J. A., & Naftzger, N. (2018). Examining relationships between choice, affect, and engagement in out-of-school time STEM programs. *Journal of Youth and Adolescence, 47*(6), 1178-1191. https://doi.org/10.1007/s10964-018-0814-9  
 
-Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. Development and psychopathology, 9(2), 291-319.  
+Bielik, T., & Yarden, A. (2016). Promoting the asking of research questions in a high-school biotechnology inquiry-oriented program. *International Journal of STEM Education, 3*(1), 15.  
 
-Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). Studying individual development in an interindividual context: A person-oriented approach. Psychology Press.  
+Breckenridge, J. N. (2000). Validating cluster analysis: Consistent replication and symmetry. *Multivariate Behavioral Research, 35*(2), 261-285.  
 
-Berland, L. K., Schwarz, C. V., Krist, C., Kenyon, L., Lo, A. S., & Reiser, B. J. (2016). Epistemologies in practice: Making scientific practices meaningful for students. Journal of Research in Science Teaching, 53(7), 1082-1112.  
+Bystydzienski, J. M., Eisenhart, M., & Bruning, M. (2015). High school is not too late: Developing girls’ interest and engagement in engineering careers. *Career Development Quarterly, 63*(1), 88–95. http://doi.org/10.1002/j.2161-0045.2015.00097.x
 
-Bielik, T., & Yarden, A. (2016). Promoting the asking of research questions in a high-school biotechnology inquiry-oriented program. International Journal of STEM Education, 3(1), 15.  
+Cohen, J. (1992). A power primer. *Psychological Bulletin, 112*(1), 155.  
 
-Breckenridge, J. N. (2000). Validating cluster analysis: Consistent replication and symmetry. Multivariate Behavioral Research, 35(2), 261-285.  
+National Governors Association Center for Best Practices, Council of Chief State School Officers. (2010). *Common Core State Standards for Mathematics*. Washington, DC: National Governors Association Center for Best Practices and the Council of Chief State School Officers. 
 
-Bystydzienski, J. M., Eisenhart, M., & Bruning, M. (2015). High school is not too late: Developing girls’ interest and engagement in engineering careers. Career Development Quarterly, 63(1), 88–95. http://doi.org/10.1002/j.2161-0045.2015.00097.x
+Corpus, J. H., & Wormington, S. V. (2014). Profiles of intrinsic and extrinsic motivations in elementary school: A longitudinal analysis. *The Journal of Experimental Education, 82*(4), 480-501.  
 
-Cohen, J. (1992). A power primer. Psychological Bulletin, 112(1), 155.  
+Csikszentmihalyi, M. (1990). *Flow: The psychology of optimal performance*. Cambridge, England: Cambridge University Press.  
 
-National Governors Association Center for Best Practices, Council of Chief State School Officers. (2010). Common Core State Standards for Mathematics. Washington, DC: National Governors Association Center for Best Practices and the Council of Chief State School Officers.  
+Csikszentmihalyi, M. (1997). *Finding flow: The psychology of engagement with everyday life*. New York, NY: Basic Books.  
 
-Corpus, J. H., & Wormington, S. V. (2014). Profiles of intrinsic and extrinsic motivations in elementary school: A longitudinal analysis. The Journal of Experimental Education, 82(4), 480-501.  
+Creswell, J. W., Plano Clark, V. L., Gutmann, M. L., & Hanson, W. E. (2003). *Advanced mixed methods research designs*. In A. Tashakkori & C. Teddlie (Eds.), Handbook of mixed methods in social and behavioral research (pp. 209–240). Thousand Oaks, CA: Sage.  
 
-Csikszentmihalyi, M. (1990). Flow: The psychology of optimal performance. Cambridge, England: Cambridge University Press.  
+English, L. D. (2012). Data modelling with first-grade students. *Educational Studies in Mathematics, 81*(1), 15-30.  
 
-Csikszentmihalyi, M. (1997). Finding flow: The psychology of engagement with everyday life. New York, NY: Basic Books.  
+Finzer, W. (2013). The data science education dilemma. *Technology Innovations in Statistics Education, 7*(2), p. 1-9.  
 
-Creswell, J. W., Plano Clark, V. L., Gutmann, M. L., & Hanson, W. E. (2003). Advanced mixed methods research designs. In A. Tashakkori & C. Teddlie (Eds.), Handbook of mixed methods in social and behavioral research (pp. 209–240). Thousand Oaks, CA: Sage.  
+Forum for Youth Investment. (2012). *Youth Program Quality Assessment*. Washington, DC: The Forum for Youth Investment
 
-English, L. D. (2012). Data modelling with first-grade students. Educational Studies in Mathematics, 81(1), 15-30.  
+Franklin, C., Kader, G., Mewborn, D., Moreno, J., Peck, R., Perry, M., & Scheaffer, R. (2007). *Guidelines for assessment and instruction in statistics education (GAISE) report*. Alexandria, VA: American Statistical Association.  
 
-Finzer, W. (2013). The data science education dilemma. Technology Innovations in Statistics Education, 7(2), p. 1-9.  
-Forum for Youth Investment. (2012). Youth Program Quality Assessment. Washington, DC: The Forum for Youth Investment
-Franklin, C., Kader, G., Mewborn, D., Moreno, J., Peck, R., Perry, M., & Scheaffer, R. (2007). Guidelines for assessment and instruction in statistics education (GAISE) report. Alexandria, VA: American Statistical Association.  
+Fredricks, J. A., & McColskey, W. (2012). *The measurement of student engagement: A comparative analysis of various methods and student self-report instruments*. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), The handbook of research on student engagement (pp. 763–782). New York: Springer Science. https://doi.org/10.1007/978-1-4614-2018-7_37  
 
-Fredricks, J. A., & McColskey, W. (2012). The measurement of student engagement: A comparative analysis of various methods and student self-report instruments. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), The handbook of research on student engagement (pp. 763–782). New York: Springer Science. https://doi.org/10.1007/978-1-4614-2018-7_37  
+Fredricks, J. A., Blumenfeld, P. C., & Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. *Review of Educational Research, 74*(1), 59-109.  
 
-Fredricks, J. A., Blumenfeld, P. C., & Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. Review of Educational Research, 74(1), 59-109.  
+Fredricks, J. A., Filsecker, M., & Lawson, M. A. (2016). Student engagement, context, and adjustment: Addressing definitional, measurement, and methodological issues. *Learning & Instruction, 43*, 1-4.  
 
-Fredricks, J. A., Filsecker, M., & Lawson, M. A. (2016). Student engagement, context, and adjustment: Addressing definitional, measurement, and methodological issues. Learning & Instruction, 43, 1-4.  
+Gelman, S. A., & Markman, E. M. (1987). Young children's inductions from natural kinds: The role of categories and appearances. *Child Development, 58*(6), 1532-1541.  
 
-Gelman, S. A., & Markman, E. M. (1987). Young children's inductions from natural kinds: The role of categories and appearances. Child Development, 58(6), 1532-1541.  
+Gopnik, A., & Sobel, D. M. (2000). Detecting blickets: How young children use information about novel causal powers in categorization and induction. *Child Development, 71*(5), 1205-1222.  
 
-Gopnik, A., & Sobel, D. M. (2000). Detecting blickets: How young children use information about novel causal powers in categorization and induction. Child Development, 71(5), 1205-1222.  
+Gopnik, A., Sobel, D. M., Schulz, L. E., & Glymour, C. (2001). Causal learning mechanisms in very young children: two-, three-, and four-year-olds infer causal relations from patterns of variation and covariation. *Developmental Psychology, 37*(5), 620.  
 
-Gopnik, A., Sobel, D. M., Schulz, L. E., & Glymour, C. (2001). Causal learning mechanisms in very young children: two-, three-, and four-year-olds infer causal relations from patterns of variation and covariation. Developmental Psychology, 37(5), 620.  
+Greene, B. A. (2015). Measuring cognitive engagement with self-report scales: Reflections from over 20 years of research. *lEducational Psychologist, 50*(1), 14-30.  
 
-Greene, B. A. (2015). Measuring cognitive engagement with self-report scales: Reflections from over 20 years of research. Educational Psychologist, 50(1), 14-30.  
+Greene, K. M., Lee, B., Constance, N., & Hynes, K. (2013). Examining youth and program predictors of engagement in out-of-school time programs. *Journal of Youth and Adolescence, 42*(10), 1557-1572.  
 
-Greene, K. M., Lee, B., Constance, N., & Hynes, K. (2013). Examining youth and program predictors of engagement in out-of-school time programs. Journal of Youth and Adolescence, 42(10), 1557-1572.  
+Hancock, C., Kaput, J. J., & Goldsmith, L. T. (1992). Authentic inquiry with data: Critical barriers to classroom implementation. *Educational Psychologist, 27*(3), 337-364.  
 
-Hancock, C., Kaput, J. J., & Goldsmith, L. T. (1992). Authentic inquiry with data: Critical barriers to classroom implementation. Educational Psychologist, 27(3), 337-364.  
+Harring, J. R., & Hodis, F. A. (2016). Mixture modeling: Applications in educational psychology. *Educational Psychologist, 51*(3-4), 354-367.  
 
-Harring, J. R., & Hodis, F. A. (2016). Mixture modeling: Applications in educational psychology. Educational Psychologist, 51(3-4), 354-367.  
+Hasson, E., & Yarden, A. (2012). Separating the research question from the laboratory techniques: Advancing high‐school biology teachers' ability to ask research questions. *Journal of Research in Science Teaching, 49*(10), 1296-1320.  
 
-Hasson, E., & Yarden, A. (2012). Separating the research question from the laboratory techniques: Advancing high‐school biology teachers' ability to ask research questions. Journal of Research in Science Teaching, 49(10), 1296-1320.  
+Hayenga, A. O., & Corpus, J. H. (2010). Profiles of intrinsic and extrinsic motivations: A person-centered approach to motivation and achievement in middle school. *Motivation and Emotion, 34*(4), 371-383.  
 
-Hayenga, A. O., & Corpus, J. H. (2010). Profiles of intrinsic and extrinsic motivations: A person-centered approach to motivation and achievement in middle school. Motivation and Emotion, 34(4), 371-383.  
+Hektner, J. M., Schmidt, J. A., & Csikszentmihalyi, M. (2007). *Experience sampling method: Measuring the quality of everyday life*. Sage.  
 
-Hektner, J. M., Schmidt, J. A., & Csikszentmihalyi, M. (2007). Experience sampling method: Measuring the quality of everyday life. Sage.  
+Jahnukainen, M. (2010). *Extreme cases*. Encyclopedia of Case Study Research. Thousand Oaks, CA: Sage.  
 
-Jahnukainen, M. (2010). Extreme cases. Encyclopedia of Case Study Research. Thousand Oaks, CA: Sage.  
+Konold, C., & Pollatsek, A. (2002). Data analysis as the search for signals in noisy processes. *Journal for Research in Mathematics Education, 33*(4), 259-289.  
 
-Konold, C., & Pollatsek, A. (2002). Data analysis as the search for signals in noisy processes. Journal for Research in Mathematics Education, 33(4), 259-289.  
+Lauer, P. A., Akiba, M., Wilkerson, S. B., Apthorp, H. S., Snow, D., & Martin-Glenn, M. L. (2006). Out-of-school-time programs: A meta-analysis of effects for at-risk students. *Review of Educational Research, 76*(2), 275-313.  
 
-Lauer, P. A., Akiba, M., Wilkerson, S. B., Apthorp, H. S., Snow, D., & Martin-Glenn, M. L. (2006). Out-of-school-time programs: A meta-analysis of effects for at-risk students. Review of educational research, 76(2), 275-313.  
+Lee, H. S., Angotti, R. L., & Tarr, J. E. (2010). Making comparisons between observed data and expected outcomes: students’ informal hypothesis testing with probability simulation tools. *Statistics Education Research Journal, 9*(1), 68-96.  
 
-Lee, H. S., Angotti, R. L., & Tarr, J. E. (2010). Making comparisons between observed data and expected outcomes: students’ informal hypothesis testing with probability simulation tools. Statistics Education Research Journal, 9(1), 68-96.  
+Lee, H., & Hollebrands, K. (2008). Preparing to teach mathematics with technology: An integrated approach to developing technological pedagogical content knowledge. *Contemporary Issues in Technology and Teacher Education, 8*(4), 326-341.  
 
-Lee, H., & Hollebrands, K. (2008). Preparing to teach mathematics with technology: An integrated approach to developing technological pedagogical content knowledge. Contemporary Issues in Technology and Teacher Education, 8(4), 326-341.  
+Lee, V. R., & Wilkerson, M. (2018). *Data use by middle and secondary students in the digital age: A status report and future prospects*. Commissioned Paper for the National Academies of Sciences, Engineering, and Medicine, Board on Science Education, Committee on Science Investigations and Engineering Design for Grades 6-12. Washington, D.C.
 
-Lehrer, R., & Romberg, T. (1996). Exploring children's data modeling. Cognition and Instruction, 14(1), 69-108.  
+Lehrer, R., & Romberg, T. (1996). Exploring children's data modeling. *Cognition and Instruction, 14*(1), 69-108.  
 
-Lehrer, R., & Schauble, L. (2004). Modeling natural variation through distribution. American Educational Research Journal, 41(3), 635-679.  
+Lehrer, R., & Schauble, L. (2004). Modeling natural variation through distribution. *American Educational Research Journal, 41*(3), 635-679.  
 
-Lehrer, R. & Schauble, L. (2015). Developing scientific thinking. In L. S. Liben & U. Müller (Eds.), Cognitive processes. Handbook of child psychology and developmental science (Vol. 2, 7th ed., pp. 671-174). Hoboken, NJ: Wiley.  
+Lehrer, R. & Schauble, L. (2015). *Developing scientific thinking*. In L. S. Liben & U. Müller (Eds.), Cognitive processes. Handbook of child psychology and developmental science (Vol. 2, 7th ed., pp. 671-174). Hoboken, NJ: Wiley.  
 
-Lehrer, R., Kim, M. J., & Jones, R. S. (2011). Developing conceptions of statistics by designing measures of distribution. ZDM, 43(5), 723-736.  
+Lehrer, R., Kim, M. J., & Jones, R. S. (2011). Developing conceptions of statistics by designing measures of distribution. *ZDM, 43*(5), 723-736.  
 
-Lehrer, R., Kim, M. J., & Schauble, L. (2007). Supporting the development of conceptions of statistics by engaging students in measuring and modeling variability. International Journal of Computers for Mathematical Learning, 12(3), 195-216.  
+Lehrer, R., Kim, M. J., & Schauble, L. (2007). Supporting the development of conceptions of statistics by engaging students in measuring and modeling variability. *International Journal of Computers for Mathematical Learning, 12*(3), 195-216.  
 
-Lesh, R., Middleton, J. A., Caylor, E., & Gupta, S. (2008). A science need: Designing tasks to engage students in modeling complex data. Educational Studies in Mathematics, 68(2), 113-130.  
+Lesh, R., Middleton, J. A., Caylor, E., & Gupta, S. (2008). A science need: Designing tasks to engage students in modeling complex data. *Educational Studies in Mathematics, 68*(2), 113-130.  
 
-Linnansaari, J., Viljaranta, J., Lavonen, J., Schneider, B., & Salmela-Aro, K. (2015). Finnish Students Engagement in Science Lessons. NorDiNa: Nordic Studies in Science Education, 11(2), 192-206. Retrieved from https://www.journals.uio.no/index.php/nordina/article/view/2047  
+Linnansaari, J., Viljaranta, J., Lavonen, J., Schneider, B., & Salmela-Aro, K. (2015). Finnish Students Engagement in Science Lessons. *NorDiNa: Nordic Studies in Science Education, 11*(2), 192-206. Retrieved from https://www.journals.uio.no/index.php/nordina/article/view/2047  
 
-Lovett, M. C., & Shah, P. (2007). Preface. In M. C. Lovett & P. Shah (Eds.), Thinking with data (pp. x-xx [requested book through ILL to confirm page #s]). New York, NY: Lawrence Erlbaum.  
+Magnusson, D., & Cairns, R. B. (1996). *Developmental science: Toward a unified framework*. Cambridge, England: Cambridge University Press.  
 
-Magnusson, D., & Cairns, R. B. (1996). Developmental science: Toward a unified framework. Cambridge, England: Cambridge University Press.  
+McNeill, K. L., & Berland, L. (2017). What is (or should be) scientific evidence use in k‐12 classrooms? *Journal of Research in Science Teaching, 54*(5), 672-689.  
 
-McNeill, K. L., & Berland, L. (2017). What is (or should be) scientific evidence use in k‐12 classrooms? Journal of Research in Science Teaching, 54(5), 672-689.  
+Miller, E., Manz, E., Russ, R., Stroupe, D., & Berland, L. (advance online publication). Addressing the epistemic elephant in the room: Epistemic agency and the next generation science standards. *Journal of Research in Science Teaching*. https://doi.org/10.1002/tea.21459
 
-Muthén, B. (2004). Latent variable analysis. The Sage handbook of quantitative methodology for the social sciences. Thousand Oaks, CA: Sage Publications, 345-68.  
+Muthén, B. (2004). *Latent variable analysis*. The Sage handbook of quantitative methodology for the social sciences. Thousand Oaks, CA: Sage Publications, 345-68.  
 
-Muthén, L. K., & Muthén, B. O. (1997-2017). Mplus User's Guide. Los Angeles, CA: Muthén & Muthén.  
+Muthén, L. K., & Muthén, B. O. (1997-2017). *Mplus User's Guid*e. Los Angeles, CA: Muthén & Muthén.  
 
-NGSS Lead States. (2013). Next generation science standards: For states, by states. Washington, DC: National Academies Press.  
+NGSS Lead States. (2013). *Next generation science standards: For states, by states*. Washington, DC: National Academies Press.  
 
-Nolen, S. B., Horn, I. S., & Ward, C. J. (2015). Situating motivation. Educational Psychologist, 50(3), 234-247.
-Patall, E. A., Vasquez, A. C., Steingut, R. R., Trimble, S. S., & Pituch, K. A. (2016). Daily interest, engagement, and autonomy support in the high school science classroom. Contemporary Educational Psychology, 46, 180-194.  
+Pekrun, R., & Linnenbrink-Garcia, L. (2012). *Academic emotions and student engagement*. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), Handbook of research on student engagement (pp. 259-292). New York, NY: Springer.  
 
-Patall, E. A., Steingut, R. R., Vasquez, A. C., Trimble, S. S., Pituch, K. A., & Freeman, J. L. (2017). Daily Autonomy Supporting or Thwarting and Students’ Motivation and Engagement in the High School Science Classroom. Journal of Educational Psychology. Advance online publication.
-http://dx.doi.org/10.1037/edu0000214  
+Petrosino, A., Lehrer, R., & Schauble, L. (2003). Structuring error and experimental variation as distribution in the fourth grade. *Mathematical Thinking and Learning, 5*(2&3), 131-156.  
 
-Pekrun, R., & Linnenbrink-Garcia, L. (2012). Academic emotions and student engagement. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), Handbook of research on student engagement (pp. 259-292). New York, NY: Springer.  
+Piaget, J., & Inhelder, B. (1969). *The psychology of the child*. New York, NY: Basic Books.  
 
-Petrosino, A., Lehrer, R., & Schauble, L. (2003). Structuring error and experimental variation as distribution in the fourth grade. Mathematical Thinking and Learning, 5 (2&3), 131-156.  
-
-Piaget, J., & Inhelder, B. (1969). The psychology of the child. New York, NY: Basic Books.  
-Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M., & Nurmi, J. E. (2017). Variation in situation-specific engagement among lower secondary school students. Learning and Instruction. http://dx.doi.org/10.1016/j.learninstruc.2017.07.007  
+Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M., & Nurmi, J. E. (2017). Variation in situation-specific engagement among lower secondary school students. *Learning and Instruction, 53*, 64-73. http://dx.doi.org/10.1016/j.learninstruc.2017.07.007  
 
 Rosenberg, J. M. (2018). Comparing mplus and mclust output. Retrieved from https://jrosen48.github.io/r-markdown/comparing-mplus-mclust.html  
+Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., & Lavonen, J. (2016). Integrating the light and dark sides of student engagement using person-oriented and situation-specific approaches. *Learning and Instruction, 43*, 61-70.  
 
-Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., & Lavonen, J. (2016). Integrating the light and dark sides of student engagement using person-oriented and situation-specific approaches. Learning and Instruction, 43, 61-70.  
+Salmela-Aro, K., Muotka, J., Alho, K., Hakkarainen, K., & Lonka, K. (2016). School burnout and engagement profiles among digital natives in Finland: A person-oriented approach. *European Journal of Developmental Psychology, 13*(6), 704-718.  
 
-Salmela-Aro, K., Muotka, J., Alho, K., Hakkarainen, K., & Lonka, K. (2016). School burnout and engagement profiles among digital natives in Finland: A person-oriented approach. European Journal of Developmental Psychology, 13(6), 704-718.  
+Schmidt, J. A., Rosenberg, J. M., & Beymer, P. (2018). A person-in-context approach to student engagement in science: Examining learning activities and choice. *Journal of Research in Science Teaching*, 55(1), 19-43. https://dx.doi.org/10.1002/tea.21409 
 
-Schneider, B., Krajcik, J., Lavonen, J., Salmela‐Aro, K., Broda, M., Spicer, J., ... & Viljaranta, J. (2016). Investigating optimal learning moments in US and Finnish science classes. Journal of Research in Science Teaching, 53(3), 400-421.  
+Schneider, B., Krajcik, J., Lavonen, J., Salmela‐Aro, K., Broda, M., Spicer, J., ... & Viljaranta, J. (2016). Investigating optimal learning moments in US and Finnish science classes. *Journal of Research in Science Teaching, 53*(3), 400-421.  
 
-Schmidt, J. A., Rosenberg, J. M., Beymer, P. (advance online publication). A person-in-context approach to student engagement in science: Examining learning activities and choice. Journal of Research in Science Teaching. https://dx.doi.org/10.1002/tea.21409  
+Schmidt, J. A., Rosenberg, J. M., Beymer, P. (2018). A person-in-context approach to student engagement in science: Examining learning activities and choice. *Journal of Research in Science Teaching, 55*(1), 19-43 https://dx.doi.org/10.1002/tea.21409  
 
-Schwarz, N., Kahneman, D., & Xu, J. (2009). Global and episodic reports of hedonic experience. In R. Belli, D. Alwen, & F. Stafford (Eds.), Using calendar and diary methods in life events research (pp. 157-174). Newbury Park, CA: Sage.  
+Schwarz, N., Kahneman, D., & Xu, J. (2009). *Global and episodic reports of hedonic experience*. In R. Belli, D. Alwen, & F. Stafford (Eds.), Using calendar and diary methods in life events research (pp. 157-174). Newbury Park, CA: Sage.  
 
-Sfard, A. (1998). On two metaphors for learning and the dangers of choosing just one. Educational Researcher, 27(2), 4-13.  
+Sfard, A. (1998). On two metaphors for learning and the dangers of choosing just one. *Educational Researcher, 27*(2), 4-13.  
 
-Shernoff, D. J., Csikszentmihalyi, M., Schneider, B., & Shernoff, E. S. (2003). Student engagement in high school classrooms from the perspective of flow theory. School Psychology Quarterly, 18(2), 158-176.  
+Shernoff, D. J., Csikszentmihalyi, M., Schneider, B., & Shernoff, E. S. (2003). Student engagement in high school classrooms from the perspective of flow theory. *School Psychology Quarterly, 18*(2), 158-176.  
 
-Shernoff, D. J., Kelly, S., Tonks, S. M., Anderson, B., Cavanagh, R. F., Sinha, S., & Abdi, B. (2016). Student engagement as a function of environmental complexity in high school classrooms. Learning and Instruction, 43, 52-60.  
-Shumow, L., & Schmidt, J. A. (2013). STEM interest and engagement (STEM I.E.). National Science Foundation proposal for award number 1421198.  
+Shernoff, D. J., Kelly, S., Tonks, S. M., Anderson, B., Cavanagh, R. F., Sinha, S., & Abdi, B. (2016). Student engagement as a function of environmental complexity in high school classrooms. *Learning and Instruction, 43*, 52-60.  
 
-Sinatra, G. M., Heddy, B. C., & Lombardi, D. (2015). The challenges of defining and measuring student engagement in science. Educational Psychologist, 50(1), 1-13. doi:10.1080/00461520.2014.1002924  
+Shumow, L., & Schmidt, J. A. (2013). *STEM interest and engagement (STEM I.E.)*. National Science Foundation proposal for award number 1421198.  
 
-Singh, K., Granville, M., & Dika, S. (2002). Mathematics and science achievement: Effects of motivation, interest, and academic engagement. The Journal of Educational Research, 95(6), 323-332.  
+Sinatra, G. M., Heddy, B. C., & Lombardi, D. (2015). The challenges of defining and measuring student engagement in science. *Educational Psychologist, 50*(1), 1-13. doi:10.1080/00461520.2014.1002924  
 
-Shernoff, D. J., & Schmidt, J. A. (2008). Further Evidence of an Engagement–Achievement Paradox Among U.S. High School Students. Journal of Youth and Adolescence, 37(5), 564–580. http://doi.org/10.1007/s10964-007-9241-z  
+Singh, K., Granville, M., & Dika, S. (2002). Mathematics and science achievement: Effects of motivation, interest, and academic engagement. *The Journal of Educational Research, 95*(6), 323-332.  
 
-Shumow, L., Schmidt, J. A., & Zaleski, D. J. (2013). Multiple perspectives on student learning, engagement, and motivation in high school biology labs. The High School Journal, 96(3), 232-252.  
+Shernoff, D. J., & Schmidt, J. A. (2008). Further Evidence of an Engagement–Achievement Paradox Among U.S. High School Students. *Journal of Youth and Adolescence, 37*(5), 564–580. http://doi.org/10.1007/s10964-007-9241-z  
 
-Skinner, E. A., & Pitzer, J. (2012). Developmental dynamics of engagement, coping, and everyday resilience. In S. Christenson, A. Reschly, & C. Wylie (Eds.), Handbook of Research on Student Engagement (pp. 21-45). New York: Springer Science.  
+Shumow, L., Schmidt, J. A., & Zaleski, D. J. (2013). Multiple perspectives on student learning, engagement, and motivation in high school biology labs. *The High School Journal, 96*(3), 232-252.  
 
-Skinner, E. A., Kindermann, T. A., & Furrer, C. J. (2009). A motivational perspective on engagement and disaffection: Conceptualization and assessment of children's behavioral and emotional participation in academic activities in the classroom. Educational and Psychological Measurement, 69(3), 493-525.  
+Skinner, E. A., & Pitzer, J. (2012). *Developmental dynamics of engagement, coping, and everyday resilience*. In S. Christenson, A. Reschly, & C. Wylie (Eds.), Handbook of Research on Student Engagement (pp. 21-45). New York: Springer Science.  
 
-Skinner, E., Furrer, C., Marchand, G., & Kindermann, T. (2008). Engagement and disaffection in the classroom: Part of a larger motivational dynamic? Journal of Educational Psychology, 100(4), 765.  
+Skinner, E. A., Kindermann, T. A., & Furrer, C. J. (2009). A motivational perspective on engagement and disaffection: Conceptualization and assessment of children's behavioral and emotional participation in academic activities in the classroom. *Educational and Psychological Measurement, 69*(3), 493-525.
 
-Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, K. S., & Devaney, T. (2012).Continuous quality improvement in afterschool settings: Impact findings from the Youth Program Quality Intervention study. Washington, DC: The Forum for Youth Investment.  
+Skinner, E., Furrer, C., Marchand, G., & Kindermann, T. (2008). Engagement and disaffection in the classroom: Part of a larger motivational dynamic? *Journal of Educational Psychology, 100*(4), 765.
 
-Steinley, D., & Brusco, M. J. (2011). Evaluating mixture modeling for clustering: recommendations and cautions. Psychological Methods, 16(1), 63.  
+Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, K. S., & Devaney, T. (2012). *Continuous quality improvement in afterschool settings: Impact findings from the Youth Program Quality Intervention study*. Washington, DC: The Forum for Youth Investment.  
 
-Stohl, H., & Tarr, J. E. (2002). Developing notions of inference using probability simulation tools. The Journal of Mathematical Behavior, 21(3), 319-337.  
+Steinley, D., & Brusco, M. J. (2011). Evaluating mixture modeling for clustering: recommendations and cautions. *Psychological Methods, 16*(1), 63.  
 
-Stroupe, D. (2014). Examining classroom science practice communities: How teachers and students negotiate epistemic agency and learn science‐as‐practice. Science Education, 98(3), 487-516.  
+Stohl, H., & Tarr, J. E. (2002). Developing notions of inference using probability simulation tools. *The Journal of Mathematical Behavior, 21*(3), 319-337.  
 
-Strati, A. D., Schmidt, J. A., & Maier, K. S. (2017). Perceived challenge, teacher support, and teacher obstruction as predictors of student engagement. Journal of Educational Psychology, 109(1), 131-147.  
+Stroupe, D. (2014). Examining classroom science practice communities: How teachers and students negotiate epistemic agency and learn science‐as‐practice. *Science Education, 98*(3), 487-516.  
 
-Trevors, G. J., Kendeou, P., Bråten, I., & Braasch, J. L. (2017). Adolescents’ epistemic profiles in the service of knowledge revision. Contemporary Educational Psychology, 49, 107-120.  
+Strati, A. D., Schmidt, J. A., & Maier, K. S. (2017). Perceived challenge, teacher support, and teacher obstruction as predictors of student engagement. *Journal of Educational Psychology, 109*(1), 131-147.  
 
-Turner, J. C., & Meyer, D. K. (2000). Studying and understanding the instructional contexts of classrooms: Using our past to forge our future. Educational Psychologist, 35(2), 69-85.  
+Trevors, G. J., Kendeou, P., Bråten, I., & Braasch, J. L. (2017). Adolescents’ epistemic profiles in the service of knowledge revision. *Contemporary Educational Psychology, 49*, 107-120.  
 
-van Rooij, E. C., Jansen, E. P., & van de Grift, W. J. (2017). Secondary school students' engagement profiles and their relationship with academic adjustment and achievement in university. Learning and Individual Differences, 54, 9-19.  
+Turner, J. C., & Meyer, D. K. (2000). Studying and understanding the instructional contexts of classrooms: Using our past to forge our future. *Educational Psychologist, 35*(2), 69-85.  
 
-Vandell, D. L., Hall, V., O’Cadiz, P., & Karsh, A. (2012). Piloting outcome measures for summer learning initiative programs. Final report to the David and Lucile Packard Foundation, Children, Families, and Communities Program. Retrieved from http://faculty.sites.uci.edu/childcare/files/2013/07/SL-Outcomes-2011-Pilot_Edited_8.19.pdf  
+van Rooij, E. C., Jansen, E. P., & van de Grift, W. J. (2017). Secondary school students' engagement profiles and their relationship with academic adjustment and achievement in university. *Learning and Individual Differences, 54*, 9-19.  
 
-Wang, M. T., & Eccles, J. S. (2012). Social support matters: Longitudinal effects of social support on three dimensions of school engagement from middle to high school. Child Development, 83(3), 877-895.  
+Vandell, D. L., Hall, V., O’Cadiz, P., & Karsh, A. (2012). *Piloting outcome measures for summer learning initiative programs*. Final report to the David and Lucile Packard Foundation, Children, Families, and Communities Program. Retrieved from http://faculty.sites.uci.edu/childcare/files/2013/07/SL-Outcomes-2011-Pilot_Edited_8.19.pdf  
 
-Wang, M. T., & Holcombe, R. (2010). Adolescents’ perceptions of school environment, engagement, and academic achievement in middle school. American Educational Research Journal, 47(3), 633-662.  
+Wang, M. T., & Eccles, J. S. (2012). Social support matters: Longitudinal effects of social support on three dimensions of school engagement from middle to high school. *Child Development, 83*(3), 877-895.  
 
-Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. Journal of Experimental Psychology: General, 143(5), 2020-2045.  
+Wang, M. T., & Holcombe, R. (2010). Adolescents’ perceptions of school environment, engagement, and academic achievement in middle school. *American Educational Research Journal, 47*(3), 633-662.  
 
-Wild, C. J., & Pfannkuch, M. (1999). Statistical thinking in empirical enquiry. International Statistical Review, 67(3), 223-248.  
+Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. *Journal of Experimental Psychology: General, 143*(5), 2020-2045.  
 
-Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., & Gravel, B. E. (2016). What’s the technology for? Teacher attention and pedagogical goals in a modeling-focused professional development workshop. Journal of Science Teacher Education, 27(1), 11-33.  
+Weisberg, M. (2012). *Simulation and similarity: Using models to understand the world*. Oxford University Press: Oxford, England.
 
-Wilkerson, M. H. & Fenwick, M. (2017). The practice of using mathematics and computational thinking. In C. V. Schwarz, C. Passmore, & B. J. Reiser (Eds.), Helping Students Make Sense of the World Using Next Generation Science and Engineering Practices. Arlington, VA: National Science Teachers’ Association Press. pp. 181-204.  
+Wild, C. J., & Pfannkuch, M. (1999). Statistical thinking in empirical enquiry. *International Statistical Review, 67*(3), 223-248.  
 
-Witherington, D. C. (2015). Dynamic systems in developmental science. In W. F. Overton & P. C. M. Molenaar (Vol. Eds.) & R. M. Lerner (Ed.), Handbook of child psychology and developmental science. Vol. 1: Theory & method (7th ed., pp. 63-112). Hoboken, NJ: Wiley.  
+Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., & Gravel, B. E. (2016). What’s the technology for? Teacher attention and pedagogical goals in a modeling-focused professional development workshop. *Journal of Science Teacher Education, 27*(1), 11-33.  
 
-Wormington, S. V., & Linnenbrink-Garcia, L. (advance online publication). A new look at multiple goal pursuit: The promise of a person-centered approach. Educational Psychology Review. doi:10.1007/s10648-016-9358-2  
+Wilkerson, M. H. & Fenwick, M. (2017). *The practice of using mathematics and computational thinking*. In C. V. Schwarz, C. Passmore, & B. J. Reiser (Eds.), Helping Students Make Sense of the World Using Next Generation Science and Engineering Practices. Arlington, VA: National Science Teachers’ Association Press. pp. 181-204.  
+
+Windschitl, M., Thompson, J., & Braaten, M. (2018). *Ambitious science teaching*. Harvard University Press: Cambridge, Massachusettes.
+
+Witherington, D. C. (2015). *Dynamic systems in developmental science*. In W. F. Overton & P. C. M. Molenaar (Vol. Eds.) & R. M. Lerner (Ed.), Handbook of child psychology and developmental science. Vol. 1: Theory & method (7th ed., pp. 63-112). Hoboken, NJ: Wiley.  
+
+Wormington, S. V., & Linnenbrink-Garcia, L. (2017). A new look at multiple goal pursuit: The promise of a person-centered approach. *Educational Psychology Review, 29*(3), 407-445. doi:10.1007/s10648-016-9358-2  
+
+Yohalem, N., Wilson-Ahlstrom, A., & Yu, D. (2005). *Youth program quality assessment and improvement: Celebrating progress and surfacing challenges*. A meeting report. http://forumfyi.org/content/youth-program-quality-
