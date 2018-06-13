@@ -142,10 +142,10 @@ The result of this model selection process was the estimation of *six distinct p
 This solution is characterized by:
 
 - A *universally low* profile, characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence
-- An *only behaviorally engaged* profile, with moderate levels of working hard, very low enjoyment of the activity, and moderately (low) levels of learning something new and challenge and competence
-- An *only affectively engaged* profile, with moderate levels of enjoyment, low levels of hard work, and moderately (low) levels of cognitive learning something new, challenge, and competence
+- An *only behaviorally engaged* profile, with moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence
+- An *only affectively engaged* profile, with moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence
 - An *all moderate* profile, with moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence
-- An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but with low levels of challenge
+- An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
 - A *full* profile, with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
 
 ```{r, fig.width = 7, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
