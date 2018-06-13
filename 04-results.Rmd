@@ -72,7 +72,8 @@ names(p) <- c("",
               "Competence")
 
 p %>% 
-  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among study variables")
+  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among the continuous study variables") %>% 
+    kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 ## Results for Research Question #1
@@ -134,8 +135,6 @@ In the other instructional episodes that were not focused on youth sharing what 
 
 ## Results for Research Question #2: What profiles of youth engagement emerge from experiential data collected in the programs?
 
-On the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony, a solution with six profiles of engagement was selected. This solution represents the profiles of engagement identified to answer this research question and for use in subsequent analyses. This solution was associated with a model with varying means, equal variances, and covariances fixed to 0 (the first model type among those described in the methods). Because of the exploratory nature of the approach used to identify the profiles, LPA, it is important to consider alternate solutions. In particular, a seven profile solution with the same model specification was similar (but not superior) regarding the fit statistics and statistical tests. This solution, presented in Appendix F, was determined not to be superior to the six profile solution, ultimately chosen on the basis of parsimony and interpretability. 
-
 ```{r, fig.width = 7, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
 
 m1_6 <- read_rds("data/models/m1_6.rds")
@@ -165,11 +164,11 @@ p1 <- m1_6 %>%
 p1
 ```
 
-```{r, fig.cap = "The six profiles of engagement (with raw variable values)"}
+```{r, fig.width = 7, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with raw variable values)"}
 m1_6 <- read_rds("data/models/m1_6.rds")
 
 p2 <- m1_6 %>%
-  plot_profiles_mplus(to_center = FALSE, to_scale = FALSE)
+  plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
   scale_x_discrete("", 
                    limits = c("Profile 2 (n = 667)",
                               "Profile 1 (n = 370)",
@@ -193,6 +192,8 @@ p2 <- m1_6 %>%
 
 p2
 ```
+
+On the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony, a solution with six profiles of engagement was selected. This solution represents the profiles of engagement identified to answer this research question and for use in subsequent analyses. This solution was associated with a model with varying means, equal variances, and covariances fixed to 0 (the first model type among those described in the methods). Because of the exploratory nature of the approach used to identify the profiles, LPA, it is important to consider alternate solutions. In particular, a seven profile solution with the same model specification was similar (but not superior) regarding the fit statistics and statistical tests. This solution, presented in Appendix F, was determined not to be superior to the six profile solution, ultimately chosen on the basis of parsimony and interpretability. 
 
 The result of this model selection process was the estimation of *six distinct profiles* identified from the data, as presented in Figures 4.1 and 4.2. Figure 4.1 shows the profiles with variables that were centered to have a *mean* of 0 and a *standard deviation* of 1. Thus, the *y*-axis for this plot is labeled "Z-score"). Figure 4.2 shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value." The two plots are presented because they provide a different view into the composition of the profiles: Those with the centered variables highlights positive and negative departures from the mean value for each variable, making differences between the profiles distinct. The plot with the raw data instead highlights the reported values of the variables, emphasizing the values of the variables in the profiles in the same units that youth were asked to consider when they responded (and potentially highlighting similarities that may seem very different in the plot with the centered data).
 

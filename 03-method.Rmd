@@ -122,7 +122,8 @@ d <- tibble::tribble(
 )
 
 d %>% 
-  knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM")
+  knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 ### Other youth characteristics
