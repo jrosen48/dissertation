@@ -102,6 +102,8 @@ Piaget, J., & Inhelder, B. (1969). *The psychology of the child*. New York, NY: 
 
 Pöysä, S., Vasalampi, K., Muotka, J., Lerkkanen, M. K., Poikkeus, A. M., & Nurmi, J. E. (2017). Variation in situation-specific engagement among lower secondary school students. *Learning and Instruction, 53*, 64-73. http://dx.doi.org/10.1016/j.learninstruc.2017.07.007  
 
+Rosenberg, J. M., Schmidt, J. A., & Beymer, P. N. (2018). *tidyLPA: Easily carry out Latent Profile Analysis*. https://cran.r-project.org/web/packages/tidyLPA/index.html
+
 Salmela-Aro, K., Moeller, J., Schneider, B., Spicer, J., & Lavonen, J. (2016). Integrating the light and dark sides of student engagement using person-oriented and situation-specific approaches. *Learning and Instruction, 43*, 61-70.  
 
 Salmela-Aro, K., Muotka, J., Alho, K., Hakkarainen, K., & Lonka, K. (2016). School burnout and engagement profiles among digital natives in Finland: A person-oriented approach. *European Journal of Developmental Psychology, 13*(6), 704-718.  

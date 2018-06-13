@@ -20,13 +20,18 @@ t <- tibble::tribble(
   "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                            "Analyze; Use symbols or models",
   NA,                                                                                                              NA,                                                          NA,
   NA,                                                                                                              NA,                                                          NA
-) %>% 
+) 
+
+names(t) <- c("Aspect of Work with Data", "x", "Corresponding STEM-PQA code(s)")
+t <- t[, c(1, 3)]
+
+t %>% 
+  slice(1:6) %>% 
   knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
   kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape()
-names(t) <- c("Aspect of Work with Data", "Corresponding STEM-PQA code(s)")
-t <- t[, c(1, 3)]
-t
+
+
 ```
 
 ### Appendix B: Program descriptions
@@ -50,7 +55,9 @@ t
 *Adventures in Mathematics*: A mathematics-focused program that aims to help youth to develop the basic math skills and prevent summer learning loss among participating youth through direct instruction and participation in math-related games. Located primarily in the classroom. 20 youth who are rising 8th to 10th graders. Youth participated in direct instructions in mathematics and math-related games in small groups. Program content was aligned with the state's standards in mathematics.
 )
 
-### Appendix C: Work with data by program
+### Appendix C: Table with work with data by program
+
+This table contains the proportion of the five aspects of work with data during by program, as well as the total number of signals associated with each program. 
 
 ```{r}
 data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
@@ -87,7 +94,7 @@ pnn %>%
 
 ### Appendix D: Model specifications details
 
-Here, the six models that are possible to specify in LPA are described in terms of how the variables used to create the profiles are estimated. Note that *p* represents different profiles and each parameterization is represented by a 4 x 4 covariance matrix and therefore would represent the parameterization for a four-profile solution. In all of the models, the means are estimated freely in the different profiles. Imagine that each row and column represents a different variable, i.e., the first row (and column) represents broad interest, the second enjoyment, the third self-efficacy, and the fourth another variable, i.e., future goals and plans. Models 1 and 3 meet the assumption of independence, that is, that, after accounting for their relations with the profile, the variables used to estimate the profiles are independent (Collins & Lanza, 2010). They estimate variable variances but do not estimate covariances (i.e., as can be seen, the covariance matrices are "diagonal," without any off-diagonal parameters that are estimated). These models are estimated by default in MPlus, although these assumptions can be relaxed (Muthen & Muthen, 2017). Importantly, this does not mean the variables used to create the profile are assumed to be not related; as Collins and Lanza (2010) explain:
+Here, the six models that can possibly be specified in LPA are described in terms of how the variables used to create the profiles are estimated. Note that *p* represents different profiles and each parameterization is represented by a 4 x 4 covariance matrix and therefore would represent the parameterization for a four-profile solution. In all of the models, the means are estimated freely in the different profiles. Imagine that each row and column represents a different variable, i.e., the first row (and column) represents broad interest, the second enjoyment, the third self-efficacy, and the fourth another variable, i.e., future goals and plans. Models 1 and 3 meet the assumption of independence, that is, that, after accounting for their relations with the profile, the variables used to estimate the profiles are independent (Collins & Lanza, 2010). They estimate variable variances but do not estimate covariances (i.e., as can be seen, the covariance matrices are "diagonal," without any off-diagonal parameters that are estimated). These models are estimated by default in MPlus, although these assumptions can be relaxed (Muthen & Muthen, 2017). Importantly, this does not mean the variables used to create the profile are assumed to be not related; as Collins and Lanza (2010) explain:
 
 > The local independence assumption refers only to conditioning on the latent variable. It does not imply that in a data set that is to be analyzed, the observed variables are independent. In fact, it is the relations among the observed variables that are explained by the latent classes. An observed data set is a mixture of all the latent classes. Independence is assumed to hold only within each latent class, which is why it is called "local".
 
@@ -143,6 +150,8 @@ $$
 
 ### Appendix E: Additional details on the model selection process
 
+This appendix contains additional information about how the six profile, model one type model was selected.
+
 ```{r, reading-overall-stats}
 overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
 ```
@@ -196,7 +205,6 @@ overall_stats_for_all_models[[2]] %>%
   xlab("Number of Profiles") +
   ylab(NULL)
 ```
-
 
 For solutions associated with model 1, the decrease (indicating a preferred model) in information criteria becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. A solution associated with 8 profiles did not replicate the log-likelihood and the VLMR and LMR suggest that the solution associated with 9 profiles did not fit better than that with 8 profiles, suggesting that models with 7 or fewer profiles be preferred. Considering these models, the entropy statistic increases by a large amount between the solution associated with 4 and 5 profiles (and then decreases slightly between 5 and 6 and 6 and 7 profile solutions), suggesting (but not providing conclusive evidence) that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. Taking these pieces of evidence into conclusion, for model 1, solutions associated with 4 through 7 may be considered in more depth, with an emphasis on solutions associated with profiles with 5 and 6 profiles on the basis of the slowing of the decrease in the information criteria associated with the solutions with greater profiles than these, and the increase in the entropy from 4 to 5 (and 6) profile solutions.
 
