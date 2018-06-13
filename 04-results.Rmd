@@ -148,7 +148,7 @@ This solution is characterized by:
 - An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
 - A *full* profile, with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
 
-```{r, fig.width = 7, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
+```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
 
 m1_6 <- read_rds("data/models/m1_6.rds")
 
@@ -177,7 +177,7 @@ p1 <- m1_6 %>%
 p1
 ```
 
-```{r, fig.width = 7, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with raw variable values)"}
+```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with raw variable values)"}
 m1_6 <- read_rds("data/models/m1_6.rds")
 
 p2 <- m1_6 %>%
