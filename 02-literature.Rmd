@@ -25,17 +25,13 @@ The framework for this study is informed by work on STEM-related learning practi
 
 Some scholars have focused on a few key pieces of data analysis, connected through the use of “data to solve real problems and to answer authentic questions” (Hancock et al., 1992, p. 337). This focus on solving real problems or answering authentic questions--rather than being taught and learned as isolated skills--is an essential part of work with data having the most educational benefits to learners (National Research Council, 2012; see Lehrer and Schauble [2012] Windschitl, Thompson, & Braaten [2018] for excellent, practice, in-depth examples of work with data being used as part of instructional approaches). This approach has primarily been used by mathematics educators, as reflected in its role in statistics curriculum standards (Franklin et al., 2007). In science settings, where answering questions about phenomena serve as the focus of activities, it shares features of the process of engaging in scientific and engineering practices but has been less often studied.
 
-Work with data has been conceived in different ways. For some specific examples from different domains, see Lee and Wikerson's (2018) summary report for the National Academy of Sciences and Wild and Pfannkuch (1999), Franklin et al. (2007), and Lehrer and Schauble (2004). Because there is not an agreed-upon definition of work with data--particularly across subject area domains (i.e., across all of the STEM content areas)--I focus on the core aspects that scholars have most often included in their conceptualizations of work with data. These core components, synthesized from definitions across studies, are better for understanding work with data across STEM content areas--as in the present study--than the components from specific examples, which were developed for use in only one domain. The aspects of work with data that have been articulated in prior studies are distilled into five key aspects (Figure 2.1) for use in this study. They are:
+Work with data has been conceived in different ways. For some specific examples from different domains, see Lee and Wikerson's (2018) summary report for the National Academy of Sciences and Wild and Pfannkuch (1999), Franklin et al. (2007), and Lehrer and Schauble (2004). Because there is not an agreed-upon definition of work with data--particularly across subject area domains (i.e., across all of the STEM content areas)--I focus on the core aspects that scholars have most often included in their conceptualizations of work with data. These core components, synthesized from definitions across studies, are better for understanding work with data across STEM content areas--as in the present study--than the components from specific examples, which were developed for use in only one domain. The aspects of work with data that have been articulated in prior studies are distilled into five key aspects for use in this study. They are:
 
 * *Asking questions*: Generating questions that can be answered with empirical evidence
 * *Making observations*: Watching phenomena and noticing what is happening concerning the phenomena or problem being investigated
 * *Generating data*: The process of figuring out how or why to inscribe an observation as data about phenomena, as well as generating tools for measuring or categorizing
 * *Data modeling*: Activities involving the use of simple statistics, such as the mean and standard deviation, as well as more complicated models, such as linear models and extensions of the linear model
 * *Interpreting and communicating findings*: Activities related to identifying a driving question regarding the phenomena that the question is about
-
-```{r, fig.cap = "Work with data in STEM education settings"}
-knitr::include_graphics("images/figure1.png")
-```
 
 These five synthesized aspects of work with data are not stand-alone practices but are a part of a cycle. This is not only because each aspect follows that before it, but also because the overall process is iterative: For example, interpreting findings often leads to new questions and subsequent engagement in work with data. Also, scholars have pointed out some key features of how work with data is carried out that impact their effectiveness as a pedagogical approach. These key features include an emphasis on making sense of real-world phenomena and iterative cycles of engaging in work with data and collaboration and dialogue, through which ideas and findings are critiqued and subject to critique, and revised over time (McNeill & Berland, 2017; Lee & Wilkerson, 2018). 
 
@@ -107,7 +103,7 @@ While many scholars have argued that work with data can be understood in terms o
 
 ## Conceptual Framework and Research Questions
 
-To sum up, the present study is about how learning activities involving various aspects of work with data can be understood in terms of engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2.2 and is laid out in the remainder of this section. 
+To sum up, the present study is about how learning activities involving various aspects of work with data can be understood in terms of engagement. Its context is out-of-school-time STEM enrichment programs designed to meet guidelines for best practices. The conceptual framework in the present study is presented in Figure 2.1 and is laid out in the remainder of this section. 
  
 There are five aspects of work with data synthesized from past research (i.e., Hancock et al., 1992; Lehrer & Romberg, 1996; Wild & Pfannkuch, 1999):
 
@@ -117,7 +113,7 @@ There are five aspects of work with data synthesized from past research (i.e., H
 1. Data modeling
 1. Interpreting and communicating findings
 
-In Figure 2.2, engagement in work with data is associated with different profiles of engagement. The theoretical framework for the profile approach suggests that engagement is a multi-dimensional construct consisting of cognitive, behavioral, and affective dimensions of engagement and perceptions of challenge and competence. Also, a pre-program measure of youths' pre-program interest in STEM, along with youths' gender and URM status, are hypothesized to be associated with the profiles and the relations of work with data and the profiles. 
+In Figure 2.3, engagement in work with data is associated with different profiles of engagement. The theoretical framework for the profile approach suggests that engagement is a multi-dimensional construct consisting of cognitive, behavioral, and affective dimensions of engagement and perceptions of challenge and competence. Also, a pre-program measure of youths' pre-program interest in STEM, along with youths' gender and URM status, are hypothesized to be associated with the profiles and the relations of work with data and the profiles. 
 
 ```{r, eval = T, fig.cap = "A conceptual framework for this study and research questions"}
 knitr::include_graphics("images/figure2.png")
