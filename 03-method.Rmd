@@ -115,7 +115,7 @@ This measure was constructed by taking the maximum value for the scales for the 
 
 ```{r}
 d <- tibble::tribble(
-  ~Construct,                              ~`Items.text`,
+  ~Construct,                              ~`Item text`,
   "Pre-program interest in STEM",        "I am interested in science / mathematics / engineering.",
   NA,         "At school, science / mathematics / engineering is fun",
   NA, "I have always been fascinated by science / mathematics / engineering)"

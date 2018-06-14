@@ -5,34 +5,17 @@
 \setlength{\parskip}{8pt}
 \noindent
 
-## Appendix A: STEM-PQA alignment table
+## Appendix A: STEM-PQA alignment
 
-This table presents the aspect of work with data with the corresponding STEM-PQA code(s).
+**Asking questions or defining problems**: *Predict, conjecture, or hypothesize* (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses [e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.])  
 
-```{r}
-t <- tibble::tribble(
-  ~Work.With.Data,                                                                                                    ~Description, ~STEM.PQA,
-  "Asking questions or defining problems",                                            "Discussing and exploring topics to investigate and pose questions.",                       "Predict, conjecture, or hypothesize",
-  "Making observations",          "Watching and noticing what is happening with respect to the phenomena or problem being investigated.",                                      "Classify or abstract",
-  "Generating data", "Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.", "Collect data or measure; Highlight precision and accuracy",
-  NA,                                                                                                              NA,                                                          NA,
-  "Data modeling",  "Understanding and explaining phenomena using models of the data that account for variability or uncertainty.",                            "Simulate, experiment, or model",
-  "Interpreting and communicating findings",                                                               "Discussing and sharing and presenting findings.",                            "Analyze; Use symbols or models",
-  NA,                                                                                                              NA,                                                          NA,
-  NA,                                                                                                              NA,                                                          NA
-) 
+**Making observations**: *Classify or abstract* (Staff support youth in using classification and abstraction, linking concrete examples to principles, laws, categories, and formulas [e.g., Mice, porcupines, and squirrels are all rodents, rodents are all mammals; The pool ball moved because for every action, there is an equal and opposite reaction; etc.])  
 
-names(t) <- c("Aspect of Work with Data", "x", "Corresponding STEM-PQA code(s)")
-t <- t[, c(1, 3)]
+**Generating data**: *Collect data or measure* (Staff support youth in collecting data or measuring [e.g., Youth use rulers or yardsticks to measure length; Youth count the number of different species of birds observed in a specific location, etc.]) and *Highlight precision and accuracy* (Staff highlight value of precision and accuracy in measuring, observing, recording, or calculating [e.g., measurement error can impact an experiment or conclusion; measure twice, cut once; scientist always need to double-check their claculations before drawing conclusions; you must observe carefully to see the difference between various species of sparrows, etc.])  
 
-t %>% 
-  slice(1:6) %>% 
-  knitr::kable(booktabs = TRUE, linesep = "", caption = "Alignment of codes for instructional support for work with data and the STEM-PQA") %>% 
-  kableExtra::kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+**Data modeling**: *Simulate, experiment, or model* (Staff support youth in using a simulation, experiment, or model to answer questions, explore solutions, or test hypotheses [e.g., Youth run a robotics program to determine whether it does what they expect it to; Youth try an alternate way to solve an equation and test their results against another example, etc.])  
 
-
-```
+**Interpreting and communicating findings**: *Analyze* (Staff support youth in analyzing data to draw conclusions (e.g., after an experiment, youth are asked to use results to make a generalization like "Your heartbeat increases when you exercise", etc.)) and *Use symbols or models* (Staff support youth in conveying STEM concepts through symbols, models, or other nonverbal language (e,g, youth use diagrams, equations, flowcharts, outlines, mock-ups, desgin software, dioramas, physical models, prototypes, graphs, charts, tables, equations, etc.))  
 
 ## Appendix B: Program descriptions
 
