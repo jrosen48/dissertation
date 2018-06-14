@@ -141,8 +141,9 @@ The result of this model selection process was the estimation of *six distinct p
 
 
 ```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
-
 m1_6 <- read_rds("data/models/m1_6.rds")
+
+names(m1_6)[4] <- "DM_COL"
 
 p1 <- m1_6 %>%
   plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
@@ -157,20 +158,23 @@ p1 <- m1_6 %>%
                               "Only behavioral (n = 370)",
                               "Only affective (n = 345)",
                               "All moderate (n = 638)",
-                              "Engaged and competent but not challenged (n = 450)",
+                              "Eng. and comp. but not chall. (n = 450)",
                               "Full (n = 488)")) +
   xlab(NULL) +
   ylab("Z-score") +
   viridis::scale_fill_viridis("",
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
-  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+  theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
+  theme(text = element_text(family = "Times"))
 
 p1
 ```
 
 ```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with raw variable values)"}
 m1_6 <- read_rds("data/models/m1_6.rds")
+
+names(m1_6)[4] <- "DM_COL"
 
 p2 <- m1_6 %>%
   plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
@@ -185,15 +189,16 @@ p2 <- m1_6 %>%
                               "Only behavioral (n = 370)",
                               "Only affective (n = 345)",
                               "All moderate (n = 638)",
-                              "Engaged and competent but not challenged (n = 450)",
+                              "Eng. and comp. but not chall. (n = 450)",
                               "Full (n = 488)")) +
   xlab(NULL) +
   ylab("Value") +
   viridis::scale_fill_viridis("",
-                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
                               labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
   theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
-  coord_cartesian(ylim = c(1, 4))
+  coord_cartesian(ylim = c(1, 4)) +
+  theme(text = element_text(family = "Times"))
 
 p2
 ```
