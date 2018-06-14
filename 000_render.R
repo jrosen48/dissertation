@@ -14,6 +14,8 @@ if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg
 file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE)
 
 # 4. convert tex to PDF
+# make two figures for profiles be in the figure tag
+# \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 
 # 5. convert tex to .docx
