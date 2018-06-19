@@ -95,34 +95,18 @@ data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observatio
 
 # data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
 #            `Proportion of Instructional Episodes` = round(the_ns / 236, 3),
-#            N = the_ns) %>% 
-#   mutate(total_N = 236-N) %>% 
-#   gather(key, val, -`Aspect of Work with Data`, -`Proportion of Instructional Episodes`) %>% 
-#   mutate(key = factor(key, levels = c("total_N", "N"))) %>% 
+#            N = the_ns) %>%
+#   mutate(total_N = 236-N) %>%
+#   gather(key, val, -`Aspect of Work with Data`, -`Proportion of Instructional Episodes`) %>%
+#   mutate(key = factor(key, levels = c("total_N", "N"))) %>%
 #   ggplot(aes(x = `Aspect of Work with Data`, y = val, fill = key)) +
 #   geom_col() +
 #   scale_x_discrete(limits = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings")) +
-#   scale_fill_brewer("", type = "qual", direction = -1, labels = c("Not Present", "Present")) +
+#   scale_fill_manual("", values = c("lightgray", "darkgreen"), labels = c("Not Present", "Present")) +
 #   theme_bw() +
-#   ylab("Number of Instructional Episodes") + 
+#   ylab("Number of Instructional Episodes") +
 #   xlab(NULL) +
-#   theme(text = element_text(size = 13, family = "Times"))
-
-data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-           `Proportion of Instructional Episodes` = round(the_ns / 236, 3),
-           N = the_ns) %>% 
-  mutate(total_N = 236-N) %>% 
-  gather(key, val, -`Aspect of Work with Data`, -`Proportion of Instructional Episodes`) %>% 
-  mutate(key = factor(key, levels = c("total_N", "N"))) %>% 
-  arrange(`Aspect of Work with Data`)
-  ggplot(aes(x = `Aspect of Work with Data`, y = val, fill = key)) +
-  geom_col() +
-  scale_x_discrete(limits = c("Asking Questions")) +
-  scale_fill_brewer("", type = "qual", direction = -1, labels = c("Not Present", "Present")) +
-  theme_bw() +
-  ylab("Number of Instructional Episodes") + 
-  xlab(NULL) +
-  theme(text = element_text(size = 13, family = "Times"))
+#   theme(text = element_text(size = 14, family = "Times"))
 ```
 
 ### The nature of work with data
@@ -169,7 +153,6 @@ In the other instructional episodes that were not focused on youth sharing what 
 On the basis of fit statistics, statistical tests, and concerns of interpretability and parsimony, a solution with six profiles of engagement was selected. This solution represents the profiles of engagement identified to answer this research question and for use in subsequent analyses. This solution was associated with a model with varying means, equal variances, and covariances fixed to 0 (the first model type among those described in the methods). Because of the exploratory nature of the approach used to identify the profiles, LPA, it is important to consider alternate solutions. In particular, a seven profile solution with the same model specification was similar (but not superior) regarding the fit statistics and statistical tests. This solution, presented in Appendix F, was determined not to be superior to the six profile solution, ultimately chosen on the basis of parsimony and interpretability. 
 
 The result of this model selection process was the estimation of *six distinct profiles* identified from the data, as presented in Figures 4.1 and 4.2. Figure 4.1 shows the profiles with variables that were centered to have a *mean* of 0 and a *standard deviation* of 1. Thus, the *y*-axis for this plot is labeled "Z-score"). Figure 4.2 shows the profiles with the raw data (not transformed). Thus, the *y*-axis for this plot is labeled "Value." 
-
 
 ```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The six profiles of engagement (with variable values standardized)"}
 m1_6 <- read_rds("data/models/m1_6.rds")
@@ -271,24 +254,30 @@ ii %>%
   select(Profile, `Instructional Episode`:Program) %>% 
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "")
 
-ii %>% 
-  select(Profile, `Instructional Episode`:Program) %>% 
-  group_by(Profile) %>% 
-  mutate(total_exp = `Instructional Episode` + Youth + Program) %>% 
-  mutate(Residual = 1 - total_exp) %>% 
-  select(-total_exp) %>% 
-  ungroup() %>% 
-  gather(key, val, -Profile) %>% 
-  arrange(Profile) %>% 
-  mutate(key = factor(key, levels = rev(c("Instructional Episode", "Youth", "Program", "Residual")))) %>% 
-  ggplot(aes(x = Profile, y = val, fill = key)) + 
-  geom_col() +
-  scale_fill_brewer("", type = "qual", palette = 1, direction = -1) +
-  theme_bw() +
-  coord_flip() +
-  xlab(NULL) +
-  ylab("ICC/R-squared") +
-  theme(text = element_text(size = 13, family = "Times"))
+# ii %>% 
+#   select(Profile, `Instructional Episode`:Program) %>% 
+#   group_by(Profile) %>% 
+#   mutate(total_exp = `Instructional Episode` + Youth + Program) %>% 
+#   mutate(Residual = 1 - total_exp) %>% 
+#   select(-total_exp) %>% 
+#   ungroup() %>% 
+#   gather(key, val, -Profile) %>% 
+#   arrange(Profile) %>% 
+#   mutate(key = factor(key, levels = rev(c("Instructional Episode", "Youth", "Program", "Residual")))) %>% 
+#   ggplot(aes(x = Profile, y = val, fill = key)) + 
+#   geom_col() +
+#   scale_fill_brewer("", type = "qual", palette = 1, direction = -1, guide = guide_legend(reverse = T)) +
+#   scale_x_discrete(limits = rev(c("Universally low (n = 667)",
+#                      "Only behavioral (n = 370)",
+#                      "Only affective (n = 345)",
+#                      "All moderate (n = 638)",
+#                      "Engaged and competent but not challenged (n = 450)",
+#                      "Full (n = 488)"))) +
+#   theme_bw() +
+#   coord_flip() +
+#   xlab(NULL) +
+#   ylab("ICC/R-squared") +
+#   theme(text = element_text(size = 14, family = "Times"))
 ```
 
 In terms of *ICC*s at youth level across the six profiles, the value for the youth-level ICC was highest for the *Full* profile (*ICC* = .432), suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *Universally low* profile--had a modest value for the ICC at the youth level (*ICC* = .267). Finally, a significant amount of variability is associated with the residual (variance that is not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in youths' responses that may not be readily explained or predicted by variables *at one level alone*. Remaining unexplained variability is captured by the residual term. Some youth from particular programs may engage during some episode instructional episodes in very high or low ways that are not captured by modeling the variability at each of these levels alone.
