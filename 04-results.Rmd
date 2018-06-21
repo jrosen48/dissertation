@@ -86,6 +86,12 @@ As suggested by the proportions reported in Table 4.3, the different aspects of 
 
 ```{r}
 # from here: https://docs.google.com/spreadsheets/d/1wx2J81vERpVZjIcQwiZb6vcz1U1eDFYEJDTYTLm6zqM/edit#gid=0
+# this loads that Google Doc
+# read_csv("data/new_overall_coding_sheet.csv") %>%
+#   filter(!is.na(program_name)) %>%
+#   select(Asking, Observe, Generate, Model, Communicate) %>%
+#   summarize_all(sum, na.rm = TRUE)
+
 the_ns <- c(90, 57, 102, 68, 103)
 
 data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
@@ -178,7 +184,7 @@ p1 <- m1_6 %>%
   ylab("Z-score") +
   viridis::scale_fill_viridis("",
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+                              labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
   theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
   theme(text = element_text(family = "Times"))
 
@@ -209,7 +215,7 @@ p2 <- m1_6 %>%
   ylab("Value") +
   viridis::scale_fill_viridis("",
                               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
-                              labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
+                              labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
   theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
   coord_cartesian(ylim = c(1, 4)) +
   theme(text = element_text(family = "Times"))

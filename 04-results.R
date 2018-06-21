@@ -139,12 +139,28 @@ d_red <- df %>%
   ungroup() %>%
   select(-participant_ID)
 
+# For the number of codes
+# d <- googlesheets::gs_title("New Overall Coding Sheet") %>%
+#   googlesheets::gs_read()
+#
+# write_csv(d, "data/new_overall_coding_sheet.csv")
+
+read_csv("data/new_overall_coding_sheet.csv") %>%
+  filter(!is.na(program_name)) %>%
+  select(Asking, Observe, Generate, Model, Communicate) %>%
+  mutate_all(replace_na, 0) %>%
+  mutate(row_num = row_number()) %>%
+  gather(key, val, -row_num) %>%
+  group_by(row_num) %>%
+  summarize(sum_val = sum(val)) %>%
+  count(sum_val) %>%
+  mutate(n_prop = n / sum(n))
+
 ## ---- m1_6p-ll, eval = FALSE, cache = FALSE------------------------------
 ## extract_LL_mplus() %>% slice(1:10) %>% knitr::kable()
 
 m1_6 <- read_rds("data/models/m1_6.rds")
 m1_6b <- read_rds("data/models/m1_6.rds")
-
 
 ## ------------------------------------------------------------------------
 df <- read_csv("data/for-seven-profiles.csv")
