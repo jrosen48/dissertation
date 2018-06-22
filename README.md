@@ -2,8 +2,8 @@ These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48
 
 ## Links
 
-* A link to the PDF is available [here](https://github.com/jrosen48/dissertation/raw/master/docs/rosenberg-dissertation_mod.pdf).
-* An online (GitBook) version is available [here](https://jrosen48.github.io/dissertation/).
+* A link to the PDF is available [here](https://github.com/jrosen48/dissertation/blob/master/docs/2018-06-14-Rosenberg-Dissertation-1.pdf).
+* A link to the (PPT) presentation is available [here](https://github.com/jrosen48/dissertation/blob/master/2018-06-22-Rosenberg-Dissertation-Defense-final.pptx)
 
 ## Title and Abstract
 
