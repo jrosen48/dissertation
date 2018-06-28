@@ -14,7 +14,6 @@ knitr::opts_chunk$set(echo = FALSE,
                       knitr.kable.na = '')
 
 source("04-results.R")
-
 ```
 
 ## Descriptive statistics for the engagement measures
