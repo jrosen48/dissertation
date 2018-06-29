@@ -120,7 +120,7 @@ Pre-program interest, gender, and URM status are predictor variables at the yout
 The five research questions, then, are:
 
 1. What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs?
-1. What are sources of variability for the profiles of engagement?
 1. What profiles of engagement emerge from data collected via ESM in the programs?
+1. What are sources of variability for the profiles of engagement?
 1. How do the five aspects of work with data relate to profiles of engagement?
 1. How do youth characteristics relate to profiles of engagement?
