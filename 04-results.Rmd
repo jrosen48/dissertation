@@ -47,11 +47,11 @@ oo %>%
 
 ## Correlations among the study variables
 
-Correlations between the variables that are used to create the profiles of engagement and the one other variable which was continuous (rather than a code for groups, in particular youths' gender and URM status), pre-program interest in STEM (Table 4.2). These correlations, which range from *r* = .08 through *r* = .60 (all statistically significant), represent low to moderate relations among these variables. 
+Correlations between the variables that are used to create the profiles of engagement and the one other variable which was continuous (rather than a code for groups, in particular youths' gender and URM status), pre-program interest in STEM (Table 4.2), were specified. In addition, relations between these variables and those for the five aspects of work with data were identified. Note that because the five variables were dichotomous, Spearman (rather than Pearson) correlations were also specified, but were nearly identical, and only the Pearson correlations are reported. The correlations among the variables used to create the profiles and pre-interest, which range from *r* = .08 through *r* = .60 (all statistically significant), represent low to moderate relations among these variables. The relations among the aspects of work with data, which ranged from *r* = .19 to *r* = .50 (also all statistically significant), also represented moderate relations among these variables. Relations between the variables used to create the profiles as well as pre-interest and the aspects of work with data were less noteworthy. For pre-interest and the aspects of work with data, the values ranged from *r* = -.10 to *r* = .11, representing small relations. For the variables used to create the profiles and the aspects of work with data, the values ranged from *r* = -.06 to *r* = .03. 
 
 ```{r}
 p <- d_red %>%
-  select(overall_pre_interest, dm_cog_eng:dm_competence) %>%
+  select(overall_pre_interest, dm_cog_eng:dm_competence, dm_ask:dm_com) %>%
   corrr::correlate() %>%
   corrr::shave() %>%
   corrr::fashion() %>% 
@@ -60,7 +60,12 @@ p <- d_red %>%
                      "Beh. eng.",
                      "Aff. eng.",
                      "Challenge", 
-                     "Competence"))
+                     "Competence",
+                     "Asking",
+                     "Observing",
+                     "Generating",
+                     "Modeling",
+                     "Communicating"))
 
 names(p) <- c("",
               "Pre-interest",
@@ -68,7 +73,12 @@ names(p) <- c("",
               "Beh. eng.",
               "Aff. eng.",
               "Challenge", 
-              "Competence")
+              "Competence",
+              "Asking",
+              "Observing",
+              "Generating",
+              "Modeling",
+              "Communicating")
 
 p %>% 
   knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among the continuous study variables") %>% 
@@ -224,14 +234,16 @@ p2
 
 The two plots are presented because they provide a different view into the composition of the profiles: Those with the centered variables highlights positive and negative departures from the mean value for each variable, making differences between the profiles distinct. The plot with the raw data instead highlights the reported values of the variables, emphasizing the values of the variables in the profiles in the same units that youth were asked to consider when they responded (and potentially highlighting similarities that may seem very different in the plot with the centered data).
 
+Note that for the profiles, each responses is associated with a probability of profile membership at a particular moment. Because, across all responses, the highest probability for each response was on average quite high (the entropy statistic was .888), the highest probability was appropriate to use to classify each response into one profile for the percentages and results comparing the mean levels of each variable across profiles (with a MANOVA).
+
 This solution is characterized by:
 
-- A *universally low* profile, characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence
-- An *only behaviorally engaged* profile, with moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence
-- An *only affectively engaged* profile, with moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence
-- An *all moderate* profile, with moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence
-- An *engaged and competent but not challenged* profile, characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
-- A *full* profile, with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
+- A *universally low* profile (22.55% of responses), characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence
+- An *only behaviorally engaged* profile (12.51%), with moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence
+- An *only affectively engaged* profile (11.66%), with moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence
+- An *all moderate* profile (21.57%), with moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence
+- An *engaged and competent but not challenged* profile (15.21%), characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge
+- A *full* profile (16.50%), with high levels of working hard, learning something new, enjoying the activity, challenge, and competence
 
 The six profiles are characterized by both varying levels on both the indicators of engagement (cognitive, behavioral, and affective) and perceptions of challenge and competence. Also, the number of observations across the profiles is relatively balanced (with no profiles associated with a very large or small number of observations). The universally low profile was associated with the most substantial number of observations (*n* = 667), followed by the all moderate profile (*n* = 638); each of the other four profiles was associated with 300 to 400 observations. The results for research questions 3-5 use this solution and the six profiles in subsequent analyses.
 
@@ -290,6 +302,8 @@ In terms of *ICC*s at youth level across the six profiles, the value for the you
 The *ICC*s lend insight into the sources of variability for a specific profile; within-youth stability in terms of how frequently they reported particular profiles could lend further insight by considering variability across profiles. This analysis can be particularly useful for understanding variability at the youth level, which the *ICC*s show to be associated with the most systematic variability. Each youth has a most-frequently reported profile. Results show that for some youth, the profile is very dominant, occurring in a substantial proportion of youths' responses; for others, it occurs not that frequently, meaning that youth report a variety of different profiles. 
 
 As presented in Figure 4.3, the mean proportion of responses for each youth in the profile they reported most varied widely across youth. Specifically, on average, youth reported their most-reported profile in .540 (*SD* = .194, *min* = .182, *max* = 1.00) of their responses. There was a small number of youth who reported the same profile in all of their responses, but for most youth, the profile they reported most made up only a portion of all of their responses. For most youth, the most common profile was observed just over 50% of the time. 
+
+Note that any of the aspects of work with data versus none of the aspects of work with data and the interactive effects of youth characteristics and, relevant to the results for the next research question, the aspects of work with data were examined as variables, instead of the five aspects of work with data on their own. However, none of these but not found to be statistically significant (but do not include these in a table). 
 
 In sum, these findings show that there was substantial variability in the profiles present at the youth level. Less variability was explained by either the program youth were in or the nature of the particular instructional episode present when youth were signaled. These results set the stage for those for the next two research questions, on the relations between the aspects of work with data (for research question #4) and the youth characteristics (for research question #5) and the profiles of engagement.
 
