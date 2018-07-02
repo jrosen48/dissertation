@@ -534,6 +534,30 @@ d_out <- d
 ## ---- sensitivity-analysis-for-rq2c, eval = FALSE, cache = FALSE---------
 ## konfound::konfound(m6e, `dm_composite:gender_female`)
 ## konfound::konfound(m6e, `dm_composite:gender_female`)
+#
+# m1_6$DV <- as.matrix(cbind(m1_6[, 1], m1_6[, 2], m1_6[, 3], m1_6[, 4], m1_6[, 5]))
+# o <- manova(DV ~ C, data = m1_6)
+# m1_6
+#
+# x3 <- aov(DM_AFF_E ~ as.factor(C), data = m1_6)
+# summary(x3)
+# TukeyHSD(x3) # for aff, full and eng and compt but not challenged dont' differ, rest do
+#
+# x2 <- aov(DM_BEH_E ~ as.factor(C), data = m1_6)
+# summary(x2)
+# TukeyHSD(x2) # for beh, full and eng and compt but not challenged dont' differ, rest do
+#
+# x1 <- aov(DM_COG_E ~ as.factor(C), data = m1_6)
+# summary(x1)
+# TukeyHSD(x1) # for cog, only affective and universally low don't differ
+#
+# x4 <- aov(DM_CHALL ~ as.factor(C), data = m1_6)
+# summary(x4)
+# TukeyHSD(x4) # for chall, only affective and universally low don't differ
+#
+# x5 <- aov(DM_COMPE ~ as.factor(C), data = m1_6)
+# summary(x5)
+# TukeyHSD(x5) # for comp, only affective and universally low, all moderate and only affective, and full and eng and compt but not challenged don't differ
 
 ds3 <- data_frame(profile = c("Only behavioral",
                               "Universally low",

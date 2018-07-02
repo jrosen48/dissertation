@@ -2,16 +2,16 @@
 
 ```{r, setup-lit-review, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
-           message = FALSE, 
-           warning = FALSE, 
-           collapse = TRUE,
-           error = TRUE,
-           fig.width = 6,
-           fig.asp = .618,
-           out.width = "80%", 
-           fig.align = "center", 
-           results = "hold",
-           knitr.kable.na = '') 
+      message = FALSE, 
+      warning = FALSE, 
+      collapse = TRUE,
+      error = TRUE,
+      fig.width = 6,
+      fig.asp = .618,
+      out.width = "80%", 
+      fig.align = "center", 
+      results = "hold",
+      knitr.kable.na = '') 
 
 options(knitr.kable.NA = '')
 library(dplyr)
