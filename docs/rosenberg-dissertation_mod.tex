@@ -868,7 +868,7 @@ the profiles and the relations of work with data and the profiles.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{images/figure2} 
+{\centering \includegraphics[width=0.8\linewidth]{images/figure2}
 
 }
 
@@ -1870,9 +1870,31 @@ variances, and equal covariances (referred to as the ``model 2 type'')
 converged, and so only solutions associated with these two model
 specifications were considered.
 
-\begin{verbatim}
-## Error in add_indent_latex(out, seq(start_row, end_row)): There aren't that many rows in the table. Check positions in add_indent_latex.
-\end{verbatim}
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-11}Solutions for models that converged}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{rrrrrll}
+\toprule
+Number of Profiles & AIC & BIC & SABIC & Entropy & BLRT & Profile Sizes\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Model 1}}\\
+\hspace{1em}3 & -19453.38 & 39082.59 & 39012.69 & 0.794 & 881.519 (0) & 773, 897, 1288\\
+\hspace{1em}4 & -19196.33 & 38616.44 & 38527.47 & 0.811 & 514.107 (0) & 415, 427, 920, 1288\\
+\hspace{1em}5 & -18817.93 & 37907.60 & 37799.57 & 0.913 & 756.788 (0) & 345, 375, 643, 667, 928\\
+\hspace{1em}6 & -18648.78 & 37617.26 & 37490.17 & 0.888 & 338.296 (0) & 345, 370, 450, 488, 638, 667\\
+\hspace{1em}7 & -18407.23 & 37182.11 & 37035.95 & 0.886 & 523.141 (0) & 181, 222, 317, 450, 568, 569, 651\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Model 2}}\\
+\hspace{1em}3 & -18897.06 & 38049.88 & 37948.20 & 0.880 & 421.343 (0) & 763, 954, 1241\\
+\hspace{1em}4 & -18659.68 & 37623.06 & 37502.32 & 0.922 & 474.773 (0) & 135, 688, 1029, 1106\\
+\hspace{1em}5 & -18474.83 & 37301.33 & 37161.52 & 0.901 & 304.938 (0) & 130, 271, 573, 871, 1113\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 For solutions associated with model 1, the decrease (indicating a
 preferred model) in the information criteria (AIC, BIC, SABIC) becomes
@@ -1908,16 +1930,13 @@ analyses.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-12-1} 
+{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-12-1}
 
 }
 
 \caption{The six profiles of engagement (with variable values standardized)}\label{fig:unnamed-chunk-12}
-\end{figure}
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-13-1} 
+{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-13-1}
 
 }
 
@@ -2043,14 +2062,14 @@ and the indicators of engagement, were very highly engaged.
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-14}Raw variables values for each profile}
+\caption{\label{tab:unnamed-chunk-14}Raw variables values by profile}
 \centering
 \resizebox{\linewidth}{!}{
 \begin{tabular}[t]{lrrrrr}
 \toprule
 Profile & Working Hard & Learning New & Enjoying & Challenge & Competence\\
 \midrule
-Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
+Universally low & 1.550$^1$ & 1.766 & 1.538 & 1.775 & 2.327\\
 Only behavioral & 3.292 & 2.484 & 1.641 & 2.132 & 2.778\\
 Only affective & 1.670 & 2.516 & 3.330 & 2.191 & 2.954\\
 All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953\\
@@ -2150,7 +2169,7 @@ profiles of engagement.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-16-1} 
+{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-16-1}
 
 }
 
@@ -2228,25 +2247,24 @@ some caution).
 \resizebox{\linewidth}{!}{
 \begin{tabular}[t]{lllllll}
 \toprule
+Profile & Universally low $\beta(\textit SE)$ & Only behavioral $\beta(\textit SE)$ & Only affective $\beta(\textit SE)$ & Eng. and comp., not chall. $\beta(\textit SE)$ & All moderate $\beta(\textit SE)$ & Full $\beta(\textit SE)$\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Youth characteristics}}\\
-\hspace{1em}Profile & Universally low B (SE) & Only behavioral B (SE) & Only affective B (SE) & Eng. and comp., not chall. B (SE) & All moderate B (SE) & Full B (SE)\\
 \hspace{1em}Pre-interest & -0.047 (0.022) & -0.013 (0.012) & -0.012 (0.019) & 0.039 (0.016)* & 0.007 (0.01) & 0.018 (0.021)\\
 \hspace{1em}Gender-Female & 0.06 (0.037)+ & 0.019 (0.019) & -0.038 (0.033) & 0.025 (0.028) & -0.02 (0.018) & -0.035 (0.037)\\
+\hspace{1em}URM status & -0.01 (0.052) & 0.031 (0.026) & -0.076 (0.046) & -0.012 (0.04) & 0.018 (0.025) & 0.043 (0.053)\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Aspects of Work With Data}}\\
-\hspace{1em}URM status & -0.01 (0.052) & 0.031 (0.026) & -0.076 (0.046) & -0.012 (0.04) & 0.018 (0.025) & 0.043 (0.053)\\
 \hspace{1em}Asking & -0.015 (0.018) & 0.015 (0.015) & 0.023 (0.017)+ & -0.011 (0.015) & 0.004 (0.014) & -0.019 (0.016)\\
 \hspace{1em}Observing & 0.003 (0.018) & 0.013 (0.015) & 0.007 (0.017) & 0.009 (0.015) & -0.017 (0.014) & -0.025 (0.016)\\
 \hspace{1em}Generating & -0.014 (0.017) & 0.014 (0.014) & 0.012 (0.016) & -0.014 (0.014) & -0.02 (0.013) & 0.027 (0.015)*\\
 \hspace{1em}Modeling & 0.004 (0.019) & -0.023 (0.016) & -0.004 (0.018) & 0 (0.015) & -0.012 (0.015) & 0.034 (0.017)*\\
-Communicating & 0.002 (0.018) & 0.018 (0.015) & -0.011 (0.017) & 0.004 (0.015) & 0.016 (0.014) & -0.027 (0.016)\\
+\hspace{1em}Communicating & 0.002 (0.018) & 0.018 (0.015) & -0.011 (0.017) & 0.004 (0.015) & 0.016 (0.014) & -0.027 (0.016)\\
 \bottomrule
 \end{tabular}}
 \end{table}
+\begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 \end{landscape}
-
-\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10
 
 \section{Results for Research Question \#5: Youth characteristics and
 engagement}\label{results-for-research-question-5-youth-characteristics-and-engagement}
@@ -3485,7 +3503,7 @@ justifying the addition in complexity that their addition involves (and
 their reduction in degrees of freedom).
 
 \[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
 \]
 
 \subsection{Varying means, equal variances, and equal covariances (model
@@ -3501,7 +3519,7 @@ better understand the characteristics of the profiles (and, potentially,
 better explain the data).
 
 \[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
 \]
 
 \subsection{Varying means, varying variances, and covariances fixed to 0
@@ -3514,8 +3532,8 @@ constrained to zero. Thus, it is more flexible (and less parsimonious)
 than model 1, but in terms of the covariances, is more constrained than
 model 2.
 
-\[ 
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
+\[
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
 \]
 
 \subsection{Varying means, varying variances, and equal covariances
@@ -3530,7 +3548,7 @@ specified with mclust, though it can be with MPlus; this model
 below.
 
 \[
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
 \]
 
 \subsection{Varying means, equal variances, and varying covariances
@@ -3544,7 +3562,7 @@ with MPlus. Again, this model \emph{can} be used with the functions to
 interface to MPlus described below.
 
 \[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] \quad
 \]
 
 \subsection{Varying means, varying variances, and varying covariances
@@ -3561,8 +3579,11 @@ considered in light of how preferred this model is relative to those
 with more simple specifications.
 
 \[
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
-\] \#\# Appendix C: Table with work with data by program
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\section{Appendix C: Work with data by
+program}\label{appendix-c-work-with-data-by-program}
 
 This table contains the proportion of the five aspects of work with data
 during by program, as well as the total number of signals associated
@@ -3657,12 +3678,9 @@ Distinct from other solutions, none of the other five profiles were
 found in the other model 1 solutions. Two pairs of the
 profiles--challenged and highly challenged and universally low and
 moderately low--exhibited similar patterns among the variables that were
-distinguished by different mean levels. The log-likelihood was
-replicated twice, with the next lowest log-likelihood being replicate
-four times, possibly warranting further investigation. Taken together,
-this solution raises questions about whether it may be too complex,
-possibly suggesting preference for model 1 five and six profile
-solutions.
+distinguished by different mean levels. Taken together, this solution
+raises questions about whether it may be too complex, possibly
+suggesting preference for model one five and six profile solutions.
 
 \bibliography{book.bib,packages.bib}
 

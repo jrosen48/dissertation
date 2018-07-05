@@ -14,15 +14,17 @@ if (!dir.exists("docs/rosenberg-dissertation_files")) dir.create("docs/rosenberg
 file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE)
 
 # 4. convert tex to PDF
-# make two figures for profiles be in the figure tag
-# \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
-# replace (B (SE)) with the proper LaTeX
-# add subscripts
-# TukeyHSD(x3) # for aff, full and eng and compt but not challenged don't differ, rest do
-# TukeyHSD(x2) # for beh, full and eng and compt but not challenged don't differ, rest do
-# TukeyHSD(x1) # for cog, only affective and only beh don't differ
-# TukeyHSD(x4) # for chall, only affective and only beh don't differ
-# TukeyHSD(x5) # for comp, only affective and only beh, all moderate and only affective, and full and eng and compt but not challenged don't differ
+
+# 1. make two figures for profiles be in the same figure tag
+# 2. add this below table 4.7, before table tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
+# 3. replace (B (SE)) with the proper LaTeX: \beta(\textit SE)
+# 4. add subscripts:
+# Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
+# Only behavioral & 3.292 & 2.484$^3$ & 1.641 & 2.132$^4$ & 2.778$^5$\\
+# Only affective & 1.670 & 2.516$^3$ & 3.330 & 2.191$^4$ & 2.954$^5$\\
+# All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953$^5$\\
+# Eng. and comp. but not chall. & 3.909$^1$ & 3.487 & 3.822$^1$ & 1.276 & 3.604$^6$\\
+# Full & 3.959$^1$ & 3.801 & 3.881$^1$ & 3.742 & 3.631$^6$\\
 
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 

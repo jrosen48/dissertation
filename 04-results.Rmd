@@ -187,7 +187,7 @@ overall_stats_for_all_models[[2]] %>%
                             "181, 222, 317, 450, 568, 569, 651",
                             "763, 954, 1241",
                             "135, 688, 1029, 1106",
-                            "130, 271, 573, 871, 1113")) 
+                            "130, 271, 573, 871, 1113")) %>% 
  knitr::kable(format = "latex", caption = "Solutions for models that converged", booktabs = TRUE, linesep = "") %>%
  kableExtra::kable_styling(latex_options = "scale_down") %>%
  kableExtra::landscape() %>%
@@ -288,7 +288,7 @@ names(t) <- c("Profile", "Working Hard", "Learning New", "Enjoying", "Challenge"
 
 t  %>% 
  mutate_if(is.numeric, round, 3) %>% 
- knitr::kable(format = "latex", caption = "Raw variables values for each profile", booktabs = TRUE, linesep = "") %>%
+ knitr::kable(format = "latex", caption = "Raw variables values by profile", booktabs = TRUE, linesep = "") %>%
  kableExtra::kable_styling(latex_options = "scale_down") %>%
  kableExtra::landscape()
 ```
@@ -316,31 +316,6 @@ names(ii) <- c("Instructional Episode", "Youth", "Program", "order", "Profile")
 ii %>% 
  select(Profile, `Instructional Episode`:Program) %>% 
  knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "")
-
-# ii %>% 
-#  select(Profile, `Instructional Episode`:Program) %>% 
-#  group_by(Profile) %>% 
-#  mutate(total_exp = `Instructional Episode` + Youth + Program) %>% 
-#  mutate(Residual = 1 - total_exp) %>% 
-#  select(-total_exp) %>% 
-#  ungroup() %>% 
-#  gather(key, val, -Profile) %>% 
-#  arrange(Profile) %>% 
-#  mutate(key = factor(key, levels = rev(c("Instructional Episode", "Youth", "Program", "Residual")))) %>% 
-#  ggplot(aes(x = Profile, y = val, fill = key)) + 
-#  geom_col() +
-#  scale_fill_brewer("", type = "qual", palette = 1, direction = -1, guide = guide_legend(reverse = T)) +
-#  scale_x_discrete(limits = rev(c("Universally low (n = 667)",
-#           "Only behavioral (n = 370)",
-#           "Only affective (n = 345)",
-#           "All moderate (n = 638)",
-#           "Engaged and competent but not challenged (n = 450)",
-#           "Full (n = 488)"))) +
-#  theme_bw() +
-#  coord_flip() +
-#  xlab(NULL) +
-#  ylab("ICC/R-squared") +
-#  theme(text = element_text(size = 14, family = "Times"))
 ```
 
 In terms of *ICC*s at youth level across the six profiles, the value for the youth-level ICC was highest for the *Full* profile (*ICC* = .432), suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *Universally low* profile--had a modest value for the ICC at the youth level (*ICC* = .267). Finally, a significant amount of variability is associated with the residual (variance that was not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in youths' responses that may not be readily explained or predicted by variables *at one level alone*. Remaining unexplained variability was captured by the residual term. Some youth from particular programs may engage during some episode instructional episodes in very high or low ways that were not captured by modeling the variability at each of these levels alone.
@@ -426,11 +401,9 @@ oo %>%
  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
  kableExtra::kable_styling(latex_options = "scale_down") %>%
  kableExtra::landscape() %>% 
- group_rows("Youth characteristics", 1, 3) %>% 
- group_rows("Aspects of Work With Data", 4, 8)
+ group_rows("Youth characteristics", 2, 4) %>% 
+ group_rows("Aspects of Work With Data", 5, 9)
 ```
-
-*Note*. \*: *p* <.05; +: p < .10
 
 ## Results for Research Question #5: Youth characteristics and engagement
 
