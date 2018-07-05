@@ -76,16 +76,17 @@
 }
 
 \setlength{\droptitle}{-2em}
+
   \title{Examining youth engagement during learning activities that involve work
 with data: An Experience Sampling approach}
-  \pretitle{\vspace{\droptitle}\centering\huge}
+    \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{Joshua M. Rosenberg}
-  \preauthor{\centering\large\emph}
+    \author{Joshua M. Rosenberg}
+    \preauthor{\centering\large\emph}
   \postauthor{\par}
-  \predate{\centering\large\emph}
+      \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-14}
+    \date{2018-07-04}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -100,7 +101,9 @@ with data: An Experience Sampling approach}
 \usepackage{pdflscape}
 \usepackage{tabu}
 \usepackage{threeparttable}
+\usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
+\usepackage{makecell}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -127,9 +130,14 @@ with data: An Experience Sampling approach}
 
 Socializing, working, and even teaching and learning are increasingly
 impacted by data. These sources of data--either quantitative \emph{or}
-qualitative--are created by us, for us, and about us. Despite the
-impacts of data, present opportunities for learners themselves to work
-with data in educational settings are limited.
+qualitative--are created by us, for us, and about us. Work with data in
+education may be a valuable context for teaching and learning because it
+reverses the role that teachers and especially learners commonly find
+themselves in, namely, as the targets of the work of data analysts and
+policymakers. In particular, work with data empowers learners
+to--themselves--use data to ask and answer questions. In turn, work with
+data promotes learners to create new knowledge, too, in addition to
+learning about the key ideas and practices of a subject matter domain.
 
 Work with data includes broad processes of collecting, creating,
 modeling data, and even asking questions that can be answered with data.
@@ -149,7 +157,14 @@ example, in the \emph{Next Generation Science Standards} (NGSS Lead
 States, 2013) and the \emph{Common Core State Standards} (in
 mathematics; National Governors Association Center for Best Practices,
 Council of Chief State School Officers, 2010). Both of these standards
-highlight the role of authentic work with data.
+highlight the role of authentic work with data. Thus, work with data can
+be empowering not only because it positions learners as creators of new
+knowledge about the world, but also because it can support the
+development of capabilities that learners can use across subject areas.
+These capabilities may be particularly useful in STEM domains because
+advanced coursework in these domains often involves demanding and
+abstract work with data, work that may be more accessible to more
+learners when they encounter it earlier in their education.
 
 Past research on work with data has largely been set in mathematics
 contexts and has focused on mathematical practices, like generating
@@ -172,7 +187,14 @@ payoff in terms of students' scientific reasoning'' (Lehrer \& Schauble,
 
 To date, past research shows that using a framework from contemporary
 engagement theory to characterize students' experiences has been
-informative both in research and to practicing educators. Knowing more
+informative both in research and to practicing educators. Work with data
+might be engaging to youth because past research has shown hands-on,
+laboratory work, to which work with data is similar---to be (Schmidt,
+Rosenberg, \& Beymer, 2018). In addition, work with data is demanding
+and requires sustained effort and focus (Lehrer \& Schauble, 2015;
+National Research Council, 2015), and past work has shown that when
+learners are more challenged (and competent), they are more likely to be
+engaged (Schneider et al., 2016; Shernoff et al., 2016). Knowing more
 about how youth engage in work with data is valuable as engagement is a
 meaningful outcome for STEM learners in its own right (Sinatra, Heddy,
 \& Lombardi, 2015). It may also be an antecedent of changes in other
@@ -188,12 +210,20 @@ variety of learning activities that involve work with data. Engagement
 is explored in the context of outside-of-school STEM enrichment programs
 carried out during the summer and work with data is considered through
 the lens of specific aspects identified from past research, such as
-asking questions and generating and modeling data. Knowing more about
-how youth engage can also provide a foundation for subsequent work to
-explore how particular curricula and engaging experiences for youth
-spark their interest in work with data, including hobbies and
-occupations related to data science, but also in STEM domains in
-general.
+asking questions and generating and modeling data. Such settings (in
+outside-of-school programs) are an especially useful context for
+exploring work with data because they can be designed around youths'
+interests (Lauer, Akiba, Wilkerson, Apthorp, Snow, \& Martin-Glenn,
+2006). One promise of work with data in outside-of-school settings is
+that data can be inherently interesting to learners and can be used as a
+context for learning about the world, allowing youth to ask and answer
+personally and socially meaningful questions, whereas many
+outside-of-school programs are focused around commercial aims, such as
+developing mobile device applications. Knowing more about how youth
+engage can also provide a foundation for subsequent work to explore how
+particular curricula and engaging experiences for youth spark their
+interest in work with data, including hobbies and occupations related to
+data science, but also in STEM domains in general.
 
 \chapter{Literature Review}\label{literature-review}
 
@@ -224,14 +254,38 @@ about phenomena serve as the focus of activities, it shares features of
 the process of engaging in scientific and engineering practices but has
 been less often studied.
 
-Work with data has been conceived in different ways. For some specific
-examples from different domains, see Lee and Wikerson's (2018) summary
-report for the National Academy of Sciences and Wild and Pfannkuch
-(1999), Franklin et al. (2007), and Lehrer and Schauble (2004). Because
-there is not an agreed-upon definition of work with data--particularly
-across subject area domains (i.e., across all of the STEM content
-areas)--I focus on the core aspects that scholars have most often
-included in their conceptualizations of work with data. These core
+Work with data has been conceived in different ways (i.e., Hancock et
+al., 1992; Lehrer \& Romberg, 1996; Wild \& Pfannkuch, 1999). For
+instance, Wild and Pfannkuch (1999) consider the process in terms of
+identifying a problem, generating a measurement system and sampling
+plan, collecting and cleaning the data, exploring the data and carrying
+out planned analyses, and interpreting the findings from the analysis.
+Such a process is common in STEM content areas, particularly across
+statistics education research and is instantiated in standards for
+curricula: Franklin et al.'s guidelines for the American Statistical
+Association focus on the Framework for statistical problem solving:
+formulating questions, collecting data, analyzing data, and interpreting
+results (2007). The goals of this framework and its components are
+similar to Hancock et al.'s (1992) description of data modeling, the
+process of ``using data to solve real problems and to answer authentic
+questions'' (p.~337). Hancock et al. (1992) focus in on two goals, data
+creation and analysis, arguing that the former (data creation) is ``the
+neglected counterpart of data analysis'' (p.~339). Scholars have
+subsequently expanded Hancock et al.'s definition of data modeling to
+include six components: asking questions, generating measures,
+collecting data, structuring data, visualizing data, and making
+inferences in light of variability (see Lehrer \& Schauble, 2004, for
+use of this conceptualization of data modeling applied to the task of
+understanding how plants grow). The last of these components is crucial
+across all of the visions of data modeling reviewed here and
+distinguishes these processes from other aspects of data analysis:
+Accounting for variability (or uncertainty) is central to solving
+real-world problems with data and the process of data modeling.
+
+Because there is not an agreed-upon definition of work with
+data--particularly across subject area domains (i.e., across all of the
+STEM content areas)--I focus on the core aspects that scholars have most
+often included in their conceptualizations of work with data. These core
 components, synthesized from definitions across studies, are better for
 understanding work with data across STEM content areas--as in the
 present study--than the components from specific examples, which were
@@ -313,9 +367,8 @@ and scientists, engineers, and others with the technical experience.
 Additionally, the programs were designed to involve learners in the
 types of real-world practices experienced by experts in STEM
 disciplines. Attendance in such programs is associated with many
-benefits to learners (Green, Lee, Constance, \& Hynes, 2013; see Lauer,
-Akiba, Wilkerson, Apthorp, Snow, \& Martin-Glenn, 2006, for a
-comprehensive review). These programs are also a good context for
+benefits to learners (Green, Lee, Constance, \& Hynes, 2013; see Lauer
+et al., 2006, for a review). These programs are also a good context for
 understanding work with data because little research has examined how
 data are part of the experiences of youth during them.
 
@@ -444,17 +497,15 @@ engagement is defined in this study as working hard on learning-related
 activities (Fredricks et al., 2004; Singh, Granville, \& Dika, 2002).
 Finally, affective engagement is defined as affective responses to
 activities, such as being excited, angry, or relaxed (Pekrun \&
-Linnenbrink-Garcia, 2012).
-
-Finally, some key conditions that facilitate engagement. Emergent
-Motivation Theory (EMT; Csikszentmihalyi, 1990), provides a useful lens
-for understanding these conditions. From EMT, a key condition for
-engagement that can change dynamically, from moment to moment, is how
-difficult individuals perceive an activity to be, or its \emph{perceived
-challenge}. Another key condition is how good at an activity individuals
-perceive themselves to be, or their \emph{perceived competence}. What is
-most important--and necessary in terms of being engaged--is being both
-challenged by and good at a particular activity.
+Linnenbrink-Garcia, 2012). Finally, some key conditions that facilitate
+engagement. Emergent Motivation Theory (EMT; Csikszentmihalyi, 1990),
+provides a useful lens for understanding these conditions. From EMT, a
+key condition for engagement that can change dynamically, from moment to
+moment, is how difficult individuals perceive an activity to be, or its
+\emph{perceived challenge}. Another key condition is how good at an
+activity individuals perceive themselves to be, or their \emph{perceived
+competence}. What is most important--and necessary in terms of being
+engaged--is being both challenged by and good at a particular activity.
 
 Past research has supported this conjecture (Csikszentmihalyi, 1990). As
 one empirical example, Shernoff et al. (2016) demonstrated that the
@@ -749,10 +800,10 @@ The five research questions, then, are:
   What is the frequency and nature of opportunities for youth to engage
   in each of the five aspects of work with data in summer STEM programs?
 \item
-  What are sources of variability for the profiles of engagement?
-\item
   What profiles of engagement emerge from data collected via ESM in the
   programs?
+\item
+  What are sources of variability for the profiles of engagement?
 \item
   How do the five aspects of work with data relate to profiles of
   engagement?
@@ -765,13 +816,14 @@ The five research questions, then, are:
 \section{Context}\label{context}
 
 The setting for the present study was nine out-of-school STEM programs
-during 2015 in the Northeast United States. Two \emph{intermediary
-organizations} which were contracted by the local school districts to
-administer the summer programs. The two intermediaries were responsible
-for soliciting and enrolling youth; establishing guidelines for the
-design of the programs, and the goals of the programs; and providing
-training and professional development for the staff, hereafter referred
-to as youth activity leaders.
+during 2015 in the Northeast United States. Descriptions of the programs
+are provided in Appendix B. Two \emph{intermediary organizations} which
+were contracted by the local school districts to administer the summer
+programs. The two intermediaries were responsible for soliciting and
+enrolling youth; establishing guidelines for the design of the programs,
+and the goals of the programs; and providing training and professional
+development for the staff, hereafter referred to as youth activity
+leaders.
 
 There was a difference between the two intermediary organizations,
 namely, one \emph{separated academic and enrichment-related activities},
@@ -884,7 +936,8 @@ included.
 
 \caption{\label{tab:unnamed-chunk-3}ESM measures for profiles}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{ll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{ll}
 \toprule
 Construct & Item\\
 \midrule
@@ -907,10 +960,78 @@ facilitating. The activity youth activity leaders were facilitating were
 from the STEM-Program Quality Assessment (STEM-PQA; Forum for Youth
 Investment, 2012), an assessment of quality programming in after-school
 programs. I then identified the specific activities that corresponded to
-the five aspects of work with data, as defined in Table 3.3. Details on
-the reliability of this measure are described next; more information on
-how the measure aligns with the original STEM-PQA on which this measure
-is based are presented in Appendix A.
+the five aspects of work with data, as defined here:
+
+\textbf{Asking questions or defining problems}: \emph{Predict,
+conjecture, or hypothesize} (Staff support youth in using a simulation,
+experiment, or model to answer questions, explore solutions, or test
+hypotheses {[}e.g., Youth run a robotics program to determine whether it
+does what they expect it to; Youth try an alternate way to solve an
+equation and test their results against another example, etc.{]})
+
+\textbf{Making observations}: \emph{Classify or abstract} (Staff support
+youth in using classification and abstraction, linking concrete examples
+to principles, laws, categories, and formulas {[}e.g., Mice, porcupines,
+and squirrels are all rodents, rodents are all mammals; The pool ball
+moved because for every action, there is an equal and opposite reaction;
+etc.{]})
+
+\textbf{Generating data}: \emph{Collect data or measure} (Staff support
+youth in collecting data or measuring {[}e.g., Youth use rulers or
+yardsticks to measure length; Youth count the number of different
+species of birds observed in a specific location, etc.{]}) and
+\emph{Highlight precision and accuracy} (Staff highlight value of
+precision and accuracy in measuring, observing, recording, or
+calculating {[}e.g., measurement error can impact an experiment or
+conclusion; measure twice, cut once; scientist always need to
+double-check their calculations before drawing conclusions; you must
+observe carefully to see the difference between various species of
+sparrows, etc.{]})
+
+\textbf{Data modeling}: \emph{Simulate, experiment, or model} (Staff
+support youth in using a simulation, experiment, or model to answer
+questions, explore solutions, or test hypotheses {[}e.g., Youth run a
+robotics program to determine whether it does what they expect it to;
+Youth try an alternate way to solve an equation and test their results
+against another example, etc.{]})
+
+\textbf{Interpreting and communicating findings}: \emph{Analyze} (Staff
+support youth in analyzing data to draw conclusions (e.g., after an
+experiment, youth are asked to use results to make a generalization like
+``Your heartbeat increases when you exercise'', etc.)) and \emph{Use
+symbols or models} (Staff support youth in conveying STEM concepts
+through symbols, models, or other nonverbal language (e,g, youth use
+diagrams, equations, flowcharts, outlines, mock-ups, design software,
+dioramas, physical models, prototypes, graphs, charts, tables,
+equations, etc.))
+
+I then used these codes as part of the following coding frame, with the
+code names, possible values, code description, and examples, as
+presented in Table 3.3.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Coding Frame for the Aspects of Work with Data}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llll}
+\toprule
+Code Name & Values & Description & Example\\
+\midrule
+Asking questions & 1: Present; 0: Not Present & Discussing and exploring topics to investigate and pose questions. & Youth generate questions they may investigate related to tide ponds in an estuary ecosystem.\\
+Making observations & 1: Present; 0: Not Present & Watching and noticing what is happening with respect to the phenomena or problem being investigated. & Youth observe the projectile motion of an object launched with a catapault.\\
+Generating data & 1: Present; 0: Not Present & Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools. & Youth write in a table the number of pieces of recyclables they collected in part of a local waterway.\\
+Data modeling & 1: Present; 0: Not Present & Understanding and explaining phenomena using models of the data that account for variability or uncertainty. & Youth calculate the average number of plant species found across a number of sites in the field.\\
+Interpreting and communicating findings & 1: Present; 0: Not Present & Discussing and sharing findings. & Youth present the outcomes of an investigation or engineered design in light of a research question or problem.\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
+Note that this coding frame was not developed to assess work with data
+but rather was adapted for this purpose based on aligning dimensions of
+the STEM-PQA with the categories of the coding frame for work with data
+in this table.
 
 Raters contracted by American Institute of Research (AIR) were trained
 in the use of the Program Quality Assessment tool (PQA)--the broader
@@ -937,25 +1058,6 @@ data; for the 12 that were not codeable, issues with the
 video-recordings were the primary source of the missing data. These 236
 responses are used for all of the analyses.
 
-\begin{landscape}\begin{table}
-
-\caption{\label{tab:unnamed-chunk-4}Coding Frame for the Aspects of Work with Data}
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{ll}
-\toprule
-Code & Description\\
-\midrule
-Asking questions & Discussing and exploring topics to investigate and pose questions.\\
-Making observations & Watching and noticing what is happening with respect to the phenomena or problem being investigated.\\
-Generating data & Figuring out how or why to inscribe an observation as data and generating coding frames or measurement tools.\\
- & \\
-Data modeling & Understanding and explaining phenomena using models of the data that account for variability or uncertainty.\\
-Interpreting and communicating findings & Discussing and sharing and presenting findings.\\
-\bottomrule
-\end{tabular}}
-\end{table}
-\end{landscape}
-
 \subsection{Survey measures of pre-interest in
 STEM}\label{survey-measures-of-pre-interest-in-stem}
 
@@ -975,13 +1077,19 @@ so that the value for a youth whose response for the science scale was
 Rosenberg, and Schmidt (2018) for more details on this (taking the
 maximum value) measurement approach. The items are presented in Table
 3.4. Overall levels of this measure were high (\emph{M} = 3.044
-(\emph{SD} = 0.901).
+(\emph{SD} = 0.901). The individual interest measure represented the
+mean of interest items across all relevant domains. Thus for some
+students, the mean was based on 3 items, while for others it was based
+on as many as 9 items representing all three domains (with Cronbach
+alpha values ranging from .77 - .86 for each domain specific interest
+scale).
 
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-5}Measure for pre-program interest in STEM}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{ll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{ll}
 \toprule
 Construct & Item text\\
 \midrule
@@ -1049,35 +1157,31 @@ assistant coded all of the segments associated with the videos for a
 particular. Two coders coded every segment, except for the segments for
 which the quantitative coding indicated no aspects of work with data
 were present; instead, for these segments, only one coder coded each
-segment.
-
-The coders used the following five guiding questions, associated with
-each of the five aspects of work with data, for the qualitative coding:
-
-\begin{itemize}
-\tightlist
-\item
-  When questioning or defining problems was observed, what types of
-  questions/problems were involved?
-\item
-  When making observations is coded, what is the focus of observing?
-\item
-  When generating data is coded, what is being collected or recorded?
-\item
-  When analyzing or modeling data is coded, what analysis is being done,
-  or what models are used?
-\item
-  When interpreting and communicating findings is coded, what is being
-  interpreted or communicated?
-\end{itemize}
-
-For all of the guiding questions, the coders also took note of
+segment. For all of the guiding questions, the coders also took note of
 \emph{who} (the youth, youth activity leader, or someone else) was the
 focus of the aspect of work with data. For example, with respect to
 interpreting and communicating findings, denoted when youth were sharing
 the results from a hands-on investigation or when it was the youth
 activity leader doing so as a summary on the basis of the work youth
-recently completed.
+recently completed. Table 3.4 summarizes the aims of the open-ended,
+qualitative coding.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Coding Frame for the open-ended, qualitative coding of instructional episodes}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{ll}
+\toprule
+Topics & Description\\
+\midrule
+Nature of activity & Note the nature of what was happening in terms of the activity or activities youth were involved in.\\
+Youth or youth activity leader & Note the extent to which youth or the youth activity led the activity (or whether it was led by both the youth and youth activity leader).\\
+Work with data & For each aspect of work with data determined to be present, note how youth were involved in working with data.\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
 
 After coding all of the segments for each program, the coders and I met
 to discuss potential issues that emerged throughout the coding. The goal
@@ -1146,17 +1250,15 @@ Appendix D.
 To select a solution in terms of the model type and the number of
 profiles to be interpreted and used in subsequent analyses, a number of
 fit statistics and other considerations were taken into account. These
-include a range of information criteria (AIC, BIC, sample adjusted BIC
-{[}SABIC{]}, consistent AIC {[}CAIC{]}), statistics about the quality of
-the profile assignments (entropy, which represents the mean posterior
-probability), statistical tests (Vu-Lo-Mendell-Rubin LRT {[}VLMR{]},
-Lo-Mendell-Rubin LRT {[}LMR{]}, and the bootstrapped LRT {[}BLRT{]}),
-and concerns of interpretability and parsimony are used. On the basis of
-these criteria, a particular solution is selected and used as part of
-subsequent analyses; as the model selection process is an integral part
-of providing an answer to this question, the model and number of
-profiles selected are described in the section for the results for this
-research question.
+include a range of information criteria (AIC, BIC, and sample adjusted
+BIC {[}SABIC{]}), statistics about the quality of the profile
+assignments (entropy, which represents the mean posterior probability),
+a statistical test (the bootstrapped LRT {[}BLRT{]}), and concerns of
+interpretability and parsimony. On the basis of these criteria, a
+particular solution is selected and used as part of subsequent analyses;
+as the model selection process is an integral part of providing an
+answer to this question, the model and number of profiles selected are
+described in the section for the results for this research question.
 
 \subsection{Analysis for Research Question \#3 (sources of variability
 for the
@@ -1359,7 +1461,7 @@ episode, program, and even for unexplained reasons.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-6}Descriptive statistics for study variables}
+\caption{\label{tab:unnamed-chunk-7}Descriptive statistics for study variables}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1380,24 +1482,48 @@ variables}\label{correlations-among-the-study-variables}
 Correlations between the variables that are used to create the profiles
 of engagement and the one other variable which was continuous (rather
 than a code for groups, in particular youths' gender and URM status),
-pre-program interest in STEM (Table 4.2). These correlations, which
-range from \emph{r} = .08 through \emph{r} = .60 (all statistically
-significant), represent low to moderate relations among these variables.
+pre-program interest in STEM (Table 4.2), were specified. In addition,
+relations between these variables and those for the five aspects of work
+with data were identified. Note that because the five variables were
+dichotomous, Spearman (rather than Pearson) correlations were also
+specified, but were nearly identical, and only the Pearson correlations
+are reported. The correlations among the variables used to create the
+profiles and pre-interest, which range from \emph{r} = .08 through
+\emph{r} = .60 (all statistically significant), represent low to
+moderate relations among these variables. The relations among the
+aspects of work with data, which ranged from \emph{r} = .19 to \emph{r}
+= .50 (also all statistically significant), also represented moderate
+relations among these variables. Relations between the variables used to
+create the profiles as well as pre-interest and the aspects of work with
+data were less noteworthy. For pre-interest and the aspects of work with
+data, the values ranged from \emph{r} = -.10 to \emph{r} = .11, with
+only the \emph{r} value of .11 being statistically significant,
+representing small relations. For the variables used to create the
+profiles and the aspects of work with data, the values ranged from
+\emph{r} = -.06 to \emph{r} = .03, with only a few of the negative
+relations (those with \emph{r} values of -.05 and -.06) being
+statistically significant.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-7}Correlations among the continuous study variables}
+\caption{\label{tab:unnamed-chunk-8}Correlations among the continuous study variables}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llllllllllll}
 \toprule
- & Pre-interest & Cog. eng. & Beh. eng. & Aff. eng. & Challenge & Competence\\
+ & Pre-interest & Cog. eng. & Beh. eng. & Aff. eng. & Challenge & Competence & Asking & Observing & Generating & Modeling & Communicating\\
 \midrule
-Pre-interest &  &  &  &  &  & \\
-Cog. eng. & .14 &  &  &  &  & \\
-Beh. eng. & .13 & .60 &  &  &  & \\
-Aff. eng. & .12 & .59 & .57 &  &  & \\
-Challenge & .15 & .30 & .27 & .27 &  & \\
-Competence & .06 & .40 & .41 & .47 & .08 & \\
+Pre-interest &  &  &  &  &  &  &  &  &  &  & \\
+Cog. eng. & .14 &  &  &  &  &  &  &  &  &  & \\
+Beh. eng. & .13 & .60 &  &  &  &  &  &  &  &  & \\
+Aff. eng. & .12 & .59 & .57 &  &  &  &  &  &  &  & \\
+Challenge & .15 & .30 & .27 & .27 &  &  &  &  &  &  & \\
+Competence & .06 & .40 & .41 & .47 & .08 &  &  &  &  &  & \\
+Asking & -.18 & .02 & .01 & .01 & -.01 & -.01 &  &  &  &  & \\
+Observing & .11 & .01 & .03 & -.01 & -.02 & -.00 & .38 &  &  &  & \\
+Generating & -.08 & .02 & .02 & -.03 & -.01 & -.05 & .31 & .30 &  &  & \\
+Modeling & -.03 & .02 & .01 & .01 & .03 & -.00 & .42 & .19 & .35 &  & \\
+Communicating & -.10 & .00 & -.02 & -.05 & -.06 & -.03 & .42 & .20 & .38 & .50 & \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -1431,7 +1557,7 @@ by the program are presented in Appendix C.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-8}Proportion of signals for which each of the aspects of work with data was present}
+\caption{\label{tab:unnamed-chunk-9}Proportion of signals for which each of the aspects of work with data was present}
 \centering
 \begin{tabular}[t]{lrr}
 \toprule
@@ -1527,44 +1653,56 @@ riddles while traveling on a bus to a community site.
 \subsubsection{Data modeling}\label{data-modeling}
 
 A majority (37/68, 54\%) of the instructional episodes identified as
-data modeling were focused on youths' uses of statistical and
-mathematical models. For example, in the \emph{Comunidad de Aprendizaje}
-program, youth accessed nationally-representative data and were tasked
-to solve problems, like finding out what percentage of people engage in
-particular activities, like donating to charity. In another example, in
-the \emph{Marine Investigators}, youth participated in activities
-designed to help them understand water quality in their ecosystem. Youth
-collected trash from sites around their community (in different
-``districts'') and then brought the trash and recyclable plastic back
-into the classroom. Then, the youth activity leaders involved youth in
-an ambitious data modeling activity. The aim was to figure out how much
-plastic enters local waterways. As a part of this activity, youth
-activity leaders asked youth not only to determine the quantity of trash
-that entered the waterways, but asked youth about \emph{why} youth
-thought about and used math in particular ways. For example, youth
-activity leaders pressed youth to consider how the quantity of trash
-collected could be extrapolated across the entire city over the course
-of the year). For example, during \emph{Marine Investigators}, the youth
-activity leader.
+data modeling were focused on youths' uses and development of
+statistical and mathematical models. For example, in the \emph{Comunidad
+de Aprendizaje} program, youth accessed nationally-representative data
+and were tasked to solve problems, like finding out what percentage of
+people engage in particular activities, like donating to charity. In
+another example, in the \emph{Marine Investigators}, youth participated
+in activities designed to help them understand water quality in their
+ecosystem. Youth collected trash from sites around their community (in
+different ``districts'') and then brought the trash and recyclable
+plastic back into the classroom. Then, the youth activity leaders
+involved youth in an ambitious data modeling activity. The aim was to
+figure out how much plastic enters local waterways. As a part of this
+activity, youth activity leaders asked youth not only to determine the
+quantity of trash that entered the waterways, but asked youth about
+\emph{why} youth thought about and used math in particular ways. For
+example, youth activity leaders pressed youth to consider how the
+quantity of trash collected could be extrapolated across the entire city
+over the course of the year). For example, during \emph{Marine
+Investigators}, the youth activity leader.
 
 Other times (4/68; 6\%), data modeling occurred through solving
 equations provided by the youth activity leader, even when related to
 real-life (as in buying groceries, how money is spent, and how to
-budget, in \emph{Comunidad de Apendizaje}). In these episodes during
-which youth were modeling data, there were less opportunities for youth
-to talk and think about the data model because it was provided to them
-at the beginning of the activity. During some episodes (6/68; 9\%), data
-modeling involved reasoning about a model based on data with ambiguous
-origins. In many of these cases, the model was a physical model, such as
-during the \emph{Crazy Machines} program, in which youth saw how changes
-to their Rube Goldberg machine worked or did not work. Such uses were
-similar to those in which the youth activity leader, rather than the
-youth (3/68; 4\%) used the model (to convey ideas to youth). For
-instance, in the \emph{Marine Investigators} program, a youth activity
-leader used a plush toy seal designed to teach youth about anatomy and
-the dangers of aquatic mammals consuming trash and recyclables. The
-remaining data modeling-related episodes (18/68; 26\%) were not
-systematic or very common.
+budget, in \emph{Comunidad de Apendizaje}). This type of work with data
+differs from descriptions of data modeling in two ways. First, the
+equations provided to youth did not involve variability, a key component
+of data modeling (Hancock et al., 1992): rather, in the cases of solving
+such equations, there was one correct answer. Second, such cases
+differed from definitions of data modeling that emphasize the role of
+learners themselves developing statistical models (Hancock et al., 1992)
+or statistics and measures of variability (Lehrer, Kim, \& Schauble,
+2007; Lehrer, Kim, \& Jones, 2011). Such work in which learners use
+equations provided to them may be less engaging than cases in which they
+themselves are challenged to use and develop data models, work which may
+be more engaging, especially when youth perceive themselves to be good
+at such activities (Schneider et al., 2016; Shernoff et al., 2016). In
+these episodes during which youth were modeling data, there were less
+opportunities for youth to talk and think about the data model because
+it was provided to them at the beginning of the activity. During some
+episodes (6/68; 9\%), data modeling involved reasoning about a model
+based on data with ambiguous origins. In many of these cases, the model
+was a physical model, such as during the \emph{Crazy Machines} program,
+in which youth saw how changes to their Rube Goldberg machine worked or
+did not work. Such uses were similar to those in which the youth
+activity leader, rather than the youth (3/68; 4\%) used the model (to
+convey ideas to youth). For instance, in the \emph{Marine Investigators}
+program, a youth activity leader used a plush toy seal designed to teach
+youth about anatomy and the dangers of aquatic mammals consuming trash
+and recyclables. The remaining data modeling-related episodes (18/68;
+26\%) were not systematic or very common.
 
 \subsubsection{Interpreting and communicating
 findings}\label{interpreting-and-communicating-findings}
@@ -1611,45 +1749,78 @@ common.
 engagement emerge from experiential data collected in the
 programs?}\label{results-for-research-question-2-what-profiles-of-youth-engagement-emerge-from-experiential-data-collected-in-the-programs}
 
-On the basis of fit statistics, statistical tests, and concerns of
-interpretability and parsimony, a solution with six profiles of
-engagement was selected. This solution represents the profiles of
-engagement identified to answer this research question and for use in
-subsequent analyses. This solution was associated with a model with
-varying means, equal variances, and covariances fixed to 0 (the first
-model type among those described in the methods). Because of the
-exploratory nature of the approach used to identify the profiles, LPA,
-it is important to consider alternate solutions. In particular, a seven
-profile solution with the same model specification was similar (but not
-superior) regarding the fit statistics and statistical tests. This
-solution, presented in Appendix F, was determined not to be superior to
-the six profile solution, ultimately chosen on the basis of parsimony
-and interpretability.
+On the basis of fit statistics and statistical tests (see Table 4.4) and
+concerns of interpretability and parsimony, a solution with six profiles
+of engagement was selected. Note that only models associated with the
+varying means, equal variances, and covariances fixed to 0 specification
+(referred to as the ``model 1 type'') and the varying means, equal
+variances, and equal covariances (referred to as the ``model 2 type'')
+converged, and so only solutions associated with these two model
+specifications were considered.
 
-The result of this model selection process was the estimation of
-\emph{six distinct profiles} identified from the data, as presented in
-Figures 4.1 and 4.2. Figure 4.1 shows the profiles with variables that
-were centered to have a \emph{mean} of 0 and a \emph{standard deviation}
-of 1. Thus, the \emph{y}-axis for this plot is labeled ``Z-score'').
-Figure 4.2 shows the profiles with the raw data (not transformed). Thus,
-the \emph{y}-axis for this plot is labeled ``Value.''
+\begin{verbatim}
+## Error in inherits(x, "list"): argument "x" is missing, with no default
+## # A tibble: 8 x 7
+##   `Number of Profiles`     AIC    BIC  SABIC Entropy BLRT  `Profile Sizes`
+##                  <int>   <dbl>  <dbl>  <dbl>   <dbl> <chr> <chr>          
+## 1                    3 -19453. 39083. 39013.   0.794 881.~ 773, 897, 1288 
+## 2                    4 -19196. 38616. 38527.   0.811 514.~ 415, 427, 920,~
+## 3                    5 -18818. 37908. 37800.   0.913 756.~ 345, 375, 643,~
+## 4                    6 -18649. 37617. 37490.   0.888 338.~ 345, 370, 450,~
+## 5                    7 -18407. 37182. 37036.   0.886 523.~ 181, 222, 317,~
+## 6                    3 -18897. 38050. 37948.   0.88  421.~ 763, 954, 1241 
+## 7                    4 -18660. 37623. 37502.   0.922 474.~ 135, 688, 1029~
+## 8                    5 -18475. 37301. 37162.   0.901 304.~ 130, 271, 573,~
+\end{verbatim}
+
+For solutions associated with model 1, the decrease (indicating a
+preferred model) in the information criteria (AIC, BIC, SABIC) becomes
+smaller as the number of profiles increases from 5 to 6 and 6 to 7. The
+BLRT suggests that, until the log-likelihood is not replicated, every
+more complex model be selected. The six and seven profile solutions are
+compelling because both show profiles that are distinguished by
+dimensions of engagement and its conditions (challenge and competence)
+and have lower values on the information criteria than the solutions
+with fewer profiles. For solutions associated with model 2, only those
+associated with 2-5 profile solutions were associated with
+log-likelihoods that were replicated. For these four models, the
+log-likelihood decreased in a mostly consistent way, such that changes
+in the decrease are not as evident as those associated with model 1. The
+BLRT suggest that the more complex model be selected, not providing
+clear information about which solutions are to be preferred.
+
+Taken this information into consideration, either a model one type, six
+or seven profile solution was most reasonable. The seven profile
+solution, described in Appendix F, was used for the analyses for
+research questions 4 and 5, and the results were comparable to those for
+the six profile solution, and so the six profile solution was chosen on
+the basis of parsimony. The result of this model selection process was
+the estimation of \emph{six distinct profiles} identified from the data,
+as presented in Figures 4.1 and 4.2. Figure 4.1 shows the profiles with
+variables that were centered to have a \emph{mean} of 0 and a
+\emph{standard deviation} of 1. Thus, the \emph{y}-axis for this plot is
+labeled ``Z-score''). Figure 4.2 shows the profiles with the raw data
+(not transformed). Thus, the \emph{y}-axis for this plot is labeled
+``Value.'' This solution represents the profiles of engagement
+identified to answer this research question and for use in subsequent
+analyses.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-10-1} 
+{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-12-1} 
 
 }
 
-\caption{The six profiles of engagement (with variable values standardized)}\label{fig:unnamed-chunk-10}
+\caption{The six profiles of engagement (with variable values standardized)}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-11-1} 
+{\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-13-1} 
 
 }
 
-\caption{The six profiles of engagement (with raw variable values)}\label{fig:unnamed-chunk-11}
+\caption{The six profiles of engagement (with raw variable values)}\label{fig:unnamed-chunk-13}
 \end{figure}
 
 The two plots are presented because they provide a different view into
@@ -1667,28 +1838,29 @@ This solution is characterized by:
 \begin{itemize}
 \tightlist
 \item
-  A \emph{universally low} profile, characterized by low levels of
-  working hard, learning something new, and enjoying the activity, and
-  perceptions challenge and competence
+  A \emph{universally low} profile (22.55\% of responses), characterized
+  by low levels of working hard, learning something new, and enjoying
+  the activity, and perceptions challenge and competence
 \item
-  An \emph{only behaviorally engaged} profile, with moderate levels of
-  working hard, very low enjoyment of the activity, and moderate levels
-  of learning something new and challenge and competence
+  An \emph{only behaviorally engaged} profile (12.51\%), with moderate
+  levels of working hard, very low enjoyment of the activity, and
+  moderate levels of learning something new and challenge and competence
 \item
-  An \emph{only affectively engaged} profile, with moderate levels of
-  enjoyment, low levels of hard work, and moderate levels of learning
-  something new, challenge, and competence
+  An \emph{only affectively engaged} profile (11.66\%), with moderate
+  levels of enjoyment, low levels of hard work, and moderate levels of
+  learning something new, challenge, and competence
 \item
-  An \emph{all moderate} profile, with moderate levels of the three
-  indicators of working hard, learning something new, enjoying the
+  An \emph{all moderate} profile (21.57\%), with moderate levels of the
+  three indicators of working hard, learning something new, enjoying the
   activity, challenge, and competence
 \item
-  An \emph{engaged and competent but not challenged} profile,
+  An \emph{engaged and competent but not challenged} profile (15.21\%),
   characterized by high levels of working hard, learning something new,
   enjoying the activity, and competence, but low levels of challenge
 \item
-  A \emph{full} profile, with high levels of working hard, learning
-  something new, enjoying the activity, challenge, and competence
+  A \emph{full} profile (16.50\%), with high levels of working hard,
+  learning something new, enjoying the activity, challenge, and
+  competence
 \end{itemize}
 
 The six profiles are characterized by both varying levels on both the
@@ -1702,6 +1874,43 @@ profile (\emph{n} = 638); each of the other four profiles was associated
 with 300 to 400 observations. The results for research questions 3-5 use
 this solution and the six profiles in subsequent analyses.
 
+A MANOVA was carried out to determine whether the values of variables
+differ across the profiles, with multiple ANOVAs used to determine which
+variables (and for which profiles) there were differences. Note that for
+the profiles (and their presentation in Figures 4.2 and 4.3 and Table
+4.5), each responses is associated with a probability of profile
+membership at a particular moment. Because, across all responses, the
+highest probability for each response was on average quite high (the
+entropy statistic was .888), the highest probability was appropriate to
+use to classify each response into one profile for the percentages and
+results comparing the mean levels of each variable across profiles (with
+a MANOVA). The MANOVA was statistically significant
+(\emph{Pillai-Bartlett} = 0.633, \emph{p} \textless{} .001). The table
+with the raw values, with subscripts indicating values \emph{the values
+that are not statistically significantly different} is presented in
+Table 4.5. Note that the \emph{F}-test associated each ANOVA was also
+statistically significant.
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-14}Raw variables values for each profile}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Profile & Enjoying & Working Hard & Learning New & Challenge & Competence\\
+\midrule
+Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
+Only behavioral & 3.292 & 2.484 & 1.641 & 2.132 & 2.778\\
+Only affective & 1.670 & 2.516 & 3.330 & 2.191 & 2.954\\
+All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953\\
+Eng. and comp. but not chall. & 3.909 & 3.487 & 3.822 & 1.276 & 3.604\\
+Full & 3.959 & 3.801 & 3.881 & 3.742 & 3.631\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{landscape}
+
 \section{Results for Research Question \#3: What sources of variability
 are there for the profiles of
 engagement?}\label{results-for-research-question-3-what-sources-of-variability-are-there-for-the-profiles-of-engagement}
@@ -1711,7 +1920,7 @@ youth, instructional episode, and program levels themselves, but not
 variables at the levels) represent the systematic variability (the
 proportion of variance explained) associated with each of the levels for
 each profile. Thus, the different levels can have different proportions
-of variance explained for different profiles, as presented in Table 4.4.
+of variance explained for different profiles, as presented in Table 4.5.
 The systematic variability at the youth level, for example, could be .10
 for the \emph{Full} profile and .025 for the \emph{Universally Low}
 profile. At the program level, the \emph{ICC}s were found to be small,
@@ -1723,7 +1932,7 @@ episode level, the \emph{ICC}s were also small, ranging from 0.004 to
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-12}Intra-class correlation (ICC) values for each of the three levels}
+\caption{\label{tab:unnamed-chunk-15}Intra-class correlation (ICC) values for each of the three levels}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1776,6 +1985,14 @@ profile in all of their responses, but for most youth, the profile they
 reported most made up only a portion of all of their responses. For most
 youth, the most common profile was observed just over 50\% of the time.
 
+Note that any of the aspects of work with data versus none of the
+aspects of work with data and the interactive effects of youth
+characteristics and, relevant to the results for the next research
+question, the aspects of work with data were examined as variables,
+instead of the five aspects of work with data on their own. However,
+none of these but not found to be statistically significant (but do not
+include these in a table).
+
 In sum, these findings show that there was substantial variability in
 the profiles present at the youth level. Less variability was explained
 by either the program youth were in or the nature of the particular
@@ -1787,11 +2004,11 @@ profiles of engagement.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-13-1} 
+{\centering \includegraphics[width=0.8\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-16-1} 
 
 }
 
-\caption{Histogram of the proportion of responses for each youth in the profile they reported most}\label{fig:unnamed-chunk-13}
+\caption{Histogram of the proportion of responses for each youth in the profile they reported most}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 \section{Results for Research Question \#4: Aspects of work with data
@@ -1811,7 +2028,7 @@ the others. All models also include some youth characteristics which
 will be used to answer research question five below.
 
 Associations between the five aspects of work with data and the six
-engagement profiles are presented in the bottom half of Table 4.5. In
+engagement profiles are presented in the bottom half of Table 4.6. In
 this table, each column represents the output from one of the six
 different models. As an example, the first column reports the
 coefficients for the associations between the predictor variables and
@@ -1856,23 +2073,24 @@ some caution).
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-14}Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data}
+\caption{\label{tab:unnamed-chunk-17}Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lllllll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lllllll}
 \toprule
-Profile & Universally low & Only behavioral & Only affective & Eng. and comp. but not chall. & All moderate & Full\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Youth characteristics}}\\
+\hspace{1em}Profile & Universally low B (SE) & Only behavioral B (SE) & Only affective B (SE) & Eng. and comp., not chall. B (SE) & All moderate B (SE) & Full B (SE)\\
 \hspace{1em}Pre-interest & -0.047 (0.022) & -0.013 (0.012) & -0.012 (0.019) & 0.039 (0.016)* & 0.007 (0.01) & 0.018 (0.021)\\
 \hspace{1em}Gender-Female & 0.06 (0.037)+ & 0.019 (0.019) & -0.038 (0.033) & 0.025 (0.028) & -0.02 (0.018) & -0.035 (0.037)\\
-\hspace{1em}URM status & -0.01 (0.052) & 0.031 (0.026) & -0.076 (0.046) & -0.012 (0.04) & 0.018 (0.025) & 0.043 (0.053)\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Aspects of Work With Data}}\\
+\hspace{1em}URM status & -0.01 (0.052) & 0.031 (0.026) & -0.076 (0.046) & -0.012 (0.04) & 0.018 (0.025) & 0.043 (0.053)\\
 \hspace{1em}Asking & -0.015 (0.018) & 0.015 (0.015) & 0.023 (0.017)+ & -0.011 (0.015) & 0.004 (0.014) & -0.019 (0.016)\\
 \hspace{1em}Observing & 0.003 (0.018) & 0.013 (0.015) & 0.007 (0.017) & 0.009 (0.015) & -0.017 (0.014) & -0.025 (0.016)\\
 \hspace{1em}Generating & -0.014 (0.017) & 0.014 (0.014) & 0.012 (0.016) & -0.014 (0.014) & -0.02 (0.013) & 0.027 (0.015)*\\
 \hspace{1em}Modeling & 0.004 (0.019) & -0.023 (0.016) & -0.004 (0.018) & 0 (0.015) & -0.012 (0.015) & 0.034 (0.017)*\\
-\hspace{1em}Communicating & 0.002 (0.018) & 0.018 (0.015) & -0.011 (0.017) & 0.004 (0.015) & 0.016 (0.014) & -0.027 (0.016)\\
+Communicating & 0.002 (0.018) & 0.018 (0.015) & -0.011 (0.017) & 0.004 (0.015) & 0.016 (0.014) & -0.027 (0.016)\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -1884,7 +2102,7 @@ Profile & Universally low & Only behavioral & Only affective & Eng. and comp. bu
 engagement}\label{results-for-research-question-5-youth-characteristics-and-engagement}
 
 Associations between youth characteristics and the six profiles are
-reported in the top half of Table 4.5. Youth who enter the program with
+reported in the top half of Table 4.6. Youth who enter the program with
 higher levels of interest (in STEM) are more likely to report being in
 the engaged and competent but not challenged profile (\(\beta\) = 0.039,
 \emph{p} = .009; partial \(R^2\) = .001). In other words, youth who are
@@ -2178,23 +2396,43 @@ they are involved with particular aspects of work with data,
 particularly data modeling (and accounting for variability in data).
 Given the absence of research from an engagement perspective, these are
 new findings that suggest, in this context, that work with data may not
-be strongly related to engagement in educational contexts. The small
+be strongly related to engagement in educational contexts.
+
+Why might these relations be so minimal? First, and foremost, the small
 amount of variability at the instructional episode level (see the
 \emph{ICC}s for this level reported for in the results for research
-question \#3) was important because it means that few relations between
+question \#3) was critical because it means that few relations between
 variables at the instructional episode level were anticipated (on this
 basis). In particular, very small amounts of variability at the
 instructional episode level was found for all six profiles of
-engagement. These values were smaller than those found in the one other
-past study that employed the same analytic approach (Strati et al.,
-2017). This difference may be attributable to the summer STEM program
-setting. Perhaps youth are less likely to engage differently from
+engagement, and these values were smaller than those found in the one
+other past study that employed the same analytic approach (Strati et
+al., 2017). This is an important consideration in terms of the null
+findings because it suggests that there was very little systematic
+variability \emph{at the level that work with data was at, the
+instructional episode} to be explained. This may be due to the summer
+stem setting: Perhaps youth are less likely to engage differently from
 instructional episode to instructional episode (compared to in K-12
 educational settings) because there is less variability in what took
 place across the episodes or because youth perceive there to be lower
 stakes for the programs' activities and therefore do not perceive the
 changes in the instructional episode as a factor that impacts their
-engagement.
+engagement. This consideration is described in greater detail in the
+limitations section. There are other possible reasons, though, too, for
+the minimal relations. One may be that work with data is \emph{not}, as
+carried out in these summer STEM programs, very engaging, even
+accounting for the small amount of variability at the instructional
+episode level. Another possibility is that the novel analytic approach
+or the measures used also had impacts; but, again, the small variability
+at the instructional episode level is likely a greater factor than
+these, and a review of the correlations between the aspects of work with
+data and the variables used to create the profiles showed minimal
+relations. These two potential explanations are explored further in the
+next section, on limitations to the present study and recommendations
+for future research. Taken together, it seems that the major reason for
+limited relations between work with data and youth engagement is that
+youth simply did not engage very differently (in systematic ways) from
+instructional episode to instructional episode.
 
 Even so, there were \emph{some} noteworthy findings that could be
 anticipated on the basis of the importance of the two aspects of work
@@ -2215,20 +2453,31 @@ worth recording and then recording the parts that are of interest. Thus,
 generating data may be fully engaging to youth because it is, generally,
 demanding and important with respect to work with data. Modeling, too,
 is an important practice. It has been described as \emph{the} central
-scientific and engineering practice (Schwarz et al., 2009; Lehrer \&
-Schauble, 2015; Weisberg, 2012), and its relations with full engagement
-provides some actionable evidence for its importance in the context of
-summer STEM programs. The null findings for the relations of asking
-questions, making observations, and interpreting and communicating
-findings were noteworthy, too. They suggest that, if these aspects of
-work with data are (positively or negatively) related to youths'
-engagement, then their effects are not large enough to be detected. They
-may not be able to be detected for a number of reasons: simply because
-they are very small given all of the other factors that impact youths'
-engagement, because the aspects of work with data are enacted in a
-myriad of ways which may be more or less engaging, and because they
-simply are not as engaging as for example. Nevertheless, future research
-may seek to understand these aspects did not relate to engagement.
+scientific and engineering practice (Lehrer \& Schauble, 2015; Weisberg,
+2012), and its relations with full engagement provides some actionable
+evidence for its importance in the context of summer STEM programs.
+Modeling may be especially engaging to youth because such work positions
+learners as the creators of new information, in addition to using models
+created by others to learn about authoritative sources of information.
+This is one of the affordances of modeling in teaching and learning
+contexts (Berland et al., 2016; Schwarz et al., 2009). Moreover, when
+learners create new knowledge (including doing so through the use of
+data modeling), they can begin to shape not only what knowledge learners
+construct, but also how they construct it, a challenge in science
+education contexts (Miller et al., 2016) and likely in other STEM
+content areas, we well.
+
+The null findings for the relations of asking questions, making
+observations, and interpreting and communicating findings were
+noteworthy, too. They suggest that, if these aspects of work with data
+are (positively or negatively) related to youths' engagement, then their
+effects are not large enough to be detected. They may not be able to be
+detected for a number of reasons: simply because they are very small
+given all of the other factors that impact youths' engagement, because
+the aspects of work with data are enacted in a myriad of ways which may
+be more or less engaging, and because they simply are not as engaging.
+Nevertheless, future research may seek to understand why these aspects
+did not relate to engagement.
 
 As there is no research on how work with data relates to youths'
 engagement, the findings associated with this research question provide
@@ -2244,27 +2493,29 @@ samples, other enactments of work with data, and, possibly, other
 analytic approaches can build on this work to further substantiate what
 is known about how work with data engages youth and other learners.
 
-There was a lot of variability in the profiles of engagement at the
-youth level, but there were not many relations in terms of youths'
-gender, URM status, or pre-program interest. Given past theory and
-research have suggested that learners' gender, URM status, and
-individual or pre-program interest can predict engagement
-(Bystydzienski, Eisenhart, \& Bruning, 2015; Hidi \& Renninger, 2006;
-Shernoff \& Schmidt, 2008). Despite these surprising findings, youth
-with higher pre-program interest were found to be more likely to be
-\emph{Engaged and competent but not challenged}. This suggests that
-youth with a higher interest in STEM are inclined to be highly engaged
-and good at what they are doing, but are not challenged by the
-activities they experience. This finding is in line with past research
-suggesting a relationship (direct or as a moderator) between youth
-characteristics (including interest) and their engagement (Shernoff et
-al., 2003; Shernoff et al., 2016; Strati et al., 2017). More
-specifically, this finding suggests that for youth who are particularly
-interested (and those who choose to attend) summer STEM programs, what
-they are involved in may not challenge them very highly. This finding
-has implications for past research that shows youth who choose to attend
-summer STEM programs are more engaged (but that does not speak to their
-degree of challenge; Beymer, Rosenberg, Schmidt, \& Naftzger, 2018).
+Why were there such limited findings in terms of relations between
+youths' characteristics and youths' engagement? There was a lot of
+variability in the profiles of engagement at the youth level, but there
+were not many relations in terms of youths' gender, URM status, or
+pre-program interest. Given past theory and research have suggested that
+learners' gender, URM status, and individual or pre-program interest can
+predict engagement (Bystydzienski, Eisenhart, \& Bruning, 2015; Hidi \&
+Renninger, 2006; Shernoff \& Schmidt, 2008). Despite these surprising
+findings, youth with higher pre-program interest were found to be more
+likely to be \emph{Engaged and competent but not challenged}. This
+suggests that youth with a higher interest in STEM are inclined to be
+highly engaged and good at what they are doing, but are not challenged
+by the activities they experience. This finding is in line with past
+research suggesting a relationship (direct or as a moderator) between
+youth characteristics (including interest) and their engagement
+(Shernoff et al., 2003; Shernoff et al., 2016; Strati et al., 2017).
+More specifically, this finding suggests that for youth who are
+particularly interested (and those who choose to attend) summer STEM
+programs, what they are involved in may not challenge them very highly.
+This finding has implications for past research that shows youth who
+choose to attend summer STEM programs are more engaged (but that does
+not speak to their degree of challenge; Beymer, Rosenberg, Schmidt, \&
+Naftzger, 2018).
 
 While the findings for this research question, like those for the
 relations between the aspects of work with data and youths' engagement,
@@ -2336,26 +2587,46 @@ study does provide insight into how work with data took place during
 \emph{model} (i.e., designed around best practices for such programs)
 summer STEM programs and how such work relates to youths' engagement.
 
+In a related point, it is important to point out that while
+outside-of-school STEM programs have affordances, they also have some
+distinct features as well as some limitations. One of their key features
+is their duration: As in this study, youth were involved over a
+substantial, but still limited period of time (around four weeks).
+Another feature concerns the nature and quality of the teaching (and
+learning) that take place during them. The contexts (including in the
+field) in which youth were engaged good spark their engagement and could
+support work with data better than some K-12 learning environments. They
+also have some key limitations, including the possibility that youth
+considered their time in them to be enjoyed and to be social in nature,
+meaning that the way they engaged in the programs as documented in this
+study could be unique to outside-of-school STEM programs like those in
+this study. In particular, the \emph{engaged and competent but not
+challenged} profile may be unique to learners in summer STEM programs.
+This is a limitation in addition those documented earlier, namely, that
+the limited variability at the instructional episode level may also be
+due to the lower stakes that learners in these contexts may perceive.
+
 Learning environments that deliberately support work with data over a
-long period may demonstrate different patterns of engagement. This is
-because of the importance of how work with data is part of a cycle.
-Nevertheless, in addition to illustrating the nature and frequency of
-work with data, the open-ended, qualitative coding carried out for
-research question \#1 also provided a lens into how work with data was
-(or was not) sequenced. There were instances of youth activity leaders
-linking earlier to later activities. For instance, the
-mathematics-focused programs, such as the \emph{Adventures in
-Mathematics} program, the youth activity leaders, recognizing that youth
-had difficulty solving equations, used duct tape--and building on an
-earlier activity in which youth considered what constituted a
-rate--asked youth to count how many ``hops'' it would take someone to
-move from one end of a line of duct tape to the other. The youth
-activity leader than asked youth to consider how far they could move in
-one hop and to consider how they could find out many hops it would take,
-using a mathematical equation. In this activity, youth were supported in
-their attempts to approach mathematics problem-solving by linking data
-modeling to an earlier activity that involved generating data about the
-number of hops.
+long period may demonstrate different patterns of engagement. One key
+reason why this may be is because of the importance of how work with
+data is part of a cycle (and how this cycle often did not take place in
+these outside-of-school STEM programs. Nevertheless, in addition to
+illustrating the nature and frequency of work with data, the open-ended,
+qualitative coding carried out for research question \#1 also provided a
+lens into how work with data was (or was not) sequenced. There were
+instances of youth activity leaders linking earlier to later activities.
+For instance, the mathematics-focused programs, such as the
+\emph{Adventures in Mathematics} program, the youth activity leaders,
+recognizing that youth had difficulty solving equations, used duct
+tape--and building on an earlier activity in which youth considered what
+constituted a rate--asked youth to count how many ``hops'' it would take
+someone to move from one end of a line of duct tape to the other. The
+youth activity leader than asked youth to consider how far they could
+move in one hop and to consider how they could find out many hops it
+would take, using a mathematical equation. In this activity, youth were
+supported in their attempts to approach mathematics problem-solving by
+linking data modeling to an earlier activity that involved generating
+data about the number of hops.
 
 Other instructional episodes evidenced fewer connections between earlier
 and later activities and also the opportunity for more sustained
@@ -2448,19 +2719,23 @@ instructional episode level? One way to consider such an alternate
 explanation is to use the data used in this study as part of
 correlational analysis, or another analysis that uses that variables
 used to create profiles of engagement but does not use the profiles
-themselves. This correlational analysis, by removing some of the
-complexity of both the sample (accounted through the youth, the
-instructional episode, and the program groups, which were modeled as
-random effects) and the profile approach, may present a clearer set of
-relations between work with data and youth characteristics and the five
-variables for engagement. Nevertheless, such an approach would be less
-conservative than the modeling approach because the groups in the data
-would not be accounted for in ways that are recommended (Gelman \& Hill,
-2007). Related to pursuing a different approach to the data analysis,
-other outcomes from working with data may also show different (and more
-strongly positive or negative) relations. Such outcomes may be at the
-instructional episode level, like engagement, or may be longer-term,
-like youths' future goals and plans after the conclusion of programs.
+themselves. By removing some of the complexity of both the sample
+(accounted through the youth, the instructional episode, and the program
+groups, which were modeled as random effects) and the profile approach,
+may present a clearer set of relations between work with data and youth
+characteristics and the five variables for engagement: Examining them,
+in Table 4.2, suggests that the analytic approach was not the main
+factor in terms of explaining the minimal relations, as none of the
+correlations between the variables used to create the profiles and the
+aspects of work with data was greater than \emph{r} = .05 (in absolute
+values). Nevertheless, such an approach is less conservative than the
+modeling approach because the groups in the data would not be accounted
+for in ways that are recommended (Gelman \& Hill, 2007). Related to
+pursuing a different approach to the data analysis, other outcomes from
+working with data may also show different (and more strongly positive or
+negative) relations. Such outcomes may be at the instructional episode
+level, like engagement, or may be longer-term, like youths' future goals
+and plans after the conclusion of programs.
 
 \section{Implications for Practice}\label{implications-for-practice}
 
@@ -2744,11 +3019,6 @@ Spicer, J., \ldots{} \& Viljaranta, J. (2016). Investigating optimal
 learning moments in US and Finnish science classes. \emph{Journal of
 Research in Science Teaching, 53}(3), 400-421.
 
-Schmidt, J. A., Rosenberg, J. M., Beymer, P. (2018). A person-in-context
-approach to student engagement in science: Examining learning activities
-and choice. \emph{Journal of Research in Science Teaching, 55}(1), 19-43
-\url{https://dx.doi.org/10.1002/tea.21409}
-
 Schwarz, N., Kahneman, D., \& Xu, J. (2009). \emph{Global and episodic
 reports of hedonic experience}. In R. Belli, D. Alwen, \& F. Stafford
 (Eds.), Using calendar and diary methods in life events research
@@ -2887,54 +3157,8 @@ challenges}. A meeting report.
 \setlength{\parindent}{0in} \setlength{\leftskip}{0in}
 \setlength{\parskip}{8pt} \noindent
 
-\section{Appendix A: STEM-PQA
-alignment}\label{appendix-a-stem-pqa-alignment}
-
-\textbf{Asking questions or defining problems}: \emph{Predict,
-conjecture, or hypothesize} (Staff support youth in using a simulation,
-experiment, or model to answer questions, explore solutions, or test
-hypotheses {[}e.g., Youth run a robotics program to determine whether it
-does what they expect it to; Youth try an alternate way to solve an
-equation and test their results against another example, etc.{]})
-
-\textbf{Making observations}: \emph{Classify or abstract} (Staff support
-youth in using classification and abstraction, linking concrete examples
-to principles, laws, categories, and formulas {[}e.g., Mice, porcupines,
-and squirrels are all rodents, rodents are all mammals; The pool ball
-moved because for every action, there is an equal and opposite reaction;
-etc.{]})
-
-\textbf{Generating data}: \emph{Collect data or measure} (Staff support
-youth in collecting data or measuring {[}e.g., Youth use rulers or
-yardsticks to measure length; Youth count the number of different
-species of birds observed in a specific location, etc.{]}) and
-\emph{Highlight precision and accuracy} (Staff highlight value of
-precision and accuracy in measuring, observing, recording, or
-calculating {[}e.g., measurement error can impact an experiment or
-conclusion; measure twice, cut once; scientist always need to
-double-check their claculations before drawing conclusions; you must
-observe carefully to see the difference between various species of
-sparrows, etc.{]})
-
-\textbf{Data modeling}: \emph{Simulate, experiment, or model} (Staff
-support youth in using a simulation, experiment, or model to answer
-questions, explore solutions, or test hypotheses {[}e.g., Youth run a
-robotics program to determine whether it does what they expect it to;
-Youth try an alternate way to solve an equation and test their results
-against another example, etc.{]})
-
-\textbf{Interpreting and communicating findings}: \emph{Analyze} (Staff
-support youth in analyzing data to draw conclusions (e.g., after an
-experiment, youth are asked to use results to make a generalization like
-``Your heartbeat increases when you exercise'', etc.)) and \emph{Use
-symbols or models} (Staff support youth in conveying STEM concepts
-through symbols, models, or other nonverbal language (e,g, youth use
-diagrams, equations, flowcharts, outlines, mock-ups, desgin software,
-dioramas, physical models, prototypes, graphs, charts, tables,
-equations, etc.))
-
-\section{Appendix B: Program
-descriptions}\label{appendix-b-program-descriptions}
+\section{Appendix A: Program
+descriptions}\label{appendix-a-program-descriptions}
 
 \emph{Island Explorers}: A science-focused program that aims to help
 youth develop expertise on one species found in the local ecosystem by
@@ -3050,8 +3274,8 @@ direct instructions in mathematics and math-related games in small
 groups. Program content was aligned with the state's standards in
 mathematics. )
 
-\section{Appendix C: Table with work with data by
-program}\label{appendix-c-table-with-work-with-data-by-program}
+\section{Appendix B: Table with work with data by
+program}\label{appendix-b-table-with-work-with-data-by-program}
 
 This table contains the proportion of the five aspects of work with data
 during by program, as well as the total number of signals associated
@@ -3059,7 +3283,7 @@ with each program.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-15}Proportion of instructional episodes for which each of the aspects of work with data was present}
+\caption{\label{tab:unnamed-chunk-18}Proportion of instructional episodes for which each of the aspects of work with data was present}
 \centering
 \begin{tabular}[t]{lrr}
 \toprule
@@ -3076,7 +3300,7 @@ Communicating Findings & 0.470 & 111\\
 
 \begin{landscape}\begin{table}
 
-\caption{\label{tab:unnamed-chunk-15}Proportion of instructional episodes for which each of the aspects of work with data was present by program}
+\caption{\label{tab:unnamed-chunk-18}Proportion of instructional episodes for which each of the aspects of work with data was present by program}
 \centering
 \begin{tabular}[t]{lrrrrrr}
 \toprule
@@ -3100,8 +3324,8 @@ Adventures in Mathematics & 0.583 & 0.292 & 0.542 & 0.458 & 0.750 & 24\\
 sections in the morning and afternoon, which is why the number of
 instructional episodes is higher than in the other programs.
 
-\section{Appendix D: Model specifications
-details}\label{appendix-d-model-specifications-details}
+\section{Appendix C: Model specifications
+details}\label{appendix-c-model-specifications-details}
 
 Here, the six models that can possibly be specified in LPA are described
 in terms of how the variables used to create the profiles are estimated.
@@ -3159,7 +3383,7 @@ justifying the addition in complexity that their addition involves (and
 their reduction in degrees of freedom).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsection{Varying means, equal variances, and equal covariances (model
@@ -3175,7 +3399,7 @@ better understand the characteristics of the profiles (and, potentially,
 better explain the data).
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsection{Varying means, varying variances, and covariances fixed to 0
@@ -3189,7 +3413,7 @@ than model 1, but in terms of the covariances, is more constrained than
 model 2.
 
 \[ 
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma  }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma  }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsection{Varying means, varying variances, and equal covariances
@@ -3204,7 +3428,7 @@ specified with mclust, though it can be with MPlus; this model
 below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21 } & { \sigma  }_{ 31 } & { \sigma  }_{ 41 } \\ { \sigma  }_{ 12 } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23 } & { \sigma  }_{ 24 } \\ { \sigma  }_{ 13 } & { \sigma  }_{ 12 } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33 } \\ { \sigma  }_{ 14 } & { \sigma  }_{ 12 } & { \sigma  }_{ 12 } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
 \subsection{Varying means, equal variances, and varying covariances
@@ -3218,7 +3442,7 @@ with MPlus. Again, this model \emph{can} be used with the functions to
 interface to MPlus described below.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1 }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2 }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3 }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] \quad 
 \]
 
 \subsection{Varying means, varying variances, and varying covariances
@@ -3235,135 +3459,12 @@ considered in light of how preferred this model is relative to those
 with more simple specifications.
 
 \[
-\left[ \begin{matrix} { \sigma  }_{ 1p }^{ 2 } & { \sigma  }_{ 21p } & { \sigma  }_{ 31p } & { \sigma  }_{ 41p } \\ { \sigma  }_{ 12p } & { \sigma  }_{ 2p }^{ 2 } & { \sigma  }_{ 23p } & { \sigma  }_{ 24p } \\ { \sigma  }_{ 13p } & { \sigma  }_{ 12p } & { \sigma  }_{ 3p }^{ 2 } & { \sigma  }_{ 33p } \\ { \sigma  }_{ 14p } & { \sigma  }_{ 12p } & { \sigma  }_{ 12p } & { \sigma  }_{ 4p }^{ 2 } \end{matrix} \right] 
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
 \]
 
-\section{Appendix E: Additional details on the model selection
-process}\label{appendix-e-additional-details-on-the-model-selection-process}
-
-This appendix contains additional information about how the six profile,
-model one type model was selected.
-
-Looking across the statistics presented, some general ideas about which
-models are to be preferred emerge. Solutions are interpreted first for
-each model individually and then across models with the goal of choosing
-a smaller number of models to investigate in more detail.
-
-\begin{landscape}\begin{table}
-
-\caption{\label{tab:printing-solutions-spec-stats}Solutions for models that converged with replicated LL}
-\centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{rrrrrrrlll}
-\toprule
-Number of Profiles & LL & AIC & BIC & SABIC & CAIC & Entropy & VLMR & LMR & BLRT\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{10}{l}{\textbf{Model 1}}\\
-\hspace{1em}2 & -19894.14 & -19894.14 & 39916.16 & 39865.32 & 39820.47 & 0.807 & 3468.199 (0) & 3397.353 (0) & 3468.199 (0)\\
-\hspace{1em}3 & -19453.38 & -19453.38 & 39082.59 & 39012.69 & 38951.11 & 0.794 & 881.519 (0.0126) & 863.512 (0.0136) & 881.519 (0)\\
-\hspace{1em}4 & -19196.33 & -19196.33 & 38616.44 & 38527.47 & 38449.21 & 0.811 & 514.107 (0) & 503.605 (0) & 514.107 (0)\\
-\hspace{1em}5 & -18817.93 & -18817.93 & 37907.60 & 37799.57 & 37704.68 & 0.913 & 756.788 (0) & 741.329 (0) & 756.788 (0)\\
-\hspace{1em}6 & -18648.78 & -18648.78 & 37617.26 & 37490.17 & 37378.70 & 0.888 & 338.296 (0) & 331.386 (0) & 338.296 (0)\\
-\hspace{1em}7 & -18407.23 & -18407.23 & 37182.11 & 37035.95 & 36907.95 & 0.886 & 523.141 (0.0112) & 512.455 (0.0121) & 523.141 (0)\\
-\hspace{1em}9 & -18186.35 & -18186.35 & 36836.25 & 36651.96 & 36491.06 & 0.899 & 171.674 (0.1322) & 168.167 (0.1359) & 171.674 (0)\\
-\addlinespace[0.3em]
-\multicolumn{10}{l}{\textbf{Model 2}}\\
-\hspace{1em}2 & -19107.73 & -19107.73 & 38423.27 & 38340.65 & 38267.95 & 0.924 & 850.304 (0) & 832.934 (0) & 850.304 (0)\\
-\hspace{1em}3 & -18897.06 & -18897.06 & 38049.88 & 37948.20 & 37858.85 & 0.880 & 421.343 (0) & 412.736 (0) & 421.343 (0)\\
-\hspace{1em}4 & -18659.68 & -18659.68 & 37623.06 & 37502.32 & 37396.37 & 0.922 & 474.773 (0) & 465.075 (0) & 474.773 (0)\\
-\hspace{1em}5 & -18474.83 & -18474.83 & 37301.33 & 37161.52 & 37039.03 & 0.901 & 304.938 (0) & 298.709 (0) & 304.938 (0)\\
-\bottomrule
-\end{tabular}}
-\end{table}
-\end{landscape}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{rosenberg-dissertation_files/figure-latex/model1-1} 
-
-}
-
-\caption{Fit statistics for model 1 solutions}\label{fig:model1}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.4\linewidth]{rosenberg-dissertation_files/figure-latex/model2-1} 
-
-}
-
-\caption{Fit statistics for model 2 solutions}\label{fig:model2}
-\end{figure}
-
-For solutions associated with model 1, the decrease (indicating a
-preferred model) in information criteria becomes smaller as the number
-of profiles increases from 5 to 6 and 6 to 7. A solution associated with
-8 profiles did not replicate the log-likelihood and the VLMR and LMR
-suggest that the solution associated with 9 profiles did not fit better
-than that with 8 profiles, suggesting that models with 7 or fewer
-profiles be preferred. Considering these models, the entropy statistic
-increases by a large amount between the solution associated with 4 and 5
-profiles (and then decreases slightly between 5 and 6 and 6 and 7
-profile solutions), suggesting (but not providing conclusive evidence)
-that models 5, 6, or 7 may be preferred. The bootstrapped LRT suggests
-that, until the log-likelihood is not replicated, every more complex
-model be selected. Taking these pieces of evidence into conclusion, for
-model 1, solutions associated with 4 through 7 may be considered in more
-depth, with an emphasis on solutions associated with profiles with 5 and
-6 profiles on the basis of the slowing of the decrease in the
-information criteria associated with the solutions with greater profiles
-than these, and the increase in the entropy from 4 to 5 (and 6) profile
-solutions.
-
-For solutions associated with model 2, only those associated with 2-5
-profile solutions were associated with log-likelihoods that were
-replicated. For these four models, the log-likelihood decreased in a
-mostly consistent way, such that changes in the decrease are not as
-evident as those associated with model 1. The entropy statistic
-decreases from 2 to 3 profile solutions, increases from 3 to 4 profile
-solutions, and then decreases slightly from 4 to 5 profile solutions,
-providing some information that models associated with 4 profiles be
-preferred to the others. All of the LRTs suggest that the more complex
-model be selected, not providing clear information about which solutions
-are to be preferred. On the basis of these pieces of evidence, models
-with 3, 4, and 5 solutions may be considered in more depth. However,
-there is a lack of consistent evidence favoring more or less complex
-models.
-
-The model 1, six and seven profile solutions are compelling because both
-show profiles that are distinguished by dimensions of engagement and its
-conditions (challenge and competence). Note that for this model, only
-the means and variances are estimated (and so no covariances are
-estimated), and the variances are constrained to be the same across the
-profiles. While this is a very restrictive model, it, along with the
-model 3 type (which did not lead to solutions for any of the numbers of
-profiles specified) also is a standard model for LPA, in that it meets
-the assumption of local independence (of the variables that make up the
-profiles--unlike for models in which covariances are estimated) typical
-common to LPA (see Muthen \& Muthen, 2016). While some of the solutions
-associated with the model 2 type did reach solutions, these demonstrated
-less appealing properties in terms of their fit statistics as well as
-their interpretability and with respect to concerns of parsimony. Thus,
-while no covariances are estimated for the model 1 type solutions, there
-is no requirement that these be specified; their benefit, when models
-associated with them are preferred, is that they can provide better fit:
-they can be used to better explain or predict the data in a sample, but
-their inclusion also means that over-fitting the model to the data can
-become a greater concern.
-
-For each solution, alternate solutions associated with higher
-log-likelihoods were explored. One advantage of the six profile solution
-is that most of its profiles can also be identified in solutions with
-fewer profiles. For the six profile solutions, this alternate solution
-was very different, whereas for the seven profile solutions, this
-alternate solution was highly similar. The model solutions exhibit a
-less clear pattern in terms of which profiles appear when. All else
-being equal, on the basis of parsimony, the model 1, six profile
-solution is preferred and was selected for use in subsequent analyses.
-
-\section{Appendix F: Alternate model selected (model type 1, seven
+\section{Appendix D: Alternate model selected (model type 1, seven
 profile
-solution)}\label{appendix-f-alternate-model-selected-model-type-1-seven-profile-solution}
+solution)}\label{appendix-d-alternate-model-selected-model-type-1-seven-profile-solution}
 
 This solution is characterized by:
 
