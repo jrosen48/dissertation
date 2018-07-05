@@ -18,11 +18,11 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 # \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 # replace (B (SE)) with the proper LaTeX
 # add subscripts
-# TukeyHSD(x3) # for aff, full and eng and compt but not challenged dont' differ, rest do
-# TukeyHSD(x2) # for beh, full and eng and compt but not challenged dont' differ, rest do
-# TukeyHSD(x1) # for cog, only affective and universally low don't differ
-# TukeyHSD(x4) # for chall, only affective and universally low don't differ
-# TukeyHSD(x5) # for comp, only affective and universally low, all moderate and only affective, and full and eng and compt but not challenged don't differ
+# TukeyHSD(x3) # for aff, full and eng and compt but not challenged don't differ, rest do
+# TukeyHSD(x2) # for beh, full and eng and compt but not challenged don't differ, rest do
+# TukeyHSD(x1) # for cog, only affective and only beh don't differ
+# TukeyHSD(x4) # for chall, only affective and only beh don't differ
+# TukeyHSD(x5) # for comp, only affective and only beh, all moderate and only affective, and full and eng and compt but not challenged don't differ
 
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 
