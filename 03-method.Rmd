@@ -110,7 +110,7 @@ d <- tibble::tribble(
 
 d %>%
  knitr::kable(booktabs = TRUE, caption = "Coding Frame for the Aspects of Work with Data") %>% 
- kableExtra::kable_styling(latex_options = "scale_down") %>% 
+ #kableExtra::kable_styling(latex_options = "scale_down") %>% 
  kableExtra::landscape()
 ```
 
@@ -136,7 +136,7 @@ d <- tibble::tribble(
 
 d %>% 
  knitr::kable(booktabs = TRUE, caption = "Measure for pre-program interest in STEM") %>% 
- kableExtra::kable_styling(latex_options = "scale_down")
+ #kableExtra::kable_styling(latex_options = "scale_down")
 ```
 
 ### Other youth characteristics
@@ -169,7 +169,7 @@ d <- tibble::tribble(
 
 d %>%
  knitr::kable(booktabs = TRUE, caption = "Coding Frame for the open-ended, qualitative coding of instructional episodes") %>% 
- kableExtra::kable_styling(latex_options = "scale_down") %>% 
+ #kableExtra::kable_styling(latex_options = "scale_down") %>% 
  kableExtra::landscape()
 ```
 

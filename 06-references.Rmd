@@ -86,6 +86,8 @@ Magnusson, D., & Cairns, R. B. (1996). *Developmental science: Toward a unified 
 
 McNeill, K. L., & Berland, L. (2017). What is (or should be) scientific evidence use in k‐12 classrooms? *Journal of Research in Science Teaching, 54*(5), 672-689. 
 
+McNeill, K. L. & Krajcik, J. (2007). *Middle school students' use of appropriate and inappropriate evidence in writing scientific explanations*. In Lovett, M & Shah, P (Eds.), Thinking with data. (pp. 233-265). New York, NY: Taylor & Francis Group, LLC.
+
 Miller, E., Manz, E., Russ, R., Stroupe, D., & Berland, L. (advance online publication). Addressing the epistemic elephant in the room: Epistemic agency and the next generation science standards. *Journal of Research in Science Teaching*. https://doi.org/10.1002/tea.21459
 
 Muthén, B. (2004). *Latent variable analysis*. The Sage handbook of quantitative methodology for the social sciences. Thousand Oaks, CA: Sage Publications, 345-68. 
