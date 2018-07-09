@@ -2,16 +2,16 @@
 
 ```{r, setup-results, include =FALSE}
 knitr::opts_chunk$set(echo = FALSE,
-           message = FALSE,
-           warning = FALSE,
-           collapse = TRUE,
-           error = TRUE,
-           fig.width = 6,
-           fig.asp = .618,
-           out.width = "80%",
-           fig.align = "center",
-           results = "hold",
-           knitr.kable.na = '')
+                      message = FALSE,
+                      warning = FALSE,
+                      collapse = TRUE,
+                      error = TRUE,
+                      fig.width = 6,
+                      fig.asp = .618,
+                      out.width = "80%",
+                      fig.align = "center",
+                      results = "hold",
+                      knitr.kable.na = '')
 
 source("04-results.R")
 ```
@@ -24,25 +24,25 @@ These statistics also show high perceptions of competence (*M* = 3.000 (*SD* = 0
 
 ```{r}
 oo <- d_red %>% 
- select(dm_cog_eng,
-     dm_beh_eng,
-     dm_aff_eng,
-     dm_challenge,
-     dm_competence) %>% 
- psych::describe(.) %>% 
- as.data.frame() %>% 
- tibble::rownames_to_column("var") %>% 
- select(var, n, mean, sd) %>% 
- mutate(var = c("Cog. eng.",
-         "Beh. eng.",
-         "Aff. eng.",
-         "Challenge", 
-         "Competence"))
+  select(dm_cog_eng,
+         dm_beh_eng,
+         dm_aff_eng,
+         dm_challenge,
+         dm_competence) %>% 
+  psych::describe(.) %>% 
+  as.data.frame() %>% 
+  tibble::rownames_to_column("var") %>% 
+  select(var, n, mean, sd) %>% 
+  mutate(var = c("Cog. eng.",
+                 "Beh. eng.",
+                 "Aff. eng.",
+                 "Challenge", 
+                 "Competence"))
 
 names(oo) <- c("", "n", "Mean", "SD")
 
 oo %>% 
- knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "", digits = 3)
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Descriptive statistics for study variables", linesep = "", digits = 3)
 ```
 
 ## Correlations among the study variables
@@ -53,38 +53,49 @@ Correlations between the variables that were used to create the profiles of enga
 c <- d_red %>% select(overall_pre_interest, dm_cog_eng:dm_competence, dm_ask:dm_com)
 
 p <- d_red %>%
- select(overall_pre_interest, dm_cog_eng:dm_competence, dm_ask:dm_com) %>%
- corrr::correlate() %>%
- corrr::shave() %>%
- corrr::fashion() %>% 
- mutate(rowname = c("Pre-interest",
-           "Cog. eng.",
-           "Beh. eng.",
-           "Aff. eng.",
-           "Challenge", 
-           "Competence",
-           "Asking",
-           "Observing",
-           "Generating",
-           "Modeling",
-           "Communicating"))
+  select(overall_pre_interest, dm_cog_eng:dm_competence, dm_ask:dm_com) %>%
+  corrr::correlate() %>%
+  corrr::shave() %>%
+  corrr::fashion() %>% 
+  mutate(rowname = c("Pre-interest",
+                     "Cog. eng.",
+                     "Beh. eng.",
+                     "Aff. eng.",
+                     "Challenge", 
+                     "Competence",
+                     "Asking",
+                     "Observing",
+                     "Generating",
+                     "Modeling",
+                     "Communicating"))
 
 names(p) <- c("",
-       "Pre-interest",
-       "Cog. eng.",
-       "Beh. eng.",
-       "Aff. eng.",
-       "Challenge", 
-       "Competence",
-       "Asking",
-       "Observing",
-       "Generating",
-       "Modeling",
-       "Communicating")
+              "Pre-interest",
+              "Cog. eng.",
+              "Beh. eng.",
+              "Aff. eng.",
+              "Challenge", 
+              "Competence",
+              "Asking",
+              "Observing",
+              "Generating",
+              "Modeling",
+              "Communicating")
 
 p %>% 
- knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among the continuous study variables") %>% 
- kableExtra::kable_styling(latex_options = "scale_down")
+  knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among the continuous study variables") %>% 
+  kableExtra::column_spec(2, width = "2em") %>% 
+  kableExtra::column_spec(3, width = "2em") %>% 
+  kableExtra::column_spec(4, width = "2em") %>% 
+  kableExtra::column_spec(5, width = "2em") %>% 
+  kableExtra::column_spec(6, width = "2em") %>% 
+  kableExtra::column_spec(7, width = "2em") %>% 
+  kableExtra::column_spec(8, width = "2em") %>% 
+  kableExtra::column_spec(9, width = "2em") %>% 
+  kableExtra::column_spec(10, width = "2em") %>% 
+  kableExtra::column_spec(11, width = "2em") %>% 
+  kableExtra::column_spec(12, width = "2em") %>% 
+  kableExtra::landscape()
 ```
 
 ## Results for Research Question #1
@@ -106,32 +117,12 @@ As suggested by the proportions reported in Table 4.3, the different aspects of 
 the_ns <- c(90, 57, 102, 68, 103)
 
 data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-      `Proportion of Instructional Episodes` = round(the_ns / 236, 3),
-      N = the_ns) %>%
- knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
-
-# data_frame(`Aspect of Work with Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-#      `Proportion of Instructional Episodes` = round(the_ns / 236, 3),
-#      N = the_ns) %>%
-#  mutate(total_N = 236-N) %>%
-#  gather(key, val, -`Aspect of Work with Data`, -`Proportion of Instructional Episodes`) %>%
-#  mutate(key = factor(key, levels = c("total_N", "N"))) %>%
-#  ggplot(aes(x = `Aspect of Work with Data`, y = val, fill = key)) +
-#  geom_col() +
-#  scale_x_discrete(limits = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings")) +
-#  scale_fill_manual("", values = c("lightgray", "darkgreen"), labels = c("Not Present", "Present")) +
-#  theme_bw() +
-#  ylab("Number of Instructional Episodes") +
-#  xlab(NULL) +
-#  theme(text = element_text(size = 14, family = "Times"))
+           `Proportion of Instructional Episodes` = round(the_ns / 236, 3),
+           N = the_ns) %>%
+  knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of signals for which each of the aspects of work with data was present")
 ```
 
 ### The nature of work with data
-
-```{r, include = FALSE}
-# data is from here:
-# https://docs.google.com/spreadsheets/d/1wx2J81vERpVZjIcQwiZb6vcz1U1eDFYEJDTYTLm6zqM/edit#gid=0
-```
 
 The open-ended, qualitative approach used to understand the specific nature of youths' work with data showed the variety of ways each of the five aspects was enacted in the context of the programs. 
 
@@ -173,26 +164,26 @@ On the basis of fit statistics and statistical tests (see Table 4.4) and concern
 overall_stats_for_all_models <- readr::read_rds("data/overall-stats-for-all-models.rds")
 
 overall_stats_for_all_models[[2]] %>%
- arrange(model, n_profile) %>%
- select(-model, `Number of Profiles` = n_profile) %>% 
- mutate(VLMR = paste_stats(VLMR_val, VLMR_p),
-     LMR = paste_stats(LMR_val, LMR_p),
-     BLRT = paste_stats(BLRT_val, BLRT_p)) %>%
- select(everything(), -VLMR_val, -VLMR_p, -LMR_val, -LMR_p, -BLRT_val, -BLRT_p, -LL, -CAIC, -LMR, -VLMR) %>% 
- slice(c(2:6, 9:11)) %>% 
- mutate(`Profile Sizes` = c("773, 897, 1288",
-                            "415, 427, 920, 1288",
-                            "345, 375, 643, 667, 928",
-                            "345, 370, 450, 488, 638, 667",
-                            "181, 222, 317, 450, 568, 569, 651",
-                            "763, 954, 1241",
-                            "135, 688, 1029, 1106",
-                            "130, 271, 573, 871, 1113")) %>% 
- knitr::kable(format = "latex", caption = "Solutions for models that converged", booktabs = TRUE, linesep = "") %>%
- kableExtra::kable_styling(latex_options = "scale_down") %>%
- kableExtra::landscape() %>%
- kableExtra::group_rows("Model 1", 1, 5) %>%
- kableExtra::group_rows("Model 2", 6, 8)
+  arrange(model, n_profile) %>%
+  select(-model, `Number of Profiles` = n_profile) %>% 
+  mutate(VLMR = paste_stats(VLMR_val, VLMR_p),
+         LMR = paste_stats(LMR_val, LMR_p),
+         BLRT = paste_stats(BLRT_val, BLRT_p)) %>%
+  select(everything(), -VLMR_val, -VLMR_p, -LMR_val, -LMR_p, -BLRT_val, -BLRT_p, -LL, -CAIC, -LMR, -VLMR) %>% 
+  slice(c(2:6, 9:11)) %>% 
+  mutate(`Profile Sizes` = c("773, 897, 1288",
+                             "415, 427, 920, 1288",
+                             "345, 375, 643, 667, 928",
+                             "345, 370, 450, 488, 638, 667",
+                             "181, 222, 317, 450, 568, 569, 651",
+                             "763, 954, 1241",
+                             "135, 688, 1029, 1106",
+                             "130, 271, 573, 871, 1113")) %>% 
+  knitr::kable(format = "latex", caption = "Solutions for models that converged", booktabs = TRUE, linesep = "") %>%
+  #kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape() %>%
+  kableExtra::group_rows("Model 1", 1, 5) %>%
+  kableExtra::group_rows("Model 2", 6, 8)
 ```
 
 For solutions associated with model 1, the decrease (indicating a preferred model) in the information criteria (AIC, BIC, SABIC) becomes smaller as the number of profiles increases from 5 to 6 and 6 to 7. The BLRT suggests that, until the log-likelihood is not replicated, every more complex model be selected. The six and seven profile solutions are compelling because both show profiles that are distinguished by dimensions of engagement and its conditions (challenge and competence) and have lower values on the information criteria than the solutions with fewer profiles. For solutions associated with model 2, only those associated with 2-5 profile solutions were associated with log-likelihoods that were replicated. For these four models, the log-likelihood decreased in a mostly consistent way, such that changes in the decrease are not as evident as those associated with model 1. The BLRT suggest that the more complex model be selected, not providing clear information about which solutions are to be preferred.
@@ -205,27 +196,27 @@ m1_6 <- read_rds("data/models/m1_6.rds")
 names(m1_6)[4] <- "DM_COL"
 
 p1 <- m1_6 %>%
- plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
- scale_x_discrete("", 
-          limits = c("Profile 2 (n = 667)",
-               "Profile 1 (n = 370)",
-               "Profile 4 (n = 345)",
-               "Profile 5 (n = 638)",
-               "Profile 3 (n = 450)",
-               "Profile 6 (n = 488)"),
-          labels = c("Universally low (n = 667)",
-               "Only behavioral (n = 370)",
-               "Only affective (n = 345)",
-               "All moderate (n = 638)",
-               "Eng. and comp. but not chall. (n = 450)",
-               "Full (n = 488)")) +
- xlab(NULL) +
- ylab("Z-score") +
- viridis::scale_fill_viridis("",
-               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
-               labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
- theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
- theme(text = element_text(family = "Times"))
+  plot_profiles_mplus(to_center = TRUE, to_scale = TRUE) +
+  scale_x_discrete("", 
+                   limits = c("Profile 2 (n = 667)",
+                              "Profile 1 (n = 370)",
+                              "Profile 4 (n = 345)",
+                              "Profile 5 (n = 638)",
+                              "Profile 3 (n = 450)",
+                              "Profile 6 (n = 488)"),
+                   labels = c("Universally low (n = 667)",
+                              "Only behavioral (n = 370)",
+                              "Only affective (n = 345)",
+                              "All moderate (n = 638)",
+                              "Eng. and comp. but not chall. (n = 450)",
+                              "Full (n = 488)")) +
+  xlab(NULL) +
+  ylab("Z-score") +
+  viridis::scale_fill_viridis("",
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
+                              labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
+  theme(text = element_text(family = "Times"))
 
 p1
 ```
@@ -236,28 +227,28 @@ m1_6 <- read_rds("data/models/m1_6.rds")
 names(m1_6)[4] <- "DM_COL"
 
 p2 <- m1_6 %>%
- plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
- scale_x_discrete("", 
-          limits = c("Profile 2 (n = 667)",
-               "Profile 1 (n = 370)",
-               "Profile 4 (n = 345)",
-               "Profile 5 (n = 638)",
-               "Profile 3 (n = 450)",
-               "Profile 6 (n = 488)"),
-          labels = c("Universally low (n = 667)",
-               "Only behavioral (n = 370)",
-               "Only affective (n = 345)",
-               "All moderate (n = 638)",
-               "Eng. and comp. but not chall. (n = 450)",
-               "Full (n = 488)")) +
- xlab(NULL) +
- ylab("Value") +
- viridis::scale_fill_viridis("",
-               limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
-               labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
- theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
- coord_cartesian(ylim = c(1, 4)) +
- theme(text = element_text(family = "Times"))
+  plot_profiles_mplus(to_center = FALSE, to_scale = FALSE) +
+  scale_x_discrete("", 
+                   limits = c("Profile 2 (n = 667)",
+                              "Profile 1 (n = 370)",
+                              "Profile 4 (n = 345)",
+                              "Profile 5 (n = 638)",
+                              "Profile 3 (n = 450)",
+                              "Profile 6 (n = 488)"),
+                   labels = c("Universally low (n = 667)",
+                              "Only behavioral (n = 370)",
+                              "Only affective (n = 345)",
+                              "All moderate (n = 638)",
+                              "Eng. and comp. but not chall. (n = 450)",
+                              "Full (n = 488)")) +
+  xlab(NULL) +
+  ylab("Value") +
+  viridis::scale_fill_viridis("",
+                              limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_COL", "DM_COMPE"),
+                              labels = c("Enjoying", "Working Hard", "Learning New", "Challenge", "Competence"), discrete = TRUE) +
+  theme(plot.margin = margin(1, 0, 0, 1, "cm")) +
+  coord_cartesian(ylim = c(1, 4)) +
+  theme(text = element_text(family = "Times"))
 
 p2
 ```
@@ -266,19 +257,7 @@ The two plots are presented because they provide a different view into the compo
 
 The six profiles are characterized by both varying levels on both the indicators of engagement (cognitive, behavioral, and affective) and perceptions of challenge and competence. Also, the number of observations across the profiles is relatively balanced (with no profiles associated with a very large or small number of observations). The universally low profile was associated with the most substantial number of observations (*n* = 667), followed by the all moderate profile (*n* = 638); each of the other four profiles was associated with 300 to 400 observations. The results for research questions 3-5 use this solution and the six profiles in subsequent analyses.
 
-A MANOVA was carried out to determine whether the values of variables differ across the profiles, with multiple ANOVAs used to determine which variables (and for which profiles) there were differences. Note that for the profiles (and their presentation in Figures 4.2 and 4.3 and Table 4.5), each response is associated with a probability of profile membership at a particular moment. Because, across all responses, the highest probability for each response was on average quite high (the entropy statistic was .888), the highest probability was appropriate to use to classify each response into one profile for the percentages and results comparing the mean levels of each variable across profiles (with a MANOVA). The MANOVA was statistically significant (*Pillai-Bartlett* = 0.633, *p* < .001). The table with the raw values, with subscripts indicating values *the values that were not statistically significantly different* is presented in Table 4.5. Note that the *F*-test associated each ANOVA was also statistically significant. Descriptions of each the profiles taking account of their size (in terms of the number of responses for which the profile was most likely), their variable values, and what the profiles suggest about youth engagement follow. 
-
-A *universally low* profile consisted of a substantial proportion of responses (22.55%) was identified. This profile was characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence. For responses in this profile, mean values were lower than their values in every other profile for every variable except challenge, which was even lower in the *engaged and competent but not challenged profile. Note that concerning their raw values and not only their levels relative to the levels of the variables for the other profiles, youth report very low levels (below two on the one-four scale used) of all of the variables. In all, this profile reflects very low levels of youth engagement during the specific instructional episodes during which youth were signaled to respond.
-
-An *only behaviorally engaged* profile with a small proportion of responses (12.51%) was identified. This profile was characterized by moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence. The levels of reporting learning something new, challenge, and competence were not distinguishable from those found in the responses that make up the *only affectively engaged* profiles. Levels of working hard, an indicator for behavioral engagement, was higher than in every profile except *fully engaged* and *engaged and competent but not challenged*. These responses suggest that youth perceive themselves to be working hard, but to not be enjoying what they were doing and to not report learning something new, nor to be particularly challenged or good at what they were doing when signaled.
-
-An *only affectively engaged* profile with a small proportion of responses (11.66%) was identified. This profile was characterized by moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence. Levels of competence were the same as in the *all moderate* profile. Youths' reports of enjoying what they were doing at the time they were signaled, an indicator of affective engagement, was higher than in every profile except *fully engaged* and *engaged and competent but not challenged*. When youth report this response, they enjoy what they were doing, but were not working hard or learning something new, nor do youth report being challenged by or good at the activity they were doing.
-
-An *all moderate* profile with a large proportion of responses (21.57%) was identified. This profile was characterized by moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence. Levels of all of the variables were, on average, lower for the responses that make up this profile than among the responses associated with the *engaged and competent but not challenged* nor the *full* engagement but were still quite high on the one-four scale used. In sum, for youth reporting *all moderate* engagement were engaged, but may have the potential to be more highly engaged (and challenged by and good at the activity).
-
-An *engaged and competent but not challenged* profile with a modest proportion of responses was identified (15.21%). This profile was characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge. Levels of competence, enjoying, and working hard were identical between the responses associated with this profile and the responses associated with the *fully engaged* profile, while levels of challenge were very low: levels of challenge for these responses were lower than those for every other profile. Levels of learning something new were slightly lower than those in the responses that make up the *fully engaged* profile but were higher than their levels in the other four profiles. This profile suggests youth can be highly engaged, while not being challenged by the activity they were involved in at the time they were signaled.
-
-A *full* profile with a modest proportion of responses (16.50%) was identified. This profile was characterized by high levels of working hard, learning something new, enjoying the activity, challenge, and competence. These responses reflect a very high level of engagement, both relative to the other profiles and in absolute terms: All of the mean levels were above 3.50, and, for working hard, youths' responses averaged 3.96 on a one-four scale. Thus, when youth report engagement in ways that were associated with this profile, the report being challenged and good at what they were doing and, on the basis of these variables and the indicators of engagement, were very highly engaged.
+A MANOVA was carried out to determine whether the values of variables differ across the profiles, with multiple ANOVAs used to determine which variables (and for which profiles) there were differences. Note that for the profiles (and their presentation in Figures 4.2 and 4.3 and Table 4.5), each response is associated with a probability of profile membership at a particular moment. Because, across all responses, the highest probability for each response was on average quite high (the entropy statistic was .888), the highest probability was appropriate to use to classify each response into one profile for the percentages and results comparing the mean levels of each variable across profiles (with a MANOVA). The MANOVA was statistically significant (*Pillai-Bartlett* = 0.633, *p* < .001). The table with the raw values, with subscripts indicating values *the mean values that were not statistically significantly different* is presented in Table 4.5. Note that the *F*-test associated each ANOVA was also statistically significant. Descriptions of each the profiles taking account of their size (in terms of the number of responses for which the profile was most likely), their variable values, and what the profiles suggest about youth engagement follow. 
 
 ```{r}
 t <- m1_6 %>% group_by(C) %>% select(C, DM_COG_E:DM_COMPE) %>% summarize_all(mean)
@@ -287,11 +266,25 @@ t$C <- c("Universally low", "Only behavioral", "Only affective", "All moderate",
 names(t) <- c("Profile", "Working Hard", "Learning New", "Enjoying", "Challenge", "Competence")
 
 t  %>% 
- mutate_if(is.numeric, round, 3) %>% 
- knitr::kable(format = "latex", caption = "Raw variables values by profile", booktabs = TRUE, linesep = "") %>%
- kableExtra::kable_styling(latex_options = "scale_down") %>%
- kableExtra::landscape()
+  mutate_if(is.numeric, round, 3) %>% 
+  knitr::kable(format = "latex", caption = "Raw variables values by profile", booktabs = TRUE, linesep = "") %>%
+  #kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape()
 ```
+
+*Note*. The subscripts indicate the mean values subscripts indicating values that were not statistically significantly different on the basis of the ANOVA analyses.
+
+A *universally low* profile consisted of a substantial proportion of responses (22.55%) was identified. This profile was characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence. For responses in this profile, mean values were lower than their values in every other profile for every variable except challenge, which was even lower in the *engaged and competent but not challenged profile. Note that concerning their raw values and not only their levels relative to the levels of the variables for the other profiles, youth report very low levels (below two on the one-four scale used) of all of the variables. In all, this profile reflects very low levels of youth engagement during the specific instructional episodes during which youth were signaled to respond.
+
+An *only behaviorally engaged* profile with a small proportion of responses (12.51%) was identified. This profile was characterized by moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence. The levels of reporting learning something new, challenge, and competence were not distinguishable from those found in the responses that make up the *only affectively engaged* profiles. Levels of working hard, an indicator of behavioral engagement, was higher than in every profile except *fully engaged* and *engaged and competent but not challenged*. These responses suggest that youth perceive themselves to be working hard, but to not be enjoying what they were doing and to not report learning something new, nor to be particularly challenged or good at what they were doing when signaled.
+
+An *only affectively engaged* profile with a small proportion of responses (11.66%) was identified. This profile was characterized by moderate levels of enjoyment, low levels of hard work, and moderate levels of learning something new, challenge, and competence. Levels of competence were the same as in the *all moderate* profile. Youths' reports of enjoying what they were doing at the time they were signaled, an indicator of affective engagement, was higher than in every profile except *fully engaged* and *engaged and competent but not challenged*. When youth report this response, they enjoy what they were doing, but were not working hard or learning something new, nor do youth report being challenged by or good at the activity they were doing.
+
+An *all moderate* profile with a large proportion of responses (21.57%) was identified. This profile was characterized by moderate levels of the three indicators of working hard, learning something new, enjoying the activity, challenge, and competence. Levels of all of the variables were, on average, lower for the responses that make up this profile than among the responses associated with the *engaged and competent but not challenged* nor the *full* engagement but were still quite high on the one-four scale used. In sum, for youth reporting *all moderate* engagement were engaged, but may have the potential to be more highly engaged (and challenged by and good at the activity).
+
+An *engaged and competent but not challenged* profile with a modest proportion of responses was identified (15.21%). This profile was characterized by high levels of working hard, learning something new, enjoying the activity, and competence, but low levels of challenge. Levels of competence, enjoying, and working hard were identical between the responses associated with this profile and the responses associated with the *fully engaged* profile, while levels of challenge were very low: levels of challenge for these responses were lower than those for every other profile. Levels of learning something new were slightly lower than those in the responses that make up the *fully engaged* profile but were higher than their levels in the other four profiles. This profile suggests youth can be highly engaged, while not being challenged by the activity they were involved in at the time they were signaled.
+
+A *full* profile with a modest proportion of responses (16.50%) was identified. This profile was characterized by high levels of working hard, learning something new, enjoying the activity, challenge, and competence. These responses reflect a very high level of engagement, both relative to the other profiles and in absolute terms: All of the mean levels were above 3.50, and, for working hard, youths' responses averaged 3.96 on a one-four scale. Thus, when youth report engagement in ways that were associated with this profile, they report being challenged and good at what they were doing and, on the basis of these variables and the indicators of engagement, youth very highly engaged.
 
 ## Results for Research Question #3: What sources of variability were there for the profiles of engagement?
 
@@ -301,52 +294,55 @@ For all six profiles, the *ICC*s (for the model with only the youth, instruction
 i <- readr::read_rds("data/m1-6.rds") 
 
 ii <- i %>% 
- select(beep_ID_ICC:program_ID_ICC) %>% 
- mutate(order = c(2, 1, 4, 5, 3, 6)) %>% # this is what those below were!
- arrange(order) %>% 
- mutate(profile = c("Universally low (n = 667)",
-           "Only behavioral (n = 370)",
-           "Only affective (n = 345)",
-           "All moderate (n = 638)",
-           "Engaged and competent but not challenged (n = 450)",
-           "Full (n = 488)"))
+  select(beep_ID_ICC:program_ID_ICC) %>% 
+  mutate(order = c(2, 1, 4, 5, 3, 6)) %>% # this is what those below were!
+  arrange(order) %>% 
+  mutate(profile = c("Universally low (n = 667)",
+                     "Only behavioral (n = 370)",
+                     "Only affective (n = 345)",
+                     "All moderate (n = 638)",
+                     "Engaged and competent but not challenged (n = 450)",
+                     "Full (n = 488)"))
 
 names(ii) <- c("Instructional Episode", "Youth", "Program", "order", "Profile")
 
 ii %>% 
- select(Profile, `Instructional Episode`:Program) %>% 
- knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "")
+  select(Profile, `Instructional Episode`:Program) %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Intra-class correlation (ICC) values for each of the three levels", linesep = "") %>% 
+  kableExtra::column_spec(2, width = "4em") %>% 
+  kableExtra::column_spec(3, width = "4em") %>% 
+  kableExtra::column_spec(4, width = "4em")
 ```
 
 In terms of *ICC*s at youth level across the six profiles, the value for the youth-level ICC was highest for the *Full* profile (*ICC* = .432), suggesting that some youth have a strong tendency to be fully engaged (possibly due to their initial interest or other individual characteristics and differences). The other profile characterized by a consistent pattern across all of the variables--the *Universally low* profile--had a modest value for the ICC at the youth level (*ICC* = .267). Finally, a significant amount of variability is associated with the residual (variance that was not associated with the program, instructional episode, or youth levels). This suggests that there is wide variation in youths' responses that may not be readily explained or predicted by variables *at one level alone*. Remaining unexplained variability was captured by the residual term. Some youth from particular programs may engage during some episode instructional episodes in very high or low ways that were not captured by modeling the variability at each of these levels alone.
 
 The *ICC*s lend insight into the sources of variability for a specific profile; within-youth stability in terms of how frequently they reported particular profiles could lend further insight by considering variability across profiles. This analysis can be particularly useful for understanding variability at the youth level, which the *ICC*s show to be associated with the most systematic variability. Each youth has a most-frequently reported profile. Results show that for some youth, the profile was very dominant, occurring in a substantial proportion of youths' responses; for others, it occurs not that frequently, meaning that youth report a variety of different profiles. 
 
-As presented in Figure 4.3, the mean proportion of responses for each youth in the profile they reported most varied widely across youth. Specifically, on average, youth reported their most-reported profile in .540 (*SD* = .194, *min* = .182, *max* = 1.00) of their responses. There was a small number of youth who reported the same profile in all of their responses, but for most youth, the profile they reported most made up only a portion of all of their responses. For most youth, the most common profile was observed just over 50% of the time. Note that any of the aspects of work with data versus none of the aspects of work with data and the interactive effects of youth characteristics were also examined. However, these were not found to be statistically significant.
+As presented in Figure 4.3, the mean proportion of responses for each youth in the profile they reported most varied widely across youth. Specifically, on average, youth reported their most-reported profile in .540 (*SD* = .194, *min* = .182, *max* = 1.00) of their responses. There was a small number of youth who reported the same profile in all of their responses, but for most youth, the profile they reported most made up only a portion of all of their responses. For most youth, the most common profile was observed just over 50% of the time. Instructional episodes that involved work with data were compared to instructional episodes without work with data. There was no difference in terms of the regression ($\beta$) coefficient associated with this variable comparing these instructional episodes. 
 
 In sum, these findings show that there was substantial variability in the profiles present at the youth level. Less variability was explained by either the program youth were in or the nature of the particular instructional episode present when youth were signaled. These results set the stage for those for the next two research questions, on the relations between the aspects of work with data (for research question #4) and the youth characteristics (for research question #5) and the profiles of engagement.
 
 ```{r, fig.cap = "Histogram of the proportion of responses for each youth in the profile they reported most"}
 p <- d %>%
- count(participant_ID, profile) %>%
- spread(profile, n, 0) %>%
- gather(profile, n, -participant_ID) %>%
- group_by(participant_ID) %>%
- mutate(n_p = n / sum(n)) %>%
- select(-n) %>%
- summarize(m_n_p = max(n_p))
+  count(participant_ID, profile) %>%
+  spread(profile, n, 0) %>%
+  gather(profile, n, -participant_ID) %>%
+  group_by(participant_ID) %>%
+  mutate(n_p = n / sum(n)) %>%
+  select(-n) %>%
+  summarize(m_n_p = max(n_p))
 
 ggplot(p, aes(x = m_n_p)) +
- geom_histogram(bins = 50) +
- theme_bw() +
- xlab("Proportion of responses for each youth in the profile they reported most") +
- ylab("Number of Youth") +
- theme(text = element_text(family = "Times"))
+  geom_histogram(bins = 50) +
+  theme_bw() +
+  xlab("Proportion of responses for each youth in the profile they reported most") +
+  ylab("Number of Youth") +
+  theme(text = element_text(family = "Times"))
 ```
 
 ## Results for Research Question #4: Aspects of work with data and engagement
 
-To understand how aspects of work with data were related to engagement, six analytic models were specified – one for each engagement profile. In each model, the dependent variable was the probability of a response being classified in a particular profile (for example “fully engaged”), as determined by the Latent Profile Analysis. The five aspects of work with data were the predictor (or independent) variables. Varrious aspects of work with data tended to co-occur and so simultaneously entering indicators for all five aspects served to isolate the association for any single aspect, while controlling on the presence of the others. All models also include some youth characteristics which will be used to answer research question five below. 
+To understand how aspects of work with data were related to engagement, six analytic models were specified – one for each engagement profile. In each model, the dependent variable was the probability of a response being classified in a particular profile (for example “fully engaged”), as determined by the Latent Profile Analysis. The five aspects of work with data were the predictor (or independent) variables. Various aspects of work with data tended to co-occur and so simultaneously entering indicators for all five aspects served to isolate the association for any single aspect while controlling on the presence of the others. All models also include some youth characteristics which will be used to answer research question five below. 
 
 Associations between the five aspects of work with data and the six engagement profiles are presented in the bottom half of Table 4.7. In this table, each column represents the output from one of the six different models. As an example, the first column reports the coefficients for the associations between the predictor variables and the *Only behavioral* profile. Because the outcome was in the form of a probability (ranging from 0.00 to 1.00), it can be interpreted as the change in the probability of a response being associated with each profile. Note that the *p*-values were calculated using the most conservative and recommended by recent research Kenward-Rogers approximation (Halekoh & Hojsgaard, 2014).
 
@@ -359,50 +355,56 @@ Sensitivity analysis was carried out for the statistically significant two effec
 ```{r, eval = T}
 o <- read_rds("data/m1d-6d.rds")
 o <- mutate(o, model = c(
- str_c("profile_", 1:6)))
+  str_c("profile_", 1:6)))
 
 oo <- o %>%
- select(model,
-     intercept = `(Intercept)`,
-     overall_pre_interest,
-     gender_female,
-     urm,
-     dm_ask, dm_obs, dm_gen, dm_mod, dm_com
- ) %>% 
- mutate(the_order = c(2, 1, 4, 5, 3, 6)) %>% 
- arrange(the_order) %>%
- select(-the_order) %>% 
- mutate(model = c("Universally low B (SE)",
-          "Only behavioral B (SE)",
-          "Only affective B (SE)",
-          "Eng. and comp., not chall. B (SE)",
-          "All moderate B (SE)",
-          "Full B (SE)"))
+  select(model,
+         intercept = `(Intercept)`,
+         overall_pre_interest,
+         gender_female,
+         urm,
+         dm_ask, dm_obs, dm_gen, dm_mod, dm_com
+  ) %>% 
+  mutate(the_order = c(2, 1, 4, 5, 3, 6)) %>% 
+  arrange(the_order) %>%
+  select(-the_order) %>% 
+  mutate(model = c("Universally low B (SE)",
+                   "Only behavioral B (SE)",
+                   "Only affective B (SE)",
+                   "Eng. and comp., not chall. B (SE)",
+                   "All moderate B (SE)",
+                   "Full B (SE)"))
 
 names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
 
 re_p <- function(x) {
- o <- str_sub(x, start = -6, end = -2)
- 
- p_vals <- str_extract_all(x, "\\([^)]*\\)") %>% 
-  map(~.[2]) %>% 
-  str_extract_all("\\(?[0-9,.]+") %>% 
-  as.numeric()
- 
- str_c(str_remove(x, " \\(p.*"), ifelse(p_vals < .05, "*",
-                     ifelse(p_vals > .05 & p_vals < .10, "+", "")))
+  o <- str_sub(x, start = -6, end = -2)
+  
+  p_vals <- str_extract_all(x, "\\([^)]*\\)") %>% 
+    map(~.[2]) %>% 
+    str_extract_all("\\(?[0-9,.]+") %>% 
+    as.numeric()
+  
+  str_c(str_remove(x, " \\(p.*"), ifelse(p_vals < .05, "*",
+                                         ifelse(p_vals > .05 & p_vals < .10, "+", "")))
 }
 
 oo <- mutate_at(oo, vars(Intercept:Communicating), re_p)
 
 oo %>% 
- select(-Intercept) %>% 
- t() %>% 
- knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
- kableExtra::kable_styling(latex_options = "scale_down") %>%
- kableExtra::landscape() %>% 
- group_rows("Youth characteristics", 2, 4) %>% 
- group_rows("Aspects of Work With Data", 5, 9)
+  select(-Intercept) %>% 
+  t() %>% 
+  knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
+  #kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::landscape() %>% 
+  group_rows("Youth characteristics", 2, 4) %>% 
+  group_rows("Aspects of Work With Data", 5, 9) %>% 
+  kableExtra::column_spec(2, width = "8em") %>%
+  kableExtra::column_spec(3, width = "8em") %>%
+  kableExtra::column_spec(4, width = "8em") %>%
+  kableExtra::column_spec(5, width = "8em") %>%
+  kableExtra::column_spec(6, width = "8em") %>%
+  kableExtra::column_spec(7, width = "8em")
 ```
 
 ## Results for Research Question #5: Youth characteristics and engagement
@@ -413,4 +415,4 @@ In terms of youths' pre-program interest, these analyses show that youth who ent
 
 There were not any statistically significant effects of youths' URM status. This lack of relations between URM status and youth engagement may be a function of the large proportion of youth from under-represented (in STEM) racial and ethnic groups. Hispanic (48%), African American or Black (36%), and youth who identify as being from multiple racial and ethnic groups (3%) made up 87% of the youth in the programs, so there were not many youth *not* from under-represented groups in the sample, suggesting that the absence of findings may be due to this small sample (and low statistical power). Nevertheless, no relations between URM status and youths' engagement were found, indicating that there is at least no evidence that youth from such backgrounds do engage in different ways.
 
-These (somewhat minimal) findings for the youth characteristics were more surprising than those observed for the aspects of work with data. The results of research question #3, on the sources of variability for the profiles of engagement, suggested that there was much systematic variability at the level of the youth (there were large *ICC*s at the youth level, with smaller *ICC*s at the instructional episode level). Because pre-interest, gender, and URM status were variables at this level, it could be expected that they would have meaningful relations with the profiles of engagement. However, it appears that the particular youth characteristics considered were not useful at explaining much of this variability; possible reasons why are discussed further in the next section.
+These (somewhat minimal) findings for the youth characteristics were more surprising than those observed for the aspects of work with data. The results of research question #3, on the sources of variability for the profiles of engagement, suggested that there was much systematic variability at the level of the youth (there were large *ICC*s at the youth level, with smaller *ICC*s at the instructional episode level). Because pre-interest, gender, and URM status were variables at this level, it could be expected that they would have meaningful relations with the profiles of engagement. However, it appears that the particular youth characteristics considered were not useful at explaining much of this variability; possible reasons why are discussed in the next section.
