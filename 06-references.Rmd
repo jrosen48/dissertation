@@ -4,8 +4,6 @@
 \setlength{\parskip}{8pt}
 \noindent
 
-Akiva, T. (2005). Turning training into results: The new youth program quality assessment. *High/Scope Resource*, 24(2), 21-24. 
-
 Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319. 
 
 Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). *Studying individual development in an interindividual context: A person-oriented approach*. London, England: Psychology Press.
@@ -20,8 +18,6 @@ Bystydzienski, J. M., Eisenhart, M., & Bruning, M. (2015). High school is not to
 
 National Governors Association Center for Best Practices, Council of Chief State School Officers. (2010). *Common Core State Standards for Mathematics*. Washington, DC: National Governors Association Center for Best Practices and the Council of Chief State School Officers. 
 
-Corpus, J. H., & Wormington, S. V. (2014). Profiles of intrinsic and extrinsic motivations in elementary school: A longitudinal analysis. *The Journal of Experimental Education, 82*(4), 480-501. 
-
 Csikszentmihalyi, M. (1990). *Flow: The psychology of optimal performance*. Cambridge, England: Cambridge University Press. 
 
 Csikszentmihalyi, M. (1997). *Finding flow: The psychology of engagement with everyday life*. New York, NY: Basic Books. 
@@ -34,11 +30,7 @@ Forum for Youth Investment. (2012). *Youth Program Quality Assessment*. Washingt
 
 Franklin, C., Kader, G., Mewborn, D., Moreno, J., Peck, R., Perry, M., & Scheaffer, R. (2007). *Guidelines for assessment and instruction in statistics education (GAISE) report*. Alexandria, VA: American Statistical Association. 
 
-Fredricks, J. A., & McColskey, W. (2012). *The measurement of student engagement: A comparative analysis of various methods and student self-report instruments*. In S. L. Christenson, A. L. Reschly, & C. Wylie (Eds.), The handbook of research on student engagement (pp. 763–782). New York: Springer Science. https://doi.org/10.1007/978-1-4614-2018-7_37 
-
 Fredricks, J. A., Blumenfeld, P. C., & Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. *Review of Educational Research, 74*(1), 59-109. 
-
-Fredricks, J. A., Filsecker, M., & Lawson, M. A. (2016). Student engagement, context, and adjustment: Addressing definitional, measurement, and methodological issues. *Learning & Instruction, 43*, 1-4. 
 
 Gelman, S. A., & Markman, E. M. (1987). Young children's inductions from natural kinds: The role of categories and appearances. *Child Development, 58*(6), 1532-1541. 
 
@@ -142,13 +134,9 @@ Smith, C., Akiva, T., Sugar, S., Lo, Y. J., Frank, K. A., Peck, S. C., Cortina, 
 
 Steinley, D., & Brusco, M. J. (2011). Evaluating mixture modeling for clustering: recommendations and cautions. *Psychological Methods, 16*(1), 63. 
 
-Stohl, H., & Tarr, J. E. (2002). Developing notions of inference using probability simulation tools. *The Journal of Mathematical Behavior, 21*(3), 319-337. 
-
 Stroupe, D. (2014). Examining classroom science practice communities: How teachers and students negotiate epistemic agency and learn science‐as‐practice. *Science Education, 98*(3), 487-516. 
 
 Strati, A. D., Schmidt, J. A., & Maier, K. S. (2017). Perceived challenge, teacher support, and teacher obstruction as predictors of student engagement. *Journal of Educational Psychology, 109*(1), 131-147. 
-
-Trevors, G. J., Kendeou, P., Bråten, I., & Braasch, J. L. (2017). Adolescents’ epistemic profiles in the service of knowledge revision. *Contemporary Educational Psychology, 49*, 107-120. 
 
 Turner, J. C., & Meyer, D. K. (2000). Studying and understanding the instructional contexts of classrooms: Using our past to forge our future. *Educational Psychologist, 35*(2), 69-85. 
 
@@ -167,8 +155,6 @@ Wild, C. J., & Pfannkuch, M. (1999). Statistical thinking in empirical enquiry. 
 Wilkerson, M. H., Andrews, C., Shaban, Y., Laina, V., & Gravel, B. E. (2016). What’s the technology for? Teacher attention and pedagogical goals in a modeling-focused professional development workshop. *Journal of Science Teacher Education, 27*(1), 11-33. 
 
 Wilkerson, M. H. & Fenwick, M. (2017). *The practice of using mathematics and computational thinking*. In C. V. Schwarz, C. Passmore, & B. J. Reiser (Eds.), Helping Students Make Sense of the World Using Next Generation Science and Engineering Practices. Arlington, VA: National Science Teachers’ Association Press. pp. 181-204. 
-
-Windschitl, M., Thompson, J., & Braaten, M. (2018). *Ambitious science teaching*. Harvard University Press: Cambridge, Massachusetts.
 
 Wormington, S. V., & Linnenbrink-Garcia, L. (2017). A new look at multiple goal pursuit: The promise of a person-centered approach. *Educational Psychology Review, 29*(3), 407-445. doi:10.1007/s10648-016-9358-2 
 
