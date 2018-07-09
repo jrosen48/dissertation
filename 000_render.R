@@ -16,9 +16,12 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 # 4. convert tex to PDF
 
 # 1. make two figures for profiles be in the same figure tag
-# 2. add this below table 4.7, before table tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
+# 2. add this below table 4.7, before landscape tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 # 3. replace (B (SE)) with the proper LaTeX: $\beta(\textit SE)$
 # 4. add subscripts and move note up:
+# \begin{flushleft}\emph{Note}. The subscripts indicate the mean values subscripts
+# indicating values that were not statistically significantly different on
+# the basis of the ANOVA analyses.\end{flushleft}
 # Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
 # Only behavioral & 3.292 & 2.484$_3$ & 1.641 & 2.132$_4$ & 2.778$_5$\\
 # Only affective & 1.670 & 2.516$_3$ & 3.330 & 2.191$_4$ & 2.954$_5$\\
