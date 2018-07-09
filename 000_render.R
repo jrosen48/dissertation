@@ -18,16 +18,18 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 # 1. make two figures for profiles be in the same figure tag
 # 2. add this below table 4.7, before landscape tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 # 3. replace (B (SE)) with the proper LaTeX: $\beta(\textit SE)$
+# 3.5 cors - & Pre-int. & Cog. eng. & Beh. eng. & Aff. eng. & Chall. & Comp. & Ask. & Obs. & Gen. & Mod. & Com. & 3em
+# 3.75 - 4.7, 3em
 # 4. add subscripts and move note up:
 # \begin{flushleft}\emph{Note}. The subscripts indicate the mean values subscripts
 # indicating values that were not statistically significantly different on
 # the basis of the ANOVA analyses.\end{flushleft}
 # Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
-# Only behavioral & 3.292 & 2.484$_3$ & 1.641 & 2.132$_4$ & 2.778$_5$\\
-# Only affective & 1.670 & 2.516$_3$ & 3.330 & 2.191$_4$ & 2.954$_5$\\
+# Only behavioral & 3.292 & 2.484$_2$ & 1.641 & 2.132$_4$ & 2.778$_5$\\
+# Only affective & 1.670 & 2.516$_2$ & 3.330 & 2.191$_4$ & 2.954$_5$\\
 # All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953$_5$\\
-# Eng. and comp. but not chall. & 3.909$_1$ & 3.487 & 3.822$_1$ & 1.276 & 3.604$_6$\\
-# Full & 3.959$_1$ & 3.801 & 3.881$_1$ & 3.742 & 3.631$_6$\\
+# Eng. and comp. but not chall. & 3.909$_1$ & 3.487 & 3.822$_3$ & 1.276 & 3.604$_6$\\
+# Full & 3.959$_1$ & 3.801 & 3.881$_3$ & 3.742 & 3.631$_6$\\
 
 system("cd docs; pdflatex rosenberg-dissertation_mod.tex")
 

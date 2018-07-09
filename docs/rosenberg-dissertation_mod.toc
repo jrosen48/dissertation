@@ -4,9 +4,9 @@
 \contentsline {chapter}{\chapternumberline {2}Literature Review}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}Defining Work with Data}{4}{section.2.1}
 \contentsline {section}{\numberline {2.2}The role of working with data in STEM learning environments}{6}{section.2.2}
-\contentsline {section}{\numberline {2.3}What We Know (And Do Not Know) About How Youth Work with Data}{7}{section.2.3}
+\contentsline {section}{\numberline {2.3}What is Known About How Youth Work with Data}{7}{section.2.3}
 \contentsline {section}{\numberline {2.4}Engagement in General and in STEM Domains}{9}{section.2.4}
-\contentsline {section}{\numberline {2.5}Youth characteristics that may affect their engagement}{12}{section.2.5}
+\contentsline {section}{\numberline {2.5}Youth characteristics that may affect their engagement}{11}{section.2.5}
 \contentsline {section}{\numberline {2.6}Challenges of Measuring Engagement as a Contextually-Dependent and Multidimensional Construct}{13}{section.2.6}
 \contentsline {section}{\numberline {2.7}Need for the Present Study}{16}{section.2.7}
 \contentsline {section}{\numberline {2.8}Conceptual Framework and Research Questions}{17}{section.2.8}
