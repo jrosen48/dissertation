@@ -61,40 +61,40 @@ p <- d_red %>%
                      "Cog. eng.",
                      "Beh. eng.",
                      "Aff. eng.",
-                     "Challenge", 
-                     "Competence",
-                     "Asking",
-                     "Observing",
-                     "Generating",
-                     "Modeling",
-                     "Communicating"))
+                     "Chall.", 
+                     "Comp.",
+                     "Ask.",
+                     "Obs.",
+                     "Gen.",
+                     "Mod.",
+                     "Com."))
 
 names(p) <- c("",
               "Pre-interest",
               "Cog. eng.",
               "Beh. eng.",
               "Aff. eng.",
-              "Challenge", 
-              "Competence",
-              "Asking",
-              "Observing",
-              "Generating",
-              "Modeling",
-              "Communicating")
+              "Chall.", 
+              "Comp.",
+              "Ask.",
+              "Obs.",
+              "Gen.",
+              "Mod.",
+              "Com.")
 
 p %>% 
   knitr::kable(booktabs = TRUE, format = "latex", linesep = "", caption = "Correlations among the continuous study variables") %>% 
-  kableExtra::column_spec(2, width = "2em") %>% 
-  kableExtra::column_spec(3, width = "2em") %>% 
-  kableExtra::column_spec(4, width = "2em") %>% 
-  kableExtra::column_spec(5, width = "2em") %>% 
-  kableExtra::column_spec(6, width = "2em") %>% 
-  kableExtra::column_spec(7, width = "2em") %>% 
-  kableExtra::column_spec(8, width = "2em") %>% 
-  kableExtra::column_spec(9, width = "2em") %>% 
-  kableExtra::column_spec(10, width = "2em") %>% 
-  kableExtra::column_spec(11, width = "2em") %>% 
-  kableExtra::column_spec(12, width = "2em") %>% 
+  kableExtra::column_spec(2, width = "3em") %>% 
+  kableExtra::column_spec(3, width = "3em") %>% 
+  kableExtra::column_spec(4, width = "3em") %>% 
+  kableExtra::column_spec(5, width = "3em") %>% 
+  kableExtra::column_spec(6, width = "3em") %>% 
+  kableExtra::column_spec(7, width = "3em") %>% 
+  kableExtra::column_spec(8, width = "3em") %>% 
+  kableExtra::column_spec(9, width = "3em") %>% 
+  kableExtra::column_spec(10, width = "3em") %>% 
+  kableExtra::column_spec(11, width = "3em") %>% 
+  kableExtra::column_spec(12, width = "3em") %>% 
   kableExtra::landscape()
 ```
 
@@ -274,8 +274,6 @@ t  %>%
   kableExtra::landscape()
 ```
 
-*Note*. The subscripts indicate the mean values subscripts indicating values that were not statistically significantly different on the basis of the ANOVA analyses.
-
 A *universally low* profile consisted of a substantial proportion of responses (22.55%) was identified. This profile was characterized by low levels of working hard, learning something new, and enjoying the activity, and perceptions challenge and competence. For responses in this profile, mean values were lower than their values in every other profile for every variable except challenge, which was even lower in the *engaged and competent but not challenged profile. Note that concerning their raw values and not only their levels relative to the levels of the variables for the other profiles, youth report very low levels (below two on the one-four scale used) of all of the variables. In all, this profile reflects very low levels of youth engagement during the specific instructional episodes during which youth were signaled to respond.
 
 An *only behaviorally engaged* profile with a small proportion of responses (12.51%) was identified. This profile was characterized by moderate levels of working hard, very low enjoyment of the activity, and moderate levels of learning something new and challenge and competence. The levels of reporting learning something new, challenge, and competence were not distinguishable from those found in the responses that make up the *only affectively engaged* profiles. Levels of working hard, an indicator of behavioral engagement, was higher than in every profile except *fully engaged* and *engaged and competent but not challenged*. These responses suggest that youth perceive themselves to be working hard, but to not be enjoying what they were doing and to not report learning something new, nor to be particularly challenged or good at what they were doing when signaled.
@@ -401,12 +399,12 @@ oo %>%
   kableExtra::landscape() %>% 
   group_rows("Youth characteristics", 2, 4) %>% 
   group_rows("Aspects of Work With Data", 5, 9) %>% 
-  kableExtra::column_spec(2, width = "8em") %>%
-  kableExtra::column_spec(3, width = "8em") %>%
-  kableExtra::column_spec(4, width = "8em") %>%
-  kableExtra::column_spec(5, width = "8em") %>%
-  kableExtra::column_spec(6, width = "8em") %>%
-  kableExtra::column_spec(7, width = "8em")
+  kableExtra::column_spec(2, width = "7em") %>%
+  kableExtra::column_spec(3, width = "7em") %>%
+  kableExtra::column_spec(4, width = "7em") %>%
+  kableExtra::column_spec(5, width = "7em") %>%
+  kableExtra::column_spec(6, width = "7em") %>%
+  kableExtra::column_spec(7, width = "7em")
 ```
 
 ## Results for Research Question #5: Youth characteristics and engagement

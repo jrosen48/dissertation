@@ -18,9 +18,7 @@ file.copy("_bookdown_files/rosenberg-dissertation_files", "docs", recursive=TRUE
 # 1. make two figures for profiles be in the same figure tag
 # 2. add this below table 4.7, before landscape tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 # 3. replace (B (SE)) with the proper LaTeX: $\beta(\textit SE)$
-# 3.5 cors - & Pre-int. & Cog. eng. & Beh. eng. & Aff. eng. & Chall. & Comp. & Ask. & Obs. & Gen. & Mod. & Com. & 3em
-# 3.75 - 4.7, 3em
-# 4. add subscripts and move note up:
+# 4. add subscripts and note:
 # \begin{flushleft}\emph{Note}. The subscripts indicate the mean values subscripts
 # indicating values that were not statistically significantly different on
 # the basis of the ANOVA analyses.\end{flushleft}

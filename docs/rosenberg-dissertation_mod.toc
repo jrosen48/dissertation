@@ -39,16 +39,16 @@
 \contentsline {subsubsection}{\numberline {4.3.2.4}Data modeling}{44}{subsubsection.4.3.2.4}
 \contentsline {subsubsection}{\numberline {4.3.2.5}Interpreting and communicating findings}{45}{subsubsection.4.3.2.5}
 \contentsline {section}{\numberline {4.4}Results for Research Question \#2: What profiles of youth engagement emerge from experiential data collected in the programs?}{46}{section.4.4}
-\contentsline {section}{\numberline {4.5}Results for Research Question \#3: What sources of variability were there for the profiles of engagement?}{54}{section.4.5}
-\contentsline {section}{\numberline {4.6}Results for Research Question \#4: Aspects of work with data and engagement}{56}{section.4.6}
-\contentsline {section}{\numberline {4.7}Results for Research Question \#5: Youth characteristics and engagement}{60}{section.4.7}
-\contentsline {chapter}{\chapternumberline {5}Discussion}{62}{chapter.5}
-\contentsline {section}{\numberline {5.1}Key findings related to work with data in summer STEM programs}{63}{section.5.1}
-\contentsline {section}{\numberline {5.2}Key findings related to engagement}{65}{section.5.2}
-\contentsline {section}{\numberline {5.3}Key findings related to work with data and youth characteristics and their relations to engagement}{68}{section.5.3}
+\contentsline {section}{\numberline {4.5}Results for Research Question \#3: What sources of variability were there for the profiles of engagement?}{55}{section.4.5}
+\contentsline {section}{\numberline {4.6}Results for Research Question \#4: Aspects of work with data and engagement}{57}{section.4.6}
+\contentsline {section}{\numberline {4.7}Results for Research Question \#5: Youth characteristics and engagement}{61}{section.4.7}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{63}{chapter.5}
+\contentsline {section}{\numberline {5.1}Key findings related to work with data in summer STEM programs}{64}{section.5.1}
+\contentsline {section}{\numberline {5.2}Key findings related to engagement}{66}{section.5.2}
+\contentsline {section}{\numberline {5.3}Key findings related to work with data and youth characteristics and their relations to engagement}{69}{section.5.3}
 \contentsline {section}{\numberline {5.4}Limitations to the present study and recommendations for research}{73}{section.5.4}
-\contentsline {section}{\numberline {5.5}Implications for Practice}{78}{section.5.5}
-\contentsline {chapter}{\chapternumberline {6}References}{80}{chapter.6}
+\contentsline {section}{\numberline {5.5}Implications for Practice}{79}{section.5.5}
+\contentsline {chapter}{\chapternumberline {6}References}{81}{chapter.6}
 \contentsline {chapter}{\chapternumberline {7}Appendix}{90}{chapter.7}
 \contentsline {section}{\numberline {7.1}Appendix A: Program descriptions}{90}{section.7.1}
 \contentsline {section}{\numberline {7.2}Appendix B: Model specifications details}{93}{section.7.2}
