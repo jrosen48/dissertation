@@ -1,9 +1,5 @@
 # References
 
-\setlength{\parindent}{-0.2in}
-\setlength{\leftskip}{0.2in}
-\noindent
-
 Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319. 
 
 Bergman, L. R., Magnusson, D., & El Khouri, B. M. (2003). *Studying individual development in an interindividual context: A person-oriented approach*. London, England: Psychology Press.

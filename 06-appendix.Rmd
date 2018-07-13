@@ -1,11 +1,6 @@
 # Appendices
 
-\setlength{\parindent}{0in}
-\setlength{\leftskip}{0in}
-\setlength{\parskip}{8pt}
-\noindent
-
-## Appendix A: Program descriptions
+## Program descriptions
 
 *Island Explorers*: A science-focused program that aims to help youth develop expertise on one species found in the local ecosystem by reading and writing about related content for up to an hour per day; undertaking data collection and analysis tasks to learn about the local ecosystem and how to communicate scientific data; developing vocabulary about the local ecosystem; using art to learn and communicate information; and publishing a book illustrating important elements of the species being studied. Located in both the classroom and local ecosystem. 27 students who are rising 6th graders. Youth spend the morning in more academically-oriented sessions in a classroom setting, while afternoon sessions involved STEM-oriented enrichment sessions taking place outside (the program was associated with Outward Bound) with an emphasis on exploration of the local ecosystem.
 
@@ -26,7 +21,7 @@
 *Adventures in Mathematics*: A mathematics-focused program that aims to help youth to develop the basic math skills and prevent summer learning loss among participating youth through direct instruction and participation in math-related games. Located primarily in the classroom. 20 youth who are rising 8th to 10th graders. Youth participated in direct instructions in mathematics and math-related games in small groups. Program content was aligned with the state's standards in mathematics.
 )
 
-## Appendix B: Model specifications details
+## Model specifications details
 
 Here, the six models that can possibly be specified in LPA are described in terms of how the variables used to create the profiles are estimated. Note that *p* represents different profiles and each parameterization is represented by a 4 x 4 covariance matrix and therefore would represent the parameterization for a four-profile solution. In all of the models, the means are estimated freely in the different profiles. Imagine that each row and column represents a different variable, i.e., the first row (and column) represents broad interest, the second enjoyment, the third self-efficacy, and the fourth another variable, i.e., future goals and plans. Models 1 and 3 meet the assumption of independence, that is, that, after accounting for their relations with the profile, the variables used to estimate the profiles are independent (Collins & Lanza, 2010). They estimate variable variances but do not estimate covariances (i.e., as can be seen, the covariance matrices are "diagonal," without any off-diagonal parameters that are estimated). These models are estimated by default in MPlus, although these assumptions can be relaxed (Muthen & Muthen, 2017). Importantly, this does not mean the variables used to create the profile are assumed to be not related; as Collins and Lanza (2010) explain:
 
@@ -82,7 +77,7 @@ $$
 \left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right] 
 $$
 
-## Appendix C: Work with data by program
+## Work with data by program
 
 This table contains the proportion of the five aspects of work with data during by program, as well as the total number of signals associated with each program. 
 
@@ -119,7 +114,7 @@ pnn %>%
 
 *Note*. The *Comunidad de Aprendizaje* program had different sections in the morning and afternoon, which is why the number of instructional episodes is higher than in the other programs. 
 
-## Appendix D: Alternate model selected (model type 1, seven profile solution)
+## Alternate model selected (model type 1, seven profile solution)
 
 This solution is characterized by:
 
@@ -131,7 +126,7 @@ This solution is characterized by:
 - A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
 - A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
-```{r, m1_7p, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center"}
+```{r, m1_7p, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center", fig.caption = "Alternate solution for model 1 type, seven profile specification"}
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
 m1_7 %>%

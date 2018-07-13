@@ -34,7 +34,7 @@
   }{}
 }
 
-  
+
 \lstset{%
     basicstyle=\ttfamily\small,
     commentstyle=\itshape\ttfamily\small,
@@ -46,7 +46,7 @@
     captionpos=t
     language=TeX
 }
-  
+
 \newcommand*{\pkg}[1]{\texttt{#1}\xspace}
 \setitemize[1]{label={}}
 \setitemize[2]{label={}}
@@ -108,7 +108,7 @@ The Formatting Guide requires that any lansdscape pages be numbered in landscape
 In 2013 I received reports that the thesis office now requires all elements in the Table of Contents to have the same formatting as they are in the main document, which means that all section, subsection, and subsubsection headings need to be bold.  Since this looks very ugly, I have created two options to turn it off, the |[plaintoc]| option (which makes all ToC entries plain) and |[mixedtoc]| option (which makes Chapters bold and other elements plain). I suspect that the thesis office checkers don't notice this all the time so if you want to have a prettier table of contents and are willing to have that format be corrected, you can use these options to turn off the MSWord inspired ugliness of an entirely bold Table of Contents. I've made |[plaintoc]| the default.  If you are forced by the thesis office to have an entirely bold ToC, use the |[boldtoc]| option.
 
 \section{User commands}
-In addition to all the user functionality defined by \pkg{memoir}, the \pkg{msu-thesis} class defines five new titling commands. 
+In addition to all the user functionality defined by \pkg{memoir}, the \pkg{msu-thesis} class defines five new titling commands.
 \begin{quote}
 \begin{description}
 \item[\texttt{\bs fieldofstudy\{\}}] Takes one argument corresponding to your field of study.
@@ -172,7 +172,7 @@ The \pkg{memoir} class replicates the functionality of many independent packages
 \end{quote}
 \subsection{Captions}
 \subsubsection{Caption delimiter}
-Because the thesis office doesn't understand anything about punctuation it requires the colon that would appear in a caption to also appear in the contents lists. Since they don't care about the colon itself, but just consistency I've removed colons from the captions entirely, since leaving it in makes the contents lists look really stupid. But in case you or your advisor want the colon in captions, you can add the colon back in by using the Memoir command |\captiondelim{:\space}| and the class will make sure the Lists of Tables and Figures match in formatting. 
+Because the thesis office doesn't understand anything about punctuation it requires the colon that would appear in a caption to also appear in the contents lists. Since they don't care about the colon itself, but just consistency I've removed colons from the captions entirely, since leaving it in makes the contents lists look really stupid. But in case you or your advisor want the colon in captions, you can add the colon back in by using the Memoir command |\captiondelim{:\space}| and the class will make sure the Lists of Tables and Figures match in formatting.
 \subsubsection{New lists}
 If you are using other kinds of floats such as listings, you should use the Memoir |\newlistof| command to make the relevant list. The class provides a macro |\msucaptiondelim| which can be used to make sure the formatting of the captions in the list-of-X match the setting you have for Figures and Tables.  Here is an example of how you would add a listings list. The following code goes in your preamble:
 \begin{quote}
@@ -226,17 +226,16 @@ before the contents lists and |\microtypesetup{protrusion=true}| afterwards.  Sc
 \subsection{Public abstract}
 If your thesis requires a public abstract, it should go immediately before the regular abstract. Use the |{publicabstract}| environment for this.
 \subsection{Landscape figures and tables}
-If you have large figures and tables that must be rotated, you should use the |[lscape]| class option.  This enables a pagestyle |lscape| and places the page numbers correctly on the long edge of the page. The option loads the \pkg{pdflscape} package which provides a |landscape| environment to place the landscape figure in. Before the landscape environment, you need to issue a |\clearpage| command and change the pagestyle to |lscape|, and afterwards, change it back to |plain|. Schematically, then, any landscape pages should be created in the following way.  
+If you have large figures and tables that must be rotated, you should use the |[lscape]| class option.  This enables a pagestyle |lscape| and places the page numbers correctly on the long edge of the page. The option loads the \pkg{pdflscape} package which provides a |landscape| environment to place the landscape figure in. Before the landscape environment, you need to issue a |\clearpage| command and change the pagestyle to |lscape|, and afterwards, change it back to |plain|. Schematically, then, any landscape pages should be created in the following way.
 
 \begin{quote}
 \begin{lstlisting}
 \clearpage\pagestyle{lscape}
 \begin{landscape}
- ... your large table(s) or figure(s) here
+
 \end{landscape}
 \pagestyle{plain}
 \end{lstlisting}
-
 \end{quote}
 
 The |landscape| environment makes all pages within it landscape, so if you have multiple landscape figures in a row, you can put all of them inside a single |landscape| environment. This option correctly rotates the landscape pages within the pdf document itself, which the thesis office seems to require.
@@ -284,7 +283,7 @@ Appendix text goes here
 Please note that although bibliography entries must be single spaced, there must be a space between each entry. This parameter is set by your bibliography package and not by the class itself. If you are using |natbib| it is |\bibsep| and if you are using |biblatex| it is |\bibitemsep|. These are lengths and may be set by using |\setlength|. Depending on your bibliography style, you may need to set these to be |\baselineskip|, e.g. |\setlength{\bibitemsep}{\baselineskip}|.
 
 \subsection{Customizing the look of things}
-I have created a basic looking style for Chapter headings based on the |thatcher| style in |memoir|.  If you want to change these things, you may, using the appropriate |\renewcommand| commands.  More information can be found in the |memoir| documentation. The Thesis Office seems to require dotted leaders for the List of Figures/Tables in the Table of Contents, (despite the guide saying they are optional) even though they get typeset as Chapters.  If you wish your Chapter headings to have no leaders, add the following command just after the |\mainmatter| command.  To put the dots back for the Bibliography, repeat the same command right after the |\backmatter| command, but replace |\cftnodots| with |\cftdotsep|.  The default template leaves dots everywhere, which should appease the thesis office. 
+I have created a basic looking style for Chapter headings based on the |thatcher| style in |memoir|.  If you want to change these things, you may, using the appropriate |\renewcommand| commands.  More information can be found in the |memoir| documentation. The Thesis Office seems to require dotted leaders for the List of Figures/Tables in the Table of Contents, (despite the guide saying they are optional) even though they get typeset as Chapters.  If you wish your Chapter headings to have no leaders, add the following command just after the |\mainmatter| command.  To put the dots back for the Bibliography, repeat the same command right after the |\backmatter| command, but replace |\cftnodots| with |\cftdotsep|.  The default template leaves dots everywhere, which should appease the thesis office.
 \begin{quote}
 \begin{lstlisting}
 \addtocontents{toc}{%
@@ -297,7 +296,7 @@ Despite there being no explicit formatting requirements for Chapter headings (ot
 \begin{itemize}[label={\textbullet}]
 \item If you are having problems with the Thesis office about non-conforming formatting, please check first whether you have a local copy of the class instead of the latest version distributed via CTAN. The log file will reflect the date of the current version number. Remember if you are using the most current and updated TeXLive or MikTeX you will automatically have the latest version already and you should not need to install a local version.
 \item If your title is long and you want to put a newline (|\\|) into it to improve the spacing, you must precede the newline with |\protect|.
-\item Make sure you pay attention to any ``Overfull hbox'' warnings when you are producing your final copy. You should make sure you eliminate all of them or else the thesis office is likely to reject your thesis. One common way to eliminate such warnings is to place the command |\sloppy| at the beginning of the paragraph that triggers the warning. You should only use this technique at the very end when you are completely done with everything.  Alternatively, rewording the text may also fix things. 
+\item Make sure you pay attention to any ``Overfull hbox'' warnings when you are producing your final copy. You should make sure you eliminate all of them or else the thesis office is likely to reject your thesis. One common way to eliminate such warnings is to place the command |\sloppy| at the beginning of the paragraph that triggers the warning. You should only use this technique at the very end when you are completely done with everything.  Alternatively, rewording the text may also fix things.
 \item Remember to use the |\tableofcontents*| command so that your table of contents is not listed in the table of contents.
 \item Remember to use the |appendices| environment instead of |\appendix| if you have more than one appendix.
 \item Remember to add the |\makebibliographypage| command before your bibliography.
@@ -307,7 +306,7 @@ Despite there being no explicit formatting requirements for Chapter headings (ot
 \subsection{Current version}
 The latest copy of \pkg{msu-thesis} will always be available on  \href{https://ctan.org/pkg/msu-thesis?lang=en}{CTAN}. If you use MiKTeX, or a current year TeX Live then their respective package managers will update or install the latest version. If you are using a Linux-based distribution, or your TeXLive distribution is not the most recent year, you may need to install the latest copy in your local |texmf| directory. If you want others to use the class, \textsc{please} point them to CTAN, so that they can get an up-to-date version with all accompanying documentation and examples rather than passing along your copy. Please report \textsc{any} problems you have with the class to me \href{mailto:amunn@msu.edu}{amunn@msu.edu}, as this will aid in making things easier for those who follow you. The Graduate School rarely announces changes it makes to the formatting requirements, so your problem reports are extremely helpful for keeping the class in compliance with the latest standards.
 \subsection{Archiving your thesis for the future}
-Since the current version of the \pkg{msu-thesis} class satisfies the Graduate School requirements at any one time, as these requirements change, you may find that if you need to recompile your thesis after you have graduated that the formatting changes. To avoid this, I would recommend saving an archived version of the \pkg{msu-thesis.cls} file in the same folder as your thesis file.  You only need to do this once you have completely finished your thesis however; there's no need to do it during the writing process. 
+Since the current version of the \pkg{msu-thesis} class satisfies the Graduate School requirements at any one time, as these requirements change, you may find that if you need to recompile your thesis after you have graduated that the formatting changes. To avoid this, I would recommend saving an archived version of the \pkg{msu-thesis.cls} file in the same folder as your thesis file.  You only need to do this once you have completely finished your thesis however; there's no need to do it during the writing process.
 \subsection{Version history}
 Previous versions of \pkg{msu-thesis} (versions 1.0--1.4b) were created for non-electronic submission and should not be used. Versions 1.5--1.6 (the first electronic submission versions) contained a |\makeabstract| command and a separate |msuabstract| environment. These have been removed as of version 1.7.  Users who are upgrading from earlier versions to version 1.7 do not need to change these commands however but their use will trigger a warning.) Version 2.0 implemented landscape pages; version 2.1 added support for \pkg{hyperref}. Versions 2.2--2.5 mainly accommodated to the ever changing whims of the MSU Graduate School. Version 2.6 fixed some appendix bugs introduced by the previous whim accommodation. Version 2.7 fixed various small spacing issues, fixed a bug which prevented a new chapter page to be a landscape page, added support for the \pkg{apacite} package, and updated degree options. Version 2.8 fixed some spacing and capitalization issues and added support for the the public abstract.
 \section{Acknowledgements}
@@ -320,7 +319,7 @@ Thanks to Lars Madsen, Ulrike Fischer and Peter Wilson for help with setting up 
 You can find a copy of this template \href{http://mirrors.ctan.org/macros/latex/contrib/msu-thesis/samples/MSU-thesis-template.tex}{here}.
 \enlargethispage{2\baselineskip}
 \begin{lstlisting}
-\documentclass[PhD]{msu-thesis} 
+\documentclass[PhD]{msu-thesis}
 % Your extra packages here
 %
 % Define the title, author, field of study, date, and dedication (optional)

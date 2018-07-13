@@ -48,15 +48,19 @@
 \contentsline {section}{\numberline {5.3}Key findings related to work with data and youth characteristics and their relations to engagement}{69}{section.5.3}
 \contentsline {section}{\numberline {5.4}Limitations to the present study and recommendations for research}{73}{section.5.4}
 \contentsline {section}{\numberline {5.5}Implications for Practice}{79}{section.5.5}
-\contentsline {chapter}{\chapternumberline {6}References}{81}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Appendix}{90}{chapter.7}
-\contentsline {section}{\numberline {7.1}Appendix A: Program descriptions}{90}{section.7.1}
-\contentsline {section}{\numberline {7.2}Appendix B: Model specifications details}{93}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{94}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Varying means, equal variances, and equal covariances (model 2)}{94}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{95}{subsection.7.2.3}
-\contentsline {subsection}{\numberline {7.2.4}Varying means, varying variances, and equal covariances (model 4)}{95}{subsection.7.2.4}
-\contentsline {subsection}{\numberline {7.2.5}Varying means, equal variances, and varying covariances (model 5)}{96}{subsection.7.2.5}
-\contentsline {subsection}{\numberline {7.2.6}Varying means, varying variances, and varying covariances (model 6)}{96}{subsection.7.2.6}
-\contentsline {section}{\numberline {7.3}Appendix C: Work with data by program}{97}{section.7.3}
-\contentsline {section}{\numberline {7.4}Appendix D: Alternate model selected (model type 1, seven profile solution)}{99}{section.7.4}
+\contentsline {chapter}{Appendices}{81}{section*.5}
+\cftinsert {APP}
+\changetocdepth {0}
+\contentsline {appendix}{\chapternumberline {A}Program descriptions}{82}{chapter.A}
+\contentsline {appendix}{\chapternumberline {B}Your second appendix title}{86}{chapter.B}
+\contentsline {subsection}{\numberline {B.0.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{87}{subsection.B.0.1}
+\contentsline {subsection}{\numberline {B.0.2}Varying means, equal variances, and equal covariances (model 2)}{87}{subsection.B.0.2}
+\contentsline {subsection}{\numberline {B.0.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{88}{subsection.B.0.3}
+\contentsline {subsection}{\numberline {B.0.4}Varying means, varying variances, and equal covariances (model 4)}{88}{subsection.B.0.4}
+\contentsline {subsection}{\numberline {B.0.5}Varying means, equal variances, and varying covariances (model 5)}{89}{subsection.B.0.5}
+\contentsline {subsection}{\numberline {B.0.6}Varying means, varying variances, and varying covariances (model 6)}{89}{subsection.B.0.6}
+\contentsline {appendix}{\chapternumberline {C}Work with data by program}{90}{chapter.C}
+\contentsline {appendix}{\chapternumberline {D}alternate model}{93}{chapter.D}
+\cftinsert {BIB}
+\changetocdepth {3}
+\contentsline {chapter}{Bibliography}{96}{section*.6}

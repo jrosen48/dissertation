@@ -119,37 +119,38 @@
 % \usepackage[T1]{fontenc}
 % \usepackage{newtxtext,newtxmath} % If they want Times we’ll give them Times
 % \usepackage{amsmath}
-% %
 % \usepackage[]{natbib}
 % \bibliographystyle{unified}
-%
-%
-% % If you need newlines in your title, you must use \protect\\
+
+
+% If you need newlines in your title, you must use \protect\\
 % \title{Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach}
 % \author{Joshua M. Rosenberg}
 % \fieldofstudy{Educational Psychology and Educational Technology}
 % \dedication{This dissertation is dedicated to Katie and to Jonah, who (mostly) happily slept through most of its writing.}
 % \date{2018}
-% \usepackage{listings}
+\usepackage{listings}
+
 % \lstset{language=TeX,basicstyle={\ttfamily}}
 % \usepackage{lipsum}
 % \usepackage{xcolor}
 % \usepackage{gb4e}
-%
-% %\usepackage[bookmarksopenlevel=2,bookmarks=true]{hyperref} % not needed but here for testing
+
+%\usepackage[bookmarksopenlevel=2,bookmarks=true]{hyperref} % not needed but here for testing
 %
 % \counterwithin{exx}{chapter}
 % \singlegloss
-%
-% % Uncomment the next line for single spaced examples with gb4e
-% %\patchcommand{\exe}{\SingleSpacing}{}
-%
+
+% Uncomment the next line for single spaced examples with gb4e
+% patchcommand{\exe}{\SingleSpacing}{}
+
 % % This code is an example of how to set up a new list of
 % \newlistof{listoflistings}{lol}{List of Listings}
 % \newfloat[chapter]{listing}{lol}{Listing}
 % \newlistentry{listing}{lol}{0}
 % \renewcommand*{\cftlistingname}{Listing\space}
 % \renewcommand*{\cftlistingaftersnum}{\msucaptiondelim}
+
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -159,6 +160,7 @@
 \usepackage{float}
 \usepackage{colortbl}
 \usepackage{pdflscape}
+\usepackage{tikz}
 \usepackage{tabu}
 \usepackage{threeparttable}
 
@@ -183,15 +185,10 @@
 % Next make the abstract
 \begin{abstract}
 % Your abstract goes here.  Master's 1 page max. PhD 2 page max.
-
 Data-rich activities provide an opportunity to develop core competencies in both science and mathematics identified in curricular standards. Perhaps even more importantly work with data puts learners in the position to use data to ask and answer questions, a potentially empowering capability. Research on work with data has focused on cognitive outcomes and the development of specific practices at the student and classroom levels, and yet, little research has considered learners’ engagement. The present study explores learners engagement in work with data in the context of summer STEM programs. The aspects of work with data that are the focus of this study are: asking questions, observing phenomena, constructing measures and generating data, data modeling, and interpreting findings. Data from measures of learners' engagement was collected through the Experience Sampling Method (ESM) that involves asking learners at random intervals to answer short questions about their engagement to discover profiles of learners' engagement.
-
 Data was collected from nine summer STEM programs over four weeks in the Northeastern United States. 203 learners reported 2,970 responses via short ESM surveys of how engaged they were (cognitively, behaviorally, and affectively, assessed through separate items) and of their perceptions of themselves (their competence) and the activity (its challenge).  These data were used to examine five specific research questions: 1) What is the frequency and nature of opportunities for youth to engage in each of the five aspects of work with data in summer STEM programs? 2) What profiles of engagement emerge from data collected via ESM in the programs? 3) What are sources of variability for the profiles of engagement? 4) How do the five aspects of work with data relate to profiles of engagement? 5) How do youth characteristics relate to profiles of engagement?
-
 Findings show that aspects of work with data were fairly common overall, but that work with data was enacted out in varying ways, including some that were possibly highly engaging. Six profiles of youth engagement were identified, representing distinct configurations of the five indicators of engagement. Substantial variability in the profiles was present at the youth level, with less explained by the program youth were in or the nature of the particular instructional episode present at the times when youth were signaled. Relations between the profiles of engagement and each of the aspects of work with data were somewhat small: Notable exceptions were the generating data and data modeling were significantly associated with full engagement. Youth with higher pre-program interest in STEM were more likely to be engaged and competent but not challenged, though other youth characteristics were not highly related to the profiles.
-
 I discuss key findings as regards work with data in summer STEM programs and other informal learning environments, the nature of youths' engagement, and what factors can predict engagement. The design and goals of summer STEM programs, which are not (necessarily) focused on activities related to work with data, as well as other limitations including the measures for work with data used and the analytic approach, are identified and described. The role of generating data and modeling data as well as attention to the specifics of how work with data are enacted are presented as implications for practice. I highlight aspects of the findings and the implications for practice with respect to work with data in general and to engagement in informal learning environments, such as summer STEM programs, in both cases with an emphasis on how work with data can serve as a promising context for learning in STEM subject areas.
-
 \end{abstract}
 
 % Force a newpage
@@ -1130,7 +1127,10 @@ developed to assess work with data but rather was adapted for this
 purpose based on aligning dimensions of the STEM-PQA with the categories
 of the coding frame for work with data in this table.
 
-\begin{landscape}\begin{table}
+\clearpage\pagestyle{lscape}
+\begin{landscape}
+
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-4}Coding Frame for the Aspects of Work with Data}
 \centering
@@ -1147,6 +1147,7 @@ Interpreting and communicating findings & 1: Present; 0: Not Present & Discussin
 \end{tabular}
 \end{table}
 \end{landscape}
+\pagestyle{plain}
 
 Raters contracted by American Institute of Research (AIR) were trained
 in the use of the Program Quality Assessment tool (PQA), the broader
@@ -1285,6 +1286,7 @@ open-ended matter, whereas the codes for work with data were applied
 based on the coding frame (with only 0's and 1's as possible value for
 codes).
 
+\clearpage\pagestyle{lscape}
 \begin{landscape}\begin{table}
 
 \caption{\label{tab:unnamed-chunk-6}Coding frame for the open-ended, qualitative coding of instructional episodes}
@@ -1300,6 +1302,7 @@ Work with data & For each aspect of work with data determined to be present, not
 \end{tabular}
 \end{table}
 \end{landscape}
+\pagestyle{plain}
 
 After coding all of the segments for each program, the coders and I met
 to discuss potential issues that emerged throughout the coding. The goal
@@ -1624,15 +1627,18 @@ profiles and the aspects of work with data, the values ranged from
 relations (those with \emph{r} values of -.05 and -.06) being
 statistically significant.
 
-\begin{landscape}\begin{table}
+\clearpage
+\pagestyle{lscape}
+\begin{landscape}
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-8}Correlations among the continuous study variables}
 \centering
 \begin{tabular}[t]{l>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}>{\raggedright\arraybackslash}p{3em}}
 \toprule
- & Pre-int. & Cog. eng. & Beh. eng. & Aff. eng. & Chall. & Comp. & Ask. & Obs. & Gen. & Mod. & Com.\\
+ & Pre-interest & Cog. eng. & Beh. eng. & Aff. eng. & Chall. & Comp. & Ask. & Obs. & Gen. & Mod. & Com.\\
 \midrule
-Pre-int. &  &  &  &  &  &  &  &  &  &  & \\
+Pre-interest &  &  &  &  &  &  &  &  &  &  & \\
 Cog. eng. & .14 &  &  &  &  &  &  &  &  &  & \\
 Beh. eng. & .13 & .60 &  &  &  &  &  &  &  &  & \\
 Aff. eng. & .12 & .59 & .57 &  &  &  &  &  &  &  & \\
@@ -1647,6 +1653,7 @@ Com. & -.10 & .00 & -.02 & -.05 & -.06 & -.03 & .42 & .20 & .38 & .50 & \\
 \end{tabular}
 \end{table}
 \end{landscape}
+\pagestyle{plain}
 
 \section{Results for Research Question
 \#1}\label{results-for-research-question-1}
@@ -1939,6 +1946,9 @@ question and for use in subsequent analyses.
 }
 
 \caption{The six profiles of engagement (with variable values standardized)}\label{fig:unnamed-chunk-11}
+\end{figure}
+
+\begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{rosenberg-dissertation_files/figure-latex/unnamed-chunk-12-1}
 
@@ -2001,17 +2011,14 @@ youth engagement follow.
 Profile & Working Hard & Learning New & Enjoying & Challenge & Competence\\
 \midrule
 Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
-Only behavioral & 3.292 & 2.484$_2$ & 1.641 & 2.132$_4$ & 2.778$_5$\\
-Only affective & 1.670 & 2.516$_2$ & 3.330 & 2.191$_4$ & 2.954$_5$\\
-All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953$_5$\\
-Eng. and comp. but not chall. & 3.909$_1$ & 3.487 & 3.822$_3$ & 1.276 & 3.604$_6$\\
-Full & 3.959$_1$ & 3.801 & 3.881$_3$ & 3.742 & 3.631$_6$\\
+Only behavioral & 3.292 & 2.484 & 1.641 & 2.132 & 2.778\\
+Only affective & 1.670 & 2.516 & 3.330 & 2.191 & 2.954\\
+All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953\\
+Eng. and comp. but not chall. & 3.909 & 3.487 & 3.822 & 1.276 & 3.604\\
+Full & 3.959 & 3.801 & 3.881 & 3.742 & 3.631\\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{flushleft}\emph{Note}. The subscripts indicate the mean values subscripts
-indicating values that were not statistically significantly different on
-the basis of the ANOVA analyses.\end{flushleft}
 \end{landscape}
 
 A \emph{universally low} profile consisted of a substantial proportion
@@ -2258,7 +2265,7 @@ some caution).
 \centering
 \begin{tabular}[t]{l>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}}
 \toprule
-Profile & Universally low $\beta(\textit SE)$ & Only behavioral $\beta(\textit SE)$ & Only affective $\beta(\textit SE)$ & Eng. and comp., not chall. $\beta(\textit SE)$ & All moderate $\beta(\textit SE)$ & Full $\beta(\textit SE)$\\
+Profile & Universally low B (SE) & Only behavioral B (SE) & Only affective B (SE) & Eng. and comp., not chall. B (SE) & All moderate B (SE) & Full B (SE)\\
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Youth characteristics}}\\
 \hspace{1em}Pre-interest & -0.047 (0.022) & -0.013 (0.012) & -0.012 (0.019) & 0.039 (0.016)* & 0.007 (0.01) & 0.018 (0.021)\\
@@ -2274,7 +2281,6 @@ Profile & Universally low $\beta(\textit SE)$ & Only behavioral $\beta(\textit S
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
 \end{landscape}
 
 \section{Results for Research Question \#5: Youth characteristics and
@@ -2957,10 +2963,361 @@ engaging in work with data may also prepare learners to think of,
 understand, and take action based on data in education and in other
 areas of their lives.
 
-\chapter{References}\label{references}
+\begin{appendices}
 
-\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
-\setlength{\parskip}{8pt} \noindent
+\chapter{Program descriptions}
+
+\emph{Island Explorers}: A science-focused program that aims to help
+youth develop expertise on one species found in the local ecosystem by
+reading and writing about related content for up to an hour per day;
+undertaking data collection and analysis tasks to learn about the local
+ecosystem and how to communicate scientific data; developing vocabulary
+about the local ecosystem; using art to learn and communicate
+information; and publishing a book illustrating important elements of
+the species being studied. Located in both the classroom and local
+ecosystem. 27 students who are rising 6th graders. Youth spend the
+morning in more academically-oriented sessions in a classroom setting,
+while afternoon sessions involved STEM-oriented enrichment sessions
+taking place outside (the program was associated with Outward Bound)
+with an emphasis on exploration of the local ecosystem.
+
+\emph{The Ecosphere}: A science-focused program that aims to help youth
+to explore the marine life of Narragansett Bay. Efforts were undertaken
+to build youth content knowledge in the areas of ecosystem preservation,
+marine biology, and water quality, and related skills, such as
+questioning, showing initiative, data collection, measuring, maintaining
+an ecosystem, and analyzing water samples. Located in a classroom
+setting, shoreline, and science education center. 27 youth who are
+rising 6th to 9th graders. Youth attended programming in a classroom at
+an area middle school and in a field-based setting on alternating days.
+Field-based settings included a science education center at a
+community-based organization and field trips to sites in the community
+related to the program's focus.
+
+\emph{Zoology Partners}: A science-focused program that aims to support
+youth's development of content knowledge related to the issue of
+endangered species, including how species become endangered, processes
+for monitoring ecosystem viability and population levels, solutions to
+prevent species from becoming endangered, and approaches to reviving
+populations that are currently endangered. Located in the classroom as
+well as zoos, parks, and other natural areas. 25 youth who are rising
+6th to 9th graders. Youth attended programming in a classroom at an area
+middle school and in a field-based setting on alternating days.
+Field-based settings included a local zoo and field trips to sites in
+the community related to the program's focus.
+
+\emph{Marine Investigators}: A science-focused program that aims to
+provide youth with opportunities to learn about and experience
+Narragansett Bay; examine human impacts on the local ecosystem,
+including how the geography of the Bay helped influence human history
+and how the history of humans along the shoreline has impacted the Bay,
+and begin the process of cultivating a sense of stewardship among
+participating youth for caring for and protecting the Bay in the future.
+Located in the classroom, shoreline along the bay, ship on the bay, and
+various field locations associated with bay health. 19 youth who are
+rising 7th to 9th graders. Youth attended programming in a classroom at
+an area middle school and in a field-based setting on alternating days.
+Field-based settings included the local bay shoreline, a voyage on a
+marine education ship researching in the Bay, and field trips to sites
+in the community related to the program's focus. During the span of the
+program, youth had the opportunity to participate in both a water
+quality research study.
+
+\emph{Comunidad de Aprendizaje}: A STEM-focused program that aims to
+help youth improve basic skills in mathematics and develop an interest
+in STEM content and entrepreneurship. Primarily in the classroom
+setting. 33 students who are rising 5th to 8th graders. Morning sessions
+are characterized by direct instruction in mathematics for individual
+grade levels and mixed grade level afternoon enrichment sessions in
+either robotics or dance. The direct instruction component of the
+programs was organized around a theme of promoting entrepreneurship with
+the goal of helping participating youth better see the relevance of
+mathematics to future career goals and opportunities.
+
+\emph{Jefferson House}: A STEM-focused program that aims to support
+youth's development of basic math skills, the program was primarily
+focused on helping youth develop problem solving, self-improvement, and
+critical thinking skills. Located in a classroom. 11 youth who are
+rising 7th graders. The youth spent the morning in more
+academically-oriented sessions in a classroom setting focusing on basic
+skill development, while afternoon sessions involved STEM-oriented
+enrichment sessions involving media, art, and nutrition. Enrichment
+offerings varied by day, with math sessions occurring twice per week,
+alternating with academically oriented sessions in the am that were
+oriented at supporting skill development in English/language arts.
+
+\emph{Uptown Architecture}: An engineering-focused program that aims to
+support youth's participation in a process to design and build an
+outdoor learning space for use at the middle school where the program
+was housed. A key focus of the program was to provide youth with the
+opportunity to use design thinking as a problem-solving tool and have
+the experience of affecting their community positively through the
+design/build process. Located in a classroom, building shop, and various
+field locations. 18 youth who were rising 6th to 9th graders. Youth
+attended programming in a classroom at an area middle school and in a
+building shop located at a community-based organization on alternating
+days, while also taking field trips to locations associated with the
+program's overall theme.
+
+\emph{Building Mania}: An engineering-focused program that aims to
+provide youth with the opportunity to experiment with designing and
+using simple machines. A goal of the program is to have youth engage in
+the engineering design process by determining a need, brainstorming
+possible designs, selecting a design, planning and drawing out the
+design, creating and testing and revising it, and producing a final
+machine. Located in the classroom, design labs, and other local
+locations. 24 youth who are rising 6th to 9th graders. Youth attended
+programming in a classroom at an area middle school and a field-based
+setting on alternating days. Field-based settings included a design lab
+at a community-based organization and field trips to sites in the
+community related to the program's focus.
+
+\emph{Adventures in Mathematics}: A mathematics-focused program that
+aims to help youth to develop the basic math skills and prevent summer
+learning loss among participating youth through direct instruction and
+participation in math-related games. Located primarily in the classroom.
+20 youth who are rising 8th to 10th graders. Youth participated in
+direct instructions in mathematics and math-related games in small
+groups. Program content was aligned with the state's standards in
+mathematics. )
+
+\chapter{Your second appendix title}
+
+Here, the six models that can possibly be specified in LPA are described
+in terms of how the variables used to create the profiles are estimated.
+Note that \emph{p} represents different profiles and each
+parameterization is represented by a 4 x 4 covariance matrix and
+therefore would represent the parameterization for a four-profile
+solution. In all of the models, the means are estimated freely in the
+different profiles. Imagine that each row and column represents a
+different variable, i.e., the first row (and column) represents broad
+interest, the second enjoyment, the third self-efficacy, and the fourth
+another variable, i.e., future goals and plans. Models 1 and 3 meet the
+assumption of independence, that is, that, after accounting for their
+relations with the profile, the variables used to estimate the profiles
+are independent (Collins \& Lanza, 2010). They estimate variable
+variances but do not estimate covariances (i.e., as can be seen, the
+covariance matrices are ``diagonal,'' without any off-diagonal
+parameters that are estimated). These models are estimated by default in
+MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
+2017). Importantly, this does not mean the variables used to create the
+profile are assumed to be not related; as Collins and Lanza (2010)
+explain:
+
+\begin{quote}
+The local independence assumption refers only to conditioning on the
+latent variable. It does not imply that in a data set that is to be
+analyzed, the observed variables are independent. In fact, it is the
+relations among the observed variables that are explained by the latent
+classes. An observed data set is a mixture of all the latent classes.
+Independence is assumed to hold only within each latent class, which is
+why it is called ``local''.
+\end{quote}
+
+Despite the assumption of independence, as Collins and Lanza (2010),
+Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
+\& Magidson, 2002) note, it can be lifted to improve model fit, though
+these models without the assumption of independence may be better
+described as general or Gaussian mixture models (Fraley et al., 2017).
+
+\subsection{Varying means, equal variances, and covariances fixed to 0
+(model
+1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
+
+In this model, which corresponds to the mclust model wit the name
+``EEI'', the variances are estimated to be equal across profiles,
+indicated by the absence of a p subscript for any of the diagonal
+elements of the matrix. The covariances are constrained to be zero, as
+indicated by the 0's between every combination of the variables. Thus,
+this model is highly constrained but also parsimonious: the profiles are
+estimated in such a way that the variables' variances are identical for
+each of the profiles, and the relationships between the variables are
+not estimated. In this way, less degrees of freedom are taken used to
+explain the observations that make up the data. However, estimating more
+parameters--as in the other models--may better explain the data,
+justifying the addition in complexity that their addition involves (and
+their reduction in degrees of freedom).
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
+\]
+
+\subsection{Varying means, equal variances, and equal covariances (model
+2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
+
+This model corresponds to the mclust model ``EEE''. In this model, the
+variances are still constrained to be the same across the profiles,
+although now the covariances are estimated (but like the variances, are
+constrained to be the same across profiles). Thus, this model is the
+first to estimate the covariance (or correlations) of the variables used
+to create the profiles, thus adding more information that can be used to
+better understand the characteristics of the profiles (and, potentially,
+better explain the data).
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
+\]
+
+\subsection{Varying means, varying variances, and covariances fixed to 0
+(model
+3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
+
+This model corresponds to the mclust model ``VVI'' and allows for the
+variances to be freely estimated across profiles. The covariances are
+constrained to zero. Thus, it is more flexible (and less parsimonious)
+than model 1, but in terms of the covariances, is more constrained than
+model 2.
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\subsection{Varying means, varying variances, and equal covariances
+(model
+4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
+
+This model, which specifies for the variances to be freely estimated
+across the profiles and for the covariances to be estimated to be equal
+across profiles, extends model 3. Unfortunately, this model cannot be
+specified with mclust, though it can be with MPlus; this model
+\emph{can} be used with the functions to interface to MPlus described
+below.
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\subsection{Varying means, equal variances, and varying covariances
+(model
+5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
+
+This model specifies the variances to be equal across the profiles, but
+allows the covariances to be freely estimated across the profiles. Like
+model 4, this model cannot be specified with mclust, though it can be
+with MPlus. Again, this model \emph{can} be used with the functions to
+interface to MPlus described below.
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] \quad
+\]
+
+\subsection{Varying means, varying variances, and varying covariances
+(model
+6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
+
+This model corresponds to the mclust model ``VVV''. It allows the
+variances and the covariances to be freely estimated across profiles.
+Thus, it is the most complex model, with the potential to allow for
+understanding many aspects of the variables that are used to estimate
+the profiles and how they are related. However, it is less parsimonious
+than all of the other models, and the added parameters should be
+considered in light of how preferred this model is relative to those
+with more simple specifications.
+
+\[
+\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
+\]
+
+\chapter{Work with data by program}
+
+This table contains the proportion of the five aspects of work with data
+during by program, as well as the total number of signals associated
+with each program.
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-17}Proportion of instructional episodes for which each of the aspects of work with data was present}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+Aspect of Work With Data & Proportion & N\\
+\midrule
+Asking Questions & 0.389 & 92\\
+Making Observations & 0.258 & 61\\
+Generating Data & 0.453 & 107\\
+Data Modeling & 0.288 & 68\\
+Communicating Findings & 0.470 & 111\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:unnamed-chunk-17}Proportion of instructional episodes for which each of the aspects of work with data was present by program}
+\centering
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+Variable & Asking & Observing & Generating & Modeling & Communicating & Total Segments\\
+\midrule
+Island Explorers & 0.312 & 0.375 & 0.438 & 0.250 & 0.375 & 16\\
+The Ecosphere & 0.625 & 0.417 & 0.500 & 0.292 & 0.500 & 24\\
+Zoology Partners & 0.250 & 0.167 & 0.125 & 0.167 & 0.208 & 24\\
+Marine Investigators & 0.458 & 0.333 & 0.250 & 0.375 & 0.542 & 24\\
+Comunidad de Aprendizaje & 0.327 & 0.182 & 0.400 & 0.273 & 0.327 & 55\\
+Jefferson House & 0.167 & 0.083 & 0.542 & 0.458 & 0.750 & 24\\
+Uptown Architecture & 0.375 & 0.208 & 0.708 & 0.167 & 0.292 & 24\\
+Building Mania & 0.333 & 0.208 & 0.375 & 0.333 & 0.500 & 24\\
+Adventures in Mathematics & 0.583 & 0.292 & 0.542 & 0.458 & 0.750 & 24\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+
+\emph{Note}. The \emph{Comunidad de Aprendizaje} program had different
+sections in the morning and afternoon, which is why the number of
+instructional episodes is higher than in the other programs.
+
+\chapter{alternate model}
+
+This solution is characterized by:
+
+\begin{itemize}
+\tightlist
+\item
+  A \emph{full} profile, profile 7
+\item
+  A \emph{universally low} profile, profile 1
+\item
+  A \emph{competent but not engaged or challenged} profile, profile 2,
+  characterized by high competence and moderate (low) or low levels of
+  engagement and challenge
+\item
+  A \emph{moderately low} profile, profile 3, characterized by
+  moderately low levels of all of the variables
+\item
+  A \emph{challenged} profile, profile 4, characterized by high
+  challenge, moderate (high) levels of engagement, and moderate (low)
+  levels of competence
+\item
+  A \emph{highly challenged} profile, profile 5, characterized by
+  patterns similar to those of the challenged profile, but with higher
+  challenge and with low levels of both engagement and challenge
+\item
+  A \emph{challenged but not engaged or competent} profile, profile 6,
+  characterized by low levels of challenge, and high levels of
+  engagement and competence
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-2} \end{center}
+
+The number of observations associated with each of the profiles is not
+very balanced, with few (\emph{n} = 181) observations associated with
+the universally low profile and few (\emph{n} = 222) observations
+associated with the highly challenged profile. The number of
+observations associated with the other profiles ranged from 317 to 651.
+Distinct from other solutions, none of the other five profiles were
+found in the other model 1 solutions. Two pairs of the
+profiles--challenged and highly challenged and universally low and
+moderately low--exhibited similar patterns among the variables that were
+distinguished by different mean levels. Taken together, this solution
+raises questions about whether it may be too complex, possibly
+suggesting preference for model one five and six profile solutions.
+
+\end{appendices}
+
+\makebibliographypage
 
 Bergman, L. R., \& Magnusson, D. (1997). A person-oriented approach in
 research on developmental psychopathology. \emph{Development and
@@ -3309,370 +3666,6 @@ Yohalem, N., Wilson-Ahlstrom, A., \& Yu, D. (2005). \emph{Youth program
 quality assessment and improvement: Celebrating progress and surfacing
 challenges}. A meeting report.
 \url{http://forumfyi.org/content/youth-program-quality-}
-
-\begin{quote}
-\begin{lstlisting}
-\begin{appendices}
-
-\setlength{\parindent}{0in} \setlength{\leftskip}{0in}
-\setlength{\parskip}{8pt} \noindent
-
-\chapter{Appendix A: Program descriptions}
-
-\emph{Island Explorers}: A science-focused program that aims to help
-youth develop expertise on one species found in the local ecosystem by
-reading and writing about related content for up to an hour per day;
-undertaking data collection and analysis tasks to learn about the local
-ecosystem and how to communicate scientific data; developing vocabulary
-about the local ecosystem; using art to learn and communicate
-information; and publishing a book illustrating important elements of
-the species being studied. Located in both the classroom and local
-ecosystem. 27 students who are rising 6th graders. Youth spend the
-morning in more academically-oriented sessions in a classroom setting,
-while afternoon sessions involved STEM-oriented enrichment sessions
-taking place outside (the program was associated with Outward Bound)
-with an emphasis on exploration of the local ecosystem.
-
-\emph{The Ecosphere}: A science-focused program that aims to help youth
-to explore the marine life of Narragansett Bay. Efforts were undertaken
-to build youth content knowledge in the areas of ecosystem preservation,
-marine biology, and water quality, and related skills, such as
-questioning, showing initiative, data collection, measuring, maintaining
-an ecosystem, and analyzing water samples. Located in a classroom
-setting, shoreline, and science education center. 27 youth who are
-rising 6th to 9th graders. Youth attended programming in a classroom at
-an area middle school and in a field-based setting on alternating days.
-Field-based settings included a science education center at a
-community-based organization and field trips to sites in the community
-related to the program's focus.
-
-\emph{Zoology Partners}: A science-focused program that aims to support
-youth's development of content knowledge related to the issue of
-endangered species, including how species become endangered, processes
-for monitoring ecosystem viability and population levels, solutions to
-prevent species from becoming endangered, and approaches to reviving
-populations that are currently endangered. Located in the classroom as
-well as zoos, parks, and other natural areas. 25 youth who are rising
-6th to 9th graders. Youth attended programming in a classroom at an area
-middle school and in a field-based setting on alternating days.
-Field-based settings included a local zoo and field trips to sites in
-the community related to the program's focus.
-
-\emph{Marine Investigators}: A science-focused program that aims to
-provide youth with opportunities to learn about and experience
-Narragansett Bay; examine human impacts on the local ecosystem,
-including how the geography of the Bay helped influence human history
-and how the history of humans along the shoreline has impacted the Bay,
-and begin the process of cultivating a sense of stewardship among
-participating youth for caring for and protecting the Bay in the future.
-Located in the classroom, shoreline along the bay, ship on the bay, and
-various field locations associated with bay health. 19 youth who are
-rising 7th to 9th graders. Youth attended programming in a classroom at
-an area middle school and in a field-based setting on alternating days.
-Field-based settings included the local bay shoreline, a voyage on a
-marine education ship researching in the Bay, and field trips to sites
-in the community related to the program's focus. During the span of the
-program, youth had the opportunity to participate in both a water
-quality research study.
-
-\emph{Comunidad de Aprendizaje}: A STEM-focused program that aims to
-help youth improve basic skills in mathematics and develop an interest
-in STEM content and entrepreneurship. Primarily in the classroom
-setting. 33 students who are rising 5th to 8th graders. Morning sessions
-are characterized by direct instruction in mathematics for individual
-grade levels and mixed grade level afternoon enrichment sessions in
-either robotics or dance. The direct instruction component of the
-programs was organized around a theme of promoting entrepreneurship with
-the goal of helping participating youth better see the relevance of
-mathematics to future career goals and opportunities.
-
-\emph{Jefferson House}: A STEM-focused program that aims to support
-youth's development of basic math skills, the program was primarily
-focused on helping youth develop problem solving, self-improvement, and
-critical thinking skills. Located in a classroom. 11 youth who are
-rising 7th graders. The youth spent the morning in more
-academically-oriented sessions in a classroom setting focusing on basic
-skill development, while afternoon sessions involved STEM-oriented
-enrichment sessions involving media, art, and nutrition. Enrichment
-offerings varied by day, with math sessions occurring twice per week,
-alternating with academically oriented sessions in the am that were
-oriented at supporting skill development in English/language arts.
-
-\emph{Uptown Architecture}: An engineering-focused program that aims to
-support youth's participation in a process to design and build an
-outdoor learning space for use at the middle school where the program
-was housed. A key focus of the program was to provide youth with the
-opportunity to use design thinking as a problem-solving tool and have
-the experience of affecting their community positively through the
-design/build process. Located in a classroom, building shop, and various
-field locations. 18 youth who were rising 6th to 9th graders. Youth
-attended programming in a classroom at an area middle school and in a
-building shop located at a community-based organization on alternating
-days, while also taking field trips to locations associated with the
-program's overall theme.
-
-\emph{Building Mania}: An engineering-focused program that aims to
-provide youth with the opportunity to experiment with designing and
-using simple machines. A goal of the program is to have youth engage in
-the engineering design process by determining a need, brainstorming
-possible designs, selecting a design, planning and drawing out the
-design, creating and testing and revising it, and producing a final
-machine. Located in the classroom, design labs, and other local
-locations. 24 youth who are rising 6th to 9th graders. Youth attended
-programming in a classroom at an area middle school and a field-based
-setting on alternating days. Field-based settings included a design lab
-at a community-based organization and field trips to sites in the
-community related to the program's focus.
-
-\emph{Adventures in Mathematics}: A mathematics-focused program that
-aims to help youth to develop the basic math skills and prevent summer
-learning loss among participating youth through direct instruction and
-participation in math-related games. Located primarily in the classroom.
-20 youth who are rising 8th to 10th graders. Youth participated in
-direct instructions in mathematics and math-related games in small
-groups. Program content was aligned with the state's standards in
-mathematics. )
-
-\chapter{Appendix B: Model specifications
-details}
-
-Here, the six models that can possibly be specified in LPA are described
-in terms of how the variables used to create the profiles are estimated.
-Note that \emph{p} represents different profiles and each
-parameterization is represented by a 4 x 4 covariance matrix and
-therefore would represent the parameterization for a four-profile
-solution. In all of the models, the means are estimated freely in the
-different profiles. Imagine that each row and column represents a
-different variable, i.e., the first row (and column) represents broad
-interest, the second enjoyment, the third self-efficacy, and the fourth
-another variable, i.e., future goals and plans. Models 1 and 3 meet the
-assumption of independence, that is, that, after accounting for their
-relations with the profile, the variables used to estimate the profiles
-are independent (Collins \& Lanza, 2010). They estimate variable
-variances but do not estimate covariances (i.e., as can be seen, the
-covariance matrices are ``diagonal,'' without any off-diagonal
-parameters that are estimated). These models are estimated by default in
-MPlus, although these assumptions can be relaxed (Muthen \& Muthen,
-2017). Importantly, this does not mean the variables used to create the
-profile are assumed to be not related; as Collins and Lanza (2010)
-explain:
-
-\begin{quote}
-The local independence assumption refers only to conditioning on the
-latent variable. It does not imply that in a data set that is to be
-analyzed, the observed variables are independent. In fact, it is the
-relations among the observed variables that are explained by the latent
-classes. An observed data set is a mixture of all the latent classes.
-Independence is assumed to hold only within each latent class, which is
-why it is called ``local''.
-\end{quote}
-
-Despite the assumption of independence, as Collins and Lanza (2010),
-Muthen and Muthen (2017), and others (i.e., Pastor et al., 2007; Vermunt
-\& Magidson, 2002) note, it can be lifted to improve model fit, though
-these models without the assumption of independence may be better
-described as general or Gaussian mixture models (Fraley et al., 2017).
-
-\subsection{Varying means, equal variances, and covariances fixed to 0
-(model
-1)}\label{varying-means-equal-variances-and-covariances-fixed-to-0-model-1}
-
-In this model, which corresponds to the mclust model wit the name
-``EEI'', the variances are estimated to be equal across profiles,
-indicated by the absence of a p subscript for any of the diagonal
-elements of the matrix. The covariances are constrained to be zero, as
-indicated by the 0's between every combination of the variables. Thus,
-this model is highly constrained but also parsimonious: the profiles are
-estimated in such a way that the variables' variances are identical for
-each of the profiles, and the relationships between the variables are
-not estimated. In this way, less degrees of freedom are taken used to
-explain the observations that make up the data. However, estimating more
-parameters--as in the other models--may better explain the data,
-justifying the addition in complexity that their addition involves (and
-their reduction in degrees of freedom).
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2 }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3 }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
-\]
-
-\subsection{Varying means, equal variances, and equal covariances (model
-2)}\label{varying-means-equal-variances-and-equal-covariances-model-2}
-
-This model corresponds to the mclust model ``EEE''. In this model, the
-variances are still constrained to be the same across the profiles,
-although now the covariances are estimated (but like the variances, are
-constrained to be the same across profiles). Thus, this model is the
-first to estimate the covariance (or correlations) of the variables used
-to create the profiles, thus adding more information that can be used to
-better understand the characteristics of the profiles (and, potentially,
-better explain the data).
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right]
-\]
-
-\subsection{Varying means, varying variances, and covariances fixed to 0
-(model
-3)}\label{varying-means-varying-variances-and-covariances-fixed-to-0-model-3}
-
-This model corresponds to the mclust model ``VVI'' and allows for the
-variances to be freely estimated across profiles. The covariances are
-constrained to zero. Thus, it is more flexible (and less parsimonious)
-than model 1, but in terms of the covariances, is more constrained than
-model 2.
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & 0 & 0 & 0 \\ 0 & { \sigma }_{ 2p }^{ 2 } & 0 & 0 \\ 0 & 0 & { \sigma }_{ 3p }^{ 2 } & 0 \\ 0 & 0 & 0 & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
-\]
-
-\subsection{Varying means, varying variances, and equal covariances
-(model
-4)}\label{varying-means-varying-variances-and-equal-covariances-model-4}
-
-This model, which specifies for the variances to be freely estimated
-across the profiles and for the covariances to be estimated to be equal
-across profiles, extends model 3. Unfortunately, this model cannot be
-specified with mclust, though it can be with MPlus; this model
-\emph{can} be used with the functions to interface to MPlus described
-below.
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21 } & { \sigma }_{ 31 } & { \sigma }_{ 41 } \\ { \sigma }_{ 12 } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23 } & { \sigma }_{ 24 } \\ { \sigma }_{ 13 } & { \sigma }_{ 12 } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33 } \\ { \sigma }_{ 14 } & { \sigma }_{ 12 } & { \sigma }_{ 12 } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
-\]
-
-\subsection{Varying means, equal variances, and varying covariances
-(model
-5)}\label{varying-means-equal-variances-and-varying-covariances-model-5}
-
-This model specifies the variances to be equal across the profiles, but
-allows the covariances to be freely estimated across the profiles. Like
-model 4, this model cannot be specified with mclust, though it can be
-with MPlus. Again, this model \emph{can} be used with the functions to
-interface to MPlus described below.
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1 }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2 }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3 }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4 }^{ 2 } \end{matrix} \right] \quad
-\]
-
-\subsection{Varying means, varying variances, and varying covariances
-(model
-6)}\label{varying-means-varying-variances-and-varying-covariances-model-6}
-
-This model corresponds to the mclust model ``VVV''. It allows the
-variances and the covariances to be freely estimated across profiles.
-Thus, it is the most complex model, with the potential to allow for
-understanding many aspects of the variables that are used to estimate
-the profiles and how they are related. However, it is less parsimonious
-than all of the other models, and the added parameters should be
-considered in light of how preferred this model is relative to those
-with more simple specifications.
-
-\[
-\left[ \begin{matrix} { \sigma }_{ 1p }^{ 2 } & { \sigma }_{ 21p } & { \sigma }_{ 31p } & { \sigma }_{ 41p } \\ { \sigma }_{ 12p } & { \sigma }_{ 2p }^{ 2 } & { \sigma }_{ 23p } & { \sigma }_{ 24p } \\ { \sigma }_{ 13p } & { \sigma }_{ 12p } & { \sigma }_{ 3p }^{ 2 } & { \sigma }_{ 33p } \\ { \sigma }_{ 14p } & { \sigma }_{ 12p } & { \sigma }_{ 12p } & { \sigma }_{ 4p }^{ 2 } \end{matrix} \right]
-\]
-
-\chapter{Your second appendix title}
-
-This table contains the proportion of the five aspects of work with data
-during by program, as well as the total number of signals associated
-with each program.
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-17}Proportion of instructional episodes for which each of the aspects of work with data was present}
-\centering
-\begin{tabular}[t]{lrr}
-\toprule
-Aspect of Work With Data & Proportion & N\\
-\midrule
-Asking Questions & 0.389 & 92\\
-Making Observations & 0.258 & 61\\
-Generating Data & 0.453 & 107\\
-Data Modeling & 0.288 & 68\\
-Communicating Findings & 0.470 & 111\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{landscape}\begin{table}
-
-\caption{\label{tab:unnamed-chunk-17}Proportion of instructional episodes for which each of the aspects of work with data was present by program}
-\centering
-\begin{tabular}[t]{lrrrrrr}
-\toprule
-Variable & Asking & Observing & Generating & Modeling & Communicating & Total Segments\\
-\midrule
-Island Explorers & 0.312 & 0.375 & 0.438 & 0.250 & 0.375 & 16\\
-The Ecosphere & 0.625 & 0.417 & 0.500 & 0.292 & 0.500 & 24\\
-Zoology Partners & 0.250 & 0.167 & 0.125 & 0.167 & 0.208 & 24\\
-Marine Investigators & 0.458 & 0.333 & 0.250 & 0.375 & 0.542 & 24\\
-Comunidad de Aprendizaje & 0.327 & 0.182 & 0.400 & 0.273 & 0.327 & 55\\
-Jefferson House & 0.167 & 0.083 & 0.542 & 0.458 & 0.750 & 24\\
-Uptown Architecture & 0.375 & 0.208 & 0.708 & 0.167 & 0.292 & 24\\
-Building Mania & 0.333 & 0.208 & 0.375 & 0.333 & 0.500 & 24\\
-Adventures in Mathematics & 0.583 & 0.292 & 0.542 & 0.458 & 0.750 & 24\\
-\bottomrule
-\end{tabular}
-\end{table}
-\end{landscape}
-
-\emph{Note}. The \emph{Comunidad de Aprendizaje} program had different
-sections in the morning and afternoon, which is why the number of
-instructional episodes is higher than in the other programs.
-
-\chapter{Appendix D: Alternate model selected (model type 1, seven
-profile
-solution)}
-
-This solution is characterized by:
-
-\begin{itemize}
-\tightlist
-\item
-  A \emph{full} profile, profile 7
-\item
-  A \emph{universally low} profile, profile 1
-\item
-  A \emph{competent but not engaged or challenged} profile, profile 2,
-  characterized by high competence and moderate (low) or low levels of
-  engagement and challenge
-\item
-  A \emph{moderately low} profile, profile 3, characterized by
-  moderately low levels of all of the variables
-\item
-  A \emph{challenged} profile, profile 4, characterized by high
-  challenge, moderate (high) levels of engagement, and moderate (low)
-  levels of competence
-\item
-  A \emph{highly challenged} profile, profile 5, characterized by
-  patterns similar to those of the challenged profile, but with higher
-  challenge and with low levels of both engagement and challenge
-\item
-  A \emph{challenged but not engaged or competent} profile, profile 6,
-  characterized by low levels of challenge, and high levels of
-  engagement and competence
-\end{itemize}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-1} \end{center}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{rosenberg-dissertation_files/figure-latex/m1_7p-2} \end{center}
-
-The number of observations associated with each of the profiles is not
-very balanced, with few (\emph{n} = 181) observations associated with
-the universally low profile and few (\emph{n} = 222) observations
-associated with the highly challenged profile. The number of
-observations associated with the other profiles ranged from 317 to 651.
-Distinct from other solutions, none of the other five profiles were
-found in the other model 1 solutions. Two pairs of the
-profiles--challenged and highly challenged and universally low and
-moderately low--exhibited similar patterns among the variables that were
-distinguished by different mean levels. Taken together, this solution
-raises questions about whether it may be too complex, possibly
-suggesting preference for model one five and six profile solutions.
-
-\end{appendices}
-\end{lstlisting}
-\end{quote}
 
 \bibliography{book.bib,packages.bib}
 
