@@ -1,7 +1,7 @@
 # References
+
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
-\setlength{\parskip}{8pt}
 \noindent
 
 Bergman, L. R., & Magnusson, D. (1997). A person-oriented approach in research on developmental psychopathology. *Development and psychopathology, 9*(2), 291-319. 
