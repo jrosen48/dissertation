@@ -52,7 +52,7 @@
 \cftinsert {APP}
 \changetocdepth {0}
 \contentsline {appendix}{\chapternumberline {A}Program descriptions}{82}{chapter.A}
-\contentsline {appendix}{\chapternumberline {B}Your second appendix title}{86}{chapter.B}
+\contentsline {appendix}{\chapternumberline {B}Model specification details}{86}{chapter.B}
 \contentsline {subsection}{\numberline {B.0.1}Varying means, equal variances, and covariances fixed to 0 (model 1)}{87}{subsection.B.0.1}
 \contentsline {subsection}{\numberline {B.0.2}Varying means, equal variances, and equal covariances (model 2)}{87}{subsection.B.0.2}
 \contentsline {subsection}{\numberline {B.0.3}Varying means, varying variances, and covariances fixed to 0 (model 3)}{88}{subsection.B.0.3}
@@ -60,7 +60,7 @@
 \contentsline {subsection}{\numberline {B.0.5}Varying means, equal variances, and varying covariances (model 5)}{89}{subsection.B.0.5}
 \contentsline {subsection}{\numberline {B.0.6}Varying means, varying variances, and varying covariances (model 6)}{89}{subsection.B.0.6}
 \contentsline {appendix}{\chapternumberline {C}Work with data by program}{90}{chapter.C}
-\contentsline {appendix}{\chapternumberline {D}alternate model}{93}{chapter.D}
+\contentsline {appendix}{\chapternumberline {D}Alternate profile solution}{93}{chapter.D}
 \cftinsert {BIB}
 \changetocdepth {3}
-\contentsline {chapter}{Bibliography}{96}{section*.6}
+\contentsline {chapter}{Bibliography}{95}{section*.6}

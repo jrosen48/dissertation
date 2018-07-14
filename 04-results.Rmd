@@ -399,6 +399,7 @@ oo %>%
   kableExtra::landscape() %>% 
   group_rows("Youth characteristics", 2, 4) %>% 
   group_rows("Aspects of Work With Data", 5, 9) %>% 
+  kableExtra::column_spec(1, width = "5em") %>%
   kableExtra::column_spec(2, width = "7em") %>%
   kableExtra::column_spec(3, width = "7em") %>%
   kableExtra::column_spec(4, width = "7em") %>%

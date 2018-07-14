@@ -79,14 +79,9 @@ $$
 
 ## Work with data by program
 
-This table contains the proportion of the five aspects of work with data during by program, as well as the total number of signals associated with each program. 
+This table contains the proportion of the five aspects of work with data during by program.
 
 ```{r}
-data_frame(`Aspect of Work With Data` = c("Asking Questions", "Making Observations", "Generating Data", "Data Modeling", "Communicating Findings"),
-      Proportion = c(.389, .258, .453, .288, .470),
-      N = c(92, 61, 107, 68, 111)) %>%
- knitr::kable(booktabs = TRUE, linesep = "", caption = "Proportion of instructional episodes for which each of the aspects of work with data was present")
-
 pn <- data_frame(program_name = c("Island Explorers", "The Ecosphere", "Zoology Partners", "Marine Investigators", "Comunidad de Aprendizaje", "Jefferson House", "Uptown Architecture", "Building Mania", "Adventures in Mathematics"),
          asking = c(5, 15, 6, 11, 18, 4, 9, 8, 14),
          observing = c(6, 10, 4, 8, 10, 2, 5, 5, 7),
@@ -126,7 +121,7 @@ This solution is characterized by:
 - A *highly challenged* profile, profile 5, characterized by patterns similar to those of the challenged profile, but with higher challenge and with low levels of both engagement and challenge
 - A *challenged but not engaged or competent* profile, profile 6, characterized by low levels of challenge, and high levels of engagement and competence
 
-```{r, m1_7p, fig.width = 7, fig.asp = .618, out.width = "90%", fig.align = "center", fig.caption = "Alternate solution for model 1 type, seven profile specification"}
+```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The seven profiles of engagement (with variable values standardized)"}
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 
 m1_7 %>%
@@ -144,6 +139,9 @@ m1_7 %>%
                limits = c("DM_AFF_E", "DM_BEH_E", "DM_COG_E", "DM_CHALL", "DM_COMPE"),
                labels = c("Affective", "Behavioral", "Cognitive", "Challenge", "Competence"), discrete = TRUE) +
  theme(plot.margin = margin(1, 0, 0, 1, "cm"))
+```
+
+```{r, fig.width = 6.5, fig.asp = .618, out.width = "100%", fig.cap = "The seven profiles of engagement (with variable values standardized)"}
 
 m1_7 <- readr::read_rds("data/models/m1_7.rds")
 

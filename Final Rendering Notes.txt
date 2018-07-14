@@ -1,0 +1,162 @@
+
+# 1. make two figures for profiles be in the same figure tag
+# 2. add this below table 4.7, before table tags: \begin{flushleft}\emph{Note}. *: \emph{p} \textless{}.05; +: p \textless{} .10\end{flushleft}
+# 3. replace (B (SE)) with the proper LaTeX: $\beta(\textit SE)$
+# 4. add subscripts and note:
+# \begin{flushleft}\emph{Note}. The subscripts indicate the mean values subscripts
+# indicating values that were not statistically significantly different on
+# the basis of the ANOVA analyses.\end{flushleft}
+# Universally low & 1.550 & 1.766 & 1.538 & 1.775 & 2.327\\
+# Only behavioral & 3.292 & 2.484$_2$ & 1.641 & 2.132$_4$ & 2.778$_5$\\
+# Only affective & 1.670 & 2.516$_2$ & 3.330 & 2.191$_4$ & 2.954$_5$\\
+# All moderate & 3.060 & 2.826 & 3.110 & 2.489 & 2.953$_5$\\
+# Eng. and comp. but not chall. & 3.909$_1$ & 3.487 & 3.822$_3$ & 1.276 & 3.604$_6$\\
+# Full & 3.959$_1$ & 3.801 & 3.881$_3$ & 3.742 & 3.631$_6$\\
+# for bib:
+\makebibliographypage
+\SingleSpace
+\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
+\setlength{\parskip}{12pt}
+\chapter*{Bibliography}\label{bibliography}
+
+On Thu, Jul 12, 2018 at 4:47 PM ETD Administrator <etdadministrator@proquest.com> wrote:
+
+    Dear Joshua Rosenberg,
+
+    We will need the following changes to be made in order to accept your submission:
+
+    • NAME COMPARISON: YOUR NAME MUST MATCH IN ALL ASPECTS OF YOUR SUBMISSION. HERE IN YOUR DOCUMENT YOU INCLUDE YOUR MIDDLE INITIAL WITH YOUR NAME BUT IN YOUR PROQUEST ACCOUNT YOU DO NOT INCLUDE THIS. ALSO, YOUR NAME MUST MATCH EXACTLY ON YOUR APPROVAL FORM. YOU WERE EMAILED ABOUT AN ISSUE WITH YOUR APPROVAL FORM ON 7/12/18. 
+
+
+​I changed my Proquest account (by adding my middle initial). I also sent a revised approval form with my middle initial.
+​
+
+    • Abstract Page 1: There should be 1 double-space between the heading ABSTRACT and the title. The space here is a bit too large. It should be the same size as the space between your name and the first line of text. 
+
+
+By hand.
+
+    • Page viii: Table of Contents: Your APPENDIX section should read APPENDICIES with each individual appendix section listed below it as subheadings. These individual appendix listings should read “APPENDIX A: with title”, “APPENDIX B: with title”, etc. 
+
+\begin{appendices}
+
+\chapter{Work with data by program}
+\chapter{Alternate profile solution}
+\end{appendices}
+
+
+
+​I've made this change.
+​
+
+    • Page viii: Table of Contents: Headings located within your APPENDICIES section do not need to be listed in your Table of Contents. Please remove the 7.2.1-7.2.6 listings. 
+
+ 
+    • Page viii: Table of Contents: Your APPENDICIES should come BEFORE your REFERENCES in your document and should be listed that way in your Table of Contents.
+
+ 
+changed
+
+• Page viii: Table of Contents: Your individual appendix sections should not be numbered like the rest of the headings in your document. They should just read “APPENDIX A: with title”, “APPENDIX B: with title”, etc
+ 
+​I've made this change.​
+
+    • Page viii: Table of Contents: Your REFERENCES and APPENDICIES sections should not be listed chapters. They should just read APPENDICIES and REFERENCES. 
+
+ 
+I've made this change. 
+
+    • Page 25: Table 3.3: This page needs to be landscape oriented. Also, make sure that the table does not interfere with the margins on the page when you rotate it. ALL margins should be at least 1 inch. 
+
+
+​By hand.
+
+    • Page 30: Table 3.5: This page needs to be landscape oriented. Also, make sure that the table does not interfere with the margins on the page when you rotate it. ALL margins should be at least 1 inch. 
+
+
+​By hand.
+ 
+
+    • Page 40: Table 4.2: This page needs to be landscape oriented. Also, make sure that the table does not interfere with the margins on the page when you rotate it. ALL margins should be at least 1 inch. ****PLEASE MAKE THIS CORRECTION AS NEEDED THROUGHOUT THE REMAINDER OF YOUR DOCUMENT. 
+
+ 
+​By hand.
+
+    • REFERENCES: REMINDER: YOUR APPENDICIES SHOULD COME BEFORE YOUR REFERENCES SECTION. 
+
+ 
+​I've made this change.​
+
+
+    • Page 81: REFERENCES: There needs to be a cover page here separating the preceding text from the REFERENCES section. On this cover page please type “REFERENCES” centered top to bottom on the page. 
+
+
+​I've made this change.​
+ 
+
+    • Page 81: REFERENCES: Please remove the “CHAPTER 6” from the top of this page. 
+
+ 
+​I've made this change.​
+
+
+    • Page 81: REFERENCES: There should be 2 double-space between the heading REFERENCES and the first entry. The space here is currently too large. 
+
+ 
+​I've made this change.​
+ 
+ 
+    • REFERENCES: Your entries are incorrectly spaced. Your entries must be single-spaced within entries and double-spaced between entries. Your entries are currently entirely double-spaced. 
+
+
+I've made this change.
+​
+
+    • Page 90: APPENDIX: Pleas remove “CHAPTER 7” from the top of this page. 
+
+ 
+I've made this change. 
+ 
+
+    • Page 90: Appendix: There needs to be a cover page here separating the preceding text from the text of the appendix. On this cover page please type “APPENDICIES” centered top to bottom on the page. 
+
+
+​I've made this change.​
+ 
+
+    • Page 90: The heading at the top of this page should read “APPENDICIES”, not APPENDIX. 
+
+ 
+​I've made this change.​
+ 
+
+    • Page 90: There should be 2 double-space between the heading APPENDICIES and the first line of text. The space here is currently too large.
+
+
+​I've made this change.​
+ 
+
+    • TABLES AND FIGURES IN APPENDICIES: The tables and figures in your Appendices should be numbered according to the section that they are located in. For example, Table 7.1 is located in Appendix C so it should be labeled “C.1: Proportion…”. 
+
+
+​I've made this change.​
+ 
+​ ​
+
+    To submit your changes, please go to the following page:
+
+    View ETD ( https://secure.etdadmin.com/cgi-bin/student/revetd?revId=561682;siteId=295 )
+
+    If you have any questions, please contact me.
+
+    Regards,
+    Michigan State University Administrator
+
+
+
+-- 
+Joshua Rosenberg, Ph.D. Candidate
+Educational Psychology ​&​
+ Educational Technology
+Michigan State University
+http://jmichaelrosenberg.com

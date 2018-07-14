@@ -114,8 +114,8 @@ d %>%
  kableExtra::landscape() %>% 
  kableExtra::column_spec(1, width = "7.5em") %>% 
  kableExtra::column_spec(2, width = "7.5em") %>% 
- kableExtra::column_spec(3, width = "20em") %>% 
- kableExtra::column_spec(4, width = "20em")
+ kableExtra::column_spec(3, width = "17.5em") %>% 
+ kableExtra::column_spec(4, width = "17.5em")
 ```
 
 Raters contracted by American Institute of Research (AIR) were trained in the use of the Program Quality Assessment tool (PQA), the broader assessment tool for which the STEM-PQA is a supplement. Raters completed a four-hour online training module on the overall PQA tool and then attended an in-person two-day training led by a trainer from the David P. Weikart Center for Youth Program Quality, the tool’s publisher, where they learned about the instrument, trained on its use, and then established inter-rater reliability with a master coder. For the STEM-PQA, three of the same raters contracted by AIR to code the (overall) PQA measure used the STEM-PQA supplement to score one video segment, for which there were no disagreements on scoring for any of the items. The programs were divided up among all of the raters, so raters coded some of the videos for all of the programs. When the raters encountered a situation that was difficult to score, they would discuss the issue by telephone or more often by email after viewing the video in question and reach a consensus on how to score the specific item. Note that these codes were unique to each signal to which youth responded (but were not unique to each youth, as the youth in the same program were signaled at the same time).
@@ -177,9 +177,8 @@ d %>%
  knitr::kable(booktabs = TRUE, caption = "Coding frame for the open-ended, qualitative coding of instructional episodes") %>% 
  #kableExtra::kable_styling(latex_options = "scale_down") %>% 
  kableExtra::landscape() %>% 
- kableExtra::column_spec(2, width = "20em") %>%
- kableExtra::column_spec(3, width = "20em") %>% 
- kableExtra::column_spec(3, width = "20em")
+ kableExtra::column_spec(2, width = "15em") %>%
+ kableExtra::column_spec(3, width = "22.5em")
 ```
 
 After coding all of the segments for each program, the coders and I met to discuss potential issues that emerged throughout the coding. The goal of the meetings was to address any problems encountered when using the guiding questions and to clarify how they applied the coding frame. After the coding was complete, I then read through all of the codes for all of the segments then made notes associated with each of the five aspects of work with data. I used these notes to write descriptions of the nature of work with data for each of the five aspects. After reading through the qualitative codes and my descriptions of the nature of work with data during each segment, I grouped the descriptions into themes, which I present in the results for this research question. I also used these themes to calculate proportions, which are also presented in the findings for this section. In summary, an open-ended, qualitative coding approach was used to create descriptions of the ways in which each of the aspects of work with data was enacted. This analysis is used to provide insights into the nature of work with data in summer STEM programs.
