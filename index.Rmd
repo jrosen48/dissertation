@@ -1,5 +1,5 @@
 --- 
-title: "Examining youth engagement during learning activities that involve work with data: An Experience Sampling approach"
+title: "Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach"
 author: "Joshua M. Rosenberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -11,12 +11,3 @@ link-citations: yes
 github-repo: jrosen48/dissertation
 description: "This is Joshua Rosenberg's dissertation"
 ---
-
-```{r, setup-init, include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-
-# knitr::opts_chunk$set(fig.width = 6, fig.asp = .618, out.width="70%", fig.align = "center") 
-```
