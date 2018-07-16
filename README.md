@@ -1,4 +1,6 @@
-These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48/dissertation) dissertation completed as part of the [Educational Psychology and Educational Technology (EPET)](http://edutech.educ.msu.edu/programs/doctoral/) degree program at [Michigan State University (MSU)](https://msu.edu/). Right now, everything except for the data is included here. 
+**Understanding Work With Data in Summer STEM Programs Through An Experience Sampling Method Approach**
+
+These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48/dissertation) dissertation, completed as part of the [Educational Psychology and Educational Technology (EPET)](http://edutech.educ.msu.edu/programs/doctoral/) degree program at [Michigan State University (MSU)](https://msu.edu/). Right now, everything except for the data is included here. 
 
 ## Output
 
@@ -7,7 +9,7 @@ These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48
 * An online book (Gitbook; with links to PDF and EPUB) [here](https://bookdown.org/jmichaelrosenberg/docs2)
 * An EPUB book [here](https://github.com/jrosen48/dissertation/blob/master/docs/rosenberg-dissertation.epub)
 
-**Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach**
+## Abstract 
 
 Data-rich activities provide an opportunity to develop core competencies in both science and mathematics identified in curricular standards. Research on work with data has focused on cognitive outcomes and the development of specific practices at the student and classroom levels, and yet, little research has considered learners’ engagement and the conditions that facilitate it. The present study explores learners engagement in work with data in the context of summer STEM programs. The aspects of work with data that are the focus of this study are: asking questions, observing phenomena, constructing measures and generating data, data modeling, and interpreting findings. Data from measures of learners' engagement is collected through the Experience Sampling Method (ESM) that involves asking learners at random intervals to answer short questions about their engagement to discover profiles of learners' engagement.
 
