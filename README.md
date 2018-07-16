@@ -4,9 +4,8 @@ These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48
 
 * A link to the PDF [here](https://github.com/jrosen48/dissertation/blob/master/docs/rosenberg-dissertation.pdf)
 * A link to the (PPT) presentation [here](https://github.com/jrosen48/dissertation/blob/master/2018-06-22-Rosenberg-Dissertation-Defense-final.pptx)
-* An online book (Gitbook) [here](https://bookdown.org/jmichaelrosenberg/docs/intro-placemarker.html)
-* An eP
-## Title and Abstract
+* An online book (Gitbook; with links to PDF and EPUB) [here](https://bookdown.org/jmichaelrosenberg/docs)
+* An EPUB book [here](https://github.com/jrosen48/dissertation/blob/master/docs/rosenberg-dissertation.epub)
 
 **Engaging in Data Practices in Summer STEM Programs: A Person-in-Context Approach**
 
