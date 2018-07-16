@@ -1,9 +1,10 @@
 These are files associated with [Joshua Rosenberg's](https://github.com/jrosen48/dissertation) dissertation completed as part of the [Educational Psychology and Educational Technology (EPET)](http://edutech.educ.msu.edu/programs/doctoral/) degree program at [Michigan State University (MSU)](https://msu.edu/). Right now, everything except for the data is included here. 
 
-## Links
+## Output
 
-* A link to the PDF is available [here](https://github.com/jrosen48/dissertation/blob/master/2018-07-13-Rosenberg-Dissertation-Accepted.pdf).
+* A link to the PDF is available [here](https://github.com/jrosen48/dissertation/blob/master/2018-07-13-Rosenberg-Dissertation-Accepted.pdf)
 * A link to the (PPT) presentation is available [here](https://github.com/jrosen48/dissertation/blob/master/2018-06-22-Rosenberg-Dissertation-Defense-final.pptx)
+*
 
 ## Title and Abstract
 
