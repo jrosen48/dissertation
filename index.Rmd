@@ -12,3 +12,5 @@ link-citations: yes
 github-repo: jrosen48/dissertation
 description: "This is Joshua Rosenberg's dissertation"
 ---
+
+# Index
