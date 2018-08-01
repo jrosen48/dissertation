@@ -26,10 +26,13 @@ tidy_model <- function(model) {
                    "gender_female:dm_obs", "urm:dm_obs",
                    "gender_female:dm_gen", "urm:dm_gen",
                    "gender_female:dm_mod", "urm:dm_mod",
-                   "gender_female:dm_com", "urm:dm_com"
+                   "gender_female:dm_com", "urm:dm_com",
+                   "ssb_predict", "ssb_model", "ssb_analyze",
+                   "ssb_measure", "ssb_tools", "ssb_precision",
+                    "ssb_vocabulary", "ssb_classification", "ssb_symbols"
                    )
 
-  d <- as.data.frame(matrix(rep(NA, 25), ncol = 25))
+  d <- as.data.frame(matrix(rep(NA, 34), ncol = 34))
   names(d) <- fixef_names
 
   kr_df <- get_kr_df(model)
@@ -37,7 +40,7 @@ tidy_model <- function(model) {
   names(kr_df) <- c("term", "df")
 
   # fixefs
-  fixef_vals <- tidy(model) %>%
+  fixef_vals <- broom::tidy(model) %>%
     filter(effect == "fixed") %>%
     mutate(est = round(estimate, 3),
            se = round(std.error, 3)) %>%

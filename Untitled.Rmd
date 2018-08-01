@@ -1,0 +1,38 @@
+---
+title: "Untitled"
+author: "Joshua Rosenberg"
+date: "7/31/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\begin{landscape}\begin{table}
+
+\caption{\label{tab:}Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{5em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{7em}}
+\toprule
+Profile & Universally low B (SE) & Only behavioral B (SE) & Only affective B (SE) & Eng. and comp., not chall. B (SE) & All moderate B (SE) & Full B (SE)\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Youth characteristics}}\\
+\hspace{1em}Pre-interest & -0.046 (0.022) & -0.013 (0.012) & -0.014 (0.019) & 0.038 (0.016)* & 0.007 (0.01) & 0.017 (0.021)\\
+\hspace{1em}Gender-Female & 0.059 (0.037)+ & 0.019 (0.019) & -0.037 (0.033) & 0.027 (0.028) & -0.021 (0.018) & -0.035 (0.037)\\
+\hspace{1em}URM status & -0.01 (0.052) & 0.031 (0.027) & -0.076 (0.046) & -0.014 (0.04) & 0.019 (0.025) & 0.044 (0.053)\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Aspects of Work With Data}}\\
+\hspace{1em}ssb\_predict & -0.016 (0.018) & 0.017 (0.015) & 0.024 (0.018)+ & -0.013 (0.015) & 0.007 (0.014) & -0.02 (0.016)\\
+\hspace{1em}ssb\_model & 0.006 (0.019) & -0.018 (0.016) & -0.007 (0.019) & -0.001 (0.016) & -0.013 (0.015) & 0.032 (0.017)*\\
+\hspace{1em}ssb\_analyze & 0.008 (0.024) & 0.001 (0.02) & -0.001 (0.022) & 0.019 (0.019) & -0.006 (0.018) & -0.025 (0.02)\\
+\hspace{1em}ssb\_measure & 0.005 (0.022) & -0.021 (0.018) & 0.009 (0.021) & -0.008 (0.018) & -0.002 (0.017) & 0.02 (0.019)\\
+\hspace{1em}ssb\_tools & -0.048 (0.019) & -0.006 (0.016) & 0.023 (0.018) & 0 (0.016) & 0.012 (0.015) & 0.024 (0.017)+\\
+\hspace{1em}ssb\_precision & 0.012 (0.018) & 0.022 (0.015)+ & -0.002 (0.018) & -0.021 (0.015) & -0.024 (0.014) & 0.016 (0.016)\\
+\hspace{1em}ssb\_vocabulary & -0.005 (0.02) & -0.009 (0.017) & -0.001 (0.019) & 0.027 (0.016)* & -0.011 (0.015) & 0.002 (0.017)\\
+\hspace{1em}ssb\_classification & 0.003 (0.019) & 0.02 (0.016) & 0.005 (0.018) & 0.005 (0.015) & -0.016 (0.014) & -0.025 (0.016)\\
+\hspace{1em}ssb\_symbols & -0.004 (0.019) & 0.017 (0.016) & -0.009 (0.018) & -0.008 (0.015) & 0.023 (0.014)+ & -0.019 (0.016)\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}

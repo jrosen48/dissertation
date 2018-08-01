@@ -353,7 +353,7 @@ Youth were also more likely to be in the Full engagement profile when program ac
 Sensitivity analysis was carried out for the statistically significant two effects was carried out to determine just how robust they were. This follow-up analysis revealed that the effect of modeling data on *Full* engagement much more robust than that for generating data: 9.835% of this effect (of data modeling) would have to be due to bias to invalidate the inference about its effect. For generating data, only 1.884% of the effect of generating data would need to be due to bias to invalidate the inference about its effect. These values were not minuscule but were also not very large (Frank, 2003). So, while statistically significant, the effect of data modeling seems to be a more robust effect than the effect of generating data, which does not seem to be a very robust (and should, therefore, be interpreted with some caution).
 
 ```{r, eval = T}
-o <- read_rds("data/m1d-6d.rds")
+o <- read_rds("data/m1d-6d-alt.rds")
 o <- mutate(o, model = c(
   str_c("profile_", 1:6)))
 
@@ -363,7 +363,9 @@ oo <- o %>%
          overall_pre_interest,
          gender_female,
          urm,
-         dm_ask, dm_obs, dm_gen, dm_mod, dm_com
+         ssb_predict, ssb_model , ssb_analyze ,
+         ssb_measure , ssb_tools , ssb_precision ,
+         ssb_vocabulary , ssb_classification , ssb_symbols
   ) %>% 
   mutate(the_order = c(2, 1, 4, 5, 3, 6)) %>% 
   arrange(the_order) %>%
@@ -375,7 +377,9 @@ oo <- o %>%
                    "All moderate B (SE)",
                    "Full B (SE)"))
 
-names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status", "Asking", "Observing", "Generating", "Modeling", "Communicating")
+names(oo) <- c("Profile", "Intercept", "Pre-interest", "Gender-Female", "URM status",                    "ssb_predict", "ssb_model", "ssb_analyze",
+               "ssb_measure", "ssb_tools", "ssb_precision",
+               "ssb_vocabulary", "ssb_classification", "ssb_symbols")
 
 re_p <- function(x) {
   o <- str_sub(x, start = -6, end = -2)
@@ -389,16 +393,16 @@ re_p <- function(x) {
                                          ifelse(p_vals > .05 & p_vals < .10, "+", "")))
 }
 
-oo <- mutate_at(oo, vars(Intercept:Communicating), re_p)
+oo <- mutate_at(oo, vars(Intercept:ssb_symbols), re_p)
 
 oo %>% 
   select(-Intercept) %>% 
-  t() %>% 
+  t()
   knitr::kable(format = "latex", booktabs = TRUE, caption = "Results of mixed effects models with the interactions between interest and other characactistics and the composite for work with data", linesep = "") %>%
   #kableExtra::kable_styling(latex_options = "scale_down") %>%
   kableExtra::landscape() %>% 
   group_rows("Youth characteristics", 2, 4) %>% 
-  group_rows("Aspects of Work With Data", 5, 9) %>% 
+  group_rows("Aspects of Work With Data", 5, 13) %>% 
   kableExtra::column_spec(1, width = "5em") %>%
   kableExtra::column_spec(2, width = "7em") %>%
   kableExtra::column_spec(3, width = "7em") %>%
